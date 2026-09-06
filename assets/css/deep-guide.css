@@ -1,0 +1,182 @@
+/* =========================================================
+   DEEP GUIDE & TOPIC GUIDE STYLES
+   Veterinary Pathology Studio
+   ========================================================= */
+
+.deep-guide,
+.topic-guide {
+    position: fixed;
+    z-index: 100020;
+    width: min(360px, calc(100vw - 24px));
+    padding: 22px;
+    color: var(--text, #102a43);
+    background: var(--surface, #ffffff);
+    border: 1.5px solid var(--ivri-blue, #1565c0);
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 18px 48px rgba(21, 101, 192, 0.22), 0 0 0 1px rgba(21, 101, 192, 0.12);
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.deep-guide.is-visible,
+.topic-guide.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.deep-guide::before,
+.topic-guide::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--surface, #ffffff);
+    border-left: 1.5px solid var(--ivri-blue, #1565c0);
+    border-top: 1.5px solid var(--ivri-blue, #1565c0);
+    transform: rotate(45deg);
+}
+
+.deep-guide[data-pointer="above"]::before,
+.topic-guide[data-pointer="above"]::before {
+    top: -8px;
+    right: 28px;
+}
+
+.deep-guide[data-pointer="below"]::before,
+.topic-guide[data-pointer="below"]::before {
+    bottom: -8px;
+    right: 28px;
+    transform: rotate(225deg);
+}
+
+.topic-guide[data-pointer="left"]::before {
+    top: 24px;
+    left: -8px;
+    transform: rotate(-45deg);
+}
+
+.deep-guide-kicker,
+.topic-guide-kicker {
+    color: var(--ivri-blue, #1565c0);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 24px 8px 0;
+}
+
+.deep-guide h2,
+.topic-guide h2 {
+    margin: 0 0 8px 0;
+    color: var(--text, #102a43);
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.deep-guide p,
+.topic-guide p {
+    margin: 0;
+    color: var(--text-muted, #546e7a);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.deep-guide p strong,
+.topic-guide p strong {
+    color: var(--ivri-blue, #1565c0);
+}
+
+.deep-guide-close,
+.topic-guide-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--text-muted, #546e7a);
+    background: rgba(21, 101, 192, 0.08);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.deep-guide-close:hover,
+.topic-guide-close:hover {
+    background: rgba(21, 101, 192, 0.18);
+    color: var(--text, #102a43);
+}
+
+.deep-guide-actions,
+.topic-guide-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.deep-guide-actions button,
+.topic-guide-actions button {
+    min-height: 36px;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm, 8px);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.deep-guide-secondary,
+.topic-guide-secondary {
+    color: var(--text-muted, #546e7a);
+    background: transparent;
+    border: 1px solid var(--border, rgba(21, 101, 192, 0.25));
+}
+
+.deep-guide-secondary:hover,
+.topic-guide-secondary:hover {
+    background: rgba(21, 101, 192, 0.05);
+    color: var(--text, #102a43);
+}
+
+.deep-guide-primary,
+.topic-guide-primary {
+    color: #ffffff;
+    background: var(--ivri-blue, #1565c0);
+    border: 1px solid var(--ivri-blue, #1565c0);
+    box-shadow: 0 4px 12px rgba(21, 101, 192, 0.28);
+}
+
+.deep-guide-primary:hover,
+.topic-guide-primary:hover {
+    background: #0d47a1;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+    .deep-guide,
+    .topic-guide {
+        padding: 18px;
+    }
+    .deep-guide::before,
+    .topic-guide::before {
+        display: none;
+    }
+    .deep-guide-actions,
+    .topic-guide-actions {
+        flex-direction: column-reverse;
+    }
+    .deep-guide-actions button,
+    .topic-guide-actions button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,756 @@
+/* =========================================================
+   ANIMATIONS & MOTION SUITE
+   ICAR-IVRI Veterinary Pathology Studio
+   Clean GPU-accelerated transforms & opacity only.
+   ========================================================= */
+
+/* 1. Speech Synthesis Utterance Active Pulse */
+@keyframes speakPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(21, 101, 192, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(21, 101, 192, 0);
+    }
+}
+
+.speak-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border, rgba(21, 101, 192, 0.25));
+    background: rgba(21, 101, 192, 0.06);
+    color: var(--ivri-blue, #1565c0);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
+}
+
+.speak-btn:hover {
+    transform: scale(1.08);
+    background: rgba(21, 101, 192, 0.14);
+}
+
+.speak-btn:active {
+    transform: scale(0.92);
+}
+
+.speak-btn.is-playing {
+    background: var(--ivri-blue, #1565c0);
+    color: #ffffff;
+    border-color: var(--ivri-blue, #1565c0);
+    animation: speakPulse 1.4s ease-in-out infinite;
+}
+
+/* 2. Deep View Button Border Trace & Activation */
+@keyframes deepBorderTrace {
+    0%   { stroke-dashoffset: 100; opacity: 0.45; }
+    50%  { opacity: 0.95; }
+    100% { stroke-dashoffset: 0; opacity: 0.45; }
+}
+
+@keyframes deepActivate {
+    0%   { transform: scale(0.95); }
+    55%  { transform: scale(1.06); box-shadow: 0 0 0 8px rgba(21, 101, 192, 0.18); }
+    100% { transform: scale(1); }
+}
+
+@keyframes deepDotPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(21, 101, 192, 0.6); }
+    50%      { box-shadow: 0 0 0 7px rgba(21, 101, 192, 0); }
+}
+
+.depth-toggle-btn.active {
+    animation: deepActivate 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.depth-toggle-btn.active::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ivri-teal, #00897b);
+    margin-left: 6px;
+    animation: deepDotPulse 2s ease-in-out infinite;
+}
+
+/* 3. Streak Flame Flicker */
+@keyframes flameFlicker {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 2px rgba(216, 67, 21, 0.4));
+    }
+    25% {
+        transform: scale(1.08) rotate(-2deg);
+        filter: drop-shadow(0 0 6px rgba(216, 67, 21, 0.7));
+    }
+    75% {
+        transform: scale(0.96) rotate(2deg);
+        filter: drop-shadow(0 0 4px rgba(216, 67, 21, 0.5));
+    }
+}
+
+.streak-flame,
+.stat-streak-flame,
+[data-streak-active="true"] i.fa-fire {
+    display: inline-block;
+    color: var(--ivri-coral, #d84315) !important;
+    animation: flameFlicker 1.8s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* 4. Quiz Correct Answer Confetti Burst */
+@keyframes qz-confetti-fly {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(var(--tx), var(--ty), 0) rotate(var(--rot)) scale(0.4);
+        opacity: 0;
+    }
+}
+
+.qz-confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 100050;
+    animation: qz-confetti-fly 0.85s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+}
+
+/* 5. Streak Milestone Popups */
+@keyframes qz-milestone-in {
+    0% {
+        opacity: 0;
+        transform: translate3d(-50%, 20px, 0) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale(1);
+    }
+}
+
+@keyframes qz-milestone-out {
+    0% {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(-50%, -20px, 0) scale(0.95);
+    }
+}
+
+.qz-milestone {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    background: var(--surface, #ffffff);
+    color: var(--ivri-blue, #1565c0);
+    border: 2px solid var(--ivri-blue, #1565c0);
+    border-radius: 24px;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: var(--font-mono, monospace);
+    box-shadow: 0 12px 32px rgba(21, 101, 192, 0.25);
+    z-index: 100040;
+    pointer-events: none;
+    animation: qz-milestone-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.qz-milestone.out {
+    animation: qz-milestone-out 0.4s ease forwards;
+}
+
+/* 6. Live Score Bump Animation */
+@keyframes hud-bump-anim {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.35); color: var(--ivri-sage, #2e7d32); }
+    100% { transform: scale(1); }
+}
+
+.hud-bump {
+    animation: hud-bump-anim 0.35s ease-out;
+}
+
+/* 7. Quiz Button Feedback Shake & Pop */
+@keyframes quizBtnCorrect {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+@keyframes quizBtnWrong {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.quiz-opt.correct,
+.quiz-btn.correct {
+    animation: quizBtnCorrect 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: rgba(46, 125, 50, 0.12) !important;
+    border-color: var(--ivri-sage, #2e7d32) !important;
+    color: var(--ivri-sage, #2e7d32) !important;
+}
+
+.quiz-opt.wrong,
+.quiz-btn.wrong {
+    animation: quizBtnWrong 0.4s ease;
+    background: rgba(216, 67, 21, 0.1) !important;
+    border-color: var(--ivri-coral, #d84315) !important;
+    color: var(--ivri-coral, #d84315) !important;
+}
+
+/* 8. Shimmer Loading & Progress Sheen */
+@keyframes shimmerProgress {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-bar-fill,
+.quiz-progress-fill {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-fill::after,
+.quiz-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    animation: shimmerProgress 2.2s infinite;
+}
+
+/* 9. Toast In & Out */
+@keyframes toastIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(-50%, 15px, 0) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale(1);
+    }
+}
+
+@keyframes toastOut {
+    0% {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(-50%, 15px, 0) scale(0.96);
+    }
+}
+
+.toast.show {
+    animation: toastIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast.hide {
+    animation: toastOut 0.2s ease forwards;
+}
+
+/* 10. Result Badge Bounce */
+@keyframes badgeBounce {
+    0%   { transform: scale(0.3); opacity: 0; }
+    60%  { transform: scale(1.15); opacity: 1; }
+    80%  { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.quiz-result-badge {
+    animation: badgeBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 11. Gentle Border Glow Breathing for Active Focus */
+@keyframes border-glow-breath {
+    0%, 100% { border-color: rgba(21, 101, 192, 0.25); box-shadow: 0 4px 12px rgba(21, 101, 192, 0.05); }
+    50%      { border-color: rgba(21, 101, 192, 0.55); box-shadow: 0 6px 20px rgba(21, 101, 192, 0.15); }
+}
+
+.resume-card,
+.study-card:hover {
+    animation: border-glow-breath 3.6s ease-in-out infinite;
+}
+
+/* 12. Floating Background Ambient Drift */
+@keyframes float-cell-drift {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-8px) rotate(3deg); }
+}
+
+.floating-ambient-node {
+    animation: float-cell-drift 6s ease-in-out infinite;
+}
+
+/* 13. Onboarding Tour Modal Keyframes */
+@keyframes onboardFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes onboardSlide {
+    from { opacity: 0; transform: translateY(20px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes onboardIconPop {
+    0%   { opacity: 0; transform: scale(0.4); }
+    70%  { transform: scale(1.18); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.onboard-modal {
+    animation: onboardFade 0.3s ease;
+}
+
+.onboard-card {
+    animation: onboardSlide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.onboard-icon {
+    animation: onboardIconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* =========================================================
+   14. SMOOTH ROUTE & VIEW TRANSITIONS
+   ========================================================= */
+@keyframes viewFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content__inner {
+    animation: viewFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pagehead {
+    animation: viewFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lesson {
+    animation: viewFadeIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.whycard,
+.card {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.whycard:hover,
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md, 0 6px 18px rgba(21, 101, 192, 0.08));
+}
+
+/* Micro-interactions: buttons, tabs, chips */
+.btn,
+.toolbtn,
+.seg__btn,
+.tab,
+.chip {
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:active,
+.toolbtn:active,
+.seg__btn:active {
+    transform: scale(0.96);
+}
+
+.tab {
+    cursor: pointer;
+}
+
+.tab.is-active {
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   15. DESKTOP NAVIGATION DOCK PICKER (Settings UI)
+   ========================================================= */
+.nav-pos-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 580px) {
+    .nav-pos-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.nav-pos-option {
+    background: var(--surface, #ffffff);
+    border: 1.5px solid var(--border, #d9e2ec);
+    border-radius: 12px;
+    padding: 12px 10px 10px;
+    cursor: pointer;
+    color: var(--text-faint, #627d98);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-pos-option:hover {
+    border-color: var(--ivri-blue, #1565c0);
+    color: var(--text, #102a43);
+    transform: translateY(-2px);
+}
+
+.nav-pos-option.is-active {
+    border-color: var(--ivri-blue, #1565c0);
+    background: rgba(21, 101, 192, 0.08);
+    color: var(--ivri-blue, #1565c0);
+    box-shadow: 0 4px 14px rgba(21, 101, 192, 0.15);
+}
+
+.np-frame {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--border, #d9e2ec);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(21, 101, 192, 0.04);
+}
+
+.np-bar {
+    position: absolute;
+    background: var(--ivri-blue, #1565c0);
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(21, 101, 192, 0.35);
+}
+
+.np-bottom { left: 16%; right: 16%; bottom: 8%; height: 20%; border-radius: 999px; }
+.np-top    { left: 16%; right: 16%; top:    8%; height: 20%; border-radius: 999px; }
+.np-left   { top: 16%; bottom: 16%; left:   8%; width:  20%; border-radius: 999px; }
+.np-right  { top: 16%; bottom: 16%; right:  8%; width:  20%; border-radius: 999px; }
+
+.np-name {
+    font-weight: 700;
+}
+
+/* =========================================================
+   16. DAILY SRS NOTIFICATION SETTINGS (Settings UI)
+   ========================================================= */
+.me-reminder-setting {
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, #d9e2ec);
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.me-toggle-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.me-bell-ico {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(21, 101, 192, 0.08);
+    color: var(--ivri-blue, #1565c0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.me-bell-ico svg {
+    width: 20px;
+    height: 20px;
+}
+
+.me-toggle-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.me-toggle-title {
+    font-size: 0.95rem;
+    color: var(--text, #102a43);
+    font-weight: 600;
+}
+
+.me-toggle-state {
+    font-size: 0.78rem;
+    color: var(--text-faint, #627d98);
+}
+
+.me-toggle-pill {
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: var(--border, #d9e2ec);
+    position: relative;
+    transition: background 0.25s ease;
+    flex-shrink: 0;
+}
+
+.me-toggle-pill::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.me-toggle-pill.on {
+    background: var(--ivri-blue, #1565c0);
+}
+
+.me-toggle-pill.on::after {
+    transform: translateX(18px);
+}
+
+.me-reminder-time-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    margin-top: 12px;
+    border-top: 1px solid var(--border, #e2e8f0);
+    font-size: 0.84rem;
+    color: var(--text-faint, #627d98);
+}
+
+.me-reminder-time {
+    padding: 6px 12px;
+    border: 1px solid var(--border, #d9e2ec);
+    border-radius: 8px;
+    background: var(--bg, #f0f4f8);
+    color: var(--text, #102a43);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.me-reminder-time:focus {
+    border-color: var(--ivri-blue, #1565c0);
+}
+
+/* =========================================================
+   17. GLOBAL SEARCH ENGINE STYLING (search.js integration)
+   ========================================================= */
+.search-count-strip {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    font-family: var(--font-mono, monospace);
+    color: var(--text-faint, #627d98);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border, #e2e8f0);
+    margin-bottom: 6px;
+}
+
+.search-item {
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1px solid transparent;
+}
+
+.search-item:hover,
+.search-item.is-selected {
+    background: rgba(21, 101, 192, 0.08);
+    border-color: rgba(21, 101, 192, 0.2);
+    transform: translateX(3px);
+}
+
+.search-item-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-item-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-family: var(--font-mono, monospace);
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.search-item-subtitle {
+    font-size: 0.74rem;
+    color: var(--text-faint, #627d98);
+}
+
+.search-item-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text, #102a43);
+}
+
+.search-item-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted, #546e7a);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.search-highlight {
+    background: rgba(255, 213, 79, 0.35);
+    color: inherit;
+    font-weight: 700;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.search-empty-state {
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--text-faint, #627d98);
+    font-size: 0.88rem;
+}
+
+/* =========================================================
+   18. DESKTOP NAVIGATION DOCK ADAPTATIONS
+   ========================================================= */
+@media (min-width: 861px) {
+    /* LEFT dock (standard clinical sidebar) */
+    [data-nav-pos="left"] .app,
+    .app {
+        flex-direction: row;
+    }
+
+    /* RIGHT dock (sidebar on right side) */
+    [data-nav-pos="right"] .app {
+        flex-direction: row-reverse;
+    }
+    [data-nav-pos="right"] .sidebar {
+        border-right: none;
+        border-left: 1px solid var(--border);
+    }
+}
+
+/* =========================================================
+   19. QUESTION & ANSWER (Q&A) EDTECH SUITE ANIMATIONS
+   ========================================================= */
+@keyframes qaCelebrate {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.45);
+    }
+    40% {
+        transform: scale(1.015);
+        box-shadow: 0 0 0 10px rgba(46, 125, 50, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes qaBodyReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes qaHighlight {
+    0% {
+        box-shadow: 0 0 0 0 rgba(21, 101, 192, 0.6);
+        border-color: var(--accent, #1565c0);
+        transform: scale(1);
+    }
+    30% {
+        box-shadow: 0 0 0 8px rgba(21, 101, 192, 0.25);
+        border-color: var(--accent, #1565c0);
+        transform: scale(1.01);
+    }
+    70% {
+        box-shadow: 0 0 0 4px rgba(21, 101, 192, 0.15);
+        border-color: var(--accent, #1565c0);
+    }
+    100% {
+        box-shadow: none;
+        transform: scale(1);
+    }
+}
+
+@keyframes qaGoldShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.qa.is-celebrating {
+    animation: qaCelebrate 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.qa.is-highlighted {
+    animation: qaHighlight 1.8s ease-out;
+}

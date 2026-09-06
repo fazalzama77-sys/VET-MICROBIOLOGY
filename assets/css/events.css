@@ -1,0 +1,285 @@
+/* =========================================================
+   DEPARTMENT EVENTS & ANNOUNCEMENTS STYLING
+   Veterinary Microbiology Studio
+   ========================================================= */
+
+.vmicro-events-section, .vpath-events-section {
+    margin: 28px 0;
+    padding: 24px;
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, rgba(21, 101, 192, 0.15));
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(21, 101, 192, 0.05));
+}
+
+.vmicro-events-header, .vpath-events-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.vmicro-events-eyebrow, .vpath-events-eyebrow {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ivri-blue, #1565c0);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.vmicro-events-header, .vpath-events-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text, #102a43);
+}
+
+.vmicro-events-sub, .vpath-events-sub {
+    margin: 4px 0 0 0;
+    font-size: 0.88rem;
+    color: var(--text-muted, #546e7a);
+}
+
+.vmicro-events-channel, .vpath-events-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(21, 101, 192, 0.08);
+    color: var(--ivri-blue, #1565c0);
+    border: 1px solid rgba(21, 101, 192, 0.25);
+    border-radius: var(--radius-sm, 8px);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.vmicro-events-channel, .vpath-events-channel:hover {
+    background: rgba(21, 101, 192, 0.15);
+}
+
+.vmicro-events-grid, .vpath-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.vmicro-event-card, .vpath-event-card {
+    padding: 18px;
+    background: var(--bg, #f0f4f8);
+    border: 1px solid var(--border, rgba(21, 101, 192, 0.15));
+    border-radius: var(--radius-md, 12px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vmicro-event-card, .vpath-event-card.is-featured {
+    border-color: var(--ivri-blue, #1565c0);
+    box-shadow: 0 4px 16px rgba(21, 101, 192, 0.12);
+}
+
+.vmicro-event-meta, .vpath-event-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vmicro-event-category, .vpath-event-category {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ivri-teal, #00897b);
+    text-transform: uppercase;
+}
+
+.vmicro-event-draft, .vpath-event-draft {
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: var(--ivri-amber, #b25e00);
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.vmicro-event-card, .vpath-event-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text, #102a43);
+    line-height: 1.35;
+}
+
+.vmicro-event-date, .vpath-event-date {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--text-muted, #546e7a);
+    font-weight: 500;
+}
+
+.vmicro-event-speaker, .vpath-event-speaker {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ivri-blue, #1565c0);
+    font-weight: 600;
+}
+
+.vmicro-event-description, .vpath-event-description {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text, #102a43);
+    line-height: 1.45;
+}
+
+.vmicro-event-actions, .vpath-event-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.vmicro-event-action, .vpath-event-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm, 8px);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.vmicro-event-youtube, .vpath-event-youtube {
+    background: #d32f2f;
+    color: #ffffff;
+}
+
+.vmicro-event-youtube, .vpath-event-youtube:hover {
+    background: #b71c1c;
+}
+
+.vmicro-event-register, .vpath-event-register {
+    background: var(--ivri-blue, #1565c0);
+    color: #ffffff;
+}
+
+.vmicro-event-register, .vpath-event-register:hover {
+    background: #0d47a1;
+}
+
+.vmicro-events-empty, .vpath-events-empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted, #546e7a);
+    font-size: 0.9rem;
+    background: var(--bg, #f0f4f8);
+    border-radius: var(--radius-md, 12px);
+    border: 1px dashed var(--border, rgba(21, 101, 192, 0.25));
+}
+
+.vmicro-events-empty, .vpath-events-empty strong {
+    display: block;
+    color: var(--text, #102a43);
+    margin-bottom: 4px;
+}
+
+/* Event Dialog Announcement */
+.vmicro-event-dialog, .vpath-event-dialog {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(6px);
+    z-index: 100030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.vmicro-event-dialog, .vpath-event-dialog.is-visible {
+    opacity: 1;
+}
+
+.vmicro-event-dialog-card, .vpath-event-dialog-card {
+    background: var(--surface, #ffffff);
+    border: 1.5px solid var(--ivri-blue, #1565c0);
+    border-radius: var(--radius-lg, 16px);
+    max-width: 480px;
+    width: 100%;
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    transform: translateY(12px) scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vmicro-event-dialog, .vpath-event-dialog.is-visible .vmicro-event-dialog-card, .vpath-event-dialog-card {
+    transform: translateY(0) scale(1);
+}
+
+.vmicro-event-dialog-close, .vpath-event-dialog-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(21, 101, 192, 0.08);
+    color: var(--text-muted, #546e7a);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vmicro-event-dialog-kicker, .vpath-event-dialog-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ivri-blue, #1565c0);
+    margin-bottom: 8px;
+}
+
+.vmicro-event-dialog-card, .vpath-event-dialog-card h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    color: var(--text, #102a43);
+}
+
+.vmicro-event-dialog-date, .vpath-event-dialog-date {
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted, #546e7a);
+    font-weight: 600;
+}
+
+.vmicro-event-dialog-description, .vpath-event-dialog-description {
+    margin: 0 0 20px 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text, #102a43);
+}
+
+.vmicro-event-dialog-actions, .vpath-event-dialog-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.vmicro-event-later, .vpath-event-later {
+    padding: 7px 14px;
+    background: transparent;
+    border: 1px solid var(--border, rgba(21, 101, 192, 0.2));
+    border-radius: var(--radius-sm, 8px);
+    color: var(--text-muted, #546e7a);
+    font-size: 0.85rem;
+    cursor: pointer;
+}

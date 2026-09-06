@@ -1,0 +1,16 @@
+# System & OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor & System
+.claude/
+.vscode/
+.idea/
+*.tmp
+*.bak
+*.swp
+*.log
+
+# Staging/temporary folders
+repo/

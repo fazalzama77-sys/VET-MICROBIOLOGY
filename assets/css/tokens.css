@@ -1,0 +1,263 @@
+/* ============================================================
+   IVRI STUDY STUDIO — SHARED DESIGN TOKENS
+   ------------------------------------------------------------
+   This is the ONE theme used across every IVRI subject site
+   (Anatomy, Pathology, Microbiology, Biochemistry, ...).
+
+   It is the "Academic" light theme carried over from the
+   Veterinary Anatomy site: institutional medical blue on a soft
+   blue-grey ground, Inter + JetBrains Mono, accessible dark
+   semantic colours on light surfaces.
+
+   *** DO NOT INVENT A NEW PALETTE FOR A NEW SUBJECT. ***
+   Copy this file unchanged into the next subject site. Every
+   colour, size and spacing value in the whole app comes from
+   here, so the sites stay identical and there is only ever one
+   file to maintain.
+
+   Light is the DEFAULT and canonical theme. A restrained dark
+   mode exists only as a night-reading convenience and uses the
+   same hues — it is deliberately NOT the old neon theme.
+   ============================================================ */
+
+:root {
+
+  /* ============================================================
+     1. BRAND PALETTE — the Academic medical set
+     ============================================================ */
+  --ivri-blue:        #1565c0;   /* PRIMARY — institutional medical blue */
+  --ivri-blue-dark:   #0d47a1;
+  --ivri-blue-light:  #e8f1fb;
+
+  --ivri-teal:        #00897b;   /* Lab / practical */
+  --ivri-teal-dark:   #00695c;
+  --ivri-teal-light:  #e0f2f1;
+
+  --ivri-purple:      #6a48b5;   /* Concepts / WHY (darkened for contrast) */
+  --ivri-purple-fill: #7e57c2;
+  --ivri-purple-light:#ede7f6;
+
+  --ivri-amber:       #b25e00;   /* Assessment / quiz (darkened for contrast) */
+  --ivri-amber-fill:  #ffa726;   /* use for fills and gradients only */
+  --ivri-amber-light: #fff5e8;
+
+  --ivri-coral:       #d84315;   /* Warning / important */
+  --ivri-sage:        #2e7d32;   /* Success / healthy */
+
+  /* ============================================================
+     2. SURFACES
+     ============================================================ */
+  --bg:            #f0f4f8;      /* soft blue-grey, never stark white */
+  --bg-alt:        #e6edf5;
+  --surface:       #ffffff;
+  --surface-2:     #f7fafc;
+  --surface-hover: #eef4fa;
+  --overlay:       rgba(38, 50, 56, .48);
+
+  /* Gentle gradient + dot grid behind the whole app, as on the anatomy site */
+  --bg-image:
+    radial-gradient(rgba(21, 101, 192, .035) 1.2px, transparent 1.2px),
+    linear-gradient(135deg, #f5f7fa 0%, #e3f2fd 50%, #f0f4f8 100%);
+  --bg-image-size: 24px 24px, 100% 100%;
+
+  /* ============================================================
+     3. LINES — subtle blue borders, not grey
+     ============================================================ */
+  --border:        rgba(21, 101, 192, .15);
+  --border-strong: rgba(21, 101, 192, .30);
+
+  /* ============================================================
+     4. TEXT
+     ============================================================ */
+  --text:          #263238;      /* dark blue-grey */
+  --text-muted:    #546e7a;
+  --text-faint:    #78909c;
+  --text-invert:   #ffffff;
+
+  /* ============================================================
+     5. ACCENT — set per section, defaults to primary blue
+     ============================================================ */
+  --accent:        var(--ivri-blue);
+  --accent-soft:   rgba(21, 101, 192, .10);
+  --accent-line:   rgba(21, 101, 192, .32);
+
+  /* ============================================================
+     6. STATUS — accessible dark foregrounds on pale grounds
+     ============================================================ */
+  --ok:            #2e7d32;
+  --ok-soft:       #e8f5e9;
+  --warn:          #8d5a0b;
+  --warn-soft:     #fff5e8;
+  --danger:        #c62828;
+  --danger-soft:   #fdecea;
+  --info:          #1565c0;
+  --info-soft:     #e8f1fb;
+
+  /* ============================================================
+     7. HIGHLIGHTER PENS (Library / lesson highlighting)
+     ============================================================ */
+  --hl-yellow:        #fef08a;
+  --hl-yellow-ink:    #713f12;
+  --hl-yellow-border: #eab308;
+  --hl-green:         #bbf7d0;
+  --hl-green-ink:     #14532d;
+  --hl-green-border:  #22c55e;
+  --hl-blue:          #bfdbfe;
+  --hl-blue-ink:      #1e3a8a;
+  --hl-blue-border:   #3b82f6;
+  --hl-pink:          #fbcfe8;
+  --hl-pink-ink:      #831843;
+  --hl-pink-border:   #ec4899;
+  --hl-orange:        #fed7aa;
+  --hl-orange-ink:    #7c2d12;
+  --hl-orange-border: #f97316;
+  --hl-purple:        #e9d5ff;
+  --hl-purple-ink:    #581c87;
+  --hl-purple-border: #a855f7;
+
+  /* ============================================================
+     8. ELEVATION — soft blue-tinted shadows, not black
+     ============================================================ */
+  --shadow-sm: 0 1px 2px rgba(21, 101, 192, .06), 0 1px 3px rgba(21, 101, 192, .04);
+  --shadow-md: 0 2px 8px rgba(21, 101, 192, .08), 0 8px 30px rgba(21, 101, 192, .07);
+  --shadow-lg: 0 8px 20px rgba(21, 101, 192, .10), 0 24px 60px rgba(21, 101, 192, .12);
+
+  /* ============================================================
+     9. TYPE
+     ============================================================ */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+
+  --fs-xs:   0.75rem;   /* 12 */
+  --fs-sm:   0.8125rem; /* 13 */
+  --fs-base: 0.9375rem; /* 15 */
+  --fs-md:   1rem;      /* 16 */
+  --fs-lg:   1.125rem;  /* 18 */
+  --fs-xl:   1.375rem;  /* 22 */
+  --fs-2xl:  1.75rem;   /* 28 */
+  --fs-3xl:  2.25rem;   /* 36 */
+  --fs-4xl:  3rem;      /* 48 */
+
+  --lh-tight: 1.2;
+  --lh-snug:  1.4;
+  --lh-body:  1.65;
+
+  /* ============================================================
+     10. SPACE, RADIUS, LAYOUT, MOTION
+     ============================================================ */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px;
+  --s12: 48px; --s16: 64px; --s20: 80px;
+
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-full: 999px;
+
+  --sidebar-w: 268px;
+  --header-h: 60px;
+  --content-max: 1180px;
+  --reading-max: 74ch;
+
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --dur-fast: 120ms;
+  --dur: 200ms;
+}
+
+/* ============================================================
+   SECTION ACCENTS
+   Each area of the site tints itself from the same Academic set.
+   These are the ONLY per-section colours — do not add more.
+   ============================================================ */
+[data-section="theory"]    { --accent: var(--ivri-blue);   --accent-soft: rgba(21, 101, 192, .10); --accent-line: rgba(21, 101, 192, .32); }
+[data-section="practical"] { --accent: var(--ivri-teal);   --accent-soft: rgba(0, 137, 123, .10);  --accent-line: rgba(0, 137, 123, .32); }
+[data-section="quiz"]      { --accent: var(--ivri-amber);  --accent-soft: rgba(178, 94, 0, .10);   --accent-line: rgba(178, 94, 0, .30); }
+[data-section="why"]       { --accent: var(--ivri-purple); --accent-soft: rgba(106, 72, 181, .10); --accent-line: rgba(106, 72, 181, .30); }
+[data-section="dashboard"] { --accent: var(--ivri-blue);   --accent-soft: rgba(21, 101, 192, .10); --accent-line: rgba(21, 101, 192, .32); }
+
+/* ============================================================
+   DARK MODE — night reading only.
+   Same hues, lifted for legibility on a dark ground. Restrained
+   slate surfaces; deliberately NOT the old neon theme.
+   Applied only when the student explicitly chooses it, because
+   the app defaults to light.
+   ============================================================ */
+:root[data-theme="dark"] {
+  --ivri-blue:        #64b5f6;
+  --ivri-blue-dark:   #90caf9;
+  --ivri-blue-light:  rgba(100, 181, 246, .14);
+
+  --ivri-teal:        #4db6ac;
+  --ivri-teal-dark:   #80cbc4;
+  --ivri-teal-light:  rgba(77, 182, 172, .14);
+
+  --ivri-purple:      #b39ddb;
+  --ivri-purple-fill: #b39ddb;
+  --ivri-purple-light:rgba(179, 157, 219, .14);
+
+  --ivri-amber:       #ffb74d;
+  --ivri-amber-fill:  #ffb74d;
+  --ivri-amber-light: rgba(255, 183, 77, .14);
+
+  --ivri-coral:       #ff8a65;
+  --ivri-sage:        #81c784;
+
+  --bg:            #121a22;
+  --bg-alt:        #172029;
+  --surface:       #1b242e;
+  --surface-2:     #212c38;
+  --surface-hover: #263340;
+  --overlay:       rgba(0, 0, 0, .62);
+
+  --bg-image: none;
+  --bg-image-size: auto;
+
+  --border:        rgba(144, 202, 249, .16);
+  --border-strong: rgba(144, 202, 249, .30);
+
+  --text:          #e3eaf2;
+  --text-muted:    #a3b3c2;
+  --text-faint:    #7d8fa0;
+  --text-invert:   #121a22;
+
+  --accent:        var(--ivri-blue);
+  --accent-soft:   rgba(100, 181, 246, .14);
+  --accent-line:   rgba(100, 181, 246, .34);
+
+  --ok:            #81c784;
+  --ok-soft:       rgba(129, 199, 132, .14);
+  --warn:          #ffb74d;
+  --warn-soft:     rgba(255, 183, 77, .14);
+  --danger:        #ef9a9a;
+  --danger-soft:   rgba(239, 154, 154, .14);
+  --info:          #64b5f6;
+  --info-soft:     rgba(100, 181, 246, .14);
+
+  --hl-yellow:        rgba(234, 179, 8, .28);
+  --hl-yellow-ink:    #fef08a;
+  --hl-yellow-border: #facc15;
+  --hl-green:         rgba(34, 197, 94, .25);
+  --hl-green-ink:     #bbf7d0;
+  --hl-green-border:  #4ade80;
+  --hl-blue:          rgba(59, 130, 246, .26);
+  --hl-blue-ink:      #bfdbfe;
+  --hl-blue-border:   #60a5fa;
+  --hl-pink:          rgba(236, 72, 153, .28);
+  --hl-pink-ink:      #fbcfe8;
+  --hl-pink-border:   #f472b6;
+  --hl-orange:        rgba(249, 115, 22, .28);
+  --hl-orange-ink:    #fed7aa;
+  --hl-orange-border: #fb923c;
+  --hl-purple:        rgba(168, 85, 247, .28);
+  --hl-purple-ink:    #e9d5ff;
+  --hl-purple-border: #c084fc;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .40);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, .45), 0 12px 28px rgba(0, 0, 0, .35);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, .50), 0 30px 70px rgba(0, 0, 0, .45);
+}
+
+/* Dark-mode section accents use the lifted hues automatically,
+   so only the soft tints need restating. */
+:root[data-theme="dark"] [data-section="theory"],
+:root[data-theme="dark"] [data-section="dashboard"] { --accent-soft: rgba(100, 181, 246, .14); --accent-line: rgba(100, 181, 246, .34); }
+:root[data-theme="dark"] [data-section="practical"] { --accent-soft: rgba(77, 182, 172, .14);  --accent-line: rgba(77, 182, 172, .34); }
+:root[data-theme="dark"] [data-section="quiz"]      { --accent-soft: rgba(255, 183, 77, .14);  --accent-line: rgba(255, 183, 77, .34); }
+:root[data-theme="dark"] [data-section="why"]       { --accent-soft: rgba(179, 157, 219, .14); --accent-line: rgba(179, 157, 219, .34); }
