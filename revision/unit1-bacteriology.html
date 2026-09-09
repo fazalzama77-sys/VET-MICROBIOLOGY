@@ -1,0 +1,1427 @@
+<title>Bacteriology Rapid Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap">
+
+<style>
+:root{
+  --paper:#ffffff;
+  --ground:#eef2f6;
+  --ink:#1b2430;
+  --ink-2:#4d5b6c;
+  --ink-3:#7a8798;
+  --rule:#dae1ea;
+  --rule-soft:#eaeff4;
+  --tint:#f4f7fa;
+
+  --blue:#1565c0;      /* methylene blue — structural / general */
+  --violet:#4a2d85;    /* crystal violet — Gram positive */
+  --safranin:#b02a37;  /* safranin — Gram negative */
+  --fuchsin:#9c1f5c;   /* carbol fuchsin — acid fast */
+  --malachite:#0f6e63; /* malachite green — spore / anaerobe */
+  --amber:#a05300;     /* exam trap / must-not-confuse */
+
+  --blue-w:#e7f0fa; --violet-w:#efeaf8; --safranin-w:#fbe9ea;
+  --fuchsin-w:#fbe9f2; --malachite-w:#e3f2ef; --amber-w:#fdf0e0;
+
+  --sheet-w:210mm; --sheet-h:297mm; --pad:11mm;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+    --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+    --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+    --malachite:#4fc4b2; --amber:#e9a44b;
+    --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+    --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+  --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+  --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+  --malachite:#4fc4b2; --amber:#e9a44b;
+  --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+  --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  margin:0; padding:8mm 4mm 16mm;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,.sp{font-family:"IBM Plex Serif","IBM Plex Sans",serif; font-style:italic}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- SHEET ---------- */
+.sheet{
+  width:var(--sheet-w); min-height:var(--sheet-h);
+  margin:0 auto 7mm; padding:var(--pad);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 2px rgba(20,40,70,.06),0 10px 30px rgba(20,40,70,.07);
+  display:flex; flex-direction:column; gap:3.6mm;
+  font-size:8.5pt; line-height:1.33;
+  position:relative;
+}
+.sheet-head{
+  display:flex; align-items:baseline; gap:3mm;
+  border-bottom:1.6pt solid var(--ink); padding-bottom:1.6mm;
+}
+.sheet-head .no{
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:8pt;
+  color:var(--paper); background:var(--ink);
+  padding:.6mm 1.8mm; border-radius:1mm; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:14pt; margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.sheet-head .sub{
+  font-size:7.4pt; color:var(--ink-3); margin-left:auto; text-align:right;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.02em;
+}
+.sheet-foot{
+  margin-top:auto; padding-top:1.6mm; border-top:.5pt solid var(--rule);
+  display:flex; justify-content:space-between;
+  font-size:6.6pt; color:var(--ink-3); font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.03em;
+}
+
+/* ---------- MODULES ---------- */
+.row{display:grid; gap:3mm; align-items:start}
+.r-2{grid-template-columns:1fr 1fr}
+.r-2a{grid-template-columns:1.35fr 1fr}
+.r-2b{grid-template-columns:1fr 1.45fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+.mod{border-left:2.2pt solid var(--blue); padding-left:2.6mm}
+.mod > h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:9.2pt; margin:0 0 1.4mm; color:var(--blue);
+  letter-spacing:.005em; display:flex; align-items:center; gap:1.6mm;
+}
+.mod > h3 .kind{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:6pt;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); border:.5pt solid var(--rule);
+  padding:.2mm 1.2mm; border-radius:.8mm; margin-left:auto; white-space:nowrap;
+}
+.m-violet{border-left-color:var(--violet)} .m-violet > h3{color:var(--violet)}
+.m-safranin{border-left-color:var(--safranin)} .m-safranin > h3{color:var(--safranin)}
+.m-fuchsin{border-left-color:var(--fuchsin)} .m-fuchsin > h3{color:var(--fuchsin)}
+.m-malachite{border-left-color:var(--malachite)} .m-malachite > h3{color:var(--malachite)}
+.m-amber{border-left-color:var(--amber)} .m-amber > h3{color:var(--amber)}
+
+/* ---------- TABLES ---------- */
+table{border-collapse:collapse; width:100%; font-size:7.5pt; line-height:1.25}
+th,td{border:.5pt solid var(--rule); padding:.9mm 1.3mm; text-align:left; vertical-align:top}
+thead th{
+  background:var(--tint); font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-weight:600; font-size:7.2pt; color:var(--ink-2);
+  letter-spacing:.02em;
+}
+tbody th{background:var(--tint); font-weight:600; width:20%}
+td .mono,th .mono{font-size:7pt}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- LISTS ---------- */
+ul.k{margin:0; padding-left:3.2mm; list-style:none}
+ul.k li{position:relative; margin:0 0 .7mm}
+ul.k li::before{
+  content:""; position:absolute; left:-2.6mm; top:1.5mm;
+  width:1.1mm; height:1.1mm; background:currentColor; opacity:.45; border-radius:50%;
+}
+ol.k{margin:0; padding-left:4.2mm; font-size:8pt}
+ol.k li{margin:0 0 .7mm}
+b,strong{font-weight:600}
+
+/* ---------- FACT BANK (objective ammo) ---------- */
+.bank{display:grid; grid-template-columns:1fr 1fr; gap:0 3mm}
+.bank.one{grid-template-columns:1fr}
+.bank div{
+  border-bottom:.5pt dotted var(--rule); padding:.7mm 0;
+  font-size:7.4pt; display:flex; gap:1.6mm;
+}
+.bank div b{
+  flex:0 0 33%; font-weight:600; color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;
+}
+.bank div span{flex:1}
+
+/* ---------- CHIPS / MNEMONIC ---------- */
+.mnem{
+  background:var(--amber-w); border:.5pt solid var(--amber);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.5pt;
+}
+.mnem .key{
+  font-family:"IBM Plex Mono",monospace; font-weight:600;
+  color:var(--amber); font-size:8.4pt; letter-spacing:.05em;
+}
+.trap{
+  background:var(--safranin-w); border-left:1.6pt solid var(--safranin);
+  padding:1.2mm 2mm; font-size:7.4pt; border-radius:0 1mm 1mm 0;
+}
+.trap b{color:var(--safranin)}
+.skel{
+  background:var(--blue-w); border:.5pt solid var(--blue);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.3pt;
+}
+.skel b{color:var(--blue); font-family:"IBM Plex Sans Condensed",sans-serif}
+.skel ol{margin:.8mm 0 0; padding-left:4mm}
+.skel li{margin-bottom:.3mm}
+
+.tags{display:flex; flex-wrap:wrap; gap:1mm; margin-top:1mm}
+.tag{
+  font-family:"IBM Plex Mono",monospace; font-size:6.4pt; letter-spacing:.03em;
+  border:.5pt solid var(--rule); border-radius:.8mm; padding:.3mm 1.2mm;
+  color:var(--ink-2); background:var(--tint);
+}
+
+svg{display:block; width:100%; height:auto}
+svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
+
+/* ---------- COVER ---------- */
+.cover{justify-content:center; gap:0}
+.cover .brand{
+  font-family:"IBM Plex Mono",monospace; font-size:7.6pt; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:3mm;
+}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:33pt;
+  font-weight:700; line-height:1.02; margin:0 0 3mm; letter-spacing:-.02em;
+  text-wrap:balance; max-width:150mm;
+}
+.cover .lede{font-size:10pt; color:var(--ink-2); max-width:135mm; line-height:1.45}
+.cover .meta{
+  margin-top:8mm; padding-top:3mm; border-top:1.6pt solid var(--ink);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; font-size:7.4pt;
+}
+.cover .meta b{
+  display:block; font-family:"IBM Plex Mono",monospace; font-size:6.2pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.8mm;
+}
+.cover .plan{margin-top:6mm}
+.cover .plan table{font-size:8pt}
+.legend{display:flex; flex-wrap:wrap; gap:2mm 4mm; margin-top:5mm; font-size:7.2pt}
+.legend span{display:flex; align-items:center; gap:1.4mm}
+.legend i{width:2.4mm; height:2.4mm; border-radius:.6mm; display:block}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{size:A4; margin:0}
+  body{background:#fff; padding:0}
+  .sheet{
+    margin:0; box-shadow:none; border:0;
+    break-after:page; page-break-after:always;
+    min-height:var(--sheet-h);
+  }
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .toolbar{display:none}
+}
+.toolbar{
+  max-width:var(--sheet-w); margin:0 auto 5mm; display:flex; gap:2mm;
+  align-items:center; font-size:8pt; color:var(--ink-2);
+}
+.toolbar button{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:8pt; font-weight:600;
+  background:var(--blue); color:#fff; border:0; border-radius:1.4mm;
+  padding:1.6mm 4mm; cursor:pointer;
+}
+.toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+@media (max-width:230mm){
+  body{padding:4mm 0 10mm}
+  .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
+  .toolbar{max-width:100%; padding:0 6mm}
+  .r-2,.r-2a,.r-2b,.r-3{grid-template-columns:1fr}
+  .bank{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>7 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<section class="sheet cover">
+  <div class="brand">Veterinary Microbiology &middot; Rapid Revision</div>
+  <h1>Unit 1 — General &amp; Systematic Veterinary Bacteriology</h1>
+  <p class="lede">All 34 syllabus topics compressed to six working sheets. Built so that one uninterrupted 30-minute pass gives you the diagram, the differentiating table, the one-liner and the answer skeleton for every examinable item in Paper&nbsp;I, Unit&nbsp;1.</p>
+
+  <div class="meta">
+    <div><b>Paper</b>Paper I · Units 1, 2, 3<br>Theory 100 · Practical 60</div>
+    <div><b>Syllabus topics</b>34 of 34 covered</div>
+    <div><b>Revision time</b>30 min full pass<br>12 min sheets 5–6 only</div>
+    <div><b>Course</b>B.V.Sc &amp; A.H. II Yr<br>VCI MSVE · 3+2=5</div>
+  </div>
+
+  <div class="plan">
+    <table>
+      <thead><tr><th style="width:12%">Sheet</th><th style="width:40%">What it covers</th><th>Syllabus topics folded in</th></tr></thead>
+      <tbody>
+        <tr><th class="mono">01</th><td>The bacterial cell — structure, staining, growth, microscopy</td><td class="mono">t01–t07</td></tr>
+        <tr><th class="mono">02</th><td>Infection, virulence, toxins, genetics, antibiotic resistance</td><td class="mono">t08–t12</td></tr>
+        <tr><th class="mono">03</th><td>Gram-positive cocci &amp; non-sporing rods</td><td class="mono">t13–t16</td></tr>
+        <tr><th class="mono">04</th><td>Spore-formers, acid-fast &amp; filamentous bacteria</td><td class="mono">t17–t20</td></tr>
+        <tr><th class="mono">05</th><td>Gram-negative rods — the whole enteric &amp; respiratory block</td><td class="mono">t21–t28</td></tr>
+        <tr><th class="mono">06</th><td>Anaerobes, spirochaetes, cell-wall-deficient &amp; obligate intracellular</td><td class="mono">t29–t34</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--blue)"></i> General / structural</span>
+    <span><i style="background:var(--violet)"></i> Gram-positive</span>
+    <span><i style="background:var(--safranin)"></i> Gram-negative</span>
+    <span><i style="background:var(--fuchsin)"></i> Acid-fast</span>
+    <span><i style="background:var(--malachite)"></i> Anaerobe / spore</span>
+    <span><i style="background:var(--amber)"></i> Exam trap &amp; mnemonic</span>
+  </div>
+
+  <div class="sheet-foot">
+    <span>VET MICROBIOLOGY STUDIO · IVRI, IZATNAGAR</span>
+    <span>UNIT 1 · COVER</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 01 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">01</span>
+    <h2>The Bacterial Cell — Structure, Stains, Growth</h2>
+    <span class="sub">t01–t07</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>Cell architecture <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 158" role="img" aria-label="Labelled bacterial cell showing envelope layers and appendages">
+        <rect x="0" y="0" width="340" height="158" fill="none"/>
+        <!-- cell body -->
+        <rect x="66" y="34" width="150" height="86" rx="43" fill="var(--blue-w)" stroke="var(--blue)" stroke-width="1.6"/>
+        <rect x="72" y="40" width="138" height="74" rx="37" fill="var(--paper)" stroke="var(--ink-3)" stroke-width=".8"/>
+        <!-- capsule halo -->
+        <rect x="58" y="26" width="166" height="102" rx="51" fill="none" stroke="var(--violet)" stroke-width="1" stroke-dasharray="4 3"/>
+        <!-- nucleoid -->
+        <path d="M112 66 q22 -14 38 4 q18 18 -6 26 q-30 10 -36 -12 q-4 -14 4 -18 z" fill="none" stroke="var(--safranin)" stroke-width="1.4"/>
+        <!-- plasmid -->
+        <circle cx="178" cy="92" r="8" fill="none" stroke="var(--malachite)" stroke-width="1.4"/>
+        <!-- ribosomes -->
+        <circle cx="98" cy="96" r="2.6" fill="var(--ink-3)"/><circle cx="110" cy="103" r="2.6" fill="var(--ink-3)"/>
+        <circle cx="160" cy="52" r="2.6" fill="var(--ink-3)"/><circle cx="186" cy="60" r="2.6" fill="var(--ink-3)"/>
+        <!-- flagellum -->
+        <path d="M216 77 q14 -12 26 0 q12 12 24 0 q12 -12 24 0" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+        <!-- pili -->
+        <path d="M96 34 l-6 -14 M126 30 l-3 -16 M156 30 l3 -16 M186 34 l7 -14" stroke="var(--ink-2)" stroke-width="1"/>
+        <path d="M80 120 l-8 12 M120 124 l-2 14" stroke="var(--fuchsin)" stroke-width="1.6"/>
+        <!-- labels -->
+        <g font-size="8.5" fill="var(--ink-2)">
+          <text x="4" y="24">Capsule</text><text x="4" y="34" fill="var(--violet)" font-size="7">poly-D-glut / polysacch</text>
+          <text x="252" y="20">Fimbriae</text><text x="252" y="30" font-size="7">adhesion</text>
+          <text x="4" y="146" fill="var(--fuchsin)">Sex pilus</text><text x="52" y="146" font-size="7">conjugation</text>
+          <text x="256" y="96">Flagellum</text><text x="256" y="106" font-size="7">H antigen</text>
+          <text x="104" y="58" fill="var(--safranin)" font-size="7.5">Nucleoid</text>
+          <text x="170" y="112" fill="var(--malachite)" font-size="7.5">Plasmid</text>
+          <text x="228" y="130" font-size="7">70S ribosome (50S+30S)</text>
+        </g>
+        <line x1="60" y1="30" x2="34" y2="22" stroke="var(--ink-3)" stroke-width=".7"/>
+        <line x1="222" y1="34" x2="248" y2="24" stroke="var(--ink-3)" stroke-width=".7"/>
+        <line x1="216" y1="86" x2="252" y2="92" stroke="var(--ink-3)" stroke-width=".7"/>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.4pt">
+        <li><b>Cell wall</b> = peptidoglycan (murein): NAM–NAG backbone, cross-linked by transpeptidase — the <b>penicillin target</b>. Absent in <i>Mycoplasma</i>.</li>
+        <li><b>Gram +ve</b>: 20–80 nm thick peptidoglycan (~50–90% of wall), <b>teichoic + lipoteichoic acid</b>, no outer membrane, no periplasm.</li>
+        <li><b>Gram −ve</b>: 2–7 nm peptidoglycan, <b>outer membrane with LPS</b>, periplasmic space, porins, Braun's lipoprotein.</li>
+        <li><b>LPS = Lipid A (toxic, endotoxin) + core + O-side chain (O antigen)</b>.</li>
+        <li>Mesosome = infolding of plasma membrane; site of septum formation &amp; DNA segregation.</li>
+        <li>Spore layers outward: core → cortex (<b>Ca-dipicolinate</b>) → spore coat → exosporium.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Gram-positive vs Gram-negative <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Gram +ve</th><th>Gram −ve</th></tr></thead>
+        <tbody>
+          <tr><th>Final colour</th><td>Violet</td><td>Pink / red</td></tr>
+          <tr><th>Peptidoglycan</th><td>Thick, multilayer</td><td>Thin, single layer</td></tr>
+          <tr><th>Teichoic acid</th><td>Present</td><td>Absent</td></tr>
+          <tr><th>Outer memb. / LPS</th><td>Absent</td><td>Present</td></tr>
+          <tr><th>Periplasm</th><td>Absent</td><td>Present</td></tr>
+          <tr><th>Toxin</th><td>Mostly exotoxin</td><td>Endotoxin ± exotoxin</td></tr>
+          <tr><th>Lysozyme</th><td>Sensitive</td><td>Resistant (OM barrier)</td></tr>
+          <tr><th>Penicillin</th><td>Sensitive</td><td>Relatively resistant</td></tr>
+          <tr><th>Wall-less form</th><td>Protoplast</td><td>Spheroplast</td></tr>
+          <tr><th>Flagellar rings</th><td>2 (S, M)</td><td>4 (L, P, S, M)</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.4mm"><b>Trap:</b> Gram reaction is a <i>wall</i> property, not a taxonomic one — old, autolysed or antibiotic-treated Gram +ve cells stain Gram-variable. <i>Mycobacterium</i> is technically Gram +ve but does not take Gram stain.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>Staining — what each step actually does <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 96" role="img" aria-label="Four steps of Gram staining with the fate of positive and negative cells">
+        <g font-size="7.6">
+          <!-- step boxes -->
+          <rect x="2" y="8" width="76" height="26" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
+          <text x="8" y="20" fill="var(--violet)" font-weight="600">1 · Crystal violet</text>
+          <text x="8" y="29" fill="var(--ink-2)">60 s — primary stain</text>
+
+          <rect x="86" y="8" width="76" height="26" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
+          <text x="92" y="20" fill="var(--violet)" font-weight="600">2 · Gram's iodine</text>
+          <text x="92" y="29" fill="var(--ink-2)">mordant → CV-I complex</text>
+
+          <rect x="170" y="8" width="76" height="26" rx="2" fill="var(--amber-w)" stroke="var(--amber)" stroke-width=".9"/>
+          <text x="176" y="20" fill="var(--amber)" font-weight="600">3 · Decolouriser</text>
+          <text x="176" y="29" fill="var(--ink-2)">acetone-alcohol, 5–10 s</text>
+
+          <rect x="254" y="8" width="84" height="26" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="260" y="20" fill="var(--safranin)" font-weight="600">4 · Safranin</text>
+          <text x="260" y="29" fill="var(--ink-2)">counterstain, 30 s</text>
+
+          <path d="M78 21 h8 M162 21 h8 M246 21 h8" stroke="var(--ink-3)" stroke-width="1"/>
+          <path d="M84 19 l4 2 l-4 2 z M168 19 l4 2 l-4 2 z M252 19 l4 2 l-4 2 z" fill="var(--ink-3)"/>
+
+          <!-- outcomes -->
+          <rect x="2" y="48" width="164" height="40" rx="2" fill="none" stroke="var(--violet)" stroke-width=".9"/>
+          <text x="8" y="60" fill="var(--violet)" font-weight="600">Gram POSITIVE</text>
+          <text x="8" y="70" fill="var(--ink-2)">Thick peptidoglycan dehydrates,</text>
+          <text x="8" y="79" fill="var(--ink-2)">pores shut → CV-I trapped → stays VIOLET</text>
+
+          <rect x="174" y="48" width="164" height="40" rx="2" fill="none" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="180" y="60" fill="var(--safranin)" font-weight="600">Gram NEGATIVE</text>
+          <text x="180" y="70" fill="var(--ink-2)">Alcohol dissolves the lipid-rich outer</text>
+          <text x="180" y="79" fill="var(--ink-2)">membrane → CV-I washes out → takes PINK</text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>Single most common mistake:</b> over-decolourisation. Beyond ~10 s even true Gram +ve cells go pink. Decolouriser is the <i>only</i> timed-to-the-second step.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Stains you must be able to name <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Simple</b><span>Methylene blue / basic fuchsin — shape &amp; arrangement only</span></div>
+        <div><b>Negative</b><span>India ink, nigrosin — <i>Cryptococcus</i> capsule; background stained, cell clear</span></div>
+        <div><b>Gram (1884)</b><span>Christian Gram — differential; violet vs pink</span></div>
+        <div><b>Ziehl-Neelsen</b><span>Carbol fuchsin + heat, 20% H₂SO₄ + alcohol, methylene blue → AFB red on blue</span></div>
+        <div><b>Modified ZN</b><span>0.5–1% H₂SO₄ only — <i>Brucella</i>, <i>Nocardia</i>, <i>Coxiella</i>, <i>Chlamydia</i> (partially acid-fast)</span></div>
+        <div><b>Capsule</b><span>McFadyean's (polychrome methylene blue) — blue bacilli, <b>pink capsule</b>; Anthony's (CuSO₄)</span></div>
+        <div><b>Spore</b><span>Schaeffer-Fulton — malachite green (heat) + safranin → green spore, red vegetative cell</span></div>
+        <div><b>Flagella</b><span>Leifson / Ryu — mordant-thickened; Fontana for spirochaetes (silver impregnation)</span></div>
+        <div><b>Metachromatic granules</b><span>Albert's, Neisser's, Loeffler's methylene blue — <i>Corynebacterium</i> (Babes-Ernst granules)</span></div>
+        <div><b>Giemsa</b><span>Blood parasites, <i>Anaplasma</i>, <i>Chlamydia</i> inclusions, <i>Haemobartonella</i></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod">
+      <h3>Microscopy &amp; micrometry <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Resolving power</b><span class="mono">RP = 0.61λ / NA</span></div>
+        <div><b>Light micro. limit</b><span>≈ 0.2 µm; useful mag ≈ 1000–1500×</span></div>
+        <div><b>Oil immersion</b><span>Cedar wood oil, RI 1.515 = glass; raises NA to 1.25–1.4</span></div>
+        <div><b>Dark field</b><span>Live, unstained — <i>Leptospira</i>, <i>Treponema</i></span></div>
+        <div><b>Phase contrast</b><span>Live unstained cells, internal detail</span></div>
+        <div><b>Fluorescence</b><span>Auramine-rhodamine for AFB; FAT for rabies</span></div>
+        <div><b>Electron micro.</b><span>TEM resolves ≈ 0.2 nm — only way to see virions</span></div>
+        <div><b>Micrometry</b><span>Stage micrometer calibrates the <b>ocular</b> micrometer; 1 stage div = 10 µm</span></div>
+      </div>
+      <div class="mnem" style="margin-top:1.4mm"><span class="key">Calibration</span> 1 ocular div (µm) = (stage divs coinciding × 10) ÷ ocular divs coinciding. Recalibrate for <i>every</i> objective.</div>
+    </div>
+
+    <div class="mod m-malachite">
+      <h3>Growth curve &amp; requirements <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 210 108" role="img" aria-label="Bacterial growth curve with lag, log, stationary and decline phases">
+        <line x1="22" y1="88" x2="204" y2="88" stroke="var(--ink-3)" stroke-width=".9"/>
+        <line x1="22" y1="8" x2="22" y2="88" stroke="var(--ink-3)" stroke-width=".9"/>
+        <path d="M24 74 L54 74 L104 22 L156 22 L200 62" fill="none" stroke="var(--malachite)" stroke-width="2"/>
+        <g stroke="var(--rule)" stroke-width=".6" stroke-dasharray="2 2">
+          <line x1="54" y1="12" x2="54" y2="88"/><line x1="104" y1="12" x2="104" y2="88"/><line x1="156" y1="12" x2="156" y2="88"/>
+        </g>
+        <g font-size="7" fill="var(--ink-2)">
+          <text x="26" y="98">LAG</text><text x="64" y="98">LOG</text><text x="112" y="98">STATIONARY</text><text x="164" y="98">DECLINE</text>
+          <text x="26" y="68" font-size="6.4">enzyme</text><text x="26" y="75" font-size="6.4">synthesis</text>
+          <text x="62" y="46" font-size="6.4" fill="var(--malachite)">generation time</text>
+          <text x="62" y="53" font-size="6.4" fill="var(--malachite)">constant · stain best</text>
+          <text x="108" y="36" font-size="6.4">division = death;</text>
+          <text x="108" y="43" font-size="6.4">spores &amp; exotoxin</text>
+        </g>
+        <text x="4" y="48" font-size="7" fill="var(--ink-2)" transform="rotate(-90 8 50)">log viable count</text>
+      </svg>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Generation time</b>: <i>E. coli</i> 20 min · <i>M. tuberculosis</i> 18–24 h · <i>M. leprae</i> ~13 d.</li>
+        <li>Temperature: psychrophile &lt;20 · <b>mesophile 25–40 (all pathogens)</b> · thermophile 55–80.</li>
+        <li>pH: most 7.2–7.4; <i>Vibrio</i> alkaline 8.5–9.0; fungi acidic 5.6.</li>
+        <li>O₂: obligate aerobe · facultative anaerobe · <b>microaerophile (<i>Campylobacter</i> 5% O₂)</b> · obligate anaerobe · capnophile (5–10% CO₂ — <i>Brucella abortus</i>).</li>
+      </ul>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Media — the exam list <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Basal</b><span>Nutrient broth/agar, peptone water</span></div>
+        <div><b>Enriched</b><span>Blood agar, chocolate agar, serum agar</span></div>
+        <div><b>Enrichment (liquid)</b><span>Selenite F, tetrathionate, alkaline peptone water</span></div>
+        <div><b>Selective</b><span>MacConkey, DCA, TCBS, Lowenstein-Jensen, SDA</span></div>
+        <div><b>Differential</b><span>MacConkey (lactose), blood agar (haemolysis), EMB</span></div>
+        <div><b>Indicator</b><span>Wilson-Blair (black colonies of <i>Salmonella</i>)</span></div>
+        <div><b>Transport</b><span>Cary-Blair, Stuart's, Amies</span></div>
+        <div><b>Anaerobic</b><span>Robertson's cooked meat, thioglycollate, Brewer's</span></div>
+        <div><b>Sugar-free</b><span>For toxin studies of <i>C. diphtheriae</i></span></div>
+      </div>
+      <div class="mnem" style="margin-top:1.4mm"><span class="key">Anaerobiosis</span> McIntosh–Fildes jar · GasPak · Robertson's meat (unsaturated fat + glutathione) · <b>Methylene blue indicator: blue = O₂ present, colourless = anaerobic</b>.</div>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-amber">
+      <h3>Normal, opportunistic &amp; saprophytic flora <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Site</th><th>Predominant normal flora</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><th>Skin</th><td><i>Staphylococcus</i> (coag −ve), <i>Micrococcus</i>, <i>Corynebacterium</i></td><td>Source of surgical-site infection</td></tr>
+          <tr><th>Rumen</th><td>Cellulolytic bacteria, protozoa, anaerobic fungi</td><td><b>Symbiotic — VFA supply</b></td></tr>
+          <tr><th>Intestine</th><td><i>E. coli</i>, <i>Lactobacillus</i>, <i>Bacteroides</i>, <i>Clostridium</i></td><td>Vitamin K &amp; B synthesis; colonisation resistance</td></tr>
+          <tr><th>Upper resp.</th><td><i>Pasteurella</i>, <i>Mannheimia</i>, streptococci</td><td>Stress → shipping fever</td></tr>
+          <tr><th>Teat canal</th><td>CNS, <i>Corynebacterium bovis</i></td><td>Keratin plug is first defence</td></tr>
+          <tr><th>Sterile sites</th><td colspan="2">Blood, CSF, muscle, internal organs, urinary bladder, uterus of healthy animal</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Define cleanly:</b> <b>Commensal</b> = benefits, host unharmed. <b>Opportunist</b> = normal flora turning pathogen when host defence falls (immunosuppression, catheter, prolonged antibiotics). <b>Saprophyte</b> = lives on dead organic matter, rarely invades.</div>
+    </div>
+
+    <div class="mod">
+      <h3>History — dates that get asked <span class="kind">rapid-fire</span></h3>
+      <div class="bank">
+        <div><b>Leeuwenhoek 1676</b><span>First saw "animalcules"</span></div>
+        <div><b>Jenner 1796</b><span>Cowpox → smallpox vaccine</span></div>
+        <div><b>Pasteur</b><span>Germ theory, attenuation, anthrax &amp; rabies vaccine, pasteurisation</span></div>
+        <div><b>Koch 1876/1882</b><span><i>B. anthracis</i>; tubercle bacillus; solid media, postulates</span></div>
+        <div><b>Lister 1867</b><span>Antisepsis — carbolic acid</span></div>
+        <div><b>Ehrlich</b><span>Salvarsan; side-chain theory</span></div>
+        <div><b>Fleming 1928</b><span>Penicillin from <i>P. notatum</i></span></div>
+        <div><b>Iwanowski 1892</b><span>TMV — birth of virology</span></div>
+        <div><b>Gram 1884</b><span>Differential staining</span></div>
+        <div><b>Petri 1887</b><span>Petri dish</span></div>
+      </div>
+      <div class="skel" style="margin-top:1.4mm">
+        <b>Koch's postulates — write all four</b>
+        <ol>
+          <li>Organism present in <i>every</i> case, absent from healthy animals.</li>
+          <li>Isolated and grown in <b>pure culture</b>.</li>
+          <li>Pure culture reproduces the same disease in a susceptible host.</li>
+          <li>Re-isolated from the experimentally infected host.</li>
+        </ol>
+        <b>Exceptions to quote:</b> <i>M. leprae</i> &amp; <i>T. pallidum</i> (not cultivable), viruses/prions, carriers, polymicrobial &amp; toxin-mediated disease. Modern answer: <b>molecular Koch's postulates</b> (gene knockout abolishes virulence, restoration returns it).
+      </div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>Classification &amp; nomenclature <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Reference</b><span><b>Bergey's Manual of Systematic Bacteriology</b> — the standard</span></div>
+        <div><b>Binomial rule</b><span>Genus capitalised, species lower case, both italic/underlined: <i>Staphylococcus aureus</i>; abbreviate <i>S. aureus</i> after first use</span></div>
+        <div><b>Hierarchy</b><span>Domain→Phylum→Class→Order→Family→Genus→Species</span></div>
+        <div><b>Species (bacteria)</b><span>Strains with ≥70% DNA–DNA hybridisation, &lt;5 °C ΔTm</span></div>
+        <div><b>Gold standard now</b><span><b>16S rRNA gene sequencing</b> (~1500 bp; &gt;97% identity = same species)</span></div>
+        <div><b>Sub-species terms</b><span>Serovar (antigen) · biovar (biochemical) · pathovar · phagovar · biotype</span></div>
+        <div><b>Type strain</b><span>Nomenclatural reference; deposited (ATCC, NCTC, MTCC)</span></div>
+        <div><b>Other schemes</b><span>Numerical taxonomy (Adansonian), chemotaxonomy, MLST, MALDI-TOF MS</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 01 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Mordant of Gram stain</td><td>Gram's iodine</td></tr>
+          <tr><td>Chemical unique to bacterial spore</td><td>Calcium dipicolinate</td></tr>
+          <tr><td>Toxic moiety of endotoxin</td><td>Lipid A</td></tr>
+          <tr><td>Stain for anthrax capsule</td><td>McFadyean's</td></tr>
+          <tr><td>Acid used in modified ZN</td><td>0.5–1% H₂SO₄</td></tr>
+          <tr><td>Enzyme cross-linking peptidoglycan</td><td>Transpeptidase (PBP)</td></tr>
+          <tr><td>Phase with maximum exotoxin/spores</td><td>Stationary phase</td></tr>
+          <tr><td>Ribosome of bacteria</td><td>70S = 50S + 30S</td></tr>
+          <tr><td>Medium for <i>Vibrio</i></td><td>TCBS / alkaline peptone water</td></tr>
+          <tr><td>Anaerobic indicator dye</td><td>Methylene blue</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 01 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 02 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">02</span>
+    <h2>Infection, Virulence, Toxins, Genetics &amp; Resistance</h2>
+    <span class="sub">t08–t12</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>Infection — the vocabulary that carries marks <span class="kind">rapid-fire</span></h3>
+      <div class="bank">
+        <div><b>Infection</b><span>Entry, multiplication &amp; establishment of an agent in host</span></div>
+        <div><b>Contamination</b><span>Presence on surface, no multiplication</span></div>
+        <div><b>Primary</b><span>First infection in a fresh host</span></div>
+        <div><b>Secondary</b><span>New agent on a weakened host</span></div>
+        <div><b>Focal</b><span>Confined to one site</span></div>
+        <div><b>Cross</b><span>New agent acquired from another patient/hospital</span></div>
+        <div><b>Nosocomial</b><span>Hospital-acquired</span></div>
+        <div><b>Iatrogenic</b><span>Caused by a procedure/physician</span></div>
+        <div><b>Latent</b><span>Agent persists silently, reactivates</span></div>
+        <div><b>Sub-clinical</b><span>Infected, no signs, still sheds</span></div>
+        <div><b>Zoonosis</b><span>Animal → human (anthrax, brucellosis, TB, leptospirosis)</span></div>
+        <div><b>Carrier</b><span>Healthy, incubatory, convalescent, chronic, contact</span></div>
+      </div>
+      <table style="margin-top:1.4mm">
+        <thead><tr><th style="width:26%">Route</th><th>How it happens</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><th>Ingestion</th><td>Contaminated feed/water/milk</td><td>Salmonellosis, Johne's</td></tr>
+          <tr><th>Inhalation</th><td>Aerosol, droplet nuclei</td><td>Tuberculosis, pasteurellosis</td></tr>
+          <tr><th>Contact</th><td>Direct / fomite / venereal</td><td>Dermatophilosis, campylobacteriosis</td></tr>
+          <tr><th>Vector</th><td>Biological or mechanical arthropod</td><td>Anaplasmosis, HS spread by flies</td></tr>
+          <tr><th>Vertical</th><td>Transplacental, transovarian, milk</td><td>Brucellosis, <i>S. pullorum</i></td></tr>
+          <tr><th>Iatrogenic</th><td>Needles, instruments, surgery</td><td>Tetanus, abscess</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Pathogenicity → disease <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 176" role="img" aria-label="Sequence from entry to disease with virulence determinants at each stage">
+        <g font-size="7.4">
+          <rect x="4" y="4" width="192" height="22" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="10" y="14" font-weight="600" fill="var(--safranin)">1 · ADHESION &amp; COLONISATION</text>
+          <text x="10" y="22" fill="var(--ink-2)">Fimbriae (K88/F4, K99/F5, 987P), LTA, biofilm</text>
+
+          <rect x="4" y="34" width="192" height="22" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="10" y="44" font-weight="600" fill="var(--safranin)">2 · INVASION</text>
+          <text x="10" y="52" fill="var(--ink-2)">Invasins, T3SS injectisome, hyaluronidase, collagenase</text>
+
+          <rect x="4" y="64" width="192" height="26" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="10" y="74" font-weight="600" fill="var(--safranin)">3 · EVASION OF DEFENCE</text>
+          <text x="10" y="82" fill="var(--ink-2)">Capsule (antiphagocytic), protein A, coagulase,</text>
+          <text x="10" y="88" fill="var(--ink-2)">IgA protease, catalase, antigenic variation, intracellular survival</text>
+
+          <rect x="4" y="98" width="192" height="22" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="10" y="108" font-weight="600" fill="var(--safranin)">4 · IRON ACQUISITION</text>
+          <text x="10" y="116" fill="var(--ink-2)">Siderophores — enterobactin, aerobactin; Tf/Lf receptors</text>
+
+          <rect x="4" y="128" width="192" height="22" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="10" y="138" font-weight="600" fill="var(--safranin)">5 · DAMAGE</text>
+          <text x="10" y="146" fill="var(--ink-2)">Exotoxin, endotoxin, enzymes, immunopathology</text>
+
+          <rect x="4" y="158" width="192" height="14" rx="2" fill="var(--ink)" stroke="none"/>
+          <text x="10" y="168" font-weight="600" fill="var(--paper)">DISEASE</text>
+
+          <g stroke="var(--safranin)" stroke-width="1">
+            <line x1="100" y1="26" x2="100" y2="34"/><line x1="100" y1="56" x2="100" y2="64"/>
+            <line x1="100" y1="90" x2="100" y2="98"/><line x1="100" y1="120" x2="100" y2="128"/>
+            <line x1="100" y1="150" x2="100" y2="158"/>
+          </g>
+        </g>
+      </svg>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Define</span> <b>Pathogenicity</b> = <i>qualitative</i> ability of a species to cause disease. <b>Virulence</b> = <i>quantitative</i> degree of pathogenicity, measured as <b>LD₅₀ / ID₅₀</b>. Lower LD₅₀ = more virulent.</div>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-amber">
+      <h3>Exotoxin vs Endotoxin <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Exotoxin</th><th>Endotoxin</th></tr></thead>
+        <tbody>
+          <tr><th>Nature</th><td>Protein (polypeptide)</td><td>LPS — Lipid A</td></tr>
+          <tr><th>Source</th><td>Mostly Gram +ve, some −ve; secreted</td><td>Gram −ve outer membrane; released on lysis</td></tr>
+          <tr><th>Heat</th><td>Labile (60 °C/30 min) — <b>except staph enterotoxin</b></td><td>Stable (121 °C, 1 h)</td></tr>
+          <tr><th>Potency</th><td>Highly potent (botulinum most potent known)</td><td>Weak, needs large dose</td></tr>
+          <tr><th>Specificity</th><td>Specific receptor &amp; target tissue</td><td>Non-specific — fever, DIC, shock</td></tr>
+          <tr><th>Antigenicity</th><td>Strong; neutralised by antitoxin</td><td>Poor; antibody not protective</td></tr>
+          <tr><th>Toxoid</th><td><b>Yes</b> (formalin 0.3–0.4%, 37 °C)</td><td>Cannot be toxoided</td></tr>
+          <tr><th>Genes</th><td>Plasmid / lysogenic phage often</td><td>Chromosomal</td></tr>
+          <tr><th>Detection</th><td>Neutralisation, ELISA, mouse test</td><td><b>LAL (Limulus amoebocyte lysate)</b></td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Also define:</b> <b>Bacteraemia</b> = organisms in blood, transient, no multiplication. <b>Septicaemia</b> = multiplication in blood + systemic signs. <b>Toxaemia</b> = toxin in blood without the organism (tetanus, enterotoxaemia). <b>Pyaemia</b> = pus-forming organisms in blood → metastatic abscesses.</div>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Named toxins to memorise <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>A-B model</b><span>B = binding subunit, A = active enzymatic subunit</span></div>
+        <div><b>Diphtheria &amp; <i>Pseudomonas</i> ExoA</b><span>ADP-ribosylate <b>EF-2</b> → protein synthesis stops</span></div>
+        <div><b>Cholera / <i>E. coli</i> LT</b><span>ADP-ribosylate Gs → ↑cAMP → secretory diarrhoea</span></div>
+        <div><b><i>E. coli</i> ST</b><span>↑cGMP via guanylate cyclase C</span></div>
+        <div><b>Tetanospasmin</b><span>Cleaves synaptobrevin → blocks glycine/GABA → <b>spastic</b> paralysis</span></div>
+        <div><b>Botulinum</b><span>Cleaves SNARE → blocks ACh release → <b>flaccid</b> paralysis</span></div>
+        <div><b>Anthrax</b><span>PA + EF (adenylate cyclase, oedema) + LF (protease, MAPKK)</span></div>
+        <div><b>α-toxin <i>C. perfringens</i></b><span>Lecithinase (phospholipase C) — Nagler reaction</span></div>
+        <div><b>ε-toxin <i>C. perfringens</i> D</b><span>Pulpy kidney; permease, ↑vascular permeability</span></div>
+        <div><b>Staph α / PVL / TSST-1</b><span>Pore-forming / leucocidin / superantigen</span></div>
+        <div><b>Streptolysin O &amp; S</b><span>O = oxygen-labile, antigenic (ASO titre); S = stable, non-antigenic</span></div>
+        <div><b>Superantigen</b><span>Bridges MHC-II to TCR Vβ outside groove → mass T-cell activation, cytokine storm</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod m-malachite">
+      <h3>Gene transfer — the three routes <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 128" role="img" aria-label="Transformation, transduction and conjugation compared">
+        <g font-size="7.2">
+          <text x="2" y="10" font-weight="600" fill="var(--malachite)">TRANSFORMATION</text>
+          <circle cx="26" cy="28" r="11" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+          <path d="M50 20 q6 6 12 0 q6 -6 12 0" fill="none" stroke="var(--ink-2)" stroke-width="1"/>
+          <path d="M40 26 l8 -4" stroke="var(--ink-3)" stroke-width=".8"/>
+          <text x="80" y="24" fill="var(--ink-2)">Naked DNA taken up by</text>
+          <text x="80" y="32" fill="var(--ink-2)"><tspan font-style="italic">competent</tspan> cell · Griffith 1928</text>
+          <text x="80" y="40" fill="var(--ink-2)">Avery, MacLeod &amp; McCarty 1944</text>
+
+          <line x1="2" y1="48" x2="198" y2="48" stroke="var(--rule)" stroke-width=".6"/>
+
+          <text x="2" y="60" font-weight="600" fill="var(--malachite)">TRANSDUCTION</text>
+          <path d="M22 70 l8 0 l0 6 l-4 6 l-4 -6 z" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+          <path d="M26 82 l0 6 M22 88 l4 -3 l4 3" fill="none" stroke="var(--malachite)" stroke-width=".9"/>
+          <circle cx="56" cy="78" r="10" fill="none" stroke="var(--ink-3)" stroke-width="1"/>
+          <text x="80" y="70" fill="var(--ink-2)">Bacteriophage carries DNA</text>
+          <text x="80" y="78" fill="var(--ink-2)"><b>Generalised</b> — lytic, any gene</text>
+          <text x="80" y="86" fill="var(--ink-2)"><b>Specialised</b> — lysogenic, adjacent genes</text>
+          <text x="80" y="94" fill="var(--ink-2)">Zinder &amp; Lederberg 1952</text>
+
+          <line x1="2" y1="100" x2="198" y2="100" stroke="var(--rule)" stroke-width=".6"/>
+
+          <text x="2" y="112" font-weight="600" fill="var(--malachite)">CONJUGATION</text>
+          <circle cx="20" cy="122" r="6" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+          <circle cx="54" cy="122" r="6" fill="none" stroke="var(--ink-3)" stroke-width="1"/>
+          <line x1="26" y1="122" x2="48" y2="122" stroke="var(--fuchsin)" stroke-width="1.4"/>
+          <text x="80" y="118" fill="var(--ink-2)">Sex pilus, cell contact · F⁺ → F⁻</text>
+          <text x="80" y="126" fill="var(--ink-2)">Hfr = integrated F · Lederberg &amp; Tatum 1946</text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>Transposons</b> ("jumping genes") move within/between replicons and carry resistance cassettes. <b>Integrons</b> capture gene cassettes by site-specific recombination — the engine of multi-drug R plasmids.</div>
+    </div>
+
+    <div class="mod">
+      <h3>Mutation &amp; plasmids <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Point mutation</b><span>Substitution — missense, nonsense, silent</span></div>
+        <div><b>Frameshift</b><span>Insertion / deletion (not ×3)</span></div>
+        <div><b>Spontaneous rate</b><span>10⁻⁶ – 10⁻⁹ per cell per division</span></div>
+        <div><b>Mutagens</b><span>UV (thymine dimers), alkylating agents, base analogues, acridine dyes</span></div>
+        <div><b>Ames test</b><span>Mutagenicity screen using <i>S. typhimurium</i> his⁻</span></div>
+        <div><b>F plasmid</b><span>Fertility — conjugation</span></div>
+        <div><b>R plasmid</b><span>RTF + r-determinant; multidrug resistance</span></div>
+        <div><b>Col plasmid</b><span>Bacteriocins (colicin)</span></div>
+        <div><b>Virulence plasmid</b><span>pXO1/pXO2 anthrax; ETEC enterotoxin; <i>Yersinia</i> pYV</span></div>
+        <div><b>Episome</b><span>Plasmid able to integrate into chromosome</span></div>
+        <div><b>Curing</b><span>Loss of plasmid — acridine orange, ethidium bromide, heat</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Antibiotic resistance <span class="kind">mechanism</span></h3>
+      <table style="font-size:7.2pt">
+        <thead><tr><th>Mechanism</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><th>Enzymatic destruction</th><td>β-lactamase, ESBL, <b>AmpC</b>, carbapenemase (NDM-1); acetyl/adenyl transferase for aminoglycosides</td></tr>
+          <tr><th>Target alteration</th><td><b>PBP2a (<i>mecA</i>) = MRSA</b>; ribosomal methylation (<i>erm</i>); DNA gyrase mutation → quinolone R</td></tr>
+          <tr><th>Reduced uptake</th><td>Porin loss (<i>Pseudomonas</i>)</td></tr>
+          <tr><th>Efflux pumps</th><td>Tetracycline (<i>tet</i>), multidrug RND pumps</td></tr>
+          <tr><th>Bypass pathway</th><td>Sulphonamide resistance via exogenous folate</td></tr>
+          <tr><th>Biofilm / persisters</th><td>Phenotypic tolerance, not genetic</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Vet relevance</span> Sub-therapeutic in-feed antibiotics &amp; poor withdrawal-period compliance drive AMR into the food chain. <b>MRSA, ESBL <i>E. coli</i>, MDR <i>Salmonella</i></b> are the named "One Health" examples. India: NAP-AMR; ban on colistin as growth promoter (2019).</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>Long-answer skeleton — "Virulence determinants of bacteria" <span class="kind">skeleton</span></h3>
+      <div class="skel">
+        <b>Ten-line frame that fits any 10–15 mark question</b>
+        <ol>
+          <li><b>Define</b> pathogenicity vs virulence; state LD₅₀/ID₅₀.</li>
+          <li><b>Adhesins</b> — fimbrial (K88, K99, 987P, F41) and afimbrial; tissue tropism.</li>
+          <li><b>Invasion factors</b> — invasins, T3SS, spreading enzymes (hyaluronidase = "spreading factor", collagenase, fibrinolysin).</li>
+          <li><b>Antiphagocytic</b> — capsule, M protein, protein A, coagulase, leucocidin.</li>
+          <li><b>Intracellular survival</b> — inhibition of phagolysosome fusion (<i>M. tuberculosis</i>), escape to cytosol (<i>Listeria</i>, listeriolysin O), catalase/SOD.</li>
+          <li><b>Iron piracy</b> — siderophores.</li>
+          <li><b>Toxins</b> — exotoxin classes (neuro-, entero-, cyto-, superantigen) + endotoxin.</li>
+          <li><b>Antigenic variation &amp; molecular mimicry</b>.</li>
+          <li><b>Biofilm</b> and quorum sensing.</li>
+          <li><b>Genetic basis</b> — pathogenicity islands, plasmids, lysogenic conversion; close with one Indian field example.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 02 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Most potent bacterial toxin</td><td>Botulinum</td></tr>
+          <tr><td>Toxin causing spastic paralysis</td><td>Tetanospasmin</td></tr>
+          <tr><td>Test to detect endotoxin</td><td>LAL test</td></tr>
+          <tr><td>Gene for methicillin resistance</td><td><i>mecA</i> → PBP2a</td></tr>
+          <tr><td>Transduction discovered by</td><td>Zinder &amp; Lederberg, 1952</td></tr>
+          <tr><td>Transformation discovered by</td><td>Griffith, 1928</td></tr>
+          <tr><td>Plasmid-free strain produced by</td><td>Curing (acridine orange)</td></tr>
+          <tr><td>Enzyme called "spreading factor"</td><td>Hyaluronidase</td></tr>
+          <tr><td>Toxin ADP-ribosylating EF-2</td><td>Diphtheria toxin</td></tr>
+          <tr><td>Iron-chelating virulence molecule</td><td>Siderophore</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 02 / 06</span>
+  </div>
+</section>
+<!-- ============================== SHEET 03 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">03</span>
+    <h2>Gram-Positive Cocci &amp; Non-Sporing Rods</h2>
+    <span class="sub">t13–t16</span>
+  </div>
+
+  <div class="mod m-violet">
+    <h3>Sorting the Gram-positives at the bench <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 130" role="img" aria-label="Decision tree separating Gram positive cocci and rods by catalase, coagulase and haemolysis">
+      <g font-size="10">
+        <rect x="270" y="2" width="160" height="20" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="284" y="16" fill="var(--violet)" font-weight="700">Gram-positive isolate</text>
+
+        <line x1="350" y1="22" x2="350" y2="30" stroke="var(--violet)" stroke-width="1"/>
+        <line x1="170" y1="30" x2="530" y2="30" stroke="var(--violet)" stroke-width="1"/>
+        <line x1="170" y1="30" x2="170" y2="40" stroke="var(--violet)" stroke-width="1"/>
+        <line x1="530" y1="30" x2="530" y2="40" stroke="var(--violet)" stroke-width="1"/>
+
+        <rect x="96" y="40" width="150" height="18" rx="3" fill="none" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="106" y="53" fill="var(--ink-2)">COCCI</text>
+        <rect x="456" y="40" width="150" height="18" rx="3" fill="none" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="466" y="53" fill="var(--ink-2)">RODS</text>
+
+        <!-- cocci branch -->
+        <line x1="170" y1="58" x2="170" y2="66" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="70" y1="66" x2="270" y2="66" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="70" y1="66" x2="70" y2="76" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="270" y1="66" x2="270" y2="76" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="176" y="64" font-size="8" fill="var(--amber)">CATALASE</text>
+
+        <rect x="4" y="76" width="132" height="48" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
+        <text x="12" y="88" font-weight="700" fill="var(--violet)">Catalase +ve</text>
+        <text x="12" y="99" font-size="8.5" fill="var(--ink-2)">Clusters · <tspan font-style="italic">Staphylococcus</tspan></text>
+        <text x="12" y="109" font-size="8.5" fill="var(--ink-2)">Coagulase + → <tspan font-style="italic">S. aureus</tspan></text>
+        <text x="12" y="119" font-size="8.5" fill="var(--ink-2)">Coagulase − → CNS (<tspan font-style="italic">S. epidermidis</tspan>)</text>
+
+        <rect x="204" y="76" width="132" height="48" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
+        <text x="212" y="88" font-weight="700" fill="var(--violet)">Catalase −ve</text>
+        <text x="212" y="99" font-size="8.5" fill="var(--ink-2)">Chains · <tspan font-style="italic">Streptococcus</tspan></text>
+        <text x="212" y="109" font-size="8.5" fill="var(--ink-2)">β-haem → <tspan font-style="italic">S. agalactiae</tspan>, <tspan font-style="italic">S. equi</tspan></text>
+        <text x="212" y="119" font-size="8.5" fill="var(--ink-2)">Bile-esculin + → <tspan font-style="italic">Enterococcus</tspan></text>
+
+        <!-- rods branch -->
+        <line x1="530" y1="58" x2="530" y2="66" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="430" y1="66" x2="640" y2="66" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="430" y1="66" x2="430" y2="76" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="640" y1="66" x2="640" y2="76" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="536" y="64" font-size="8" fill="var(--amber)">SPORES?</text>
+
+        <rect x="364" y="76" width="132" height="48" rx="3" fill="none" stroke="var(--malachite)" stroke-width=".9"/>
+        <text x="372" y="88" font-weight="700" fill="var(--malachite)">Spore-forming</text>
+        <text x="372" y="99" font-size="8.5" fill="var(--ink-2)">Aerobe → <tspan font-style="italic">Bacillus</tspan></text>
+        <text x="372" y="109" font-size="8.5" fill="var(--ink-2)">Anaerobe → <tspan font-style="italic">Clostridium</tspan></text>
+        <text x="372" y="119" font-size="8.5" fill="var(--ink-3)">(see sheet 04)</text>
+
+        <rect x="574" y="76" width="124" height="48" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
+        <text x="582" y="88" font-weight="700" fill="var(--violet)">Non-sporing</text>
+        <text x="582" y="99" font-size="8.5" fill="var(--ink-2)">Pleomorphic, granules → <tspan font-style="italic">Coryne.</tspan></text>
+        <text x="582" y="109" font-size="8.5" fill="var(--ink-2)">Tumbling motility → <tspan font-style="italic">Listeria</tspan></text>
+        <text x="582" y="119" font-size="8.5" fill="var(--ink-2)">H₂S in TSI, non-motile → <tspan font-style="italic">Erysipelothrix</tspan></text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3><i>Staphylococcus</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> Gram +ve cocci ~1 µm in <b>grape-like clusters</b>; non-motile, non-sporing, catalase +ve, facultative anaerobe.</li>
+        <li><b>Culture:</b> Golden-yellow colonies on nutrient agar; <b>β-haemolysis</b> on blood agar; grows in <b>7.5–10% NaCl</b> (Mannitol Salt Agar — mannitol fermented, medium turns yellow); Baird-Parker = black shiny colonies with clear halo.</li>
+        <li><b>Key test:</b> <b>Coagulase</b> — slide test detects bound clumping factor, tube test detects free coagulase. Coagulase +ve = pathogenic <i>S. aureus</i>.</li>
+        <li><b>Other tests:</b> DNase +, phosphatase +, protein A present, ferments mannitol anaerobically.</li>
+        <li><b>Virulence:</b> Protein A (binds Fc of IgG), coagulase, hyaluronidase, staphylokinase, lipase, α/β/γ/δ haemolysins, <b>Panton-Valentine leucocidin</b>, exfoliative toxin, <b>TSST-1 &amp; enterotoxins A–E (superantigens, heat-stable)</b>.</li>
+        <li><b>Veterinary diseases:</b> bovine mastitis (chief contagious cause, hard fibrotic quarter, gangrenous mastitis in sheep = "blue bag"), tick pyaemia in lambs, <b>bumblefoot</b> and synovitis in poultry, botryomycosis, pyoderma (<i>S. pseudintermedius</i> in dogs), exudative epidermitis/greasy pig disease (<i>S. hyicus</i>).</li>
+        <li><b>Public health:</b> staphylococcal food poisoning — 2–6 h, vomiting, from enterotoxin in milk products; <b>MRSA</b> (<i>mecA</i>).</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Differentiate:</b> <i>Staphylococcus</i> catalase <b>+</b>, clusters, coagulase ± · <i>Micrococcus</i> catalase +, oxidative, modified oxidase + · <i>Streptococcus</i> catalase <b>−</b>, chains.</div>
+    </div>
+
+    <div class="mod m-violet">
+      <h3><i>Streptococcus</i> &amp; <i>Enterococcus</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> Gram +ve cocci in <b>chains/pairs</b>, non-motile, <b>catalase −ve</b>, capnophilic, need enriched media.</li>
+        <li><b>Haemolysis classification:</b> <b>α</b> = partial, green (<i>S. pneumoniae</i>, viridans) · <b>β</b> = complete, clear (<i>S. agalactiae</i>, <i>S. equi</i>) · <b>γ</b> = none (<i>Enterococcus</i>).</li>
+        <li><b>Lancefield grouping</b> — precipitation against group-specific <b>C carbohydrate</b> of the cell wall (Rebecca Lancefield).</li>
+      </ul>
+      <table style="margin-top:1.2mm">
+        <thead><tr><th>Group</th><th>Species</th><th>Disease</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">A</td><td><i>S. pyogenes</i></td><td>Human; strangles-like in primates</td></tr>
+          <tr><td class="mono">B</td><td><i>S. agalactiae</i></td><td><b>Contagious bovine mastitis</b> — lives in udder, spread at milking</td></tr>
+          <tr><td class="mono">C</td><td><i>S. equi</i> subsp. <i>equi</i></td><td><b>Strangles</b> — abscessed submandibular &amp; retropharyngeal nodes</td></tr>
+          <tr><td class="mono">C</td><td><i>S. dysgalactiae</i></td><td>Environmental/summer mastitis, polyarthritis in lambs</td></tr>
+          <tr><td class="mono">D</td><td><i>Enterococcus faecalis/faecium</i></td><td>Enteric, UTI, VRE; bile-esculin +, 6.5% NaCl +</td></tr>
+          <tr><td class="mono">E</td><td><i>S. porcinus</i></td><td>Jowl abscess in pigs</td></tr>
+          <tr><td>—</td><td><i>S. uberis</i>, <i>S. suis</i></td><td>Environmental mastitis; meningitis in piglets (<b>zoonotic</b>)</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Tests</span> CAMP test + = <i>S. agalactiae</i> (arrowhead haemolysis with <i>S. aureus</i>) · Bacitracin sensitive = group A · Optochin sensitive &amp; bile soluble = <i>S. pneumoniae</i> · <b>Hippurate hydrolysis + = <i>S. agalactiae</i></b>.</div>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-amber">
+      <h3><i>Corynebacterium</i>, <i>Trueperella</i>, <i>Rhodococcus</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Corynebacterium</b> — Gram +ve, <b>pleomorphic club-shaped</b> rods in <b>Chinese-letter / palisade / V-L</b> arrangement; <b>metachromatic (Babes-Ernst) granules</b> shown by Albert's / Neisser's stain; non-motile, non-sporing, catalase +.</li>
+        <li><i>C. pseudotuberculosis</i> → <b>caseous lymphadenitis</b> of sheep &amp; goats (onion-ring greenish caseous nodes), ulcerative lymphangitis in horses. Toxin: <b>phospholipase D</b>. Reverse CAMP with <i>R. equi</i>.</li>
+        <li><i>C. renale</i> group → <b>bovine pyelonephritis &amp; cystitis</b>; pizzle rot (ulcerative posthitis) in wethers; urease strongly +.</li>
+        <li><i>C. diphtheriae</i> → diphtheria in man; toxin is phage(β)-coded; Loeffler's serum slope, potassium tellurite (black colonies); <b>Elek's gel precipitation test</b> for toxigenicity.</li>
+        <li><b><i>Trueperella pyogenes</i></b> (ex-<i>Arcanobacterium/Corynebacterium pyogenes</i>) — the classic <b>pus-forming</b> organism of cattle: summer mastitis, abscess, endometritis, pneumonia, arthritis. Small β-haemolytic colonies at 48 h, CAMP +.</li>
+        <li><b><i>Rhodococcus equi</i></b> — <b>partially acid-fast</b> coccobacillus, salmon-pink mucoid colonies, urease +. <b>Suppurative bronchopneumonia with abscesses in foals 1–4 months</b>; ulcerative enteritis. Virulence plasmid <b>VapA</b>; survives inside macrophages.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-violet">
+      <h3><i>Listeria</i> vs <i>Erysipelothrix</i> <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th><i>L. monocytogenes</i></th><th><i>E. rhusiopathiae</i></th></tr></thead>
+        <tbody>
+          <tr><th>Motility</th><td><b>Tumbling at 25 °C</b>, umbrella growth in semisolid</td><td>Non-motile</td></tr>
+          <tr><th>Catalase</th><td>Positive</td><td><b>Negative</b></td></tr>
+          <tr><th>H₂S in TSI</th><td>Negative</td><td><b>Positive</b></td></tr>
+          <tr><th>Haemolysis</th><td>Narrow β (listeriolysin O); <b>CAMP +</b></td><td>α on blood agar</td></tr>
+          <tr><th>Growth trick</th><td><b>Cold enrichment 4 °C</b> — psychrotroph</td><td>"Test-tube brush" in gelatin stab</td></tr>
+          <tr><th>Disease</th><td>Circling disease/encephalitis (ruminants), abortion, septicaemia in monogastrics; <b>silage disease</b></td><td><b>Swine erysipelas</b> — rhomboid "diamond skin"; arthritis, endocarditis; ovine polyarthritis; turkey septicaemia</td></tr>
+          <tr><th>Zoonosis</th><td>Listeriosis — abortion, meningitis (immunocompromised)</td><td><b>Erysipeloid</b> — fish-handler's / whale-finger</td></tr>
+          <tr><th>Immunity</th><td>Classic model of <b>cell-mediated immunity</b>; intracellular, ActA-driven actin tails</td><td>Neuraminidase, hyaluronidase; bacterin/live vaccine</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Trap:</b> <i>Listeria</i> is a facultative <b>intracellular</b> pathogen — escapes phagosome using <b>listeriolysin O</b> and moves cell to cell with actin tails, so antibody is nearly useless and <b>T-cell immunity</b> is the answer.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>Mastitis pathogens — the table examiners love <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Type</th><th>Organism</th><th>Reservoir &amp; spread</th><th>Signature</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="3">Contagious</th><td><i>Staph. aureus</i></td><td>Infected udder → milking</td><td>Chronic, fibrosis, gangrene</td></tr>
+          <tr><td><i>Strep. agalactiae</i></td><td>Obligate udder parasite</td><td>High SCC, eradicable</td></tr>
+          <tr><td><i>Mycoplasma bovis</i></td><td>Udder, respiratory</td><td>Multiple quarters, no fever response to antibiotics</td></tr>
+          <tr><th rowspan="3">Environmental</th><td><i>E. coli</i>, <i>Klebsiella</i></td><td>Bedding, faeces</td><td>Acute toxic (endotoxic) mastitis</td></tr>
+          <tr><td><i>Strep. uberis</i>/<i>dysgalactiae</i></td><td>Environment, skin</td><td>Clinical, dry-period onset</td></tr>
+          <tr><td><i>T. pyogenes</i> + <i>F. necrophorum</i></td><td>Flies (<i>Hydrotaea</i>)</td><td><b>Summer mastitis</b> — foul-smelling pus, quarter lost</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Screening</span> <b>CMT / SFMT</b> (California &amp; Surf Field Mastitis Test) — detects DNA of somatic cells; <b>SCC &gt; 2 lakh/ml</b> = subclinical mastitis. Confirm by culture + ABST before dry-cow therapy.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 03 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Single best test to separate Staph from Strep</td><td>Catalase</td></tr>
+          <tr><td>Marker of pathogenic <i>S. aureus</i></td><td>Coagulase</td></tr>
+          <tr><td>Selective medium for staphylococci</td><td>Mannitol salt / Baird-Parker</td></tr>
+          <tr><td>Lancefield antigen</td><td>Cell wall C carbohydrate</td></tr>
+          <tr><td>CAMP test positive species</td><td><i>S. agalactiae</i>, <i>L. monocytogenes</i></td></tr>
+          <tr><td>Cause of strangles</td><td><i>S. equi</i> subsp. <i>equi</i></td></tr>
+          <tr><td>Caseous lymphadenitis toxin</td><td>Phospholipase D</td></tr>
+          <tr><td>Foal pneumonia with abscesses</td><td><i>Rhodococcus equi</i> (VapA)</td></tr>
+          <tr><td>Cold enrichment organism</td><td><i>Listeria monocytogenes</i></td></tr>
+          <tr><td>Diamond skin disease</td><td><i>Erysipelothrix rhusiopathiae</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 03 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 04 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">04</span>
+    <h2>Spore-Formers, Acid-Fast &amp; Filamentous Bacteria</h2>
+    <span class="sub">t17–t20</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-malachite">
+      <h3><i>Bacillus anthracis</i> — the complete answer <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> large Gram +ve rod 1–1.5 × 3–8 µm with <b>square/truncate ends</b>; in culture long chains = <b>bamboo-stick / boxcar</b>; capsule of <b>poly-D-glutamic acid</b> (pXO2); <b>central, ellipsoidal, non-bulging spore</b>.</li>
+        <li><b>Golden rule:</b> spores form <b>only outside the body in free oxygen</b> — never in a living host or unopened carcass. <b>Never necropsy a suspect case</b>; spores survive in soil 50+ years ("incubator areas").</li>
+        <li><b>Culture:</b> non-haemolytic on sheep blood agar (<i>B. cereus</i> is β-haemolytic); <b>Medusa-head</b> colony edge; <b>inverted fir-tree</b> in gelatin stab; <b>string-of-pearls</b> with 0.5 IU/ml penicillin; grows on bicarbonate agar + 5% CO₂ to make capsule.</li>
+        <li><b>Toxin (pXO1, tripartite, A-B type):</b> <b>PA</b> (binds CMG2/TEM8, forms heptamer pore) + <b>EF</b> (calmodulin-dependent adenylate cyclase → oedema) + <b>LF</b> (Zn-metalloprotease cleaving MAPKK → macrophage death, shock).</li>
+        <li><b>Virulence needs BOTH plasmids.</b> Sterne 34F₂ vaccine = pXO2⁻ (non-capsulated, toxigenic, live spore) — the vaccine used in India. Pasteur's was heat-attenuated.</li>
+        <li><b>Diagnosis:</b> peripheral blood/ear-vein smear with <b>McFadyean's polychrome methylene blue</b> — blue rods with pink capsule; <b>Ascoli thermoprecipitation test</b> on decomposed tissue/hides; PCR for <i>pagA</i>, <i>capB</i>; culture; animal inoculation in guinea pig.</li>
+        <li><b>Clinical:</b> peracute sudden death in cattle/buffalo/sheep; <b>dark tarry unclotted blood from natural orifices, no rigor mortis, enlarged friable "blackberry-jam" spleen</b>. Man: cutaneous <b>malignant pustule</b>, woolsorter's disease, intestinal.</li>
+        <li><b>Control:</b> do not open carcass; burn or bury 6 ft deep with quicklime; 10% formaldehyde/5% NaOH; annual Sterne vaccination in endemic belt; notifiable.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b><i>B. anthracis</i> vs <i>B. cereus</i>:</b> non-motile / motile · non-haemolytic / β-haemolytic · capsulated / non-capsulated · penicillin-sensitive / resistant · susceptible to gamma phage &amp; string-of-pearls / not. <i>B. cereus</i> = food poisoning (emetic &amp; diarrhoeal) and bovine mastitis.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3><i>Mycobacterium</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Acid-fastness</b> is due to <b>mycolic acid</b> in a lipid-rich (up to 60%) wall + peptidoglycolipid (<b>wax D</b>), demonstrated by <b>Ziehl-Neelsen</b>. Slender, beaded, non-motile, non-sporing, obligate aerobe.</li>
+        <li><b>Media:</b> <b>Lowenstein-Jensen</b> (egg, malachite green, glycerol) · Stonebrink (pyruvate) for <i>M. bovis</i> · Middlebrook 7H10/7H11 · <b>Dorset egg</b>, Herrold's egg-yolk with mycobactin J for <i>M. paratuberculosis</i>.</li>
+        <li><b>Growth:</b> slow — <i>M. tuberculosis</i> 2–4 wks (eugonic, rough buff tough), <i>M. bovis</i> 6–8 wks (<b>dysgonic</b>, needs pyruvate, glycerol inhibits), <i>M. avium</i> 2–3 wks, <i>M. paratuberculosis</i> 8–16 wks (<b>mycobactin-dependent</b> — the defining test).</li>
+        <li><b>Runyon groups</b> (atypical/NTM): I photochromogen · II scotochromogen · III non-chromogen · IV rapid grower (<i>M. fortuitum</i>).</li>
+        <li><b>Bovine TB (<i>M. bovis</i>):</b> tubercle = caseation + calcification; miliary or organ TB; <b>zoonotic via raw milk</b>. Diagnosis: <b>single intradermal / single intradermal comparative cervical tuberculin test</b> (avian vs bovine PPD, read at 72 h), <b>IFN-γ (Bovigam) assay</b>, ZN of milk/tissue, culture, PCR. Test-and-slaughter policy.</li>
+        <li><b>Johne's disease (<i>M. avium</i> subsp. <i>paratuberculosis</i>):</b> chronic granulomatous enteritis of cattle &amp; buffalo; incubation 2–5 yrs; <b>corrugated, thickened "brain-like" ileum</b>, no ulcer; intermittent pipe-stream diarrhoea, emaciation, submandibular oedema, normal appetite. Diagnosis: ZN of rectal pinch/faeces (clumps of AFB), <b>johnin test</b>, AGID, ELISA, faecal culture, IS<i>900</i> PCR.</li>
+        <li><b>Avian TB (<i>M. avium</i>):</b> nodules in liver, spleen, intestine <b>without calcification</b>; positive avian tuberculin.</li>
+        <li><b>Virulence:</b> cord factor (trehalose-6,6′-dimycolate), sulpholipids, LAM, catalase-peroxidase; blocks phagosome-lysosome fusion → survives in macrophage → <b>Type IV hypersensitivity &amp; granuloma</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-malachite">
+      <h3><i>Clostridium</i> — split by what the toxin does <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:14%">Group</th><th style="width:24%">Species</th><th>Disease &amp; key toxin</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="2">Neurotoxic</th><td><i>C. tetani</i></td><td><b>Tetanus</b> — drumstick/tennis-racquet terminal round spore, swarming, <b>tetanospasmin</b> blocks glycine/GABA at Renshaw cells → spastic paralysis, lockjaw, sawhorse stance, third-eyelid prolapse. Toxoid (ATT) + antitoxin</td></tr>
+          <tr><td><i>C. botulinum</i></td><td><b>Botulism</b> — types A–G; C &amp; D in animals; <b>preformed toxin</b> in spoiled silage/carcass; flaccid paralysis, "limberneck" in birds. Type C = "lamziekte" with osteophagia in P-deficient cattle</td></tr>
+          <tr><th rowspan="2">Histotoxic</th><td><i>C. chauvoei</i></td><td><b>Black quarter/blackleg</b> — endogenous, crepitant emphysematous myositis of heavy muscle in young cattle; rancid butter smell</td></tr>
+          <tr><td><i>C. septicum</i> / <i>novyi</i> / <i>sordellii</i></td><td>Malignant oedema, braxy (abomasitis), <b>black disease</b> (<i>C. novyi</i> B with <i>Fasciola</i> migration), big head of rams, gas gangrene</td></tr>
+          <tr><th rowspan="2">Entero-<br>toxigenic</th><td><i>C. perfringens</i> A–E</td><td><b>A</b> gas gangrene, yellow lamb disease · <b>B</b> lamb dysentery · <b>C</b> struck, necrotic enteritis · <b>D</b> <b>pulpy kidney/enterotoxaemia (ε-toxin)</b>, glycosuria · <b>E</b> enteritis. Type A also = <b>necrotic enteritis in broilers</b></td></tr>
+          <tr><td><i>C. difficile</i></td><td>Toxins A &amp; B; colitis in horses/pigs after antibiotics</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Toxin typing</span> <b>α</b>=lecithinase (all types, <b>Nagler reaction</b> on egg-yolk agar, half-plate antitoxin) · <b>β</b>=B,C (trypsin-labile — why lambs on colostrum are hit) · <b>ε</b>=B,D · <b>ι</b>=E. Confirm by mouse neutralisation / multiplex PCR.</div>
+      <div class="trap" style="margin-top:1.2mm"><b>Blackleg vs malignant oedema:</b> BQ = endogenous, no wound, heavy muscles, <i>C. chauvoei</i>. MO = wound-associated, subcutaneous, <i>C. septicum</i> chiefly, oedema &gt; gas.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3><i>Actinomyces</i>, <i>Nocardia</i>, <i>Streptomyces</i>, <i>Dermatophilus</i> <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Genus</th><th>O₂ &amp; acid-fast</th><th>Disease</th></tr></thead>
+        <tbody>
+          <tr><th><i>Actinomyces bovis</i></th><td>Anaerobe/capnophile · <b>Not</b> acid-fast</td><td><b>Lumpy jaw</b> — pyogranulomatous osteomyelitis of mandible/maxilla in cattle; <b>sulphur granules</b> in pus (club colonies)</td></tr>
+          <tr><th><i>Nocardia asteroides</i></th><td>Strict aerobe · <b>Partially acid-fast</b> (modified ZN)</td><td>Bovine nocardial mastitis, canine/feline pyothorax, granulomatous pneumonia; branching filaments, soil saprophyte</td></tr>
+          <tr><th><i>Streptomyces</i></th><td>Aerobe · not acid-fast</td><td>Mostly soil saprophyte; <b>source of most antibiotics</b> (streptomycin, tetracycline); rare mycetoma</td></tr>
+          <tr><th><i>Dermatophilus congolensis</i></th><td>Facultative anaerobe · not acid-fast</td><td><b>Dermatophilosis / rain scald / strawberry footrot</b>; branching filaments dividing in two planes → <b>"railroad-track" parallel rows of cocci (zoospores)</b>; motile flagellated zoospores activated by moisture</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Actinobacillosis vs Actinomycosis:</b> <i>Actinobacillus lignieresii</i> = <b>wooden tongue</b>, Gram <b>−</b>ve, soft tissue. <i>Actinomyces bovis</i> = <b>lumpy jaw</b>, Gram <b>+</b>ve, bone. Both give sulphur granules — the Gram reaction of the granule is the differentiator.</div>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod">
+      <h3>Sterilisation &amp; disinfection — one-glance table <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Method</th><th>Condition</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><th>Hot air oven</th><td class="mono num">160 °C / 2 h</td><td>Glass, oil, powder</td></tr>
+          <tr><th>Autoclave</th><td class="mono num">121 °C, 15 psi, 15 min</td><td>Media, instruments; <b>gold standard</b></td></tr>
+          <tr><th>Tyndallisation</th><td class="mono num">100 °C / 20 min × 3 d</td><td>Sugars, gelatin</td></tr>
+          <tr><th>Inspissation</th><td class="mono num">80–85 °C / 30 min × 3 d</td><td>LJ, Loeffler serum</td></tr>
+          <tr><th>Pasteurisation</th><td class="mono">LTLT 63 °C/30 min · HTST 72 °C/15 s</td><td>Milk — kills <i>M. bovis</i>, <i>Coxiella</i></td></tr>
+          <tr><th>Filtration</th><td class="mono num">0.22 µm membrane</td><td>Sera, antibiotics (not viruses)</td></tr>
+          <tr><th>Radiation</th><td>UV 260 nm (surface) · gamma (ionising)</td><td>Cabinets · plasticware</td></tr>
+          <tr><th>Chemical</th><td>Ethylene oxide, glutaraldehyde, formalin, phenol, hypochlorite, quaternary ammonium</td><td>Heat-labile items, premises</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Controls</span> Autoclave → <i>Geobacillus stearothermophilus</i> spores · Hot air oven → <i>Bacillus atrophaeus</i> (<i>subtilis</i>) spores · Ethylene oxide → <i>B. atrophaeus</i>. Browne's tube &amp; autoclave tape = chemical indicators. <b>Rideal-Walker / Chick-Martin</b> = phenol coefficient.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 04 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Anthrax capsule chemistry</td><td>Poly-D-glutamic acid (pXO2)</td></tr>
+          <tr><td>Anthrax toxin components</td><td>PA + EF + LF</td></tr>
+          <tr><td>Anthrax field test on hides</td><td>Ascoli thermoprecipitation</td></tr>
+          <tr><td>Anthrax vaccine strain</td><td>Sterne 34F₂ (pXO2⁻)</td></tr>
+          <tr><td>Chemical basis of acid-fastness</td><td>Mycolic acid</td></tr>
+          <tr><td>Growth factor for <i>M. paratuberculosis</i></td><td>Mycobactin J</td></tr>
+          <tr><td>PCR target for Johne's</td><td>IS<i>900</i></td></tr>
+          <tr><td>Terminal round spore, drumstick</td><td><i>C. tetani</i></td></tr>
+          <tr><td>Nagler reaction detects</td><td><i>C. perfringens</i> α-toxin (lecithinase)</td></tr>
+          <tr><td>Pulpy kidney toxin</td><td>ε-toxin, <i>C. perfringens</i> type D</td></tr>
+          <tr><td>Sulphur granules, Gram +ve, bone</td><td><i>Actinomyces bovis</i></td></tr>
+          <tr><td>Railroad-track zoospores</td><td><i>Dermatophilus congolensis</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 04 / 06</span>
+  </div>
+</section>
+<!-- ============================== SHEET 05 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">05</span>
+    <h2>Gram-Negative Rods — Enteric &amp; Respiratory Block</h2>
+    <span class="sub">t21–t28</span>
+  </div>
+
+  <div class="mod m-safranin">
+    <h3>Identifying a Gram-negative rod in six moves <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 116" role="img" aria-label="Flow from oxidase and lactose reactions to the main Gram negative genera">
+      <g font-size="9.5">
+        <rect x="284" y="2" width="132" height="18" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
+        <text x="294" y="15" fill="var(--safranin)" font-weight="700">Gram −ve rod on MacConkey</text>
+        <line x1="350" y1="20" x2="350" y2="28" stroke="var(--safranin)" stroke-width="1"/>
+        <line x1="160" y1="28" x2="540" y2="28" stroke="var(--safranin)" stroke-width="1"/>
+        <text x="356" y="26" font-size="8" fill="var(--amber)">OXIDASE</text>
+
+        <line x1="160" y1="28" x2="160" y2="36" stroke="var(--safranin)" stroke-width="1"/>
+        <line x1="540" y1="28" x2="540" y2="36" stroke="var(--safranin)" stroke-width="1"/>
+
+        <rect x="4" y="36" width="312" height="16" rx="2" fill="none" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="12" y="48" fill="var(--ink-2)"><tspan font-weight="700">Oxidase −ve</tspan> · Enterobacteriaceae · glucose fermenter · nitrate → nitrite</text>
+        <rect x="384" y="36" width="312" height="16" rx="2" fill="none" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="392" y="48" fill="var(--ink-2)"><tspan font-weight="700">Oxidase +ve</tspan> · non-enteric</text>
+
+        <line x1="160" y1="52" x2="160" y2="60" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="70" y1="60" x2="250" y2="60" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="70" y1="60" x2="70" y2="68" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="250" y1="60" x2="250" y2="68" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="166" y="58" font-size="8" fill="var(--amber)">LACTOSE</text>
+
+        <rect x="4" y="68" width="132" height="44" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+        <text x="12" y="80" font-weight="700" fill="var(--safranin)">Lactose FERMENTER</text>
+        <text x="12" y="91" font-size="8.5" fill="var(--ink-2)">Pink on MacConkey</text>
+        <text x="12" y="101" font-size="8.5" fill="var(--ink-2)"><tspan font-style="italic">E. coli</tspan> (IMViC ++−−, green sheen EMB)</text>
+        <text x="12" y="110" font-size="8.5" fill="var(--ink-2)"><tspan font-style="italic">Klebsiella</tspan> (mucoid, non-motile, VP+)</text>
+
+        <rect x="184" y="68" width="132" height="44" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+        <text x="192" y="80" font-weight="700" fill="var(--safranin)">NON-fermenter</text>
+        <text x="192" y="91" font-size="8.5" fill="var(--ink-2)">Pale colonies</text>
+        <text x="192" y="101" font-size="8.5" fill="var(--ink-2)">H₂S+, motile → <tspan font-style="italic">Salmonella</tspan></text>
+        <text x="192" y="110" font-size="8.5" fill="var(--ink-2)">Swarms, urease++ → <tspan font-style="italic">Proteus</tspan>; <tspan font-style="italic">Yersinia</tspan> 22 °C motile</text>
+
+        <line x1="540" y1="52" x2="540" y2="60" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="450" y1="60" x2="630" y2="60" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="450" y1="60" x2="450" y2="68" stroke="var(--ink-3)" stroke-width=".8"/>
+        <line x1="630" y1="60" x2="630" y2="68" stroke="var(--ink-3)" stroke-width=".8"/>
+        <text x="546" y="58" font-size="8" fill="var(--amber)">GROWTH ON MacCONKEY</text>
+
+        <rect x="384" y="68" width="132" height="44" rx="3" fill="none" stroke="var(--safranin)" stroke-width=".9"/>
+        <text x="392" y="80" font-weight="700" fill="var(--safranin)">Grows</text>
+        <text x="392" y="91" font-size="8.5" fill="var(--ink-2)">Pigment, grape odour → <tspan font-style="italic">Pseudomonas</tspan></text>
+        <text x="392" y="101" font-size="8.5" fill="var(--ink-2)">Safety-pin, glanders → <tspan font-style="italic">Burkholderia</tspan></text>
+        <text x="392" y="110" font-size="8.5" fill="var(--ink-2)">Curved, TCBS → <tspan font-style="italic">Vibrio</tspan></text>
+
+        <rect x="564" y="68" width="132" height="44" rx="3" fill="none" stroke="var(--safranin)" stroke-width=".9"/>
+        <text x="572" y="80" font-weight="700" fill="var(--safranin)">Poor / no growth</text>
+        <text x="572" y="91" font-size="8.5" fill="var(--ink-2)">Bipolar coccobacillus → <tspan font-style="italic">Pasteurella</tspan></text>
+        <text x="572" y="101" font-size="8.5" fill="var(--ink-2)">X &amp; V factors → <tspan font-style="italic">Haemophilus</tspan></text>
+        <text x="572" y="110" font-size="8.5" fill="var(--ink-2)">CO₂-dependent → <tspan font-style="italic">Brucella</tspan>; seagull → <tspan font-style="italic">Campylobacter</tspan></text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-safranin">
+      <h3><i>E. coli</i>, <i>Klebsiella</i> &amp; the pathotypes <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Family traits:</b> Gram −ve rods, <b>oxidase −ve</b>, ferment glucose, reduce nitrate, catalase +, facultative anaerobe. Antigens <b>O (somatic, LPS, heat-stable) · H (flagellar, protein, heat-labile) · K (capsular) · Vi (<i>S. Typhi</i>, <i>Citrobacter</i>)</b>.</li>
+        <li><b><i>E. coli</i>:</b> motile, lactose +, <b>IMViC = + + − −</b>, metallic green sheen on EMB, MR +, VP −, citrate −, indole +.</li>
+      </ul>
+      <table style="margin-top:1.2mm">
+        <thead><tr><th style="width:16%">Pathotype</th><th>Mechanism</th><th>Veterinary disease</th></tr></thead>
+        <tbody>
+          <tr><th>ETEC</th><td>Fimbriae <b>K88/F4, K99/F5, 987P, F41</b> + LT/ST enterotoxin</td><td>Neonatal calf/piglet/lamb diarrhoea (secretory, &lt;1 wk)</td></tr>
+          <tr><th>EPEC</th><td>Intimin (<i>eae</i>) → <b>attaching-effacing</b> lesion</td><td>Diarrhoea in rabbits, dogs, calves</td></tr>
+          <tr><th>STEC/VTEC</th><td>Shiga toxin Stx1/Stx2</td><td><b>Oedema disease</b> of weaned pigs (Stx2e); <b>O157:H7</b> HUS in man — cattle are the reservoir</td></tr>
+          <tr><th>Septicaemic</th><td>Capsule, aerobactin, serum resistance</td><td>Colisepticaemia in calves (failure of passive transfer), <b>colibacillosis in poultry</b> — pericarditis, perihepatitis, airsacculitis</td></tr>
+          <tr><th>UPEC / mastitis</th><td>P fimbriae; endotoxin</td><td>Cystitis, pyometra; <b>acute toxic coliform mastitis</b></td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b><i>Klebsiella pneumoniae</i>:</b> <b>non-motile</b>, prominent polysaccharide capsule, mucoid stringy colonies, <b>VP +, citrate +, urease weakly +, indole −</b> (mirror image of <i>E. coli</i>). Environmental mastitis from sawdust bedding, metritis in mares, pneumonia in foals, CAUTI. Multi-drug resistant (ESBL, carbapenemase).</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3><i>Salmonella</i>, <i>Yersinia</i>, <i>Proteus</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b><i>Salmonella</i>:</b> motile (except <b><i>S.</i> Gallinarum &amp; Pullorum</b>), non-lactose fermenter, <b>H₂S +</b>, urease −, indole −, citrate +. TSI = <b>alkaline slant / acid butt with blackening</b>. Media: selenite F / tetrathionate broth → XLD, BSA (Wilson-Blair, <b>black colonies</b>), MacConkey pale.</li>
+        <li><b>Kauffmann-White scheme</b> classifies &gt;2600 serovars on O, H (phase 1 &amp; 2) and Vi antigens.</li>
+        <li><b>Diseases:</b> calf paratyphoid (<i>S.</i> Dublin, Typhimurium) — septicaemia, enteritis, abortion; <b>abortion in mares (<i>S.</i> Abortusequi)</b> and ewes (<i>S.</i> Abortusovis); <b>fowl typhoid (<i>S.</i> Gallinarum)</b> and <b>pullorum disease/BWD (<i>S.</i> Pullorum, egg-transmitted)</b> — detected by <b>rapid serum/whole-blood plate agglutination</b>; swine salmonellosis (<i>S.</i> Choleraesuis). Food-borne zoonosis via eggs and meat.</li>
+        <li><b>Virulence:</b> SPI-1 &amp; SPI-2 pathogenicity islands (T3SS), Vi capsule, endotoxin, survival in macrophages.</li>
+        <li><b><i>Yersinia</i>:</b> <b>bipolar staining, motile at 22 °C but non-motile at 37 °C</b>, urease +. <i>Y. pestis</i> — plague, safety-pin appearance, flea-borne, <b>rodent reservoir</b>, Fraction 1 capsule, V &amp; W antigens. <i>Y. enterocolitica</i> — cold enrichment, enterocolitis, pigs are the reservoir. <i>Y. pseudotuberculosis</i> — caseous nodules in rodents, birds, sheep.</li>
+        <li><b><i>Proteus</i>:</b> <b>swarming</b> on blood agar (inhibited by 5% agar / CLED), <b>urease strongly +</b> (→ struvite urolith &amp; alkaline urine), H₂S +, PDA +, fishy odour. UTI, otitis externa, wound infection. <b>Weil-Felix</b> — OX-19/OX-2/OX-K strains cross-react with rickettsial antibodies.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod">
+      <h3><i>Pasteurella</i> · <i>Mannheimia</i> · <i>Actinobacillus</i> · <i>Haemophilus</i> <span class="kind">table</span></h3>
+      <table style="font-size:7.1pt">
+        <thead><tr><th>Organism</th><th>Disease &amp; key point</th></tr></thead>
+        <tbody>
+          <tr><th><i>P. multocida</i> B:2 / E:2</th><td><b>Haemorrhagic septicaemia</b> of cattle &amp; buffalo — monsoon, sudden death, hot painful submandibular swelling, petechiae on serosa. Bipolar Gram −ve coccobacillus (Leishman/methylene blue), capsulated, non-motile, indole +, no growth on MacConkey. <b>Vaccine: alum-precipitated / oil-adjuvant HS bacterin</b></td></tr>
+          <tr><th><i>P. multocida</i> A:1</th><td><b>Fowl cholera</b> — greenish diarrhoea, wattle abscess, petechiae in heart fat; also progressive atrophic rhinitis in pigs (with <i>Bordetella</i>) via dermonecrotic toxin</td></tr>
+          <tr><th><i>Mannheimia haemolytica</i> A1</th><td><b>Shipping fever / enzootic pneumonia</b> of cattle &amp; sheep; <b>leukotoxin (RTX)</b> kills ruminant leucocytes; β-haemolytic, grows on MacConkey, indole −</td></tr>
+          <tr><th><i>Actinobacillus lignieresii</i></th><td><b>Wooden tongue</b> in cattle — soft-tissue granuloma, sulphur granules, Gram −ve rosettes</td></tr>
+          <tr><th><i>A. equuli</i> / <i>A. pleuropneumoniae</i></th><td>Sleepy foal disease (joint-ill, nephritis) · <b>Porcine pleuropneumonia</b> — Apx toxins, NAD-dependent, CAMP +</td></tr>
+          <tr><th><i>Haemophilus</i></th><td>Needs <b>X (haemin) and/or V (NAD)</b> factors → <b>satellitism</b> around <i>S. aureus</i> on blood agar. <i>H. parasuis</i> = <b>Glasser's disease</b> (polyserositis, arthritis, meningitis); <i>Avibacterium paragallinarum</i> = <b>infectious coryza</b> in poultry</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-amber">
+      <h3><i>Brucella</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li>Gram −ve, <b>tiny coccobacilli, non-motile, non-sporing, non-capsulated</b>, aerobic, <b>catalase &amp; oxidase +, urease +</b>, <b>partially acid-fast (modified ZN → red on blue)</b>.</li>
+        <li><b>Species &amp; host:</b> <i>B. abortus</i> (cattle) · <i>B. melitensis</i> (goat/sheep — most pathogenic for man) · <i>B. suis</i> (pig) · <i>B. ovis</i> (ram epididymitis) · <i>B. canis</i> (dog) · <i>B. neotomae</i>, <i>B. ceti</i>, <i>B. pinnipedialis</i>.</li>
+        <li><b>Growth aids:</b> <i>B. abortus</i> biovar 1 needs <b>5–10% CO₂</b>; differentiate species by CO₂ need, H₂S, urease speed, dye inhibition (<b>thionine &amp; basic fuchsin</b>), phage Tbilisi lysis, A/M monospecific sera.</li>
+        <li><b>Pathogenesis:</b> facultative intracellular in macrophages &amp; trophoblasts; <b>erythritol</b> in the placenta of cattle, sheep, goat, pig favours growth → <b>abortion in the last trimester</b>, retained placenta, orchitis/epididymitis, hygroma. Man: <b>undulant/Malta fever</b> — a major lab-acquired infection.</li>
+        <li><b>Tests:</b> RBPT (screening) · <b>STAT</b> · MRT (milk ring, herd screening) · 2-ME/Rivanol (IgG, chronic) · CFT (OIE international trade standard) · <b>i-ELISA/c-ELISA</b> · FPA · AGID for <i>B. ovis</i> · PCR (<i>bcsp31</i>, IS<i>711</i>) · culture on Brucella selective agar.</li>
+        <li><b>Vaccine:</b> <b><i>B. abortus</i> S19</b> — live, 4–8 month heifer calves, single dose, gives lifelong immunity but antibody interferes with testing. <b>RB51</b> — rough, no smooth-LPS antibody, DIVA-compatible. <b>Rev-1</b> for sheep &amp; goats.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Trap:</b> Bull semen and blood are NOT reliable samples — use <b>aborted foetal stomach content, placental cotyledon, vaginal discharge, milk</b>. No treatment in animals; policy is test-and-slaughter + vaccination.</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3><i>Pseudomonas</i>, <i>Vibrio</i>, <i>Campylobacter</i>, <i>Bordetella</i>, <i>Moraxella</i> <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b><i>P. aeruginosa</i></b><span>Oxidase <b>+</b>, non-fermenter, <b>pyocyanin (blue) + pyoverdin (green)</b>, sweet grape/corn-tortilla odour, grows at 42 °C. Otitis externa in dogs, mastitis from contaminated water, burn/wound sepsis, <b>notoriously multi-drug resistant</b>; ExoA toxin</span></div>
+        <div><b><i>Burkholderia mallei</i></b><span><b>Glanders</b> in equines — farcy nodules along lymphatics, nasal ulcers; non-motile; <b>Mallein test</b>, CFT; <b>notifiable &amp; zoonotic</b>; no treatment, destruction policy</span></div>
+        <div><b><i>B. pseudomallei</i></b><span>Melioidosis — soil/water saprophyte, motile, safety-pin, caseous nodules</span></div>
+        <div><b><i>Vibrio cholerae</i></b><span>Curved comma rod, single polar flagellum, <b>darting motility</b>, grows at <b>pH 8.5–9.0</b>, TCBS <b>yellow</b> colonies (sucrose +), cholera toxin ↑cAMP; O1 (classical, El Tor) &amp; O139</span></div>
+        <div><b><i>Campylobacter fetus</i></b><span><b>Seagull-wing / S-shaped</b>, microaerophilic (5% O₂, 10% CO₂), 42 °C for <i>C. jejuni</i>. <i>C. fetus</i> subsp. <i>venerealis</i> = <b>bovine genital campylobacteriosis</b> — infertility, early embryonic death, repeat breeding; subsp. <i>fetus</i> = ovine abortion. <i>C. jejuni</i> = leading food-borne zoonotic enteritis, poultry reservoir, <b>Guillain-Barré</b> sequel</span></div>
+        <div><b><i>Bordetella bronchiseptica</i></b><span>Motile, oxidase &amp; urease +. <b>Kennel cough</b> complex, atrophic rhinitis in pigs (dermonecrotic toxin + <i>P. multocida</i> toxigenic strain), bronchopneumonia. <i>B. avium</i> = turkey coryza</span></div>
+        <div><b><i>Moraxella bovis</i></b><span><b>Infectious bovine keratoconjunctivitis — pink eye</b>; fimbriae + β-haemolytic cytotoxin; spread by face flies &amp; UV light; Gram −ve diplobacillus</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>IMViC &amp; biochemical shorthand <span class="kind">table</span></h3>
+      <div class="tw"><table>
+        <thead><tr><th>Organism</th><th>Ind</th><th>MR</th><th>VP</th><th>Cit</th><th>Ure</th><th>H₂S</th><th>Mot</th><th>Lac</th><th>Ox</th></tr></thead>
+        <tbody class="mono num">
+          <tr><th><i>E. coli</i></th><td>+</td><td>+</td><td>−</td><td>−</td><td>−</td><td>−</td><td>+</td><td>+</td><td>−</td></tr>
+          <tr><th><i>Klebsiella</i></th><td>−</td><td>−</td><td>+</td><td>+</td><td>w+</td><td>−</td><td>−</td><td>+</td><td>−</td></tr>
+          <tr><th><i>Salmonella</i></th><td>−</td><td>+</td><td>−</td><td>+</td><td>−</td><td>+</td><td>+</td><td>−</td><td>−</td></tr>
+          <tr><th><i>Proteus</i></th><td>±</td><td>+</td><td>−</td><td>±</td><td><b>++</b></td><td>+</td><td>+</td><td>−</td><td>−</td></tr>
+          <tr><th><i>Yersinia ent.</i></th><td>±</td><td>+</td><td>−</td><td>−</td><td>+</td><td>−</td><td>22°C</td><td>−</td><td>−</td></tr>
+          <tr><th><i>Pseudomonas</i></th><td>−</td><td>−</td><td>−</td><td>+</td><td>±</td><td>−</td><td>+</td><td>−</td><td><b>+</b></td></tr>
+          <tr><th><i>P. multocida</i></th><td><b>+</b></td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>+</td></tr>
+          <tr><th><i>M. haemolytica</i></th><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td><td>+</td><td>+</td></tr>
+          <tr><th><i>Brucella</i></th><td>−</td><td>−</td><td>−</td><td>−</td><td><b>+</b></td><td>±</td><td>−</td><td>−</td><td>+</td></tr>
+        </tbody>
+      </table></div>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">IMViC</span> <b>I</b>ndole · <b>M</b>ethyl red · <b>V</b>oges-Proskauer · <b>C</b>itrate. <i>E. coli</i> = <b>+ + − −</b>; <i>Klebsiella/Enterobacter</i> = <b>− − + +</b>. That single contrast answers most viva questions on Enterobacteriaceae.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 05 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Single test separating enterics from the rest</td><td>Oxidase (enterics −ve)</td></tr>
+          <tr><td>Green metallic sheen on EMB</td><td><i>E. coli</i></td></tr>
+          <tr><td>Fimbria of calf-scour ETEC</td><td>K99 / F5</td></tr>
+          <tr><td>Oedema disease toxin</td><td>Stx2e (STEC)</td></tr>
+          <tr><td>Salmonella serotyping scheme</td><td>Kauffmann-White</td></tr>
+          <tr><td>Non-motile salmonellae</td><td><i>S.</i> Gallinarum &amp; Pullorum</td></tr>
+          <tr><td>Swarming, urease ++</td><td><i>Proteus</i></td></tr>
+          <tr><td>Weil-Felix strains</td><td>OX-19, OX-2, OX-K of <i>Proteus</i></td></tr>
+          <tr><td>Placental growth factor for <i>Brucella</i></td><td>Erythritol</td></tr>
+          <tr><td>DIVA brucella vaccine</td><td>RB51</td></tr>
+          <tr><td>Leukotoxin of shipping fever</td><td><i>Mannheimia haemolytica</i> RTX</td></tr>
+          <tr><td>Mallein test diagnoses</td><td>Glanders (<i>B. mallei</i>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 05 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 06 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">06</span>
+    <h2>Anaerobes, Spirochaetes, Mollicutes &amp; Obligate Intracellulars</h2>
+    <span class="sub">t29–t34</span>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-malachite">
+      <h3>Gram-negative anaerobes <span class="kind">systematic</span></h3>
+      <table>
+        <thead><tr><th style="width:30%">Organism</th><th>Veterinary significance</th></tr></thead>
+        <tbody>
+          <tr><th><i>Fusobacterium necrophorum</i></th><td>Long filamentous Gram −ve rod. <b>Calf diphtheria</b> (necrotic laryngitis), <b>hepatic abscess of feedlot cattle</b> (with <i>T. pyogenes</i>), necrotic rumenitis after grain overload, <b>foot rot / interdigital necrobacillosis</b>, summer mastitis, thrush. Leukotoxin + endotoxin</td></tr>
+          <tr><th><i>Dichelobacter nodosus</i></th><td>Large Gram −ve rod with swollen ends. <b>Essential (transmitting) agent of ovine foot rot</b>; <i>F. necrophorum</i> is the predisposing invader. Produces <b>keratinase/protease</b> that digests hoof horn. Vaccine = pilus-based; footbath 10% ZnSO₄ / 5% formalin</td></tr>
+          <tr><th><i>Bacteroides fragilis</i> group</th><td>Bile-resistant, non-sporing anaerobe; normal gut flora turned opportunist — abdominal abscess, peritonitis, aspiration pneumonia. Intrinsically β-lactamase producing; metronidazole is the drug</td></tr>
+          <tr><th><i>Porphyromonas</i>/<i>Prevotella</i></th><td>Black-pigmented anaerobes; periodontal disease of dog &amp; cat</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Anaerobic culture</span> Freshly prepared, pre-reduced media · Robertson's cooked meat · thioglycollate · McIntosh-Fildes jar or GasPak (H₂ + CO₂, palladium catalyst) · anaerobic glove box. Foul putrid odour, gas, growth <b>away</b> from the surface in a shake tube.</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3><i>Leptospira</i> &amp; other spirochaetes <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b><i>Leptospira interrogans</i></b> (pathogenic) vs <i>L. biflexa</i> (saprophytic). Thin, tightly coiled, <b>hooked ends (question-mark shape)</b>, motile by two axial filaments/endoflagella; <b>too thin for Gram stain</b> — use <b>dark-field microscopy</b>, silver impregnation (Levaditi/Fontana), FAT.</li>
+        <li><b>Culture:</b> <b>EMJH</b> or Korthof's/Fletcher's semisolid at 28–30 °C, incubate up to <b>6–8 weeks</b>; growth as a Dinger's ring.</li>
+        <li><b>Serovars &amp; hosts:</b> Pomona &amp; Hardjo (cattle, pigs) · Canicola &amp; Icterohaemorrhagiae (dog, rodent reservoir) · Grippotyphosa · Bratislava (horses). <b>Rodents are maintenance hosts and shed lifelong in urine.</b></li>
+        <li><b>Disease:</b> leptospiraemia → fever, haemoglobinuria ("red water"), jaundice, <b>abortion &amp; agalactia (milk drop syndrome, flabby-bag)</b>, interstitial nephritis, recurrent uveitis (periodic ophthalmia) in horses. Man: Weil's disease — occupational zoonosis of paddy workers, sewer workers, veterinarians.</li>
+        <li><b>Diagnosis:</b> <b>MAT</b> (microscopic agglutination test — reference standard, titre ≥1:100 or 4-fold rise), dark-field of fresh urine, ELISA, PCR (<i>lipL32</i>, 16S). Treat with streptomycin/oxytetracycline; vaccines are <b>serovar-specific bacterins</b>.</li>
+        <li><b>Others:</b> <i>Borrelia burgdorferi</i> — Lyme disease, <i>Ixodes</i> tick, erythema migrans, lameness in dogs; <i>B. anserina</i> — avian spirochaetosis (fowl tick <i>Argas</i>). <i>Treponema pallidum</i> — syphilis (non-cultivable). <b><i>Brachyspira hyodysenteriae</i></b> — <b>swine dysentery</b>, mucohaemorrhagic colitis, strongly β-haemolytic anaerobe.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-violet">
+      <h3><i>Mycoplasma</i> &amp; <i>Ureaplasma</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Class Mollicutes</b> — <b>smallest free-living, self-replicating organisms</b> (0.2–0.3 µm); <b>no cell wall</b> → highly pleomorphic, Gram-unstainable (use Giemsa), <b>inherently resistant to penicillin &amp; all β-lactams and to lysozyme</b>; membrane contains <b>sterol</b> (needs serum in medium); passes 0.45 µm filters.</li>
+        <li><b>Culture:</b> PPLO agar with 20% serum + yeast extract, 5–10% CO₂, humid; <b>"fried-egg" colonies</b> at 3–10 days; <b>Dienes stain</b>. <i>Ureaplasma</i> = urease +, tiny colonies.</li>
+        <li><b>Diseases:</b> <b><i>M. mycoides</i> subsp. <i>mycoides</i> SC → CBPP</b> (contagious bovine pleuropneumonia, marbled lung, notifiable) · <b><i>M. capricolum</i> subsp. <i>capripneumoniae</i> → CCPP</b> · <i>M. agalactiae</i> → contagious agalactia of sheep &amp; goats (mastitis, arthritis, keratoconjunctivitis) · <i>M. bovis</i> → mastitis, pneumonia, arthritis, otitis in calves · <b><i>M. gallisepticum</i> → chronic respiratory disease (CRD) of poultry, egg-transmitted</b>, detected by rapid serum plate agglutination &amp; HI · <i>M. synoviae</i> → infectious synovitis · <i>M. hyopneumoniae</i> → enzootic pneumonia of pigs.</li>
+        <li><b>Treatment:</b> tylosin, tiamulin, tetracyclines, fluoroquinolones — <b>never penicillins</b>.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>L-forms vs <i>Mycoplasma</i>:</b> L-forms are cell-wall-deficient variants of ordinary bacteria induced by penicillin/lysozyme and <b>can revert</b>; <i>Mycoplasma</i> never had a wall and never reverts. Both make fried-egg colonies — the reversion test separates them.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Rickettsiales &amp; <i>Chlamydia</i> <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:26%">Agent</th><th>Vector / route</th><th>Disease</th></tr></thead>
+        <tbody>
+          <tr><th><i>Anaplasma marginale</i></th><td>Ticks (<i>Rhipicephalus</i>, <i>Hyalomma</i>), fomites, needles</td><td><b>Bovine anaplasmosis</b> — marginal inclusion in RBC on Giemsa, severe anaemia <b>without haemoglobinuria</b>, icterus</td></tr>
+          <tr><th><i>Ehrlichia canis</i></th><td><i>Rhipicephalus sanguineus</i></td><td>Canine monocytic ehrlichiosis — morulae in monocytes, thrombocytopenia, epistaxis ("tracker dog disease")</td></tr>
+          <tr><th><i>Coxiella burnetii</i></th><td><b>Aerosol</b> from birth fluids; ticks; extremely resistant spore-like form</td><td><b>Q fever</b> — abortion in small ruminants; <b>zoonosis, very low infective dose</b>; phase I/II antigenic variation; survives pasteurisation poorly-done</td></tr>
+          <tr><th><i>Neorickettsia risticii</i></th><td>Trematode in aquatic insects</td><td>Potomac horse fever — colitis</td></tr>
+          <tr><th><i>Rickettsia</i> spp.</th><td>Ticks, lice, fleas, mites</td><td>Spotted fever &amp; typhus groups; <b>Weil-Felix</b> heterophile test</td></tr>
+          <tr><th><i>Chlamydia abortus</i>, <i>C. psittaci</i></th><td>Inhalation, ingestion</td><td><b>Enzootic abortion of ewes</b>; <b>psittacosis/ornithosis</b> in birds &amp; man; <i>C. felis</i> conjunctivitis; <i>C. pecorum</i> polyarthritis</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Chlamydial cycle</span> <b>Elementary body</b> = small, rigid, <b>infectious, metabolically inert</b> (the "spore") → endocytosis → reorganises into <b>Reticulate body</b> = larger, fragile, <b>non-infectious but dividing</b> → back to EB → release. Inclusions stained by Giemsa, <b>Gimenez</b>, Machiavello. Both <i>Chlamydia</i> and <i>Rickettsia</i> are <b>obligate intracellular</b> — they cannot be grown on cell-free media; use eggs, cell culture or lab animals.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-amber">
+      <h3>Emerging, re-emerging &amp; transboundary bacteria <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Definitions</b><span><b>Emerging</b> = newly appeared in a population. <b>Re-emerging</b> = previously controlled, now rising. <b>Transboundary (TAD)</b> = highly contagious, crosses borders, major trade impact — WOAH-listed &amp; notifiable</span></div>
+        <div><b>Drivers</b><span>Intensification, live-animal trade, climate &amp; vector range shift, wildlife interface, antimicrobial misuse, urbanisation, ecosystem change</span></div>
+        <div><b>Emerging bacteria</b><span>MRSA (LA-MRSA CC398), ESBL/carbapenemase <i>E. coli</i>, <i>Streptococcus suis</i>, <i>Campylobacter jejuni</i>, <i>Yersinia enterocolitica</i>, <i>Borrelia burgdorferi</i>, <i>Coxiella burnetii</i>, <i>Mycoplasma bovis</i></span></div>
+        <div><b>Re-emerging in India</b><span>Anthrax (endemic belts of Odisha, Andhra, Karnataka, Tamil Nadu), brucellosis, bovine TB, glanders in equines, leptospirosis</span></div>
+        <div><b>Transboundary bacterial</b><span>CBPP, CCPP, HS, anthrax, glanders, contagious agalactia, <i>Salmonella</i> Gallinarum</span></div>
+        <div><b>Bioterror agents (Cat A)</b><span><i>B. anthracis</i>, <i>Y. pestis</i>, <i>F. tularensis</i>, botulinum toxin</span></div>
+        <div><b>Control framework</b><span><b>One Health</b>; WOAH/FAO/WHO tripartite; NADCP &amp; NAP-AMR in India; disease-free zoning &amp; compartmentalisation; risk analysis, surveillance, biosecurity, ring vaccination, stamping out</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <h3>Two skeletons that cover half the long questions <span class="kind">skeleton</span></h3>
+      <div class="skel">
+        <b>A · "Write about <i>[any bacterium]</i>" — 8-heading frame</b>
+        <ol>
+          <li>Classification &amp; important species</li>
+          <li>Morphology &amp; staining (with the one signature feature)</li>
+          <li>Cultural &amp; biochemical characters (name the selective medium)</li>
+          <li>Antigenic structure / typing scheme</li>
+          <li>Virulence factors &amp; pathogenesis</li>
+          <li>Host, disease, lesions &amp; clinical signs</li>
+          <li>Laboratory diagnosis — sample, direct exam, culture, biochemical, serological, molecular</li>
+          <li>Treatment, immunity, vaccine &amp; control (add the Indian field angle)</li>
+        </ol>
+      </div>
+      <div class="skel" style="margin-top:1.6mm">
+        <b>B · "Laboratory diagnosis of a bacterial disease" — 6-step frame</b>
+        <ol>
+          <li><b>Sample:</b> right tissue, right time, aseptic, with transport medium &amp; cold chain</li>
+          <li><b>Direct microscopy:</b> Gram / ZN / capsule / dark-field / FAT</li>
+          <li><b>Isolation:</b> enrichment → selective &amp; differential media → pure culture; note colony &amp; haemolysis</li>
+          <li><b>Identification:</b> biochemical panel, serotyping, phage typing, MALDI-TOF</li>
+          <li><b>Serology:</b> agglutination, CFT, AGID, ELISA — say what a titre means</li>
+          <li><b>Molecular:</b> PCR/real-time PCR/sequencing; and <b>ABST by Kirby-Bauer</b> for the therapeutic answer</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Unit 1 · final 90-second sweep <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>Smallest free-living organism</b><span><i>Mycoplasma</i> — no cell wall, sterol membrane</span></div>
+      <div><b>Fried-egg colony</b><span><i>Mycoplasma</i> / L-forms</span></div>
+      <div><b>Dark-field organism</b><span><i>Leptospira</i></span></div>
+      <div><b>Leptospira reference test</b><span>MAT</span></div>
+      <div><b>Leptospira medium</b><span>EMJH</span></div>
+      <div><b>CBPP agent</b><span><i>M. mycoides</i> subsp. <i>mycoides</i> SC</span></div>
+      <div><b>CRD of poultry</b><span><i>M. gallisepticum</i></span></div>
+      <div><b>Infectious form of chlamydia</b><span>Elementary body</span></div>
+      <div><b>Q fever agent</b><span><i>Coxiella burnetii</i></span></div>
+      <div><b>Marginal RBC inclusion</b><span><i>Anaplasma marginale</i></span></div>
+      <div><b>Essential agent of ovine footrot</b><span><i>Dichelobacter nodosus</i></span></div>
+      <div><b>Calf diphtheria &amp; liver abscess</b><span><i>Fusobacterium necrophorum</i></span></div>
+      <div><b>Swine dysentery</b><span><i>Brachyspira hyodysenteriae</i></span></div>
+      <div><b>Penicillin-resistant by nature</b><span><i>Mycoplasma</i> (no wall)</span></div>
+      <div><b>Obligate intracellular pair</b><span><i>Rickettsia</i> &amp; <i>Chlamydia</i></span></div>
+      <div><b>Heterophile test for rickettsiae</b><span>Weil-Felix</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag">34 / 34 syllabus topics</span>
+      <span class="tag">Paper I · Unit 1</span>
+      <span class="tag">Full pass ≈ 30 min</span>
+      <span class="tag">Night-before pass: sheets 05–06 + all self-tests</span>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 1 · GENERAL &amp; SYSTEMATIC VETERINARY BACTERIOLOGY</span>
+    <span>SHEET 06 / 06</span>
+  </div>
+</section>

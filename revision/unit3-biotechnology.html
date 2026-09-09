@@ -1,0 +1,842 @@
+<title>Microbial Biotechnology Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap">
+
+<style>
+:root{
+  --paper:#ffffff;
+  --ground:#eef2f6;
+  --ink:#1b2430;
+  --ink-2:#4d5b6c;
+  --ink-3:#7a8798;
+  --rule:#dae1ea;
+  --rule-soft:#eaeff4;
+  --tint:#f4f7fa;
+
+  --blue:#1565c0;      /* methylene blue — structural / general */
+  --violet:#4a2d85;    /* crystal violet — Gram positive */
+  --safranin:#b02a37;  /* safranin — Gram negative */
+  --fuchsin:#9c1f5c;   /* carbol fuchsin — acid fast */
+  --malachite:#0f6e63; /* malachite green — spore / anaerobe */
+  --amber:#a05300;     /* exam trap / must-not-confuse */
+
+  --blue-w:#e7f0fa; --violet-w:#efeaf8; --safranin-w:#fbe9ea;
+  --fuchsin-w:#fbe9f2; --malachite-w:#e3f2ef; --amber-w:#fdf0e0;
+
+  --sheet-w:210mm; --sheet-h:297mm; --pad:11mm;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+    --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+    --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+    --malachite:#4fc4b2; --amber:#e9a44b;
+    --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+    --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+  --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+  --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+  --malachite:#4fc4b2; --amber:#e9a44b;
+  --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+  --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  margin:0; padding:8mm 4mm 16mm;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,.sp{font-family:"IBM Plex Serif","IBM Plex Sans",serif; font-style:italic}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- SHEET ---------- */
+.sheet{
+  width:var(--sheet-w); min-height:var(--sheet-h);
+  margin:0 auto 7mm; padding:var(--pad);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 2px rgba(20,40,70,.06),0 10px 30px rgba(20,40,70,.07);
+  display:flex; flex-direction:column; gap:3.6mm;
+  font-size:8.5pt; line-height:1.33;
+  position:relative;
+}
+.sheet-head{
+  display:flex; align-items:baseline; gap:3mm;
+  border-bottom:1.6pt solid var(--ink); padding-bottom:1.6mm;
+}
+.sheet-head .no{
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:8pt;
+  color:var(--paper); background:var(--ink);
+  padding:.6mm 1.8mm; border-radius:1mm; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:14pt; margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.sheet-head .sub{
+  font-size:7.4pt; color:var(--ink-3); margin-left:auto; text-align:right;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.02em;
+}
+.sheet-foot{
+  margin-top:auto; padding-top:1.6mm; border-top:.5pt solid var(--rule);
+  display:flex; justify-content:space-between;
+  font-size:6.6pt; color:var(--ink-3); font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.03em;
+}
+
+/* ---------- MODULES ---------- */
+.row{display:grid; gap:3mm; align-items:start}
+.r-2{grid-template-columns:1fr 1fr}
+.r-2a{grid-template-columns:1.35fr 1fr}
+.r-2b{grid-template-columns:1fr 1.45fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+.mod{border-left:2.2pt solid var(--blue); padding-left:2.6mm}
+.mod > h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:9.2pt; margin:0 0 1.4mm; color:var(--blue);
+  letter-spacing:.005em; display:flex; align-items:center; gap:1.6mm;
+}
+.mod > h3 .kind{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:6pt;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); border:.5pt solid var(--rule);
+  padding:.2mm 1.2mm; border-radius:.8mm; margin-left:auto; white-space:nowrap;
+}
+.m-violet{border-left-color:var(--violet)} .m-violet > h3{color:var(--violet)}
+.m-safranin{border-left-color:var(--safranin)} .m-safranin > h3{color:var(--safranin)}
+.m-fuchsin{border-left-color:var(--fuchsin)} .m-fuchsin > h3{color:var(--fuchsin)}
+.m-malachite{border-left-color:var(--malachite)} .m-malachite > h3{color:var(--malachite)}
+.m-amber{border-left-color:var(--amber)} .m-amber > h3{color:var(--amber)}
+
+/* ---------- TABLES ---------- */
+table{border-collapse:collapse; width:100%; font-size:7.5pt; line-height:1.25}
+th,td{border:.5pt solid var(--rule); padding:.9mm 1.3mm; text-align:left; vertical-align:top}
+thead th{
+  background:var(--tint); font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-weight:600; font-size:7.2pt; color:var(--ink-2);
+  letter-spacing:.02em;
+}
+tbody th{background:var(--tint); font-weight:600; width:20%}
+td .mono,th .mono{font-size:7pt}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- LISTS ---------- */
+ul.k{margin:0; padding-left:3.2mm; list-style:none}
+ul.k li{position:relative; margin:0 0 .7mm}
+ul.k li::before{
+  content:""; position:absolute; left:-2.6mm; top:1.5mm;
+  width:1.1mm; height:1.1mm; background:currentColor; opacity:.45; border-radius:50%;
+}
+ol.k{margin:0; padding-left:4.2mm; font-size:8pt}
+ol.k li{margin:0 0 .7mm}
+b,strong{font-weight:600}
+
+/* ---------- FACT BANK (objective ammo) ---------- */
+.bank{display:grid; grid-template-columns:1fr 1fr; gap:0 3mm}
+.bank.one{grid-template-columns:1fr}
+.bank div{
+  border-bottom:.5pt dotted var(--rule); padding:.7mm 0;
+  font-size:7.4pt; display:flex; gap:1.6mm;
+}
+.bank div b{
+  flex:0 0 33%; font-weight:600; color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;
+}
+.bank div span{flex:1}
+
+/* ---------- CHIPS / MNEMONIC ---------- */
+.mnem{
+  background:var(--amber-w); border:.5pt solid var(--amber);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.5pt;
+}
+.mnem .key{
+  font-family:"IBM Plex Mono",monospace; font-weight:600;
+  color:var(--amber); font-size:8.4pt; letter-spacing:.05em;
+}
+.trap{
+  background:var(--safranin-w); border-left:1.6pt solid var(--safranin);
+  padding:1.2mm 2mm; font-size:7.4pt; border-radius:0 1mm 1mm 0;
+}
+.trap b{color:var(--safranin)}
+.skel{
+  background:var(--blue-w); border:.5pt solid var(--blue);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.3pt;
+}
+.skel b{color:var(--blue); font-family:"IBM Plex Sans Condensed",sans-serif}
+.skel ol{margin:.8mm 0 0; padding-left:4mm}
+.skel li{margin-bottom:.3mm}
+
+.tags{display:flex; flex-wrap:wrap; gap:1mm; margin-top:1mm}
+.tag{
+  font-family:"IBM Plex Mono",monospace; font-size:6.4pt; letter-spacing:.03em;
+  border:.5pt solid var(--rule); border-radius:.8mm; padding:.3mm 1.2mm;
+  color:var(--ink-2); background:var(--tint);
+}
+
+svg{display:block; width:100%; height:auto}
+svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
+
+/* ---------- COVER ---------- */
+.cover{justify-content:center; gap:0}
+.cover .brand{
+  font-family:"IBM Plex Mono",monospace; font-size:7.6pt; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:3mm;
+}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:33pt;
+  font-weight:700; line-height:1.02; margin:0 0 3mm; letter-spacing:-.02em;
+  text-wrap:balance; max-width:150mm;
+}
+.cover .lede{font-size:10pt; color:var(--ink-2); max-width:135mm; line-height:1.45}
+.cover .meta{
+  margin-top:8mm; padding-top:3mm; border-top:1.6pt solid var(--ink);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; font-size:7.4pt;
+}
+.cover .meta b{
+  display:block; font-family:"IBM Plex Mono",monospace; font-size:6.2pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.8mm;
+}
+.cover .plan{margin-top:6mm}
+.cover .plan table{font-size:8pt}
+.legend{display:flex; flex-wrap:wrap; gap:2mm 4mm; margin-top:5mm; font-size:7.2pt}
+.legend span{display:flex; align-items:center; gap:1.4mm}
+.legend i{width:2.4mm; height:2.4mm; border-radius:.6mm; display:block}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{size:A4; margin:0}
+  body{background:#fff; padding:0}
+  .sheet{
+    margin:0; box-shadow:none; border:0;
+    break-after:page; page-break-after:always;
+    min-height:var(--sheet-h);
+  }
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .toolbar{display:none}
+}
+.toolbar{
+  max-width:var(--sheet-w); margin:0 auto 5mm; display:flex; gap:2mm;
+  align-items:center; font-size:8pt; color:var(--ink-2);
+}
+.toolbar button{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:8pt; font-weight:600;
+  background:var(--blue); color:#fff; border:0; border-radius:1.4mm;
+  padding:1.6mm 4mm; cursor:pointer;
+}
+.toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+@media (max-width:230mm){
+  body{padding:4mm 0 10mm}
+  .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
+  .toolbar{max-width:100%; padding:0 6mm}
+  .r-2,.r-2a,.r-2b,.r-3{grid-template-columns:1fr}
+  .bank{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>5 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<section class="sheet cover">
+  <div class="brand">Veterinary Microbiology &middot; Rapid Revision</div>
+  <h1>Unit 3 — Microbial Biotechnology</h1>
+  <p class="lede">All 10 syllabus topics on four working sheets. This unit is scored almost entirely on <i>process</i> — draw the steps in the right order, name the enzyme at each step, and state the one application. Every module here is built as a numbered sequence you can reproduce on the answer sheet.</p>
+
+  <div class="meta">
+    <div><b>Paper</b>Paper I · Units 1, 2, 3<br>Theory 100 · Practical 60</div>
+    <div><b>Syllabus topics</b>10 of 10 covered</div>
+    <div><b>Revision time</b>20 min full pass<br>8 min diagrams only</div>
+    <div><b>Course</b>B.V.Sc &amp; A.H. II Yr<br>VCI MSVE · 3+2=5</div>
+  </div>
+
+  <div class="plan">
+    <table>
+      <thead><tr><th style="width:12%">Sheet</th><th style="width:40%">What it covers</th><th>Syllabus topics folded in</th></tr></thead>
+      <tbody>
+        <tr><th class="mono">01</th><td>rDNA concept, the enzyme toolkit, vectors, the cloning cycle</td><td class="mono">t01–t02</td></tr>
+        <tr><th class="mono">02</th><td>Transformation, transfection, selection &amp; screening; DNA libraries; probes</td><td class="mono">t03, t06, t07</td></tr>
+        <tr><th class="mono">03</th><td>PCR and its diagnostic variants; Southern, Northern &amp; Western blotting</td><td class="mono">t04–t05</td></tr>
+        <tr><th class="mono">04</th><td>DNA sequencing, fingerprinting, bioinformatics, IPR &amp; regulation</td><td class="mono">t08–t10</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--blue)"></i> Core concepts &amp; enzymes</span>
+    <span><i style="background:var(--violet)"></i> Vectors &amp; cloning</span>
+    <span><i style="background:var(--safranin)"></i> Amplification</span>
+    <span><i style="background:var(--fuchsin)"></i> Blotting &amp; hybridisation</span>
+    <span><i style="background:var(--malachite)"></i> Sequencing &amp; informatics</span>
+    <span><i style="background:var(--amber)"></i> Exam trap &amp; mnemonic</span>
+  </div>
+
+  <div class="sheet-foot">
+    <span>VET MICROBIOLOGY STUDIO · IVRI, IZATNAGAR</span>
+    <span>UNIT 3 · COVER</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 01 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">01</span>
+    <h2>Recombinant DNA — Enzymes, Vectors &amp; the Cloning Cycle</h2>
+    <span class="sub">t01–t02</span>
+  </div>
+
+  <div class="mod m-violet">
+    <h3>Gene cloning — the six steps, in order <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 108" role="img" aria-label="Six steps of gene cloning from isolation of insert to expression of product">
+      <g font-size="9">
+        <rect x="2" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="10" y="19" font-weight="700" fill="var(--violet)">1 · ISOLATE</text>
+        <text x="10" y="30" fill="var(--ink-2)">Gene of interest —</text>
+        <text x="10" y="40" fill="var(--ink-2)">genomic DNA, cDNA or PCR</text>
+
+        <rect x="120" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="128" y="19" font-weight="700" fill="var(--violet)">2 · CUT</text>
+        <text x="128" y="30" fill="var(--ink-2)">Same restriction enzyme on</text>
+        <text x="128" y="40" fill="var(--ink-2)">insert AND vector</text>
+
+        <rect x="238" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="246" y="19" font-weight="700" fill="var(--violet)">3 · LIGATE</text>
+        <text x="246" y="30" fill="var(--ink-2)">T4 DNA ligase + ATP,</text>
+        <text x="246" y="40" fill="var(--ink-2)">16 °C overnight → chimera</text>
+
+        <rect x="356" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="364" y="19" font-weight="700" fill="var(--violet)">4 · INTRODUCE</text>
+        <text x="364" y="30" fill="var(--ink-2)">Transform competent host</text>
+        <text x="364" y="40" fill="var(--ink-2)">(CaCl₂ heat-shock / electro)</text>
+
+        <rect x="474" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+        <text x="482" y="19" font-weight="700" fill="var(--violet)">5 · SELECT</text>
+        <text x="482" y="30" fill="var(--ink-2)">Antibiotic marker +</text>
+        <text x="482" y="40" fill="var(--ink-2)">blue-white screening</text>
+
+        <rect x="592" y="6" width="106" height="40" rx="3" fill="var(--ink)" stroke="none"/>
+        <text x="600" y="19" font-weight="700" fill="var(--paper)">6 · EXPRESS</text>
+        <text x="600" y="30" fill="var(--paper)">Induce, harvest &amp; purify</text>
+        <text x="600" y="40" fill="var(--paper)">the recombinant protein</text>
+
+        <g stroke="var(--violet)" stroke-width="1.2" fill="var(--violet)">
+          <line x1="112" y1="26" x2="120" y2="26"/><line x1="230" y1="26" x2="238" y2="26"/>
+          <line x1="348" y1="26" x2="356" y2="26"/><line x1="466" y1="26" x2="474" y2="26"/><line x1="584" y1="26" x2="592" y2="26"/>
+        </g>
+
+        <!-- sticky vs blunt -->
+        <line x1="2" y1="56" x2="698" y2="56" stroke="var(--rule)" stroke-width=".7"/>
+        <text x="2" y="70" font-weight="700" fill="var(--amber)">STICKY (COHESIVE) ENDS</text>
+        <g font-family="IBM Plex Mono" font-size="9" fill="var(--ink)">
+          <text x="2" y="84">5'-G     AATTC-3'</text>
+          <text x="2" y="95">3'-CTTAA     G-5'</text>
+        </g>
+        <text x="150" y="84" font-size="8" fill="var(--ink-2)"><tspan font-style="italic">Eco</tspan>RI · staggered cut · self-anneal easily</text>
+        <text x="150" y="95" font-size="8" fill="var(--ink-2)">→ high ligation efficiency, directional cloning</text>
+
+        <text x="386" y="70" font-weight="700" fill="var(--amber)">BLUNT ENDS</text>
+        <g font-family="IBM Plex Mono" font-size="9" fill="var(--ink)">
+          <text x="386" y="84">5'-GTT  AAC-3'</text>
+          <text x="386" y="95">3'-CAA  TTG-5'</text>
+        </g>
+        <text x="510" y="84" font-size="8" fill="var(--ink-2)"><tspan font-style="italic">Hpa</tspan>I · straight cut · any blunt end joins</text>
+        <text x="510" y="95" font-size="8" fill="var(--ink-2)">any other → versatile but inefficient</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>The enzyme toolkit <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:26%">Enzyme</th><th>What it does &amp; where it is used</th></tr></thead>
+        <tbody>
+          <tr><th>Restriction endonuclease</th><td>Cuts dsDNA at a specific <b>palindromic recognition site</b> (4–8 bp). Bacterial defence against phage; the host protects itself by <b>methylation</b>. <b>Type II</b> is the one used in the lab — cuts within or close to the site, needs only Mg²⁺</td></tr>
+          <tr><th>DNA ligase</th><td>Seals the nick — forms the <b>phosphodiester bond</b> between 3′-OH and 5′-phosphate. <b>T4 DNA ligase</b> works on sticky <b>and</b> blunt ends; <i>E. coli</i> ligase on sticky only</td></tr>
+          <tr><th>DNA polymerase I / Klenow</th><td>Fill-in of 5′ overhangs, labelling; Klenow lacks 5′→3′ exonuclease</td></tr>
+          <tr><th><b>Reverse transcriptase</b></th><td>RNA → cDNA. From AMV or M-MLV. The enzyme that makes cDNA libraries and RT-PCR possible</td></tr>
+          <tr><th>Alkaline phosphatase</th><td>Removes 5′-phosphate from the cut vector to <b>prevent self-ligation</b></td></tr>
+          <tr><th>Terminal transferase</th><td>Adds homopolymer tails (poly-dA/dT) for homopolymer tailing</td></tr>
+          <tr><th>Nuclease S1</th><td>Degrades ssDNA — trims hairpins in cDNA synthesis</td></tr>
+          <tr><th>Taq polymerase</th><td>Thermostable, from <i>Thermus aquaticus</i>; <b>no 3′→5′ proofreading</b>. <i>Pfu</i> from <i>Pyrococcus furiosus</i> proofreads — use it for cloning</td></tr>
+          <tr><th>Lysozyme / proteinase K</th><td>Cell lysis and protein digestion during nucleic acid extraction</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Naming rule</span> <b><i>Eco</i>RI</b> = <b>E</b> genus <i>Escherichia</i> · <b>co</b> species <i>coli</i> · <b>R</b> strain RY13 · <b>I</b> order of discovery. Genus letter capital and italic, species lower case italic, strain roman, number Roman numeral. <b><i>Hin</i>dIII, <i>Bam</i>HI, <i>Pst</i>I, <i>Sma</i>I</b> follow the same rule.</div>
+      <div class="trap" style="margin-top:1.2mm"><b>Palindrome</b> in DNA means the sequence reads the same 5′→3′ on <b>both</b> strands — GAATTC / GAATTC — not the same forwards and backwards on one strand. State it that way.</div>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Vectors <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:26%">Vector</th><th style="width:22%">Insert capacity</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><th>Plasmid<br><span class="mono" style="font-size:6.4pt">pBR322, pUC19</span></th><td class="num">up to ~10 kb</td><td>Workhorse. pUC19 has a <b>polylinker/MCS inside <i>lacZ</i></b> → blue-white screening</td></tr>
+          <tr><th>Bacteriophage λ</th><td class="num">10–23 kb</td><td>High efficiency by <i>in vitro</i> packaging; <b>insertion</b> vs <b>replacement</b> vectors; used for genomic libraries</td></tr>
+          <tr><th>Cosmid</th><td class="num">35–45 kb</td><td>Plasmid + λ <b><i>cos</i> sites</b> — packaged like phage, replicates like a plasmid</td></tr>
+          <tr><th>Phagemid</th><td class="num">~10 kb</td><td>Plasmid + f1 phage origin → produces ssDNA for sequencing/mutagenesis</td></tr>
+          <tr><th>BAC</th><td class="num">100–300 kb</td><td>Based on the <b>F factor</b>; low copy, very stable — genome projects</td></tr>
+          <tr><th>YAC</th><td class="num">200–2000 kb</td><td>Yeast <b>telomeres + centromere + ARS</b>; largest capacity, but chimerism is a problem</td></tr>
+          <tr><th>Expression vector</th><td>—</td><td>Adds a <b>strong inducible promoter</b> (<i>lac</i>, <i>tac</i>, T7), ribosome-binding site, terminator and often a <b>His-tag</b> for purification</td></tr>
+          <tr><th>Shuttle vector</th><td>—</td><td>Two origins → replicates in two hosts (<i>E. coli</i> + yeast/mammalian)</td></tr>
+          <tr><th>Ti plasmid</th><td>—</td><td>From <i>Agrobacterium tumefaciens</i> — the plant transformation vector</td></tr>
+          <tr><th>Viral vectors</th><td>—</td><td>Retro-, adeno-, adeno-associated, <b>poxvirus &amp; herpesvirus</b> — the basis of <b>recombinant vector vaccines</b> in veterinary practice</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Properties of an ideal vector</span> <b>1</b> Origin of replication (autonomous) · <b>2</b> One or more <b>selectable markers</b> · <b>3</b> Unique restriction sites in a polylinker · <b>4</b> Small size and high copy number · <b>5</b> Easy to isolate · <b>6</b> Able to enter the host efficiently. Six points, six marks.</div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod">
+      <h3>Scope of rDNA in veterinary science <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Vaccines</b><span><b>Subunit</b> (FMD VP1, <i>E. coli</i> K99 pilus), <b>vector</b> (poxvirus-vectored rabies for wildlife baits), <b>DNA vaccines</b>, <b>marker/DIVA vaccines</b> (gE-deleted IBR)</span></div>
+        <div><b>Diagnostics</b><span>PCR, real-time PCR, probes, recombinant-antigen ELISA, LAMP, biosensors</span></div>
+        <div><b>Therapeutics</b><span>Recombinant bovine somatotropin, interferons, erythropoietin, insulin, monoclonal antibodies</span></div>
+        <div><b>Feed &amp; industry</b><span>Recombinant phytase, cellulase, probiotics, single-cell protein, amino acids</span></div>
+        <div><b>Animal improvement</b><span>Marker-assisted selection, transgenic animals, gene knockouts, <b>CRISPR-Cas9</b> editing</span></div>
+        <div><b>Epidemiology</b><span>Molecular typing, outbreak tracing, phylogeny of field vs vaccine strains</span></div>
+        <div><b>Environment</b><span>Bioremediation, biofertilisers, biogas</span></div>
+      </div>
+      <div class="trap" style="margin-top:1.2mm"><b>Milestones:</b> Berg 1972 first recombinant DNA · Cohen &amp; Boyer 1973 first cloning in <i>E. coli</i> · Asilomar Conference 1975 · <b>Humulin 1982</b>, the first licensed rDNA product · Mullis 1983 PCR · Dolly 1996 · Human Genome Project 2003.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Restriction map arithmetic <span class="kind">mechanism</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>n cut sites in a linear</b> DNA → <b>n + 1</b> fragments.</li>
+        <li><b>n cut sites in a circular</b> DNA (plasmid) → <b>n</b> fragments. A single cut linearises the plasmid — one band.</li>
+        <li>Fragment sizes must <b>add up to the total</b> — always check this in a problem.</li>
+        <li>A <b>double digest</b> compared with the two single digests locates the sites relative to each other.</li>
+        <li><b>Partial digestion</b> gives extra, larger bands — used deliberately to build genomic libraries with overlapping fragments.</li>
+        <li>Recognition site of <b>n</b> bp is expected once every <b>4ⁿ</b> bp — a 4-cutter cuts every ~256 bp, a 6-cutter every ~4096 bp. That is why 6-cutters are used for cloning and 4-cutters for fingerprinting.</li>
+        <li><b>Isoschizomers</b> = different enzymes, same recognition site. <b>Neoschizomers</b> = same site, different cut position.</li>
+      </ul>
+      <div class="skel" style="margin-top:1.4mm">
+        <b>How to answer a gel/map question</b>
+        <ol>
+          <li>Total the fragments of each single digest — they must agree.</li>
+          <li>Count sites: fragments − 1 for linear, = fragments for circular.</li>
+          <li>Place the enzyme-A sites on a line, then fit enzyme-B by seeing which A-fragment each double-digest band came from.</li>
+          <li>Label distances in kb and mark the scale.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 01 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:52%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Molecular scissors</td><td>Restriction endonuclease</td></tr>
+          <tr><td>Molecular glue</td><td>DNA ligase</td></tr>
+          <tr><td>Bond made by ligase</td><td>Phosphodiester</td></tr>
+          <tr><td>Ligase that joins blunt ends</td><td>T4 DNA ligase</td></tr>
+          <tr><td>Enzyme making cDNA</td><td>Reverse transcriptase</td></tr>
+          <tr><td>Prevents vector self-ligation</td><td>Alkaline phosphatase</td></tr>
+          <tr><td>Source of Taq polymerase</td><td><i>Thermus aquaticus</i></td></tr>
+          <tr><td>Proofreading polymerase</td><td><i>Pfu</i></td></tr>
+          <tr><td>Vector of largest capacity</td><td>YAC</td></tr>
+          <tr><td>Plasmid + <i>cos</i> site</td><td>Cosmid</td></tr>
+          <tr><td>Plant transformation vector</td><td>Ti plasmid of <i>A. tumefaciens</i></td></tr>
+          <tr><td>First licensed rDNA product</td><td>Human insulin (Humulin, 1982)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 3 · MICROBIAL BIOTECHNOLOGY</span>
+    <span>SHEET 01 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 02 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">02</span>
+    <h2>Getting DNA In · Selecting It · Storing It in Libraries</h2>
+    <span class="sub">t03, t06–t07</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-violet">
+      <h3>Introducing DNA into a host <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:24%">Method</th><th style="width:20%">Host</th><th>How it works</th></tr></thead>
+        <tbody>
+          <tr><th><b>Transformation</b></th><td>Bacteria, yeast</td><td>Uptake of <b>naked plasmid DNA</b> by a <b>competent</b> cell. Chemical: <b>ice-cold CaCl₂ then 42 °C heat shock for 90 s</b> — Ca²⁺ neutralises the phosphate charge and the shock opens transient pores</td></tr>
+          <tr><th>Electroporation</th><td>Bacteria &amp; animal cells</td><td>High-voltage pulse creates reversible membrane pores; highest efficiency, no chemicals</td></tr>
+          <tr><th><b>Transfection</b></th><td><b>Eukaryotic cells</b></td><td>The same idea in animal cells, using <b>calcium phosphate co-precipitation, DEAE-dextran, liposomes (lipofection) or PEG</b>. <b>Stable</b> transfection = DNA integrates and persists; <b>transient</b> = expressed for a few days then lost</td></tr>
+          <tr><th>Transduction</th><td>Bacteria</td><td>Delivered by a bacteriophage — used for λ and cosmid libraries after <i>in vitro</i> packaging</td></tr>
+          <tr><th>Conjugation</th><td>Bacteria</td><td>Cell-to-cell via sex pilus; used for mobilisable vectors</td></tr>
+          <tr><th>Microinjection</th><td>Ova, embryos</td><td>Direct injection into the male pronucleus — the classic route for <b>transgenic animals</b></td></tr>
+          <tr><th>Biolistics (gene gun)</th><td>Plants, skin</td><td>DNA-coated gold/tungsten microparticles fired into tissue; used for <b>DNA vaccination</b></td></tr>
+          <tr><th>Viral vectors</th><td>Animal cells</td><td>Retro-, adeno-, AAV, pox — high efficiency, the basis of gene therapy and vectored vaccines</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Say the difference cleanly:</b> <b>transformation</b> is uptake of naked DNA by a bacterium; <b>transfection</b> is the same process in a eukaryotic cell; <b>transduction</b> is phage-mediated transfer. Examiners give a full mark for that single distinction.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Selection &amp; screening of recombinants <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 118" role="img" aria-label="Blue white screening showing insertional inactivation of lacZ">
+        <g font-size="7.6">
+          <circle cx="52" cy="40" r="34" fill="none" stroke="var(--ink-3)" stroke-width="1.1"/>
+          <g fill="#2f6fd0"><circle cx="38" cy="28" r="4"/><circle cx="64" cy="30" r="4"/><circle cx="44" cy="52" r="4"/><circle cx="66" cy="52" r="4"/></g>
+          <g fill="var(--paper)" stroke="var(--ink-2)" stroke-width=".8"><circle cx="52" cy="40" r="4"/><circle cx="34" cy="44" r="4"/><circle cx="58" cy="20" r="4"/></g>
+          <text x="18" y="86" fill="var(--ink-2)">X-gal + IPTG plate</text>
+          <text x="18" y="95" fill="var(--ink-2)">+ ampicillin</text>
+
+          <text x="100" y="20" font-weight="700" fill="#2f6fd0">BLUE colony</text>
+          <text x="100" y="30" fill="var(--ink-2)">Intact <tspan font-style="italic">lacZ</tspan> → β-galactosidase</text>
+          <text x="100" y="39" fill="var(--ink-2)">cleaves X-gal → blue dye</text>
+          <text x="100" y="48" fill="var(--ink-2)"><tspan font-weight="600">= vector re-ligated, NO insert</tspan></text>
+
+          <text x="100" y="66" font-weight="700" fill="var(--ink)">WHITE colony</text>
+          <text x="100" y="76" fill="var(--ink-2)">Insert interrupts <tspan font-style="italic">lacZ</tspan> —</text>
+          <text x="100" y="85" fill="var(--ink-2)"><tspan font-weight="600">insertional inactivation</tspan></text>
+          <text x="100" y="94" fill="var(--ink-2)"><tspan font-weight="600">= RECOMBINANT — pick this</tspan></text>
+
+          <line x1="6" y1="102" x2="196" y2="102" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="6" y="113" fill="var(--ink-2)">Ampicillin first selects <tspan font-weight="600">any transformant</tspan>; X-gal then screens for the <tspan font-weight="600">recombinant</tspan> among them</text>
+        </g>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.3pt">
+        <li><b>Selectable marker</b> — antibiotic resistance (<i>amp</i><sup>R</sup>, <i>tet</i><sup>R</sup>, <i>kan</i><sup>R</sup>); only cells carrying the plasmid grow.</li>
+        <li><b>Insertional inactivation</b> — the insert destroys a second marker. In pBR322, cloning into the <i>Bam</i>HI site kills <i>tet</i><sup>R</sup>, so recombinants are <b>amp<sup>R</sup> tet<sup>S</sup></b>, found by <b>replica plating</b>.</li>
+        <li><b>Blue-white screening</b> — as drawn; the modern, single-plate version.</li>
+        <li><b>Direct screening of the insert</b> — colony PCR, restriction digestion of the miniprep, colony hybridisation with a labelled probe, and finally <b>sequencing</b> for proof.</li>
+        <li><b>Screening the product</b> — immunological screening with antibody against the expressed protein; complementation of a mutant host.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3>Genomic vs cDNA library <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Genomic library</th><th>cDNA library</th></tr></thead>
+        <tbody>
+          <tr><th>Starting material</th><td>Total genomic DNA</td><td><b>mRNA</b> of a chosen tissue</td></tr>
+          <tr><th>First step</th><td>Partial digestion with a restriction enzyme (or shearing)</td><td><b>Reverse transcription</b> using oligo-dT primer</td></tr>
+          <tr><th>Contents</th><td><b>All</b> the DNA — coding, non-coding, introns, promoters, regulatory regions</td><td>Only the <b>exons of genes expressed in that tissue at that moment</b></td></tr>
+          <tr><th>Introns</th><td>Present</td><td><b>Absent</b></td></tr>
+          <tr><th>Size</th><td>Large — must cover the whole genome</td><td>Much smaller</td></tr>
+          <tr><th>Vector</th><td>λ, cosmid, BAC, YAC</td><td>Plasmid, λgt11, expression vector</td></tr>
+          <tr><th>Expression in <i>E. coli</i></th><td>Eukaryotic gene <b>not</b> expressed correctly (introns cannot be spliced)</td><td><b>Expressed</b> — this is why cDNA is used to make recombinant proteins</td></tr>
+          <tr><th>Chief use</th><td>Genome mapping, gene structure, regulatory elements</td><td>Protein production, expression profiling, gene identification</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Library completeness</span> Number of clones needed <b>N = ln(1 − P) / ln(1 − f)</b>, where P is the desired probability and f the fraction of the genome per insert. The practical point to state: a genomic library must contain enough <b>overlapping</b> clones that every sequence is represented at least once — that is why partial digestion is used.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Nucleic acid hybridisation &amp; probes <span class="kind">mechanism</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Principle:</b> denatured single strands re-anneal only with a <b>complementary</b> sequence. A labelled known sequence (the <b>probe</b>) therefore finds its target in a complex mixture. <b>Specificity is controlled by stringency</b> — raise the temperature or lower the salt to allow only perfect matches.</li>
+        <li><b>T<sub>m</sub></b> rises with GC content, length and salt, and falls with formamide and mismatches. Hybridise about <b>20–25 °C below T<sub>m</sub></b>.</li>
+        <li><b>Probe types:</b> genomic DNA, cDNA, oligonucleotide (20–40 mer, synthesised from known sequence), RNA riboprobe.</li>
+        <li><b>Labels:</b> <b>radioactive</b> — ³²P, ³⁵S, ³H, high sensitivity, autoradiography, but short half-life and a safety hazard; <b>non-radioactive</b> — <b>digoxigenin, biotin-avidin, fluorescein, alkaline phosphatase or HRP</b>, safe, stable, now standard.</li>
+        <li><b>Labelling methods:</b> nick translation, random primer (hexamer) labelling, end-labelling with T4 polynucleotide kinase, PCR labelling.</li>
+        <li><b>Formats:</b> <b>Southern/Northern blot</b> (membrane-bound target) · <b>dot/slot blot</b> (crude, rapid) · <b>colony &amp; plaque hybridisation</b> (library screening) · <b><i>in situ</i> hybridisation and FISH</b> (target left inside the tissue or the chromosome) · <b>microarray</b> (thousands of probes on a chip, target labelled).</li>
+        <li><b>Veterinary use:</b> detecting non-cultivable agents, confirming PCR products, typing <i>Salmonella</i> and <i>E. coli</i> virulence genes, FISH for bacteria in tissue sections, chromosome painting.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>Nucleic acid extraction &amp; quantitation <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Steps</b><span>Lyse (SDS + proteinase K / lysozyme) → deproteinise → precipitate → wash → dissolve in TE</span></div>
+        <div><b>Phenol-chloroform</b><span>Protein goes to the interphase; DNA stays in the upper aqueous layer</span></div>
+        <div><b>Precipitation</b><span>Chilled <b>absolute ethanol (2 vol) or isopropanol (0.6 vol) with 0.3 M sodium acetate</b>; wash in 70% ethanol</span></div>
+        <div><b>Plasmid isolation</b><span><b>Alkaline lysis</b> (SDS + NaOH) — chromosomal DNA denatures irreversibly and is removed, supercoiled plasmid renatures; also boiling and column methods</span></div>
+        <div><b>RNA work</b><span><b>TRIzol / guanidinium thiocyanate</b>; DEPC-treated water; RNase-free everything — RNase is the enemy</span></div>
+        <div><b>Quantitation</b><span>A<sub>260</sub> of <b>1.0 = 50 µg/ml dsDNA</b>, <b>40 µg/ml ssRNA</b>, 33 µg/ml oligo</span></div>
+        <div><b>Purity</b><span><b>A₂₆₀/A₂₈₀ ≈ 1.8 for pure DNA, ≈ 2.0 for RNA</b>. Low = protein or phenol; A₂₆₀/A₂₃₀ &lt; 2.0 = salt/carbohydrate carryover</span></div>
+        <div><b>Other methods</b><span>Fluorimetry (Qubit, PicoGreen), gel comparison against a mass ladder, spectrophotometer/NanoDrop</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 02 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:54%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Chemical making <i>E. coli</i> competent</td><td>Ice-cold CaCl₂ + 42 °C heat shock</td></tr>
+          <tr><td>DNA transfer into a eukaryotic cell</td><td>Transfection</td></tr>
+          <tr><td>DNA delivery by gold particles</td><td>Biolistics / gene gun</td></tr>
+          <tr><td>Substrate in blue-white screening</td><td>X-gal (inducer IPTG)</td></tr>
+          <tr><td>Colour of a recombinant colony</td><td>White</td></tr>
+          <tr><td>Gene inactivated by the insert</td><td><i>lacZ</i></td></tr>
+          <tr><td>Library without introns</td><td>cDNA library</td></tr>
+          <tr><td>Primer used to make cDNA</td><td>Oligo-dT</td></tr>
+          <tr><td>Commonest non-radioactive label</td><td>Digoxigenin / biotin</td></tr>
+          <tr><td>A₂₆₀/A₂₈₀ of pure DNA</td><td>1.8</td></tr>
+          <tr><td>A₂₆₀ = 1.0 corresponds to</td><td>50 µg/ml dsDNA</td></tr>
+          <tr><td>Plasmid isolation principle</td><td>Alkaline lysis</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 3 · MICROBIAL BIOTECHNOLOGY</span>
+    <span>SHEET 02 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 03 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">03</span>
+    <h2>PCR &amp; Its Variants · Blotting Techniques</h2>
+    <span class="sub">t04–t05</span>
+  </div>
+
+  <div class="mod m-safranin">
+    <h3>PCR — the cycle, the components, the reading <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 116" role="img" aria-label="The three temperature steps of a PCR cycle and exponential amplification">
+      <g font-size="9">
+        <rect x="4" y="6" width="150" height="52" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
+        <text x="12" y="20" font-weight="700" fill="var(--safranin)">1 · DENATURATION</text>
+        <text x="12" y="32" font-family="IBM Plex Mono" fill="var(--ink)">94–95 °C · 30 s</text>
+        <text x="12" y="44" fill="var(--ink-2)">Hydrogen bonds break;</text>
+        <text x="12" y="54" fill="var(--ink-2)">dsDNA → two single strands</text>
+
+        <rect x="162" y="6" width="150" height="52" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
+        <text x="170" y="20" font-weight="700" fill="var(--safranin)">2 · ANNEALING</text>
+        <text x="170" y="32" font-family="IBM Plex Mono" fill="var(--ink)">50–60 °C · 30 s</text>
+        <text x="170" y="44" fill="var(--ink-2)">Primers bind. <tspan font-weight="600">The step that</tspan></text>
+        <text x="170" y="54" fill="var(--ink-2)"><tspan font-weight="600">decides specificity</tspan> — set 5 °C below T<tspan font-size="6" dy="2">m</tspan></text>
+
+        <rect x="320" y="6" width="150" height="52" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
+        <text x="328" y="20" font-weight="700" fill="var(--safranin)">3 · EXTENSION</text>
+        <text x="328" y="32" font-family="IBM Plex Mono" fill="var(--ink)">72 °C · 1 min per kb</text>
+        <text x="328" y="44" fill="var(--ink-2)">Taq adds dNTPs 5'→3';</text>
+        <text x="328" y="54" fill="var(--ink-2)">final extension 72 °C / 5–10 min</text>
+
+        <path d="M154 32 h8 M312 32 h8" stroke="var(--safranin)" stroke-width="1.2"/>
+        <path d="M470 32 q22 0 22 20 q0 20 -240 20 q-248 0 -248 -20 q0 -20 22 -20" fill="none" stroke="var(--safranin)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="212" y="80" font-size="8" fill="var(--safranin)" font-weight="600">repeat 25–40 cycles → 2ⁿ copies (exponential)</text>
+
+        <rect x="484" y="6" width="212" height="52" rx="3" fill="none" stroke="var(--ink-3)" stroke-width=".9"/>
+        <text x="492" y="19" font-weight="700" fill="var(--ink)">REACTION MIX — name all seven</text>
+        <text x="492" y="30" fill="var(--ink-2)">Template DNA · forward &amp; reverse primers (18–25 nt)</text>
+        <text x="492" y="40" fill="var(--ink-2)">dNTPs · <tspan font-weight="600">Taq polymerase</tspan> · <tspan font-weight="600">MgCl₂ (cofactor)</tspan></text>
+        <text x="492" y="50" fill="var(--ink-2)">10× buffer (KCl, Tris pH 8.3) · nuclease-free water</text>
+
+        <line x1="4" y1="90" x2="696" y2="90" stroke="var(--rule)" stroke-width=".7"/>
+        <text x="4" y="102" font-size="8" fill="var(--ink-2)"><tspan font-weight="700" fill="var(--amber)">READING THE GEL:</tspan> run the product on <tspan font-weight="600">agarose + ethidium bromide</tspan> beside a <tspan font-weight="600">100 bp ladder</tspan>. A band of the expected size = positive.</text>
+        <text x="4" y="112" font-size="8" fill="var(--ink-2)">Always run a <tspan font-weight="600">positive control</tspan> (known DNA), a <tspan font-weight="600">negative/no-template control</tspan> (detects contamination) and an <tspan font-weight="600">internal control</tspan> (detects inhibitors). Nucleic acid migrates <tspan font-weight="600">cathode → anode</tspan> because the phosphate backbone is negatively charged.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-safranin">
+      <h3>PCR variants — what each one adds <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:24%">Variant</th><th>What it adds and where it is used in veterinary diagnosis</th></tr></thead>
+        <tbody>
+          <tr><th><b>RT-PCR</b></th><td>A reverse-transcription step first → detects <b>RNA</b>. Essential for <b>FMD, PPR, rabies, influenza, IBD, bluetongue</b> and all RNA viruses</td></tr>
+          <tr><th><b>Real-time / qPCR</b></th><td>Product measured <b>during</b> the run by fluorescence — <b>SYBR Green</b> (non-specific, needs a melt curve) or <b>TaqMan hydrolysis probe</b> (specific). Gives <b>quantitation via the Ct value</b>, no gel, closed tube → far less contamination. Ct is <b>inversely</b> proportional to starting template</td></tr>
+          <tr><th>Nested PCR</th><td>Two rounds with an inner primer pair → very high sensitivity, but high contamination risk</td></tr>
+          <tr><th>Multiplex PCR</th><td>Several primer pairs in one tube → detects several pathogens or several virulence genes at once</td></tr>
+          <tr><th>Hot-start PCR</th><td>Polymerase blocked until the first denaturation → removes primer-dimers and non-specific products</td></tr>
+          <tr><th>Touchdown PCR</th><td>Annealing temperature stepped down cycle by cycle → specificity first, yield later</td></tr>
+          <tr><th>AP-PCR / RAPD</th><td>Single short arbitrary primer at low stringency → strain typing without sequence knowledge</td></tr>
+          <tr><th>RFLP-PCR</th><td>Amplicon digested with a restriction enzyme → pattern distinguishes species or vaccine from field strain</td></tr>
+          <tr><th>Inverse PCR</th><td>Amplifies <b>outward</b> from a known sequence into unknown flanking DNA</td></tr>
+          <tr><th>Digital PCR</th><td>Partitioned reaction → absolute quantitation with no standard curve</td></tr>
+          <tr><th><b>LAMP</b></th><td>Not strictly PCR — isothermal at ~65 °C in a water bath, 4–6 primers, read by turbidity or colour. <b>The field-level test</b> where no thermal cycler exists</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Limitations to state:</b> detects nucleic acid, not viability — a dead organism still gives a positive; inhibitors in faeces, blood and milk cause false negatives; carry-over amplicon causes false positives (control with separate rooms, aerosol-barrier tips, and <b>UNG/dUTP</b>); needs sequence knowledge; costly for routine herd screening.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>The three blots <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:20%"></th><th>Southern</th><th>Northern</th><th>Western</th></tr></thead>
+        <tbody>
+          <tr><th>Target</th><td><b>DNA</b></td><td><b>RNA</b></td><td><b>Protein</b></td></tr>
+          <tr><th>Named after</th><td><b>Edwin Southern</b>, 1975</td><td>A pun on Southern</td><td>A pun on Southern</td></tr>
+          <tr><th>Separation</th><td>Agarose gel</td><td>Denaturing agarose (formaldehyde)</td><td><b>SDS-PAGE</b></td></tr>
+          <tr><th>Pre-treatment</th><td>Restriction digest, then <b>alkali denaturation</b> in the gel</td><td>Denaturant keeps RNA unfolded</td><td>SDS gives a uniform negative charge → separation by <b>size only</b></td></tr>
+          <tr><th>Membrane</th><td>Nitrocellulose / nylon</td><td>Nylon</td><td>Nitrocellulose / PVDF</td></tr>
+          <tr><th>Transfer</th><td>Capillary, vacuum or electroblotting</td><td>Capillary</td><td><b>Electroblotting</b></td></tr>
+          <tr><th>Detected with</th><td>Labelled <b>DNA probe</b></td><td>Labelled <b>DNA/RNA probe</b></td><td><b>Antibody</b> + enzyme-labelled conjugate</td></tr>
+          <tr><th>Tells you</th><td>Is the gene present? How many copies? Is it rearranged?</td><td>Is the gene <b>expressed</b>, and how much?</td><td>Is the <b>protein</b> present, and what size?</td></tr>
+          <tr><th>Vet use</th><td>RFLP typing, transgene confirmation, IS<i>900</i> in Johne's</td><td>Viral mRNA, expression studies</td><td><b>Confirmatory test for BSE/scrapie (PrP<sup>Sc</sup>)</b>, EIA, bluetongue serology, FIV/BIV confirmation</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Order to write the steps</span> <b>Extract → separate → denature → transfer → immobilise (bake or UV cross-link) → block → probe/antibody → wash → detect (autoradiography or chemiluminescence).</b> Nine words, and they fit all three blots. <b>South-West blot</b> = DNA-binding protein; <b>Eastern blot</b> = post-translational modification; <b>dot blot</b> = no separation step at all.</div>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod">
+      <h3>Electrophoresis — AGE and SDS-PAGE <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Principle</b><span>Charged molecules migrate in an electric field; separation by <b>size, charge and conformation</b>. DNA/RNA are uniformly negative → move to the <b>anode</b></span></div>
+        <div><b>Agarose %</b><span>0.7% for large fragments (5–20 kb) · <b>1–1.5% routine PCR</b> · 2–3% for small products. Higher % resolves smaller fragments</span></div>
+        <div><b>Buffer</b><span>TAE (better resolution, low buffering) or TBE (better buffering, long runs)</span></div>
+        <div><b>Loading dye</b><span>Glycerol/sucrose to sink the sample + bromophenol blue &amp; xylene cyanol as tracking dyes</span></div>
+        <div><b>Stain</b><span><b>Ethidium bromide</b> — intercalates, orange under UV 300 nm; a <b>mutagen</b>. Safer: SYBR Safe, GelRed</span></div>
+        <div><b>Migration rule</b><span>Distance moved is <b>inversely proportional to log₁₀ of the fragment size</b>; supercoiled runs faster than linear, which runs faster than nicked circular</span></div>
+        <div><b>SDS-PAGE</b><span>SDS denatures and coats protein with negative charge; <b>2-mercaptoethanol</b> breaks disulphide bonds; <b>Laemmli discontinuous system</b> — stacking gel (pH 6.8) concentrates, resolving gel (pH 8.8) separates by <b>molecular weight only</b>; stained with <b>Coomassie brilliant blue</b> or silver</span></div>
+        <div><b>Vet application</b><span>Plasmid profiling, protein profiling for strain differentiation, checking recombinant protein expression, preparing antigen for Western blot</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 03 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:54%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Inventor of PCR</td><td>Kary Mullis, 1983 (Nobel 1993)</td></tr>
+          <tr><td>Three steps of a PCR cycle</td><td>Denature 94 °C · anneal 50–60 °C · extend 72 °C</td></tr>
+          <tr><td>Step deciding specificity</td><td>Annealing</td></tr>
+          <tr><td>Essential divalent cofactor</td><td>Mg²⁺ (MgCl₂)</td></tr>
+          <tr><td>Copies after n cycles</td><td>2ⁿ</td></tr>
+          <tr><td>PCR for RNA viruses</td><td>RT-PCR</td></tr>
+          <tr><td>Value quantified in real-time PCR</td><td>Ct (threshold cycle)</td></tr>
+          <tr><td>Isothermal field amplification</td><td>LAMP (~65 °C)</td></tr>
+          <tr><td>Blot for DNA / RNA / protein</td><td>Southern / Northern / Western</td></tr>
+          <tr><td>Only blot using an antibody</td><td>Western</td></tr>
+          <tr><td>Confirmatory test for BSE</td><td>Western blot for PrP<sup>Sc</sup></td></tr>
+          <tr><td>Agarose gel stain</td><td>Ethidium bromide</td></tr>
+          <tr><td>Protein stain after PAGE</td><td>Coomassie brilliant blue</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 3 · MICROBIAL BIOTECHNOLOGY</span>
+    <span>SHEET 03 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 04 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">04</span>
+    <h2>Sequencing, Fingerprinting, Bioinformatics &amp; Regulation</h2>
+    <span class="sub">t08–t10</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-malachite">
+      <h3>DNA sequencing <span class="kind">mechanism</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Sanger dideoxy chain-termination method (1977)</b> — the one to describe. Template + primer + DNA polymerase + all four dNTPs + a small proportion of one <b>dideoxynucleotide (ddNTP)</b>. The ddNTP lacks the <b>3′-OH</b>, so once it is incorporated no further phosphodiester bond can form and the chain stops. The result is a nested set of fragments differing by one base, resolved on a denaturing polyacrylamide gel or by <b>capillary electrophoresis</b>; the sequence is read from the smallest fragment upward. Modern automated version uses <b>four different fluorescent dyes on the four ddNTPs in a single tube</b>, read as an electropherogram.</li>
+        <li><b>Maxam-Gilbert chemical cleavage method</b> — base-specific chemical modification and cleavage; historically important, now obsolete because it uses hazardous chemicals.</li>
+        <li><b>Next-generation sequencing (NGS)</b> — massively parallel, millions of reads at once. <b>Illumina</b> (sequencing by synthesis, reversible terminators, short accurate reads), <b>Ion Torrent</b> (detects H⁺ release, semiconductor), <b>PacBio</b> and <b>Oxford Nanopore</b> (single molecule, very long reads, portable). Applications: whole-genome sequencing of pathogens, metagenomics of the rumen and gut microbiome, virus discovery, transcriptomics (RNA-seq), outbreak tracing at single-nucleotide resolution.</li>
+        <li><b>Sequencing workflow terms:</b> read, coverage/depth, contig, scaffold, assembly, annotation.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>The one-line answer if asked "why does a ddNTP terminate the chain?"</b> — because it has no 3′-hydroxyl group, so the next nucleotide's 5′-phosphate has nothing to bond to.</div>
+    </div>
+
+    <div class="mod m-malachite">
+      <h3>DNA fingerprinting &amp; molecular typing <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">Technique</th><th>Basis &amp; use</th></tr></thead>
+        <tbody>
+          <tr><th><b>DNA fingerprinting</b></th><td>Developed by <b>Alec Jeffreys, 1984</b>. Based on <b>VNTRs (minisatellites)</b> and <b>STRs (microsatellites)</b> — tandem repeats whose copy number varies between individuals. Every individual except identical twins gives a unique pattern; the pattern is <b>inherited from both parents</b></td></tr>
+          <tr><th>RFLP</th><td>Restriction digestion + Southern blot; classical but laborious</td></tr>
+          <tr><th>RAPD</th><td>Random primers, no sequence knowledge needed; quick but poorly reproducible</td></tr>
+          <tr><th>AFLP</th><td>Restriction + selective PCR amplification; high discrimination</td></tr>
+          <tr><th><b>PFGE</b></th><td><b>Pulsed-field gel electrophoresis</b> — alternating field separates very large fragments; long the <b>gold standard for bacterial outbreak typing</b></td></tr>
+          <tr><th><b>MLST</b></th><td>Sequences of 6–7 housekeeping genes → an allelic profile/sequence type; portable and comparable between laboratories</td></tr>
+          <tr><th>MLVA · spoligotyping</th><td>VNTR-based typing; spoligotyping for <i>M. bovis</i> strain tracing</td></tr>
+          <tr><th>Ribotyping · 16S rRNA</th><td>Identification and phylogeny of bacteria</td></tr>
+          <tr><th>SNP genotyping</th><td>Marker-assisted selection, parentage verification, disease-resistance loci</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Veterinary applications</span> Parentage and pedigree verification, <b>breed and individual identification of livestock</b>, meat speciation and adulteration detection, wildlife forensics and poaching cases, tracing the source of a food-borne outbreak, distinguishing <b>vaccine strain from field strain</b>, and marker-assisted selection.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>Bioinformatics — databases and tools <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Definition</b><span>Application of computational tools to store, retrieve, organise and analyse biological data — chiefly sequences and structures</span></div>
+        <div><b>The three primary nucleotide databases</b><span><b>GenBank</b> (NCBI, USA) · <b>EMBL-ENA</b> (Europe) · <b>DDBJ</b> (Japan). They exchange data daily through the <b>INSDC</b> collaboration, so an accession number is valid in all three</span></div>
+        <div><b>Protein databases</b><span><b>UniProt</b> (Swiss-Prot curated + TrEMBL automatic), PIR, <b>PDB</b> for 3-D structures</span></div>
+        <div><b>Specialised</b><span>PubMed (literature), OMIM, KEGG (pathways), Pfam (families), Rfam, GISAID (influenza &amp; viral sequences)</span></div>
+        <div><b>BLAST</b><span>Basic Local Alignment Search Tool — the single most used tool. <b>BLASTn</b> nucleotide, <b>BLASTp</b> protein, <b>BLASTx</b> translated query vs protein DB. Output: score, <b>E-value (lower = more significant)</b>, % identity, query coverage</span></div>
+        <div><b>Alignment</b><span><b>ClustalW/Omega, MUSCLE, MAFFT</b> for multiple alignment; pairwise by Needleman-Wunsch (global) and Smith-Waterman (local)</span></div>
+        <div><b>Phylogeny</b><span><b>MEGA</b>; neighbour-joining, maximum likelihood, maximum parsimony; <b>bootstrap value</b> shows branch reliability</span></div>
+        <div><b>Primer design</b><span>Primer3, Primer-BLAST; check for self-complementarity, GC 40–60%, similar T<sub>m</sub></span></div>
+        <div><b>Gene banks / repositories</b><span><i>ex situ</i> conservation of germplasm, semen, embryos and DNA — <b>NBAGR Karnal</b> for animal genetic resources in India; <b>NBPGR</b> for plants; cryobanks for indigenous breeds</span></div>
+      </div>
+      <div class="trap" style="margin-top:1.2mm"><b>Common exam question:</b> "How would you identify an unknown bacterial isolate using bioinformatics?" — amplify and sequence the <b>16S rRNA gene</b> → clean and assemble the read → <b>BLASTn against GenBank</b> → accept the top hit only if identity is <b>&gt;97–99%</b> with good query coverage → confirm by building a phylogenetic tree with reference sequences in MEGA with bootstrap support.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>IPR, ethics &amp; regulation <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>IPR</b><span>Legal rights over creations of the mind — <b>patent, copyright, trademark, trade secret, geographical indication, plant breeders' rights</b></span></div>
+        <div><b>Patent</b><span>Exclusive right for <b>20 years</b> from filing, in exchange for full public disclosure. Three tests: <b>novelty, inventive step (non-obviousness) and industrial applicability</b></span></div>
+        <div><b>Not patentable in India</b><span>Section 3 of the Patents Act — a mere discovery of a living thing or a naturally occurring substance, plants and animals in whole or in part, and traditional knowledge. <b>Processes and genetically engineered micro-organisms are patentable</b></span></div>
+        <div><b>Landmark case</b><span><i>Diamond v. Chakrabarty</i>, 1980 — a genetically engineered oil-degrading <i>Pseudomonas</i> was held patentable in the USA, opening biotechnology patenting</span></div>
+        <div><b>Budapest Treaty</b><span>Deposit of a micro-organism in a recognised depository (in India, <b>MTCC Chandigarh</b>) satisfies the disclosure requirement</span></div>
+        <div><b>International</b><span><b>TRIPS</b> under WTO · <b>WIPO</b> · <b>Convention on Biological Diversity</b> (sovereign rights, access &amp; benefit sharing) · <b>Cartagena Protocol on Biosafety</b> (transboundary movement of LMOs)</span></div>
+        <div><b>Indian law</b><span>Patents Act 1970 (amended 2005) · <b>Biological Diversity Act 2002</b> and NBA · Protection of Plant Varieties &amp; Farmers' Rights Act 2001</span></div>
+        <div><b>Indian regulatory tiers for GMOs</b><span>Rules 1989 under the Environment Protection Act 1986: <b>IBSC</b> (institute level) → <b>RCGM</b> (DBT) → <b>GEAC</b> (MoEF, apex approval) → SBCC and DLC for monitoring</span></div>
+        <div><b>Animal ethics</b><span><b>CPCSEA</b> and the <b>IAEC</b> clear all animal experiments; the <b>3 Rs — Replacement, Reduction, Refinement</b>; Prevention of Cruelty to Animals Act 1960</span></div>
+        <div><b>Biosafety levels</b><span><b>BSL-1</b> to <b>BSL-4</b>; FMD and rabies work needs BSL-3, and BSL-4 is required for the most dangerous agents. Biosafety cabinets Class I, II and III</span></div>
+        <div><b>Ethical concerns to list</b><span>Animal welfare in transgenesis, biosafety and escape of GMOs, biopiracy of indigenous germplasm, antibiotic-resistance marker genes, food safety and labelling of GM feed, dual use and bioterrorism, equitable access</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 04 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>Chain-termination sequencing</b><span>Sanger, 1977 — ddNTP lacks 3′-OH</span></div>
+      <div><b>Chemical sequencing method</b><span>Maxam-Gilbert</span></div>
+      <div><b>Sequencing by H⁺ detection</b><span>Ion Torrent</span></div>
+      <div><b>Longest-read sequencing</b><span>PacBio / Oxford Nanopore</span></div>
+      <div><b>DNA fingerprinting discovered by</b><span>Alec Jeffreys, 1984</span></div>
+      <div><b>Basis of fingerprinting</b><span>VNTR / STR tandem repeats</span></div>
+      <div><b>Separates very large DNA fragments</b><span>PFGE</span></div>
+      <div><b>Typing by housekeeping-gene sequences</b><span>MLST</span></div>
+      <div><b>Three primary sequence databases</b><span>GenBank · EMBL-ENA · DDBJ</span></div>
+      <div><b>Most-used sequence search tool</b><span>BLAST — judge by E-value</span></div>
+      <div><b>Software for phylogenetic trees</b><span>MEGA</span></div>
+      <div><b>Identity cut-off for species by 16S</b><span>&gt;97%</span></div>
+      <div><b>Term of a patent</b><span>20 years from filing</span></div>
+      <div><b>Apex GMO regulator in India</b><span>GEAC</span></div>
+      <div><b>Clears animal experiments in India</b><span>CPCSEA / IAEC</span></div>
+      <div><b>The three Rs</b><span>Replacement, Reduction, Refinement</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag">10 / 10 syllabus topics</span>
+      <span class="tag">Paper I · Unit 3</span>
+      <span class="tag">Full pass ≈ 20 min</span>
+      <span class="tag">Night-before: sheet 03 PCR diagram + blot table + all self-tests</span>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 3 · MICROBIAL BIOTECHNOLOGY</span>
+    <span>SHEET 04 / 04</span>
+  </div>
+</section>

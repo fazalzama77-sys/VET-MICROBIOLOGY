@@ -1,0 +1,1015 @@
+<title>Immunology Rapid Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap">
+
+<style>
+:root{
+  --paper:#ffffff;
+  --ground:#eef2f6;
+  --ink:#1b2430;
+  --ink-2:#4d5b6c;
+  --ink-3:#7a8798;
+  --rule:#dae1ea;
+  --rule-soft:#eaeff4;
+  --tint:#f4f7fa;
+
+  --blue:#1565c0;      /* methylene blue — structural / general */
+  --violet:#4a2d85;    /* crystal violet — Gram positive */
+  --safranin:#b02a37;  /* safranin — Gram negative */
+  --fuchsin:#9c1f5c;   /* carbol fuchsin — acid fast */
+  --malachite:#0f6e63; /* malachite green — spore / anaerobe */
+  --amber:#a05300;     /* exam trap / must-not-confuse */
+
+  --blue-w:#e7f0fa; --violet-w:#efeaf8; --safranin-w:#fbe9ea;
+  --fuchsin-w:#fbe9f2; --malachite-w:#e3f2ef; --amber-w:#fdf0e0;
+
+  --sheet-w:210mm; --sheet-h:297mm; --pad:11mm;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+    --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+    --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+    --malachite:#4fc4b2; --amber:#e9a44b;
+    --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+    --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+  --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+  --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+  --malachite:#4fc4b2; --amber:#e9a44b;
+  --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+  --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  margin:0; padding:8mm 4mm 16mm;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,.sp{font-family:"IBM Plex Serif","IBM Plex Sans",serif; font-style:italic}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- SHEET ---------- */
+.sheet{
+  width:var(--sheet-w); min-height:var(--sheet-h);
+  margin:0 auto 7mm; padding:var(--pad);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 2px rgba(20,40,70,.06),0 10px 30px rgba(20,40,70,.07);
+  display:flex; flex-direction:column; gap:3.6mm;
+  font-size:8.5pt; line-height:1.33;
+  position:relative;
+}
+.sheet-head{
+  display:flex; align-items:baseline; gap:3mm;
+  border-bottom:1.6pt solid var(--ink); padding-bottom:1.6mm;
+}
+.sheet-head .no{
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:8pt;
+  color:var(--paper); background:var(--ink);
+  padding:.6mm 1.8mm; border-radius:1mm; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:14pt; margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.sheet-head .sub{
+  font-size:7.4pt; color:var(--ink-3); margin-left:auto; text-align:right;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.02em;
+}
+.sheet-foot{
+  margin-top:auto; padding-top:1.6mm; border-top:.5pt solid var(--rule);
+  display:flex; justify-content:space-between;
+  font-size:6.6pt; color:var(--ink-3); font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.03em;
+}
+
+/* ---------- MODULES ---------- */
+.row{display:grid; gap:3mm; align-items:start}
+.r-2{grid-template-columns:1fr 1fr}
+.r-2a{grid-template-columns:1.35fr 1fr}
+.r-2b{grid-template-columns:1fr 1.45fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+.mod{border-left:2.2pt solid var(--blue); padding-left:2.6mm}
+.mod > h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:9.2pt; margin:0 0 1.4mm; color:var(--blue);
+  letter-spacing:.005em; display:flex; align-items:center; gap:1.6mm;
+}
+.mod > h3 .kind{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:6pt;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); border:.5pt solid var(--rule);
+  padding:.2mm 1.2mm; border-radius:.8mm; margin-left:auto; white-space:nowrap;
+}
+.m-violet{border-left-color:var(--violet)} .m-violet > h3{color:var(--violet)}
+.m-safranin{border-left-color:var(--safranin)} .m-safranin > h3{color:var(--safranin)}
+.m-fuchsin{border-left-color:var(--fuchsin)} .m-fuchsin > h3{color:var(--fuchsin)}
+.m-malachite{border-left-color:var(--malachite)} .m-malachite > h3{color:var(--malachite)}
+.m-amber{border-left-color:var(--amber)} .m-amber > h3{color:var(--amber)}
+
+/* ---------- TABLES ---------- */
+table{border-collapse:collapse; width:100%; font-size:7.5pt; line-height:1.25}
+th,td{border:.5pt solid var(--rule); padding:.9mm 1.3mm; text-align:left; vertical-align:top}
+thead th{
+  background:var(--tint); font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-weight:600; font-size:7.2pt; color:var(--ink-2);
+  letter-spacing:.02em;
+}
+tbody th{background:var(--tint); font-weight:600; width:20%}
+td .mono,th .mono{font-size:7pt}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- LISTS ---------- */
+ul.k{margin:0; padding-left:3.2mm; list-style:none}
+ul.k li{position:relative; margin:0 0 .7mm}
+ul.k li::before{
+  content:""; position:absolute; left:-2.6mm; top:1.5mm;
+  width:1.1mm; height:1.1mm; background:currentColor; opacity:.45; border-radius:50%;
+}
+ol.k{margin:0; padding-left:4.2mm; font-size:8pt}
+ol.k li{margin:0 0 .7mm}
+b,strong{font-weight:600}
+
+/* ---------- FACT BANK (objective ammo) ---------- */
+.bank{display:grid; grid-template-columns:1fr 1fr; gap:0 3mm}
+.bank.one{grid-template-columns:1fr}
+.bank div{
+  border-bottom:.5pt dotted var(--rule); padding:.7mm 0;
+  font-size:7.4pt; display:flex; gap:1.6mm;
+}
+.bank div b{
+  flex:0 0 33%; font-weight:600; color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;
+}
+.bank div span{flex:1}
+
+/* ---------- CHIPS / MNEMONIC ---------- */
+.mnem{
+  background:var(--amber-w); border:.5pt solid var(--amber);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.5pt;
+}
+.mnem .key{
+  font-family:"IBM Plex Mono",monospace; font-weight:600;
+  color:var(--amber); font-size:8.4pt; letter-spacing:.05em;
+}
+.trap{
+  background:var(--safranin-w); border-left:1.6pt solid var(--safranin);
+  padding:1.2mm 2mm; font-size:7.4pt; border-radius:0 1mm 1mm 0;
+}
+.trap b{color:var(--safranin)}
+.skel{
+  background:var(--blue-w); border:.5pt solid var(--blue);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.3pt;
+}
+.skel b{color:var(--blue); font-family:"IBM Plex Sans Condensed",sans-serif}
+.skel ol{margin:.8mm 0 0; padding-left:4mm}
+.skel li{margin-bottom:.3mm}
+
+.tags{display:flex; flex-wrap:wrap; gap:1mm; margin-top:1mm}
+.tag{
+  font-family:"IBM Plex Mono",monospace; font-size:6.4pt; letter-spacing:.03em;
+  border:.5pt solid var(--rule); border-radius:.8mm; padding:.3mm 1.2mm;
+  color:var(--ink-2); background:var(--tint);
+}
+
+svg{display:block; width:100%; height:auto}
+svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
+
+/* ---------- COVER ---------- */
+.cover{justify-content:center; gap:0}
+.cover .brand{
+  font-family:"IBM Plex Mono",monospace; font-size:7.6pt; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:3mm;
+}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:33pt;
+  font-weight:700; line-height:1.02; margin:0 0 3mm; letter-spacing:-.02em;
+  text-wrap:balance; max-width:150mm;
+}
+.cover .lede{font-size:10pt; color:var(--ink-2); max-width:135mm; line-height:1.45}
+.cover .meta{
+  margin-top:8mm; padding-top:3mm; border-top:1.6pt solid var(--ink);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; font-size:7.4pt;
+}
+.cover .meta b{
+  display:block; font-family:"IBM Plex Mono",monospace; font-size:6.2pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.8mm;
+}
+.cover .plan{margin-top:6mm}
+.cover .plan table{font-size:8pt}
+.legend{display:flex; flex-wrap:wrap; gap:2mm 4mm; margin-top:5mm; font-size:7.2pt}
+.legend span{display:flex; align-items:center; gap:1.4mm}
+.legend i{width:2.4mm; height:2.4mm; border-radius:.6mm; display:block}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{size:A4; margin:0}
+  body{background:#fff; padding:0}
+  .sheet{
+    margin:0; box-shadow:none; border:0;
+    break-after:page; page-break-after:always;
+    min-height:var(--sheet-h);
+  }
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .toolbar{display:none}
+}
+.toolbar{
+  max-width:var(--sheet-w); margin:0 auto 5mm; display:flex; gap:2mm;
+  align-items:center; font-size:8pt; color:var(--ink-2);
+}
+.toolbar button{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:8pt; font-weight:600;
+  background:var(--blue); color:#fff; border:0; border-radius:1.4mm;
+  padding:1.6mm 4mm; cursor:pointer;
+}
+.toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+@media (max-width:230mm){
+  body{padding:4mm 0 10mm}
+  .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
+  .toolbar{max-width:100%; padding:0 6mm}
+  .r-2,.r-2a,.r-2b,.r-3{grid-template-columns:1fr}
+  .bank{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>6 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<section class="sheet cover">
+  <div class="brand">Veterinary Microbiology &middot; Rapid Revision</div>
+  <h1>Unit 4 — Veterinary Immunology &amp; Serology</h1>
+  <p class="lede">All 19 syllabus topics on five working sheets. Immunology is the unit where the same six diagrams — the antibody, the complement cascade, antigen presentation, the four hypersensitivities, the serological reactions and the vaccine table — answer most of the paper. Those six are drawn here in full.</p>
+
+  <div class="meta">
+    <div><b>Paper</b>Paper II · Units 4, 5<br>Theory 100 · Practical 60</div>
+    <div><b>Syllabus topics</b>19 of 19 covered</div>
+    <div><b>Revision time</b>25 min full pass<br>10 min sheets 03–05</div>
+    <div><b>Course</b>B.V.Sc &amp; A.H. II Yr<br>VCI MSVE · 3+2=5</div>
+  </div>
+
+  <div class="plan">
+    <table>
+      <thead><tr><th style="width:12%">Sheet</th><th style="width:40%">What it covers</th><th>Syllabus topics folded in</th></tr></thead>
+      <tbody>
+        <tr><th class="mono">01</th><td>History, lymphoid organs &amp; cells, innate vs acquired immunity</td><td class="mono">t01–t03</td></tr>
+        <tr><th class="mono">02</th><td>Antigens, haptens, adjuvants, immunoglobulins, antibody diversity</td><td class="mono">t04–t08</td></tr>
+        <tr><th class="mono">03</th><td>MHC, BCR &amp; TCR, antigen processing, complement, cytokines</td><td class="mono">t11–t15</td></tr>
+        <tr><th class="mono">04</th><td>Serological reactions and monoclonal antibodies</td><td class="mono">t09–t10</td></tr>
+        <tr><th class="mono">05</th><td>Hypersensitivity, tolerance &amp; autoimmunity, antimicrobial immunity, vaccines</td><td class="mono">t16–t19</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--blue)"></i> Organs, cells &amp; general</span>
+    <span><i style="background:var(--violet)"></i> Antigen &amp; antibody</span>
+    <span><i style="background:var(--safranin)"></i> Complement &amp; cytokines</span>
+    <span><i style="background:var(--fuchsin)"></i> Hypersensitivity &amp; tolerance</span>
+    <span><i style="background:var(--malachite)"></i> Serology &amp; vaccines</span>
+    <span><i style="background:var(--amber)"></i> Exam trap &amp; mnemonic</span>
+  </div>
+
+  <div class="sheet-foot">
+    <span>VET MICROBIOLOGY STUDIO · IVRI, IZATNAGAR</span>
+    <span>UNIT 4 · COVER</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 01 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">01</span>
+    <h2>Lymphoid System &amp; the Two Arms of Immunity</h2>
+    <span class="sub">t01–t03</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>Innate vs acquired immunity <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Innate (natural, non-specific)</th><th>Acquired (adaptive, specific)</th></tr></thead>
+        <tbody>
+          <tr><th>Present</th><td>From birth</td><td>Develops after exposure</td></tr>
+          <tr><th>Specificity</th><td>Broad — recognises <b>PAMPs</b> via <b>PRRs (TLRs, NLRs)</b></td><td>Exquisitely specific for an epitope</td></tr>
+          <tr><th>Memory</th><td><b>None</b> (trained immunity is a modern nuance)</td><td><b>Present</b> — the basis of vaccination</td></tr>
+          <tr><th>Response time</th><td>Minutes to hours</td><td>Days (primary), hours to days (secondary)</td></tr>
+          <tr><th>Components</th><td>Skin &amp; mucosa, cilia, lysozyme, low pH, normal flora, fever, <b>complement (alternative &amp; lectin)</b>, interferon, defensins, NK cells, neutrophils, macrophages, inflammation</td><td>B cells &amp; antibody (humoral), T cells (cell-mediated), APCs, cytokines</td></tr>
+          <tr><th>Improves on repeat</th><td>No</td><td><b>Yes</b></td></tr>
+        </tbody>
+      </table>
+      <ul class="k" style="margin-top:1.2mm; font-size:7.3pt">
+        <li><b>Classify acquired immunity — always draw this 2 × 2:</b><br>
+        <b>Active natural</b> = recovery from infection · <b>Active artificial</b> = vaccination · <b>Passive natural</b> = <b>colostral/maternal antibody, transplacental</b> · <b>Passive artificial</b> = antiserum, antitoxin, hyperimmune serum.</li>
+        <li><b>Active</b> — slow onset, <b>long-lasting, has memory</b>, needs a functioning immune system. <b>Passive</b> — immediate, <b>short-lived (2–3 weeks), no memory</b>, useful in an emergency (tetanus antitoxin, snake antivenin).</li>
+        <li><b>Species point that gets asked:</b> the ruminant, horse and pig placenta is <b>epitheliochorial/syndesmochorial</b> — <b>no maternal IgG crosses in utero</b>, so the neonate is <b>agammaglobulinaemic at birth</b> and depends entirely on <b>colostrum</b> absorbed by pinocytosis in the first 6–12 h (gut "closure" by 24–36 h). In dogs and cats ~5–10% crosses the endotheliochorial placenta; in primates and rabbits (haemochorial) most crosses. <b>Failure of passive transfer</b> is the single commonest cause of neonatal septicaemia in calves and foals.</li>
+        <li><b>Other terms:</b> <b>herd immunity</b>, <b>local/mucosal immunity</b> (IgA), <b>species, breed and individual resistance</b>, <b>adoptive immunity</b> (transfer of sensitised lymphocytes).</li>
+      </ul>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Lymphoid organs <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 150" role="img" aria-label="Primary and secondary lymphoid organs and the origin of B and T cells">
+        <g font-size="7.6">
+          <rect x="4" y="4" width="192" height="18" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+          <text x="12" y="16" font-weight="700" fill="var(--violet)">BONE MARROW — haematopoietic stem cell</text>
+
+          <line x1="60" y1="22" x2="60" y2="32" stroke="var(--violet)" stroke-width="1"/>
+          <line x1="140" y1="22" x2="140" y2="32" stroke="var(--violet)" stroke-width="1"/>
+
+          <rect x="4" y="32" width="88" height="34" rx="2" fill="none" stroke="var(--violet)" stroke-width=".9"/>
+          <text x="10" y="43" font-weight="700" fill="var(--violet)">B CELL matures in</text>
+          <text x="10" y="53" fill="var(--ink-2)">Bone marrow (mammals)</text>
+          <text x="10" y="62" fill="var(--ink-2)"><tspan font-weight="600">Bursa of Fabricius</tspan> (birds),</text>
+
+          <rect x="108" y="32" width="88" height="34" rx="2" fill="none" stroke="var(--violet)" stroke-width=".9"/>
+          <text x="114" y="43" font-weight="700" fill="var(--violet)">T CELL matures in</text>
+          <text x="114" y="53" fill="var(--ink-2)"><tspan font-weight="600">THYMUS</tspan> — cortex then</text>
+          <text x="114" y="62" fill="var(--ink-2)">medulla; involutes with age</text>
+
+          <text x="10" y="72" fill="var(--ink-2)">ileal Peyer's patches (ruminants)</text>
+
+          <line x1="100" y1="78" x2="100" y2="88" stroke="var(--violet)" stroke-width="1"/>
+          <rect x="4" y="88" width="192" height="30" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+          <text x="12" y="99" font-weight="700" fill="var(--violet)">SECONDARY — where the response happens</text>
+          <text x="12" y="109" fill="var(--ink-2)">Lymph node · spleen · MALT (GALT, BALT, tonsil, Peyer's patch, haemal node)</text>
+
+          <line x1="4" y1="124" x2="196" y2="124" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="4" y="135" fill="var(--ink-2)"><tspan font-weight="600">Node:</tspan> B cells in cortical <tspan font-weight="600">follicles/germinal centres</tspan>;</text>
+          <text x="4" y="144" fill="var(--ink-2)">T cells in the <tspan font-weight="600">paracortex</tspan>. <tspan font-weight="600">Spleen:</tspan> B in follicle, T in PALS</text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>Two species facts examiners love:</b> the <b>pig has an inverted lymph node</b> — medulla outside, cortex inside, with afferent lymph entering centrally; and the <b>bursa of Fabricius</b>, a dorsal cloacal sac, is the site of B-cell maturation unique to birds (bursectomy abolishes antibody production but leaves cell-mediated immunity intact — the experiment that separated the two arms). <b>Haemal nodes</b> occur in ruminants and filter blood rather than lymph.</div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod m-violet">
+      <h3>Cells of the immune system <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>B lymphocyte</b><span>Surface Ig (BCR), MHC-II, CD19/CD20/CD21; → <b>plasma cell</b> (antibody factory, eccentric nucleus, cartwheel chromatin) and memory B cell</span></div>
+        <div><b>T helper (Th)</b><span><b>CD4</b>, recognises antigen on <b>MHC-II</b>; the master regulator</span></div>
+        <div><b>Th1 / Th2 / Th17 / Treg</b><span>Th1 → IFN-γ, IL-2 → <b>cell-mediated immunity, macrophage activation</b> · Th2 → IL-4, 5, 10, 13 → <b>antibody &amp; IgE, anti-parasite</b> · Th17 → IL-17, neutrophil recruitment · <b>Treg (CD4⁺CD25⁺FoxP3⁺)</b> → IL-10, TGF-β, <b>peripheral tolerance</b></span></div>
+        <div><b>T cytotoxic (Tc)</b><span><b>CD8</b>, recognises antigen on <b>MHC-I</b>; kills by <b>perforin-granzyme</b> and <b>Fas-FasL</b>; the answer to "how are virus-infected cells killed?"</span></div>
+        <div><b>NK cell</b><span>Large granular lymphocyte, <b>no antigen receptor</b>; kills cells that have <b>lost MHC-I</b> ("missing self") and mediates <b>ADCC</b> through CD16 (FcγRIII)</span></div>
+        <div><b>Macrophage</b><span>From monocyte; phagocytosis, <b>antigen presentation</b>, IL-1/IL-6/TNF-α; alveolar, Kupffer, microglia, osteoclast</span></div>
+        <div><b>Dendritic cell</b><span><b>The most efficient professional APC</b> and the only one that can prime a naïve T cell; Langerhans cell in skin</span></div>
+        <div><b>Neutrophil</b><span>First responder; respiratory burst, myeloperoxidase, <b>NETs</b>. In cattle it is the predominant blood leucocyte in the newborn but lymphocytes predominate in the adult ruminant</span></div>
+        <div><b>Eosinophil</b><span>Parasites (major basic protein) and type I hypersensitivity</span></div>
+        <div><b>Mast cell &amp; basophil</b><span>Bear <b>FcεRI</b>; degranulate → histamine, heparin, leukotrienes</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <h3>Milestones in immunology <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Variolation</b><span>Ancient China &amp; India — dried smallpox crusts</span></div>
+        <div><b>Edward Jenner, 1796</b><span>Cowpox → smallpox; the word <b>vaccine</b> from <i>vacca</i>, a cow. <b>Father of immunology</b></span></div>
+        <div><b>Louis Pasteur</b><span>Attenuation; fowl cholera, anthrax and <b>rabies</b> vaccines</span></div>
+        <div><b>Elie Metchnikoff, 1883</b><span><b>Phagocytosis</b> — cellular theory of immunity</span></div>
+        <div><b>Behring &amp; Kitasato, 1890</b><span>Diphtheria &amp; tetanus <b>antitoxin</b> — humoral theory; first Nobel in Medicine, 1901</span></div>
+        <div><b>Bordet</b><span><b>Complement</b> and complement fixation</span></div>
+        <div><b>Landsteiner</b><span>ABO blood groups; <b>haptens</b></span></div>
+        <div><b>Portier &amp; Richet, 1902</b><span><b>Anaphylaxis</b></span></div>
+        <div><b>von Pirquet</b><span>The term <b>allergy</b></span></div>
+        <div><b>Ehrlich</b><span><b>Side-chain theory</b>; "horror autotoxicus"</span></div>
+        <div><b>Burnet, 1957</b><span><b>Clonal selection theory</b> — the accepted explanation</span></div>
+        <div><b>Medawar</b><span>Acquired immunological <b>tolerance</b></span></div>
+        <div><b>Edelman &amp; Porter</b><span>Structure of the antibody molecule</span></div>
+        <div><b>Köhler &amp; Milstein, 1975</b><span><b>Hybridoma &amp; monoclonal antibodies</b></span></div>
+        <div><b>Tonegawa, 1976</b><span><b>Somatic recombination</b> — the genetic basis of antibody diversity</span></div>
+        <div><b>Jerne</b><span><b>Idiotype network</b> theory</span></div>
+        <div><b>1980</b><span>WHO declares <b>smallpox eradicated</b>; rinderpest declared eradicated 2011</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 01 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:54%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Father of immunology</td><td>Edward Jenner</td></tr>
+          <tr><td>Discovered phagocytosis</td><td>Metchnikoff</td></tr>
+          <tr><td>Clonal selection theory</td><td>Burnet, 1957</td></tr>
+          <tr><td>Primary lymphoid organs</td><td>Thymus + bone marrow (bursa in birds)</td></tr>
+          <tr><td>B-cell maturation site in birds</td><td>Bursa of Fabricius</td></tr>
+          <tr><td>T-cell area of a lymph node</td><td>Paracortex</td></tr>
+          <tr><td>T-cell area of the spleen</td><td>PALS</td></tr>
+          <tr><td>Species with inverted lymph node</td><td>Pig</td></tr>
+          <tr><td>Most efficient professional APC</td><td>Dendritic cell</td></tr>
+          <tr><td>Kills cells lacking MHC-I</td><td>NK cell</td></tr>
+          <tr><td>Marker of Th cells / Tc cells</td><td>CD4 / CD8</td></tr>
+          <tr><td>Immunity from colostrum</td><td>Passive natural</td></tr>
+          <tr><td>Placenta type in ruminants</td><td>Syndesmochorial — no IgG transfer</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 4 · VETERINARY IMMUNOLOGY &amp; SEROLOGY</span>
+    <span>SHEET 01 / 05</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 02 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">02</span>
+    <h2>Antigens, Adjuvants &amp; Immunoglobulins</h2>
+    <span class="sub">t04–t08</span>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>Antigen vocabulary <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Antigen</b><span>A substance that combines specifically with antibody or a lymphocyte receptor. <b>Immunogen</b> = an antigen that can also <b>induce</b> a response. <b>All immunogens are antigens; not all antigens are immunogens</b></span></div>
+        <div><b>Epitope / determinant</b><span>The small part actually bound — 5–8 amino acids or sugars. <b>Linear</b> (sequential) vs <b>conformational</b>. <b>Valency</b> = number of epitopes per molecule</span></div>
+        <div><b>Paratope</b><span>The antigen-binding site of the antibody</span></div>
+        <div><b>Hapten</b><span><b>Low-molecular-weight, antigenic but NOT immunogenic alone</b>; becomes immunogenic when coupled to a <b>carrier</b> protein. Examples: penicillin, picryl chloride, drugs causing allergy. Landsteiner's classic work</span></div>
+        <div><b>Mitogen</b><span>Non-specifically activates whole populations of lymphocytes. <b>T cells — PHA, Con A</b> · <b>B cells — LPS (endotoxin), pokeweed mitogen acts on both</b>. Used in the lymphocyte transformation test to assess cell-mediated immunity</span></div>
+        <div><b>Superantigen</b><span>Bridges MHC-II to the TCR <b>Vβ</b> outside the peptide groove → activates up to 20% of all T cells → cytokine storm. TSST-1, staphylococcal enterotoxins, streptococcal pyrogenic exotoxin</span></div>
+        <div><b>Adjuvant</b><span>Enhances the response to an antigen without being antigenic itself — see next module</span></div>
+      </div>
+      <table style="margin-top:1.2mm">
+        <thead><tr><th style="width:28%">Factor</th><th>Rule for good immunogenicity</th></tr></thead>
+        <tbody>
+          <tr><th>Foreignness</th><td>The more phylogenetically distant, the better — self is normally tolerated</td></tr>
+          <tr><th>Molecular size</th><td><b>&gt;10 kDa good, &gt;100 kDa excellent</b>; &lt;5 kDa usually poor</td></tr>
+          <tr><th>Chemical complexity</th><td>Proteins &gt; polysaccharides &gt; lipids &gt; nucleic acids; aromatic residues help</td></tr>
+          <tr><th>Degradability</th><td>Must be processable by APCs — D-amino acid polymers are not immunogenic</td></tr>
+          <tr><th>Dose &amp; route</th><td>Optimal dose; too little or too much gives <b>tolerance</b>. Route order: <b>intradermal &gt; subcutaneous &gt; intramuscular &gt; intraperitoneal &gt; intravenous &gt; oral</b></td></tr>
+          <tr><th>Host factors</th><td>Species, breed, age, genotype (<b>MHC haplotype — immune response genes</b>), nutrition, stress</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Special antigen classes <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Class</th><th>Features</th></tr></thead>
+        <tbody>
+          <tr><th><b>T-dependent</b></th><td><b>Proteins.</b> Need Th help. Give <b>IgM then class switch to IgG</b>, affinity maturation and <b>memory</b>. Most vaccine antigens</td></tr>
+          <tr><th><b>T-independent</b></th><td><b>Polysaccharides, LPS, polymeric flagellin.</b> Repeating epitopes cross-link the BCR directly → <b>IgM only, no switching, no affinity maturation, poor/no memory</b>. Why plain polysaccharide vaccines are poor in the young — solved by <b>conjugating them to a protein carrier</b></td></tr>
+          <tr><th>Heterophile<br>(Forssman)</th><td>Identical or closely similar antigens in <b>phylogenetically unrelated species</b>. Basis of <b>cross-reaction</b>. Examples: <b>Forssman antigen</b> (guinea pig, horse, cat, dog, sheep RBC); <b><i>Proteus</i> OX strains ↔ <i>Rickettsia</i> (Weil-Felix)</b>; <i>Salmonella</i> ↔ human RBC; <i>E. coli</i> O157 ↔ <i>Brucella</i> (false-positive brucellosis tests)</td></tr>
+          <tr><th>Blood group</th><td><b>Alloantigens</b> on RBCs. Cattle have &gt;11 systems (<b>J system</b> — soluble, acquired from plasma); sheep 7; horses 7 with the <b>Aa and Qa</b> factors causing <b>neonatal isoerythrolysis in foals and mules</b>; dogs <b>DEA 1.1</b> is the important one (a first transfusion is usually safe, a second may not be); <b>cats have naturally occurring alloantibodies — type B queens mated to type A toms give neonatal isoerythrolysis in kittens, so cats MUST be blood-typed before the first transfusion</b>; pigs A-O system</td></tr>
+          <tr><th>Autoantigen</th><td>Self components normally sequestered — lens, sperm, thyroglobulin, myelin</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-violet">
+      <h3>The immunoglobulin molecule <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 126" role="img" aria-label="Y-shaped immunoglobulin showing heavy and light chains, variable and constant domains, Fab and Fc, and enzyme cleavage sites">
+        <g font-size="7.6">
+          <!-- heavy chains -->
+          <path d="M170 118 L170 66 L120 24" fill="none" stroke="var(--violet)" stroke-width="3"/>
+          <path d="M170 118 L170 66 L220 24" fill="none" stroke="var(--violet)" stroke-width="3"/>
+          <!-- light chains -->
+          <path d="M104 40 L146 76" fill="none" stroke="var(--safranin)" stroke-width="2.4"/>
+          <path d="M236 40 L194 76" fill="none" stroke="var(--safranin)" stroke-width="2.4"/>
+          <!-- disulphides -->
+          <g stroke="var(--malachite)" stroke-width="1.4">
+            <line x1="163" y1="76" x2="177" y2="76"/><line x1="163" y1="86" x2="177" y2="86"/>
+            <line x1="128" y1="44" x2="136" y2="38"/><line x1="212" y1="44" x2="204" y2="38"/>
+          </g>
+          <!-- domain ticks -->
+          <g stroke="var(--paper)" stroke-width="1.4">
+            <line x1="140" y1="50" x2="150" y2="42"/><line x1="200" y1="50" x2="190" y2="42"/>
+            <line x1="164" y1="96" x2="176" y2="96"/>
+          </g>
+          <!-- papain / pepsin -->
+          <line x1="110" y1="72" x2="230" y2="72" stroke="var(--amber)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="110" y1="92" x2="230" y2="92" stroke="var(--fuchsin)" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="234" y="74" fill="var(--amber)" font-weight="600">papain → 2 Fab + 1 Fc</text>
+          <text x="234" y="94" fill="var(--fuchsin)" font-weight="600">pepsin → F(ab')₂ + fragments</text>
+
+          <g fill="var(--ink-2)">
+            <text x="86" y="30">V<tspan font-size="6" dy="1.5">L</tspan></text>
+            <text x="112" y="18" fill="var(--violet)">V<tspan font-size="6" dy="1.5">H</tspan></text>
+            <text x="222" y="18" fill="var(--violet)">V<tspan font-size="6" dy="1.5">H</tspan></text>
+            <text x="244" y="30">C<tspan font-size="6" dy="1.5">L</tspan></text>
+            <text x="150" y="62" fill="var(--violet)">C<tspan font-size="6" dy="1.5">H</tspan>1</text>
+            <text x="182" y="102" fill="var(--violet)">C<tspan font-size="6" dy="1.5">H</tspan>2</text>
+            <text x="182" y="116" fill="var(--violet)">C<tspan font-size="6" dy="1.5">H</tspan>3</text>
+            <text x="4" y="14" font-weight="700" fill="var(--violet)">HEAVY chain</text>
+            <text x="4" y="24">µ γ α δ ε — defines the class</text>
+            <text x="4" y="40" font-weight="700" fill="var(--safranin)">LIGHT chain</text>
+            <text x="4" y="50">κ or λ only</text>
+            <text x="4" y="66" font-weight="700" fill="var(--malachite)">Disulphide bonds</text>
+            <text x="4" y="76">inter- and intra-chain</text>
+            <text x="4" y="92" font-weight="700">HINGE (proline-rich)</text>
+            <text x="4" y="102">flexible; absent in IgM &amp; IgE</text>
+            <text x="252" y="112" font-weight="700">Fc</text>
+            <text x="252" y="122" font-size="7">complement C1q, FcR, placenta</text>
+          </g>
+        </g>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.3pt">
+        <li><b>Basic unit</b> = 2 identical heavy + 2 identical light chains = <b>H₂L₂</b>, ~150 kDa, Y-shaped, held by disulphide bonds.</li>
+        <li><b>Fab</b> = fragment antigen binding, <b>monovalent</b> — cannot precipitate or agglutinate. <b>F(ab′)₂</b> is <b>bivalent</b> and still cross-links. <b>Fc</b> = crystallisable, carries all the biological (effector) functions and the carbohydrate.</li>
+        <li><b>Variability terms:</b> <b>Isotype</b> = class/subclass differences (constant region, all members of a species) · <b>Allotype</b> = allelic differences between individuals · <b>Idiotype</b> = differences in the variable region/paratope of one clone. <b>CDRs (hypervariable regions)</b>, three per chain, form the paratope.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>The five classes <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:12%">Class</th><th style="width:16%">Chain · form</th><th>The point to remember</th></tr></thead>
+        <tbody>
+          <tr><th><b>IgG</b></th><td>γ · monomer<br>~150 kDa</td><td><b>Most abundant in serum (~75%)</b> and in most domestic-animal <b>colostrum</b>. Best at <b>opsonisation, toxin &amp; virus neutralisation, ADCC</b>; fixes complement (classical). The <b>predominant antibody of the secondary response</b>. Subclasses IgG1, IgG2 (IgG1 dominates cattle colostrum and milk)</td></tr>
+          <tr><th><b>IgM</b></th><td>µ · <b>pentamer</b> + J chain<br>~900 kDa</td><td><b>First antibody produced</b> in a primary response and <b>first synthesised by the foetus</b> — so <b>IgM in a precolostral serum sample proves intrauterine infection</b>. 10 binding sites → <b>best agglutinator and most efficient complement fixer</b>; too large to leave the vessels ("macroglobulin"). Also the <b>monomeric BCR</b> on naïve B cells</td></tr>
+          <tr><th><b>IgA</b></th><td>α · dimer + J chain + <b>secretory component</b></td><td><b>The mucosal antibody</b> — milk, saliva, tears, colostrum, respiratory, gut and urogenital secretions. Secretory component (from the epithelial poly-Ig receptor) protects it from proteolysis. Works by <b>immune exclusion</b>, does not fix complement classically. <b>The predominant immunoglobulin in the milk of most species after the colostral phase</b></td></tr>
+          <tr><th><b>IgE</b></th><td>ε · monomer<br>lowest concentration</td><td>Binds <b>FcεRI</b> on mast cells and basophils → <b>type I hypersensitivity</b> and <b>anti-parasite (helminth) immunity</b>; <b>heat-labile (56 °C, 30 min)</b>; mediates <b>PCA (Prausnitz-Küstner) reaction</b></td></tr>
+          <tr><th><b>IgD</b></th><td>δ · monomer</td><td>Chiefly a <b>BCR co-receptor on mature naïve B cells</b>; trace amounts in serum; <b>not found in cattle, pigs or chickens</b></td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Birds:</b> only <b>IgM, IgY (the IgG equivalent) and IgA</b>; IgY is transferred to the <b>egg yolk</b> and IgA/IgM to the albumen — this is the basis of <b>maternal antibody in chicks</b> and of the <b>IgY technology</b> for producing antibodies from eggs.</div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod m-amber">
+      <h3>Adjuvants <span class="kind">table</span></h3>
+      <table style="font-size:7.1pt">
+        <thead><tr><th style="width:30%">Type</th><th>Examples &amp; use</th></tr></thead>
+        <tbody>
+          <tr><th>Mineral salts</th><td><b>Aluminium hydroxide / phosphate (alum), potassium alum</b> — the classic; used in HS and clostridial bacterins; promotes <b>Th2/antibody</b></td></tr>
+          <tr><th>Oil emulsions</th><td><b>Freund's incomplete (water-in-oil)</b>; <b>Freund's complete = FIA + killed <i>M. tuberculosis</i></b> — the most powerful but too irritant for field use, laboratory only. Montanide, oil-adjuvant FMD and ND vaccines</td></tr>
+          <tr><th>Bacterial products</th><td>MDP, LPS/MPL, CpG oligodeoxynucleotides, cholera toxin B subunit, <b>BCG</b></td></tr>
+          <tr><th>Surface-active</th><td>Saponin, <b>Quil A</b>, <b>ISCOMs</b> (immune-stimulating complexes)</td></tr>
+          <tr><th>Cytokines</th><td>IL-2, IL-12, IFN-γ, GM-CSF as molecular adjuvants</td></tr>
+          <tr><th>Particulate carriers</th><td>Liposomes, microspheres, nanoparticles, virus-like particles</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Mechanism — four points</span> <b>1</b> Depot effect, slow antigen release · <b>2</b> Recruits and activates APCs at the site · <b>3</b> Increases effective antigen size and particulate presentation · <b>4</b> Directs the <b>type</b> of response (Th1 vs Th2). <b>Disadvantages:</b> injection-site granuloma and abscess, carcass condemnation, pain, and accidental self-injection of oil adjuvant is a surgical emergency in man.</div>
+    </div>
+
+    <div class="mod">
+      <h3>Antibody production &amp; diversity <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Side-chain theory</b><span>Ehrlich — cells bear pre-formed receptors; antigen selects and the cell overproduces them. Partly correct in spirit</span></div>
+        <div><b>Template (instructive) theories</b><span>Breinl &amp; Haurowitz, Pauling — antigen moulds the antibody. <b>Disproved</b>: denatured antibody refolds with the same specificity, and antibody is made after antigen is cleared</span></div>
+        <div><b>Natural selection theory</b><span>Jerne, 1955 — antigen selects a pre-existing natural antibody</span></div>
+        <div><b><i>Clonal selection theory</i></b><span><b>Burnet, 1957 — the accepted one.</b> Each lymphocyte is pre-committed to one specificity; antigen <b>selects</b> the matching clone, which proliferates into plasma cells and memory cells; self-reactive clones are deleted in fetal life ("forbidden clones")</span></div>
+        <div><b>Generation of diversity</b><span><b>Tonegawa's somatic recombination</b> — <b>V(D)J rearrangement</b> by RAG-1/RAG-2 (heavy chain uses V-D-J, light chain V-J) · <b>combinatorial</b> pairing of any H with any L · <b>junctional diversity</b> and N-nucleotide addition by TdT · <b>somatic hypermutation</b> in the germinal centre giving <b>affinity maturation</b>. Together these produce &gt;10⁹ specificities from a few hundred genes</span></div>
+        <div><b>Class switching</b><span>Same V region joins a different C<sub>H</sub> gene → specificity unchanged, <b>effector function changed</b>; driven by cytokines and CD40-CD40L</span></div>
+        <div><b>Idiotype network</b><span>Jerne — anti-idiotypic antibodies regulate the response; the internal image can act as a vaccine</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Primary vs secondary response <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Primary</th><th>Secondary (anamnestic)</th></tr></thead>
+        <tbody>
+          <tr><th>Lag phase</th><td>Long, 5–10 days</td><td><b>Short, 1–3 days</b></td></tr>
+          <tr><th>Peak titre</th><td>Low</td><td><b>10–100× higher</b></td></tr>
+          <tr><th>Main class</th><td><b>IgM</b></td><td><b>IgG</b> (IgA at mucosa)</td></tr>
+          <tr><th>Affinity</th><td>Low</td><td><b>High</b> — affinity maturation</td></tr>
+          <tr><th>Duration</th><td>Short</td><td>Long</td></tr>
+          <tr><th>Cell responding</th><td>Naïve B cell</td><td><b>Memory B cell</b></td></tr>
+          <tr><th>Antigen dose needed</th><td>High, adjuvant helps</td><td>Low</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>This table is the entire rationale for the booster dose</b> — say that sentence when you draw it. It also explains why <b>paired sera taken 2–3 weeks apart showing a four-fold rise in titre</b> is the standard serological proof of recent infection.</div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 4 · VETERINARY IMMUNOLOGY &amp; SEROLOGY</span>
+    <span>SHEET 02 / 05</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 03 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">03</span>
+    <h2>MHC, Receptors, Antigen Presentation, Complement &amp; Cytokines</h2>
+    <span class="sub">t11–t15</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-violet">
+      <h3>MHC &amp; antigen presentation — one diagram, two pathways <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 132" role="img" aria-label="Endogenous MHC class I and exogenous MHC class II antigen processing pathways">
+        <g font-size="7.6">
+          <!-- class I -->
+          <rect x="4" y="4" width="164" height="60" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
+          <text x="10" y="15" font-weight="700" fill="var(--violet)">ENDOGENOUS → MHC CLASS I</text>
+          <text x="10" y="25" fill="var(--ink-2)">Viral / tumour protein made <tspan font-style="italic">inside</tspan> the cell</text>
+          <text x="10" y="34" fill="var(--ink-2)">↓ ubiquitin → <tspan font-weight="600">PROTEASOME</tspan> → peptide 8–10 aa</text>
+          <text x="10" y="43" fill="var(--ink-2)">↓ <tspan font-weight="600">TAP</tspan> transporter into the ER</text>
+          <text x="10" y="52" fill="var(--ink-2)">↓ loaded on MHC-I (α chain + <tspan font-weight="600">β₂-microglobulin</tspan>)</text>
+          <text x="10" y="61" fill="var(--ink-2)">↓ surface → presented to <tspan font-weight="700" fill="var(--violet)">CD8 Tc</tspan> → kill</text>
+
+          <!-- class II -->
+          <rect x="172" y="4" width="164" height="60" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
+          <text x="178" y="15" font-weight="700" fill="var(--safranin)">EXOGENOUS → MHC CLASS II</text>
+          <text x="178" y="25" fill="var(--ink-2)">Bacterium taken up from <tspan font-style="italic">outside</tspan></text>
+          <text x="178" y="34" fill="var(--ink-2)">↓ endosome → <tspan font-weight="600">LYSOSOME</tspan> → peptide 13–18 aa</text>
+          <text x="178" y="43" fill="var(--ink-2)">↓ MHC-II arrives with the <tspan font-weight="600">invariant chain (CLIP)</tspan></text>
+          <text x="178" y="52" fill="var(--ink-2)">↓ HLA-DM swaps CLIP for the peptide</text>
+          <text x="178" y="61" fill="var(--ink-2)">↓ surface → presented to <tspan font-weight="700" fill="var(--safranin)">CD4 Th</tspan> → help</text>
+
+          <line x1="4" y1="70" x2="336" y2="70" stroke="var(--rule)" stroke-width=".7"/>
+
+          <text x="4" y="82" font-weight="700" fill="var(--amber)">MHC CLASS I</text>
+          <text x="4" y="92" fill="var(--ink-2)">On <tspan font-weight="600">ALL nucleated cells</tspan> (+ platelets)</text>
+          <text x="4" y="101" fill="var(--ink-2)">α1 α2 α3 + β₂-m · groove <tspan font-weight="600">closed</tspan> at both ends</text>
+          <text x="4" y="110" fill="var(--ink-2)">Binds <tspan font-weight="600">CD8</tspan> · target of Tc and of graft rejection</text>
+          <text x="4" y="119" fill="var(--ink-2)">Species names: <tspan font-weight="600">BoLA</tspan> cattle · <tspan font-weight="600">SLA</tspan> pig · <tspan font-weight="600">ELA</tspan> horse</text>
+          <text x="4" y="128" fill="var(--ink-2)"><tspan font-weight="600">DLA</tspan> dog · <tspan font-weight="600">OLA</tspan> sheep · <tspan font-weight="600">B complex</tspan> chicken · <tspan font-weight="600">HLA</tspan> man</text>
+
+          <text x="176" y="82" font-weight="700" fill="var(--amber)">MHC CLASS II</text>
+          <text x="176" y="92" fill="var(--ink-2)">Only on <tspan font-weight="600">professional APCs</tspan> — dendritic cell,</text>
+          <text x="176" y="101" fill="var(--ink-2)">macrophage, B cell (+ thymic epithelium)</text>
+          <text x="176" y="110" fill="var(--ink-2)">α + β chain · groove <tspan font-weight="600">open</tspan> at both ends</text>
+          <text x="176" y="119" fill="var(--ink-2)">Binds <tspan font-weight="600">CD4</tspan> · <tspan font-weight="600">Class III</tspan> = C4, C2, factor B, TNF —</text>
+          <text x="176" y="128" fill="var(--ink-2)">not a presenting molecule at all</text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>MHC is polygenic and the most polymorphic gene system known, is co-dominantly expressed, and is inherited as a haplotype block.</b> Consequences to quote: it determines graft acceptance or rejection, it sets the <b>immune response (Ir) gene</b> control of vaccine responsiveness, and MHC associations underlie several autoimmune and disease-resistance traits (for example BoLA associations with mastitis resistance).</div>
+    </div>
+
+    <div class="mod">
+      <h3>BCR and TCR compared <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>BCR</th><th>TCR</th></tr></thead>
+        <tbody>
+          <tr><th>Structure</th><td>Membrane <b>IgM/IgD</b> (H₂L₂) + <b>Igα/Igβ (CD79a/b)</b></td><td><b>αβ</b> heterodimer (or γδ) + <b>CD3</b> complex</td></tr>
+          <tr><th>Binding sites</th><td>Two</td><td><b>One</b></td></tr>
+          <tr><th>Recognises</th><td><b>Native, free antigen</b> — protein, sugar, lipid, nucleic acid</td><td><b>Only a peptide presented in an MHC groove</b> (MHC restriction)</td></tr>
+          <tr><th>Epitope type</th><td>Linear <b>and conformational</b></td><td><b>Linear peptide only</b></td></tr>
+          <tr><th>Secreted form</th><td><b>Yes</b> — becomes antibody</td><td><b>Never secreted</b></td></tr>
+          <tr><th>Co-receptor</th><td>CD19/CD21</td><td><b>CD4</b> (MHC-II) or <b>CD8</b> (MHC-I)</td></tr>
+          <tr><th>Somatic hypermutation</th><td>Yes</td><td><b>No</b></td></tr>
+          <tr><th>Gene rearrangement</th><td>V(D)J by RAG</td><td>V(D)J by RAG</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">γδ T cells</span> Recognise antigen with little or no MHC restriction, sit in epithelia, and are <b>unusually abundant in young ruminants and pigs</b> — a favourite short-note in veterinary papers. <b>Signal 1</b> = TCR–peptide–MHC; <b>signal 2</b> = co-stimulation <b>CD28–B7</b>; signal 1 without signal 2 gives <b>anergy</b>. <b>CTLA-4</b> delivers the inhibitory signal.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-safranin">
+      <h3>Complement — three pathways, one lytic end <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 118" role="img" aria-label="Classical lectin and alternative complement pathways converging on C3 and the membrane attack complex">
+        <g font-size="7.6">
+          <rect x="2" y="4" width="104" height="34" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="8" y="15" font-weight="700" fill="var(--safranin)">CLASSICAL</text>
+          <text x="8" y="24" fill="var(--ink-2)">Ag–Ab complex (<tspan font-weight="600">IgM &gt; IgG</tspan>)</text>
+          <text x="8" y="33" fill="var(--ink-2)">→ C1qrs → C4, C2</text>
+
+          <rect x="114" y="4" width="104" height="34" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="120" y="15" font-weight="700" fill="var(--safranin)">LECTIN</text>
+          <text x="120" y="24" fill="var(--ink-2)">MBL binds mannose</text>
+          <text x="120" y="33" fill="var(--ink-2)">→ MASP → C4, C2</text>
+
+          <rect x="226" y="4" width="112" height="34" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
+          <text x="232" y="15" font-weight="700" fill="var(--safranin)">ALTERNATIVE</text>
+          <text x="232" y="24" fill="var(--ink-2)">Microbial surface, LPS —</text>
+          <text x="232" y="33" fill="var(--ink-2)"><tspan font-weight="600">no antibody needed</tspan>; B, D, P</text>
+
+          <path d="M54 38 L54 46 L282 46 L282 38 M166 38 L166 46" fill="none" stroke="var(--safranin)" stroke-width="1"/>
+          <line x1="168" y1="46" x2="168" y2="52" stroke="var(--safranin)" stroke-width="1.4"/>
+
+          <rect x="94" y="52" width="150" height="16" rx="2" fill="var(--ink)" stroke="none"/>
+          <text x="102" y="63" font-weight="700" fill="var(--paper)">C3 CONVERTASE → C3a + C3b</text>
+
+          <line x1="168" y1="68" x2="168" y2="76" stroke="var(--safranin)" stroke-width="1.4"/>
+          <rect x="94" y="76" width="150" height="16" rx="2" fill="none" stroke="var(--safranin)" stroke-width="1"/>
+          <text x="102" y="87" font-weight="700" fill="var(--safranin)">C5 CONVERTASE → C5a + C5b</text>
+
+          <line x1="168" y1="92" x2="168" y2="98" stroke="var(--safranin)" stroke-width="1.4"/>
+          <rect x="94" y="98" width="150" height="16" rx="2" fill="var(--safranin)" stroke="none"/>
+          <text x="100" y="109" font-weight="700" fill="#fff">MAC C5b6789 → osmotic lysis</text>
+
+          <text x="2" y="60" fill="var(--ink-2)"><tspan font-weight="700">C3b</tspan> = the great</text>
+          <text x="2" y="69" fill="var(--ink-2)"><tspan font-weight="600">OPSONIN</tspan> (CR1)</text>
+          <text x="2" y="84" fill="var(--ink-2)"><tspan font-weight="700">C3a, C5a, C4a</tspan></text>
+          <text x="2" y="93" fill="var(--ink-2)">= <tspan font-weight="600">ANAPHYLATOXINS</tspan></text>
+          <text x="2" y="102" fill="var(--ink-2)">mast-cell degranulation</text>
+          <text x="2" y="111" fill="var(--ink-2)"><tspan font-weight="700">C5a</tspan> also = chemotaxin</text>
+
+          <text x="252" y="60" fill="var(--ink-2)"><tspan font-weight="700">Regulators</tspan></text>
+          <text x="252" y="69" fill="var(--ink-2)">C1-INH, factor H &amp; I,</text>
+          <text x="252" y="78" fill="var(--ink-2)">DAF (CD55), CD59,</text>
+          <text x="252" y="87" fill="var(--ink-2)">protectin — protect</text>
+          <text x="252" y="96" fill="var(--ink-2)">host cells from lysis</text>
+        </g>
+      </svg>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Five functions — the standard answer</span> <b>1</b> Cytolysis by the MAC · <b>2</b> <b>Opsonisation</b> (C3b) · <b>3</b> <b>Chemotaxis</b> (C5a) · <b>4</b> <b>Anaphylatoxin</b> and inflammation (C3a, C5a) · <b>5</b> <b>Immune-complex clearance</b> and B-cell activation (C3d–CR2). Complement is <b>heat-labile — 56 °C for 30 min destroys it</b>, which is why serum must be <b>inactivated</b> before a complement fixation test, and why guinea-pig serum is the standard source of fresh complement.</div>
+    </div>
+
+    <div class="mod">
+      <h3>Cytokines <span class="kind">table</span></h3>
+      <table style="font-size:7.1pt">
+        <thead><tr><th style="width:20%">Cytokine</th><th>Chief source</th><th>Chief action</th></tr></thead>
+        <tbody>
+          <tr><th>IL-1</th><td>Macrophage</td><td><b>Endogenous pyrogen</b> — fever, acute-phase response, T-cell co-stimulation</td></tr>
+          <tr><th>IL-2</th><td>Th1</td><td><b>T-cell growth factor</b> — clonal proliferation, NK activation</td></tr>
+          <tr><th>IL-4</th><td>Th2, mast cell</td><td>B-cell growth; <b>class switch to IgE</b>; drives Th2</td></tr>
+          <tr><th>IL-5</th><td>Th2</td><td><b>Eosinophil</b> growth and activation; IgA switch</td></tr>
+          <tr><th>IL-6</th><td>Macrophage, Th2</td><td>Acute-phase proteins, plasma-cell differentiation</td></tr>
+          <tr><th>IL-10, TGF-β</th><td>Treg, Th2</td><td><b>Immunosuppressive</b> — dampen Th1 and macrophages</td></tr>
+          <tr><th>IL-12</th><td>Dendritic cell, macrophage</td><td><b>Drives Th1</b> and IFN-γ; the key Th1-polarising signal</td></tr>
+          <tr><th>IL-17</th><td>Th17</td><td>Neutrophil recruitment, mucosal defence</td></tr>
+          <tr><th><b>IFN-α/β</b></th><td>Any virus-infected cell, plasmacytoid DC</td><td><b>Type I — antiviral</b>; induces the antiviral state, MHC-I up-regulation</td></tr>
+          <tr><th><b>IFN-γ</b></th><td>Th1, NK, Tc</td><td><b>Type II — the macrophage-activating factor</b>; up-regulates MHC-I and II; the central cytokine of <b>cell-mediated immunity</b> and the basis of the <b>IFN-γ (Bovigam) test for bovine tuberculosis</b></td></tr>
+          <tr><th>TNF-α</th><td>Macrophage</td><td>Inflammation, cachexia, tumour necrosis; the mediator of <b>endotoxic shock</b></td></tr>
+          <tr><th>Chemokines</th><td>Many</td><td>Directed leucocyte migration (IL-8/CXCL8 for neutrophils)</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>Properties of cytokines — write these five:</b> <b>pleiotropy</b> (one cytokine, many effects), <b>redundancy</b> (several cytokines, one effect), <b>synergy</b>, <b>antagonism</b>, and <b>cascade induction</b>. They act at picomolar concentration, mostly <b>autocrine or paracrine</b> and only rarely endocrine, and always through a specific surface receptor.</div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 03 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>MHC-I is found on</b><span>All nucleated cells</span></div>
+      <div><b>MHC-II is found on</b><span>Professional APCs only</span></div>
+      <div><b>Light chain of MHC-I</b><span>β₂-microglobulin</span></div>
+      <div><b>Transporter feeding MHC-I</b><span>TAP</span></div>
+      <div><b>Peptide placeholder on MHC-II</b><span>Invariant chain / CLIP</span></div>
+      <div><b>MHC of cattle / pig / dog</b><span>BoLA / SLA / DLA</span></div>
+      <div><b>MHC class III encodes</b><span>C4, C2, factor B, TNF</span></div>
+      <div><b>Co-stimulatory pair</b><span>CD28 – B7 (signal 2)</span></div>
+      <div><b>Signal 1 without signal 2 gives</b><span>Anergy</span></div>
+      <div><b>Most efficient complement fixer</b><span>IgM</span></div>
+      <div><b>Pathway needing no antibody</b><span>Alternative</span></div>
+      <div><b>Main opsonin of complement</b><span>C3b</span></div>
+      <div><b>Chemotactic complement fragment</b><span>C5a</span></div>
+      <div><b>Membrane attack complex</b><span>C5b6789</span></div>
+      <div><b>Complement inactivated by</b><span>56 °C for 30 min</span></div>
+      <div><b>Macrophage-activating cytokine</b><span>IFN-γ</span></div>
+      <div><b>Endogenous pyrogen</b><span>IL-1</span></div>
+      <div><b>T-cell growth factor</b><span>IL-2</span></div>
+      <div><b>Cytokine driving Th1</b><span>IL-12</span></div>
+      <div><b>Cytokine switching B cells to IgE</b><span>IL-4</span></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 4 · VETERINARY IMMUNOLOGY &amp; SEROLOGY</span>
+    <span>SHEET 03 / 05</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 04 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">04</span>
+    <h2>Serological Reactions &amp; Monoclonal Antibodies</h2>
+    <span class="sub">t09–t10</span>
+  </div>
+
+  <div class="mod m-malachite">
+    <h3>The antigen-antibody reaction — principles that apply to every test <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 96" role="img" aria-label="Precipitation curve showing antibody excess, zone of equivalence and antigen excess">
+      <g font-size="9">
+        <line x1="40" y1="76" x2="300" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
+        <line x1="40" y1="8" x2="40" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
+        <path d="M44 70 Q120 4 170 14 Q230 26 296 70" fill="none" stroke="var(--malachite)" stroke-width="2"/>
+        <g stroke="var(--rule)" stroke-width=".6" stroke-dasharray="2 2">
+          <line x1="120" y1="10" x2="120" y2="76"/><line x1="220" y1="10" x2="220" y2="76"/>
+        </g>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="46" y="88">Antibody excess</text>
+          <text x="132" y="88" font-weight="700" fill="var(--malachite)">EQUIVALENCE</text>
+          <text x="228" y="88">Antigen excess</text>
+          <text x="46" y="30">no visible</text><text x="46" y="39">lattice</text>
+          <text x="140" y="34" fill="var(--malachite)" font-weight="600">maximum</text>
+          <text x="140" y="43" fill="var(--malachite)" font-weight="600">precipitate</text>
+          <text x="240" y="34">soluble small</text><text x="240" y="43">complexes</text>
+        </g>
+        <text x="14" y="46" font-size="8" fill="var(--ink-2)" transform="rotate(-90 16 46)">precipitate</text>
+
+        <line x1="320" y1="4" x2="320" y2="92" stroke="var(--rule)" stroke-width=".7"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="334" y="14" font-weight="700" fill="var(--amber)">FIVE RULES THAT ANSWER EVERY SEROLOGY QUESTION</text>
+          <text x="334" y="27"><tspan font-weight="600">1 Specificity —</tspan> the reaction is lock-and-key; cross-reaction occurs when two antigens share an epitope (heterophile antigens)</text>
+          <text x="334" y="39"><tspan font-weight="600">2 Non-covalent —</tspan> held by H bonds, ionic, hydrophobic and van der Waals forces; therefore <tspan font-weight="600">reversible</tspan></text>
+          <text x="334" y="51"><tspan font-weight="600">3 Two stages —</tspan> a rapid invisible primary binding, then a slow visible secondary stage (lattice, precipitate, clump, lysis)</text>
+          <text x="334" y="63"><tspan font-weight="600">4 Optimal proportion —</tspan> visible reaction only near equivalence; excess of either partner gives the <tspan font-weight="600">PROZONE</tspan> (Ab excess) or postzone (Ag excess) false negative — always test serial dilutions</text>
+          <text x="334" y="75"><tspan font-weight="600">5 Affinity vs avidity —</tspan> affinity is the strength of one paratope-epitope bond; <tspan font-weight="600">avidity</tspan> is the total strength of a multivalent interaction, which is why IgM works so well</text>
+          <text x="334" y="88"><tspan font-weight="600">Titre</tspan> = the reciprocal of the highest serum dilution still giving a visible reaction. <tspan font-weight="600">A four-fold rise in paired sera 2–3 weeks apart proves recent infection.</tspan></text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-malachite">
+      <h3>The tests, grouped by what you see <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">Group</th><th style="width:24%">Test</th><th>Principle &amp; veterinary use</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="3"><b>Agglutination</b><br><span style="font-weight:400">particulate antigen</span></th><td>Slide / rapid plate</td><td>Quick qualitative screen — <b>pullorum disease (<i>S.</i> Pullorum whole-blood plate test)</b>, <b>RBPT for brucellosis</b>, blood grouping</td></tr>
+          <tr><td><b>Tube (STAT)</b></td><td>Serial doubling dilutions give a <b>titre</b> — brucellosis, salmonellosis, leptospirosis</td></tr>
+          <tr><td>Indirect / passive &amp; latex</td><td>Soluble antigen coated on latex beads or RBCs; <b>Coombs' test</b> (antiglobulin) — direct for autoimmune haemolytic anaemia and <b>neonatal isoerythrolysis</b>, indirect for detecting free antibody</td></tr>
+          <tr><th rowspan="3"><b>Precipitation</b><br><span style="font-weight:400">soluble antigen</span></th><td>Ring / tube</td><td><b>Ascoli thermoprecipitation test for anthrax</b> in hides and decomposed tissue</td></tr>
+          <tr><td><b>AGID / AGPT</b><br>(Ouchterlony)</td><td>Double diffusion in gel; read the <b>lines of identity, partial identity or non-identity</b>. Used for <b>EIA (Coggins test)</b>, bluetongue, IBR, avian leucosis, Johne's</td></tr>
+          <tr><td><b>SRID</b> (Mancini) &amp; immunoelectrophoresis</td><td>SRID: antibody in the gel, antigen in a well; the <b>square of the ring diameter is proportional to antigen concentration</b> — used to <b>quantify immunoglobulins and assess failure of passive transfer in calves and foals</b>. Rocket electrophoresis and counter-immunoelectrophoresis are the accelerated versions</td></tr>
+          <tr><th><b>Complement fixation</b></th><td>CFT</td><td>Two systems: test system (Ag + serum + complement), then the <b>indicator system (sheep RBC + haemolysin)</b>. <b>No haemolysis = POSITIVE</b> (complement was used up); haemolysis = negative. Serum must be inactivated at 56 °C/30 min. Used for <b>glanders, brucellosis, CBPP and Johne's; the WOAH standard for international trade</b></td></tr>
+          <tr><th><b>Neutralisation</b></th><td>SNT / VNT · toxin neutralisation</td><td>Antibody blocks infectivity in cell culture or in a mouse; the <b>gold standard for measuring protective antibody</b> and for <b>rabies (FAVN/RFFIT)</b></td></tr>
+          <tr><th><b>Haemagglutination</b></th><td>HA and <b>HI</b></td><td>Some viruses agglutinate RBCs directly (<b>NDV, influenza, IBDV</b>). <b>HA titrates the virus; HI titrates the antibody</b> — the routine flock-monitoring test for Newcastle disease vaccination</td></tr>
+          <tr><th rowspan="2"><b>Labelled assays</b></th><td><b>ELISA</b></td><td>Enzyme (HRP or ALP) + substrate → colour, read at a set wavelength. <b>Indirect</b> (detects antibody), <b>sandwich</b> (detects antigen), <b>competitive/blocking</b> (used in DIVA testing), <b>capture</b>. High throughput, objective, the workhorse of national disease-surveillance programmes</td></tr>
+          <tr><td><b>FAT / IFAT</b> · RIA · immunochromatography</td><td><b>Direct FAT on brain impressions is the gold standard for rabies diagnosis.</b> RIA uses ¹²⁵I — most sensitive but radioactive. Lateral-flow strips are the pen-side format</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-malachite">
+      <h3>Hybridoma &amp; monoclonal antibodies <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 116" role="img" aria-label="Steps of hybridoma production from immunised mouse to monoclonal antibody">
+        <g font-size="7.4">
+          <rect x="2" y="4" width="196" height="15" rx="2" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width=".9"/>
+          <text x="8" y="14"><tspan font-weight="700" fill="var(--malachite)">1</tspan> Immunise a mouse → harvest <tspan font-weight="600">spleen B cells</tspan> (short-lived, specific)</text>
+
+          <rect x="2" y="22" width="196" height="15" rx="2" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width=".9"/>
+          <text x="8" y="32"><tspan font-weight="700" fill="var(--malachite)">2</tspan> Myeloma cells — immortal, but <tspan font-weight="600">HGPRT-negative</tspan></text>
+
+          <rect x="2" y="40" width="196" height="15" rx="2" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width=".9"/>
+          <text x="8" y="50"><tspan font-weight="700" fill="var(--malachite)">3</tspan> <tspan font-weight="600">FUSE with PEG</tspan> (or electrofusion) → hybridoma</text>
+
+          <rect x="2" y="58" width="196" height="22" rx="2" fill="var(--amber-w)" stroke="var(--amber)" stroke-width=".9"/>
+          <text x="8" y="68"><tspan font-weight="700" fill="var(--amber)">4</tspan> Select in <tspan font-weight="600">HAT medium</tspan> — aminopterin blocks the</text>
+          <text x="8" y="77">de novo pathway; only cells with the B-cell HGPRT survive the salvage route</text>
+
+          <rect x="2" y="83" width="196" height="15" rx="2" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width=".9"/>
+          <text x="8" y="93"><tspan font-weight="700" fill="var(--malachite)">5</tspan> Screen by ELISA → <tspan font-weight="600">clone by limiting dilution</tspan></text>
+
+          <rect x="2" y="101" width="196" height="13" rx="2" fill="var(--ink)" stroke="none"/>
+          <text x="8" y="110" fill="var(--paper)"><tspan font-weight="700">6</tspan> Expand in culture or as ascites → monoclonal antibody</text>
+        </g>
+      </svg>
+      <table style="margin-top:1.2mm">
+        <thead><tr><th>Feature</th><th>Polyclonal</th><th>Monoclonal</th></tr></thead>
+        <tbody>
+          <tr><th>Source</th><td>Immunised animal's serum</td><td>A single hybridoma clone</td></tr>
+          <tr><th>Specificity</th><td>Many epitopes</td><td><b>One epitope</b></td></tr>
+          <tr><th>Batch consistency</th><td>Varies</td><td><b>Identical for ever</b></td></tr>
+          <tr><th>Cross-reaction</th><td>More</td><td>Minimal</td></tr>
+          <tr><th>Cost &amp; time</th><td>Cheap, quick</td><td>Expensive, slow</td></tr>
+          <tr><th>Best for</th><td>Precipitation, general detection</td><td>Diagnostics, typing, therapy, purification</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Applications</span> Serotyping FMD and bluetongue viruses, <b>DIVA</b> and blocking ELISAs, immunoaffinity purification, pregnancy and hormone kits, tumour imaging, immunotherapy, and <b>immunotoxins</b> ("magic bullets"). Chimeric, humanised and fully human mAbs (suffix <b>-mab</b>) reduce the anti-mouse antibody response.</div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 04 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>False negative from antibody excess</b><span>Prozone phenomenon</span></div>
+      <div><b>Definition of titre</b><span>Reciprocal of the highest reactive dilution</span></div>
+      <div><b>Proof of recent infection</b><span>Four-fold rise in paired sera</span></div>
+      <div><b>Antigen state in agglutination</b><span>Particulate</span></div>
+      <div><b>Antigen state in precipitation</b><span>Soluble</span></div>
+      <div><b>Ouchterlony technique</b><span>Double diffusion (AGID)</span></div>
+      <div><b>Coggins test detects</b><span>Equine infectious anaemia (AGID)</span></div>
+      <div><b>Test to quantify immunoglobulin</b><span>SRID (Mancini)</span></div>
+      <div><b>Positive CFT is read as</b><span>NO haemolysis</span></div>
+      <div><b>Indicator system of CFT</b><span>Sheep RBC + haemolysin</span></div>
+      <div><b>Antibody test for NDV in flocks</b><span>HI test</span></div>
+      <div><b>Gold standard for rabies diagnosis</b><span>Direct FAT on brain smear</span></div>
+      <div><b>Anthrax test on decomposed tissue</b><span>Ascoli thermoprecipitation</span></div>
+      <div><b>Antiglobulin test</b><span>Coombs'</span></div>
+      <div><b>Fusing agent in hybridoma</b><span>Polyethylene glycol</span></div>
+      <div><b>Selection medium for hybridomas</b><span>HAT — hypoxanthine, aminopterin, thymidine</span></div>
+      <div><b>Enzyme deficiency in myeloma cells</b><span>HGPRT</span></div>
+      <div><b>Monoclonal antibody discovered by</b><span>Köhler &amp; Milstein, 1975</span></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 4 · VETERINARY IMMUNOLOGY &amp; SEROLOGY</span>
+    <span>SHEET 04 / 05</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 05 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">05</span>
+    <h2>Hypersensitivity, Tolerance, Antimicrobial Immunity &amp; Vaccines</h2>
+    <span class="sub">t16–t19</span>
+  </div>
+
+  <div class="mod m-fuchsin">
+    <h3>The four types of hypersensitivity — Coombs &amp; Gell <span class="kind">table</span></h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:9%">Type</th><th style="width:14%">Name</th><th style="width:12%">Mediator</th><th style="width:14%">Onset</th><th style="width:22%">Mechanism</th><th>Veterinary examples</th></tr></thead>
+      <tbody>
+        <tr><th><b>I</b></th><td><b>Anaphylactic / immediate</b></td><td><b>IgE</b> on mast cells &amp; basophils</td><td><b>Seconds to 30 min</b></td><td>Re-exposure cross-links IgE on the mast cell → <b>degranulation</b> → histamine, leukotrienes, prostaglandins, PAF → smooth-muscle contraction, vasodilatation, oedema</td><td>Systemic anaphylaxis after vaccine, penicillin or serum; <b>shock organ differs by species — lung in cattle, guinea pig and man; LIVER (hepatic veins) in the dog; lung + intestine in the horse and pig</b>. Also atopic dermatitis, allergic rhinitis, milk allergy, insect-bite and <b>sweet itch</b> in horses. Treat with <b>adrenaline</b>, antihistamines, corticosteroids</td></tr>
+        <tr><th><b>II</b></th><td><b>Cytotoxic</b></td><td><b>IgG or IgM</b> against a cell-surface antigen</td><td>Minutes to hours</td><td>Antibody binds the cell → <b>complement lysis</b>, opsonisation and phagocytosis, or <b>ADCC</b> by NK cells</td><td><b>Neonatal isoerythrolysis in foals, mules, piglets and kittens</b>; incompatible blood transfusion; autoimmune haemolytic anaemia and thrombocytopenia (Coombs' positive); myasthenia gravis; drug-induced (penicillin acting as a hapten on RBCs)</td></tr>
+        <tr><th><b>III</b></th><td><b>Immune complex (Arthus)</b></td><td><b>Soluble Ag–Ab complexes</b> + complement</td><td><b>4–8 hours</b></td><td>Complexes formed in <b>slight antigen excess</b> deposit in vessel walls, glomeruli, joints and skin → complement activation → <b>C5a → neutrophil influx → enzyme release → vasculitis and necrosis</b></td><td><b>Arthus reaction</b> at a repeat injection site; <b>serum sickness</b>; glomerulonephritis of chronic infection (equine infectious anaemia, ADV of mink, canine pyometra); <b>purpura haemorrhagica after strangles</b>; blue eye of infectious canine hepatitis; hypersensitivity pneumonitis / <b>farmer's lung</b> from mouldy hay</td></tr>
+        <tr><th><b>IV</b></th><td><b>Delayed type (DTH), cell-mediated</b></td><td><b>Th1 cells + macrophages — NO antibody</b></td><td><b>24–72 hours</b></td><td>Sensitised Th1 cells re-meet antigen → IFN-γ → macrophage accumulation and activation → induration, and with persistent antigen a <b>granuloma</b></td><td><b>Tuberculin test</b> (the classic — read at 72 h), <b>johnin</b> and <b>mallein</b> tests, contact dermatitis (nickel, rubber, chemicals), graft rejection, granulomatous response to intracellular pathogens. <b>Transferable by lymphocytes but NOT by serum</b> — this experiment is the definition</td></tr>
+      </tbody>
+    </table></div>
+    <div class="mnem" style="margin-top:1.2mm"><span class="key">Memory hook</span> <b>A</b>naphylactic · <b>C</b>ytotoxic · <b>I</b>mmune-complex · <b>D</b>elayed = <b>"ACID"</b>. Types I, II and III are <b>antibody-mediated and transferable by serum</b>; type IV is <b>cell-mediated and transferable only by cells</b>. A fifth, <b>stimulatory</b> type (antibody against a receptor, as in Graves' disease) is sometimes added.</div>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-fuchsin">
+      <h3>Tolerance &amp; autoimmunity <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Immunological tolerance</b><span>Specific <b>unresponsiveness</b> to an antigen that would otherwise provoke a response. Induced most easily in the <b>foetus or neonate</b>, by very high or very low antigen doses, by soluble non-aggregated antigen and by the oral or intravenous route</span></div>
+        <div><b>Central tolerance</b><span>In thymus and bone marrow. <b>Negative selection</b> — clonal deletion of strongly self-reactive lymphocytes; <b>AIRE</b> drives expression of peripheral self-antigens in the thymus. Also receptor editing in B cells</span></div>
+        <div><b>Peripheral tolerance</b><span><b>Anergy</b> (signal 1 without signal 2), <b>clonal deletion</b>, <b>suppression by Treg</b> (IL-10, TGF-β, CTLA-4), and <b>immunological ignorance</b> of sequestered antigens</span></div>
+        <div><b>Classic demonstration</b><span><b>Freemartin cattle and dizygotic twin calves</b> sharing a placental circulation become permanent <b>blood chimeras</b> and tolerant of each other's tissue — the natural experiment. Medawar's neonatal skin-graft work made the same point</span></div>
+        <div><b>How autoimmunity arises</b><span><b>1</b> Release of sequestered antigen (lens, sperm, myelin, thyroglobulin) after trauma or infection · <b>2</b> <b>Molecular mimicry</b> — a microbial epitope resembles self (<i>Campylobacter</i> and Guillain-Barré) · <b>3</b> Alteration of self by drugs or haptens · <b>4</b> <b>Polyclonal activation</b> by superantigens or LPS · <b>5</b> Failure of Treg or of AIRE · <b>6</b> Aberrant MHC-II expression on non-APCs · <b>7</b> Genetic (MHC haplotype) and hormonal (female bias) predisposition</span></div>
+        <div><b>Veterinary autoimmune diseases</b><span><b>Autoimmune haemolytic anaemia and immune-mediated thrombocytopenia</b> (dog) · <b>Pemphigus foliaceus</b> (dog, horse — commonest autoimmune skin disease) · <b>Systemic lupus erythematosus</b> (dog, ANA positive) · <b>Equine recurrent uveitis</b> (moon blindness, leptospiral mimicry) · Myasthenia gravis (anti-AChR) · Lymphocytic thyroiditis (dog) · Rheumatoid arthritis · Autoimmune orchitis and thyroiditis</span></div>
+        <div><b>Diagnosis</b><span>Coombs' test, ANA, LE-cell test, direct immunofluorescence on a skin biopsy, response to immunosuppression</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <h3>Immunity to microbes — the table that answers "how does the body handle X?" <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">Agent type</th><th style="width:30%">Chief protective mechanism</th><th>Evasion strategy to mention</th></tr></thead>
+        <tbody>
+          <tr><th>Extracellular bacteria</th><td><b>Antibody</b> — opsonisation (IgG + C3b), complement lysis, <b>toxin neutralisation</b>, blocking adhesion (IgA); neutrophils</td><td>Capsule, protein A, IgA protease, antigenic variation, biofilm</td></tr>
+          <tr><th>Intracellular bacteria<br><span class="mono" style="font-size:6.2pt">TB, brucellosis, listeriosis</span></th><td><b>Cell-mediated immunity</b> — Th1, IFN-γ-activated macrophages, CD8 Tc, granuloma formation. <b>Antibody is of little value</b></td><td>Blocking phagosome-lysosome fusion, escape to the cytosol, resisting the respiratory burst, inhibiting MHC expression</td></tr>
+          <tr><th>Viruses</th><td><b>Interferon α/β</b> and NK cells early; then <b>neutralising antibody</b> (blocks entry, prevents spread and reinfection) and <b>CD8 Tc</b> (clears infected cells); IgA at mucosal surfaces</td><td>Antigenic drift and shift, latency, downregulation of MHC-I, virokines and viroceptors, infection of lymphocytes (immunosuppression by BVDV, CDV, IBDV, FIV)</td></tr>
+          <tr><th>Fungi</th><td>Chiefly <b>cell-mediated</b> — Th1 and Th17, activated macrophages and neutrophils</td><td>Capsule (<i>Cryptococcus</i>), melanin, thermotolerance, morphological switching</td></tr>
+          <tr><th>Parasites (helminths)</th><td><b>Th2 — IgE, eosinophils, mast cells</b>, ADCC by eosinophils, mucus and "weep and sweep"</td><td>Antigenic variation, immune-complex decoys, glycan shielding, immunomodulation of the host</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>The one-sentence rule that examiners want:</b> <b>antibody handles what is outside the cell; T cells handle what is inside it.</b> Everything above is a corollary of that sentence.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-malachite">
+      <h3>Vaccines <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:20%">Type</th><th style="width:34%">Advantages / drawbacks</th><th>Veterinary examples</th></tr></thead>
+        <tbody>
+          <tr><th><b>Live attenuated</b></th><td><b>+</b> Strong, long, single dose; induces <b>both humoral and cell-mediated</b> immunity and local IgA; cheap<br><b>−</b> Risk of <b>reversion to virulence</b>, residual virulence in pregnant or immunosuppressed animals, needs a <b>cold chain</b>, may be neutralised by maternal antibody</td><td><b>Brucella S19 and RB51, anthrax Sterne 34F₂</b>, ND F1/LaSota, PPR Sungri/96, RD vaccines, IBR, canine distemper, sheep pox, <b>BCG</b></td></tr>
+          <tr><th><b>Killed / inactivated (bacterin)</b></th><td><b>+</b> Safe, stable, no reversion<br><b>−</b> Weaker, chiefly <b>humoral</b>, needs an <b>adjuvant and boosters</b></td><td><b>HS alum-precipitated and oil-adjuvant bacterins</b>, FMD trivalent, rabies (cell-culture), leptospiral bacterin, killed ND</td></tr>
+          <tr><th><b>Toxoid</b></th><td>Exotoxin treated with <b>0.3–0.4% formalin at 37 °C</b> — antigenic, not toxic</td><td><b>Tetanus toxoid</b>, clostridial multi-component (enterotoxaemia), botulinum</td></tr>
+          <tr><th>Subunit / recombinant</th><td>Only the protective antigen; very safe, DIVA-friendly; expensive, needs adjuvant</td><td>FMD VP1, <i>E. coli</i> K99 pilus vaccine, feline leukaemia gp70, hepatitis B in man</td></tr>
+          <tr><th>Vectored</th><td>A harmless virus carries the protective gene; good CMI</td><td><b>Vaccinia- and canarypox-vectored rabies</b> for wildlife baiting, HVT-vectored ND and IBD in poultry</td></tr>
+          <tr><th>DNA / mRNA</th><td>Plasmid or mRNA encoding the antigen; stable, rapid to design, induces CMI</td><td>West Nile in horses (licensed DNA vaccine); mRNA platforms</td></tr>
+          <tr><th><b>Marker / DIVA</b></th><td>Allows <b>D</b>ifferentiating <b>I</b>nfected from <b>V</b>accinated <b>A</b>nimals — essential in an eradication programme</td><td><b>gE-deleted IBR</b>, <b>Brucella RB51</b>, FMD NSP-based companion ELISA</td></tr>
+          <tr><th>Autogenous</th><td>Made from the organism isolated on that very farm</td><td>Herd-specific mastitis and colibacillosis vaccines</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Failure of vaccination — list six</span> <b>1</b> Break in the <b>cold chain</b> or expired vaccine · <b>2</b> <b>Interference by maternal antibody</b> in the young (why puppies need a series to 16 weeks) · <b>3</b> Wrong route, dose or timing · <b>4</b> Immunosuppression — stress, malnutrition, parasitism, concurrent BVD/IBD/CDV, corticosteroids · <b>5</b> <b>Antigenic mismatch</b> between the vaccine and the field strain (FMD serotypes, ND genotypes) · <b>6</b> Genetic non-responders; and use of disinfectant on the needle or in the drinking water for live vaccines.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 05 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:54%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Classified hypersensitivity into four types</td><td>Coombs &amp; Gell</td></tr>
+          <tr><td>Immunoglobulin of type I</td><td>IgE</td></tr>
+          <tr><td>Shock organ in the dog</td><td>Liver (hepatic veins)</td></tr>
+          <tr><td>Drug of choice in anaphylaxis</td><td>Adrenaline</td></tr>
+          <tr><td>Type of neonatal isoerythrolysis</td><td>Type II, cytotoxic</td></tr>
+          <tr><td>Arthus reaction is type</td><td>Type III</td></tr>
+          <tr><td>Tuberculin reaction is type</td><td>Type IV — read at 72 h</td></tr>
+          <tr><td>Type transferable only by cells</td><td>Type IV</td></tr>
+          <tr><td>Natural example of tolerance</td><td>Freemartin / twin-calf chimerism</td></tr>
+          <tr><td>Thymic gene enforcing self-tolerance</td><td>AIRE</td></tr>
+          <tr><td>Commonest autoimmune skin disease of dogs</td><td>Pemphigus foliaceus</td></tr>
+          <tr><td>Immunity to intracellular bacteria</td><td>Cell-mediated (Th1, IFN-γ)</td></tr>
+          <tr><td>Formalin concentration for toxoid</td><td>0.3–0.4% at 37 °C</td></tr>
+          <tr><td>DIVA vaccine example</td><td>gE-deleted IBR · <i>Brucella</i> RB51</td></tr>
+          <tr><td>Commonest cause of vaccine failure in young</td><td>Maternal antibody interference</td></tr>
+        </tbody>
+      </table>
+      <div class="tags">
+        <span class="tag">19 / 19 syllabus topics</span>
+        <span class="tag">Paper II · Unit 4</span>
+        <span class="tag">Full pass ≈ 25 min</span>
+        <span class="tag">Night-before: the six diagrams + all self-tests</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 4 · VETERINARY IMMUNOLOGY &amp; SEROLOGY</span>
+    <span>SHEET 05 / 05</span>
+  </div>
+</section>

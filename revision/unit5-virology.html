@@ -1,0 +1,1069 @@
+<title>Virology Rapid Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap">
+
+<style>
+:root{
+  --paper:#ffffff;
+  --ground:#eef2f6;
+  --ink:#1b2430;
+  --ink-2:#4d5b6c;
+  --ink-3:#7a8798;
+  --rule:#dae1ea;
+  --rule-soft:#eaeff4;
+  --tint:#f4f7fa;
+
+  --blue:#1565c0;      /* methylene blue — structural / general */
+  --violet:#4a2d85;    /* crystal violet — Gram positive */
+  --safranin:#b02a37;  /* safranin — Gram negative */
+  --fuchsin:#9c1f5c;   /* carbol fuchsin — acid fast */
+  --malachite:#0f6e63; /* malachite green — spore / anaerobe */
+  --amber:#a05300;     /* exam trap / must-not-confuse */
+
+  --blue-w:#e7f0fa; --violet-w:#efeaf8; --safranin-w:#fbe9ea;
+  --fuchsin-w:#fbe9f2; --malachite-w:#e3f2ef; --amber-w:#fdf0e0;
+
+  --sheet-w:210mm; --sheet-h:297mm; --pad:11mm;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+    --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+    --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+    --malachite:#4fc4b2; --amber:#e9a44b;
+    --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+    --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+  --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+  --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+  --malachite:#4fc4b2; --amber:#e9a44b;
+  --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+  --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  margin:0; padding:8mm 4mm 16mm;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,.sp{font-family:"IBM Plex Serif","IBM Plex Sans",serif; font-style:italic}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- SHEET ---------- */
+.sheet{
+  width:var(--sheet-w); min-height:var(--sheet-h);
+  margin:0 auto 7mm; padding:var(--pad);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 2px rgba(20,40,70,.06),0 10px 30px rgba(20,40,70,.07);
+  display:flex; flex-direction:column; gap:3.6mm;
+  font-size:8.5pt; line-height:1.33;
+  position:relative;
+}
+.sheet-head{
+  display:flex; align-items:baseline; gap:3mm;
+  border-bottom:1.6pt solid var(--ink); padding-bottom:1.6mm;
+}
+.sheet-head .no{
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:8pt;
+  color:var(--paper); background:var(--ink);
+  padding:.6mm 1.8mm; border-radius:1mm; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:14pt; margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.sheet-head .sub{
+  font-size:7.4pt; color:var(--ink-3); margin-left:auto; text-align:right;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.02em;
+}
+.sheet-foot{
+  margin-top:auto; padding-top:1.6mm; border-top:.5pt solid var(--rule);
+  display:flex; justify-content:space-between;
+  font-size:6.6pt; color:var(--ink-3); font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.03em;
+}
+
+/* ---------- MODULES ---------- */
+.row{display:grid; gap:3mm; align-items:start}
+.r-2{grid-template-columns:1fr 1fr}
+.r-2a{grid-template-columns:1.35fr 1fr}
+.r-2b{grid-template-columns:1fr 1.45fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+.mod{border-left:2.2pt solid var(--blue); padding-left:2.6mm}
+.mod > h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:9.2pt; margin:0 0 1.4mm; color:var(--blue);
+  letter-spacing:.005em; display:flex; align-items:center; gap:1.6mm;
+}
+.mod > h3 .kind{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:6pt;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); border:.5pt solid var(--rule);
+  padding:.2mm 1.2mm; border-radius:.8mm; margin-left:auto; white-space:nowrap;
+}
+.m-violet{border-left-color:var(--violet)} .m-violet > h3{color:var(--violet)}
+.m-safranin{border-left-color:var(--safranin)} .m-safranin > h3{color:var(--safranin)}
+.m-fuchsin{border-left-color:var(--fuchsin)} .m-fuchsin > h3{color:var(--fuchsin)}
+.m-malachite{border-left-color:var(--malachite)} .m-malachite > h3{color:var(--malachite)}
+.m-amber{border-left-color:var(--amber)} .m-amber > h3{color:var(--amber)}
+
+/* ---------- TABLES ---------- */
+table{border-collapse:collapse; width:100%; font-size:7.5pt; line-height:1.25}
+th,td{border:.5pt solid var(--rule); padding:.9mm 1.3mm; text-align:left; vertical-align:top}
+thead th{
+  background:var(--tint); font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-weight:600; font-size:7.2pt; color:var(--ink-2);
+  letter-spacing:.02em;
+}
+tbody th{background:var(--tint); font-weight:600; width:20%}
+td .mono,th .mono{font-size:7pt}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- LISTS ---------- */
+ul.k{margin:0; padding-left:3.2mm; list-style:none}
+ul.k li{position:relative; margin:0 0 .7mm}
+ul.k li::before{
+  content:""; position:absolute; left:-2.6mm; top:1.5mm;
+  width:1.1mm; height:1.1mm; background:currentColor; opacity:.45; border-radius:50%;
+}
+ol.k{margin:0; padding-left:4.2mm; font-size:8pt}
+ol.k li{margin:0 0 .7mm}
+b,strong{font-weight:600}
+
+/* ---------- FACT BANK (objective ammo) ---------- */
+.bank{display:grid; grid-template-columns:1fr 1fr; gap:0 3mm}
+.bank.one{grid-template-columns:1fr}
+.bank div{
+  border-bottom:.5pt dotted var(--rule); padding:.7mm 0;
+  font-size:7.4pt; display:flex; gap:1.6mm;
+}
+.bank div b{
+  flex:0 0 33%; font-weight:600; color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;
+}
+.bank div span{flex:1}
+
+/* ---------- CHIPS / MNEMONIC ---------- */
+.mnem{
+  background:var(--amber-w); border:.5pt solid var(--amber);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.5pt;
+}
+.mnem .key{
+  font-family:"IBM Plex Mono",monospace; font-weight:600;
+  color:var(--amber); font-size:8.4pt; letter-spacing:.05em;
+}
+.trap{
+  background:var(--safranin-w); border-left:1.6pt solid var(--safranin);
+  padding:1.2mm 2mm; font-size:7.4pt; border-radius:0 1mm 1mm 0;
+}
+.trap b{color:var(--safranin)}
+.skel{
+  background:var(--blue-w); border:.5pt solid var(--blue);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.3pt;
+}
+.skel b{color:var(--blue); font-family:"IBM Plex Sans Condensed",sans-serif}
+.skel ol{margin:.8mm 0 0; padding-left:4mm}
+.skel li{margin-bottom:.3mm}
+
+.tags{display:flex; flex-wrap:wrap; gap:1mm; margin-top:1mm}
+.tag{
+  font-family:"IBM Plex Mono",monospace; font-size:6.4pt; letter-spacing:.03em;
+  border:.5pt solid var(--rule); border-radius:.8mm; padding:.3mm 1.2mm;
+  color:var(--ink-2); background:var(--tint);
+}
+
+svg{display:block; width:100%; height:auto}
+svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
+
+/* ---------- COVER ---------- */
+.cover{justify-content:center; gap:0}
+.cover .brand{
+  font-family:"IBM Plex Mono",monospace; font-size:7.6pt; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:3mm;
+}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:33pt;
+  font-weight:700; line-height:1.02; margin:0 0 3mm; letter-spacing:-.02em;
+  text-wrap:balance; max-width:150mm;
+}
+.cover .lede{font-size:10pt; color:var(--ink-2); max-width:135mm; line-height:1.45}
+.cover .meta{
+  margin-top:8mm; padding-top:3mm; border-top:1.6pt solid var(--ink);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; font-size:7.4pt;
+}
+.cover .meta b{
+  display:block; font-family:"IBM Plex Mono",monospace; font-size:6.2pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.8mm;
+}
+.cover .plan{margin-top:6mm}
+.cover .plan table{font-size:8pt}
+.legend{display:flex; flex-wrap:wrap; gap:2mm 4mm; margin-top:5mm; font-size:7.2pt}
+.legend span{display:flex; align-items:center; gap:1.4mm}
+.legend i{width:2.4mm; height:2.4mm; border-radius:.6mm; display:block}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{size:A4; margin:0}
+  body{background:#fff; padding:0}
+  .sheet{
+    margin:0; box-shadow:none; border:0;
+    break-after:page; page-break-after:always;
+    min-height:var(--sheet-h);
+  }
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .toolbar{display:none}
+}
+.toolbar{
+  max-width:var(--sheet-w); margin:0 auto 5mm; display:flex; gap:2mm;
+  align-items:center; font-size:8pt; color:var(--ink-2);
+}
+.toolbar button{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:8pt; font-weight:600;
+  background:var(--blue); color:#fff; border:0; border-radius:1.4mm;
+  padding:1.6mm 4mm; cursor:pointer;
+}
+.toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+@media (max-width:230mm){
+  body{padding:4mm 0 10mm}
+  .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
+  .toolbar{max-width:100%; padding:0 6mm}
+  .r-2,.r-2a,.r-2b,.r-3{grid-template-columns:1fr}
+  .bank{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>7 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<section class="sheet cover">
+  <div class="brand">Veterinary Microbiology &middot; Rapid Revision</div>
+  <h1>Unit 5 — General &amp; Systematic Veterinary Virology</h1>
+  <p class="lede">All 33 syllabus topics on six working sheets. The systematic half is organised the way the examiner thinks — by <i>genome type and family</i>, not alphabetically — so that once you know which family a virus belongs to, its structure, its diagnosis and its vaccine follow automatically.</p>
+
+  <div class="meta">
+    <div><b>Paper</b>Paper II · Units 4, 5<br>Theory 100 · Practical 60</div>
+    <div><b>Syllabus topics</b>33 of 33 covered</div>
+    <div><b>Revision time</b>30 min full pass<br>14 min sheets 03–06</div>
+    <div><b>Course</b>B.V.Sc &amp; A.H. II Yr<br>VCI MSVE · 3+2=5</div>
+  </div>
+
+  <div class="plan">
+    <table>
+      <thead><tr><th style="width:12%">Sheet</th><th style="width:42%">What it covers</th><th>Syllabus topics folded in</th></tr></thead>
+      <tbody>
+        <tr><th class="mono">01</th><td>General properties, structure &amp; symmetry, classification, cultivation</td><td class="mono">t01–t03, t08</td></tr>
+        <tr><th class="mono">02</th><td>Replication, viral interactions, CPE, pathogenesis, latency &amp; oncogenesis</td><td class="mono">t04–t07</td></tr>
+        <tr><th class="mono">03</th><td>dsRNA and negative-sense RNA viruses</td><td class="mono">t09–t15</td></tr>
+        <tr><th class="mono">04</th><td>Positive-sense RNA viruses and the retroviruses</td><td class="mono">t16–t22</td></tr>
+        <tr><th class="mono">05</th><td>Large DNA viruses — pox, asfar and the herpesviruses</td><td class="mono">t23–t27</td></tr>
+        <tr><th class="mono">06</th><td>Small DNA viruses, prions, emerging &amp; transboundary infections</td><td class="mono">t28–t33</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--blue)"></i> General virology</span>
+    <span><i style="background:var(--malachite)"></i> Replication &amp; cultivation</span>
+    <span><i style="background:var(--safranin)"></i> RNA viruses</span>
+    <span><i style="background:var(--violet)"></i> DNA viruses</span>
+    <span><i style="background:var(--fuchsin)"></i> Prions &amp; emerging</span>
+    <span><i style="background:var(--amber)"></i> Exam trap &amp; mnemonic</span>
+  </div>
+
+  <div class="sheet-foot">
+    <span>VET MICROBIOLOGY STUDIO · IVRI, IZATNAGAR</span>
+    <span>UNIT 5 · COVER</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 01 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">01</span>
+    <h2>What a Virus Is — Structure, Classification, Cultivation</h2>
+    <span class="sub">t01–t03, t08</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>Virion architecture &amp; symmetry <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 128" role="img" aria-label="Icosahedral, helical and complex viral symmetry with envelope and nucleocapsid labelled">
+        <g font-size="7.6">
+          <!-- icosahedral -->
+          <text x="4" y="10" font-weight="700" fill="var(--blue)">ICOSAHEDRAL (cubical)</text>
+          <polygon points="46,16 72,30 72,58 46,72 20,58 20,30" fill="var(--blue-w)" stroke="var(--blue)" stroke-width="1.3"/>
+          <g stroke="var(--blue)" stroke-width=".7"><line x1="46" y1="16" x2="46" y2="72"/><line x1="20" y1="30" x2="72" y2="58"/><line x1="72" y1="30" x2="20" y2="58"/></g>
+          <circle cx="46" cy="44" r="7" fill="none" stroke="var(--safranin)" stroke-width="1.1"/>
+          <text x="4" y="86" fill="var(--ink-2)"><tspan font-weight="600">20 triangular faces, 12 vertices</tspan></text>
+          <text x="4" y="95" fill="var(--ink-2)">Capsomeres = hexons + 12 pentons</text>
+          <text x="4" y="104" fill="var(--ink-2)">T number: capsomeres = 10T + 2</text>
+          <text x="4" y="113" fill="var(--ink-2)">Adeno-, herpes-, parvo-, picorna-,</text>
+          <text x="4" y="122" fill="var(--ink-2)">reo-, circo-, papillomaviruses</text>
+
+          <!-- helical -->
+          <text x="116" y="10" font-weight="700" fill="var(--safranin)">HELICAL</text>
+          <path d="M124 24 q10 -8 20 0 q10 8 20 0 q10 -8 20 0 q10 8 20 0" fill="none" stroke="var(--safranin)" stroke-width="1.6"/>
+          <path d="M124 38 q10 -8 20 0 q10 8 20 0 q10 -8 20 0 q10 8 20 0" fill="none" stroke="var(--safranin)" stroke-width="1.6"/>
+          <ellipse cx="164" cy="56" rx="46" ry="18" fill="none" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="3 2"/>
+          <g stroke="var(--ink-3)" stroke-width="1">
+            <line x1="128" y1="44" x2="124" y2="40"/><line x1="164" y1="38" x2="164" y2="32"/><line x1="200" y1="44" x2="204" y2="40"/>
+          </g>
+          <text x="116" y="86" fill="var(--ink-2)"><tspan font-weight="600">Nucleic acid coiled inside a</tspan></text>
+          <text x="116" y="95" fill="var(--ink-2)">rod of identical protomers.</text>
+          <text x="116" y="104" fill="var(--ink-2)">In animal viruses always</text>
+          <text x="116" y="113" fill="var(--ink-2)"><tspan font-weight="600">ENVELOPED</tspan> — paramyxo-, ortho-,</text>
+          <text x="116" y="122" fill="var(--ink-2)">rhabdo-, corona-, bornaviruses</text>
+
+          <!-- complex -->
+          <text x="236" y="10" font-weight="700" fill="var(--violet)">COMPLEX</text>
+          <rect x="254" y="18" width="42" height="26" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.3"/>
+          <rect x="262" y="44" width="26" height="16" fill="none" stroke="var(--violet)" stroke-width="1.1"/>
+          <path d="M266 60 l-6 10 M275 60 l0 12 M284 60 l6 10" stroke="var(--violet)" stroke-width="1"/>
+          <text x="236" y="86" fill="var(--ink-2)">Neither purely cubical nor</text>
+          <text x="236" y="95" fill="var(--ink-2)">helical. <tspan font-weight="600">Poxvirus</tspan> (brick-shaped,</text>
+          <text x="236" y="104" fill="var(--ink-2)">dumbbell core, lateral bodies —</text>
+          <text x="236" y="113" fill="var(--ink-2)"><tspan font-weight="600">largest animal virus</tspan>) and the</text>
+          <text x="236" y="122" fill="var(--ink-2)">tailed bacteriophages</text>
+        </g>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.3pt">
+        <li><b>Virion</b> = the complete infectious particle. <b>Capsid</b> = protein coat made of <b>capsomeres</b>, themselves built of <b>protomers</b>. <b>Nucleocapsid</b> = genome + capsid. <b>Envelope</b> = host-derived lipid bilayer with virus-coded <b>peplomers/spikes</b>. <b>Tegument</b> = the protein layer between capsid and envelope in herpesviruses.</li>
+        <li><b>Enveloped vs naked — the practical consequences.</b> Enveloped: <b>ether- and chloroform-sensitive</b>, destroyed by detergents, soap, drying and heat, so they spread by close contact and are killed by ordinary disinfectants. Naked: <b>resistant</b> to lipid solvents, acid and drying, survive in the environment, spread by the faecal-oral route and need strong disinfectants (FMD, parvo, circo, IBD).</li>
+        <li><b>Size:</b> 20 nm (circovirus, the smallest) to 300–450 nm (poxvirus). Pass <b>0.22 µm filters</b>; visible only by <b>electron microscopy</b>.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>General properties &amp; how a virus differs <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Virus</th><th>Bacterium</th></tr></thead>
+        <tbody>
+          <tr><th>Nucleic acid</th><td><b>DNA or RNA, never both</b></td><td>Both</td></tr>
+          <tr><th>Ribosomes</th><td><b>Absent</b></td><td>70S present</td></tr>
+          <tr><th>Metabolism</th><td>None — <b>obligate intracellular parasite at the genetic level</b></td><td>Own metabolism</td></tr>
+          <tr><th>Multiplication</th><td><b>Eclipse phase, then assembly</b> — not binary fission</td><td>Binary fission</td></tr>
+          <tr><th>Growth on inert media</th><td><b>No</b></td><td>Yes (except <i>Rickettsia</i>, <i>Chlamydia</i>)</td></tr>
+          <tr><th>Filterable</th><td>Yes</td><td>No</td></tr>
+          <tr><th>Antibiotics</th><td><b>Insensitive</b></td><td>Sensitive</td></tr>
+          <tr><th>Interferon</th><td>Sensitive</td><td>Insensitive</td></tr>
+          <tr><th>Crystallisable</th><td><b>Yes</b> (TMV, poliovirus)</td><td>No</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">History</span> <b>1892 Iwanowski</b> — filterable agent of tobacco mosaic · <b>1898 Beijerinck</b> coined "contagium vivum fluidum" and the word <i>virus</i> · <b>1898 Loeffler &amp; Frosch — FMD, the first ANIMAL virus</b> · <b>1915–17 Twort &amp; d'Herelle</b> — bacteriophage · <b>1935 Stanley</b> crystallised TMV · 1931 Woodruff &amp; Goodpasture — egg cultivation · 1949 Enders, Weller &amp; Robbins — poliovirus in cell culture (Nobel) · <b>1982 Prusiner — prions</b>.</div>
+      <div class="trap" style="margin-top:1.2mm"><b>Sub-viral agents you must be able to define:</b> <b>Viroid</b> — naked circular ssRNA, no protein, plant pathogens · <b>Virusoid/satellite</b> — needs a helper virus · <b>Prion</b> — infectious protein only, no nucleic acid · <b>Defective interfering (DI) particle</b> — incomplete genome, interferes with the parent virus · <b>Pseudovirion</b> — host DNA inside a viral capsid.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-safranin">
+      <h3>Classification — the Baltimore scheme &amp; the family table <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 78" role="img" aria-label="Baltimore classification of viruses into seven groups by genome type">
+        <g font-size="7.4">
+          <rect x="2" y="2" width="336" height="13" rx="2" fill="var(--ink)"/>
+          <text x="8" y="11.5" fill="var(--paper)" font-weight="700">EVERY VIRUS MUST MAKE mRNA — Baltimore classifies by HOW</text>
+          <g fill="var(--ink-2)">
+            <rect x="2" y="18" width="164" height="13" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".7"/>
+            <text x="8" y="27"><tspan font-weight="700" fill="var(--violet)">I · dsDNA</tspan> — herpes, adeno, pox, asfar, papilloma, irido</text>
+            <rect x="2" y="33" width="164" height="13" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".7"/>
+            <text x="8" y="42"><tspan font-weight="700" fill="var(--violet)">II · ssDNA</tspan> — parvo, circo (Anello)</text>
+            <rect x="2" y="48" width="164" height="13" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".7"/>
+            <text x="8" y="57"><tspan font-weight="700" fill="var(--violet)">VII · dsDNA-RT</tspan> — hepadna (hepatitis B)</text>
+
+            <rect x="174" y="18" width="164" height="13" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".7"/>
+            <text x="180" y="27"><tspan font-weight="700" fill="var(--safranin)">III · dsRNA</tspan> — reo, birna (segmented)</text>
+            <rect x="174" y="33" width="164" height="13" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".7"/>
+            <text x="180" y="42"><tspan font-weight="700" fill="var(--safranin)">IV · (+)ssRNA</tspan> — picorna, calici, toga, flavi, corona, arteri</text>
+            <rect x="174" y="48" width="164" height="13" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".7"/>
+            <text x="180" y="57"><tspan font-weight="700" fill="var(--safranin)">V · (−)ssRNA</tspan> — paramyxo, rhabdo, orthomyxo, borna, bunya, filo</text>
+            <rect x="174" y="63" width="164" height="13" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".7"/>
+            <text x="180" y="72"><tspan font-weight="700" fill="var(--safranin)">VI · (+)ssRNA-RT</tspan> — retro (lenti, deltaretro, alpharetro)</text>
+
+            <text x="8" y="72" font-size="7"><tspan font-weight="600" fill="var(--amber)">Key consequence:</tspan> groups V and VI must carry</text>
+            <text x="8" y="78" font-size="7">their own polymerase in the virion</text>
+          </g>
+        </g>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.3pt">
+        <li><b>ICTV hierarchy:</b> Order (<b>-virales</b>) → Family (<b>-viridae</b>) → Subfamily (<b>-virinae</b>) → Genus (<b>-virus</b>) → Species. Family, genus and species names are <b>italicised</b>; the vernacular name is not.</li>
+        <li><b>Basis of classification:</b> nature of the nucleic acid (DNA/RNA, ss/ds, ±sense, segmented or not), <b>symmetry</b>, <b>presence of an envelope</b>, size, site of replication, and now genome sequence.</li>
+        <li><b>Older systems worth naming:</b> Lwoff-Horne-Tournier (LHT) system based on nucleic acid, symmetry and envelope; Baltimore (1971) as above.</li>
+        <li><b>Two rules worth memorising because they answer many objective questions:</b> (1) <b>All DNA viruses replicate in the nucleus except poxvirus and African swine fever virus</b>, which replicate in the cytoplasm. (2) <b>All RNA viruses replicate in the cytoplasm except orthomyxovirus (influenza) and the retroviruses</b>, which need the nucleus.</li>
+        <li><b>Another pair:</b> <b>All DNA viruses are double-stranded except parvovirus and circovirus</b>; <b>all RNA viruses are single-stranded except reovirus and birnavirus</b>.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-malachite">
+      <h3>Cultivation of viruses <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">System</th><th>Detail worth writing</th></tr></thead>
+        <tbody>
+          <tr><th><b>Laboratory animals</b></th><td>Suckling mice by the <b>intracerebral</b> route for rabies and arboviruses; guinea pigs, rabbits, hamsters. Used for pathogenicity studies, antisera and where no cell line supports the virus. Ethically restricted — the last resort</td></tr>
+          <tr><th><b>Embryonated chicken egg</b><br><span class="mono" style="font-size:6.2pt">Goodpasture &amp; Woodruff, 1931</span></th><td><b>The four routes and what each is for:</b><br><b>Chorioallantoic membrane (CAM), 11–12 d</b> → discrete <b>pocks</b> — pox viruses, IBR, laryngotracheitis; pock morphology distinguishes strains<br><b>Allantoic cavity, 9–11 d</b> → highest virus yield — <b>Newcastle disease and influenza vaccine production</b><br><b>Amniotic cavity, 12–15 d</b> → primary isolation of influenza<br><b>Yolk sac, 5–7 d</b> → <i>Chlamydia</i>, <i>Rickettsia</i>, some herpesviruses<br>Advantages: sterile, cheap, no immune response, wide susceptibility. Read as pocks, death, haemorrhage, stunting, curling or dwarfing of the embryo</td></tr>
+          <tr><th><b>Cell culture</b></th><td><b>Primary</b> (chick embryo fibroblast, lamb/calf kidney — a few passages only, best for isolation) → <b>diploid/semi-continuous</b> (finite ~50 passages, retain karyotype) → <b>continuous cell lines</b> (immortal, heteroploid — <b>Vero, BHK-21, MDBK, MDCK, HeLa, PK-15, CRFK</b>). Cells grow as a monolayer requiring <b>anchorage and contact inhibition</b>, or in suspension</td></tr>
+          <tr><th>Media &amp; conditions</th><td><b>MEM/DMEM/Medium 199</b> + <b>10% foetal bovine serum</b> + antibiotics + <b>phenol red</b> as pH indicator + sodium bicarbonate; 37 °C in 5% CO₂. <b>Trypsin-EDTA</b> to detach cells for subculture; <b>trypan blue</b> for viable count in a haemocytometer; <b>cryopreservation in 10% DMSO or glycerol, slow freeze, fast thaw</b>, stored in liquid nitrogen</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Quantitation</span> <b>Infectivity assays</b> — <b>TCID₅₀</b> calculated by the <b>Reed-Muench</b> or Kärber method, <b>plaque assay (PFU/ml)</b> under an agar overlay with neutral red, <b>EID₅₀</b> in eggs, LD₅₀ in animals. <b>Physical assays</b> — haemagglutination titre (HA units), electron-microscope particle count, ELISA and qPCR copy number. Physical counts are always higher than infectivity counts — the <b>particle-to-infectivity ratio</b>.</div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 01 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>First animal virus discovered</b><span>FMD virus — Loeffler &amp; Frosch, 1898</span></div>
+      <div><b>Coined the word virus</b><span>Beijerinck</span></div>
+      <div><b>Largest animal virus</b><span>Poxvirus (brick-shaped)</span></div>
+      <div><b>Smallest animal virus</b><span>Circovirus</span></div>
+      <div><b>Capsomere number formula</b><span>10T + 2</span></div>
+      <div><b>Faces of an icosahedron</b><span>20 faces, 12 vertices</span></div>
+      <div><b>Helical animal viruses are always</b><span>Enveloped</span></div>
+      <div><b>Ether-sensitive viruses</b><span>Enveloped ones</span></div>
+      <div><b>DNA viruses replicating in cytoplasm</b><span>Pox and African swine fever</span></div>
+      <div><b>RNA viruses needing the nucleus</b><span>Orthomyxo and retroviruses</span></div>
+      <div><b>Single-stranded DNA viruses</b><span>Parvo and circovirus</span></div>
+      <div><b>Double-stranded RNA viruses</b><span>Reo and birnavirus</span></div>
+      <div><b>Route for pock production</b><span>Chorioallantoic membrane</span></div>
+      <div><b>Route for ND vaccine production</b><span>Allantoic cavity, 9–11 day egg</span></div>
+      <div><b>Yolk sac is used for</b><span><i>Chlamydia</i> and <i>Rickettsia</i></span></div>
+      <div><b>Cell line from African green monkey</b><span>Vero</span></div>
+      <div><b>Enzyme used to subculture cells</b><span>Trypsin-EDTA</span></div>
+      <div><b>Cryoprotectant for cell lines</b><span>10% DMSO / glycerol</span></div>
+      <div><b>Method to compute TCID₅₀</b><span>Reed-Muench</span></div>
+      <div><b>Infectious protein without nucleic acid</b><span>Prion</span></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 01 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 02 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">02</span>
+    <h2>Replication, Interactions, CPE &amp; Pathogenesis</h2>
+    <span class="sub">t04–t07</span>
+  </div>
+
+  <div class="mod m-malachite">
+    <h3>The replication cycle and the one-step growth curve <span class="kind">mechanism</span></h3>
+    <svg viewBox="0 0 700 116" role="img" aria-label="Six stages of viral replication and the one-step growth curve with eclipse and latent periods">
+      <g font-size="8.6">
+        <rect x="2" y="4" width="66" height="42" rx="3" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+        <text x="8" y="16" font-weight="700" fill="var(--malachite)">1 ADSORPTION</text>
+        <text x="8" y="26" fill="var(--ink-2)">Ligand meets a</text>
+        <text x="8" y="35" fill="var(--ink-2)">specific receptor —</text>
+        <text x="8" y="44" fill="var(--ink-2)">decides tropism</text>
+
+        <rect x="74" y="4" width="66" height="42" rx="3" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+        <text x="80" y="16" font-weight="700" fill="var(--malachite)">2 PENETRATION</text>
+        <text x="80" y="26" fill="var(--ink-2)">Endocytosis (naked)</text>
+        <text x="80" y="35" fill="var(--ink-2)">or membrane fusion</text>
+        <text x="80" y="44" fill="var(--ink-2)">(enveloped)</text>
+
+        <rect x="146" y="4" width="66" height="42" rx="3" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+        <text x="152" y="16" font-weight="700" fill="var(--malachite)">3 UNCOATING</text>
+        <text x="152" y="26" fill="var(--ink-2)">Capsid removed;</text>
+        <text x="152" y="35" fill="var(--ink-2)">genome released →</text>
+        <text x="152" y="44" fill="var(--ink-2)"><tspan font-weight="600">ECLIPSE begins</tspan></text>
+
+        <rect x="218" y="4" width="66" height="42" rx="3" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+        <text x="224" y="16" font-weight="700" fill="var(--malachite)">4 BIOSYNTHESIS</text>
+        <text x="224" y="26" fill="var(--ink-2)">Early (non-structural)</text>
+        <text x="224" y="35" fill="var(--ink-2)">→ genome copies →</text>
+        <text x="224" y="44" fill="var(--ink-2)">late (structural) proteins</text>
+
+        <rect x="290" y="4" width="66" height="42" rx="3" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
+        <text x="296" y="16" font-weight="700" fill="var(--malachite)">5 ASSEMBLY</text>
+        <text x="296" y="26" fill="var(--ink-2)">Nucleus (most DNA)</text>
+        <text x="296" y="35" fill="var(--ink-2)">or cytoplasm; may</text>
+        <text x="296" y="44" fill="var(--ink-2)">form inclusion bodies</text>
+
+        <rect x="362" y="4" width="66" height="42" rx="3" fill="var(--ink)" stroke="none"/>
+        <text x="368" y="16" font-weight="700" fill="var(--paper)">6 RELEASE</text>
+        <text x="368" y="26" fill="var(--paper)"><tspan font-weight="600">Lysis</tspan> — naked viruses</text>
+        <text x="368" y="35" fill="var(--paper)"><tspan font-weight="600">Budding</tspan> — enveloped;</text>
+        <text x="368" y="44" fill="var(--paper)">cell may survive</text>
+
+        <g stroke="var(--malachite)" stroke-width="1.2">
+          <line x1="68" y1="25" x2="74" y2="25"/><line x1="140" y1="25" x2="146" y2="25"/><line x1="212" y1="25" x2="218" y2="25"/>
+          <line x1="284" y1="25" x2="290" y2="25"/><line x1="356" y1="25" x2="362" y2="25"/>
+        </g>
+
+        <!-- growth curve -->
+        <line x1="460" y1="96" x2="694" y2="96" stroke="var(--ink-3)" stroke-width=".9"/>
+        <line x1="460" y1="8" x2="460" y2="96" stroke="var(--ink-3)" stroke-width=".9"/>
+        <path d="M462 74 L520 74 L524 92 L570 92 L640 22 L692 18" fill="none" stroke="var(--malachite)" stroke-width="2"/>
+        <g stroke="var(--rule)" stroke-width=".6" stroke-dasharray="2 2">
+          <line x1="524" y1="12" x2="524" y2="96"/><line x1="570" y1="12" x2="570" y2="96"/><line x1="640" y1="12" x2="640" y2="96"/>
+        </g>
+        <g font-size="7.4" fill="var(--ink-2)">
+          <text x="464" y="106">adsorb</text>
+          <text x="528" y="106" fill="var(--malachite)" font-weight="600">ECLIPSE</text>
+          <text x="576" y="106" font-weight="600">BURST / RISE</text>
+          <text x="646" y="106">plateau</text>
+          <text x="480" y="66">input virus</text>
+          <text x="530" y="84" font-size="6.8">no infectious virus</text>
+          <text x="530" y="91" font-size="6.8">detectable anywhere</text>
+          <text x="596" y="40" font-size="6.8">progeny released;</text>
+          <text x="596" y="48" font-size="6.8"><tspan font-weight="600">burst size</tspan> = yield per cell</text>
+        </g>
+        <text x="452" y="56" font-size="7.4" fill="var(--ink-2)" transform="rotate(-90 452 56)">infectious virus</text>
+        <text x="460" y="116" font-size="7.4" fill="var(--amber)"><tspan font-weight="700">LATENT PERIOD</tspan> = uncoating to first extracellular virus. <tspan font-weight="700">ECLIPSE</tspan> = uncoating to first intracellular virus. Eclipse is always the shorter of the two.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-amber">
+      <h3>Genetic &amp; non-genetic interactions <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:24%">Interaction</th><th>What happens &amp; the standard example</th></tr></thead>
+        <tbody>
+          <tr><th colspan="2" style="background:var(--violet-w); color:var(--violet); font-weight:600">GENETIC — the change is heritable</th></tr>
+          <tr><th>Mutation</th><td>Point, deletion, insertion. RNA viruses mutate ~1000× faster because <b>RNA polymerase has no proofreading</b> → quasispecies. Basis of attenuation and of <b>antigenic drift</b></td></tr>
+          <tr><th><b>Recombination</b></th><td>Exchange of nucleotide sequence between two related genomes — occurs in DNA viruses and in <b>picornaviruses and coronaviruses</b></td></tr>
+          <tr><th><b>Reassortment</b></th><td>Exchange of whole <b>segments</b> when two strains infect one cell — only in <b>segmented</b> genomes: influenza, rotavirus, bluetongue. <b>This is the mechanism of ANTIGENIC SHIFT and of pandemic influenza</b></td></tr>
+          <tr><th>Complementation</th><td>One virus supplies a functional protein that the other lacks; <b>genomes are unchanged</b> — a defective virus is rescued by a helper</td></tr>
+          <tr><th>Cross-reactivation<br>(marker rescue)</th><td>An active virus rescues a gene from an inactivated one</td></tr>
+          <tr><th>Multiplicity reactivation</th><td>Several inactivated particles, each damaged in a different gene, together produce infectious progeny</td></tr>
+          <tr><th colspan="2" style="background:var(--safranin-w); color:var(--safranin); font-weight:600">NON-GENETIC — phenotype only, not inherited</th></tr>
+          <tr><th>Phenotypic mixing</th><td>Genome of one virus inside the capsid or envelope of another; progeny revert to the parental type</td></tr>
+          <tr><th>Phenotypic masking<br>(transcapsidation)</th><td>Genome completely enclosed in the other's capsid</td></tr>
+          <tr><th>Genome masking</th><td>Same idea, complete coat exchange</td></tr>
+          <tr><th><b>Interference</b></th><td>Infection with one virus prevents another — mediated by <b>interferon</b>, receptor blockade or <b>defective interfering particles</b>. Practical importance: interference between live vaccine viruses given together</td></tr>
+        </tbody>
+      </table>
+      <div class="trap" style="margin-top:1.2mm"><b>The distinction that carries the mark:</b> <b>recombination</b> exchanges parts of genes and can occur in any genome; <b>reassortment</b> swaps entire genome segments and can only occur in a <b>segmented</b> virus. Antigenic <b>drift</b> = accumulated point mutations, gradual, causes seasonal epidemics; antigenic <b>shift</b> = reassortment, abrupt, causes pandemics.</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Virus-cell interactions &amp; cytopathic effects <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:26%">Outcome</th><th>Description &amp; example</th></tr></thead>
+        <tbody>
+          <tr><th><b>Lytic (cytocidal)</b></th><td>Cell dies and releases virus — enteroviruses, FMD</td></tr>
+          <tr><th>Persistent / chronic</th><td>Continuous low-level production, cell survives — BVDV, EIA</td></tr>
+          <tr><th><b>Latent</b></th><td>Genome present, <b>no infectious virus made</b>, reactivates on stress or corticosteroid — <b>herpesviruses (IBR in the trigeminal ganglion, pseudorabies, Marek's)</b></td></tr>
+          <tr><th><b>Transforming</b></th><td>Cell becomes immortal, loses contact inhibition, piles up in foci — oncogenic viruses</td></tr>
+          <tr><th>Abortive / non-productive</th><td>Non-permissive cell; the cycle starts but no progeny</td></tr>
+        </tbody>
+      </table>
+      <table style="margin-top:1.4mm">
+        <thead><tr><th style="width:32%">CPE type</th><th>Virus</th></tr></thead>
+        <tbody>
+          <tr><th>Rounding, shrinkage, detachment</th><td>Picornaviruses, FMD — the commonest CPE</td></tr>
+          <tr><th><b>Syncytium / polykaryon</b> (giant multinucleate cell)</th><td><b>Paramyxoviruses — PPR, CDV, NDV, RSV, BVDV cytopathic biotype</b></td></tr>
+          <tr><th>Grape-like clusters</th><td>Adenovirus</td></tr>
+          <tr><th>Cell fusion + intranuclear inclusion</th><td>Herpesvirus</td></tr>
+          <tr><th>Vacuolation, foamy</th><td>SV40, some retroviruses</td></tr>
+          <tr><th>Haemadsorption</th><td>Influenza, parainfluenza — RBCs stick to infected cells before visible CPE</td></tr>
+          <tr><th>No CPE</th><td>Rabies, non-cytopathic BVDV — must be detected by FAT or immunoperoxidase</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Inclusion bodies — memorise the six</span> <b>Negri body</b> — rabies, <b>intracytoplasmic, eosinophilic</b>, in Purkinje cells and hippocampal neurons · <b>Bollinger body</b> — fowl pox, intracytoplasmic · <b>Guarnieri body</b> — vaccinia/variola, intracytoplasmic · <b>Cowdry type A</b> — herpes, <b>intranuclear</b>; also in ICH (adenovirus) · <b>Intranuclear basophilic</b> — canine adenovirus 1, IBR · <b>Both intranuclear and intracytoplasmic</b> — canine distemper (the classic "both" answer).</div>
+    </div>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>Viral pathogenesis <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Sequence to write</b><span>Entry &amp; <b>primary replication</b> at the portal → <b>primary viraemia</b> → replication in liver, spleen, endothelium → <b>secondary viraemia</b> → localisation in the <b>target organ</b> → shedding → outcome</span></div>
+        <div><b>Routes of entry</b><span>Respiratory, alimentary, skin abrasion or bite, arthropod vector, venereal, conjunctival, iatrogenic, <b>vertical/transplacental</b></span></div>
+        <div><b>Spread in the body</b><span><b>Local</b> (papilloma, pox) · <b>Haematogenous</b>, free in plasma or cell-associated · <b>Neural — rabies travelling by retrograde axonal transport at 3 mm/h</b> · lymphatic</span></div>
+        <div><b>Tropism is decided by</b><span>The <b>receptor</b> (CD4 for HIV, SLAM/nectin-4 for morbilliviruses, sialic acid for influenza, integrin for FMD), plus intracellular factors and route of entry</span></div>
+        <div><b>Mechanisms of cell injury</b><span>Shut-off of host protein synthesis, lysosomal release, inclusion formation, apoptosis, membrane damage, and <b>immunopathology</b></span></div>
+        <div><b>Immunopathology to name</b><span>Type III complexes → <b>blue eye of ICH</b>, glomerulonephritis of <b>Aleutian disease of mink</b> and EIA · <b>Antibody-dependent enhancement</b> (FIP, dengue) · Cytotoxic T-cell mediated damage · <b>Immunosuppression — BVDV, CDV, IBDV/Gumboro, FIV, ASFV, PCV-2</b></span></div>
+        <div><b>Shedding</b><span>Respiratory aerosol, faeces, urine (<b>leptospira-like shedding of ICH virus for 6 months</b>), saliva, milk, semen, skin scales</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Latency &amp; viral oncogenesis <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Latency — the model answer</b><span>Herpesviral genome persists as a <b>circular episome</b> in a non-dividing cell (sensory ganglion) with only latency-associated transcripts expressed. <b>No virion, no antigen → invisible to the immune system.</b> Reactivated by stress, transport, parturition or <b>corticosteroid (dexamethasone — the experimental trigger)</b> → recrudescence and shedding. <b>IBR in the trigeminal ganglion is the standard veterinary example</b>; the animal is a lifelong carrier, which is why <b>seropositive animals are culled in eradication programmes</b></span></div>
+        <div><b>Oncogenic mechanisms</b><span><b>1</b> <b>Insertional mutagenesis</b> — a retroviral LTR promoter inserts near a cellular proto-oncogene and switches it on (<b>avian leucosis virus and <i>c-myc</i>; bovine leukaemia virus</b>) · <b>2</b> <b>Transduced viral oncogene (<i>v-onc</i>)</b> — acutely transforming retroviruses such as Rous sarcoma virus and <i>v-src</i> · <b>3</b> <b>Viral proteins inactivating tumour suppressors</b> — papillomavirus E6 and E7 binding <b>p53 and Rb</b> · <b>4</b> Chronic inflammation and regeneration</span></div>
+        <div><b>Oncogenic viruses in veterinary practice</b><span><b>Marek's disease virus</b> (herpes — T-cell lymphoma in chickens, the <b>first cancer prevented by a vaccine</b>) · <b>Avian leucosis/sarcoma viruses</b> · <b>Bovine leukaemia virus</b> (enzootic bovine leucosis) · <b>Feline leukaemia virus</b> · <b>Bovine and canine papillomaviruses</b> (BPV-1/2 with bracken fern → bovine bladder cancer and equine sarcoid) · Ovine pulmonary adenocarcinoma (jaagsiekte retrovirus) · Rous sarcoma virus, the historic first (Peyton Rous, 1911)</span></div>
+        <div><b>Marks of a transformed cell</b><span>Loss of <b>contact inhibition</b>, anchorage independence, immortality, altered surface antigens, aneuploidy, growth in soft agar, tumour formation in a nude mouse</span></div>
+      </div>
+      <div class="trap" style="margin-top:1.2mm"><b>Interferon in one box:</b> <b>type I (α from leucocytes, β from fibroblasts)</b> is induced by <b>dsRNA</b>, is <b>species-specific but not virus-specific</b>, acts on neighbouring cells to induce an <b>antiviral state</b> through <b>2′-5′ oligoadenylate synthetase/RNase L and PKR</b> which degrade mRNA and block translation. <b>Type II (IFN-γ)</b> is immunological rather than directly antiviral. Interferon is the <b>earliest antiviral defence</b>, appearing before antibody.</div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 02 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 03 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">03</span>
+    <h2>dsRNA &amp; Negative-Sense RNA Viruses</h2>
+    <span class="sub">t09–t15</span>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-safranin">
+      <h3>Birnaviridae &amp; Reoviridae — the dsRNA block <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Infectious bursal disease virus (Gumboro disease) — <i>Birnaviridae</i>.</b> <b>Bi-segmented dsRNA, naked icosahedral</b>, extremely <b>resistant</b> in the environment (survives 122 days in a house). Targets <b>immature IgM-bearing B lymphocytes in the bursa of Fabricius</b>. <b>Age 3–6 weeks</b> is the classic window. Signs: sudden onset, prostration, vent picking, whitish watery diarrhoea, <b>spiking mortality that recovers in 5–7 days</b>. Lesions: <b>bursa first swollen, oedematous and gelatinous with a yellow transudate, then atrophic by day 8</b>; <b>haemorrhages in thigh and pectoral muscles</b>; nephrosis, "chalky" urates. <b>The lasting damage is IMMUNOSUPPRESSION</b> — vaccine failures against ND and Marek's follow. Diagnosis: AGPT of bursa, ELISA, RT-PCR, histopathology. Control: <b>intermediate and intermediate-plus live vaccines timed by the Deventer formula against maternal antibody, plus breeder vaccination</b>; strict biosecurity and formaldehyde fumigation.</li>
+        <li><b><i>Reoviridae</i> — segmented (10–12), dsRNA, naked, double capsid.</b></li>
+        <li><b>Bluetongue virus</b> — <i>Orbivirus</i>, <b>10 segments</b>, &gt;27 serotypes, transmitted by <b><i>Culicoides</i> midges</b> (biological vector) → <b>seasonal, vector-linked, non-contagious</b>. Sheep are worst affected. Signs: fever, facial and lip oedema, hyperaemic muzzle, <b>cyanotic swollen protruding tongue</b>, coronitis with a red band above the hoof, wry neck, foetal hydranencephaly. Lesion: <b>haemorrhage at the base of the pulmonary artery — pathognomonic</b>. Diagnosis: <b>AGID and c-ELISA</b> for group antigen, <b>serotyping by SNT</b>, RT-PCR, isolation in embryonated eggs by <b>intravenous</b> inoculation or in BHK-21/Vero. <b>Notifiable, transboundary.</b></li>
+        <li><b>African horse sickness virus</b> — <i>Orbivirus</i>, 9 serotypes, also <i>Culicoides</i>-borne. Four forms: <b>pulmonary (dunkop — peracute, frothy nasal discharge, ~95% mortality)</b>, <b>cardiac (dikkop — supraorbital fossa oedema)</b>, mixed, and horse-sickness fever. Zebras are the reservoir. Notifiable.</li>
+        <li><b>Rotavirus</b> — <b>wheel-like appearance on EM</b>, 11 segments, groups A–G (<b>group A causes most neonatal diarrhoea</b>). Infects the <b>mature enterocytes on the villus tips of the small intestine</b> → villous atrophy, malabsorptive and osmotic diarrhoea in calves, piglets, lambs and foals in the <b>first 1–2 weeks</b>, usually with cryptosporidia, coronavirus and ETEC. Diagnosis: <b>EM, ELISA, latex agglutination, PAGE of segments (electropherotyping), RT-PCR</b>. Control: <b>vaccinate the dam in late gestation so that colostral and milk antibody protects the gut lumen</b> — a favourite question.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Paramyxoviridae — Newcastle disease <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Structure:</b> enveloped, <b>helical, non-segmented (−)ssRNA</b>, pleomorphic. Two glycoprotein spikes: <b>HN (haemagglutinin-neuraminidase)</b> and <b>F (fusion) protein</b>. <b>Cleavage of the F₀ precursor by host proteases determines virulence</b> — a polybasic cleavage site allows cleavage by ubiquitous proteases and therefore systemic spread. <b>APMV-1 — a single serotype</b>, which is why any vaccine strain protects against any field strain.</li>
+        <li><b>Pathotypes:</b> <b>Velogenic</b> (viscerotropic = Doyle's form, haemorrhagic gut; neurotropic = Beach's form) · <b>Mesogenic</b> (Beaudette's, respiratory + nervous, moderate) · <b>Lentogenic</b> (Hitchner B1, <b>LaSota</b>, F strain — mild, used as vaccines) · asymptomatic enteric.</li>
+        <li><b>Signs:</b> respiratory distress and gasping, greenish diarrhoea, <b>nervous signs — torticollis, paralysis, opisthotonus, circling</b>, marked <b>drop in egg production with soft-shelled and misshapen eggs</b>, swelling around the eyes and head, high mortality.</li>
+        <li><b>Lesions:</b> <b>haemorrhagic and necrotic ulcers over the lymphoid tissue of the gut — Peyer's patches, caecal tonsils</b>, <b>petechiae on the proventricular gland tips</b>, haemorrhagic tracheitis, ovarian follicle degeneration.</li>
+        <li><b>Diagnosis:</b> isolation by <b>allantoic-cavity inoculation of 9–11 day eggs</b> → harvest allantoic fluid → <b>HA test to detect, HI test with specific antiserum to identify</b>; pathotyping by <b>MDT (mean death time in eggs — velogenic &lt;60 h, mesogenic 60–90 h, lentogenic &gt;90 h)</b>, <b>ICPI (intracerebral pathogenicity index in day-old chicks — velogenic approaches 2.0)</b>, and F-protein cleavage-site sequencing; RT-PCR and ELISA.</li>
+        <li><b>Control:</b> in India, <b>F1 (Hitchner B1) strain at 5–7 days by eye drop, LaSota booster at 4–5 weeks, and R2B (Mukteswar mesogenic strain) at 8–10 weeks by subcutaneous route</b>; killed oil-adjuvant vaccine for layers and breeders. Monitor by <b>HI titre</b>. Notifiable and transboundary.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Ranikhet disease</b> is the Indian name for Newcastle disease — say both. <b>Zoonotic note:</b> causes a self-limiting <b>conjunctivitis</b> in poultry workers and vaccinators.</div>
+    </div>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-safranin">
+      <h3>Morbilliviruses — PPR &amp; canine distemper <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:18%"></th><th>Peste des petits ruminants (PPR)</th><th>Canine distemper (CDV)</th></tr></thead>
+        <tbody>
+          <tr><th>Host</th><td><b>Goats &gt; sheep</b>; goats more severely affected</td><td>Dog, fox, ferret, mink, lion, <b>seal</b>; young unvaccinated pups 3–6 months</td></tr>
+          <tr><th>Also called</th><td><b>Goat plague</b>, pseudo-rinderpest, kata</td><td>Carré's disease, hard pad disease</td></tr>
+          <tr><th>Receptor</th><td colspan="2"><b>SLAM (CD150) on lymphocytes and nectin-4 on epithelium</b> — this explains the combination of profound immunosuppression with epithelial and respiratory signs in both</td></tr>
+          <tr><th>Signs</th><td>Sudden high fever, serous then <b>mucopurulent oculo-nasal discharge matting the eyelids</b>, <b>necrotic erosive stomatitis</b> on gums, dental pad and tongue, foul-smelling <b>profuse diarrhoea</b>, bronchopneumonia, abortion</td><td>Biphasic fever, oculo-nasal discharge, <b>catarrhal then purulent conjunctivitis</b>, diarrhoea and vomiting, <b>hyperkeratosis of the nose and footpads</b>, <b>enamel hypoplasia</b> in survivors, and late <b>neurological disease — myoclonus (chorea), seizures, "old dog encephalitis"</b></td></tr>
+          <tr><th>Lesions</th><td><b>"Zebra striping" — linear haemorrhages on the mucosal folds of the large intestine and colon</b>; erosive lesions along the whole alimentary tract; congested lungs</td><td>Bronchopneumonia, <b>intracytoplasmic AND intranuclear eosinophilic inclusions</b> in bladder, bile duct and CNS; demyelination</td></tr>
+          <tr><th>Diagnosis</th><td><b>c-ELISA and s-ELISA</b>, AGID, <b>RT-PCR on nasal/ocular swabs and lymph node</b>, isolation in Vero cells expressing SLAM (syncytia)</td><td>Cytoplasmic inclusions in conjunctival scrapings and buffy coat, <b>FAT</b>, RT-PCR, IgM ELISA, CSF antibody</td></tr>
+          <tr><th>Control</th><td><b>Live attenuated Sungri/96 vaccine — a single dose gives lifelong immunity</b>; India's national PPR eradication programme; notifiable</td><td>Live attenuated (Onderstepoort, Rockborn) from 6–8 weeks, boosters till 16 weeks; recombinant canarypox-vectored vaccine</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Morbillivirus family resemblance</span> Rinderpest (<b>eradicated globally in 2011</b> — the second disease after smallpox), PPR, canine distemper, measles and phocine distemper are all morbilliviruses; all cause fever + oculo-nasal discharge + erosive stomatitis + diarrhoea + immunosuppression + syncytia with inclusions. If you can write one, you can write them all.</div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Rhabdoviridae — rabies <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Structure:</b> <b>bullet-shaped</b>, enveloped, helical, non-segmented (−)ssRNA, ~180 × 75 nm; five proteins <b>N, P, M, G, L</b>. The <b>G (glycoprotein) spike is the only one that induces neutralising antibody</b> and is therefore the vaccine and the virulence determinant; N protein is the target of the diagnostic FAT conjugate. <b>Genus <i>Lyssavirus</i></b>; a single serotype but seven-plus genotypes.</li>
+        <li><b>Pathogenesis — write the chain:</b> bite deposits saliva → replication in local <b>myocytes</b> → binds the <b>nicotinic acetylcholine receptor</b> at the neuromuscular junction → <b>centripetal, retrograde axonal transport at about 3 mm per hour</b> → spinal cord → brain, where it replicates massively → <b>centrifugal spread along nerves to the salivary glands, cornea, skin and other organs</b>. <b>There is no viraemia</b> — an important negative point. The incubation period (2 weeks to over a year) depends on the <b>distance of the bite from the brain</b> and the dose.</li>
+        <li><b>Clinical forms:</b> <b>Prodromal</b> (behaviour change, 2–3 days) → <b>Furious</b> (aggression, pica, roaming, hydrophobia in man, no fear) → <b>Paralytic/dumb</b> (drooping jaw, drooling, ascending paralysis, death). Cattle show bellowing, tenesmus and paralysis; horses colic and self-mutilation. <b>Invariably fatal once signs appear.</b></li>
+        <li><b>Diagnosis (post-mortem only):</b> collect <b>hippocampus (Ammon's horn), cerebellum and brain stem</b>. <b>Direct FAT on brain impression smears is the WOAH gold standard.</b> <b>Seller's stain / haematoxylin-eosin for Negri bodies — intracytoplasmic, eosinophilic, in Purkinje and hippocampal neurons; present in only 50–80% of cases, so a negative Negri does not rule out rabies.</b> Also mouse inoculation test, <b>RTCIT</b> in BHK-21/N2a cells, RT-PCR, <b>dRIT</b> for field use. Antibody by <b>RFFIT or FAVN</b> for export certification (adequate titre ≥0.5 IU/ml).</li>
+        <li><b>Prophylaxis:</b> pre-exposure vaccination of dogs and of at-risk people. <b>Post-exposure prophylaxis</b> = immediate <b>washing of the wound with soap and running water for 15 minutes</b> + antiseptic, <b>rabies immunoglobulin infiltrated around the wound</b> for category III, and a <b>cell-culture vaccine</b> (PCECV, PVRV, HDCV) on the <b>Essen 0-3-7-14-28 intramuscular</b> or intradermal <b>Thai Red Cross</b> schedule. <b>Semple (sheep brain) vaccine is obsolete in India</b> because of neuroparalytic accidents. <b>Oral bait vaccination of wildlife</b> with vaccinia- or adenovirus-vectored G protein. Goal: <b>dog-mediated human rabies elimination by 2030</b>.</li>
+        <li><b>Bovine ephemeral fever</b> — also <i>Rhabdoviridae</i>, <i>Culicoides</i>- and mosquito-borne, "three-day sickness" of cattle: sudden high fever, stiffness, lameness, sudden drop in milk, recumbency, and rapid spontaneous recovery in about three days.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-safranin">
+      <h3>Orthomyxoviridae &amp; Bornaviridae <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Influenza A — structure:</b> enveloped, helical, <b>8 segments</b> of (−)ssRNA. Two surface glycoproteins: <b>HA (haemagglutinin — attachment to sialic acid, target of neutralising antibody, 18 subtypes)</b> and <b>NA (neuraminidase — releases progeny by cleaving sialic acid, 11 subtypes)</b>; plus the <b>M2 ion channel</b> (amantadine target) and internal <b>NP and M</b> proteins which define the type (A, B, C).</li>
+        <li><b>The two mechanisms of antigenic change — the single most asked point:</b> <b>Antigenic DRIFT</b> = gradual accumulation of point mutations in HA and NA, occurs in all types, causes seasonal epidemics and the need for annual vaccine updating. <b>Antigenic SHIFT</b> = sudden <b>reassortment</b> of whole segments between two strains co-infecting one cell, occurs only in type A, produces a completely new subtype against which the population has no immunity → <b>pandemic</b>. <b>The pig is the classic "mixing vessel"</b> because it bears both avian (α-2,3) and human (α-2,6) sialic-acid receptors.</li>
+        <li><b>Avian influenza:</b> classified by pathogenicity — <b>LPAI</b> versus <b>HPAI</b>, which is defined by an <b>IVPI &gt; 1.2</b> or a <b>polybasic HA cleavage site</b>; HPAI is restricted to <b>H5 and H7</b> subtypes. HPAI <b>H5N1</b> causes sudden very high mortality, cyanotic combs and wattles, subcutaneous oedema of the head, haemorrhages on the shanks and visceral serosae. <b>Notifiable, zoonotic; the policy in India is stamping out, not vaccination.</b> Wild waterfowl are the natural reservoir.</li>
+        <li><b>Equine influenza</b> — H7N7 (rare now) and <b>H3N8</b>; harsh dry hacking cough, fever, nasal discharge; spreads explosively through racing stables; inactivated vaccines must be antigenically updated. <b>Swine influenza</b> — H1N1, H1N2, H3N2; high morbidity, low mortality, "thumps"; zoonotic potential.</li>
+        <li><b>Diagnosis:</b> egg or MDCK-cell isolation with <b>trypsin</b> in the medium; <b>HA and HI</b>; antigen-capture ELISA; <b>real-time RT-PCR on the M gene</b> for typing and on H5/H7 for subtyping; AGID for the type-specific NP antigen.</li>
+        <li><b>Borna disease virus</b> — <i>Bornaviridae</i>, the only (−)ssRNA virus that <b>replicates in the NUCLEUS</b>; non-cytolytic and persistent. Causes <b>"sad horse disease"</b> — a progressive immune-mediated meningoencephalomyelitis of horses and sheep in central Europe with behavioural change, ataxia and somnolence; <b>Joest-Degen intranuclear inclusion bodies</b> in hippocampal neurons. Also proventricular dilatation disease of parrots (avian bornavirus).</li>
+      </ul>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 03 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:54%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Target cell of IBD virus</td><td>Immature IgM⁺ B cells of the bursa</td></tr>
+          <tr><td>Lasting damage of Gumboro</td><td>Immunosuppression</td></tr>
+          <tr><td>Vector of bluetongue and AHS</td><td><i>Culicoides</i> midge</td></tr>
+          <tr><td>Pathognomonic lesion of bluetongue</td><td>Haemorrhage at base of pulmonary artery</td></tr>
+          <tr><td>Dunkop and dikkop forms</td><td>African horse sickness</td></tr>
+          <tr><td>Wheel-like virus of neonatal scour</td><td>Rotavirus</td></tr>
+          <tr><td>Two spikes of NDV</td><td>HN and F</td></tr>
+          <tr><td>Determinant of NDV virulence</td><td>F₀ cleavage site</td></tr>
+          <tr><td>Mesogenic Indian ND vaccine strain</td><td>R2B (Mukteswar)</td></tr>
+          <tr><td>ICPI of a velogenic strain</td><td>Approaches 2.0</td></tr>
+          <tr><td>Zebra striping of the colon</td><td>PPR</td></tr>
+          <tr><td>PPR vaccine strain used in India</td><td>Sungri/96</td></tr>
+          <tr><td>Receptor of morbilliviruses</td><td>SLAM (CD150) / nectin-4</td></tr>
+          <tr><td>Hard pad disease</td><td>Canine distemper</td></tr>
+          <tr><td>Shape of rabies virion</td><td>Bullet-shaped</td></tr>
+          <tr><td>Only rabies protein giving neutralising antibody</td><td>G glycoprotein</td></tr>
+          <tr><td>Speed of rabies axonal travel</td><td>About 3 mm per hour</td></tr>
+          <tr><td>Best brain sample for rabies</td><td>Hippocampus (Ammon's horn)</td></tr>
+          <tr><td>Antigenic shift occurs by</td><td>Reassortment of segments</td></tr>
+          <tr><td>Definition of HPAI</td><td>IVPI &gt; 1.2 or polybasic HA cleavage site</td></tr>
+          <tr><td>Only (−)RNA virus replicating in nucleus</td><td>Borna disease virus</td></tr>
+          <tr><td>Joest-Degen bodies</td><td>Borna disease</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 03 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 04 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">04</span>
+    <h2>Positive-Sense RNA Viruses &amp; the Retroviruses</h2>
+    <span class="sub">t16–t22</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-safranin">
+      <h3>Picornaviridae — foot-and-mouth disease <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Structure:</b> <b>naked</b> icosahedral, (+)ssRNA, ~30 nm — one of the smallest and, being naked, one of the most <b>environmentally stable</b> animal viruses. Capsid of <b>VP1, VP2, VP3 (surface) and VP4 (internal)</b>; <b>VP1 carries the major immunogenic site and the RGD motif that binds the integrin receptor</b>. Genome also encodes the <b>non-structural proteins (3ABC etc.)</b> that are the basis of DIVA testing.</li>
+        <li><b>Seven serotypes — O, A, C, Asia-1, SAT-1, SAT-2, SAT-3 — with NO cross-protection</b>, and many subtypes within each. <b>In India: O, A and Asia-1 circulate; serotype C has not been recorded since 1995.</b> This is why the Indian vaccine is <b>trivalent (O, A, Asia-1)</b>.</li>
+        <li><b>Extremely labile to pH</b> — inactivated below pH 6.5 and above pH 11. Hence <b>sodium carbonate (4%), citric acid (2%) and sodium hydroxide</b> are the disinfectants of choice, while ordinary phenolics fail. This also explains why the virus survives in <b>chilled but not in properly acidified (rigor-matured) meat</b>.</li>
+        <li><b>Hosts:</b> all <b>cloven-hoofed</b> animals — cattle, buffalo, sheep, goat, pig, wildlife. <b>Horses are refractory</b> (a classic one-mark question). Pigs are amplifiers that excrete enormous amounts of aerosol; sheep are silent maintainers.</li>
+        <li><b>Signs and lesions:</b> fever, then <b>vesicles/aphthae on the tongue, dental pad, gums, muzzle, interdigital space, coronary band and teats</b>, which rupture to leave raw erosions; profuse <b>ropy salivation, smacking of the lips</b>, lameness, sharp drop in milk. Morbidity approaches 100%, adult mortality is low, but <b>mortality in young stock is high because of "tiger heart" — myocarditis with grey-yellow streaks in the myocardium</b>. Sequelae: chronic <b>"panting" syndrome</b> with dyspnoea and hair-coat changes, and lifelong <b>carrier state in the oropharynx</b> of ruminants.</li>
+        <li><b>Diagnosis:</b> the best sample is <b>vesicular epithelium (tongue/foot) in 50% glycerol-phosphate buffer, pH 7.2–7.6, cold chain</b>; also oesophageal-pharyngeal fluid by <b>probang cup</b> for carriers. Tests: <b>sandwich ELISA for typing (the routine)</b>, CFT, isolation in BHK-21 or primary bovine thyroid cells, inoculation of unweaned mice, <b>real-time RT-PCR</b>, and <b>NSP-ELISA (3ABC) to distinguish infected from vaccinated animals</b>.</li>
+        <li><b>Control:</b> inactivated trivalent oil/alum vaccine, first dose at 4 months, booster at 1 month, then <b>six-monthly</b>; India's <b>FMD-CP / NADCP</b> mass vaccination with ear-tagging and INAPH recording. Ring vaccination, movement control, disinfection, and stamping out where policy permits. <b>Notifiable and transboundary.</b></li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Differentiate the vesicular diseases</b> — FMD, <b>vesicular stomatitis</b> (rhabdovirus; <b>affects horses</b>, which rules it apart from FMD), <b>swine vesicular disease</b> (enterovirus, pigs only) and vesicular exanthema of swine (calicivirus). Clinically indistinguishable in pigs — <b>only the laboratory can differentiate them</b>, and that sentence is worth a mark.</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Corona-, Arteri-, Calici- &amp; Togaviridae <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b><i>Coronaviridae</i></b> — enveloped, helical, (+)ssRNA, the <b>largest RNA genome (~30 kb)</b>, with club-shaped <b>S (spike) peplomers giving the crown or solar-corona appearance</b>. High rate of <b>recombination</b> and mutation.</li>
+        <li><b>Infectious bronchitis virus (IBV)</b> — the most contagious poultry virus; <b>respiratory</b> (gasping, tracheal rales, snicking), <b>renal</b> (nephropathogenic strains → urate deposits, "gout") and <b>reproductive</b> (permanent oviduct damage in chicks infected under 2 weeks → <b>false layers</b>; in layers, a fall in production with <b>soft-shelled, misshapen eggs and watery albumen</b>) forms. Very many serotypes with poor cross-protection — <b>vaccine must match the local serotype (Massachusetts H120, H52, 4/91)</b>.</li>
+        <li><b>Transmissible gastroenteritis virus (TGEV)</b> of pigs — destroys the <b>villous enterocytes of the jejunum and ileum</b> → severe villous atrophy → profuse watery diarrhoea and vomiting with <b>near 100% mortality in piglets under 2 weeks</b> and mild disease in adults. Control by <b>feed-back/oral exposure of pregnant sows to generate lactogenic IgA</b>. <b>PRCV</b> is a spike-deletion mutant that is respiratory and confers cross-protection. Related: PEDV, bovine coronavirus (calf scour and winter dysentery), <b>FIP virus</b> (a mutant of feline enteric coronavirus; immune-complex and ADE-driven, with effusive "wet" and granulomatous "dry" forms).</li>
+        <li><b><i>Arteriviridae</i> — equine viral arteritis.</b> Causes fever, <b>limb and ventral oedema, supraorbital/periorbital oedema, conjunctivitis ("pink eye")</b>, urticaria, and <b>abortion at any stage</b>. The critical epidemiological point: <b>the virus persists in the accessory sex glands of the stallion, which becomes a long-term shedder in semen</b> — so screening and certification of breeding stallions is the control measure. Modified live and inactivated vaccines exist; test before vaccinating so serology remains interpretable. <b>PRRS virus</b> is in the same family — "blue ear disease", reproductive failure in sows and respiratory disease in piglets, targeting <b>alveolar macrophages</b>.</li>
+        <li><b><i>Caliciviridae</i> — feline calicivirus.</b> Naked, (+)ssRNA, <b>cup-shaped depressions</b> on the surface. Part of the feline upper-respiratory complex with FHV-1; the hallmark is <b>oral and lingual ULCERATION</b> (FHV-1 gives more ocular signs), plus a <b>limping/lameness syndrome</b> and virulent systemic strains. Naked, so it is <b>resistant to alcohol — hypochlorite is needed</b>; cats become carriers shedding oropharyngeally. Also in the family: <b>rabbit haemorrhagic disease virus</b> and vesicular exanthema of swine.</li>
+        <li><b><i>Togaviridae</i> — equine encephalomyelitis (EEE, WEE, VEE).</b> Mosquito-borne <b>arboviruses</b> maintained in a <b>bird–mosquito cycle</b>; the <b>horse and man are dead-end hosts</b> except in VEE, where equines do amplify. Biphasic fever, then encephalitis with depression ("sleeping sickness"), compulsive walking, head pressing, paralysis. <b>EEE is the most severe (mortality up to 90%), WEE mild-to-moderate, VEE intermediate but epidemic.</b> All are <b>zoonotic</b>; diagnosis by IgM-capture ELISA, HI, RT-PCR and virus isolation from brain. Control by inactivated vaccine and mosquito control.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-safranin">
+      <h3>Flaviviridae — classical swine fever &amp; BVD <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:16%"></th><th>Classical swine fever (hog cholera)</th><th>Bovine viral diarrhoea / mucosal disease</th></tr></thead>
+        <tbody>
+          <tr><th>Genus</th><td colspan="2"><i>Pestivirus</i> — enveloped, (+)ssRNA; the genus also holds border disease of sheep. Note that <b>pestiviruses do NOT have an arthropod vector</b> despite being flaviviruses</td></tr>
+          <tr><th>Key biology</th><td><b>Endotheliotropic and lymphotropic</b> → widespread haemorrhage and lymphoid depletion; a single serotype</td><td>Two <b>biotypes — non-cytopathic (ncp) and cytopathic (cp)</b>, and two genotypes (BVDV-1, BVDV-2). <b>The ncp biotype is the one that establishes persistent infection</b></td></tr>
+          <tr><th>Signs</th><td>High fever with huddling, conjunctivitis, constipation then diarrhoea, incoordination and a staggering "wobbly" hindquarter gait, <b>purple discoloration of the ears, abdomen and inner thigh</b>; transplacental infection gives <b>congenital tremor, mummification and stillbirth</b></td><td>Usually subclinical; acute BVD gives fever, oral erosions, diarrhoea, leucopenia and <b>immunosuppression</b>; reproductive losses — early embryonic death, abortion, <b>cerebellar hypoplasia and cataract</b> if infected at 100–150 days</td></tr>
+          <tr><th>Signature lesion</th><td><b>"Turkey-egg" kidney — petechial haemorrhages on a pale cortex</b>; <b>button ulcers in the colon and at the ileocaecal valve</b>; infarcted enlarged mottled spleen; haemorrhagic lymph nodes; encephalitis with perivascular cuffing</td><td><b>Mucosal disease</b> — erosions and ulcers of the whole alimentary tract, <b>linear oesophageal erosions</b>, necrosis of Peyer's patches, interdigital erosions</td></tr>
+          <tr><th>The concept to explain</th><td>Chronic and late-onset forms mean apparently healthy carriers spread the virus; feeding of uncooked swill is the classic source</td><td><b>PERSISTENTLY INFECTED (PI) ANIMAL</b> — a foetus infected with the <b>ncp</b> biotype <b>before day 125</b> of gestation, i.e. before immunocompetence, recognises the virus as self, is <b>immunotolerant, seronegative but virus-positive for life</b>, and sheds continuously. If that PI animal is later superinfected with a <b>cp</b> biotype arising by mutation, it develops fatal <b>mucosal disease</b>. <b>Eradication depends on finding and culling PI animals</b> — the highest-yield single concept in this topic</td></tr>
+          <tr><th>Diagnosis</th><td>FAT on tonsil and kidney, antigen ELISA, RT-PCR, isolation in PK-15 cells (<b>non-cytopathic — needs FAT to read</b>), <b>END and exaltation of Newcastle disease virus test</b></td><td><b>Antigen-capture ELISA or RT-PCR on ear-notch skin</b>, repeated after 3 weeks to confirm persistence; virus isolation in MDBK cells; antibody ELISA (a PI animal is <b>antibody-negative</b>)</td></tr>
+          <tr><th>Control</th><td>Live attenuated <b>lapinised Chinese C strain</b> (used in India), cell-culture vaccine; stamping out and swill-feeding ban in free countries; <b>notifiable</b></td><td>Test-and-cull PI animals + biosecurity + killed or MLV vaccination of breeding stock before service</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Retroviridae <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Defining feature:</b> enveloped, <b>two identical copies of (+)ssRNA</b> (diploid) plus <b>reverse transcriptase</b>. Replication: RNA → <b>cDNA by RT</b> → dsDNA → <b>integrated into the host chromosome by integrase as a PROVIRUS</b> → transcribed by host RNA polymerase II. This integration is why retroviral infection is <b>lifelong</b> and why these viruses cause cancer.</li>
+        <li><b>Three essential genes — <i>gag</i> (core proteins), <i>pol</i> (RT, protease, integrase), <i>env</i> (envelope glycoproteins)</b>, flanked by <b>LTRs</b> that act as promoters. Lentiviruses carry additional regulatory genes.</li>
+        <li><b>Bovine leukaemia virus (enzootic bovine leucosis)</b> — <i>Deltaretrovirus</i>. Long incubation; most cattle are seropositive and healthy, about 30% develop persistent lymphocytosis, and only 1–5% develop <b>B-cell lymphosarcoma</b> in the abomasum, heart (right atrium), uterus, spinal canal and retrobulbar space. Transmitted <b>iatrogenically by blood — needles, dehorning, rectal sleeves</b>, and by biting flies and colostrum. Diagnosis by <b>AGID and ELISA on serum or bulk milk, plus PCR for provirus</b>. No vaccine; control is test-and-cull with hygiene. Distinguish from <b>sporadic bovine leucosis</b> (juvenile, thymic and cutaneous forms) which is <b>not</b> BLV-associated.</li>
+        <li><b>Avian leukosis/sarcoma group</b> — subgroups A–J; <b>lymphoid leucosis affects birds over 16 weeks, with bursal-dependent B-cell tumours and a nodular liver ("big liver disease")</b>. <b>Vertically transmitted through the egg</b>, so control is by eradication from breeder flocks, not vaccination. Rous sarcoma virus (<i>v-src</i>) is the historic transforming member.</li>
+        <li><b>Lentiviruses — "slow viruses":</b> <b>Visna-maedi</b> of sheep (<i>maedi</i> = progressive interstitial pneumonia and dyspnoea; <i>visna</i> = wasting demyelinating encephalitis; also indurative mastitis, "hard bag"); <b>caprine arthritis-encephalitis virus</b> (carpal arthritis in adults, leucoencephalomyelitis in kids, spread mainly through <b>milk and colostrum</b>); <b>equine infectious anaemia</b> — "swamp fever", transmitted by <b>tabanid horse flies and contaminated needles</b>, cyclical fever, anaemia and thrombocytopenia from <b>antigenic variation with immune-complex and immune-mediated haemolysis</b>, lifelong carrier, diagnosed by the <b>Coggins (AGID) test</b>, and controlled by test-and-slaughter or lifelong isolation — <b>there is no vaccine and no treatment</b>. Also FIV and BIV.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Distinguish the three lymphoid tumours of poultry</b> — <b>Marek's disease</b> (herpesvirus, birds 6–20 weeks, <b>T cells</b>, enlarged peripheral nerves, iris depigmentation, vaccine available) · <b>Lymphoid leucosis</b> (retrovirus, birds over 16 weeks, <b>B cells, bursa-dependent</b>, no nerve enlargement, no vaccine) · <b>Reticuloendotheliosis</b>. That three-way table appears in the paper regularly.</div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 04 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>FMD serotypes</b><span>O, A, C, Asia-1, SAT-1, 2, 3 — no cross-protection</span></div>
+      <div><b>Serotypes circulating in India</b><span>O, A, Asia-1</span></div>
+      <div><b>FMD immunogenic capsid protein</b><span>VP1</span></div>
+      <div><b>FMD DIVA marker</b><span>Non-structural protein 3ABC</span></div>
+      <div><b>Transport medium for FMD epithelium</b><span>50% glycerol-phosphate buffer pH 7.4</span></div>
+      <div><b>Tiger heart in young stock</b><span>FMD myocarditis</span></div>
+      <div><b>Species refractory to FMD</b><span>Horse</span></div>
+      <div><b>Vesicular disease affecting horses</b><span>Vesicular stomatitis</span></div>
+      <div><b>Largest RNA genome</b><span>Coronavirus (~30 kb)</span></div>
+      <div><b>False layers in poultry</b><span>Infectious bronchitis virus</span></div>
+      <div><b>Villous atrophy with 100% piglet mortality</b><span>TGE virus</span></div>
+      <div><b>Virus persisting in the stallion's sex glands</b><span>Equine viral arteritis</span></div>
+      <div><b>Blue ear disease</b><span>PRRS virus</span></div>
+      <div><b>Oral ulceration in cats</b><span>Feline calicivirus</span></div>
+      <div><b>Turkey-egg kidney and button ulcers</b><span>Classical swine fever</span></div>
+      <div><b>CSF vaccine strain used in India</b><span>Lapinised Chinese C strain</span></div>
+      <div><b>Biotype causing persistent infection</b><span>Non-cytopathic BVDV</span></div>
+      <div><b>PI animal is</b><span>Virus-positive, antibody-negative for life</span></div>
+      <div><b>Gestational window for BVDV PI</b><span>Before day 125</span></div>
+      <div><b>Three genes of a retrovirus</b><span><i>gag</i>, <i>pol</i>, <i>env</i></span></div>
+      <div><b>Integrated retroviral DNA</b><span>Provirus</span></div>
+      <div><b>Coggins test diagnoses</b><span>Equine infectious anaemia</span></div>
+      <div><b>Maedi and visna</b><span>Pneumonia and encephalitis of sheep</span></div>
+      <div><b>Lymphoid leucosis affects birds over</b><span>16 weeks — B cells, bursa-dependent</span></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 04 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 05 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">05</span>
+    <h2>Large DNA Viruses — Pox, Asfar &amp; Herpes</h2>
+    <span class="sub">t23–t27</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-violet">
+      <h3>Poxviridae <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Structure:</b> the <b>largest and most complex animal virus</b> (200–450 nm), <b>brick- or ovoid-shaped</b> with a <b>dumbbell-shaped core and two lateral bodies</b>; dsDNA. <b>Unique among DNA viruses in replicating entirely in the CYTOPLASM</b> (in "viral factories"), which is why it must carry its own transcriptase. <b>Very resistant to drying</b> — survives for months in scabs and wool.</li>
+        <li><b>Lesion sequence to write:</b> <b>macule → papule → vesicle → pustule → crust/scab → scar</b>. Pox lesions are epitheliotropic with ballooning degeneration and <b>intracytoplasmic eosinophilic inclusion bodies</b>.</li>
+        <li><b>Capripoxvirus — sheep pox, goat pox and lumpy skin disease.</b> <b>The most serious pox of livestock, notifiable and transboundary.</b> Sheep and goat pox: fever, generalised skin nodules especially on the woolless areas — muzzle, eyelids, axilla, groin, udder — plus <b>internal pox lesions in the lung as sharply circumscribed grey-white nodules</b>. <b>Lumpy skin disease</b> of cattle: high fever, <b>multiple firm intradermal nodules 2–5 cm over the whole body</b> that become necrotic "sit-fast" plugs, marked <b>lymph node enlargement</b>, limb oedema, drop in milk, and <b>vector-borne spread by biting flies, mosquitoes and ticks</b> — this vector transmission is what made LSD spread across Asia. Diagnosis: EM, histopathology, <b>PCR</b>, virus isolation on lamb testis cells or CAM. Control: live attenuated homologous vaccines; the <b>Kenyan sheep and goat pox strain and Neethling strain are used against LSD</b>.</li>
+        <li><b>Avipoxvirus — fowl pox.</b> Two forms: <b>cutaneous ("dry")</b> — wart-like nodules on the comb, wattle and unfeathered skin, spread by mosquitoes and by contact through skin abrasions, low mortality; and <b>diphtheritic ("wet")</b> — yellow caseous plaques in the mouth, pharynx and trachea causing asphyxia and higher mortality. <b>Bollinger bodies</b> (intracytoplasmic inclusions) with <b>Borrel bodies</b> (elementary particles) inside them. Vaccinated by <b>wing-web stab</b> with a live pigeon-pox or fowl-pox vaccine; check for a "take" after 7 days.</li>
+        <li><b>Orthopoxvirus — cowpox, buffalopox and vaccinia.</b> Cowpox causes <b>teat and udder lesions in cows and generalised disease in cats (rodent reservoir); zoonotic</b>. <b>Buffalopox</b> is important in India — lesions on the teats and udder of buffaloes with <b>painful ulcers on the hands of milkers</b>. Vaccinia is the smallpox vaccine strain and now the workhorse <b>viral vector</b>.</li>
+        <li><b>Parapoxvirus</b> — <b>orf (contagious ecthyma / contagious pustular dermatitis)</b> of sheep and goats: proliferative scabby lesions at the commissures of the lips and on the muzzle of lambs, and on the teats of ewes; <b>ovoid virion with a criss-cross "ball of wool" surface pattern on EM</b>; <b>zoonotic</b>. Also bovine papular stomatitis and pseudocowpox (milker's nodule).</li>
+        <li><b>Suipoxvirus</b> — swine pox, transmitted by the <b>pig louse <i>Haematopinus suis</i></b>. <b>Myxomatosis</b> (<i>Leporipoxvirus</i>) of rabbits, mosquito-borne, is the classic virus-host co-evolution example.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Herpesviridae — the family rules first <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 96" role="img" aria-label="Herpesvirus structure with core capsid tegument and envelope and the three subfamilies">
+        <g font-size="7.4">
+          <circle cx="52" cy="44" r="40" fill="none" stroke="var(--violet)" stroke-width="1.4"/>
+          <circle cx="52" cy="44" r="31" fill="var(--violet-w)" stroke="var(--ink-3)" stroke-width=".8" stroke-dasharray="2 2"/>
+          <polygon points="52,20 73,32 73,56 52,68 31,56 31,32" fill="none" stroke="var(--violet)" stroke-width="1.2"/>
+          <circle cx="52" cy="44" r="9" fill="var(--safranin)" opacity=".35"/>
+          <g stroke="var(--violet)" stroke-width="1">
+            <line x1="52" y1="4" x2="52" y2="10"/><line x1="86" y1="24" x2="91" y2="21"/><line x1="86" y1="64" x2="91" y2="67"/>
+            <line x1="18" y1="24" x2="13" y2="21"/><line x1="18" y1="64" x2="13" y2="67"/>
+          </g>
+          <text x="98" y="16" fill="var(--ink-2)"><tspan font-weight="600">Envelope</tspan> + glycoprotein spikes (gB, gD, gE)</text>
+          <text x="98" y="28" fill="var(--ink-2)"><tspan font-weight="600">Tegument</tspan> — protein layer, unique to herpes</text>
+          <text x="98" y="40" fill="var(--ink-2)"><tspan font-weight="600">Icosahedral capsid</tspan>, 162 capsomeres</text>
+          <text x="98" y="52" fill="var(--ink-2)"><tspan font-weight="600">Core</tspan> — linear dsDNA around a fibrillar spool</text>
+          <line x1="96" y1="60" x2="198" y2="60" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="98" y="72" fill="var(--violet)" font-weight="700">THE FAMILY RULE</text>
+          <text x="98" y="82" fill="var(--ink-2)">Every herpesvirus establishes <tspan font-weight="600">LIFELONG LATENCY</tspan></text>
+          <text x="98" y="92" fill="var(--ink-2)">and reactivates under stress or corticosteroid</text>
+        </g>
+      </svg>
+      <table style="margin-top:1.2mm">
+        <thead><tr><th style="width:22%">Subfamily</th><th style="width:26%">Behaviour &amp; latency site</th><th>Members</th></tr></thead>
+        <tbody>
+          <tr><th><b>Alpha</b>herpesvirinae</th><td>Fast growth, wide host range, cytolytic; <b>latent in SENSORY GANGLIA</b></td><td>BHV-1 (IBR/IPV), <b>equine herpesvirus 1 &amp; 4</b>, pseudorabies (SHV-1), <b>ILTV</b>, duck plague, FHV-1, canine herpesvirus</td></tr>
+          <tr><th><b>Beta</b>herpesvirinae</th><td>Slow growth, narrow host range, <b>cytomegaly</b>; latent in secretory glands and kidney</td><td>Cytomegaloviruses, porcine inclusion body rhinitis virus</td></tr>
+          <tr><th><b>Gamma</b>herpesvirinae</th><td><b>Lymphotropic and often oncogenic</b>; latent in lymphocytes</td><td><b>Marek's disease virus</b> (biologically alpha but genomically gamma), malignant catarrhal fever viruses (OvHV-2, AlHV-1), Epstein-Barr virus</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Cowdry type A</span> The eosinophilic <b>intranuclear</b> inclusion with a clear halo, seen in herpesvirus infections — the histopathological signature to name in any herpes answer.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>The veterinary herpesviruses <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:20%">Virus &amp; disease</th><th style="width:26%">Clinical picture</th><th>The point that scores</th></tr></thead>
+        <tbody>
+          <tr><th><b>BHV-1 — IBR / IPV</b></th><td><b>Respiratory:</b> "red nose", fever, mucopurulent nasal discharge, tracheitis, conjunctivitis. <b>Genital:</b> infectious pustular vulvovaginitis and balanoposthitis. Also <b>abortion in the last trimester</b> with a foetus showing pinpoint necrotic foci in the liver, and encephalitis in calves</td><td><b>Latent in the trigeminal (respiratory) and sacral (genital) ganglia; reactivated experimentally by dexamethasone.</b> Any seropositive animal is a lifelong carrier — hence <b>test-and-cull</b>, and the availability of <b>gE-deleted marker (DIVA) vaccines</b> that allow eradication while vaccinating. Semen must be screened before AI</td></tr>
+          <tr><th><b>EHV-1 &amp; EHV-4</b></th><td>EHV-4 mainly <b>rhinopneumonitis</b> in young horses; <b>EHV-1</b> causes rhinopneumonitis plus <b>abortion "storms" in the last third of gestation</b>, neonatal foal death, and <b>equine herpesvirus myeloencephalopathy</b> (ataxia, urinary incontinence, paresis)</td><td>Aborted foetus is <b>expelled fresh with the membranes</b>, showing <b>pulmonary oedema, hepatic necrotic foci and intranuclear inclusions</b> — the classic gross picture. Vaccinate mares at 5, 7 and 9 months of gestation</td></tr>
+          <tr><th><b>Marek's disease virus</b><br><span class="mono" style="font-size:6.2pt">GaHV-2, serotype 1</span></th><td><b>T-cell lymphoma</b> of chickens 6–20 weeks. <b>Classical form:</b> unilateral leg paralysis with one leg forward and one back, <b>enlarged, greyish, oedematous peripheral nerves (sciatic, brachial, vagus) that lose their cross-striations</b>. <b>Ocular form:</b> "grey eye" — iris depigmentation and irregular pupil. <b>Acute form:</b> visceral lymphomas in liver, gonad, spleen, kidney. <b>Cutaneous form:</b> feather-follicle nodules</td><td><b>The virus is shed as fully infectious enveloped virus ONLY from the feather-follicle epithelium</b>, so dander is the source and the disease spreads by inhalation of dust. <b>The first neoplastic disease controlled by a vaccine</b> — HVT (turkey herpesvirus, serotype 3), SB-1 (serotype 2) and <b>CVI988/Rispens</b>, given <b>at day-old or in ovo at 18 days</b>. The vaccine prevents the tumour but not infection or shedding</td></tr>
+          <tr><th><b>ILTV</b><br><span class="mono" style="font-size:6.2pt">infectious laryngotracheitis</span></th><td>Severe dyspnoea with <b>neck extension and gasping, expectoration of blood-stained mucus</b>, sudden drop in egg production. Haemorrhagic tracheitis with a caseous plug</td><td><b>Syncytia with Cowdry type A intranuclear inclusions</b> in tracheal epithelium — diagnostic. Vaccinated by eye drop or drinking water only in endemic areas, since vaccine strains can revert and spread</td></tr>
+          <tr><th><b>Duck plague</b><br><span class="mono" style="font-size:6.2pt">duck viral enteritis</span></th><td>Sudden high mortality in ducks, <b>prolapsed penis in drakes</b>, photophobia, greenish watery diarrhoea</td><td><b>Annular bands of haemorrhage in the intestine, "duck plague" oesophageal and cloacal button-like plaques</b>, and necrotic foci in the liver. Wild waterfowl are carriers; live attenuated vaccine</td></tr>
+          <tr><th><b>Pseudorabies</b><br><span class="mono" style="font-size:6.2pt">Aujeszky's disease, SHV-1</span></th><td><b>Pig is the natural host and the reservoir</b> — piglets show fatal CNS disease, sows abort, adults show mild respiratory signs. In <b>dead-end hosts (cattle, dog, cat, sheep)</b> it causes <b>"MAD ITCH" — intense localised pruritus with self-mutilation, followed by death within 48 h</b></td><td>The mad-itch picture in a cow on a pig farm is the exam vignette. <b>gE-deleted DIVA vaccine</b> is the basis of national eradication. <b>Not</b> caused by rabies virus despite the name — say so</td></tr>
+          <tr><th><b>Malignant catarrhal fever</b></th><td>Sporadic, invariably fatal in cattle and buffalo. High fever, bilateral <b>corneal opacity beginning at the limbus and moving centrally</b>, severe mucopurulent nasal and ocular discharge, erosions of the muzzle and oral cavity, generalised lymphadenopathy, nervous signs</td><td><b>Two epidemiological forms:</b> <b>wildebeest-associated (AlHV-1)</b> in Africa, and <b>sheep-associated (OvHV-2)</b> worldwide, in which <b>sheep are inapparent carriers and cattle are dead-end hosts</b>. <b>Cattle-to-cattle transmission does not occur</b>, so control is simply <b>separating cattle from lambing sheep</b>. Histology: <b>lymphoproliferative vasculitis with fibrinoid necrosis</b>. Diagnosis by PCR; no vaccine, no treatment</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Asfarviridae — African swine fever <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Unique standing:</b> ASFV is the <b>only DNA arbovirus</b> and the <b>only member of its family</b>; a large icosahedral dsDNA virus that, like poxvirus, replicates chiefly in the <b>cytoplasm</b>. It targets <b>monocytes and macrophages</b>.</li>
+        <li><b>Epidemiology — the reason it is so feared:</b> the sylvatic cycle runs between <b>warthogs and bushpigs (inapparent reservoirs)</b> and <b><i>Ornithodoros</i> soft ticks</b>, which are both vector and reservoir. Domestic pigs are infected by tick bite, by contact, or by <b>feeding of uncooked swill containing pork products</b> — the virus survives for months in chilled, frozen and cured meat. <b>There is no vaccine and no treatment.</b></li>
+        <li><b>Clinical and lesions:</b> peracute to chronic. High fever, <b>reddening/cyanosis of the ears, snout, abdomen and limbs</b>, huddling, ataxia, abortion, and mortality approaching 100% in naïve herds. Post mortem: <b>massively enlarged, friable, dark "infarcted" spleen</b>, <b>markedly haemorrhagic gastrohepatic and renal lymph nodes that look like blood clots</b>, petechiae throughout the kidney cortex, hydropericardium, pulmonary oedema.</li>
+        <li><b>Diagnosis:</b> clinically <b>indistinguishable from classical swine fever</b> — this is the single most important differential and the laboratory must decide. Use <b>PCR (the routine), antigen ELISA, FAT on tissue smears, and haemadsorption in porcine leucocyte cultures, in which erythrocytes rosette around infected macrophages ("rosette formation")</b>. Antibody ELISA and IB for chronic cases (unlike CSF, ASF survivors do make antibody, but it is <b>not protective</b>).</li>
+        <li><b>Control:</b> strict biosecurity, <b>ban on swill feeding</b>, movement control, stamping out with safe carcass disposal, tick control, and separation from wild suids. <b>Notifiable and transboundary; ASF entered India in 2020 and is now the major threat to the piggery sector in the North-East.</b></li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>ASF vs CSF in one line each:</b> ASF is a <b>DNA</b> virus, tick-borne, with a <b>huge friable haemorrhagic spleen</b> and haemorrhagic nodes, and <b>no vaccine</b>. CSF is an <b>RNA</b> flavivirus, no vector, with an <b>infarcted (not enlarged) spleen, turkey-egg kidney and button ulcers</b>, and an <b>effective live vaccine</b>.</div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 05 / 06</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 06 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">06</span>
+    <h2>Small DNA Viruses, Prions &amp; Emerging Infections</h2>
+    <span class="sub">t28–t33</span>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3>Adeno-, Papilloma-, Parvo- &amp; Circoviridae <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b><i>Adenoviridae</i></b> — <b>naked icosahedral dsDNA with a fibre projecting from each penton</b>, the attachment organ. <b>Infectious canine hepatitis (canine adenovirus 1)</b>: fever, abdominal pain, tonsillitis, hepatic necrosis with a <b>markedly oedematous gall-bladder wall</b>, petechiae, and the immune-complex sequel <b>"blue eye" — corneal oedema appearing 1–3 weeks after infection or after live CAV-1 vaccination</b>, which is why modern vaccines use <b>CAV-2</b>, giving cross-protection without blue eye. <b>Basophilic intranuclear inclusions in hepatocytes and endothelium</b>; virus is shed in urine for up to <b>six months</b>. <b>CAV-2</b> itself causes infectious tracheobronchitis (kennel cough). <b>Egg drop syndrome 1976 (EDS-76)</b> — a duck adenovirus in hens producing <b>thin-shelled, soft-shelled and shell-less eggs with no other signs</b>; the virus <b>haemagglutinates fowl RBCs</b>, so it is diagnosed by <b>HI</b>. <b>Fowl adenovirus</b> — inclusion body hepatitis and <b>hydropericardium syndrome (Angara disease/litchi heart)</b> in broilers 3–5 weeks, with straw-coloured fluid in the pericardium and a swollen mottled liver.</li>
+        <li><b><i>Papillomaviridae</i></b> — naked icosahedral <b>circular dsDNA</b>, strictly <b>species- and site-specific</b>, <b>epitheliotropic</b>, and <b>cannot be grown in cell culture</b>. Causes benign <b>warts (papillomas)</b> that usually regress spontaneously through cell-mediated immunity. <b>Bovine papillomatosis</b> — cauliflower-like warts on head, neck, teats and penis of young cattle; <b>BPV-1 and BPV-2 also infect the horse to produce the EQUINE SARCOID</b>, the commonest equine skin tumour, which is <b>locally aggressive and does not regress</b>. <b>BPV-4 with bracken-fern immunosuppression causes alimentary and urinary bladder carcinoma (enzootic haematuria)</b>. Oncogenesis is by <b>E6 and E7 proteins inactivating p53 and Rb</b>. Treat by autogenous wart vaccine, surgical removal or crushing (which stimulates immunity).</li>
+        <li><b><i>Parvoviridae</i></b> — the smallest DNA viruses, <b>naked, ssDNA</b>, therefore <b>extremely resistant</b> (survive a year in the environment; require <b>hypochlorite</b>, not alcohol) and <b>dependent on host DNA polymerase, so they replicate only in ACTIVELY DIVIDING cells</b> — this single fact explains their entire pathology. <b>Canine parvovirus 2</b> (variants 2a, 2b, 2c) attacks the <b>crypt cells of the intestine and the bone marrow</b> → <b>haemorrhagic enteritis with foul, blood-stained diarrhoea, vomiting, rapid dehydration and leucopenia</b> in pups 6 weeks to 6 months, and <b>myocarditis in pups infected under 8 weeks or in utero</b>. Diagnosis: faecal antigen ELISA/lateral flow, HA with pig RBCs, PCR. Vaccinate from 6 weeks, repeating till 16 weeks to overcome maternal antibody. <b>Feline panleukopenia</b> — the same biology in cats: enteritis with profound <b>leucopenia</b>, and infection <i>in utero</i> or in the neonate destroys the dividing external granular layer of the cerebellum → <b>cerebellar hypoplasia with ataxia and intention tremor</b>. <b>Porcine parvovirus</b> → the <b>SMEDI</b> syndrome: stillbirth, mummification, embryonic death and infertility, with mummified foetuses <b>of different sizes in one litter</b> and no illness in the sow.</li>
+        <li><b><i>Circoviridae</i></b> — the <b>smallest animal viruses (17–22 nm), naked, circular ssDNA</b>. <b>Chicken anaemia virus</b> (a gyrovirus) infects <b>haemocytoblasts in the marrow and T-cell precursors in the thymus</b> → <b>aplastic anaemia with watery blood and a PCV below 20, thymic and bursal atrophy, and gangrenous dermatitis</b> in chicks 2–4 weeks; it is <b>vertically transmitted through the egg</b> and its main cost is immunosuppression and vaccine failure — breeders are vaccinated to give maternal protection. <b>Porcine circovirus 2</b> is the cause of <b>PCVAD/PMWS — post-weaning multisystemic wasting syndrome</b>: progressive wasting, pallor, jaundice, dyspnoea and enlarged lymph nodes in pigs 6–14 weeks, plus PDNS and reproductive failure; it too is profoundly <b>immunosuppressive</b>, with basophilic botryoid (grape-like) cytoplasmic inclusions in macrophages. Highly effective PCV2 vaccines exist.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Prions — transmissible spongiform encephalopathies <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 200 88" role="img" aria-label="Conversion of normal cellular prion protein into the disease-associated beta sheet form">
+        <g font-size="7.4">
+          <rect x="4" y="4" width="86" height="34" rx="3" fill="var(--blue-w)" stroke="var(--blue)" stroke-width="1"/>
+          <text x="10" y="15" font-weight="700" fill="var(--blue)">PrP<tspan font-size="6" dy="-2">C</tspan> — normal</text>
+          <text x="10" y="25" fill="var(--ink-2)">Host gene <tspan font-style="italic">PRNP</tspan>, chromosome 20</text>
+          <text x="10" y="34" fill="var(--ink-2)">α-helical · protease-SENSITIVE · soluble</text>
+
+          <rect x="110" y="4" width="86" height="34" rx="3" fill="var(--fuchsin-w)" stroke="var(--fuchsin)" stroke-width="1"/>
+          <text x="116" y="15" font-weight="700" fill="var(--fuchsin)">PrP<tspan font-size="6" dy="-2">Sc</tspan> — disease form</text>
+          <text x="116" y="25" fill="var(--ink-2)"><tspan font-weight="600">β-pleated sheet</tspan> · protease-RESISTANT</text>
+          <text x="116" y="34" fill="var(--ink-2)">insoluble · aggregates into amyloid</text>
+
+          <path d="M92 21 h16" stroke="var(--fuchsin)" stroke-width="1.4"/>
+          <path d="M104 18 l5 3 l-5 3 z" fill="var(--fuchsin)"/>
+          <text x="72" y="48" fill="var(--fuchsin)" font-weight="600">PrP&#8203;Sc acts as a template — autocatalytic conversion</text>
+
+          <line x1="4" y1="54" x2="196" y2="54" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="4" y="65" fill="var(--ink-2)"><tspan font-weight="700">NO nucleic acid</tspan> → no immune response, no fever, no inflammation,</text>
+          <text x="4" y="74" fill="var(--ink-2)">no interferon, and <tspan font-weight="600">resistant to formalin, autoclaving at 121 °C, UV and</tspan></text>
+          <text x="4" y="83" fill="var(--ink-2)"><tspan font-weight="600">irradiation</tspan>. Destroyed only by 1 N NaOH or 134 °C for 18 min</text>
+        </g>
+      </svg>
+      <ul class="k" style="margin-top:1mm; font-size:7.3pt">
+        <li><b>Common features of all TSEs:</b> very long incubation (years), invariably <b>fatal</b>, <b>no inflammatory or immune response</b>, and a characteristic histopathology of <b>spongiform vacuolation of the grey-matter neuropil, neuronal loss, astrocytosis and amyloid plaques, with no lesion outside the CNS</b>.</li>
+        <li><b>Scrapie</b> — sheep and goats. Signs: intense <b>pruritus with wool loss from rubbing</b>, a <b>"nibble reflex"</b>, ataxia, tremor and progressive wasting over months. Transmitted <b>horizontally from the placenta and birth fluids at lambing</b> and vertically. <b>Susceptibility is governed by PRNP codons 136, 154 and 171 — the ARR/ARR genotype is highly resistant, VRQ is susceptible</b>, so control is by <b>genotyping and breeding for resistance</b>.</li>
+        <li><b>Bovine spongiform encephalopathy ("mad cow disease")</b> — arose from feeding <b>meat-and-bone meal containing infected ruminant tissue</b>; incubation 4–6 years. Signs: apprehension, hyperaesthesia to sound and touch, kicking in the parlour, ataxia and falling — hence "mad cow". <b>Controlled by the ruminant feed ban and by removal of specified risk material</b> (brain, spinal cord, distal ileum, eyes, tonsil) from the food chain. <b>Zoonotic — the cause of variant Creutzfeldt-Jakob disease in man</b>, which is the reason for the global response.</li>
+        <li><b>Others to name:</b> <b>chronic wasting disease</b> of deer and elk (the only TSE spreading efficiently in a wild population), transmissible mink encephalopathy, feline spongiform encephalopathy; in man kuru, CJD, GSS and fatal familial insomnia.</li>
+        <li><b>Diagnosis — post mortem only:</b> <b>histopathology of the brain stem at the obex</b> for spongiform change; <b>immunohistochemistry for PrP<sup>Sc</sup></b>; <b>Western blot after proteinase K digestion — the confirmatory test</b>; rapid ELISA for surveillance screening; detection of <b>scrapie-associated fibrils</b> by EM; RT-QuIC as the modern amplification assay. <b>There is no ante-mortem test in routine use, no treatment and no vaccine.</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-fuchsin">
+      <h3>Emerging, re-emerging &amp; transboundary viral infections <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Why viruses emerge</b><span>High mutation rate of RNA viruses and <b>reassortment</b> in segmented ones; <b>expansion of the wildlife-livestock-human interface</b> through deforestation and land-use change; intensification of livestock production; the live-animal and bushmeat trade; <b>climate change extending vector ranges</b>; global travel and trade; and better detection technology, which makes some "emergence" apparent rather than real</span></div>
+        <div><b>Key statistic to quote</b><span>About <b>60–75% of emerging infectious diseases of humans are zoonotic</b>, and the majority of those originate in <b>wildlife</b>, with <b>bats and rodents</b> the most important reservoirs</span></div>
+        <div><b>Bat-origin viruses</b><span><b>Nipah virus</b> (<i>Paramyxoviridae</i>, <i>Henipavirus</i>) — fruit bats (<i>Pteropus</i>) → <b>pigs as amplifiers in Malaysia; in India (Siliguri 2001, Kerala 2018 onward) direct bat-to-human spread through contaminated date-palm sap</b>, causing encephalitis with very high case fatality; BSL-4 agent. <b>Hendra virus</b> — bats → horses → man in Australia. Also SARS, MERS and rabies-related lyssaviruses, Ebola and Marburg</span></div>
+        <div><b>Arboviral expansion</b><span><b>Bluetongue</b> moving north in Europe, <b>lumpy skin disease</b> spreading across Asia including India since 2019, <b>Rift Valley fever</b>, West Nile virus, Japanese encephalitis (pigs as amplifiers, <i>Culex</i> vector, a major zoonosis in India), Crimean-Congo haemorrhagic fever (<i>Hyalomma</i> ticks, livestock handlers)</span></div>
+        <div><b>Re-emerging in India</b><span>Lumpy skin disease, African swine fever (from 2020), highly pathogenic avian influenza H5N1, PPR in sheep and goats, canine parvovirus variants, glanders, rabies</span></div>
+        <div><b>Transboundary animal diseases (TADs)</b><span>FMD, PPR, CSF, ASF, HPAI, Newcastle disease, bluetongue, LSD, sheep and goat pox, African horse sickness, Rift Valley fever, CBPP — all <b>WOAH-listed and notifiable</b>, with major trade consequences</span></div>
+        <div><b>The One Health response</b><span>Integrated <b>human, animal and environmental</b> surveillance; the <b>WOAH-FAO-WHO-UNEP quadripartite</b>; risk analysis and early-warning systems (GLEWS); <b>disease-free zoning and compartmentalisation</b>; biosecurity, quarantine, movement control and ring vaccination; genomic surveillance and phylogenetic outbreak tracing; capacity for <b>BSL-3/BSL-4</b> containment; and in India the <b>NADCP</b>, NCDC-ICAR joint surveillance and the National One Health Mission</span></div>
+      </div>
+    </div>
+
+    <div class="mod">
+      <h3>Two skeletons that cover the virology paper <span class="kind">skeleton</span></h3>
+      <div class="skel">
+        <b>A · "Write about <i>[any virus]</i>" — 8-heading frame</b>
+        <ol>
+          <li><b>Classification</b> — family, genus, genome type, symmetry, envelope</li>
+          <li><b>Morphology &amp; physicochemical properties</b> — size, shape, resistance, the one signature feature</li>
+          <li><b>Antigenic structure</b> — serotypes and the protein that induces neutralising antibody</li>
+          <li><b>Epidemiology</b> — hosts, reservoir, vector, route, season, distribution in India</li>
+          <li><b>Pathogenesis</b> — entry, primary replication, viraemia, target organ</li>
+          <li><b>Clinical signs and gross &amp; microscopic lesions</b> — lead with the pathognomonic one</li>
+          <li><b>Laboratory diagnosis</b> — sample &amp; transport, direct detection, isolation system, serology, molecular test</li>
+          <li><b>Immunity, vaccine and control</b> — name the strain used in India; close with the notifiable/zoonotic status</li>
+        </ol>
+      </div>
+      <div class="skel" style="margin-top:1.6mm">
+        <b>B · "Laboratory diagnosis of a viral disease" — 6-step frame</b>
+        <ol>
+          <li><b>Sample</b> — correct tissue, collected early in the febrile phase, in <b>viral transport medium with antibiotics, on ice</b>; brain in 50% glycerol saline for rabies, epithelium in glycerol-phosphate buffer for FMD</li>
+          <li><b>Direct detection</b> — electron microscopy, <b>FAT/immunoperoxidase</b>, antigen-capture ELISA, inclusion bodies in histopathology</li>
+          <li><b>Isolation</b> — embryonated egg by the appropriate route, cell culture reading the <b>CPE, haemadsorption or plaques</b>, or animal inoculation</li>
+          <li><b>Identification</b> — neutralisation, HI, ELISA, immunofluorescence on the isolate</li>
+          <li><b>Serology</b> — paired sera, <b>a four-fold rise or IgM detection</b> proves recent infection; SNT, HI, AGID, CFT, ELISA</li>
+          <li><b>Molecular</b> — RT-PCR/real-time PCR, sequencing for genotyping, and <b>DIVA testing where a marker vaccine is in use</b></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheets 05–06 · final sweep <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>Only DNA viruses in the cytoplasm</b><span>Pox and African swine fever</span></div>
+      <div><b>Bollinger and Borrel bodies</b><span>Fowl pox</span></div>
+      <div><b>Vaccine strain for lumpy skin disease</b><span>Kenyan sheep-goat pox / Neethling</span></div>
+      <div><b>Ball-of-wool virion on EM</b><span>Orf (parapoxvirus)</span></div>
+      <div><b>Pox transmitted by <i>Haematopinus suis</i></b><span>Swine pox</span></div>
+      <div><b>Protein layer unique to herpesviruses</b><span>Tegument</span></div>
+      <div><b>IBR latency site</b><span>Trigeminal ganglion</span></div>
+      <div><b>Marker vaccine for IBR and Aujeszky's</b><span>gE-deleted</span></div>
+      <div><b>Site of infectious Marek's virus shedding</b><span>Feather follicle epithelium</span></div>
+      <div><b>First cancer prevented by vaccination</b><span>Marek's disease (HVT, CVI988)</span></div>
+      <div><b>Mad itch in cattle</b><span>Pseudorabies (Aujeszky's)</span></div>
+      <div><b>Corneal opacity from limbus inward</b><span>Malignant catarrhal fever</span></div>
+      <div><b>Reservoir of sheep-associated MCF</b><span>Sheep (OvHV-2); cattle are dead-end</span></div>
+      <div><b>Only DNA arbovirus</b><span>African swine fever virus</span></div>
+      <div><b>Rosette/haemadsorption test</b><span>ASF in porcine leucocyte culture</span></div>
+      <div><b>Blue eye after vaccination</b><span>CAV-1 — hence CAV-2 vaccines</span></div>
+      <div><b>Egg drop syndrome is diagnosed by</b><span>HI (virus haemagglutinates fowl RBC)</span></div>
+      <div><b>Angara disease / litchi heart</b><span>Hydropericardium, fowl adenovirus</span></div>
+      <div><b>Papillomavirus oncoproteins</b><span>E6 and E7 → inactivate p53 and Rb</span></div>
+      <div><b>Equine sarcoid is caused by</b><span>BPV-1 and BPV-2</span></div>
+      <div><b>Parvoviruses need which cells</b><span>Actively dividing cells</span></div>
+      <div><b>Cerebellar hypoplasia in kittens</b><span>Feline panleukopenia virus</span></div>
+      <div><b>SMEDI syndrome</b><span>Porcine parvovirus</span></div>
+      <div><b>Smallest animal virus, aplastic anaemia</b><span>Chicken anaemia virus (circovirus)</span></div>
+      <div><b>PMWS in weaner pigs</b><span>Porcine circovirus 2</span></div>
+      <div><b>Normal and disease prion protein</b><span>PrP<sup>C</sup> α-helical · PrP<sup>Sc</sup> β-sheet</span></div>
+      <div><b>Gene coding prion protein</b><span><i>PRNP</i></span></div>
+      <div><b>Confirmatory test for BSE/scrapie</b><span>Western blot after proteinase K</span></div>
+      <div><b>Best brain site for TSE histology</b><span>Obex of the brain stem</span></div>
+      <div><b>Origin of BSE</b><span>Ruminant meat-and-bone meal in feed</span></div>
+      <div><b>Nipah virus reservoir</b><span><i>Pteropus</i> fruit bats</span></div>
+      <div><b>Amplifier host of Japanese encephalitis</b><span>Pig</span></div>
+    </div>
+    <div class="tags">
+      <span class="tag">33 / 33 syllabus topics</span>
+      <span class="tag">Paper II · Unit 5</span>
+      <span class="tag">Full pass ≈ 30 min</span>
+      <span class="tag">Night-before: sheets 03–06 self-tests + the two skeletons</span>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 5 · GENERAL &amp; SYSTEMATIC VETERINARY VIROLOGY</span>
+    <span>SHEET 06 / 06</span>
+  </div>
+</section>

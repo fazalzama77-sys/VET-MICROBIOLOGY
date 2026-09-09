@@ -1,0 +1,815 @@
+<title>Mycology Rapid Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap">
+
+<style>
+:root{
+  --paper:#ffffff;
+  --ground:#eef2f6;
+  --ink:#1b2430;
+  --ink-2:#4d5b6c;
+  --ink-3:#7a8798;
+  --rule:#dae1ea;
+  --rule-soft:#eaeff4;
+  --tint:#f4f7fa;
+
+  --blue:#1565c0;      /* methylene blue — structural / general */
+  --violet:#4a2d85;    /* crystal violet — Gram positive */
+  --safranin:#b02a37;  /* safranin — Gram negative */
+  --fuchsin:#9c1f5c;   /* carbol fuchsin — acid fast */
+  --malachite:#0f6e63; /* malachite green — spore / anaerobe */
+  --amber:#a05300;     /* exam trap / must-not-confuse */
+
+  --blue-w:#e7f0fa; --violet-w:#efeaf8; --safranin-w:#fbe9ea;
+  --fuchsin-w:#fbe9f2; --malachite-w:#e3f2ef; --amber-w:#fdf0e0;
+
+  --sheet-w:210mm; --sheet-h:297mm; --pad:11mm;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+    --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+    --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+    --malachite:#4fc4b2; --amber:#e9a44b;
+    --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+    --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161b22; --ground:#0d1117; --ink:#e6edf5; --ink-2:#a9b6c6; --ink-3:#7d8b9c;
+  --rule:#2c3542; --rule-soft:#222a34; --tint:#1c232c;
+  --blue:#6aa9ee; --violet:#b399ee; --safranin:#f2848d; --fuchsin:#ee8ab6;
+  --malachite:#4fc4b2; --amber:#e9a44b;
+  --blue-w:#16283d; --violet-w:#241d3b; --safranin-w:#3a1d21;
+  --fuchsin-w:#371b2a; --malachite-w:#0f2b28; --amber-w:#33240f;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  margin:0; padding:8mm 4mm 16mm;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,.sp{font-family:"IBM Plex Serif","IBM Plex Sans",serif; font-style:italic}
+.mono,code{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- SHEET ---------- */
+.sheet{
+  width:var(--sheet-w); min-height:var(--sheet-h);
+  margin:0 auto 7mm; padding:var(--pad);
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:0 1px 2px rgba(20,40,70,.06),0 10px 30px rgba(20,40,70,.07);
+  display:flex; flex-direction:column; gap:3.6mm;
+  font-size:8.5pt; line-height:1.33;
+  position:relative;
+}
+.sheet-head{
+  display:flex; align-items:baseline; gap:3mm;
+  border-bottom:1.6pt solid var(--ink); padding-bottom:1.6mm;
+}
+.sheet-head .no{
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:8pt;
+  color:var(--paper); background:var(--ink);
+  padding:.6mm 1.8mm; border-radius:1mm; letter-spacing:.04em;
+}
+.sheet-head h2{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:14pt; margin:0; letter-spacing:-.01em; text-wrap:balance;
+}
+.sheet-head .sub{
+  font-size:7.4pt; color:var(--ink-3); margin-left:auto; text-align:right;
+  font-family:"IBM Plex Mono",monospace; letter-spacing:.02em;
+}
+.sheet-foot{
+  margin-top:auto; padding-top:1.6mm; border-top:.5pt solid var(--rule);
+  display:flex; justify-content:space-between;
+  font-size:6.6pt; color:var(--ink-3); font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.03em;
+}
+
+/* ---------- MODULES ---------- */
+.row{display:grid; gap:3mm; align-items:start}
+.r-2{grid-template-columns:1fr 1fr}
+.r-2a{grid-template-columns:1.35fr 1fr}
+.r-2b{grid-template-columns:1fr 1.45fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+.mod{border-left:2.2pt solid var(--blue); padding-left:2.6mm}
+.mod > h3{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:700;
+  font-size:9.2pt; margin:0 0 1.4mm; color:var(--blue);
+  letter-spacing:.005em; display:flex; align-items:center; gap:1.6mm;
+}
+.mod > h3 .kind{
+  font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:6pt;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); border:.5pt solid var(--rule);
+  padding:.2mm 1.2mm; border-radius:.8mm; margin-left:auto; white-space:nowrap;
+}
+.m-violet{border-left-color:var(--violet)} .m-violet > h3{color:var(--violet)}
+.m-safranin{border-left-color:var(--safranin)} .m-safranin > h3{color:var(--safranin)}
+.m-fuchsin{border-left-color:var(--fuchsin)} .m-fuchsin > h3{color:var(--fuchsin)}
+.m-malachite{border-left-color:var(--malachite)} .m-malachite > h3{color:var(--malachite)}
+.m-amber{border-left-color:var(--amber)} .m-amber > h3{color:var(--amber)}
+
+/* ---------- TABLES ---------- */
+table{border-collapse:collapse; width:100%; font-size:7.5pt; line-height:1.25}
+th,td{border:.5pt solid var(--rule); padding:.9mm 1.3mm; text-align:left; vertical-align:top}
+thead th{
+  background:var(--tint); font-family:"IBM Plex Sans Condensed",sans-serif;
+  font-weight:600; font-size:7.2pt; color:var(--ink-2);
+  letter-spacing:.02em;
+}
+tbody th{background:var(--tint); font-weight:600; width:20%}
+td .mono,th .mono{font-size:7pt}
+.tw{overflow-x:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- LISTS ---------- */
+ul.k{margin:0; padding-left:3.2mm; list-style:none}
+ul.k li{position:relative; margin:0 0 .7mm}
+ul.k li::before{
+  content:""; position:absolute; left:-2.6mm; top:1.5mm;
+  width:1.1mm; height:1.1mm; background:currentColor; opacity:.45; border-radius:50%;
+}
+ol.k{margin:0; padding-left:4.2mm; font-size:8pt}
+ol.k li{margin:0 0 .7mm}
+b,strong{font-weight:600}
+
+/* ---------- FACT BANK (objective ammo) ---------- */
+.bank{display:grid; grid-template-columns:1fr 1fr; gap:0 3mm}
+.bank.one{grid-template-columns:1fr}
+.bank div{
+  border-bottom:.5pt dotted var(--rule); padding:.7mm 0;
+  font-size:7.4pt; display:flex; gap:1.6mm;
+}
+.bank div b{
+  flex:0 0 33%; font-weight:600; color:var(--ink-2);
+  font-family:"IBM Plex Sans Condensed",sans-serif;
+}
+.bank div span{flex:1}
+
+/* ---------- CHIPS / MNEMONIC ---------- */
+.mnem{
+  background:var(--amber-w); border:.5pt solid var(--amber);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.5pt;
+}
+.mnem .key{
+  font-family:"IBM Plex Mono",monospace; font-weight:600;
+  color:var(--amber); font-size:8.4pt; letter-spacing:.05em;
+}
+.trap{
+  background:var(--safranin-w); border-left:1.6pt solid var(--safranin);
+  padding:1.2mm 2mm; font-size:7.4pt; border-radius:0 1mm 1mm 0;
+}
+.trap b{color:var(--safranin)}
+.skel{
+  background:var(--blue-w); border:.5pt solid var(--blue);
+  border-radius:1.2mm; padding:1.4mm 2mm; font-size:7.3pt;
+}
+.skel b{color:var(--blue); font-family:"IBM Plex Sans Condensed",sans-serif}
+.skel ol{margin:.8mm 0 0; padding-left:4mm}
+.skel li{margin-bottom:.3mm}
+
+.tags{display:flex; flex-wrap:wrap; gap:1mm; margin-top:1mm}
+.tag{
+  font-family:"IBM Plex Mono",monospace; font-size:6.4pt; letter-spacing:.03em;
+  border:.5pt solid var(--rule); border-radius:.8mm; padding:.3mm 1.2mm;
+  color:var(--ink-2); background:var(--tint);
+}
+
+svg{display:block; width:100%; height:auto}
+svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
+
+/* ---------- COVER ---------- */
+.cover{justify-content:center; gap:0}
+.cover .brand{
+  font-family:"IBM Plex Mono",monospace; font-size:7.6pt; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:3mm;
+}
+.cover h1{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:33pt;
+  font-weight:700; line-height:1.02; margin:0 0 3mm; letter-spacing:-.02em;
+  text-wrap:balance; max-width:150mm;
+}
+.cover .lede{font-size:10pt; color:var(--ink-2); max-width:135mm; line-height:1.45}
+.cover .meta{
+  margin-top:8mm; padding-top:3mm; border-top:1.6pt solid var(--ink);
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; font-size:7.4pt;
+}
+.cover .meta b{
+  display:block; font-family:"IBM Plex Mono",monospace; font-size:6.2pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin-bottom:.8mm;
+}
+.cover .plan{margin-top:6mm}
+.cover .plan table{font-size:8pt}
+.legend{display:flex; flex-wrap:wrap; gap:2mm 4mm; margin-top:5mm; font-size:7.2pt}
+.legend span{display:flex; align-items:center; gap:1.4mm}
+.legend i{width:2.4mm; height:2.4mm; border-radius:.6mm; display:block}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{size:A4; margin:0}
+  body{background:#fff; padding:0}
+  .sheet{
+    margin:0; box-shadow:none; border:0;
+    break-after:page; page-break-after:always;
+    min-height:var(--sheet-h);
+  }
+  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .toolbar{display:none}
+}
+.toolbar{
+  max-width:var(--sheet-w); margin:0 auto 5mm; display:flex; gap:2mm;
+  align-items:center; font-size:8pt; color:var(--ink-2);
+}
+.toolbar button{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:8pt; font-weight:600;
+  background:var(--blue); color:#fff; border:0; border-radius:1.4mm;
+  padding:1.6mm 4mm; cursor:pointer;
+}
+.toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+@media (max-width:230mm){
+  body{padding:4mm 0 10mm}
+  .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
+  .toolbar{max-width:100%; padding:0 6mm}
+  .r-2,.r-2a,.r-2b,.r-3{grid-template-columns:1fr}
+  .bank{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="toolbar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <span>5 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+</div>
+
+<!-- ============================== COVER ============================== -->
+<section class="sheet cover">
+  <div class="brand">Veterinary Microbiology &middot; Rapid Revision</div>
+  <h1>Unit 2 — Veterinary Mycology</h1>
+  <p class="lede">All 10 syllabus topics on four working sheets. Fungi are a small unit that carries disproportionate marks because the questions repeat: name the fungus from its microscopic picture, name the toxin from the lesion, name the medium. This sheet set is built around exactly those three reflexes.</p>
+
+  <div class="meta">
+    <div><b>Paper</b>Paper I · Units 1, 2, 3<br>Theory 100 · Practical 60</div>
+    <div><b>Syllabus topics</b>10 of 10 covered</div>
+    <div><b>Revision time</b>20 min full pass<br>8 min sheet 04 only</div>
+    <div><b>Course</b>B.V.Sc &amp; A.H. II Yr<br>VCI MSVE · 3+2=5</div>
+  </div>
+
+  <div class="plan">
+    <table>
+      <thead><tr><th style="width:12%">Sheet</th><th style="width:40%">What it covers</th><th>Syllabus topics folded in</th></tr></thead>
+      <tbody>
+        <tr><th class="mono">01</th><td>The fungal cell, classification, growth &amp; reproduction, lab toolkit</td><td class="mono">t01–t02</td></tr>
+        <tr><th class="mono">02</th><td>Yeasts &amp; yeast-like fungi — <i>Candida</i>, <i>Cryptococcus</i>, <i>Malassezia</i>; dermatophytes</td><td class="mono">t03, t05</td></tr>
+        <tr><th class="mono">03</th><td>Moulds, dimorphic fungi, zygomycetes, mycetoma</td><td class="mono">t04, t06–t08</td></tr>
+        <tr><th class="mono">04</th><td>Mycotic mastitis &amp; abortion, mycotoxicoses, antifungals</td><td class="mono">t09–t10</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--blue)"></i> General mycology</span>
+    <span><i style="background:var(--violet)"></i> Yeasts &amp; dimorphic</span>
+    <span><i style="background:var(--safranin)"></i> Moulds</span>
+    <span><i style="background:var(--fuchsin)"></i> Dermatophytes</span>
+    <span><i style="background:var(--malachite)"></i> Mycotoxins</span>
+    <span><i style="background:var(--amber)"></i> Exam trap &amp; mnemonic</span>
+  </div>
+
+  <div class="sheet-foot">
+    <span>VET MICROBIOLOGY STUDIO · IVRI, IZATNAGAR</span>
+    <span>UNIT 2 · COVER</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 01 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">01</span>
+    <h2>The Fungal Cell, Classification &amp; Reproduction</h2>
+    <span class="sub">t01–t02</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod">
+      <h3>What a fungus is — and is not <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 128" role="img" aria-label="Comparison of fungal and bacterial cell features with hyphal structure">
+        <!-- hypha -->
+        <rect x="6" y="14" width="196" height="26" rx="4" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.3"/>
+        <line x1="72" y1="14" x2="72" y2="40" stroke="var(--violet)" stroke-width="1.1"/>
+        <line x1="138" y1="14" x2="138" y2="40" stroke="var(--violet)" stroke-width="1.1"/>
+        <circle cx="72" cy="27" r="3.2" fill="var(--paper)" stroke="var(--violet)" stroke-width=".9"/>
+        <circle cx="138" cy="27" r="3.2" fill="var(--paper)" stroke="var(--violet)" stroke-width=".9"/>
+        <circle cx="38" cy="27" r="4" fill="var(--safranin)"/><circle cx="104" cy="27" r="4" fill="var(--safranin)"/><circle cx="170" cy="27" r="4" fill="var(--safranin)"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="10">SEPTATE HYPHA</text>
+          <text x="210" y="20" fill="var(--violet)">septum with pore</text>
+          <text x="210" y="31" fill="var(--safranin)">nucleus — true, membrane-bound</text>
+          <text x="210" y="42">cytoplasm continuous</text>
+        </g>
+        <!-- aseptate -->
+        <rect x="6" y="54" width="196" height="24" rx="4" fill="none" stroke="var(--safranin)" stroke-width="1.3"/>
+        <circle cx="40" cy="66" r="3.4" fill="var(--safranin)"/><circle cx="80" cy="66" r="3.4" fill="var(--safranin)"/>
+        <circle cx="122" cy="66" r="3.4" fill="var(--safranin)"/><circle cx="164" cy="66" r="3.4" fill="var(--safranin)"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="50">ASEPTATE / COENOCYTIC HYPHA</text>
+          <text x="210" y="63" fill="var(--safranin)">Zygomycetes — <tspan font-style="italic">Mucor</tspan>, <tspan font-style="italic">Rhizopus</tspan>,</text>
+          <text x="210" y="74" fill="var(--safranin)"><tspan font-style="italic">Absidia</tspan>. Ribbon-like, wide, irregular</text>
+        </g>
+        <line x1="6" y1="88" x2="334" y2="88" stroke="var(--rule)" stroke-width=".7"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="101" font-weight="600" fill="var(--blue)">Wall = CHITIN + glucan + mannan</text>
+          <text x="6" y="112">(bacteria = peptidoglycan) → β-lactams useless</text>
+          <text x="6" y="123">Membrane sterol = <tspan font-weight="600">ERGOSTEROL</tspan> (mammals = cholesterol)</text>
+          <text x="188" y="101" font-weight="600" fill="var(--blue)">Eukaryote:</text>
+          <text x="188" y="112">true nucleus, 80S ribosome, mitochondria,</text>
+          <text x="188" y="123">ER, Golgi. Heterotroph, absorptive nutrition</text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>Why this matters therapeutically:</b> every antifungal in the exam targets one of the two things above — <b>ergosterol</b> (polyenes bind it, azoles block its synthesis, allylamines block squalene epoxidase) or <b>chitin/glucan</b> (echinocandins block β-1,3-glucan synthase). Griseofulvin is the exception: it binds tubulin and blocks mitosis.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Fungi vs bacteria <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Fungi</th><th>Bacteria</th></tr></thead>
+        <tbody>
+          <tr><th>Cell type</th><td>Eukaryote</td><td>Prokaryote</td></tr>
+          <tr><th>Nucleus</th><td>True, membrane-bound</td><td>Nucleoid</td></tr>
+          <tr><th>Ribosome</th><td>80S</td><td>70S</td></tr>
+          <tr><th>Cell wall</th><td><b>Chitin, glucan</b></td><td>Peptidoglycan</td></tr>
+          <tr><th>Membrane sterol</th><td><b>Ergosterol</b></td><td>Absent (except <i>Mycoplasma</i>)</td></tr>
+          <tr><th>Size</th><td>2–10 µm and above</td><td>0.2–5 µm</td></tr>
+          <tr><th>Growth temp.</th><td><b>25–30 °C</b> (room)</td><td>37 °C</td></tr>
+          <tr><th>Optimal pH</th><td><b>5.6 (acidic)</b></td><td>7.2–7.4</td></tr>
+          <tr><th>Growth speed</th><td>Days to weeks</td><td>Hours</td></tr>
+          <tr><th>Reproduction</th><td>Spores — sexual &amp; asexual</td><td>Binary fission</td></tr>
+          <tr><th>Oxygen</th><td>Aerobe / facultative</td><td>Full range</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">SDA</span> <b>Sabouraud Dextrose Agar</b> — 4% dextrose, peptone, <b>pH 5.6</b>, incubated at <b>25–27 °C</b>. Selectivity is added with <b>chloramphenicol</b> (kills bacteria) and <b>cycloheximide/actidione</b> (suppresses saprophytic moulds). <b>DTM</b> (dermatophyte test medium) adds phenol red → turns <b>red</b> with a dermatophyte.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>Classification you must be able to write <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">Division</th><th style="width:26%">Hyphae &amp; sexual spore</th><th>Veterinary examples</th></tr></thead>
+        <tbody>
+          <tr><th>Zygomycota</th><td><b>Aseptate</b>; <b>zygospore</b></td><td><i>Mucor</i>, <i>Rhizopus</i>, <i>Absidia</i>, <i>Basidiobolus</i>, <i>Conidiobolus</i></td></tr>
+          <tr><th>Ascomycota</th><td>Septate; <b>ascospore</b> in an ascus</td><td><i>Aspergillus</i>, <i>Penicillium</i>, <i>Histoplasma</i>, <i>Blastomyces</i>, <i>Microsporum</i>, <i>Trichophyton</i>, <i>Candida</i> (teleomorph)</td></tr>
+          <tr><th>Basidiomycota</th><td>Septate + clamp connections; <b>basidiospore</b></td><td><i>Cryptococcus neoformans</i>, mushrooms, rusts &amp; smuts</td></tr>
+          <tr><th>Deuteromycota<br><span class="mono" style="font-size:6.4pt">"Fungi Imperfecti"</span></th><td>Septate; <b>no known sexual stage</b></td><td>Older home of most veterinary pathogens; now redistributed by molecular data</td></tr>
+        </tbody>
+      </table>
+      <ul class="k" style="margin-top:1.2mm; font-size:7.3pt">
+        <li><b>Anamorph</b> = asexual (imperfect) state · <b>Teleomorph</b> = sexual (perfect) state · <b>Holomorph</b> = the whole fungus.</li>
+        <li><b>Morphological classes:</b> <b>Yeast</b> (unicellular, buds, pasty colony) · <b>Yeast-like</b> (buds + pseudohyphae — <i>Candida</i>) · <b>Mould/filamentous</b> (hyphae + mycelium, cottony colony) · <b>Dimorphic</b> (mould at 25 °C, yeast at 37 °C in tissue).</li>
+        <li><b>Clinical classification of mycoses:</b> <b>Superficial</b> (<i>Malassezia</i>, piedra) → <b>Cutaneous</b> (dermatophytes) → <b>Subcutaneous</b> (sporotrichosis, mycetoma, rhinosporidiosis) → <b>Systemic/deep</b> (histoplasmosis, blastomycosis, coccidioidomycosis) → <b>Opportunistic</b> (candidiasis, aspergillosis, cryptococcosis, zygomycosis).</li>
+        <li><b>Mycotoxicosis</b> and <b>mycetismus</b> (mushroom poisoning) are <b>intoxications, not infections</b> — no fungus grows in the animal.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Reproduction — spore names in one pass <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Asexual — conidia</b><span>Borne on a conidiophore, exogenous, not enclosed</span></div>
+        <div><b>Microconidia / macroconidia</b><span>Small single-celled / large multiseptate — the basis of <b>dermatophyte identification</b></span></div>
+        <div><b>Blastoconidia</b><span>Formed by <b>budding</b> — <i>Candida</i>, <i>Cryptococcus</i></span></div>
+        <div><b>Arthroconidia</b><span>Hyphal fragmentation — <i>Coccidioides</i>, <i>Geotrichum</i></span></div>
+        <div><b>Chlamydoconidia</b><span>Thick-walled resting cell; terminal chlamydospore on cornmeal-Tween 80 = <b><i>C. albicans</i></b></span></div>
+        <div><b>Sporangiospore</b><span><b>Endogenous</b>, inside a sporangium — Zygomycetes</span></div>
+        <div><b>Phialoconidia</b><span>From a flask-shaped phialide — <i>Aspergillus</i>, <i>Penicillium</i></span></div>
+        <div><b>Sexual — zygospore</b><span>Fusion of two similar gametangia (Zygomycota)</span></div>
+        <div><b>Ascospore</b><span>Usually 8, inside a sac (ascus)</span></div>
+        <div><b>Basidiospore</b><span>4, on the outside of a club-shaped basidium</span></div>
+        <div><b>Oospore</b><span>Fusion of unequal gametangia (Oomycetes — <i>Pythium insidiosum</i>)</span></div>
+      </div>
+      <div class="trap" style="margin-top:1.2mm"><b>The distinction that gets asked every year:</b> sporangiospores are <b>endogenous</b> (formed inside a sac), conidia are <b>exogenous</b> (formed free at the tip). That one line separates Zygomycetes from everything else.</div>
+    </div>
+  </div>
+
+  <div class="row r-3">
+    <div class="mod">
+      <h3>Growth requirements <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>Temperature</b><span>25–30 °C for moulds; 37 °C selects the <b>yeast phase</b> of dimorphics</span></div>
+        <div><b>pH</b><span>Acidic, ~5.6</span></div>
+        <div><b>Humidity</b><span>High; a<sub>w</sub> &gt; 0.70 permits mould growth on feed</span></div>
+        <div><b>Nutrition</b><span>Heterotrophic, absorptive; secrete exoenzymes</span></div>
+        <div><b>Time</b><span>Report a fungal culture as negative only after <b>3–4 weeks</b></span></div>
+        <div><b>Oxygen</b><span>Aerobic; <i>Candida</i> facultatively anaerobic</span></div>
+        <div><b>Colony types</b><span>Glabrous (waxy), velvety, cottony/floccose, granular, powdery</span></div>
+        <div><b>Pigment</b><span>Note obverse <b>and reverse</b> colour — reverse pigment is a key ID clue</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Diagnostic toolkit <span class="kind">rapid-fire</span></h3>
+      <div class="bank one">
+        <div><b>10–20% KOH mount</b><span>Digests keratin, leaves fungal elements — skin, hair, nail</span></div>
+        <div><b>LPCB mount</b><span><b>Lactophenol cotton blue</b>: lactic acid preserves, phenol kills, glycerol prevents drying, <b>cotton blue stains chitin</b></span></div>
+        <div><b>India ink / nigrosin</b><span>Negative stain — <b><i>Cryptococcus</i></b> capsular halo in CSF</span></div>
+        <div><b>Slide culture</b><span>Riddell's technique — preserves conidial arrangement <i>in situ</i></span></div>
+        <div><b>Germ tube test</b><span>Serum, 37 °C, 2–3 h — <b>Reynolds-Braude phenomenon, <i>C. albicans</i></b></span></div>
+        <div><b>Special stains</b><span><b>PAS</b> (magenta), <b>GMS</b> Grocott methenamine silver (black), calcofluor white + UV, mucicarmine for <i>Cryptococcus</i></span></div>
+        <div><b>Wood's lamp</b><span>365 nm UV — <b>apple-green fluorescence, <i>Microsporum canis</i></b></span></div>
+        <div><b>Serology / molecular</b><span>Latex agglutination for cryptococcal antigen, <b>galactomannan &amp; β-D-glucan</b> for aspergillosis, AGID, ELISA, <b>ITS-region PCR &amp; sequencing</b>, MALDI-TOF</span></div>
+      </div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 01 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Fungal cell wall polymer</td><td>Chitin (+ glucan, mannan)</td></tr>
+          <tr><td>Fungal membrane sterol</td><td>Ergosterol</td></tr>
+          <tr><td>pH and temperature of SDA</td><td>5.6 · 25–27 °C</td></tr>
+          <tr><td>Antibacterial added to SDA</td><td>Chloramphenicol</td></tr>
+          <tr><td>Inhibitor of saprophytic moulds</td><td>Cycloheximide (actidione)</td></tr>
+          <tr><td>Aseptate hyphae division</td><td>Zygomycota</td></tr>
+          <tr><td>Endogenous asexual spore</td><td>Sporangiospore</td></tr>
+          <tr><td>Dye in LPCB that stains chitin</td><td>Cotton blue</td></tr>
+          <tr><td>Slide culture technique</td><td>Riddell's</td></tr>
+          <tr><td>Germ tube phenomenon</td><td>Reynolds-Braude</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 2 · VETERINARY MYCOLOGY</span>
+    <span>SHEET 01 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 02 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">02</span>
+    <h2>Yeasts, Yeast-like Fungi &amp; Dermatophytes</h2>
+    <span class="sub">t03, t05</span>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3><i>Candida albicans</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> Gram-positive oval budding yeast 2–6 µm; forms <b>blastoconidia, pseudohyphae and true hyphae</b> — the only common yeast that makes all three. Normal flora of gut, mouth, genital tract → a true <b>opportunist</b>.</li>
+        <li><b>Culture:</b> SDA 25–37 °C, 24–48 h — creamy-white, pasty, <b>yeasty smell</b>. On <b>CHROMagar</b>, <i>C. albicans</i> = green, <i>C. tropicalis</i> = blue, <i>C. krusei</i> = pink rough.</li>
+        <li><b>Two confirmatory tests:</b> <b>Germ tube test</b> — serum at 37 °C for 2–3 h gives a filament with <b>no constriction at its base</b> (constricted base = pseudohypha of another species). <b>Cornmeal-Tween 80 agar</b> at 25 °C → <b>thick-walled terminal chlamydospores</b>.</li>
+        <li><b>Predisposing causes:</b> prolonged broad-spectrum antibiotics, corticosteroids, immunosuppression, indwelling catheters, high-carbohydrate diet, moist skin folds.</li>
+        <li><b>Veterinary disease:</b> <b>crop mycosis / thrush (sour crop) in poultry</b> — thickened crop with a white pseudomembrane and "Turkish-towel" appearance; oral thrush and gastric candidiasis in young pigs and calves; mycotic mastitis in cows after intramammary infusion; vaginitis, cystitis and otitis in dogs.</li>
+        <li><b>Virulence:</b> adhesins, <b>phenotypic switching</b>, hyphal invasion, secreted aspartyl proteinases (SAPs), phospholipase, biofilm on catheters.</li>
+        <li><b>Treatment:</b> nystatin (topical/oral, not absorbed), fluconazole, amphotericin B; copper sulphate in poultry water; correct the predisposing cause.</li>
+      </ul>
+    </div>
+
+    <div class="mod m-violet">
+      <h3><i>Cryptococcus neoformans</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> spherical budding yeast 4–20 µm with a <b>huge polysaccharide capsule (glucuronoxylomannan)</b> and a <b>narrow-based single bud</b>. <b>No pseudohyphae.</b></li>
+        <li><b>Demonstration:</b> <b>India ink / nigrosin negative stain of CSF</b> — clear halo against a dark background; <b>mucicarmine</b> stains the capsule rose-red; latex agglutination for capsular antigen is the sensitive test.</li>
+        <li><b>Culture:</b> SDA <b>without cycloheximide</b> (it is inhibited by it) — mucoid cream colonies. <b>Urease positive</b>. <b>Birdseed / niger seed agar</b> → brown-black colonies from <b>phenol oxidase making melanin</b>.</li>
+        <li><b>Source:</b> <b>pigeon (and other avian) droppings</b> and soil; <i>C. gattii</i> from eucalyptus. Birds are carriers, not cases — their body temperature is too high.</li>
+        <li><b>Disease:</b> inhalation → <b>nasal granuloma with a "Roman nose" swelling in cats</b> (the classic case), sinusitis, pneumonia, <b>meningoencephalitis</b> with gelatinous cystic "soap-bubble" lesions in brain; mastitis in cattle; disseminated disease in dogs and horses. Zoonotically important in immunosuppressed people, but transmission is environmental, not animal-to-man.</li>
+        <li><b>Virulence:</b> capsule (antiphagocytic, the single most important factor), <b>melanin</b>, phospholipase, growth at 37 °C, urease.</li>
+        <li><b>Treatment:</b> amphotericin B + flucytosine; fluconazole penetrates CSF well; itraconazole for nasal forms.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b>Yeast in tissue — decide in one step:</b> capsule and narrow-based bud = <i>Cryptococcus</i> · pseudohyphae = <i>Candida</i> · <b>broad-based</b> bud = <i>Blastomyces</i> · <b>multiple buds, "mariner's wheel"</b> = <i>Paracoccidioides</i> · intracellular in macrophages = <i>Histoplasma</i> · spherule with endospores = <i>Coccidioides</i>.</div>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-fuchsin">
+      <h3>Dermatophytes — identify by macroconidium <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 118" role="img" aria-label="Macroconidial morphology of Microsporum, Trichophyton and Epidermophyton">
+        <g font-size="8">
+          <!-- Microsporum -->
+          <text x="4" y="10" font-weight="700" fill="var(--fuchsin)">MICROSPORUM</text>
+          <path d="M8 22 q28 -12 56 0 q28 12 56 0 q-6 20 -56 20 q-50 0 -56 -20 z" fill="var(--fuchsin-w)" stroke="var(--fuchsin)" stroke-width="1.2"/>
+          <g stroke="var(--fuchsin)" stroke-width=".8">
+            <line x1="30" y1="18" x2="30" y2="40"/><line x1="52" y1="16" x2="52" y2="42"/>
+            <line x1="76" y1="16" x2="76" y2="42"/><line x1="98" y1="18" x2="98" y2="40"/>
+          </g>
+          <text x="4" y="54" fill="var(--ink-2)">Large, spindle-shaped, <tspan font-weight="600">rough/echinulate</tspan> thick wall,</text>
+          <text x="4" y="64" fill="var(--ink-2)">6–15 septa. Macroconidia abundant, microconidia few.</text>
+          <text x="4" y="74" fill="var(--ink-2)"><tspan font-style="italic">M. canis</tspan> — dog &amp; cat, <tspan font-weight="600">Wood's lamp +ve</tspan>, reverse yellow</text>
+          <text x="4" y="84" fill="var(--ink-2)"><tspan font-style="italic">M. gypseum</tspan> — geophilic, soil, horses; <tspan font-style="italic">M. nanum</tspan> — pigs</text>
+
+          <!-- Trichophyton -->
+          <text x="180" y="10" font-weight="700" fill="var(--violet)">TRICHOPHYTON</text>
+          <path d="M184 24 q40 -6 92 0 q6 8 0 14 q-52 6 -92 0 q-6 -8 0 -14 z" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.2"/>
+          <g stroke="var(--violet)" stroke-width=".8">
+            <line x1="208" y1="21" x2="208" y2="40"/><line x1="232" y1="20" x2="232" y2="40"/><line x1="256" y1="21" x2="256" y2="40"/>
+          </g>
+          <circle cx="196" cy="50" r="3" fill="var(--violet)"/><circle cx="212" cy="52" r="3" fill="var(--violet)"/>
+          <circle cx="228" cy="50" r="3" fill="var(--violet)"/><circle cx="244" cy="52" r="3" fill="var(--violet)"/>
+          <text x="180" y="66" fill="var(--ink-2)">Cigar / pencil-shaped, <tspan font-weight="600">smooth thin</tspan> wall, 2–6 septa.</text>
+          <text x="180" y="76" fill="var(--ink-2)"><tspan font-weight="600">Microconidia abundant</tspan> (grape-like clusters, above).</text>
+          <text x="180" y="86" fill="var(--ink-2)"><tspan font-style="italic">T. verrucosum</tspan> — <tspan font-weight="600">cattle ringworm</tspan>, needs thiamine + inositol,</text>
+          <text x="180" y="96" fill="var(--ink-2)">grows best at 37 °C. <tspan font-style="italic">T. mentagrophytes</tspan> — rodents, dogs, horses</text>
+
+          <line x1="4" y1="102" x2="336" y2="102" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="4" y="114" fill="var(--ink-2)"><tspan font-weight="700" fill="var(--safranin)">EPIDERMOPHYTON</tspan> — club-shaped smooth macroconidia in twos and threes, <tspan font-weight="600">NO microconidia</tspan>; skin &amp; nail only, never hair; human pathogen</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="mod m-fuchsin">
+      <h3>Ringworm — the answer in eight lines <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b>Definition:</b> dermatophytosis = keratinophilic infection of the <b>non-living keratinised tissue</b> — stratum corneum, hair and nail. The fungus never invades living tissue; the lesion is largely the host's inflammatory response.</li>
+        <li><b>Ecology:</b> <b>anthropophilic</b> (man) · <b>zoophilic</b> (animals — <i>M. canis</i>, <i>T. verrucosum</i>) · <b>geophilic</b> (soil — <i>M. gypseum</i>). <b>Zoophilic strains cause the most severe inflammation in man</b> — this is the standard zoonosis question.</li>
+        <li><b>Hair invasion pattern:</b> <b>Ectothrix</b> — arthroconidia sheathing the outside of the shaft (<i>Microsporum</i>, <i>T. verrucosum</i>) · <b>Endothrix</b> — inside the shaft, hair breaks at scalp level · <b>Favic</b> — hyphae + air spaces (<i>T. schoenleinii</i>, scutula).</li>
+        <li><b>Lesion:</b> circular, expanding, alopecic, scaly, grey-white crust with <b>central healing and an active periphery</b> — the "ring". In calves, classic on head, neck and around the eyes; in horses under the girth and saddle.</li>
+        <li><b>Diagnosis:</b> pluck hairs from the <b>edge</b> of the lesion → <b>KOH mount</b> for ecto/endothrix → <b>Wood's lamp</b> (only ~50% of <i>M. canis</i> fluoresce; <i>Trichophyton</i> does not) → SDA + chloramphenicol + cycloheximide at 25 °C for up to 4 weeks → LPCB for macroconidia → DTM turns red → PCR.</li>
+        <li><b>Treatment:</b> topical enilconazole, miconazole, 2% lime sulphur, povidone-iodine; systemic <b>griseofulvin</b> (with fatty food, <b>teratogenic — never in pregnancy</b>), itraconazole, terbinafine. Clip and burn hair, disinfect premises with hypochlorite; spores survive in the environment for years.</li>
+        <li><b>Prophylaxis:</b> live attenuated <i>T. verrucosum</i> vaccine (LTF-130) is used in cattle in some countries.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3><i>Malassezia pachydermatis</i> <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Morphology:</b> small oval-to-bottle-shaped budding yeast with a characteristic <b>broad-based "footprint" / peanut or bowling-pin shape</b> and a <b>monopolar unipolar bud with a collarette</b>.</li>
+        <li><b>Key point:</b> <i>M. pachydermatis</i> is <b>non-lipid-dependent</b> and therefore <b>grows on plain SDA</b> — unlike the human species (<i>M. furfur</i>) which need an olive-oil overlay.</li>
+        <li><b>Disease:</b> normal skin and ear-canal flora of dogs that overgrows with allergy, endocrinopathy, moisture or excess ceruminous secretion → <b>ceruminous otitis externa and seborrhoeic dermatitis of dogs</b>, greasy rancid smell, erythema and lichenification of skin folds. Also intertrigo and paronychia.</li>
+        <li><b>Diagnosis:</b> tape-strip or ear swab, stained with Diff-Quik — counting &gt;5 yeasts per oil-immersion field supports the diagnosis. Culture is confirmatory.</li>
+        <li><b>Treatment:</b> miconazole-chlorhexidine shampoo, clotrimazole ear drops, oral ketoconazole/itraconazole, plus correction of the underlying allergy.</li>
+      </ul>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Other superficial</span> <b>Piedra</b> — hair-shaft nodules: black piedra (<i>Piedraia hortae</i>, hard) and white piedra (<i>Trichosporon</i>, soft). <b>Pityriasis versicolor</b> — <i>M. furfur</i>, "spaghetti and meatballs" on KOH.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 02 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Two confirmatory tests for <i>C. albicans</i></td><td>Germ tube · chlamydospore on cornmeal agar</td></tr>
+          <tr><td>Sour crop / thrush in poultry</td><td><i>Candida albicans</i></td></tr>
+          <tr><td>Negative stain for <i>Cryptococcus</i></td><td>India ink / nigrosin</td></tr>
+          <tr><td>Birdseed agar detects</td><td>Phenol oxidase → melanin, <i>Cryptococcus</i></td></tr>
+          <tr><td>Environmental source of <i>Cryptococcus</i></td><td>Pigeon droppings</td></tr>
+          <tr><td>Rough, spindle-shaped macroconidia</td><td><i>Microsporum</i></td></tr>
+          <tr><td>Smooth, cigar-shaped macroconidia</td><td><i>Trichophyton</i></td></tr>
+          <tr><td>Cattle ringworm agent</td><td><i>T. verrucosum</i> (thiamine + inositol)</td></tr>
+          <tr><td>Wood's lamp positive dermatophyte</td><td><i>M. canis</i> — apple-green</td></tr>
+          <tr><td>Antifungal contraindicated in pregnancy</td><td>Griseofulvin</td></tr>
+          <tr><td>Yeast of canine otitis externa</td><td><i>Malassezia pachydermatis</i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 2 · VETERINARY MYCOLOGY</span>
+    <span>SHEET 02 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 03 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">03</span>
+    <h2>Moulds, Dimorphic Fungi &amp; Subcutaneous Mycoses</h2>
+    <span class="sub">t04, t06–t08</span>
+  </div>
+
+  <div class="row r-2a">
+    <div class="mod m-safranin">
+      <h3><i>Aspergillus</i> vs <i>Penicillium</i> vs Zygomycetes <span class="kind">mechanism</span></h3>
+      <svg viewBox="0 0 340 116" role="img" aria-label="Conidiophore heads of Aspergillus and Penicillium compared with a Rhizopus sporangium">
+        <g font-size="8">
+          <!-- Aspergillus -->
+          <text x="4" y="9" font-weight="700" fill="var(--safranin)">ASPERGILLUS</text>
+          <line x1="34" y1="96" x2="34" y2="52" stroke="var(--safranin)" stroke-width="1.6"/>
+          <path d="M26 96 q8 6 16 0" fill="none" stroke="var(--safranin)" stroke-width="1.6"/>
+          <circle cx="34" cy="44" r="9" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1.2"/>
+          <g stroke="var(--safranin)" stroke-width=".9">
+            <line x1="34" y1="35" x2="34" y2="26"/><line x1="26" y1="38" x2="18" y2="31"/><line x1="42" y1="38" x2="50" y2="31"/>
+            <line x1="24" y1="46" x2="14" y2="46"/><line x1="44" y1="46" x2="54" y2="46"/>
+          </g>
+          <g fill="var(--safranin)">
+            <circle cx="34" cy="22" r="2.2"/><circle cx="15" cy="28" r="2.2"/><circle cx="53" cy="28" r="2.2"/>
+            <circle cx="11" cy="46" r="2.2"/><circle cx="57" cy="46" r="2.2"/>
+          </g>
+          <text x="4" y="107" fill="var(--ink-2)"><tspan font-weight="600">Foot cell</tspan> + swollen <tspan font-weight="600">vesicle</tspan> + phialides</text>
+          <text x="4" y="116" fill="var(--ink-2)">radiating in a whole or half circle</text>
+
+          <!-- Penicillium -->
+          <text x="120" y="9" font-weight="700" fill="var(--violet)">PENICILLIUM</text>
+          <line x1="152" y1="96" x2="152" y2="60" stroke="var(--violet)" stroke-width="1.6"/>
+          <g stroke="var(--violet)" stroke-width="1.1">
+            <line x1="152" y1="60" x2="138" y2="48"/><line x1="152" y1="60" x2="166" y2="48"/>
+            <line x1="138" y1="48" x2="130" y2="38"/><line x1="138" y1="48" x2="144" y2="38"/>
+            <line x1="166" y1="48" x2="160" y2="38"/><line x1="166" y1="48" x2="174" y2="38"/>
+          </g>
+          <g fill="var(--violet)">
+            <circle cx="129" cy="33" r="2"/><circle cx="129" cy="27" r="2"/><circle cx="145" cy="33" r="2"/><circle cx="145" cy="27" r="2"/>
+            <circle cx="159" cy="33" r="2"/><circle cx="159" cy="27" r="2"/><circle cx="175" cy="33" r="2"/><circle cx="175" cy="27" r="2"/>
+          </g>
+          <text x="112" y="107" fill="var(--ink-2)"><tspan font-weight="600">No vesicle</tspan> — branched brush</text>
+          <text x="112" y="116" fill="var(--ink-2)">("penicillus"), chains of conidia</text>
+
+          <!-- Rhizopus -->
+          <text x="236" y="9" font-weight="700" fill="var(--malachite)">RHIZOPUS</text>
+          <line x1="278" y1="96" x2="278" y2="46" stroke="var(--malachite)" stroke-width="1.6"/>
+          <circle cx="278" cy="34" r="12" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1.3"/>
+          <circle cx="278" cy="34" r="4" fill="none" stroke="var(--malachite)" stroke-width="1"/>
+          <g fill="var(--malachite)" opacity=".7">
+            <circle cx="272" cy="28" r="1.6"/><circle cx="284" cy="28" r="1.6"/><circle cx="272" cy="40" r="1.6"/><circle cx="284" cy="40" r="1.6"/>
+          </g>
+          <path d="M266 96 l-8 6 M290 96 l8 6 M278 96 l0 8" stroke="var(--malachite)" stroke-width="1.1"/>
+          <line x1="252" y1="96" x2="306" y2="96" stroke="var(--malachite)" stroke-width="1.4"/>
+          <text x="228" y="107" fill="var(--ink-2)"><tspan font-weight="600">Sporangium</tspan> + columella; rhizoids</text>
+          <text x="228" y="116" fill="var(--ink-2)"><tspan font-weight="600">opposite</tspan> the stolon = <tspan font-style="italic">Rhizopus</tspan></text>
+        </g>
+      </svg>
+      <div class="trap" style="margin-top:1.2mm"><b>Zygomycete separation:</b> <i>Rhizopus</i> — rhizoids <b>directly opposite</b> the sporangiophore · <i>Absidia</i> — rhizoids <b>between</b> two sporangiophores, pear-shaped sporangium with apophysis · <i>Mucor</i> — <b>no rhizoids at all</b>. All three are <b>angio-invasive</b>, causing thrombosis and infarction, and all grow fast, filling the plate in 2–3 days ("lid-lifters").</div>
+    </div>
+
+    <div class="mod m-safranin">
+      <h3>Aspergillosis &amp; penicilliosis <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b><i>A. fumigatus</i></b> — the chief pathogen; blue-green velvety colony, <b>uniseriate phialides on the upper half of the vesicle only</b>, <b>thermotolerant (grows at 45 °C)</b>. <i>A. flavus</i> — yellow-green, biseriate, radiate head, <b>aflatoxin</b>. <i>A. niger</i> — black, biseriate, radiate, ochratoxin, "black fungus" otomycosis. <i>A. terreus</i>, <i>A. nidulans</i> less common.</li>
+        <li><b>Brooder pneumonia of chicks</b> — the classic vet lesion: inhalation of spores from mouldy litter or hatchery contamination; <b>yellow-white caseous nodules/plaques in lung and air sacs</b>, gasping, high mortality in the first 2 weeks. Also <b>mycotic keratitis, encephalitis and ophthalmitis</b> in birds.</li>
+        <li><b>Other hosts:</b> <b>mycotic abortion in cattle</b> (raised, leathery placentitis with cotyledonary necrosis and ringworm-like plaques on the foetal skin); <b>guttural pouch mycosis</b> in horses (fatal epistaxis from internal carotid erosion); nasal aspergillosis in dogs (<b>turbinate destruction, <i>A. fumigatus</i></b>); air-sacculitis and disseminated disease in penguins and raptors.</li>
+        <li><b>Virulence:</b> small hydrophobic conidia (2–3 µm) reaching the alveoli, thermotolerance, gliotoxin, elastase, catalase, adhesion to fibrinogen and laminin.</li>
+        <li><b>Diagnosis:</b> <b>KOH/LPCB shows dichotomously branching septate hyphae at 45°</b>; culture on SDA <b>without cycloheximide</b>; histopathology with GMS/PAS; <b>galactomannan and β-D-glucan</b> assays; AGID; PCR. <b>Positive culture alone is not proof</b> — <i>Aspergillus</i> is a ubiquitous contaminant; correlate with lesions.</li>
+        <li><b><i>Penicillium</i></b> — mostly a contaminant and a toxin producer (ochratoxin A, citrinin, patulin, PR toxin); <i>Talaromyces (Penicillium) marneffei</i> is the one dimorphic species, causing disseminated disease in bamboo rats and man in South-East Asia.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod m-violet">
+      <h3>Dimorphic fungi — the "25 °C / 37 °C" table <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:20%">Fungus</th><th style="width:24%">Mould form, 25 °C</th><th style="width:26%">Tissue/yeast form, 37 °C</th><th>Disease</th></tr></thead>
+        <tbody>
+          <tr><th><i>Histoplasma capsulatum</i></th><td><b>Tuberculate macroconidia</b> (thick-walled with finger-like projections) + smooth microconidia</td><td>Small <b>intracellular yeast inside macrophages</b>, 2–4 µm</td><td>Histoplasmosis — reticulo-endothelial, chronic wasting &amp; diarrhoea in dogs; bird &amp; bat guano source. <b>var. <i>farciminosum</i> = epizootic lymphangitis of horses</b> ("Japanese farcy") — corded lymphatics with ulcerating nodules</td></tr>
+          <tr><th><i>Blastomyces dermatitidis</i></th><td>Small round-to-pear-shaped conidia on short stalks ("lollipops")</td><td>Large 8–15 µm yeast, thick <b>doubly-contoured wall</b>, <b>single BROAD-BASED bud</b></td><td>Blastomycosis — pyogranulomatous pneumonia, skin nodules, uveitis, bone lesions in dogs; river valleys, moist soil</td></tr>
+          <tr><th><i>Coccidioides immitis</i></th><td><b>Barrel-shaped arthroconidia</b> alternating with empty cells — <b>highly infectious, BSL-3</b></td><td><b>Spherule (sporangium) 20–200 µm packed with endospores</b> — not a yeast</td><td>Coccidioidomycosis / "valley fever" — desert soil, dust-borne; granulomatous pneumonia and disseminated bone disease in dogs and horses</td></tr>
+          <tr><th><i>Paracoccidioides brasiliensis</i></th><td>Slow-growing, sparse conidia</td><td>Yeast with <b>multiple narrow-necked buds — "mariner's wheel / ship's wheel"</b></td><td>South American blastomycosis; man; armadillo reservoir</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Dimorphism</span> Mould in nature and on SDA at 25 °C; <b>yeast (or spherule) in the host at 37 °C</b>. The switch is driven by <b>temperature</b> (and CO₂/cysteine for <i>Histoplasma</i>), and the <b>mould form is the infectious form</b> while the <b>yeast form is the invasive form</b> — that sentence answers the standard "define dimorphism with examples" question.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Subcutaneous mycoses <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.3pt">
+        <li><b><i>Sporothrix schenckii</i> — sporotrichosis.</b> Dimorphic; 25 °C mould with <b>daisy/rosette clusters of conidia on delicate hyphae</b>; 37 °C <b>cigar-shaped yeast</b>. Entry by thorn or splinter → <b>"rose-gardener's disease"</b>; in horses and cats <b>ascending chains of nodules and ulcers along the lymphatics</b> (lymphocutaneous form). <b>Cats shed enormous numbers of organisms — a genuine zoonotic risk to handlers.</b> Asteroid bodies in tissue. Treat with itraconazole or oral potassium iodide.</li>
+        <li><b><i>Rhinosporidium seeberi</i> — rhinosporidiosis.</b> <b>Cannot be cultured</b>; now placed with the aquatic protistan class Mesomycetozoea, not true fungi. Associated with stagnant pond water and river bathing. <b>Pedunculated, friable, red polyp studded with white spots ("strawberry polyp")</b> in the nose of cattle, horses, dogs and man; also conjunctiva. Histology shows <b>huge sporangia (up to 300 µm) full of endospores</b>. Treatment is <b>surgical excision with cautery of the base</b> — recurrence is common; dapsone is adjunctive.</li>
+        <li><b>Mycetoma (Madura foot).</b> A <b>triad</b>: tumefaction (swelling) + draining sinuses + <b>grains/granules</b> in the discharge. <b>Eumycotic</b> mycetoma = true fungi (<i>Madurella</i>, <i>Pseudallescheria boydii</i>, <i>Curvularia</i>) with <b>broad septate hyphae</b> in the grain; <b>Actinomycotic</b> mycetoma = filamentous bacteria (<i>Nocardia</i>, <i>Actinomadura</i>, <i>Streptomyces</i>) with <b>thin 1 µm filaments</b>. Grain colour and the Gram/ZN reaction of the grain decide which — and this decides the treatment: antifungals versus sulphonamides.</li>
+        <li><b>Zygomycosis (mucormycosis).</b> Opportunistic, in diabetic, acidotic, immunosuppressed or heavily antibiotic-treated animals. <b>Broad, aseptate, ribbon-like hyphae branching at wide (~90°) angles</b>, strongly <b>angio-invasive</b> → thrombosis, infarction and black necrotic tissue. Rhino-cerebral, gastric (calves, pigs) and abortion forms. Contrast with <i>Aspergillus</i>: septate, narrow, 45° branching.</li>
+        <li><b>Also name:</b> <b>pythiosis</b> ("swamp cancer" — <i>Pythium insidiosum</i>, an oomycete with kunkers, in horses and dogs) and <b>phaeohyphomycosis</b> (dematiaceous, melanised hyphae).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mod m-amber">
+    <h3>Sheet 03 · 60-second self-test <span class="kind">recall</span></h3>
+    <div class="bank">
+      <div><b>Foot cell + vesicle</b><span><i>Aspergillus</i></span></div>
+      <div><b>Brush-like conidiophore, no vesicle</b><span><i>Penicillium</i></span></div>
+      <div><b>Brooder pneumonia</b><span><i>A. fumigatus</i></span></div>
+      <div><b>Guttural pouch mycosis</b><span><i>A. fumigatus</i></span></div>
+      <div><b>Rhizoids opposite the stolon</b><span><i>Rhizopus</i></span></div>
+      <div><b>No rhizoids</b><span><i>Mucor</i></span></div>
+      <div><b>Septate, 45° dichotomous branching</b><span><i>Aspergillus</i></span></div>
+      <div><b>Aseptate, 90° ribbon-like</b><span>Zygomycetes</span></div>
+      <div><b>Tuberculate macroconidia</b><span><i>Histoplasma capsulatum</i></span></div>
+      <div><b>Epizootic lymphangitis</b><span><i>H. capsulatum</i> var. <i>farciminosum</i></span></div>
+      <div><b>Broad-based single bud</b><span><i>Blastomyces dermatitidis</i></span></div>
+      <div><b>Spherule with endospores</b><span><i>Coccidioides immitis</i></span></div>
+      <div><b>Mariner's wheel</b><span><i>Paracoccidioides brasiliensis</i></span></div>
+      <div><b>Rosette/daisy conidia, cigar yeast</b><span><i>Sporothrix schenckii</i></span></div>
+      <div><b>Strawberry nasal polyp, non-cultivable</b><span><i>Rhinosporidium seeberi</i></span></div>
+      <div><b>Triad of swelling, sinuses, grains</b><span>Mycetoma</span></div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 2 · VETERINARY MYCOLOGY</span>
+    <span>SHEET 03 / 04</span>
+  </div>
+</section>
+
+<!-- ============================== SHEET 04 ============================== -->
+<section class="sheet">
+  <div class="sheet-head">
+    <span class="no">04</span>
+    <h2>Mycotic Mastitis &amp; Abortion · Mycotoxicoses · Antifungals</h2>
+    <span class="sub">t09–t10</span>
+  </div>
+
+  <div class="row r-2">
+    <div class="mod m-violet">
+      <h3>Mycotic mastitis <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Agents:</b> <b><i>Candida</i> spp. (commonest), <i>Cryptococcus neoformans</i>, <i>Trichosporon</i>, <i>Aspergillus fumigatus</i>, <i>Geotrichum</i>, <i>Prototheca</i></b> (an achlorophyllous alga — always mentioned with this group).</li>
+        <li><b>How it happens — this is the whole answer:</b> it is nearly always <b>iatrogenic</b>. Repeated intramammary infusion of antibiotics with a contaminated or multi-dose tube, unhygienic teat canal, and the suppression of normal bacterial flora by prolonged antibiotic therapy together allow fungal overgrowth.</li>
+        <li><b>Clinical:</b> swollen, firm, painful quarter with fever in the acute phase, then a <b>self-limiting or chronic granulomatous mastitis that does not respond to antibiotics</b> — often the first clue. Milk is watery with flakes; marked drop in yield; the quarter may become fibrotic.</li>
+        <li><b>Diagnosis:</b> aseptic milk sample → direct smear (Gram/LPCB/Giemsa) showing budding yeasts or hyphae → SDA + chloramphenicol at 25 and 37 °C → germ tube/CHROMagar → confirm by repeat sampling, since a single positive can be contamination.</li>
+        <li><b>Management:</b> <b>stop all antibiotic infusions immediately</b>, frequent stripping, supportive therapy, nystatin or clotrimazole infusion, iodine teat dip, cull chronic cases. Control = strict aseptic infusion technique and single-dose tubes.</li>
+      </ul>
+      <div class="trap" style="margin-top:1.2mm"><b><i>Prototheca zopfii</i></b> is not a fungus but an <b>achlorophyllous alga</b>; it forms <b>morula-like sporangia with endospores</b>, grows on SDA, causes an incurable granulomatous mastitis (cull) and enteritis/disseminated disease in dogs.</div>
+    </div>
+
+    <div class="mod m-violet">
+      <h3>Mycotic abortion <span class="kind">systematic</span></h3>
+      <ul class="k" style="font-size:7.4pt">
+        <li><b>Agents:</b> <b><i>Aspergillus fumigatus</i> accounts for 60–80%</b>; also <i>Mucor</i>, <i>Rhizopus</i>, <i>Absidia</i>, <i>Candida</i>, <i>Mortierella wolfii</i> (New Zealand, with a fatal maternal pneumonia).</li>
+        <li><b>Pathogenesis:</b> inhalation or ingestion of spores from <b>mouldy hay, silage or damp bedding</b> in winter-housed cattle → <b>haematogenous spread</b> → localisation in the placentome → placentitis and foetal death. Not contagious cow-to-cow.</li>
+        <li><b>When:</b> sporadic, usually in the <b>last trimester (5–8 months)</b> in cattle; the dam is otherwise healthy.</li>
+        <li><b>Lesions — the two things to write:</b> <b>(1) Placenta</b> — severely thickened, leathery, necrotic cotyledons with a yellow-brown adherent exudate and oedematous intercotyledonary areas; retained. <b>(2) Foetus</b> — ~25% show <b>raised, grey-white, circumscribed "ringworm-like" plaques of dermatomycosis on the skin</b>, especially head, neck and shoulders — pathognomonic when present.</li>
+        <li><b>Diagnosis:</b> KOH/LPCB and GMS/PAS of cotyledon and foetal abomasal content showing <b>septate branching hyphae</b>; culture on SDA; histopathology showing hyphae invading placental vessels; <b>rule out <i>Brucella</i>, <i>Leptospira</i>, <i>Campylobacter</i>, IBR and BVD first</b> — say this in the answer.</li>
+        <li><b>Control:</b> no treatment. Prevent by avoiding mouldy feed, proper hay curing and silage compaction, ventilation, and mould inhibitors (propionic acid) in stored feed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mod m-malachite">
+    <h3>Mycotoxins — the single highest-yield table in this unit <span class="kind">table</span></h3>
+    <div class="tw"><table>
+      <thead><tr><th style="width:15%">Mycotoxin</th><th style="width:17%">Producer</th><th style="width:16%">Substrate</th><th style="width:16%">Target organ &amp; mechanism</th><th>Signs &amp; the fact that gets asked</th></tr></thead>
+      <tbody>
+        <tr><th>Aflatoxin B₁, B₂, G₁, G₂</th><td><i>Aspergillus flavus</i>, <i>A. parasiticus</i></td><td>Groundnut cake, maize, cottonseed</td><td><b>Liver</b> — bioactivated by cytochrome P450 to the 8,9-epoxide which binds DNA</td><td>Most potent natural <b>hepatocarcinogen</b>. Ducklings &amp; young poultry most susceptible; icterus, ascites, hepatic fibrosis, ↓growth, immunosuppression. <b>B₁ is excreted in milk as M₁</b> — the public-health point. Blue-green fluorescence at 365 nm; detected by TLC/HPLC/ELISA. <b>Turkey X disease, 1960</b></td></tr>
+        <tr><th>Ochratoxin A</th><td><i>A. ochraceus</i>, <i>Penicillium verrucosum</i></td><td>Stored cereals, barley</td><td><b>Kidney</b> — inhibits phenylalanine-tRNA synthetase</td><td>Nephropathy of pigs and poultry; pale swollen kidneys, polyuria, poor shell quality; also immunosuppressive and teratogenic</td></tr>
+        <tr><th>Fumonisin B₁</th><td><i>Fusarium verticillioides</i> (<i>moniliforme</i>)</td><td><b>Maize</b></td><td>Blocks <b>ceramide synthase</b> → sphingolipid disruption</td><td><b>Equine leucoencephalomalacia (ELEM) — "mouldy corn poisoning", liquefactive necrosis of cerebral white matter</b>; <b>porcine pulmonary oedema</b>; hepatotoxic in other species</td></tr>
+        <tr><th>T-2 toxin &amp; DON (vomitoxin)</th><td><i>Fusarium sporotrichioides</i>, <i>F. graminearum</i></td><td>Wheat, maize, damp grain</td><td><b>Trichothecene</b> — inhibits protein synthesis at the ribosome; radiomimetic</td><td><b>Oral and gastric ulceration, beak &amp; mouth lesions in poultry</b>, feed refusal and vomiting in pigs (DON), bone-marrow suppression, haemorrhagic syndrome, contact dermatitis; <b>alimentary toxic aleukia</b> in man</td></tr>
+        <tr><th>Zearalenone (F-2)</th><td><i>Fusarium graminearum</i></td><td>Maize, barley</td><td><b>Oestrogen-receptor agonist</b></td><td><b>Hyperoestrogenism</b> — vulvovaginitis, swollen vulva and prolapse in gilts, mammary enlargement, splay leg, infertility, anoestrus; the classic <b>pig</b> mycotoxicosis</td></tr>
+        <tr><th>Ergot alkaloids</th><td><i>Claviceps purpurea</i>, <i>C. fusiformis</i></td><td>Rye, bajra, grasses</td><td>α-adrenergic vasoconstriction; dopamine agonism → ↓prolactin</td><td><b>Gangrenous ergotism</b> — dry gangrene of extremities, ear tips, tail, hooves; convulsive form; agalactia in mares and sows. <b>Fescue toxicosis</b> (<i>Neotyphodium coenophialum</i> ergovaline) — fescue foot, summer slump, fat necrosis</td></tr>
+        <tr><th>Slaframine</th><td><i>Rhizoctonia leguminicola</i></td><td>Red clover ("black patch")</td><td>Cholinergic (muscarinic) agonist</td><td><b>Slobbers syndrome</b> — profuse salivation, lacrimation, bloat</td></tr>
+        <tr><th>Sporidesmin</th><td><i>Pithomyces chartarum</i></td><td>Pasture litter (rye grass)</td><td>Bile-duct necrosis → phylloerythrin retention</td><td><b>Facial eczema</b> of sheep — hepatogenous <b>secondary photosensitisation</b> of unpigmented skin</td></tr>
+        <tr><th>Citrinin · Patulin · PR toxin</th><td><i>Penicillium</i> spp.</td><td>Rice, apples, silage</td><td>Nephrotoxic / cytotoxic</td><td>Yellow rice disease; often asked as a one-line item only</td></tr>
+      </tbody>
+    </table></div>
+    <div class="mnem" style="margin-top:1.2mm"><span class="key">Diagnosis &amp; control of any mycotoxicosis</span> <b>Diagnosis:</b> herd history of a new feed batch + multiple animals affected + no fever + no response to antibiotics + non-contagious → examine feed for mould, UV screening, TLC/HPLC/LC-MS/MS, ELISA kits, and a <b>feeding trial</b>. <b>Control:</b> harvest and dry to <b>&lt;14% moisture (a<sub>w</sub> &lt; 0.70)</b>, aerated storage, mould inhibitors (propionic/sorbic acid), <b>adsorbents — hydrated sodium calcium aluminosilicate (HSCAS), bentonite, esterified glucomannan</b>, ammoniation for aflatoxin, dilution with clean feed, added antioxidants, methionine and vitamins. There is <b>no specific antidote</b> — remove the feed.</div>
+  </div>
+
+  <div class="row r-2b">
+    <div class="mod">
+      <h3>Antifungal drugs by target <span class="kind">table</span></h3>
+      <table>
+        <thead><tr><th style="width:22%">Class</th><th style="width:30%">Mechanism</th><th>Drugs &amp; use</th></tr></thead>
+        <tbody>
+          <tr><th>Polyenes</th><td><b>Bind ergosterol</b> → membrane pores → leakage</td><td><b>Amphotericin B</b> (systemic, nephrotoxic), <b>nystatin</b> (topical/oral only, not absorbed — candidiasis), natamycin</td></tr>
+          <tr><th>Azoles</th><td>Inhibit <b>14-α-demethylase (CYP51)</b> → blocks ergosterol synthesis</td><td>Imidazoles — miconazole, ketoconazole, clotrimazole, enilconazole; Triazoles — <b>fluconazole (best CSF penetration), itraconazole, voriconazole</b></td></tr>
+          <tr><th>Allylamines</th><td>Inhibit <b>squalene epoxidase</b></td><td><b>Terbinafine</b> — dermatophytosis</td></tr>
+          <tr><th>Echinocandins</th><td>Inhibit <b>β-1,3-glucan synthase</b> (cell wall)</td><td>Caspofungin, micafungin — invasive candidiasis</td></tr>
+          <tr><th>Antimetabolite</th><td>Converted to 5-FU → blocks DNA/RNA</td><td><b>Flucytosine</b> — always with amphotericin B for cryptococcosis</td></tr>
+          <tr><th>Others</th><td>Binds <b>tubulin</b>, blocks mitosis</td><td><b>Griseofulvin</b> — dermatophytes only, <b>teratogenic</b>; potassium iodide for sporotrichosis; copper sulphate &amp; gentian violet as feed/water antifungals</td></tr>
+        </tbody>
+      </table>
+      <div class="mnem" style="margin-top:1.2mm"><span class="key">Antifungal sensitivity testing</span> CLSI broth microdilution (M27 for yeasts, M38 for moulds) giving an <b>MIC</b>; disc diffusion and <b>E-test</b> gradient strips are the practical lab versions. Less standardised than bacterial ABST — say so.</div>
+    </div>
+
+    <div class="mod m-amber">
+      <h3>Sheet 04 · 60-second self-test <span class="kind">recall</span></h3>
+      <table>
+        <thead><tr><th style="width:56%">Prompt</th><th>Answer</th></tr></thead>
+        <tbody>
+          <tr><td>Commonest cause of mycotic mastitis</td><td><i>Candida</i> spp.</td></tr>
+          <tr><td>Alga causing bovine mastitis</td><td><i>Prototheca zopfii</i></td></tr>
+          <tr><td>Commonest cause of mycotic abortion</td><td><i>Aspergillus fumigatus</i></td></tr>
+          <tr><td>Skin plaques on aborted foetus</td><td>Foetal dermatomycosis</td></tr>
+          <tr><td>Most potent natural hepatocarcinogen</td><td>Aflatoxin B₁</td></tr>
+          <tr><td>Aflatoxin metabolite in milk</td><td>Aflatoxin M₁</td></tr>
+          <tr><td>Turkey X disease, 1960</td><td>Aflatoxicosis</td></tr>
+          <tr><td>Equine leucoencephalomalacia toxin</td><td>Fumonisin B₁</td></tr>
+          <tr><td>Hyperoestrogenism in gilts</td><td>Zearalenone</td></tr>
+          <tr><td>Vomitoxin</td><td>Deoxynivalenol (DON)</td></tr>
+          <tr><td>Facial eczema of sheep</td><td>Sporidesmin (<i>Pithomyces</i>)</td></tr>
+          <tr><td>Slobbers syndrome</td><td>Slaframine</td></tr>
+          <tr><td>Safe feed moisture level</td><td>Below 14%</td></tr>
+          <tr><td>Aflatoxin binder in feed</td><td>HSCAS / bentonite</td></tr>
+          <tr><td>Antifungal that binds ergosterol</td><td>Amphotericin B (polyene)</td></tr>
+          <tr><td>Antifungal binding tubulin</td><td>Griseofulvin</td></tr>
+        </tbody>
+      </table>
+      <div class="tags">
+        <span class="tag">10 / 10 syllabus topics</span>
+        <span class="tag">Paper I · Unit 2</span>
+        <span class="tag">Full pass ≈ 20 min</span>
+        <span class="tag">Night-before: sheet 03 diagrams + all self-tests</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>UNIT 2 · VETERINARY MYCOLOGY</span>
+    <span>SHEET 04 / 04</span>
+  </div>
+</section>
