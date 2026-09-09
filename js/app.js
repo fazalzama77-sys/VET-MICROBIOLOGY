@@ -2298,83 +2298,334 @@ var app = (function () {
      WHY
      ============================================================ */
   function renderWhy() {
-    var data = (window.whyData || []).filter(function (w) { return w.title; });
+    var rawData = (window.whyData || []).filter(function (w) { return w && w.title; });
 
     var head =
-      '<div class="pagehead">' +
+      '<div class="pagehead why-header">' +
         '<span class="eyebrow">Mechanism first</span>' +
         '<h1>' + icon("why") + ' WHY</h1>' +
         '<p class="lede">Veterinary Microbiology is only memorisable once it stops being an arbitrary list. ' +
-        'Each card here explains the microbial physiology, virulence determinants, or immunological mechanism behind clinical and diagnostic hallmarks.</p>' +
+        'Each card explains the microbial physiology, virulence determinants, or immunological mechanism behind clinical and diagnostic hallmarks.</p>' +
       '</div>';
 
-    if (!data.length) {
+    if (!rawData.length) {
       view.innerHTML = head +
         '<div class="empty"><div class="empty__icon">' + icon("why") + '</div>' +
         '<h3>No WHY entries yet</h3>' +
-        '<p>Add them in <b>data/data-why.JS</b>. Copy the template block that is already in the file, ' +
-        'fill in <span class="mono">title</span>, <span class="mono">why</span> and ' +
-        '<span class="mono">clinical</span>, and they will appear here automatically.</p></div>';
+        '<p>Add them in <b>data/data-why.JS</b>.</p></div>';
       return;
     }
 
-    var catIcons = {
-      all: "sparkle",
-      mechanism: "pulse",
-      lesion: "microscope",
-      species: "target",
-      diagnostic: "clipboard",
-      clinical: "shield"
-    };
+    // Top Floating Search & Filter Bar
+    var topBar =
+      '<div class="why-topbar">' +
+        '<div class="why-search-wrap">' +
+          icon("search") +
+          '<input type="text" id="whySearchInput" class="why-search-input" placeholder="Search mechanism, pathogen, species, lesion..." autocomplete="off" />' +
+        '</div>' +
+        '<div class="why-filters">' +
+          '<button class="why-filter-chip is-active" data-cat="all">All</button>' +
+          '<button class="why-filter-chip" data-cat="species">Species Comparison</button>' +
+          '<button class="why-filter-chip" data-cat="mechanism">Pathogenesis</button>' +
+          '<button class="why-filter-chip" data-cat="lesion">Lesions</button>' +
+          '<button class="why-filter-chip" data-cat="diagnostic">Diagnostics</button>' +
+          '<button class="why-filter-chip" data-cat="clinical">Clinical Pearls</button>' +
+        '</div>' +
+        '<button class="why-btn-challenge" id="whyBtnChallenge">' +
+          '<span>🧠</span> Challenge Me' +
+        '</button>' +
+      '</div>';
 
-    var cats = ["all", "mechanism", "lesion", "species", "diagnostic", "clinical"];
-    var chips = cats.map(function (c) {
-      return '<button class="tab' + (c === "all" ? " is-active" : "") + '" data-cat="' + c + '">' +
-        icon(catIcons[c] || "sparkle") + ' ' +
-        (c === "all" ? "All" : c.charAt(0).toUpperCase() + c.slice(1)) + '</button>';
-    }).join("");
-
-    view.innerHTML = head + '<div class="tabs">' + chips + '</div><div id="whygrid" class="grid grid--auto"></div>';
-
-    function paint(cat) {
-      el("#whygrid").innerHTML = data
-        .filter(function (w) { return cat === "all" || w.category === cat; })
-        .map(function (w) {
-          var catIco = catIcons[w.category] || "pulse";
-          return '<article class="card whycard" id="why-' + w.id + '">' +
-            '<div class="row row--wrap">' +
-              '<span class="chip chip--accent">' + icon(catIco) + ' ' + esc(w.category || "mechanism") + '</span>' +
-              (w.comparison ? '<span class="chip">' + icon("target") + ' ' + esc(w.comparison) + '</span>' : '') +
-              (w.unit ? '<span class="chip chip--muted">' + esc(w.unit.toUpperCase().replace('-', ' ')) + '</span>' : '') +
+    var modalHtml =
+      '<div class="why-modal-backdrop" id="whyModalBackdrop" aria-hidden="true">' +
+        '<div class="why-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="whyModalTitle">' +
+          '<div class="why-modal-head">' +
+            '<div class="why-modal-head__meta" id="whyModalMeta"></div>' +
+            '<button class="why-modal-close" id="whyModalClose" title="Close (Esc)" aria-label="Close">' + icon("close") + '</button>' +
+          '</div>' +
+          '<div class="why-modal-body" id="whyModalBody"></div>' +
+          '<div class="why-modal-foot">' +
+            '<div class="why-modal-nav">' +
+              '<button class="why-nav-btn" id="whyModalPrev">← Prev</button>' +
+              '<button class="why-nav-btn" id="whyModalNext">Next →</button>' +
             '</div>' +
-            '<h3 class="card__title mt-3">' + esc(w.title) + '</h3>' +
-            '<div class="card__desc">' + (w.why || "") + '</div>' +
-            (w.mechanism && w.mechanism.length
-              ? '<ol class="chain mt-4">' + w.mechanism.map(function (s) { return '<li>' + s + '</li>'; }).join("") + '</ol>'
-              : '') +
-            (w.clinical ? '<div class="callout mt-4"><div class="callout__title">' + icon("shield") + ' At the clinic</div>' + w.clinical + '</div>' : '') +
-          '</article>';
-        }).join("") || '<div class="empty"><p>Nothing in this category yet.</p></div>';
+            '<div class="why-action-btns">' +
+              '<button class="why-action-btn" id="whyModalSpeak" title="Read Aloud">' + icon("speaker") + ' <span>Listen</span></button>' +
+              '<button class="why-action-btn" id="whyModalCopy" title="Copy to clipboard">' + icon("copy") + ' <span>Copy</span></button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    view.innerHTML = head + topBar + '<div id="whygrid" class="why-grid"></div>';
+
+    var existingModal = document.getElementById("whyModalBackdrop");
+    if (existingModal && existingModal.parentNode) {
+      existingModal.parentNode.removeChild(existingModal);
+    }
+    document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+    var currentCat = "all";
+    var currentQuery = "";
+    var filteredData = rawData.slice();
+    var activeModalIdx = -1;
+
+    function stripTags(html) {
+      if (!html) return "";
+      return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     }
 
-    paint("all");
-    if (state.params.a) {
-      setTimeout(function () {
-        var targetCard = el("#why-" + state.params.a);
-        if (targetCard) {
-          targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-          targetCard.style.outline = "2px solid var(--color-accent)";
-          targetCard.style.outlineOffset = "4px";
-        }
-      }, 80);
+    function applyFilters() {
+      var q = currentQuery.toLowerCase().trim();
+      filteredData = rawData.filter(function (w) {
+        var matchCat = (currentCat === "all" || w.category === currentCat);
+        if (!matchCat) return false;
+        if (!q) return true;
+        var hay = ((w.title || "") + " " + (w.comparison || "") + " " + (w.why || "") + " " + (w.clinical || "") + " " + (w.unit || "")).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+      paint();
     }
-    els("[data-cat]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        els("[data-cat]").forEach(function (x) { x.classList.remove("is-active"); });
-        b.classList.add("is-active");
-        paint(b.getAttribute("data-cat"));
+
+    function paint() {
+      var grid = el("#whygrid");
+      if (!filteredData.length) {
+        grid.innerHTML = '<div class="empty" style="grid-column: 1 / -1; padding: var(--s8) 0; text-align: center;"><p style="color: var(--text-muted);">No mechanisms found matching your filter or query.</p></div>';
+        return;
+      }
+
+      grid.innerHTML = filteredData.map(function (w, idx) {
+        var previewText = stripTags(w.why || "");
+        var compBadge = w.comparison
+          ? '<div class="whycard__compare"><span class="whycard__compare-icon">⚖️</span> <span>' + esc(w.comparison) + '</span></div>'
+          : '';
+        var unitBadge = w.unit ? esc(w.unit.toUpperCase().replace('-', ' ')) : '';
+
+        return '<article class="whycard" id="why-' + w.id + '" data-idx="' + idx + '">' +
+          '<div class="whycard__top">' +
+            '<span class="whycard__cat-pill">' + esc(w.category || "mechanism") + '</span>' +
+            '<span class="whycard__arrow">→</span>' +
+          '</div>' +
+          '<h3 class="whycard__title">' + esc(w.title) + '</h3>' +
+          compBadge +
+          '<div class="whycard__preview">' + esc(previewText) + '</div>' +
+          '<div class="whycard__footer">' +
+            '<span class="whycard__unit-tag">' + unitBadge + '</span>' +
+            '<button type="button" class="whycard__btn-analyze" data-idx="' + idx + '">Analyze 🔬</button>' +
+          '</div>' +
+        '</article>';
+      }).join("");
+
+      // Bind card click & analyze button click
+      grid.querySelectorAll(".whycard").forEach(function (card) {
+        card.addEventListener("click", function (e) {
+          var idx = parseInt(card.getAttribute("data-idx"), 10);
+          if (!isNaN(idx)) {
+            openModal(idx);
+          }
+        });
+      });
+      grid.querySelectorAll(".whycard__btn-analyze").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var idx = parseInt(btn.getAttribute("data-idx"), 10);
+          if (!isNaN(idx)) {
+            openModal(idx);
+          }
+        });
+      });
+    }
+
+    // Modal elements
+    var backdrop = el("#whyModalBackdrop");
+    var modalMeta = el("#whyModalMeta");
+    var modalBody = el("#whyModalBody");
+    var btnPrev = el("#whyModalPrev");
+    var btnNext = el("#whyModalNext");
+    var btnClose = el("#whyModalClose");
+    var btnSpeak = el("#whyModalSpeak");
+    var btnCopy = el("#whyModalCopy");
+
+    function openModal(idx) {
+      if (idx < 0 || idx >= filteredData.length) return;
+      activeModalIdx = idx;
+      var w = filteredData[idx];
+
+      // Meta
+      var metaHtml =
+        '<span class="whycard__cat-pill" style="font-size:0.75rem; padding: 3px 10px;">' + esc((w.category || "mechanism").toUpperCase()) + '</span>' +
+        (w.unit ? '<span class="whycard__unit-tag" style="background:var(--surface); padding: 3px 8px; border-radius: 6px; border: 1px solid var(--border);">' + esc(w.unit.toUpperCase().replace('-', ' ')) + '</span>' : '') +
+        '<span style="font-size: 0.75rem; color: var(--text-faint); margin-left: auto;">' + (idx + 1) + ' of ' + filteredData.length + '</span>';
+      modalMeta.innerHTML = metaHtml;
+
+      // Body
+      var bodyHtml =
+        '<h2 id="whyModalTitle">' + esc(w.title) + '</h2>' +
+        (w.comparison ? '<div class="why-modal-compare"><span>⚖️</span> ' + esc(w.comparison) + '</div>' : '') +
+        '<div class="why-modal-explain">' + (w.why || "") + '</div>' +
+        (w.mechanism && w.mechanism.length
+          ? '<div class="why-modal-section-title">⚡ Pathophysiological Chain</div>' +
+            '<ol class="why-modal-chain">' + w.mechanism.map(function (s) { return '<li>' + s + '</li>'; }).join("") + '</ol>'
+          : '') +
+        (w.clinical
+          ? '<div class="why-modal-clinic">' +
+              '<div class="why-modal-clinic__title">' + icon("shield") + ' At the Clinic (High-Yield Pearl)</div>' +
+              w.clinical +
+            '</div>'
+          : '');
+      modalBody.innerHTML = bodyHtml;
+
+      // Prev / Next button states
+      btnPrev.disabled = (idx === 0);
+      btnNext.disabled = (idx === filteredData.length - 1);
+
+      // Open backdrop
+      backdrop.classList.add("is-open");
+      backdrop.setAttribute("aria-hidden", "false");
+      backdrop.style.display = "flex";
+      backdrop.style.opacity = "1";
+      backdrop.style.visibility = "visible";
+      backdrop.style.pointerEvents = "auto";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      backdrop.classList.remove("is-open");
+      backdrop.setAttribute("aria-hidden", "true");
+      backdrop.style.display = "";
+      backdrop.style.opacity = "";
+      backdrop.style.visibility = "";
+      backdrop.style.pointerEvents = "";
+      document.body.style.overflow = "";
+      if (window.speechSynthesis && window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    btnPrev.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (activeModalIdx > 0) {
+        openModal(activeModalIdx - 1);
+      }
+    });
+
+    btnNext.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (activeModalIdx < filteredData.length - 1) {
+        openModal(activeModalIdx + 1);
+      }
+    });
+
+    btnClose.addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    backdrop.addEventListener("click", function (e) {
+      if (e.target === backdrop) {
+        closeModal();
+      }
+    });
+
+    // Keyboard navigation: Escape, Left Arrow, Right Arrow
+    function onKeyDown(e) {
+      if (!backdrop.classList.contains("is-open")) return;
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowLeft" && activeModalIdx > 0) {
+        openModal(activeModalIdx - 1);
+      } else if (e.key === "ArrowRight" && activeModalIdx < filteredData.length - 1) {
+        openModal(activeModalIdx + 1);
+      }
+    }
+    window.removeEventListener("keydown", onKeyDown);
+    window.addEventListener("keydown", onKeyDown);
+
+    // Speak / Listen
+    btnSpeak.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (!window.speechSynthesis) {
+        alert("Text-to-speech is not supported in this browser.");
+        return;
+      }
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btnSpeak.innerHTML = icon("speaker") + ' <span>Listen</span>';
+        return;
+      }
+      var w = filteredData[activeModalIdx];
+      if (!w) return;
+      var textToSpeak = w.title + ". " + stripTags(w.why || "") + (w.clinical ? ". Clinical pearl: " + stripTags(w.clinical) : "");
+      var utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      utterance.onend = function () {
+        btnSpeak.innerHTML = icon("speaker") + ' <span>Listen</span>';
+      };
+      utterance.onerror = function () {
+        btnSpeak.innerHTML = icon("speaker") + ' <span>Listen</span>';
+      };
+      window.speechSynthesis.speak(utterance);
+      btnSpeak.innerHTML = icon("stop") + ' <span>Stop</span>';
+    });
+
+    // Copy to clipboard
+    btnCopy.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var w = filteredData[activeModalIdx];
+      if (!w) return;
+      var textToCopy = "🔬 " + w.title + "\n\n" +
+        (w.comparison ? "⚖️ Comparison: " + w.comparison + "\n\n" : "") +
+        "📖 Mechanism:\n" + stripTags(w.why || "") + "\n\n" +
+        (w.clinical ? "🛡️ Clinical Pearl:\n" + stripTags(w.clinical) + "\n" : "");
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(function () {
+          btnCopy.innerHTML = icon("check") + ' <span>Copied!</span>';
+          setTimeout(function () {
+            btnCopy.innerHTML = icon("copy") + ' <span>Copy</span>';
+          }, 2000);
+        });
+      }
+    });
+
+    // Challenge Me button: picks random entry from current filtered set
+    el("#whyBtnChallenge").addEventListener("click", function () {
+      if (!filteredData.length) return;
+      var randomIdx = Math.floor(Math.random() * filteredData.length);
+      openModal(randomIdx);
+    });
+
+    // Live Search
+    var searchInput = el("#whySearchInput");
+    searchInput.addEventListener("input", function () {
+      currentQuery = searchInput.value;
+      applyFilters();
+    });
+
+    // Category Filter Chips
+    els(".why-filter-chip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        els(".why-filter-chip").forEach(function (b) { b.classList.remove("is-active"); });
+        btn.classList.add("is-active");
+        currentCat = btn.getAttribute("data-cat");
+        applyFilters();
       });
     });
+
+    // Initial paint
+    paint();
+
+    // Check if deep linked via query param a (e.g. #/why?a=5)
+    if (state.params.a) {
+      var targetId = parseInt(state.params.a, 10);
+      var matchIdx = filteredData.findIndex(function (w) { return w.id === targetId; });
+      if (matchIdx !== -1) {
+        setTimeout(function () {
+          openModal(matchIdx);
+        }, 120);
+      }
+    }
   }
 
   /* ============================================================

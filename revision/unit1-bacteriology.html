@@ -224,14 +224,32 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
 /* ---------- PRINT ---------- */
 @media print{
-  @page{size:A4; margin:0}
+  @page{size:A4; margin:9mm 8mm}
   body{background:#fff; padding:0}
   .sheet{
-    margin:0; box-shadow:none; border:0;
-    break-after:page; page-break-after:always;
-    min-height:var(--sheet-h);
+    width:auto; min-height:0; margin:0; padding:0;
+    box-shadow:none; border:0;
+    display:block;
   }
-  .sheet:last-child{break-after:auto; page-break-after:auto}
+  .sheet.cover{break-after:page; page-break-after:always}
+  .sheet + .sheet{padding-top:2mm!important}
+  .sheet > *{margin-bottom:3.4mm}
+  .sheet-head{
+    break-after:avoid; page-break-after:avoid;
+    position:relative;
+  }
+  .sheet-foot{display:none}
+  .cover{min-height:0}
+  /* keep every teaching unit whole on one page */
+  .skel, .mnem, .trap, svg{
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .mod, .bank{break-inside:auto; page-break-inside:auto}
+  .row{break-inside:auto; page-break-inside:auto}
+  table{break-inside:auto}
+  tr{break-inside:avoid; page-break-inside:avoid}
+  thead{display:table-header-group}
+  h3{break-after:avoid; page-break-after:avoid}
   .toolbar{display:none}
 }
 .toolbar{
@@ -244,7 +262,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   padding:1.6mm 4mm; cursor:pointer;
 }
 .toolbar button:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
-@media (max-width:230mm){
+@media screen and (max-width:230mm){
   body{padding:4mm 0 10mm}
   .sheet{width:100%; min-height:auto; padding:6mm; font-size:9.5pt}
   .toolbar{max-width:100%; padding:0 6mm}
@@ -252,13 +270,23 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   .bank{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+@media print{
+  .toolbar{display:none!important}
+  .sheet{width:auto!important; min-height:0!important; padding:0!important; font-size:8.5pt!important}
+  .r-2{grid-template-columns:1fr 1fr!important}
+  .r-2a{grid-template-columns:1.35fr 1fr!important}
+  .r-2b{grid-template-columns:1fr 1.45fr!important}
+  .r-3{grid-template-columns:1fr 1fr 1fr!important}
+  .bank{grid-template-columns:1fr 1fr!important}
+  .bank.one{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 
 <body>
 <div class="toolbar">
   <button onclick="window.print()">Print / Save as PDF</button>
-  <span>7 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
+  <span>A4 &middot; set your printer to <b>100% scale, background graphics ON, no headers</b></span>
 </div>
 
 <!-- ============================== COVER ============================== -->
