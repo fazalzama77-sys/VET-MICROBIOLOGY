@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Offline — Veterinary Microbiology Studio</title>
+<meta name="theme-color" content="#1565c0">
+<link rel="icon" href="images/favicon.ico">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    background: #f0f4f8; color: #1b2430;
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 24px;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #101822; color: #e6edf5; }
+    .card { background: #17212e; border-color: #2a3746; }
+    p { color: #a9b7c7; }
+  }
+  .card {
+    max-width: 420px; width: 100%; text-align: center;
+    background: #fff; border: 1px solid #dae1ea; border-radius: 16px;
+    padding: 32px 26px;
+  }
+  img { width: 72px; height: 72px; border-radius: 16px; }
+  h1 { font-size: 1.25rem; margin: 18px 0 8px; }
+  p { color: #4d5b6c; margin: 0 0 20px; }
+  button {
+    font: inherit; font-weight: 600; cursor: pointer;
+    background: #1565c0; color: #fff; border: 0;
+    border-radius: 10px; padding: 11px 22px;
+  }
+  button:hover { background: #0d478a; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="images/icon-192.png" alt="">
+    <h1>You are offline</h1>
+    <p>This page has not been saved to your device yet. Open it once while connected and it will be available offline from then on.</p>
+    <button onclick="location.reload()">Try again</button>
+  </div>
+  <script>
+    addEventListener("online", function () { location.reload(); });
+  </script>
+</body>
+</html>

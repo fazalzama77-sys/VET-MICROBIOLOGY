@@ -1,0 +1,204 @@
+/* ============================================================
+   pwa.css — install card, update toast, offline chip
+   ------------------------------------------------------------
+   All three float above the app. On phones they sit clear of the
+   bottom navigation bar (62px + the safe-area inset), so nothing
+   ever covers the tab bar.
+   ============================================================ */
+
+:root {
+  --pwa-gap: 16px;
+  --pwa-bottom: calc(var(--pwa-gap) + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 860px) {
+  :root { --pwa-bottom: calc(74px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ---------------- install card ---------------- */
+
+.pwa-card {
+  position: fixed;
+  left: var(--pwa-gap);
+  right: var(--pwa-gap);
+  bottom: var(--pwa-bottom);
+  max-width: 420px;
+  margin-inline: auto;
+  z-index: 100060;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 14px 14px 16px;
+
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 14px);
+  box-shadow: var(--shadow-lg);
+
+  opacity: 0;
+  transform: translateY(14px) scale(.98);
+  transition: opacity .26s ease, transform .26s cubic-bezier(.2, .8, .3, 1);
+}
+
+.pwa-card.is-open { opacity: 1; transform: none; }
+
+.pwa-card__icon {
+  width: 46px; height: 46px; flex: none;
+  border-radius: 11px;
+}
+
+.pwa-card__body { flex: 1; min-width: 0; }
+
+.pwa-card__title {
+  display: block;
+  font-size: .98rem;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.pwa-card__text {
+  margin: 0 0 11px;
+  font-size: .84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.pwa-card__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.pwa-card__close {
+  flex: none;
+  width: 26px; height: 26px;
+  margin: -4px -4px 0 0;
+  display: grid; place-items: center;
+  font-size: 19px; line-height: 1;
+  background: none; border: 0; border-radius: var(--r-sm, 6px);
+  color: var(--text-faint);
+  cursor: pointer;
+}
+
+.pwa-card__close:hover { background: var(--surface-hover); color: var(--text); }
+
+/* The iOS share glyph, sized to sit inline with the sentence */
+.pwa-share {
+  display: inline-grid; place-items: center;
+  width: 1.15em; height: 1.15em;
+  vertical-align: -.22em;
+  color: var(--ivri-blue);
+}
+.pwa-share svg { width: 100%; height: 100%; }
+
+/* ---------------- buttons ---------------- */
+
+.pwa-btn {
+  font: inherit;
+  font-size: .84rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md, 10px);
+  background: var(--ivri-blue);
+  color: #fff;
+  transition: background .18s ease, border-color .18s ease;
+}
+
+.pwa-btn:hover { background: var(--ivri-blue-dark); }
+
+.pwa-btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.pwa-btn--ghost:hover { background: var(--surface-hover); color: var(--text); }
+
+.pwa-btn--tiny { padding: 6px 13px; font-size: .8rem; }
+
+/* ---------------- update toast ---------------- */
+
+.pwa-toast {
+  position: fixed;
+  left: var(--pwa-gap);
+  right: var(--pwa-gap);
+  bottom: var(--pwa-bottom);
+  max-width: 480px;
+  margin-inline: auto;
+  z-index: 100061;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 11px 11px 16px;
+
+  background: var(--text);
+  color: var(--text-invert);
+  border-radius: var(--r-md, 10px);
+  box-shadow: var(--shadow-lg);
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .26s ease, transform .26s cubic-bezier(.2, .8, .3, 1);
+}
+
+.pwa-toast.is-open { opacity: 1; transform: none; }
+
+.pwa-toast__text { flex: 1; min-width: 0; font-size: .85rem; line-height: 1.4; }
+
+.pwa-toast .pwa-btn { flex: none; background: var(--ivri-blue); }
+.pwa-toast .pwa-btn:hover { background: var(--ivri-blue-light); color: var(--ivri-blue-dark); }
+
+.pwa-toast__close {
+  flex: none;
+  width: 26px; height: 26px;
+  display: grid; place-items: center;
+  font-size: 18px; line-height: 1;
+  background: none; border: 0; border-radius: var(--r-sm, 6px);
+  color: inherit; opacity: .6;
+  cursor: pointer;
+}
+.pwa-toast__close:hover { opacity: 1; }
+
+/* ---------------- offline chip ---------------- */
+
+.pwa-chip {
+  position: fixed;
+  left: 50%;
+  top: calc(10px + env(safe-area-inset-top, 0px));
+  z-index: 100062;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  white-space: nowrap;
+
+  /* It floats over the top bar, so let taps fall through to the
+     search and menu buttons underneath. */
+  pointer-events: none;
+
+  font-size: .78rem;
+  font-weight: 600;
+  background: var(--ivri-amber-light);
+  color: var(--ivri-amber);
+  border: 1px solid color-mix(in srgb, var(--ivri-amber) 30%, transparent);
+  border-radius: var(--r-full, 999px);
+  box-shadow: var(--shadow-md);
+
+  opacity: 0;
+  transform: translate(-50%, -14px);
+  transition: opacity .26s ease, transform .26s cubic-bezier(.2, .8, .3, 1);
+}
+
+.pwa-chip.is-open { opacity: 1; transform: translate(-50%, 0); }
+
+.pwa-chip svg { width: 15px; height: 15px; flex: none; }
+
+@media (max-width: 420px) {
+  .pwa-chip span { font-size: .74rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pwa-card, .pwa-toast, .pwa-chip { transition: opacity .01s linear; transform: none; }
+  .pwa-chip { transform: translate(-50%, 0); }
+}

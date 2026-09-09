@@ -5,10 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Veterinary Microbiology Studio — Notes, Q&amp;A and Quizzes</title>
 <meta name="description" content="A complete study companion for B.V.Sc second-year Veterinary Microbiology: five theory units, five practical units, question bank, quizzes and progress dashboard. Works offline.">
-<meta name="theme-color" content="#1565c0">
+<meta name="theme-color" content="#1565c0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101822" media="(prefers-color-scheme: dark)">
 
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231565c0'/><text x='16' y='22' font-size='16' font-family='monospace' font-weight='bold' fill='white' text-anchor='middle'>VM</text></svg>">
+
+<!-- Icons: installed app, home screen and browser tab -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- iOS standalone behaviour (Safari ignores the manifest for these) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Vet Micro">
+<meta name="application-name" content="Vet Micro">
 
 <!-- Theme must be applied before first paint to avoid a white flash -->
 <script>
@@ -26,6 +39,7 @@
 <link rel="stylesheet" href="assets/css/deep-guide.css">
 <link rel="stylesheet" href="assets/css/events.css">
 <link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/pwa.css">
 </head>
 
 <body>
@@ -275,14 +289,11 @@
     }, { passive: true });
   })();
 
-  /* ---- Service worker: offline support.
-         Only registers over http/https — not from file:// ---- */
-  if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
-    window.addEventListener("load", function () {
-      navigator.serviceWorker.register("service-worker.js").catch(function () {});
-    });
-  }
+  /* ---- Service worker, install prompt and offline UI all live
+         in js/pwa.js, loaded just below. ---- */
 </script>
+
+<script src="js/pwa.js" defer></script>
 
 </body>
 </html>

@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1565c0">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Vet Micro">
 <title>Immunology Rapid Sheets</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -241,7 +253,9 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
 </style>
+</head>
 
+<body>
 <div class="toolbar">
   <button onclick="window.print()">Print / Save as PDF</button>
   <span>6 sheets &middot; A4 &middot; set your printer to <b>100% scale, no headers</b></span>
@@ -1013,3 +1027,13 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
     <span>SHEET 05 / 05</span>
   </div>
 </section>
+<!-- Offline support: same service worker as the main app -->
+<script>
+  if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("../service-worker.js").catch(function () {});
+    });
+  }
+</script>
+</body>
+</html>

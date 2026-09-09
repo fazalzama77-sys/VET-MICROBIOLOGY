@@ -25,8 +25,9 @@ Double-click **`index.html`** in File Explorer. Every route, lesson reader, quiz
 D:\VET MICROBIOLOGY APPLICATION\
 │
 ├── index.html                 Single-page application shell.
-├── manifest.json              PWA manifest (standalone, theme-color #1565c0).
-├── service-worker.js          Offline caching (CACHE_VERSION = "vmicro-v1").
+├── manifest.json              PWA manifest (installable, standalone, theme-color #1565c0).
+├── service-worker.js          Offline caching (CACHE_VERSION = "vmicro-v5").
+├── offline.html               Shown if a never-visited page is opened with no signal.
 ├── 1-CLICK-PUSH-TO-GITHUB.bat Double-click → syncs repo, stages, commits, and pushes to GitHub!
 ├── SYNC-TO-REPO.bat           Double-click → mirrors all files into repo/ sequentially.
 ├── README.md                  This content guide.
@@ -54,6 +55,7 @@ D:\VET MICROBIOLOGY APPLICATION\
 │   └── events-data.js         Department announcements & academic updates
 │
 ├── js/                        ← Application Engines (Vanilla JS)
+│   ├── pwa.js                 Install card, update toast, offline chip, SW registration
 │   ├── store.js               localStorage layer with "vmicro-" prefix
 │   ├── app.js                 Router, page renderers, highlighter, and audio reader
 │   ├── quiz.js                Quiz engine with Paper I, Paper II, Grand Test, & SRS
@@ -106,6 +108,39 @@ D:\VET MICROBIOLOGY APPLICATION\
    - `tables`: Comparison tables (e.g. Gram-positive vs Gram-negative, Exotoxin vs Endotoxin).
 3. Save the file. Refresh your browser to see updates instantly.
 4. When ready to publish, double-click **`1-CLICK-PUSH-TO-GITHUB.bat`**.
+
+---
+
+## Installing on a Phone (Offline Use)
+
+The site is a fully installable Progressive Web App. Once installed, every
+theory unit, practical, question and quiz works with **no internet at all** —
+useful in hostels, labs, field postings and on the way to an exam.
+
+**Android (Chrome, Edge, Samsung Internet)**
+1. Open the site.
+2. An **Install Vet Micro** card appears at the bottom — tap **Install**.
+   (Or use the browser menu → *Install app* / *Add to Home screen*.)
+
+**iPhone / iPad (Safari)**
+1. Open the site in **Safari** (Chrome on iOS cannot install web apps).
+2. Tap **Share**, then **Add to Home Screen**.
+
+**Desktop (Chrome, Edge)**
+Click the install icon in the address bar.
+
+It then opens full screen from the home screen, with its own icon, no browser
+bars, and no signal required.
+
+### Keeping it up to date
+
+The app checks for new material each time it is brought to the front. When a
+newer version is found, a small bar offers **Refresh** — a quiz in progress is
+never interrupted; the update waits until the student taps it.
+
+> **For the author:** after changing any file listed in `PRECACHE` inside
+> `service-worker.js`, bump `CACHE_VERSION` (e.g. `vmicro-v5` → `vmicro-v6`).
+> Students keep seeing the old copy until that number changes.
 
 ---
 

@@ -1,15 +1,19 @@
 {
+  "id": "./",
   "name": "Veterinary Microbiology Studio",
-  "short_name": "Vet Microbiology",
+  "short_name": "Vet Micro",
   "description": "B.V.Sc second-year Veterinary Microbiology — notes, question bank, quizzes and progress dashboard. Works offline.",
   "start_url": "./index.html#/",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
   "background_color": "#f0f4f8",
   "theme_color": "#1565c0",
   "categories": ["education", "medical"],
   "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "images/icon-192.png",
@@ -24,10 +28,39 @@
       "purpose": "any"
     },
     {
+      "src": "images/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "images/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Quizzes",
+      "short_name": "Quiz",
+      "description": "Jump straight into a quiz",
+      "url": "./index.html#/quiz",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Question bank",
+      "short_name": "Q&A",
+      "description": "Browse the question bank",
+      "url": "./index.html#/qa",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Progress dashboard",
+      "short_name": "Progress",
+      "description": "See how far you have got",
+      "url": "./index.html#/dashboard",
+      "icons": [{ "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }
