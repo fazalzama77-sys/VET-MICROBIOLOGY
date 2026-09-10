@@ -696,7 +696,7 @@ var app = (function () {
       '<h3 class="home-why-title">' + esc(w.title) + '</h3>' +
       '<div class="home-why-body mt-3">' + w.why + '</div>' +
       (w.clinical ? '<div class="home-why-clinical mt-3"><b>' + icon("check") + ' Clinical Rule of Thumb:</b> ' + esc(w.clinical) + '</div>' : '') +
-      '<div class="row mt-4">' +
+      '<div class="row row--wrap mt-4">' +
         '<a class="btn btn--sm btn--soft" href="#/why">' + icon("why") + ' Browse 100 WHY Mechanisms →</a>' +
         '<button class="btn btn--sm btn--subtle push" onclick="app.shuffleWhyMechanism()">' + icon("sparkle") + ' Shuffle Mechanism</button>' +
       '</div>' +
@@ -734,7 +734,7 @@ var app = (function () {
       '</div>' +
       '<h3 class="home-term-title">' + esc(term) + '</h3>' +
       '<p class="home-term-def mt-2">' + esc(def) + '</p>' +
-      '<div class="row mt-4">' +
+      '<div class="row row--wrap mt-4">' +
         '<a class="btn btn--sm btn--soft" href="#/library">' + icon("book") + ' Browse 316-Term Glossary →</a>' +
         '<button class="btn btn--sm btn--subtle push" onclick="app.shuffleGlossaryTerm()">' + icon("sparkle") + ' Next Term</button>' +
       '</div>' +

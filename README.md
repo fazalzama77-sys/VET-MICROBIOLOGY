@@ -26,7 +26,7 @@ D:\VET MICROBIOLOGY APPLICATION\
 │
 ├── index.html                 Single-page application shell.
 ├── manifest.json              PWA manifest (installable, standalone, theme-color #1565c0).
-├── service-worker.js          Offline caching (CACHE_VERSION = "vmicro-v6").
+├── service-worker.js          Offline caching (CACHE_VERSION = "vmicro-v7").
 ├── offline.html               Shown if a never-visited page is opened with no signal.
 ├── 1-CLICK-PUSH-TO-GITHUB.bat Double-click → syncs repo, stages, commits, and pushes to GitHub!
 ├── SYNC-TO-REPO.bat           Double-click → mirrors all files into repo/ sequentially.
@@ -139,7 +139,7 @@ newer version is found, a small bar offers **Refresh** — a quiz in progress is
 never interrupted; the update waits until the student taps it.
 
 > **For the author:** after changing any file listed in `PRECACHE` inside
-> `service-worker.js`, bump `CACHE_VERSION` (e.g. `vmicro-v6` → `vmicro-v7`).
+> `service-worker.js`, bump `CACHE_VERSION` (e.g. `vmicro-v7` → `vmicro-v8`).
 > Students keep seeing the old copy until that number changes.
 
 ---
