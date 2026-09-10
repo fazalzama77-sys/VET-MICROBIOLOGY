@@ -1895,14 +1895,16 @@
 /* Key Metrics Grid */
 .dash-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* Fits as many columns as the space allows (up to all four) instead of
+     forcing four — on a phone in landscape this box is under 300px wide. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr));
   gap: 12px;
   margin-top: 8px;
 }
 
 @media (max-width: 860px) {
   .dash-metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
 }
@@ -1970,7 +1972,7 @@
 /* 2. Smart Prescription Action Center */
 .dash-prescriptions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 16px;
 }
 
@@ -3188,12 +3190,15 @@
 /* 5. Interactive WHY & Glossary Split */
 .home-intel-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Two columns when there is room, one when there is not. Based on
+     the space actually available (the sidebar eats ~270px), not the
+     viewport — a phone in landscape is wide but its content area isn't. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: var(--s5);
   margin-top: var(--s8);
 }
 @media (max-width: 860px) {
-  .home-intel-grid { grid-template-columns: 1fr; }
+  .home-intel-grid { grid-template-columns: minmax(0, 1fr); }
 }
 .home-intel-card {
   background: var(--surface);

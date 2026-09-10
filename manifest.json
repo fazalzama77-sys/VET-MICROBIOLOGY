@@ -7,7 +7,6 @@
   "scope": "./",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui", "browser"],
-  "orientation": "portrait-primary",
   "background_color": "#f0f4f8",
   "theme_color": "#1565c0",
   "categories": ["education", "medical"],

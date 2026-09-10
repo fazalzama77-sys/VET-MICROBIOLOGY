@@ -575,7 +575,7 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
 
 @media (max-width: 620px) {
   h1 { font-size: var(--fs-2xl); }
-  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: minmax(0, 1fr); }
   /* On a phone the breadcrumb trail is redundant — the nav gets you back.
      Show only where you are, on one line. */
   .crumbs a, .crumbs .sep { display: none; }
@@ -697,4 +697,23 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
 .glossary-speak-btn .ico {
   width: 16px;
   height: 16px;
+}
+
+/* ---------- Landscape on phones / short screens ----------
+   A phone turned sideways is wide enough (>860px) to get the desktop
+   sidebar, but only ~400px tall. Tighten the sidebar so most of the
+   navigation fits without scrolling, and size it to the *visible*
+   viewport so the browser's address bar never hides its footer. */
+@supports (height: 100dvh) {
+  .app { min-height: 100dvh; }
+  .sidebar { height: 100dvh; }
+}
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .brand { padding: var(--s2) var(--s4); }
+  .nav { padding: var(--s2) var(--s3) var(--s3); }
+  .nav__group + .nav__group { margin-top: var(--s3); }
+  .nav__label { padding-bottom: 2px; }
+  .nav__link { padding-top: 5px; padding-bottom: 5px; }
+  .sidebar__foot { padding: var(--s2) var(--s3); gap: 2px; }
 }
