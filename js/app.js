@@ -725,6 +725,7 @@ var app = (function () {
       }
     }
     var safeTerm = esc(term).replace(/'/g, "\\'");
+    var totalGloss = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 359;
     return '<div class="home-glossary-card-inner">' +
       '<div class="row row--wrap mb-2">' +
         '<span class="badge badge--teal">' + icon("book") + ' ' + esc(cat) + '</span>' +
@@ -735,7 +736,7 @@ var app = (function () {
       '<h3 class="home-term-title">' + esc(term) + '</h3>' +
       '<p class="home-term-def mt-2">' + esc(def) + '</p>' +
       '<div class="row row--wrap mt-4">' +
-        '<a class="btn btn--sm btn--soft" href="#/library">' + icon("book") + ' Browse 316-Term Glossary →</a>' +
+        '<a class="btn btn--sm btn--soft" href="#/library/glossary">' + icon("book") + ' Browse ' + totalGloss + '-Term Glossary →</a>' +
         '<button class="btn btn--sm btn--subtle push" onclick="app.shuffleGlossaryTerm()">' + icon("sparkle") + ' Next Term</button>' +
       '</div>' +
     '</div>';
@@ -3269,13 +3270,14 @@ var app = (function () {
   function renderLibrary() {
     var tab = state.params.a || "bookmarks";
 
+    var glossCount = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 359;
     view.innerHTML =
       '<div class="pagehead">' +
         '<span class="eyebrow">Everything you saved</span>' +
         '<h1>' + icon("library") + ' Library</h1>' +
       '</div>' +
       '<div class="tabs">' +
-        [['bookmarks', 'Bookmarks', 'star'], ['notes', 'Notes', 'note'], ['highlights', 'Highlights', 'pen'], ['glossary', 'Glossary (270+)', 'book']].map(function (item) {
+        [['bookmarks', 'Bookmarks', 'star'], ['notes', 'Notes', 'note'], ['highlights', 'Highlights', 'pen'], ['glossary', 'Glossary (' + glossCount + ')', 'book']].map(function (item) {
           return '<a class="tab' + (item[0] === tab ? " is-active" : "") + '" href="#/library/' + item[0] + '">' +
             icon(item[2]) + ' ' + item[1] + '</a>';
         }).join("") +
