@@ -943,28 +943,59 @@ const glossary = {
         this._regex = new RegExp(`\\b(${escaped.join('|')})\\b`, 'gi');
     },
 
+    // One shared tooltip lives directly on <body>. A tooltip inside the lesson would be
+    // positioned against any animated (transformed) ancestor and jump to the top of the page.
+    _tip: null,
+    _activeTerm: null,
+
+    _getTip() {
+        if (!this._tip) {
+            this._tip = document.createElement('div');
+            this._tip.className = 'gloss-tip';
+            this._tip.setAttribute('role', 'tooltip');
+            document.body.appendChild(this._tip);
+        }
+        return this._tip;
+    },
+
+    _showTooltip(termSpan) {
+        const tip = this._getTip();
+        this._activeTerm = termSpan;
+        tip.textContent = termSpan.dataset.def || '';
+        this._positionTooltip(termSpan);
+        tip.classList.add('is-visible');
+    },
+
+    _hideTooltip(termSpan) {
+        if (termSpan && termSpan !== this._activeTerm) return;
+        this._activeTerm = null;
+        if (this._tip) this._tip.classList.remove('is-visible');
+    },
+
     _positionTooltip(termSpan) {
+        const tip = this._getTip();
         const rect = termSpan.getBoundingClientRect();
         const vw = window.innerWidth;
         const vh = window.innerHeight;
         const margin = 12;
+        const gap = 8;
 
         const ttWidth = Math.min(320, vw - margin * 2);
-        let left = rect.left + rect.width / 2 - ttWidth / 2;
-        let top = rect.bottom + 8;
-        const ttEstHeight = 90;
+        tip.style.width = ttWidth + 'px';
+        const ttHeight = tip.offsetHeight || 90;
 
+        let left = rect.left + rect.width / 2 - ttWidth / 2;
         if (left + ttWidth > vw - margin) left = vw - ttWidth - margin;
         if (left < margin) left = margin;
 
-        if (top + ttEstHeight > vh - margin) {
-            const above = rect.top - ttEstHeight - 8;
+        let top = rect.bottom + gap;
+        if (top + ttHeight > vh - margin) {
+            const above = rect.top - ttHeight - gap;
             if (above >= margin) top = above;
         }
 
-        termSpan.style.setProperty('--tt-left', left + 'px');
-        termSpan.style.setProperty('--tt-top', top + 'px');
-        termSpan.style.setProperty('--tt-width', ttWidth + 'px');
+        tip.style.left = left + 'px';
+        tip.style.top = top + 'px';
     },
 
     // Safely decorate text nodes without touching interactive or existing nodes
@@ -1012,10 +1043,17 @@ const glossary = {
                 span.setAttribute('role', 'button');
                 span.setAttribute('aria-label', `Definition of ${m[0]}: ${def}`);
 
-                const onShow = (e) => this._positionTooltip(e.currentTarget);
+                const onShow = (e) => this._showTooltip(e.currentTarget);
+                const onHide = (e) => {
+                    if (e.type === 'mouseleave' && e.currentTarget === document.activeElement) return;
+                    this._hideTooltip(e.currentTarget);
+                };
                 span.addEventListener('mouseenter', onShow);
                 span.addEventListener('focus', onShow);
                 span.addEventListener('touchstart', onShow, { passive: true });
+                span.addEventListener('click', onShow);
+                span.addEventListener('mouseleave', onHide);
+                span.addEventListener('blur', onHide);
 
                 // Double-click to pronounce aloud via SpeechSynthesis
                 span.addEventListener('dblclick', (e) => {
@@ -1039,11 +1077,18 @@ const glossary = {
         if (!this._scrollHooked) {
             this._scrollHooked = true;
             const reposition = () => {
-                const active = document.querySelector('.gloss-term:hover, .gloss-term:focus');
-                if (active) this._positionTooltip(active);
+                const active = this._activeTerm;
+                if (!active) return;
+                if (!active.isConnected) { this._hideTooltip(); return; }
+                this._positionTooltip(active);
             };
             window.addEventListener('scroll', reposition, { passive: true, capture: true });
             window.addEventListener('resize', reposition, { passive: true });
+            // Tap anywhere else (phones) or change page → close the tooltip
+            document.addEventListener('pointerdown', (e) => {
+                if (this._activeTerm && !(e.target.closest && e.target.closest('.gloss-term'))) this._hideTooltip();
+            }, true);
+            window.addEventListener('hashchange', () => this._hideTooltip());
         }
     },
 

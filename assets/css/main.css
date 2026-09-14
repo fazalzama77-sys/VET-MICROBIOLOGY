@@ -617,13 +617,15 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
   outline: none;
 }
 
-.gloss-term::after {
-  content: attr(data-def);
+/* Shared tooltip element appended to <body> by js/glossary.js (not a ::after on the term,
+   which mis-positions inside animated/transformed ancestors). */
+.gloss-tip {
   position: fixed;
-  left: var(--tt-left, 50%);
-  top: var(--tt-top, 100%);
-  width: var(--tt-width, 290px);
+  left: 0;
+  top: 0;
+  width: 290px;
   max-width: 330px;
+  box-sizing: border-box;
   padding: 10px 14px;
   background: var(--surface);
   color: var(--text);
@@ -642,7 +644,7 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
 }
 
-.gloss-term:hover::after, .gloss-term:focus::after {
+.gloss-tip.is-visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
