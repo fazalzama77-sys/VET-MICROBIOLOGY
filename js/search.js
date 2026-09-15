@@ -152,7 +152,7 @@ const searchEngine = {
             });
         }
 
-        // 6. Index Glossary Dictionary (400+ terms)
+        // 6. Index Glossary Dictionary (600 terms)
         if (typeof glossary !== 'undefined' && typeof glossary.getAll === 'function') {
             glossary.getAll().forEach(item => {
                 searchEngine.index.push({

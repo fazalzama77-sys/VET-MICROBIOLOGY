@@ -725,7 +725,7 @@ var app = (function () {
       }
     }
     var safeTerm = esc(term).replace(/'/g, "\\'");
-    var totalGloss = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 359;
+    var totalGloss = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 600;
     return '<div class="home-glossary-card-inner">' +
       '<div class="row row--wrap mb-2">' +
         '<span class="badge badge--teal">' + icon("book") + ' ' + esc(cat) + '</span>' +
@@ -3270,7 +3270,7 @@ var app = (function () {
   function renderLibrary() {
     var tab = state.params.a || "bookmarks";
 
-    var glossCount = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 359;
+    var glossCount = (window.glossary && glossary.terms) ? Object.keys(glossary.terms).length : 600;
     view.innerHTML =
       '<div class="pagehead">' +
         '<span class="eyebrow">Everything you saved</span>' +
