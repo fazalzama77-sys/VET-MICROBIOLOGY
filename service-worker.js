@@ -16,7 +16,7 @@
    PRECACHE, otherwise students keep seeing the old version.
    ============================================================ */
 
-var CACHE_VERSION = "vmicro-v8";
+var CACHE_VERSION = "vmicro-v9";
 var SHELL_CACHE = CACHE_VERSION + "-shell";
 var IMG_CACHE = CACHE_VERSION + "-img";
 var FONT_CACHE = CACHE_VERSION + "-font";
@@ -49,6 +49,7 @@ var PRECACHE = [
   "data/data-quiz.JS",
   "data/events-data.js",
 
+  "js/quiz-shuffle.js",
   "js/store.js",
   "js/quiz.js",
   "js/dashboard.js",
