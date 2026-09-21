@@ -20,7 +20,8 @@ var store = (function () {
     notes:      PREFIX + "notes",       // { topicId: "note text" }
     highlights: PREFIX + "highlights",  // { topicId: [ {text, color}, ... ] }
     hlColor:    PREFIX + "hl-color",    // "yellow" | "green" | "blue" | "pink" | "orange" | "purple"
-    quiz:       PREFIX + "quiz",        // { attempts: [], byUnit: {} }
+    quiz:       PREFIX + "quiz",        // { attempts: [], byUnit: {}, bySub: {}, byTopic: {} }
+    quizRun:    PREFIX + "quiz-run",    // an unfinished quiz, so it can be resumed after closing the app
     srs:        PREFIX + "srs",         // { questionKey: {box, due, wrong} }
     activity:   PREFIX + "activity",    // { "YYYY-MM-DD": actionCount }
     visits:     PREFIX + "visits",      // number
@@ -152,24 +153,69 @@ var store = (function () {
   }
 
   /* ---------- quiz results ---------- */
-  function getQuiz() { return read(KEYS.quiz, { attempts: [], byUnit: {} }); }
+  function getQuiz() {
+    var q = read(KEYS.quiz, { attempts: [], byUnit: {}, bySub: {}, byTopic: {} });
+    // Older saves only had attempts + byUnit.
+    if (!q.attempts) q.attempts = [];
+    if (!q.byUnit) q.byUnit = {};
+    if (!q.bySub) q.bySub = {};
+    if (!q.byTopic) q.byTopic = {};
+    return q;
+  }
+
+  function rollUp(bucket, key, total, correct, at) {
+    var r = bucket[key] || { runs: 0, best: 0, totalQ: 0, totalCorrect: 0 };
+    r.runs += 1;
+    r.totalQ += total;
+    r.totalCorrect += correct;
+    var pct = total ? Math.round(correct / total * 100) : 0;
+    if (pct > r.best) r.best = pct;
+    r.last = pct;
+    r.lastAt = at;
+    bucket[key] = r;
+    return r;
+  }
+
   function saveAttempt(attempt) {
     var q = getQuiz();
     q.attempts.push(attempt);
     if (q.attempts.length > 200) q.attempts = q.attempts.slice(-200);
 
-    var u = q.byUnit[attempt.scope] || { runs: 0, best: 0, totalQ: 0, totalCorrect: 0 };
-    u.runs += 1;
-    u.totalQ += attempt.total;
-    u.totalCorrect += attempt.correct;
-    var pct = attempt.total ? Math.round(attempt.correct / attempt.total * 100) : 0;
-    if (pct > u.best) u.best = pct;
-    u.last = pct;
-    u.lastAt = attempt.at;
-    q.byUnit[attempt.scope] = u;
+    rollUp(q.byUnit, attempt.scope, attempt.total, attempt.correct, attempt.at);
+
+    // A sub-section test is still practice for its whole unit, so roll it up to the
+    // unit scope too — otherwise the dashboard shows the unit as never attempted.
+    if (attempt.unitScope && attempt.unitScope !== attempt.scope) {
+      rollUp(q.byUnit, attempt.unitScope, attempt.total, attempt.correct, attempt.at);
+    }
+
+    // Per sub-section and per topic accuracy — powers the weak-area analysis.
+    var bySub = attempt.bySub || {};
+    for (var s in bySub) {
+      var sr = q.bySub[s] || { seen: 0, right: 0 };
+      sr.seen += bySub[s].seen || 0;
+      sr.right += bySub[s].right || 0;
+      sr.lastAt = attempt.at;
+      q.bySub[s] = sr;
+    }
+    var byTopic = attempt.byTopic || {};
+    for (var t in byTopic) {
+      var tr = q.byTopic[t] || { seen: 0, right: 0 };
+      tr.seen += byTopic[t].seen || 0;
+      tr.right += byTopic[t].right || 0;
+      tr.lastAt = attempt.at;
+      q.byTopic[t] = tr;
+    }
 
     write(KEYS.quiz, q);
     logActivity();
+  }
+
+  /* ---------- an unfinished quiz, kept so it can be resumed ---------- */
+  function getRunState() { return read(KEYS.quizRun, null); }
+  function setRunState(state) { return write(KEYS.quizRun, state); }
+  function clearRunState() {
+    try { localStorage.removeItem(KEYS.quizRun); } catch (e) { /* ignore */ }
   }
 
   /* ---------- spaced repetition (Leitner boxes 1-5) ---------- */
@@ -354,6 +400,7 @@ var store = (function () {
     getHighlights: getHighlights, addHighlight: addHighlight, removeHighlight: removeHighlight,
     getHighlightColor: getHighlightColor, setHighlightColor: setHighlightColor, VALID_HL_COLORS: VALID_HL_COLORS,
     getQuiz: getQuiz, saveAttempt: saveAttempt,
+    getRunState: getRunState, setRunState: setRunState, clearRunState: clearRunState,
     getSrs: getSrs, gradeSrs: gradeSrs, dueSrs: dueSrs,
     getActivity: getActivity, logActivity: logActivity, computeStreak: computeStreak,
     bumpVisits: bumpVisits, getVisits: getVisits,

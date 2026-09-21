@@ -174,7 +174,10 @@ var dashboardApp = (function () {
         /* 5. 5-Box Leitner Memory Pipeline */
         renderLeitnerPipeline(srs, boxCounts, srsKeys.length, dueCards) +
 
-        /* 6. Activity Heatmap & Performance Trends */
+        /* 6. Weakest sub-sections from every quiz taken */
+        renderWeakAreasCard(quiz) +
+
+        /* 7. Activity Heatmap & Performance Trends */
         '<div class="grid grid--2">' +
           renderHeatmapCard(activity, streak) +
           renderRecentAttemptsCard(quiz) +
@@ -560,6 +563,62 @@ var dashboardApp = (function () {
     '</div>';
   }
 
+  /* ---------- Weakest sub-sections, gathered from every quiz ---------- */
+  function renderWeakAreasCard(quiz) {
+    var bySub = quiz.bySub || {};
+    var rows = Object.keys(bySub)
+      .map(function (id) {
+        var r = bySub[id];
+        var meta = (window.quizApp && quizApp.findSubSection) ? quizApp.findSubSection(id) : null;
+        return {
+          id: id,
+          icon: meta ? meta.icon : "📂",
+          title: meta ? meta.title : id,
+          seen: r.seen || 0,
+          right: r.right || 0,
+          pct: r.seen ? Math.round((r.right / r.seen) * 100) : 0
+        };
+      })
+      .filter(function (r) { return r.seen >= 3; })     // too few answers to judge
+      .sort(function (a, b) { return a.pct - b.pct; });
+
+    if (!rows.length) {
+      return '<section>' +
+        '<h2>Sub-section Accuracy</h2>' +
+        '<p class="muted small mt-1">Every quiz you take is broken down by sub-section here, weakest first.</p>' +
+        '<div class="card p-5 text-center mt-4 text-muted">' +
+          'Answer a few more questions and your strongest and weakest modules will appear here.' +
+          '<br><a class="btn btn--primary btn--sm mt-3" href="#/quiz">Take a quiz</a>' +
+        '</div>' +
+      '</section>';
+    }
+
+    var weakest = rows.slice(0, 6);
+    return '<section>' +
+      '<div class="row row--between mb-3">' +
+        '<div>' +
+          '<h2>Sub-section Accuracy</h2>' +
+          '<p class="muted small mt-1">Built from every quiz you have taken — weakest modules first.</p>' +
+        '</div>' +
+        '<span class="chip">' + rows.length + ' tracked</span>' +
+      '</div>' +
+      '<div class="stack">' +
+        weakest.map(function (r) {
+          var cls = r.pct >= 75 ? "chip--ok" : r.pct >= 50 ? "chip--warn" : "chip--danger";
+          return '<div class="card mb-2">' +
+            '<div class="row items-center gap-2">' +
+              '<span>' + r.icon + '</span>' +
+              '<b>' + app.esc(r.title) + '</b>' +
+              '<div class="push"></div>' +
+              '<span class="chip ' + cls + '">' + r.right + '/' + r.seen + ' · ' + r.pct + '%</span>' +
+            '</div>' +
+            '<div class="bar mt-2"><div class="bar__fill" style="width:' + r.pct + '%"></div></div>' +
+          '</div>';
+        }).join("") +
+      '</div>' +
+    '</section>';
+  }
+
   /* ---------- Diagnostic Assessment Ledger ---------- */
   function renderRecentAttemptsCard(quiz) {
     var list = (quiz.attempts || []).slice(-6).reverse();
@@ -590,10 +649,18 @@ var dashboardApp = (function () {
           var p = app.pct(a.correct, a.total);
           var dt = new Date(a.at);
           var dateStr = dt.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+          var bits = [dateStr];
+          if (a.exam) bits.push("⏱️ Timed exam");
+          if (a.timedOut) bits.push("time expired");
+          if (a.seconds) bits.push(Math.max(1, Math.round(a.seconds / 60)) + " min");
+          if (a.orderMode) bits.push(a.orderMode === "sequence" ? "📋 Sequence" : "🔀 Shuffle");
+          if (typeof a.attempted === "number" && a.attempted < a.total) {
+            bits.push((a.total - a.attempted) + " left blank");
+          }
           return '<div class="tlist__row">' +
             '<span class="tlist__body">' +
               '<span class="tlist__title">' + app.esc(a.label || "Microbiology Quiz") + '</span>' +
-              '<span class="tlist__sub">' + dateStr + (a.exam ? ' · ⏱️ Timed Exam' : '') + '</span>' +
+              '<span class="tlist__sub">' + bits.join(" · ") + '</span>' +
             '</span>' +
             '<span class="tlist__right">' +
               '<span class="chip ' + (p >= 75 ? 'chip--ok' : p >= 50 ? 'chip--warn' : 'chip--danger') + '">' +
