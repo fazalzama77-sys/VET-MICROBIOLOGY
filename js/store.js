@@ -160,6 +160,8 @@ var store = (function () {
     if (!q.byUnit) q.byUnit = {};
     if (!q.bySub) q.bySub = {};
     if (!q.byTopic) q.byTopic = {};
+    if (!q.byDiff) q.byDiff = {};
+    if (!q.byFormat) q.byFormat = {};
     return q;
   }
 
@@ -176,10 +178,18 @@ var store = (function () {
     return r;
   }
 
+  // Per-question logs are only kept for the most recent attempts — they are what
+  // makes "review this past test question by question" possible, but keeping 200
+  // of them would fill the browser's storage.
+  var DETAIL_LIMIT = 30;
+
   function saveAttempt(attempt) {
     var q = getQuiz();
     q.attempts.push(attempt);
     if (q.attempts.length > 200) q.attempts = q.attempts.slice(-200);
+    for (var i = 0; i < q.attempts.length - DETAIL_LIMIT; i++) {
+      if (q.attempts[i]) delete q.attempts[i].log;
+    }
 
     rollUp(q.byUnit, attempt.scope, attempt.total, attempt.correct, attempt.at);
 
@@ -198,6 +208,24 @@ var store = (function () {
       sr.lastAt = attempt.at;
       q.bySub[s] = sr;
     }
+    var byDiff = attempt.byDiff || {};
+    if (!q.byDiff) q.byDiff = {};
+    for (var d in byDiff) {
+      var dr = q.byDiff[d] || { seen: 0, right: 0 };
+      dr.seen += byDiff[d].seen || 0;
+      dr.right += byDiff[d].right || 0;
+      q.byDiff[d] = dr;
+    }
+
+    var byFormat = attempt.formats || {};
+    if (!q.byFormat) q.byFormat = {};
+    for (var f in byFormat) {
+      var fr = q.byFormat[f] || { seen: 0, right: 0 };
+      fr.seen += byFormat[f].total || 0;
+      fr.right += byFormat[f].right || 0;
+      q.byFormat[f] = fr;
+    }
+
     var byTopic = attempt.byTopic || {};
     for (var t in byTopic) {
       var tr = q.byTopic[t] || { seen: 0, right: 0 };

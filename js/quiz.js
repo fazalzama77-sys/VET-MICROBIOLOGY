@@ -152,6 +152,8 @@ var quizApp = (function () {
 
     if (kind === "resume") { resumeRun(); return; }
     if (!kind) { renderHub(); return; }
+    if (kind === "analysis") { renderAnalysis(); return; }
+    if (kind === "attempt")  { renderAttemptReview(params.b); return; }
     if (kind === "unit")      { renderSetup("unit", params.b); return; }
     if (kind === "paper")     { renderSetup("paper", params.b); return; }
     if (kind === "grand")     { renderSetup("grand", null); return; }
@@ -226,6 +228,23 @@ var quizApp = (function () {
         modeCard("Practical", "All practical units", countAvailable(pracIds), "#/quiz/practical", false, "practical") +
         modeCard("Smart Review", due + " question" + (due === 1 ? "" : "s") + " due today", due, "#/quiz/review", true, "repeat") +
       '</div>' +
+
+      '<a class="card card--link an-entry mt-4" href="#/quiz/analysis">' +
+        '<div class="row items-center gap-3">' +
+          '<span class="an-entry__icon">📊</span>' +
+          '<div>' +
+            '<b>Review &amp; Analysis</b>' +
+            '<p class="small muted mt-1">' +
+              (q.attempts && q.attempts.length
+                ? q.attempts.length + ' test' + (q.attempts.length === 1 ? '' : 's') +
+                  ' recorded · accuracy trend, weakest sub-sections, most-missed questions and a question-by-question review of every test'
+                : 'Your accuracy trend, weak areas and full test history will appear here once you take a quiz') +
+            '</p>' +
+          '</div>' +
+          '<div class="push"></div>' +
+          app.icon("chevron", "faint") +
+        '</div>' +
+      '</a>' +
 
       '<h2 class="mt-12 flex items-center gap-2"><span>📚</span> Theory Units with Modular Sub-sections</h2>' +
       '<p class="small muted">Click any unit below to practice specific sub-sections or the full unit in Sequence or Shuffle mode.</p>' +
@@ -1208,9 +1227,15 @@ var quizApp = (function () {
     var formatStats = { mcq: { total: 0, right: 0 }, tf: { total: 0, right: 0 }, fib: { total: 0, right: 0 } };
     var bySub = {};
     var byTopic = {};
+    var byDiff = {};
+    var log = [];
 
     run.qs.forEach(function (q, i) {
       var ok = isCorrect(q, run.answers[i]);
+      log.push({ k: q.key, ok: ok ? 1 : 0, g: run.answers[i] });
+      var d = String(q.diff || 1);
+      var dd = byDiff[d] || (byDiff[d] = { seen: 0, right: 0 });
+      dd.seen++; if (ok) dd.right++;
       if (!formatStats[q.format]) formatStats[q.format] = { total: 0, right: 0 };
       formatStats[q.format].total++;
       if (ok) { correct++; formatStats[q.format].right++; }
@@ -1253,7 +1278,9 @@ var quizApp = (function () {
       bestStreak: run.bestStreak,
       formats: formatStats,
       bySub: bySub,
-      byTopic: byTopic
+      byTopic: byTopic,
+      byDiff: byDiff,
+      log: log
     });
 
     var label = run.label;
@@ -1387,6 +1414,408 @@ var quizApp = (function () {
         if (app.popMilestone) app.popMilestone("🏆 " + verdict + ": " + percent + "%!");
       }, 250);
     }
+  }
+
+  /* ============================================================
+     REVIEW & ANALYSIS
+     ------------------------------------------------------------
+     One screen that answers: how am I doing, what am I weakest at,
+     which exact questions keep beating me, and what happened in
+     each test I have taken.
+     ============================================================ */
+
+  function pctOf(right, seen) { return seen ? Math.round((right / seen) * 100) : 0; }
+
+  function scoreChip(p) {
+    return p >= 75 ? "chip--ok" : p >= 50 ? "chip--warn" : "chip--danger";
+  }
+
+  function barRow(icon, title, right, seen, extra) {
+    var p = pctOf(right, seen);
+    return '<div class="an-row">' +
+      '<div class="row items-center gap-2">' +
+        '<span>' + icon + '</span>' +
+        '<b>' + app.esc(title) + '</b>' +
+        '<div class="push"></div>' +
+        (extra || '') +
+        '<span class="chip ' + scoreChip(p) + '">' + right + '/' + seen + ' · ' + p + '%</span>' +
+      '</div>' +
+      '<div class="bar mt-2"><div class="bar__fill" style="width:' + p + '%"></div></div>' +
+    '</div>';
+  }
+
+  // How many distinct questions of a unit have ever been answered.
+  function coverageByUnit(srs) {
+    var out = {};
+    Object.keys(srs).forEach(function (k) {
+      var uid = k.split(":")[0];
+      out[uid] = (out[uid] || 0) + 1;
+    });
+    return out;
+  }
+
+  // Questions that keep being answered wrongly — the ones worth drilling.
+  function leechList(limit) {
+    var srs = store.getSrs() || {};
+    var map = allQuestionsByKey();
+    return Object.keys(srs)
+      .filter(function (k) { return (srs[k].wrong || 0) >= 2 && map[k]; })
+      .sort(function (a, b) {
+        var d = (srs[b].wrong || 0) - (srs[a].wrong || 0);
+        return d !== 0 ? d : (srs[a].box || 1) - (srs[b].box || 1);
+      })
+      .slice(0, limit || 12)
+      .map(function (k) { return { key: k, q: map[k], wrong: srs[k].wrong || 0, seen: srs[k].seen || 0, box: srs[k].box || 1 }; });
+  }
+
+  function trendChart(attempts) {
+    var list = attempts.slice(-12);
+    if (list.length < 2) return "";
+    var w = 100, h = 34;
+    var step = list.length > 1 ? w / (list.length - 1) : w;
+    var pts = list.map(function (a, i) {
+      var p = app.pct(a.correct, a.total);
+      return { x: +(i * step).toFixed(2), y: +(h - (p / 100) * h).toFixed(2), p: p };
+    });
+    var line = pts.map(function (pt, i) { return (i ? "L" : "M") + pt.x + " " + pt.y; }).join(" ");
+    var area = line + " L" + w + " " + h + " L0 " + h + " Z";
+    var first = pts[0].p, last = pts[pts.length - 1].p;
+    var delta = last - first;
+
+    return '<div class="an-trend">' +
+      '<div class="row items-center gap-2">' +
+        '<b>Accuracy trend</b>' +
+        '<span class="small muted">last ' + list.length + ' tests</span>' +
+        '<div class="push"></div>' +
+        '<span class="chip ' + (delta >= 0 ? 'chip--ok' : 'chip--warn') + '">' +
+          (delta >= 0 ? '▲ +' : '▼ ') + delta + ' pts</span>' +
+      '</div>' +
+      '<svg class="an-spark mt-3" viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none" aria-hidden="true">' +
+        '<path d="' + area + '" fill="var(--accent-soft)"></path>' +
+        '<path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="1.5" ' +
+          'stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>' +
+      '</svg>' +
+      '<div class="row row--between small faint mt-1">' +
+        '<span>' + first + '%</span><span>' + last + '%</span>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderAnalysis() {
+    resetRun();
+    var quiz = store.getQuiz();
+    var srs = store.getSrs() || {};
+    var attempts = (quiz.attempts || []).filter(function (a) { return a && a.total; });
+
+    if (!attempts.length) {
+      host.innerHTML =
+        '<div class="pagehead">' +
+          '<div class="row row--wrap items-center gap-2 mb-2"><a class="btn btn--sm btn--ghost" href="#/quiz">← Quiz hub</a></div>' +
+          '<h1>Review &amp; Analysis</h1>' +
+        '</div>' +
+        '<div class="empty"><div class="empty__icon">📊</div><h3>No tests yet</h3>' +
+        '<p>Take your first quiz and this page will show your accuracy trend, your weakest sub-sections, ' +
+        'the exact questions that keep catching you out, and a question-by-question review of every test.</p>' +
+        '<a class="btn btn--primary mt-4" href="#/quiz">Go to the quiz hub</a></div>';
+      return;
+    }
+
+    var totalQ = 0, totalRight = 0, totalSeconds = 0, bestStreak = 0;
+    attempts.forEach(function (a) {
+      totalQ += a.total || 0;
+      totalRight += a.correct || 0;
+      totalSeconds += a.seconds || (a.minutes ? a.minutes * 60 : 0);
+      if ((a.bestStreak || 0) > bestStreak) bestStreak = a.bestStreak;
+    });
+    var overall = pctOf(totalRight, totalQ);
+    var perQ = totalQ ? Math.round(totalSeconds / totalQ) : 0;
+    var due = store.dueSrs().length;
+    var answeredKeys = Object.keys(srs).length;
+    var bankTotal = countAvailable(syllabus.allUnits.map(function (u) { return u.id; }));
+
+    var cov = coverageByUnit(srs);
+    var fmtNames = { mcq: ["🔘", "Multiple choice"], tf: ["⚖️", "True / False"], fib: ["✍️", "Fill in the blank"] };
+    var diffNames = { "1": ["⭐", "Foundational"], "2": ["⭐⭐", "Core UG"], "3": ["⭐⭐⭐", "Rank 1 classic"] };
+
+    var byFormat = quiz.byFormat || {};
+    var byDiff = quiz.byDiff || {};
+
+    var subRows = Object.keys(quiz.bySub || {}).map(function (id) {
+      var r = quiz.bySub[id];
+      var meta = findSubSection(id) || { icon: "📂", title: id };
+      var unitId = null;
+      for (var u in subSectionsByUnit) {
+        if (getSubSectionMeta(u, id)) { unitId = u; break; }
+      }
+      return { id: id, unitId: unitId, meta: meta, seen: r.seen || 0, right: r.right || 0, pct: pctOf(r.right, r.seen) };
+    }).filter(function (r) { return r.seen >= 3; }).sort(function (a, b) { return a.pct - b.pct; });
+
+    var leeches = leechList(10);
+
+    var unitRows = syllabus.theory.map(function (u) {
+      var rec = (quiz.byUnit || {})["unit:" + u.id] || null;
+      var avail = countAvailable([u.id]);
+      var seen = cov[u.id] || 0;
+      return {
+        u: u,
+        avail: avail,
+        seen: Math.min(seen, avail),
+        covPct: avail ? Math.round(Math.min(seen, avail) / avail * 100) : 0,
+        acc: rec ? pctOf(rec.totalCorrect, rec.totalQ) : null,
+        best: rec ? rec.best : null,
+        runs: rec ? rec.runs : 0
+      };
+    });
+
+    host.innerHTML =
+      '<div class="pagehead">' +
+        '<div class="row row--wrap items-center gap-2 mb-2">' +
+          '<a class="btn btn--sm btn--ghost" href="#/quiz">← Quiz hub</a>' +
+          '<span class="chip chip--accent">' + attempts.length + ' tests</span>' +
+          '<span class="chip">' + totalQ + ' questions answered</span>' +
+        '</div>' +
+        '<h1>📊 Review &amp; Analysis</h1>' +
+        '<p class="lede">Where you stand, what is weakest, and exactly which questions keep catching you out.</p>' +
+      '</div>' +
+
+      /* headline numbers */
+      '<div class="an-stats mt-5">' +
+        statTile("🎯", overall + "%", "Overall accuracy", totalRight + " of " + totalQ + " correct") +
+        statTile("📚", answeredKeys + "", "Bank covered", answeredKeys + " of " + bankTotal + " questions seen (" +
+          pctOf(answeredKeys, bankTotal) + "%)") +
+        statTile("⏱️", perQ ? perQ + "s" : "—", "Per question", perQ ? "average pace" : "not enough timing yet") +
+        statTile("🔥", bestStreak + "", "Best streak", "consecutive correct") +
+        statTile("🔁", due + "", "Due today", due ? "spaced review waiting" : "queue clear") +
+      '</div>' +
+
+      trendChart(attempts) +
+
+      /* format + difficulty */
+      '<div class="grid grid--2 mt-8">' +
+        '<section class="card">' +
+          '<h3>By question type</h3>' +
+          '<div class="stack mt-3">' +
+            Object.keys(fmtNames).map(function (f) {
+              var r = byFormat[f] || { seen: 0, right: 0 };
+              if (!r.seen) return "";
+              return barRow(fmtNames[f][0], fmtNames[f][1], r.right, r.seen);
+            }).join("") +
+          '</div>' +
+        '</section>' +
+        '<section class="card">' +
+          '<h3>By difficulty</h3>' +
+          '<div class="stack mt-3">' +
+            Object.keys(diffNames).map(function (d) {
+              var r = byDiff[d] || { seen: 0, right: 0 };
+              if (!r.seen) return "";
+              return barRow(diffNames[d][0], diffNames[d][1], r.right, r.seen);
+            }).join("") +
+          '</div>' +
+        '</section>' +
+      '</div>' +
+
+      /* unit table with coverage */
+      '<h2 class="mt-12">Unit by unit</h2>' +
+      '<p class="small muted">Coverage is how much of each unit\'s question bank you have actually seen.</p>' +
+      '<div class="an-table mt-4">' +
+        '<div class="an-table__head">' +
+          '<span>Unit</span><span>Coverage</span><span>Accuracy</span><span>Best</span><span></span>' +
+        '</div>' +
+        unitRows.map(function (r) {
+          return '<div class="an-table__row">' +
+            '<span class="an-table__unit"><b>U' + r.u.no + '</b> ' + app.esc(r.u.short) + '</span>' +
+            '<span><span class="an-mini-bar"><i style="width:' + r.covPct + '%"></i></span>' +
+              '<span class="small faint">' + r.seen + '/' + r.avail + '</span></span>' +
+            '<span>' + (r.acc === null ? '<span class="small faint">—</span>'
+              : '<span class="chip ' + scoreChip(r.acc) + '">' + r.acc + '%</span>') + '</span>' +
+            '<span>' + (r.best === null ? '<span class="small faint">—</span>' : r.best + '%') + '</span>' +
+            '<span><a class="btn btn--sm" href="#/quiz/unit/' + r.u.id + '">Practise</a></span>' +
+          '</div>';
+        }).join("") +
+      '</div>' +
+
+      /* sub-sections */
+      (subRows.length
+        ? '<h2 class="mt-12">Sub-sections — weakest first</h2>' +
+          '<div class="stack mt-4">' +
+            subRows.slice(0, 10).map(function (r) {
+              var link = r.unitId ? '<a class="btn btn--sm mr-2" href="#/quiz/unit/' + r.unitId + '">Practise</a>' : '';
+              return barRow(r.meta.icon, r.meta.title, r.right, r.seen, link);
+            }).join("") +
+          '</div>'
+        : '') +
+
+      /* the questions that keep being missed */
+      (leeches.length
+        ? '<h2 class="mt-12">Questions that keep catching you out</h2>' +
+          '<p class="small muted">Missed two or more times. Drilling these is the fastest way to lift your score.</p>' +
+          '<div class="row row--wrap gap-2 mt-3">' +
+            '<button class="btn btn--primary" id="drillleeches">🎯 Drill these ' + leeches.length + ' questions</button>' +
+          '</div>' +
+          '<div class="stack mt-4">' +
+            leeches.map(function (l) {
+              var right = l.q.format === "mcq" ? (l.q.o || [])[l.q.a]
+                : l.q.format === "tf" ? (l.q.a ? "True" : "False")
+                : (l.q.a_display || (Array.isArray(l.q.a) ? l.q.a[0] : l.q.a));
+              return '<div class="card mb-2">' +
+                '<div class="row row--wrap items-center gap-2 mb-2">' +
+                  '<span class="chip chip--danger">✗ ' + l.wrong + ' time' + (l.wrong === 1 ? '' : 's') + '</span>' +
+                  '<span class="chip font-mono">' + String(l.q.format).toUpperCase() + '</span>' +
+                  '<span class="chip">' + app.esc((syllabus.unitById[l.q.unitId] || {}).short || l.q.unitId) + '</span>' +
+                  '<span class="chip chip--subtle">Leitner box ' + l.box + '</span>' +
+                '</div>' +
+                '<p>' + app.esc(l.q.q) + '</p>' +
+                '<p class="small mt-2"><span class="chip chip--ok">Answer</span> <b>' + app.esc(String(right)) + '</b></p>' +
+                (l.q.topicId && syllabus.topicById[l.q.topicId]
+                  ? '<a class="btn btn--sm mt-3" href="#/topic/' + l.q.topicId + '">📖 Read the lesson</a>' : '') +
+              '</div>';
+            }).join("") +
+          '</div>'
+        : '') +
+
+      /* every test taken */
+      '<h2 class="mt-12">Test history</h2>' +
+      '<div class="an-table mt-4">' +
+        '<div class="an-table__head an-table__head--hist">' +
+          '<span>Test</span><span>When</span><span>Score</span><span></span>' +
+        '</div>' +
+        attempts.slice().reverse().map(function (a) {
+          var idx = (quiz.attempts || []).indexOf(a);
+          var p = app.pct(a.correct, a.total);
+          var dt = new Date(a.at);
+          return '<div class="an-table__row an-table__row--hist">' +
+            '<span><b>' + app.esc(a.label || "Quiz") + '</b>' +
+              '<span class="small faint block">' + (a.exam ? '📝 Exam · ' : '') +
+              (a.orderMode === "shuffle" ? '🔀 Shuffle' : '📋 Sequence') +
+              (a.seconds ? ' · ' + fmtDuration(a.seconds) : '') + '</span></span>' +
+            '<span class="small">' + dt.toLocaleDateString(undefined, { month: "short", day: "numeric" }) +
+              '<span class="small faint block">' + dt.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) + '</span></span>' +
+            '<span><span class="chip ' + scoreChip(p) + '">' + a.correct + '/' + a.total + ' · ' + p + '%</span></span>' +
+            '<span>' + (a.log && a.log.length
+              ? '<a class="btn btn--sm" href="#/quiz/attempt/' + idx + '">Review</a>'
+              : '<span class="small faint">—</span>') + '</span>' +
+          '</div>';
+        }).join("") +
+      '</div>';
+
+    var drill = document.getElementById("drillleeches");
+    if (drill) {
+      drill.addEventListener("click", function () {
+        var pool = leeches.map(function (l) { return l.q; });
+        start(shuffle(pool), {
+          scope: "leech", unitScope: "leech", label: "🎯 Most-missed drill",
+          exam: false, minutes: 0, orderMode: "shuffle", subSectionId: "all", unitId: null
+        });
+      });
+    }
+  }
+
+  function statTile(icon, value, label, sub) {
+    return '<div class="an-stat">' +
+      '<div class="an-stat__icon">' + icon + '</div>' +
+      '<div class="an-stat__val">' + value + '</div>' +
+      '<div class="an-stat__lbl">' + label + '</div>' +
+      '<div class="an-stat__sub">' + app.esc(sub) + '</div>' +
+    '</div>';
+  }
+
+  /* ---------- question-by-question review of one past test ---------- */
+  function renderAttemptReview(idxRaw) {
+    resetRun();
+    var quiz = store.getQuiz();
+    var idx = parseInt(idxRaw, 10);
+    var a = (quiz.attempts || [])[idx];
+
+    if (!a || !a.log || !a.log.length) {
+      host.innerHTML =
+        '<div class="pagehead"><a class="btn btn--sm btn--ghost" href="#/quiz/analysis">← Analysis</a>' +
+        '<h1 class="mt-2">Test review</h1></div>' +
+        '<div class="empty"><div class="empty__icon">🗂️</div><h3>This test cannot be reviewed</h3>' +
+        '<p>Question-by-question detail is kept for your 30 most recent tests. Older tests keep their score only.</p>' +
+        '<a class="btn btn--primary mt-4" href="#/quiz/analysis">Back to analysis</a></div>';
+      return;
+    }
+
+    var map = allQuestionsByKey();
+    var p = app.pct(a.correct, a.total);
+    var dt = new Date(a.at);
+    var onlyWrong = false;
+
+    function rowsHtml() {
+      return a.log.map(function (entry, i) {
+        var q = map[entry.k];
+        if (!q) return "";
+        if (onlyWrong && entry.ok) return "";
+        var right = q.format === "mcq" ? (q.o || [])[q.a]
+          : q.format === "tf" ? (q.a ? "True" : "False")
+          : (q.a_display || (Array.isArray(q.a) ? q.a[0] : q.a));
+        var mine = !isAnswered(entry.g) ? "Not answered"
+          : q.format === "mcq" ? (q.o || [])[entry.g]
+          : q.format === "tf" ? (entry.g ? "True" : "False")
+          : entry.g;
+        return '<div class="card mb-3 an-qcard ' + (entry.ok ? 'is-ok' : 'is-bad') + '">' +
+          '<div class="row row--wrap items-center gap-2 mb-2">' +
+            '<span class="chip ' + (entry.ok ? 'chip--ok' : 'chip--danger') + '">' + (entry.ok ? '✓' : '✗') + ' Q' + (i + 1) + '</span>' +
+            '<span class="chip font-mono">' + String(q.format).toUpperCase() + '</span>' +
+            '<span class="chip">' + app.esc((syllabus.unitById[q.unitId] || {}).short || q.unitId) + '</span>' +
+          '</div>' +
+          '<p><b>' + app.esc(q.q) + '</b></p>' +
+          '<div class="row row--wrap gap-4 mt-3">' +
+            '<p class="small"><span class="chip ' + (entry.ok ? 'chip--ok' : 'chip--danger') + '">Your answer</span> <b>' +
+              app.esc(String(mine)) + '</b></p>' +
+            (entry.ok ? '' : '<p class="small"><span class="chip chip--ok">Correct answer</span> <b>' + app.esc(String(right)) + '</b></p>') +
+          '</div>' +
+          (q.e ? '<div class="callout mt-3"><div class="callout__title">Explanation</div>' + q.e + '</div>' : '') +
+          (q.topicId && syllabus.topicById[q.topicId]
+            ? '<a class="btn btn--sm mt-3" href="#/topic/' + q.topicId + '">📖 Read the lesson</a>' : '') +
+        '</div>';
+      }).join("");
+    }
+
+    function paint() {
+      host.innerHTML =
+        '<div class="pagehead">' +
+          '<div class="row row--wrap items-center gap-2 mb-2">' +
+            '<a class="btn btn--sm btn--ghost" href="#/quiz/analysis">← Analysis</a>' +
+            '<span class="chip ' + scoreChip(p) + '">' + a.correct + '/' + a.total + ' · ' + p + '%</span>' +
+            '<span class="chip">' + dt.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) + '</span>' +
+            (a.seconds ? '<span class="chip">⏱️ ' + fmtDuration(a.seconds) + '</span>' : '') +
+            (a.exam ? '<span class="chip chip--warn">📝 Exam mode</span>' : '') +
+          '</div>' +
+          '<h1>' + app.esc(a.label || "Quiz") + '</h1>' +
+          '<p class="lede">Every question from this test, with your answer and the explanation.</p>' +
+        '</div>' +
+        '<div class="row row--wrap gap-2 mt-4">' +
+          '<button class="btn btn--sm' + (onlyWrong ? '' : ' btn--primary') + '" data-filter="all">All ' + a.total + '</button>' +
+          '<button class="btn btn--sm' + (onlyWrong ? ' btn--primary' : '') + '" data-filter="wrong">Only missed ' +
+            (a.total - a.correct) + '</button>' +
+          '<div class="push"></div>' +
+          '<button class="btn btn--sm btn--primary" id="retryattempt">🔁 Retake this test</button>' +
+        '</div>' +
+        '<div class="stack mt-5">' + (rowsHtml() || '<div class="callout">Nothing to show here — you got everything right.</div>') + '</div>';
+
+      host.querySelectorAll("[data-filter]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          onlyWrong = b.getAttribute("data-filter") === "wrong";
+          paint();
+        });
+      });
+
+      var again = document.getElementById("retryattempt");
+      if (again) {
+        again.addEventListener("click", function () {
+          var pool = a.log.map(function (e) { return map[e.k]; }).filter(Boolean);
+          if (!pool.length) { app.toast("These questions are no longer in the bank"); return; }
+          start(pool, {
+            scope: a.scope, unitScope: a.unitScope || a.scope, label: "🔁 " + (a.label || "Quiz"),
+            exam: false, minutes: 0, orderMode: "shuffle",
+            subSectionId: a.subSectionId || "all", unitId: a.unitId || null
+          });
+        });
+      }
+    }
+
+    paint();
   }
 
   // Look a sub-section up without knowing its unit (used by the dashboard).

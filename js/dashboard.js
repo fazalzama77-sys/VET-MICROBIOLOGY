@@ -143,8 +143,12 @@ var dashboardApp = (function () {
 
                 '<div class="dash-metric-card">' +
                   '<div class="dash-metric-head">Memory Health <span>' + app.icon("shield") + '</span></div>' +
-                  '<div class="dash-metric-val">' + (srsKeys.length ? retentionRate + '%' : '100%') + '</div>' +
-                  '<div class="dash-metric-sub">' + (dueCards ? dueCards + ' due for review' : 'Zero memory decay') + '</div>' +
+                  '<div class="dash-metric-val">' + (srsKeys.length ? retentionRate + '%' : '—') + '</div>' +
+                  '<div class="dash-metric-sub">' + (srsKeys.length
+                    ? (dueCards
+                        ? dueCards + ' due for review now'
+                        : masteredCount + ' of ' + srsKeys.length + ' questions consolidated')
+                    : 'Answer questions to build your queue') + '</div>' +
                 '</div>' +
               '</div>' +
             '</div>' +
@@ -207,6 +211,7 @@ var dashboardApp = (function () {
 
   /* ---------- Smart Action Prescriptions ---------- */
   function renderPrescriptions(dueCards, allUnits, readMap, quiz) {
+    var totalTopicCount = allUnits.reduce(function (n, u) { return n + ((u.topics || []).length); }, 0);
     // 1. Spaced Repetition Mission
     var srsCard = '';
     if (dueCards > 0) {
@@ -249,7 +254,7 @@ var dashboardApp = (function () {
         '<div class="presc-card">' +
           '<div>' +
             '<span class="presc-badge presc-badge--success">' + app.icon("trophy") + ' Full Coverage</span>' +
-            '<h3 class="presc-title mt-2">All 145 Topics Read</h3>' +
+            '<h3 class="presc-title mt-2">All ' + totalTopicCount + ' Topics Read</h3>' +
             '<p class="presc-desc mt-1">You have explored every theory and practical topic in the syllabus!</p>' +
           '</div>' +
           '<a class="btn btn--outline presc-btn" href="#/theory">' + app.icon("repeat") + ' Review Lessons</a>' +
@@ -381,6 +386,14 @@ var dashboardApp = (function () {
 
   /* ---------- Unit Mastery Matrix Grid ---------- */
   function renderUnitMatrix(filter, allUnits, readMap, quiz) {
+    // How many distinct questions of each unit have ever been answered.
+    var srsMap = store.getSrs() || {};
+    var seenByUnit = {};
+    Object.keys(srsMap).forEach(function (k) {
+      var uid = k.split(":")[0];
+      seenByUnit[uid] = (seenByUnit[uid] || 0) + 1;
+    });
+
     var filtered = allUnits.filter(function (u) {
       var isTheory = u.id.indexOf("unit-") === 0;
       var isPrac = u.id.indexOf("prac-") === 0;
@@ -418,6 +431,8 @@ var dashboardApp = (function () {
         var qn = app.questionCount(u.id);
         var rec = quiz.byUnit && quiz.byUnit["unit:" + u.id];
         var bestScore = (rec && typeof rec.best === "number") ? rec.best : null;
+        var qSeen = Math.min(seenByUnit[u.id] || 0, qn);
+        var qCovPct = qn ? Math.round((qSeen / qn) * 100) : 0;
 
         return '<div class="unit-card-elite">' +
           '<div class="unit-card-top">' +
@@ -442,6 +457,17 @@ var dashboardApp = (function () {
                 '<div class="bar__fill" style="width:' + readP + '%;background:var(--ivri-blue)"></div>' +
               '</div>' +
             '</div>' +
+            (qn
+              ? '<div class="unit-bar-item mt-2">' +
+                  '<div class="unit-bar-label">' +
+                    '<span>Question Bank Covered</span>' +
+                    '<span class="mono">' + qSeen + '/' + qn + ' (' + qCovPct + '%)</span>' +
+                  '</div>' +
+                  '<div class="bar" style="height:6px">' +
+                    '<div class="bar__fill" style="width:' + qCovPct + '%;background:var(--ivri-amber)"></div>' +
+                  '</div>' +
+                '</div>'
+              : '') +
           '</div>' +
 
           '<div class="unit-card-actions">' +
@@ -600,7 +626,7 @@ var dashboardApp = (function () {
           '<h2>Sub-section Accuracy</h2>' +
           '<p class="muted small mt-1">Built from every quiz you have taken — weakest modules first.</p>' +
         '</div>' +
-        '<span class="chip">' + rows.length + ' tracked</span>' +
+        '<a class="small" href="#/quiz/analysis">Full analysis &rarr;</a>' +
       '</div>' +
       '<div class="stack">' +
         weakest.map(function (r) {
@@ -641,7 +667,7 @@ var dashboardApp = (function () {
           '<h3>Assessment Ledger</h3>' +
           '<p class="muted small mt-1">Recent quizzes and simulation exams.</p>' +
         '</div>' +
-        '<a class="small" href="#/quiz">All Quizzes &rarr;</a>' +
+        '<a class="small" href="#/quiz/analysis">Full analysis &rarr;</a>' +
       '</div>' +
 
       '<div class="tlist mt-4" style="border:none">' +
@@ -737,22 +763,25 @@ var dashboardApp = (function () {
 
   function findLowestScoringUnit(allUnits, quiz) {
     var minScore = 999;
-    var candidate = null;
+    var tested = null;
+    var untested = null;
 
     allUnits.forEach(function (u) {
-      if (u.id.indexOf("unit-") !== 0) return; // focus on theory units
+      if (u.id.indexOf("unit-") !== 0) return;              // focus on theory units
+      if (!app.questionCount(u.id)) return;                 // nothing to test yet
       var rec = quiz.byUnit && quiz.byUnit["unit:" + u.id];
       if (rec && typeof rec.best === "number") {
         if (rec.best < minScore) {
           minScore = rec.best;
-          candidate = { id: u.id, name: u.short || u.title, score: rec.best, hasScore: true };
+          tested = { id: u.id, name: u.short || u.title, score: rec.best, hasScore: true };
         }
-      } else if (!candidate) {
-        candidate = { id: u.id, name: u.short || u.title, score: 0, hasScore: false };
+      } else if (!untested) {
+        untested = { id: u.id, name: u.short || u.title, score: 0, hasScore: false };
       }
     });
 
-    return candidate || { id: "unit-1", name: "Bacteriology", score: 0, hasScore: false };
+    // A unit never tested is the bigger blind spot, so it comes first.
+    return untested || tested || { id: "unit-1", name: "Bacteriology", score: 0, hasScore: false };
   }
 
   /* ---------- Attach UI events ---------- */
