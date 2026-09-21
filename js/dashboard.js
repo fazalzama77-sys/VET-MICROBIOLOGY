@@ -15,6 +15,25 @@
 var dashboardApp = (function () {
 
   var activeFilter = "all";
+  var activeTab = "units";
+
+  var dashTabs = [
+    { id: "units",    icon: "📚", label: "Units" },
+    { id: "papers",   icon: "🎓", label: "Papers" },
+    { id: "weak",     icon: "🎯", label: "Weak areas" },
+    { id: "memory",   icon: "🧠", label: "Memory" },
+    { id: "activity", icon: "📈", label: "Activity" },
+    { id: "library",  icon: "📔", label: "Library" }
+  ];
+
+  function daysUntil(dateStr) {
+    if (!dateStr) return null;
+    var then = new Date(dateStr + "T00:00:00");
+    if (isNaN(then.getTime())) return null;
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return Math.round((then - today) / 86400000);
+  }
 
   function render(host) {
     if (!host) return;
@@ -116,11 +135,9 @@ var dashboardApp = (function () {
             '</div>' +
 
             '<div class="dash-cockpit-info">' +
-              '<span class="dash-eyebrow">' + app.icon("sparkle") + ' Clinical Learning Cockpit · ' + rank.stage + '</span>' +
-              '<h1 class="dash-title">Veterinary Microbiology Analytics</h1>' +
-              '<p class="dash-lede">' +
-                'Real-time exam readiness index, spaced retention health, and syllabus coverage across all five VCI Units.' +
-              '</p>' +
+              '<span class="dash-eyebrow">' + app.icon("sparkle") + ' ' + rank.stage + '</span>' +
+              '<h1 class="dash-title">Your progress</h1>' +
+              renderExamCountdown() +
 
               '<div class="dash-metrics-grid">' +
                 '<div class="dash-metric-card">' +
@@ -155,40 +172,51 @@ var dashboardApp = (function () {
           '</div>' +
         '</div>' +
 
-        /* 2. Next Best Action Prescriptions */
-        renderPrescriptions(dueCards, allUnits, readMap, quiz) +
+        /* 2. The short list of what to do right now */
+        renderNextActions(dueCards, allUnits, readMap, quiz) +
 
-        /* 3. Paper I vs Paper II Dual Examination Readiness */
-        renderPaperReadiness(syllabus, readMap, quiz) +
+        /* 3. Everything else lives behind tabs, so the page stays short */
+        '<section class="dash-tabs-section">' +
+          '<div class="dash-tabs" role="tablist">' +
+            dashTabs.map(function (t) {
+              return '<button class="dash-tab' + (activeTab === t.id ? ' is-active' : '') + '" role="tab" ' +
+                'aria-selected="' + (activeTab === t.id ? 'true' : 'false') + '" data-tab="' + t.id + '">' +
+                '<span class="dash-tab__icon">' + t.icon + '</span> ' + t.label +
+                (t.id === "memory" && dueCards ? ' <span class="dash-tab__dot">' + dueCards + '</span>' : '') +
+              '</button>';
+            }).join("") +
+          '</div>' +
 
-        /* 4. Interactive Unit Mastery Matrix */
-        '<section>' +
-          '<div class="row row--between mb-3">' +
-            '<div>' +
-              '<h2>Unit Mastery Matrix</h2>' +
-              '<p class="muted small mt-1">Reading progress, question bank volume, and high score per curriculum unit.</p>' +
+          '<div class="dash-panel" data-panel="units"' + (activeTab === "units" ? '' : ' hidden') + '>' +
+            renderMatrixFilters() +
+            '<div id="unit-matrix-container">' +
+              renderUnitMatrix(activeFilter, allUnits, readMap, quiz) +
             '</div>' +
           '</div>' +
-          renderMatrixFilters() +
-          '<div id="unit-matrix-container">' +
-            renderUnitMatrix(activeFilter, allUnits, readMap, quiz) +
+
+          '<div class="dash-panel" data-panel="papers"' + (activeTab === "papers" ? '' : ' hidden') + '>' +
+            renderPaperReadiness(syllabus, readMap, quiz) +
+          '</div>' +
+
+          '<div class="dash-panel" data-panel="weak"' + (activeTab === "weak" ? '' : ' hidden') + '>' +
+            renderWeakAreasCard(quiz) +
+          '</div>' +
+
+          '<div class="dash-panel" data-panel="memory"' + (activeTab === "memory" ? '' : ' hidden') + '>' +
+            renderLeitnerPipeline(srs, boxCounts, srsKeys.length, dueCards) +
+          '</div>' +
+
+          '<div class="dash-panel" data-panel="activity"' + (activeTab === "activity" ? '' : ' hidden') + '>' +
+            '<div class="grid grid--2">' +
+              renderHeatmapCard(activity, streak) +
+              renderRecentAttemptsCard(quiz) +
+            '</div>' +
+          '</div>' +
+
+          '<div class="dash-panel" data-panel="library"' + (activeTab === "library" ? '' : ' hidden') + '>' +
+            renderKnowledgeVault(totalHighlights, hlColorCounts, Object.keys(notes).length, bms.length, qaDone.length) +
           '</div>' +
         '</section>' +
-
-        /* 5. 5-Box Leitner Memory Pipeline */
-        renderLeitnerPipeline(srs, boxCounts, srsKeys.length, dueCards) +
-
-        /* 6. Weakest sub-sections from every quiz taken */
-        renderWeakAreasCard(quiz) +
-
-        /* 7. Activity Heatmap & Performance Trends */
-        '<div class="grid grid--2">' +
-          renderHeatmapCard(activity, streak) +
-          renderRecentAttemptsCard(quiz) +
-        '</div>' +
-
-        /* 7. Study Vault & Knowledge Artifacts */
-        renderKnowledgeVault(totalHighlights, hlColorCounts, Object.keys(notes).length, bms.length, qaDone.length) +
 
       '</div>';
 
@@ -209,7 +237,119 @@ var dashboardApp = (function () {
     return { title: "Microbiology Apprentice", stage: "Phase 1 · Foundations", icon: "book" };
   }
 
-  /* ---------- Smart Action Prescriptions ---------- */
+  /* ---------- Exam countdown ---------- */
+  function renderExamCountdown() {
+    var date = store.getExamDate ? store.getExamDate() : "";
+    var left = daysUntil(date);
+
+    if (left === null) {
+      return '<div class="dash-exam">' +
+        '<span class="dash-exam__lbl">📅 Set your exam date to see a countdown</span>' +
+        '<input type="date" id="examdateinput" class="dash-exam__input" aria-label="Exam date">' +
+      '</div>';
+    }
+
+    var msg = left > 1 ? '<b>' + left + ' days</b> until your exam'
+      : left === 1 ? '<b>Tomorrow</b> is your exam'
+      : left === 0 ? '<b>Today</b> is your exam — good luck!'
+      : 'Exam date has passed';
+    var weeks = left > 7 ? ' · about ' + Math.round(left / 7) + ' weeks' : '';
+
+    return '<div class="dash-exam' + (left >= 0 && left <= 14 ? ' is-near' : '') + '">' +
+      '<span class="dash-exam__lbl">⏳ ' + msg + weeks + '</span>' +
+      '<input type="date" id="examdateinput" class="dash-exam__input" value="' + app.esc(date) + '" aria-label="Exam date">' +
+      '<button class="btn btn--sm btn--ghost" id="examdateclear">Clear</button>' +
+    '</div>';
+  }
+
+  /* ---------- Do this next: the three highest-value actions ---------- */
+  function renderNextActions(dueCards, allUnits, readMap, quiz) {
+    var rows = [];
+
+    if (dueCards > 0) {
+      rows.push({
+        icon: "🔁", tone: "is-urgent",
+        title: dueCards + " question" + (dueCards === 1 ? "" : "s") + " due for review",
+        desc: "Spaced repetition keeps what you have already learnt from slipping away.",
+        cta: "Review now", href: "#/quiz/review"
+      });
+    }
+
+    var nextTopic = findNextUnreadTopic(allUnits, readMap);
+    if (nextTopic) {
+      rows.push({
+        icon: "📖", tone: "",
+        title: shorten(nextTopic.title, 46),
+        desc: nextTopic.unitTitle + " · next unread topic in the syllabus",
+        cta: "Read", href: "#/topic/" + nextTopic.id
+      });
+    }
+
+    // Weakest sub-section beats a whole unit — it is a sharper target.
+    var weakSub = weakestSubSection(quiz);
+    if (weakSub) {
+      rows.push({
+        icon: weakSub.icon, tone: "",
+        title: shorten(weakSub.title, 46) + " — " + weakSub.pct + "%",
+        desc: "Your weakest module so far (" + weakSub.right + " of " + weakSub.seen + " correct).",
+        cta: "Practise", href: weakSub.unitId ? "#/quiz/unit/" + weakSub.unitId : "#/quiz"
+      });
+    } else {
+      var weakUnit = findLowestScoringUnit(allUnits, quiz);
+      rows.push({
+        icon: "🎯", tone: "",
+        title: shorten(weakUnit.name, 46),
+        desc: weakUnit.hasScore
+          ? "Best score so far " + weakUnit.score + "% — a 10-question test will lift it."
+          : "Not tested yet — take a quick 10-question test.",
+        cta: "Test", href: "#/quiz/unit/" + weakUnit.id
+      });
+    }
+
+    return '<section class="dash-next">' +
+      '<div class="row row--between items-center mb-3">' +
+        '<h2>Do this next</h2>' +
+        '<a class="small" href="#/quiz/analysis">Full analysis &rarr;</a>' +
+      '</div>' +
+      '<div class="dash-next__list">' +
+        rows.slice(0, 3).map(function (r) {
+          return '<a class="dash-next__row ' + r.tone + '" href="' + r.href + '">' +
+            '<span class="dash-next__icon">' + r.icon + '</span>' +
+            '<span class="dash-next__body">' +
+              '<b>' + app.esc(r.title) + '</b>' +
+              '<span class="small muted block">' + app.esc(r.desc) + '</span>' +
+            '</span>' +
+            '<span class="btn btn--sm btn--primary dash-next__cta">' + r.cta + '</span>' +
+          '</a>';
+        }).join("") +
+      '</div>' +
+    '</section>';
+  }
+
+  // Weakest sub-section with enough answers behind it to be meaningful.
+  function weakestSubSection(quiz) {
+    var bySub = quiz.bySub || {};
+    var best = null;
+    Object.keys(bySub).forEach(function (id) {
+      var r = bySub[id];
+      if ((r.seen || 0) < 5) return;
+      var pct = Math.round((r.right / r.seen) * 100);
+      if (pct >= 75) return;                       // already solid
+      if (!best || pct < best.pct) {
+        var meta = (window.quizApp && quizApp.findSubSection) ? quizApp.findSubSection(id) : null;
+        var unitId = null;
+        var m = /^u(\d+)-s\d+$/.exec(id);
+        if (m) unitId = "unit-" + m[1];
+        best = {
+          id: id, pct: pct, seen: r.seen, right: r.right, unitId: unitId,
+          icon: meta ? meta.icon : "🎯", title: meta ? meta.title : id
+        };
+      }
+    });
+    return best;
+  }
+
+  /* ---------- Smart Action Prescriptions (kept for reference/reuse) ---------- */
   function renderPrescriptions(dueCards, allUnits, readMap, quiz) {
     var totalTopicCount = allUnits.reduce(function (n, u) { return n + ((u.topics || []).length); }, 0);
     // 1. Spaced Repetition Mission
@@ -786,6 +926,39 @@ var dashboardApp = (function () {
 
   /* ---------- Attach UI events ---------- */
   function attachDashboardEvents(host, allUnits, readMap, quiz) {
+    // Section tabs
+    var tabBtns = host.querySelectorAll(".dash-tab");
+    var panels = host.querySelectorAll(".dash-panel");
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activeTab = btn.getAttribute("data-tab") || "units";
+        tabBtns.forEach(function (b) {
+          var on = b.getAttribute("data-tab") === activeTab;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        panels.forEach(function (p) {
+          p.hidden = p.getAttribute("data-panel") !== activeTab;
+        });
+      });
+    });
+
+    // Exam date
+    var examInput = host.querySelector("#examdateinput");
+    if (examInput) {
+      examInput.addEventListener("change", function () {
+        store.setExamDate(examInput.value);
+        render(host);
+      });
+    }
+    var examClear = host.querySelector("#examdateclear");
+    if (examClear) {
+      examClear.addEventListener("click", function () {
+        store.setExamDate("");
+        render(host);
+      });
+    }
+
     var filterBtns = host.querySelectorAll(".matrix-tab-btn");
     var container = host.querySelector("#unit-matrix-container");
 

@@ -22,6 +22,7 @@ var store = (function () {
     hlColor:    PREFIX + "hl-color",    // "yellow" | "green" | "blue" | "pink" | "orange" | "purple"
     quiz:       PREFIX + "quiz",        // { attempts: [], byUnit: {}, bySub: {}, byTopic: {} }
     quizRun:    PREFIX + "quiz-run",    // an unfinished quiz, so it can be resumed after closing the app
+    examDate:   PREFIX + "exam-date",   // "YYYY-MM-DD" of the annual exam — powers the countdown
     srs:        PREFIX + "srs",         // { questionKey: {box, due, wrong} }
     activity:   PREFIX + "activity",    // { "YYYY-MM-DD": actionCount }
     visits:     PREFIX + "visits",      // number
@@ -239,6 +240,10 @@ var store = (function () {
     logActivity();
   }
 
+  /* ---------- exam date ---------- */
+  function getExamDate() { return read(KEYS.examDate, ""); }
+  function setExamDate(v) { return write(KEYS.examDate, v || ""); }
+
   /* ---------- an unfinished quiz, kept so it can be resumed ---------- */
   function getRunState() { return read(KEYS.quizRun, null); }
   function setRunState(state) { return write(KEYS.quizRun, state); }
@@ -429,6 +434,7 @@ var store = (function () {
     getHighlightColor: getHighlightColor, setHighlightColor: setHighlightColor, VALID_HL_COLORS: VALID_HL_COLORS,
     getQuiz: getQuiz, saveAttempt: saveAttempt,
     getRunState: getRunState, setRunState: setRunState, clearRunState: clearRunState,
+    getExamDate: getExamDate, setExamDate: setExamDate,
     getSrs: getSrs, gradeSrs: gradeSrs, dueSrs: dueSrs,
     getActivity: getActivity, logActivity: logActivity, computeStreak: computeStreak,
     bumpVisits: bumpVisits, getVisits: getVisits,
