@@ -705,8 +705,8 @@ theoryData["unit-1"] = {
     ]
   },
   "u1-t10": {
-    "summary": "Pathophysiology of bacteremia, septicaemia, pyaemia, toxaemia, comparative biochemistry of exotoxins vs endotoxins, and septic shock cascades.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> What is the difference between bacteria just floating in blood versus killing the animal? <b>Bacteremia</b> is just bacteria hitchhiking in the bloodstream. <b>Septicaemia</b> is when bacteria multiply in the blood, releasing massive toxins that cause high fever, bleeding, and shock. <b>Pyaemia</b> is when pus-forming bacteria travel through the blood to seed multiple abscesses in internal organs. Understanding <b>Exotoxins</b> (lethal biological poisons secreted by living bacteria) vs <b>Endotoxins</b> (cellular bomb fragments released when Gram-negative bacteria die) is essential for saving septic veterinary patients.</div><h4>1. Bloodstream Infection Terminology (Exam Distinctions)</h4><ul><li><b>Bacteremia:</b> The simple, transient presence of viable bacteria in the bloodstream without active multiplication or severe systemic signs (e.g., brief bacteremia after vigorous tooth scaling, castration, or dehorning).</li><li><b>Septicaemia:</b> Active invasion, survival, and rapid multiplication of virulent bacteria in circulating blood, accompanied by the release of toxins, profound systemic illness, high fever, widespread petechial hemorrhages, and collapse (e.g., <b>Haemorrhagic Septicaemia</b> in cattle/buffaloes caused by <i>Pasteurella multocida</i>).</li><li><b>Pyaemia:</b> A specific form of septicaemia where pyogenic (pus-forming) bacteria circulate in blood clots (septic emboli), lodge in capillary beds of distant organs, and produce multiple widespread, metastatic <b>abscesses</b> (e.g., <i>Trueperella pyogenes</i> causing pyaemic abscesses in liver, lungs, and joints).</li><li><b>Toxaemia:</b> The presence of circulating bacterial toxins in the blood, even when the bacteria themselves remain confined to a localized, isolated infection site (e.g., <b>Tetanus</b>, where <i>Clostridium tetani</i> stays inside a deep nail wound but secretes tetanospasmin that travels through the blood to the central nervous system).</li><li><b>Sapraemia:</b> Absorption of toxic breakdown products into the blood from massive dead, necrotic, putrefying tissues (e.g., gangrenous mastitis or retained decaying placenta in dairy cows).</li></ul><h4>2. Exotoxins vs Endotoxins (Standard 10-Mark Exam Table)</h4><p>This fundamental comparison appears on almost every veterinary microbiology examination:</p><ul><li><b>Exotoxins:</b> Soluble, highly potent proteins actively synthesized and secreted by living bacterial cells (predominantly Gram-positive, but also some Gram-negative). Highly specific in their cellular targets (neurotoxins, enterotoxins, cytotoxins). Heat-labile (destroyed at 60°C). Can be chemically neutralized with formaldehyde to produce <b>toxoids</b> (non-toxic antigens that induce protective antibodies for vaccines, e.g., Tetanus Toxoid).</li><li><b>Endotoxins:</b> The <b>Lipid A</b> component of the outer membrane Lipopolysaccharide (LPS) found exclusively in Gram-negative bacteria. Released only when the bacterial cell dies, disintegrates, or undergoes autolysis. Non-specific in action (triggers systemic fever, hypotension, and DIC). Highly heat-stable (survives standard autoclaving; requires 250°C for 30 minutes to depyrogenate). <b>Cannot be converted into toxoids!</b></li></ul><h4>3. Functional Categories of Exotoxins</h4><ul><li><b>1. A-B Subunit Toxins:</b> Two-part proteins. The <b>B subunit</b> (Binding) binds specific host cell surface receptors; the <b>A subunit</b> (Active enzymatic part) is injected into the cytoplasm to disrupt cellular machinery (e.g., *Clostridium tetani* tetanospasmin, *Clostridium botulinum* neurotoxin, *E. coli* heat-labile toxin).</li><li><b>2. Membrane-Disrupting Toxins:</b> Punch physical holes in host cell membranes or enzymatically dissolve membrane lipids (e.g., *Clostridium perfringens* alpha-toxin [lecithinase/phospholipase C]; *Staphylococcus aureus* alpha-hemolysin).</li><li><b>3. Superantigens:</b> Toxins that bypass normal antigen processing. They cross-link MHC Class II molecules directly to T-cell receptors (TCR) non-specifically, triggering uncontrolled activation of up to 20% of all host T-lymphocytes and unleashing a fatal 'cytokine storm' (e.g., *Staphylococcus aureus* enterotoxins).</li></ul>",
+    "summary": "Bacteremia, septicaemia, pyaemia, toxaemia, comparative exotoxins vs endotoxins, and veterinary disease dynamics: Enzootic, Epizootic, Panzootic, and Sporadic diseases.",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> What is the difference between bacteria just floating in blood versus killing the animal? <b>Bacteremia</b> is just bacteria hitchhiking in the bloodstream. <b>Septicaemia</b> is when bacteria multiply in the blood, releasing massive toxins that cause high fever, bleeding, and shock. <b>Pyaemia</b> is when pus-forming bacteria travel through the blood to seed multiple abscesses in internal organs. Understanding <b>Exotoxins</b> (lethal biological poisons secreted by living bacteria) vs <b>Endotoxins</b> (cellular bomb fragments released when Gram-negative bacteria die) is essential for saving septic veterinary patients.</div><h4>1. Bloodstream Infection Terminology (Exam Distinctions)</h4><ul><li><b>Bacteremia:</b> The simple, transient presence of viable bacteria in the bloodstream without active multiplication or severe systemic signs (e.g., brief bacteremia after vigorous tooth scaling, castration, or dehorning).</li><li><b>Septicaemia:</b> Active invasion, survival, and rapid multiplication of virulent bacteria in circulating blood, accompanied by the release of toxins, profound systemic illness, high fever, widespread petechial hemorrhages, and collapse (e.g., <b>Haemorrhagic Septicaemia</b> in cattle/buffaloes caused by <i>Pasteurella multocida</i>).</li><li><b>Pyaemia:</b> A specific form of septicaemia where pyogenic (pus-forming) bacteria circulate in blood clots (septic emboli), lodge in capillary beds of distant organs, and produce multiple widespread, metastatic <b>abscesses</b> (e.g., <i>Trueperella pyogenes</i> causing pyaemic abscesses in liver, lungs, and joints).</li><li><b>Toxaemia:</b> The presence of circulating bacterial toxins in the blood, even when the bacteria themselves remain confined to a localized, isolated infection site (e.g., <b>Tetanus</b>, where <i>Clostridium tetani</i> stays inside a deep nail wound but secretes tetanospasmin that travels through the blood to the central nervous system).</li><li><b>Sapraemia:</b> Absorption of toxic breakdown products into the blood from massive dead, necrotic, putrefying tissues (e.g., gangrenous mastitis or retained decaying placenta in dairy cows).</li></ul><h4>2. Exotoxins vs Endotoxins (Standard 10-Mark Exam Table)</h4><p>This fundamental comparison appears on almost every veterinary microbiology examination:</p><ul><li><b>Exotoxins:</b> Soluble, highly potent proteins actively synthesized and secreted by living bacterial cells (predominantly Gram-positive, but also some Gram-negative). Highly specific in their cellular targets (neurotoxins, enterotoxins, cytotoxins). Heat-labile (destroyed at 60°C). Can be chemically neutralized with formaldehyde to produce <b>toxoids</b> (non-toxic antigens that induce protective antibodies for vaccines, e.g., Tetanus Toxoid).</li><li><b>Endotoxins:</b> The <b>Lipid A</b> component of the outer membrane Lipopolysaccharide (LPS) found exclusively in Gram-negative bacteria. Released only when the bacterial cell dies, disintegrates, or undergoes autolysis. Non-specific in action (triggers systemic fever, hypotension, and DIC). Highly heat-stable (survives standard autoclaving; requires 250°C for 30 minutes to depyrogenate). <b>Cannot be converted into toxoids!</b></li></ul><h4>3. Functional Categories of Exotoxins</h4><ul><li><b>1. A-B Subunit Toxins:</b> Two-part proteins. The <b>B subunit</b> (Binding) binds specific host cell surface receptors; the <b>A subunit</b> (Active enzymatic part) is injected into the cytoplasm to disrupt cellular machinery (e.g., *Clostridium tetani* tetanospasmin, *Clostridium botulinum* neurotoxin, *E. coli* heat-labile toxin).</li><li><b>2. Membrane-Disrupting Toxins:</b> Punch physical holes in host cell membranes or enzymatically dissolve membrane lipids (e.g., *Clostridium perfringens* alpha-toxin [lecithinase/phospholipase C]; *Staphylococcus aureus* alpha-hemolysin).</li><li><b>3. Superantigens:</b> Toxins that bypass normal antigen processing. They cross-link MHC Class II molecules directly to T-cell receptors (TCR) non-specifically, triggering uncontrolled activation of up to 20% of all host T-lymphocytes and unleashing a fatal 'cytokine storm' (e.g., *Staphylococcus aureus* enterotoxins).</li></ul><h4>4. Veterinary Disease Dynamics: Epizootic vs Enzootic (Exam Favorite)</h4><p>In veterinary epidemiology and infectious disease control, animal disease occurrences are categorized according to their population frequency, temporal distribution, and geographic spread:</p><ul><li><b>Enzootic (Veterinary Equivalent of Endemic):</b> A disease that is constantly present at a regular, baseline, predictable level within a given animal population or geographic region (e.g., <i>Clostridium chauvoei</i> / Blackleg in endemic pasture tracts, Bovine Paratuberculosis / Johne's Disease in dairy herds, Anthrax in recognized 'anthrax belts'). The host population maintains a steady equilibrium between pathogen exposure and herd immunity.</li><li><b>Epizootic (Veterinary Equivalent of Epidemic):</b> A sudden, sharp, explosive outbreak of disease affecting a disproportionately large number of animals simultaneously over a defined region, far exceeding the expected normal baseline (e.g., an acute outbreak of Foot-and-Mouth Disease, Classical Swine Fever, or Haemorrhagic Septicaemia in an immunologically naive cattle herd). Usually triggered by the introduction of a new virulent strain, sudden climatic stress, or breakdown in biosecurity/vaccination.</li><li><b>Panzootic (Veterinary Equivalent of Pandemic):</b> An epizootic that explodes across national borders, sweeping through multiple countries, continents, or the entire globe (e.g., Highly Pathogenic Avian Influenza H5N1, African Swine Fever spreading across Eurasia, Bovine Spongiform Encephalopathy in the 1990s, and historically Rinderpest).</li><li><b>Sporadic:</b> Occasional, isolated, solitary cases occurring irregularly and unpredictably in time and space, without establishing secondary transmission chains (e.g., individual cases of <i>Clostridium tetani</i> / Tetanus resulting from deep contaminated puncture wounds, or sporadic bacterial pyelonephritis).</li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Pathophysiological Cascade of Endotoxic Shock:</b></p><ol><li><b>LPS Release:</b> Massive Gram-negative bacterial death releases free <b>Lipid A</b> into systemic circulation.</li><li><b>Receptor Trigger:</b> Lipid A binds plasma LBP, engaging <b>TLR-4/MD-2</b> complexes on macrophages and endothelial cells.</li><li><b>Cytokine Surge:</b> Triggers intense synthesis of <b>TNF-&alpha;, IL-1, IL-6, and PAF</b>.</li><li><b>Hemodynamic Collapse:</b> Nitric oxide (iNOS) induces profound vascular smooth muscle relaxation $\\rightarrow$ extreme vasodilation, systemic drop in vascular resistance, and intractable hypotension.</li><li><b>Capillary Leakage:</b> Endothelial retraction causes fluid loss into tissues, hypovolemia, hemoconcentration, and pulmonary edema.</li><li><b>Disseminated Intravascular Coagulation (DIC):</b> Tissue Factor expression activates extrinsic coagulation, forming microthrombi throughout capillary beds, consuming platelets and fibrinogen, culminating in widespread petechial hemorrhages, multi-organ failure, and death.</li></ol>",
     "keyPoints": [
       "Bacteremia is transient bacterial presence in blood without active replication.",
@@ -720,7 +720,9 @@ theoryData["unit-1"] = {
       "A-B toxins: B subunit mediates receptor binding; A subunit delivers enzymatic intracellular toxicity.",
       "Membrane-disrupting toxins include lecithinase (C. perfringens alpha-toxin) and pore-forming hemolysins.",
       "Superantigens cross-link MHC-II and T-cell receptors non-specifically, triggering massive cytokine storms.",
-      "Endotoxic shock pathophysiology: Lipid A -> TLR4 -> TNF-alpha/IL-1 -> Nitric Oxide -> Vasodilation + DIC."
+      "Endotoxic shock pathophysiology: Lipid A -> TLR4 -> TNF-alpha/IL-1 -> Nitric Oxide -> Vasodilation + DIC.",
+      "Enzootic diseases persist at constant baseline in animal herds (e.g. Blackleg); Epizootic diseases are explosive outbreaks (e.g. FMD).",
+      "Panzootic is a continent-spanning epizootic (e.g. HPAI H5N1); Sporadic diseases occur as isolated, unlinked cases (e.g. Tetanus)."
     ],
     "clinical": "In acute bovine Haemorrhagic Septicaemia (HS), death often occurs in less than 12–24 hours from severe endotoxemia and submandibular edema. If you suspect septicaemia, never delay antimicrobial therapy while waiting for culture results. Immediately administer intravenous broad-spectrum bactericidal antibiotics (like oxytetracycline or ceftiofur) alongside a non-steroidal anti-inflammatory drug (flunixin meglumine) to neutralize circulating inflammatory cytokines and prevent fatal shock.",
     "tables": [
@@ -792,7 +794,11 @@ theoryData["unit-1"] = {
       "endotoxins",
       "lipid-a",
       "septic-shock",
-      "unit-1"
+      "unit-1",
+      "epizootic",
+      "enzootic",
+      "panzootic",
+      "epidemiology"
     ]
   },
   "u1-t11": {
@@ -1498,8 +1504,8 @@ theoryData["unit-1"] = {
     ]
   },
   "u1-t20": {
-    "summary": "Actinomyces bovis (Lumpy Jaw), Nocardia asteroides (partially acid-fast mastitis), and Dermatophilus congolensis (paintbrush crusts / rain rot).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> These are the 'fungus-like' bacteria (actinomycetes). They look and branch like fungal hyphae under the microscope, but they are true prokaryotic bacteria! In cattle, <b><i>Actinomyces bovis</i></b> invades the jawbone causing <b>'Lumpy Jaw'</b> (a rock-hard, swollen, honeycombed bone filled with yellow 'sulfur granules'). <b><i>Nocardia</i></b> is a soil bug that causes chronic mastitis and is partially acid-fast. <b><i>Dermatophilus congolensis</i></b> causes <b>'Rain Rot'</b> in horses and sheep during wet rainy seasons, creating matted scabs that pull off like paintbrushes.</div><h4>1. General Overview of Filamentous Bacteria</h4><ul><li>Gram-positive bacteria that grow as slender, branching, tangled mycelial filaments (0.5–1.0 &mu;m diameter) that fragment into rod-like and coccoid elements.</li><li>They are true eubacteria: possess 70S ribosomes, peptidoglycan walls with muramic acid, and are susceptible to antibacterial antibiotics (penicillin, tetracyclines), but completely resistant to antifungal drugs.</li></ul><h4>2. Actinomyces bovis (Bovine Lumpy Jaw)</h4><ul><li><b>Morphology:</b> Gram-positive, non-acid-fast, non-motile, facultatively anaerobic or microaerophilic branching filaments. Commensal of the bovine oral cavity and dental plaques.</li><li><b>Pathogenesis:</b> Sharp rough feed, foreign bodies (sharp awns, wire), or erupting teeth breach the oral mucosa $\\rightarrow$ bacteria penetrate directly into the mandible or maxilla $\\rightarrow$ causes chronic, progressive <b>rarefying osteomyelitis of the jaw (Lumpy Jaw)</b>.</li><li><b>Lesions:</b> The jawbone becomes permanently enlarged, distorted, and honeycombed with multiple sinus tracts that discharge thick, sticky, yellowish pus containing macroscopic <b>'Sulfur Granules'</b> (yellow-white sand-like granules).</li><li><b>Microscopy of Sulfur Granules:</b> Crush a granule between two glass slides and Gram-stain: displays a central mass of tangled Gram-positive branching filaments surrounded by a radiating peripheral crown of club-shaped, eosinophilic calcium-protein complexes (Splendore-Hoeppli phenomenon).</li></ul><h4>3. Nocardia asteroides (Nocardiosis)</h4><ul><li><b>Morphology:</b> Strictly aerobic, beaded, branching Gram-positive filaments. Ubiquitous soil saprophytes.</li><li><b>Acid-Fast Status (Exam Favorite):</b> <b>Partially (weakly) acid-fast</b>. Unlike *Mycobacterium* (which resists 3% acid-alcohol), *Nocardia* resists decolorization only with <b>weak 1% sulfuric acid ($H_2SO_4$)</b>, staining bright red beaded filaments against blue background.</li><li><b>Veterinary Diseases:</b><ul><li><b>Bovine Mastitis:</b> Severe, intractable suppurative mastitis with multiple hard fibrous nodules, draining sinuses, and greyish-white microcolonies in milk; refractory to all standard intramammary antibiotics.</li><li><b>Canine Nocardiosis:</b> Pyothorax (tomato-soup-like exudate in pleural cavity) and chronic draining cutaneous abscesses.</li></ul></li></ul><h4>4. Dermatophilus congolensis (Rain Rot / Streptothricosis)</h4><ul><li><b>Morphology & Unique Life Cycle:</b> Strictly aerobic Gram-positive bacterium exhibiting a fascinating dimorphic life cycle:<ul><li>Forms branching filaments that undergo both transverse and longitudinal division, producing distinctive multi-cellular filaments arranged in parallel rows like <b>railroad tracks</b>.</li><li>These divide into motile, flagellated <b>zoospores</b> that swim in moisture to infect new hair follicles.</li></ul></li><li><b>Veterinary Disease (Rain Scald / Rain Rot / Cutaneous Streptothricosis):</b><ul><li>Triggered by prolonged heavy rains, wet fleece, and tick bites that break the skin's natural lipid barrier.</li><li>Causes exudative dermatitis with thick, hard, elevated scab crusts matting the hair/wool together. When scabs are pulled off, they reveal an erect tuft of hairs with moist, raw bleeding skin beneath—pathognomonically termed <b>'Paintbrush Crusts'</b>.</li><li>In sheep, called <b>Lumpy Wool</b> (scabs in fleece) and <b>Strawberry Foot Rot</b> (proliferative dermatitis around coronet and pastern).</li></ul></li></ul>",
+    "summary": "Actinomyces bovis (Lumpy Jaw), Nocardia asteroides (partially acid-fast mastitis), Dermatophilus congolensis (paintbrush crusts / rain rot), and Streptomyces (antibiotic biosynthesis, geosmin).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> These are the 'fungus-like' bacteria (actinomycetes). They look and branch like fungal hyphae under the microscope, but they are true prokaryotic bacteria! In cattle, <b><i>Actinomyces bovis</i></b> invades the jawbone causing <b>'Lumpy Jaw'</b> (a rock-hard, swollen, honeycombed bone filled with yellow 'sulfur granules'). <b><i>Nocardia</i></b> is a soil bug that causes chronic mastitis and is partially acid-fast. <b><i>Dermatophilus congolensis</i></b> causes <b>'Rain Rot'</b> in horses and sheep during wet rainy seasons, creating matted scabs that pull off like paintbrushes.</div><h4>1. General Overview of Filamentous Bacteria</h4><ul><li>Gram-positive bacteria that grow as slender, branching, tangled mycelial filaments (0.5–1.0 &mu;m diameter) that fragment into rod-like and coccoid elements.</li><li>They are true eubacteria: possess 70S ribosomes, peptidoglycan walls with muramic acid, and are susceptible to antibacterial antibiotics (penicillin, tetracyclines), but completely resistant to antifungal drugs.</li></ul><h4>2. Actinomyces bovis (Bovine Lumpy Jaw)</h4><ul><li><b>Morphology:</b> Gram-positive, non-acid-fast, non-motile, facultatively anaerobic or microaerophilic branching filaments. Commensal of the bovine oral cavity and dental plaques.</li><li><b>Pathogenesis:</b> Sharp rough feed, foreign bodies (sharp awns, wire), or erupting teeth breach the oral mucosa $\\rightarrow$ bacteria penetrate directly into the mandible or maxilla $\\rightarrow$ causes chronic, progressive <b>rarefying osteomyelitis of the jaw (Lumpy Jaw)</b>.</li><li><b>Lesions:</b> The jawbone becomes permanently enlarged, distorted, and honeycombed with multiple sinus tracts that discharge thick, sticky, yellowish pus containing macroscopic <b>'Sulfur Granules'</b> (yellow-white sand-like granules).</li><li><b>Microscopy of Sulfur Granules:</b> Crush a granule between two glass slides and Gram-stain: displays a central mass of tangled Gram-positive branching filaments surrounded by a radiating peripheral crown of club-shaped, eosinophilic calcium-protein complexes (Splendore-Hoeppli phenomenon).</li></ul><h4>3. Nocardia asteroides (Nocardiosis)</h4><ul><li><b>Morphology:</b> Strictly aerobic, beaded, branching Gram-positive filaments. Ubiquitous soil saprophytes.</li><li><b>Acid-Fast Status (Exam Favorite):</b> <b>Partially (weakly) acid-fast</b>. Unlike *Mycobacterium* (which resists 3% acid-alcohol), *Nocardia* resists decolorization only with <b>weak 1% sulfuric acid ($H_2SO_4$)</b>, staining bright red beaded filaments against blue background.</li><li><b>Veterinary Diseases:</b><ul><li><b>Bovine Mastitis:</b> Severe, intractable suppurative mastitis with multiple hard fibrous nodules, draining sinuses, and greyish-white microcolonies in milk; refractory to all standard intramammary antibiotics.</li><li><b>Canine Nocardiosis:</b> Pyothorax (tomato-soup-like exudate in pleural cavity) and chronic draining cutaneous abscesses.</li></ul></li></ul><h4>4. Dermatophilus congolensis (Rain Rot / Streptothricosis)</h4><ul><li><b>Morphology & Unique Life Cycle:</b> Strictly aerobic Gram-positive bacterium exhibiting a fascinating dimorphic life cycle:<ul><li>Forms branching filaments that undergo both transverse and longitudinal division, producing distinctive multi-cellular filaments arranged in parallel rows like <b>railroad tracks</b>.</li><li>These divide into motile, flagellated <b>zoospores</b> that swim in moisture to infect new hair follicles.</li></ul></li><li><b>Veterinary Disease (Rain Scald / Rain Rot / Cutaneous Streptothricosis):</b><ul><li>Triggered by prolonged heavy rains, wet fleece, and tick bites that break the skin's natural lipid barrier.</li><li>Causes exudative dermatitis with thick, hard, elevated scab crusts matting the hair/wool together. When scabs are pulled off, they reveal an erect tuft of hairs with moist, raw bleeding skin beneath—pathognomonically termed <b>'Paintbrush Crusts'</b>.</li><li>In sheep, called <b>Lumpy Wool</b> (scabs in fleece) and <b>Strawberry Foot Rot</b> (proliferative dermatitis around coronet and pastern).</li></ul></li></ul><h4>4. Genus Streptomyces (Industrial & Veterinary Significance)</h4><ul><li><b>Morphology & Characteristics:</b> Gram-positive, strictly aerobic, slow-growing filamentous actinomycetes that produce extensive, highly branched substrate and aerial mycelia. They reproduce by forming long, straight or helical <b>chains of non-motile conidiospores (arthrospores)</b> at the tips of aerial hyphae.</li><li><b>Cultural Appearance & Odor:</b> On nutrient agar, they form small, hard, leathery, rough colonies that later become powdery or chalky white/gray as aerial spores mature. They produce a characteristic <b>earthy, freshly-plowed soil odor</b> caused by the secretion of the volatile bicyclic compound <b>geosmin</b>.</li><li><b>Industrial Importance (>70% of Natural Antibiotics):</b> While primarily non-pathogenic soil saprophytes playing an essential role in organic matter decomposition, <i>Streptomyces</i> is the undisputed champion of commercial veterinary and medical antibiotic discovery:<ul><li><b><i>Streptomyces griseus:</i></b> Produces <b>Streptomycin</b> (first aminoglycoside discovered by Selman Waksman, Nobel Prize 1952).</li><li><b><i>Streptomyces aureofaciens:</i></b> Produces <b>Chlortetracycline</b> (first tetracycline).</li><li><b><i>Streptomyces venezuelae:</i></b> Produces <b>Chloramphenicol</b>.</li><li><b><i>Streptomyces erythreus:</i></b> Produces <b>Erythromycin</b> (macrolide).</li><li><b><i>Streptomyces avidinii:</i></b> Produces <b>Streptavidin</b>, an essential reagent used in diagnostic ELISA, Western blotting, and biotinylated DNA probes.</li></ul></li><li><b>Veterinary Pathology:</b> Rare causes of chronic granulomatous infections: <i>Streptomyces somaliensis</i> causes actinomycetoma (Madura foot) in humans and animals, and <i>Streptomyces scabies</i> causes common scab in root crops.</li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Differential Diagnosis: Actinomycosis vs Actinobacillosis:</b></p><ul><li><b>Actinomycosis (<i>Actinomyces bovis</i>):</b> Rock-hard bony enlargement of the mandible/maxilla (Lumpy Jaw). Pus contains yellow <b>sulfur granules</b>. Crushed smear reveals <b>Gram-positive branching filaments</b> with non-acid-fast clubs. Requires high-dose penicillin and sodium iodide.</li><li><b>Actinobacillosis (<i>Actinobacillus lignieresii</i>):</b> Hard, swollen, immobile soft tissue of the tongue (<b>Wooden Tongue</b>) and lymph nodes, without primary bone involvement. Pus also contains small sulfur granules, but crushed smears reveal <b>Gram-negative tiny pleomorphic coccobacilli</b>. Susceptible to streptomycin, tetracyclines, and sodium iodide.</li></ul>",
     "keyPoints": [
       "Actinomycetes are Gram-positive branching filamentous bacteria, structurally related to corynebacteria.",
@@ -1513,7 +1519,9 @@ theoryData["unit-1"] = {
       "Rain Rot (Rain Scald) features thick scabs matting hair into pathognomonic 'paintbrush crusts'.",
       "In sheep, Dermatophilus causes 'Lumpy Wool' and 'Strawberry Foot Rot' during prolonged wet monsoons.",
       "Actinomycosis affects bony tissue (Gram-pos filaments); Actinobacillosis affects soft tongue tissue (Gram-neg rods).",
-      "Treatment of actinomycosis and actinobacillosis relies on intravenous sodium iodide and prolonged antibiotics."
+      "Treatment of actinomycosis and actinobacillosis relies on intravenous sodium iodide and prolonged antibiotics.",
+      "Streptomyces forms branched aerial mycelia with chains of non-motile conidia and produces the characteristic earthy soil odor (geosmin).",
+      "Streptomyces is the source of >70% of natural antibiotics including streptomycin (S. griseus) and tetracyclines (S. aureofaciens)."
     ],
     "clinical": "To treat Dermatophilus congolensis ('Rain Rot') in horses or cattle during the monsoon season, move the animals into a dry, well-ventilated barn immediately. The motile zoospores require standing moisture to germinate and infect adjacent skin. Once the skin dries, grooming the animal to remove matted paintbrush crusts and spraying with 1% potassium aluminum sulfate (alum) or chlorhexidine rapidly clears the infection without expensive systemic drugs.",
     "tables": [
@@ -1572,435 +1580,288 @@ theoryData["unit-1"] = {
       "dermatophilus",
       "rain-rot",
       "sulfur-granules",
-      "unit-1"
+      "unit-1",
+      "streptomyces",
+      "geosmin",
+      "antibiotics"
     ]
   },
   "u1-t21": {
-    "summary": "General characteristics, MacConkey lactose fermentation, IMViC tests, TSI reactions, and diagnostic differentiation of the family Enterobacteriaceae.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Enterobacteriaceae</i> is the massive family of 'gut bacteria'. They are Gram-negative, rod-shaped bacteria living inside the intestines of animals and birds. In the lab, veterinarians use three classic workhorse tests to identify them: (1) <b>Oxidase test</b> (all Enterobacteriaceae are Oxidase negative!); (2) <b>MacConkey agar</b> (splits them into pink Lactose Fermenters like <i>E. coli</i> vs pale Non-Lactose Fermenters like <i>Salmonella</i>); and (3) <b>IMViC tests</b> (a 4-test biochemical barcode that tells <i>E. coli</i> from <i>Klebsiella</i>).</div><h4>1. General Family Characteristics (Exam Checklist)</h4><ul><li><b>Gram Reaction & Shape:</b> Straight, Gram-negative rods (0.5–1.0 &times; 2–4 &mu;m) with rounded ends.</li><li><b>Motility:</b> Motile with <b>peritrichous flagella</b> (distributed all over the cell), except <i>Klebsiella</i> and <i>Shigella</i>, which are strictly non-motile.</li><li><b>Oxygen Requirement:</b> Facultative anaerobes; grow readily on plain nutrient agar at 37°C.</li><li><b>The Golden Triad of Family Biochemical Reactions:</b><ol><li><b>Oxidase Test:</b> <b>Negative (-)</b>. (Instantly differentiates Enterobacteriaceae from *Pseudomonas*, *Pasteurella*, and *Vibrio*, which are Oxidase positive!).</li><li><b>Catalase Test:</b> <b>Positive (+)</b> (except *Shigella dysenteriae* type 1).</li><li><b>Glucose Fermentation:</b> Ferment glucose with or without gas ($CO_2 + H_2$).</li><li><b>Nitrate Reduction:</b> Reduce nitrates to nitrites ($NO_3^- \\rightarrow NO_2^-$).</li></ol></li></ul><h4>2. MacConkey Agar (Lactose Fermentation)</h4><p>The #1 selective and differential agar used in veterinary diagnostic laboratories worldwide:</p><ul><li><b>Selective Agents:</b> Bile salts and crystal violet inhibit the growth of Gram-positive bacteria.</li><li><b>Differential System:</b> Contains <b>Lactose</b> and the pH indicator <b>Neutral Red</b> (red below pH 6.8; colorless/pale above pH 6.8).</li><li><b>Lactose Fermenters (LF - Coliforms):</b> Ferment lactose into lactic acid, dropping agar pH. Colonies turn <b>bright pink/magenta</b>, often surrounded by a hazy zone of precipitated bile salts (e.g., <b><i>Escherichia coli</i></b>, <b><i>Klebsiella pneumoniae</i></b>, <i>Enterobacter</i>).</li><li><b>Non-Lactose Fermenters (NLF):</b> Cannot ferment lactose; utilize peptones, releasing alkaline ammonia, raising pH. Colonies appear <b>pale, colorless, or translucent</b> (e.g., <b><i>Salmonella</i></b>, <b><i>Proteus</i></b>, <b><i>Yersinia</i></b>, <i>Shigella</i>).</li></ul><h4>3. The IMViC Biochemical Battery (The Topper's Barcode)</h4><p>Four tests used together to identify coliform genera:</p><ol><li><b>I = Indole Test:</b> Tests for tryptophanase enzyme, which breaks down tryptophan into indole. Add Kovac's reagent; a <b>bright cherry-red ring</b> at the top is positive (+).</li><li><b>M = Methyl Red (MR) Test:</b> Tests for mixed acid fermentation. Inoculate glucose broth; add methyl red indicator. Persistent <b>bright red color</b> indicates pH $<4.4$ (positive +).</li><li><b>Vi = Voges-Proskauer (VP) Test:</b> Tests for the butylene glycol pathway, which produces the neutral end-product <b>acetoin</b>. Add Barritt's reagents A (&alpha;-naphthol) and B (40% KOH); development of a <b>crimson/pink ring</b> is positive (+).</li><li><b>C = Citrate Utilization Test:</b> Tests if the bacterium can use sodium citrate as its sole carbon source on Simmons Citrate Agar. Agar turns from <b>forest green to deep Prussian blue</b> (positive +).</li></ol><p><b>Exam Golden Formula:</b><ul><li><b><i>Escherichia coli:</i></b> <b>+ + - -</b> (Indole +, MR +, VP -, Citrate -)</li><li><b><i>Klebsiella pneumoniae:</i></b> <b>- - + +</b> (Indole -, MR -, VP +, Citrate +)</li></ul></p><h4>4. Triple Sugar Iron (TSI) Agar Reactions</h4><ul><li>Contains 0.1% Glucose, 1.0% Lactose, 1.0% Sucrose, Ferrous Sulfate ($H_2S$ indicator), and Phenol Red.</li><li><b>Slant / Butt Interpretation:</b><ul><li><b>Alkaline / Acid (Red / Yellow, K/A):</b> Only glucose fermented (e.g., <i>Salmonella</i>, <i>Shigella</i>).</li><li><b>Acid / Acid (Yellow / Yellow, A/A):</b> Glucose + Lactose and/or Sucrose fermented (e.g., <i>E. coli</i>, <i>Klebsiella</i>).</li><li><b>Blackening in Butt:</b> Hydrogen sulfide ($H_2S$) production (e.g., <i>Salmonella</i>, <i>Proteus</i>).</li><li><b>Cracks / Bubbles:</b> Gas production ($CO_2 + H_2$) from sugar fermentation.</li></ul></li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Antigenic Structure of Enterobacteriaceae (The Kauffmann-White Scheme):</b> Pathogenic serotypes are designated using three major structural surface antigens:</p><ul><li><b>O-Antigen (Somatic Antigens):</b> The repeating polysaccharide side-chains of outer membrane Lipopolysaccharide (LPS). Heat-stable; resists boiling at 100°C for 2.5 hours.</li><li><b>K-Antigen (Capsular Antigens):</b> Acidic polysaccharide surface capsule (or proteinaceous fimbrial antigens, such as K99/F5 in ETEC). Heat-labile. Masks the underlying O-antigen from agglutination; boiling the bacterial suspension for 30 minutes strips the K-capsule, exposing the O-antigen for diagnostic serotyping.</li><li><b>H-Antigen (Flagellar Antigens):</b> The protein flagellin. Heat-labile and alcohol-labile (destroyed at 60°C). Diphasic in <i>Salmonella</i> (Phase 1 specific vs Phase 2 non-specific).</li></ul>",
+    "summary": "General characteristics of Enterobacteriaceae (MacConkey, IMViC, TSI), Escherichia coli pathotypes (ETEC calf scours, EPEC, EHEC/STEC pig edema disease, ExPEC / APEC, coliform mastitis, EMB green sheen), and Klebsiella pneumoniae (mucoid capsule, string test, mare endometritis).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Enterobacteriaceae</i> is the massive family of 'coliform and enteric gut bacteria'. They are Gram-negative, facultatively anaerobic rods living in animal intestines. In diagnostic labs, they are recognized by the Golden Triad: <b>Oxidase-negative</b>, Catalase-positive, and ferment glucose. On MacConkey agar, <b><i>Escherichia coli</i></b> and <b><i>Klebsiella pneumoniae</i></b> produce bright pink Lactose-Fermenting (LF) colonies. <i>E. coli</i> is distinguished by its IMViC barcode (<b>+ + - -</b>) and metallic green sheen on EMB agar, causing fatal neonatal calf scours (ETEC) and pig edema disease (STEC). <i>Klebsiella pneumoniae</i> is non-motile, forms giant slimy mucoid colonies with a positive string test (IMViC <b>- - + +</b>), and causes toxic coliform mastitis in dairy cows and metritis in mares.</div><h4>1. General Family Characteristics & Diagnostic Triad</h4><ul><li><b>Morphology:</b> Gram-negative, straight rods (0.5–1.0 &times; 2–4 &mu;m) with rounded ends. Peritrichous flagella provide motility in most genera (<b>crucial exception:</b> <i>Klebsiella</i> and <i>Shigella</i> are strictly non-motile).</li><li><b>Cultural & Biochemical Hallmark (The Golden Triad):</b><ol><li><b>Oxidase Test:</b> <b>Negative (-)</b>. (Instantly separates <i>Enterobacteriaceae</i> from <i>Pseudomonas</i>, <i>Pasteurella</i>, and <i>Vibrio</i>, which are Oxidase positive!).</li><li><b>Catalase Test:</b> Positive (+) and reduce nitrates to nitrites ($NO_3^- \\rightarrow NO_2^-$).</li><li><b>Glucose Fermentation:</b> All members ferment glucose with acid and gas ($CO_2 + H_2$), except <i>Shigella</i> and <i>Salmonella</i> Typhi which are anaerogenic.</li></ol></li><li><b>MacConkey Agar Differentiation:</b> Contains bile salts, crystal violet, lactose, and neutral red indicator. <b>Lactose Fermenters (LF):</b> <i>E. coli</i>, <i>Klebsiella</i>, and <i>Enterobacter</i> ferment lactose $\\rightarrow$ lactic acid drops pH below 6.8 $\\rightarrow$ colonies absorb neutral red to appear <b>bright pink / magenta</b>. Non-Lactose Fermenters (NLF: <i>Salmonella</i>, <i>Proteus</i>, <i>Yersinia</i>) appear pale and colorless.</li><li><b>IMViC Biochemical Barcode:</b> Four standard tests that decisively identify enteric coliforms:<ol><li><b>Indole (I):</b> Tryptophanase breaks down tryptophan $\\rightarrow$ Kovac's reagent forms a <b>cherry-red ring</b> (+).</li><li><b>Methyl Red (M):</b> Mixed acid fermentation maintains broth pH &lt; 4.4 $\\rightarrow$ persistent <b>bright red</b> (+).</li><li><b>Voges-Proskauer (Vi):</b> Acetoin production in butylene glycol pathway $\\rightarrow$ Barritt's A+B reagents form a <b>crimson ring</b> (+).</li><li><b>Citrate (C):</b> Simmons citrate utilization as sole carbon source $\\rightarrow$ bromothymol blue turns <b>Prussian blue</b> (+).</li></ol><p><b>The Golden Diagnostic Formula:</b><br>&bull; <i>Escherichia coli:</i> <b>+ + - -</b> (Indole +, MR +, VP -, Citrate -)<br>&bull; <i>Klebsiella pneumoniae:</i> <b>- - + +</b> (Indole -, MR -, VP +, Citrate +)</p></li></ul><h4>2. Escherichia coli: Morphology, Cultural Traits & Antigens</h4><ul><li><b>Eosin Methylene Blue (EMB) Agar:</b> Highly characteristic diagnostic medium. Vigorous lactose and sucrose fermentation drops local pH, precipitating eosin and methylene blue dyes onto colonies to produce a pathognomonic <b>rapid green metallic sheen</b>.</li><li><b>Antigenic Structure (The Kauffmann Serotyping System):</b><ul><li><b>O-Antigen (Somatic):</b> Outer polysaccharide side-chains of Lipopolysaccharide (LPS). Heat-stable; withstands boiling at 100°C for 2.5 hours (&gt;180 O-serogroups).</li><li><b>H-Antigen (Flagellar):</b> Flagellin protein. Heat-labile (&gt;50 H-types).</li><li><b>K-Antigen (Capsular):</b> Acidic polysaccharide capsule (or proteinaceous fimbriae like K88, K99). Masks the underlying O-antigen; must be boiled for 30 minutes to expose O-antigen for agglutination serotyping.</li><li><b>F-Antigen (Fimbrial Adhesins):</b> Proteinaceous hair-like pili that mediate specific attachment to enterocyte microvilli.</li></ul></li></ul><h4>3. Major Veterinary E. coli Pathotypes (Exam Classification)</h4><ul><li><b>1. Enterotoxigenic E. coli (ETEC / Neonatal Scours):</b><ul><li>#1 bacterial killer of newborn livestock (calves, lambs, and piglets under 4 days of age).</li><li><b>Fimbrial Adhesins:</b> <b>K99 (F5)</b> in calves and lambs; <b>K88 (F4)</b>, <b>987P (F6)</b>, and <b>F41</b> in piglets. Adhere specifically to glycoprotein receptors on enterocytes of the distal jejunum and ileum.</li><li><b>Enterotoxins:</b> Produces heat-labile toxin (<b>LT</b>: stimulates adenylate cyclase $\\rightarrow$ high cAMP) and/or heat-stable toxin (<b>STa / STb</b>: stimulates guanylate cyclase $\\rightarrow$ high cGMP). Both toxins open cystic fibrosis transmembrane conductance regulator (CFTR) chloride channels, pumping massive amounts of $Cl^-$, $HCO_3^-$, $Na^+$, and water into the gut lumen. Causes profuse, watery, non-fetid <b>white or yellowish scours</b> with rapid dehydration, severe acidosis, and death without intestinal mucosal damage.</li></ul></li><li><b>2. Shiga-Toxin-Producing E. coli (STEC / EHEC / Pig Edema Disease):</b><ul><li><b>Etiology of Edema Disease:</b> Primarily caused by serogroups O138, O139, O141 possessing <b>F18 fimbriae</b> and producing <b>Shiga Toxin 2e (Stx2e / Verotoxin)</b> in pigs aged 1–2 weeks post-weaning.</li><li><b>Pathogenesis:</b> F18 fimbriae colonize the small intestine $&rarr;arrow$ Stx2e toxin is absorbed into blood $&rarr;arrow$ selectively binds Gb4 receptors on vascular endothelial cells $&rarr;arrow$ cleaves 28S ribosomal RNA, halting protein synthesis $&rarr;arrow$ widespread microvascular necrosis, thrombosis, and increased permeability.</li><li><b>Pathognomonic Lesions:</b> Marked <b>subcutaneous gelatinous edema of the eyelids, forehead, and facial subcutaneous tissue</b>; massive gelatinous edema of the greater curvature of the stomach wall (between mucosa and muscularis) and mesenteric colonic folds; neurological ataxia and high-pitched squeak due to cerebral edema.</li></ul></li><li><b>3. Enteropathogenic E. coli (EPEC):</b> Lacks enterotoxins and Shiga toxins. Mediates <b>'Attaching and Effacing' (A/E) lesions</b>: intim-mediated intimate adherence to host enterocytes (*eae* gene), effacing brush-border microvilli, causing malabsorptive diarrhea in calves, lambs, and rabbits.</li><li><b>4. Avian Pathogenic E. coli (APEC / Colibacillosis in Poultry):</b> Causes the classic avian colisepticemic triad: <b>fibrinous airsacculitis, perihepatitis, and pericarditis</b> in broiler chickens, with severe salpingitis in laying hens.</li><li><b>5. Coliform Mastitis in Dairy Cattle:</b> Environmental transmission of fecal <i>E. coli</i> through open teat canals. Rapid bacterial lysis in the teat cistern releases massive <b>Lipid A endotoxin</b> into the blood, triggering severe acute endotoxemic shock: high fever, sunken eyes, subnormal temperature, cold extremities, agalactia, and thin watery, straw-colored serous secretion containing few fibrin clots.</li></ul><h4>4. Klebsiella pneumoniae (Coliform Mastitis & Equine Metritis)</h4><ul><li><b>Morphology & Cultural Hallmarks:</b> Plump, short Gram-negative rods surrounded by a massive, prominent <b>polysaccharide capsule</b>. Strictly <b>non-motile</b>. On MacConkey agar, produces large, dome-shaped, confluent, highly glistening <b>pink mucoid colonies</b> that run together.</li><li><b>The String Test:</b> Touching a <i>Klebsiella</i> colony with an inoculation loop and pulling upward produces a tenacious, viscous, mucoid string &gt;5 mm long, confirming heavy capsular hyperviscosity.</li><li><b>Biochemical Profile:</b> IMViC is <b>- - + +</b> (Indole negative, MR negative, VP positive, Citrate positive). Produces slow urease activity on Christensen's medium.</li><li><b>Major Animal Diseases:</b><ul><li><b>Acute Toxic Mastitis in Dairy Cows:</b> Environmental coliform mastitis, strongly associated with <b>damp sawdust or wood shavings bedding</b> (which harbor high populations of <i>Klebsiella</i>). Clinically indistinguishable from severe <i>E. coli</i> endotoxemic mastitis; produces chronic, recurrent, deep-seated parenchymal udder abscesses that permanently destroy quarters.</li><li><b>Equine Genital Infections:</b> Venereal transmission by carrier stallions; causes acute suppurative <b>endometritis, cervicitis, and infertility</b> in mares, with sticky grey-white vaginal discharge.</li><li><b>Canine & Feline Infections:</b> Opportunistic necrotizing pneumonia, urinary tract infections, and pyometra.</li></ul></li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Molecular Secretory Cascade of ETEC vs STEC:</b> In neonatal colibacillosis (ETEC), the enterotoxins behave as non-invasive, purely pharmacological toxins without structural enterocyte lysis. Heat-labile toxin (LT, 86 kDa) is an AB5 enterotoxin closely homologous to cholera toxin; its B subunits bind ganglioside GM1 receptors, allowing the catalytic A1 subunit to translocate into the enterocyte and permanently ADP-ribosylate the Gs regulatory protein, driving uncontrolled adenylate cyclase activity and massive cytosolic cyclic AMP (cAMP) accumulation. Heat-stable toxin (STa, 2 kDa) mimics the endogenous intestinal hormone guanylin, binding transmembrane guanylyl cyclase C receptors on the apical enterocyte membrane to cause elevated cyclic GMP (cGMP). Elevated cAMP and cGMP both phosphorylate the CFTR chloride channel, inducing continuous secretory efflux of chloride, bicarbonate, and water while blocking neutral NaCl absorption, resulting in rapid dehydration. Conversely, STEC Stx2e is a cytotoxic toxin that enzymatic cleavage of the adenine at position 4324 of 28S rRNA, terminating aminoacyl-tRNA binding and irreversibly shutting down endothelial protein synthesis, resulting in cell lysis, microthrombosis, and the pathognomonic angiopathy of pig edema disease.</p>",
     "keyPoints": [
-      "Enterobacteriaceae are Gram-negative rods, facultative anaerobes, and catalase-positive.",
-      "Oxidase-negative: Crucial rule that differentiates Enterobacteriaceae from Pseudomonas and Pasteurella.",
-      "All Enterobacteriaceae ferment glucose and reduce nitrates to nitrites (NO3 -> NO2).",
-      "Peritrichous flagella mediate motility; Klebsiella and Shigella are strictly non-motile.",
-      "MacConkey agar uses bile salts (selective) and neutral red / lactose (differential).",
-      "Lactose fermenters (E. coli, Klebsiella) produce bright pink colonies on MacConkey agar.",
-      "Non-lactose fermenters (Salmonella, Proteus) produce pale, colorless colonies on MacConkey agar.",
-      "IMViC pattern of E. coli is + + - - (Indole positive, MR positive, VP negative, Citrate negative).",
-      "IMViC pattern of Klebsiella pneumoniae is - - + + (Indole negative, MR negative, VP positive, Citrate positive).",
-      "TSI agar distinguishes sugar fermentation (glucose, lactose, sucrose), gas, and H2S blackening.",
-      "O-antigen is somatic LPS (heat-stable); H-antigen is flagellin (heat-labile); K-antigen is capsular.",
-      "K-capsule can mask O-antigen, requiring boiling of diagnostic suspensions before slide agglutination."
+      "Enterobacteriaceae are Gram-negative rods, facultative anaerobes, catalase-positive, and oxidase-negative.",
+      "MacConkey agar distinguishes pink lactose fermenters (E. coli, Klebsiella) from pale non-lactose fermenters.",
+      "IMViC barcode: E. coli is + + - - (Indole+, MR+, VP-, Citrate-); Klebsiella is - - + +.",
+      "EMB agar is pathognomonic for E. coli, producing a distinctive rapid green metallic sheen.",
+      "Antigens: O is heat-stable somatic LPS, H is flagellar protein, K is capsular polysaccharide, F is fimbrial.",
+      "ETEC adheres via K99 (F5) in calves and K88 (F4) in pigs, causing profuse secretory diarrhea via LT/ST toxins.",
+      "ETEC toxins stimulate adenylate cyclase (LT -> cAMP) and guanylate cyclase (ST -> cGMP) without mucosal necrosis.",
+      "STEC / EHEC (serogroup O138/O139) produces Stx2e and F18 fimbriae, causing Edema Disease in weaned pigs.",
+      "Edema disease is marked by gelatinous edema of eyelids, stomach wall, mesocolon, and brain angiopathy.",
+      "APEC causes the avian colisepticemic triad: airsacculitis, perihepatitis, and pericarditis in chickens.",
+      "Klebsiella pneumoniae is strictly non-motile, heavily encapsulated, and produces mucoid string-test positive colonies.",
+      "Klebsiella causes severe coliform mastitis (linked to wood shavings bedding) and equine suppurative metritis."
     ],
-    "clinical": "When evaluating a water sample from an animal farm, counting 'coliforms' (Lactose-fermenting, indole-positive Gram-negative rods) acts as the universal index of fecal contamination. If coliform counts in calf drinking water exceed 0 per 100 ml, it indicates direct sewage or slurry contamination, putting the entire herd at immediate risk of neonatal colibacillosis and salmonellosis outbreaks.",
+    "clinical": "When managing acute coliform mastitis (*E. coli* or *Klebsiella*) in dairy cattle, the primary life threat is systemic endotoxemic shock from Lipid A release, not local bacterial proliferation. Intravenous hypertonic saline (7.2% NaCl at 4 ml/kg) paired with massive volumes of isotonic fluids and NSAIDs (Flunixin meglumine) is mandatory to restore vascular volume and combat endotoxin shock. Frequent complete stripping of the affected quarter removes free endotoxin from the cistern.",
     "tables": [
       {
-        "title": "Biochemical Differentiation of Major Enterobacteriaceae Genera",
+        "title": "Comprehensive Diagnostic Differentiation: Escherichia coli vs Klebsiella pneumoniae",
         "headers": [
-          "Bacterial Genus",
-          "Motility",
-          "MacConkey Reaction",
-          "Indole",
-          "MR",
-          "VP",
-          "Citrate",
-          "H2S in TSI",
-          "Urease"
+          "Diagnostic Parameter",
+          "Escherichia coli",
+          "Klebsiella pneumoniae"
         ],
         "rows": [
           [
-            "Escherichia",
-            "Motile (+)",
-            "Pink (Lactose +)",
-            "+",
-            "+",
-            "-",
-            "-",
-            "-",
-            "-"
+            "Gram Stain & Morphology",
+            "Gram-negative straight rod (0.5 x 2.0 um)",
+            "Gram-negative plump rod (0.8 x 3.0 um)"
           ],
           [
-            "Klebsiella",
-            "Non-motile (-)",
-            "Pink & Mucoid (Lac +)",
-            "-",
-            "-",
-            "+",
-            "+",
-            "-",
-            "+ (slow)"
+            "Bacterial Motility",
+            "Motile (+) by peritrichous flagella",
+            "Strictly Non-motile (-) (no flagella)"
           ],
           [
-            "Salmonella",
-            "Motile (+)",
-            "Pale / Colorless (Lac -)",
-            "-",
-            "+",
-            "-",
-            "+",
-            "+ (black)",
-            "-"
+            "Capsule Development",
+            "Thin, microcapsule in most strains",
+            "Prominent, thick polysaccharide capsule"
           ],
           [
-            "Proteus",
-            "Swarming (+)",
-            "Pale / Colorless (Lac -)",
-            "+/-",
-            "+",
-            "-",
-            "+",
-            "+ (black)",
-            "+++ (rapid)"
+            "MacConkey Agar Appearance",
+            "Flat, dry, circular bright pink colonies",
+            "Large, dome-shaped, glistening, slimy mucoid colonies"
           ],
           [
-            "Yersinia",
-            "Motile at 25°C only",
-            "Pale / Pinpoint (Lac -)",
-            "+/-",
-            "+",
-            "-",
-            "-",
-            "-",
-            "+ (variable)"
+            "String Test (Loop Pull)",
+            "Negative (-) (breaks immediately)",
+            "Positive (+) (elastic viscous string > 5 mm)"
           ],
           [
-            "Enterobacter",
-            "Motile (+)",
-            "Pink (Lactose +)",
-            "-",
-            "-",
-            "+",
-            "+",
-            "-",
-            "-"
+            "EMB Agar Appearance",
+            "Rapid Green Metallic Sheen",
+            "Dark purple/brown mucoid colonies (no sheen)"
+          ],
+          [
+            "IMViC Reaction Profile",
+            "+ + - - (Indole +, MR +, VP -, Citrate -)",
+            "- - + + (Indole -, MR -, VP +, Citrate +)"
+          ],
+          [
+            "Urease Production",
+            "Negative (-)",
+            "Positive (+) (slow, pink on Christensen's)"
+          ],
+          [
+            "Primary Bovine Diseases",
+            "Neonatal white scours (ETEC), coliform mastitis",
+            "Environmental coliform mastitis (wood shavings)"
+          ],
+          [
+            "Equine Disease Role",
+            "Secondary foal septicemia",
+            "Suppurative endometritis and infertility in mares"
           ]
         ]
       }
     ],
     "tags": [
       "enterobacteriaceae",
-      "coliforms",
-      "macconkey",
+      "escherichia-coli",
+      "klebsiella",
+      "etec",
+      "edema-disease",
+      "coliform-mastitis",
       "imvic",
-      "tsi",
-      "oxidase-negative",
+      "macconkey",
       "unit-1"
     ]
   },
   "u1-t22": {
-    "summary": "Escherichia coli pathotypes: ETEC (K99 calf scours), EPEC, EHEC/STEC (pig edema disease), EAggEC, ExPEC / APEC, and EMB metallic sheen.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> Most <i>E. coli</i> bacteria are harmless gut friends. But certain strains carry special virulence plasmids and toxin genes that turn them into deadly killers. In veterinary medicine, <i>E. coli</i> causes three massive diseases: (1) <b>Neonatal White Scours in calves and piglets</b> (caused by ETEC using K99 fimbriae to pump fluid into the gut); (2) <b>Edema Disease in post-weaning pigs</b> (caused by STEC Shiga toxin destroying blood vessels, causing swollen eyelids and brain edema); and (3) <b>Colibacillosis in broilers</b> (APEC causing thick cheesy exudate covering the heart and liver). On EMB agar, <i>E. coli</i> produces a stunning <b>green metallic sheen</b>!</div><h4>1. Morphology, Staining & Cultural Hallmarks</h4><ul><li><b>Morphology:</b> Gram-negative, straight, motile bacilli (0.5 &times; 1.0–3.0 &mu;m) with peritrichous flagella.</li><li><b>MacConkey Agar:</b> Circular, smooth, rose-pink lactose-fermenting colonies surrounded by a zone of precipitated bile salts.</li><li><b>Eosin Methylene Blue (EMB) Agar (Gold Standard Diagnostic):</b> Rapid lactose and sucrose fermentation produces intense acid that precipitates the dyes, creating distinctive dark colonies with a brilliant, sparkling <b>greenish-metallic sheen</b>.</li><li><b>Biochemical Profile:</b> <b>IMViC: + + - -</b> (Indole +, Methyl Red +, VP -, Citrate -); TSI: Acid/Acid with abundant gas, no $H_2S$.</li></ul><h4>2. Major Veterinary E. coli Pathotypes (Exam Classification)</h4><ol><li><b>1. Enterotoxigenic E. coli (ETEC - White Scours):</b><ul><li>Affects newborn calves, lambs, and piglets during the first <b>1 to 4 days of life</b>.</li><li><b>Virulence Mechanism (Two-Step Strike):</b><ol><li><i>Fimbrial Adhesins:</i> <b>K99 (F5) fimbriae</b> (in calves/lambs) or <b>F4 (K88) / F6 (987P)</b> (in piglets) bind specifically to glycoprotein receptors on newborn intestinal enterocytes, anchoring the bacteria.</li><li><i>Enterotoxin Secretion:</i> Produces <b>Heat-Stable Toxin (STa)</b> or Heat-Labile Toxin (LT). STa activates membrane-bound <b>guanylate cyclase</b>, triggering a surge in intracellular <b>cGMP</b>. This blocks sodium ($Na^+$) absorption and hyper-secretes chloride ($Cl^-$) and water into the gut lumen.</li></ol></li><li><b>Clinical Lesion:</b> Severe, profuse, watery to pasty yellowish-white diarrhea (<b>'White Scours'</b>), rapid dehydration, metabolic acidosis, hypokalemia, and death from hypovolemic shock. <i>Crucial:</i> The intestinal mucosa remains structurally intact with zero ulceration (pure secretory diarrhea!).</li></ul></li><li><b>2. Shiga Toxin-Producing E. coli (STEC / EHEC - Swine Edema Disease):</b><ul><li>Affects rapidly growing, thrifty piglets <b>1 to 2 weeks after weaning</b>.</li><li>Pathogen: <i>E. coli</i> possessing <b>F18 fimbriae</b> and producing <b>Shiga toxin 2e (Stx2e / verotoxin)</b>.</li><li><b>Pathology:</b> Stx2e enters the bloodstream, binds Gb4 receptors, and destroys arteriolar endothelial cells (necrotizing vasculitis). Fluid leaks into tissues, producing pathognomonic <b>bilateral edema of the eyelids and forehead</b>, edema of the stomach wall, and brain edema causing ataxia, head-pressing, squealing, and paddling paralysis.</li></ul></li><li><b>3. Avian Pathogenic E. coli (APEC - Avian Colibacillosis):</b><ul><li>Affects broiler chickens and turkeys following respiratory stress or Mycoplasma / Newcastle disease exposure.</li><li>Possesses aerobactin iron-uptake systems and serum-resistance genes. Spreads via air sacs to the bloodstream, causing fatal colisepticemia characterized by pathognomonic <b>fibrinous pericarditis, fibrinous perihepatitis ('frosted liver'), airsacculitis</b>, and salpingitis.</li></ul></li><li><b>4. Coliform Mastitis (ExPEC in Dairy Cattle):</b><ul><li>Environmental infection entering the teat canal from muddy bedding. Massive bacterial death dumps <b>Lipid A endotoxin</b> into the bloodstream, triggering hyperacute endotoxic shock, subnormal temperature, and milk looking like watery serous straw fluid with white curds.</li></ul></li></ol>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Contrasting ETEC Enterotoxins (STa vs LT):</b></p><ul><li><b>Heat-Stable Toxin (STa):</b> A small (18–19 amino acid) peptide that resists boiling at 100°C for 30 minutes. It binds to the extracellular domain of host <b>guanylyl cyclase C (GC-C)</b> on intestinal brush border membranes. This stimulates intracellular conversion of GTP to <b>cyclic GMP (cGMP)</b>. Elevated cGMP activates protein kinase G (PKG-II), phosphorylating and opening the <b>CFTR (cystic fibrosis transmembrane conductance regulator)</b> chloride channel. Massive chloride and bicarbonate efflux drives passive osmotic water loss into the gut lumen, producing watery secretory diarrhea.</li><li><b>Heat-Labile Toxin (LT):</b> A large (86 kDa) A-B toxin inactivated by heat (60°C). The A1 subunit catalyzes ADP-ribosylation of the regulatory $G_{s\\alpha}$ protein, permanently locking <b>adenylyl cyclase</b> in the active state. Intracellular <b>cyclic AMP (cAMP)</b> surges, similarly triggering hypersecretion of electrolytes and fluid.</li></ul>",
+    "summary": "Salmonella serotypes (Pullorum, Gallinarum, Dublin, Typhimurium, Kauffmann-White scheme, XLD/BGA), Proteus (swarming phenomenon, urease urolithiasis), and Yersinia (safety-pin bipolar staining, plague, cold enrichment).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This triad covers the three primary Non-Lactose Fermenting (NLF) members of <i>Enterobacteriaceae</i> (producing pale, colorless colonies on MacConkey agar). <b><i>Salmonella</i></b> is the premier zoonotic and avian killer, differentiated by the Kauffmann-White scheme and black-centered colonies on XLD agar (producing Pullorum disease in chicks and Fowl Typhoid in adult birds). <b><i>Proteus</i></b> is the famous 'swarming' bacterium that spreads in concentric waves across blood agar and rapidly splits urea to create struvite bladder stones in dogs. <b><i>Yersinia</i></b> shows classic 'safety-pin' bipolar staining, can multiply at 4°C (cold enrichment), and causes plague (*Y. pestis*) and mesenteric lymphadenitis (*Y. pseudotuberculosis*).</div><h4>1. Genus Salmonella (Salmonellosis in Livestock & Poultry)</h4><ul><li><b>General Morphology:</b> Straight Gram-negative rods, motile with peritrichous flagella (<b>crucial exam exception:</b> <i>Salmonella enterica</i> serovars <b>Pullorum</b> and <b>Gallinarum</b> are strictly <b>NON-MOTILE</b>!).</li><li><b>Cultural Characteristics & Selective Media:</b> Non-lactose fermenters (pale translucent colonies on MacConkey agar).<ul><li><b>Xylose Lysine Deoxycholate (XLD) Agar:</b> <i>Salmonella</i> decarboxylates lysine, raising pH to keep colonies red, and ferments thiosulfate to produce $H_2S$, forming pathognomonic <b>red colonies with glossy jet-black centers</b>.</li><li><b>Brilliant Green Agar (BGA):</b> Highly selective; brilliant green dye inhibits coliforms and <i>Proteus</i>. <i>Salmonella</i> forms <b>pink-white to red colonies surrounded by brilliant red medium</b>.</li><li><b>Enrichment Media:</b> <b>Selenite F Broth</b> and <b>Tetrathionate Broth</b> selectively enrich <i>Salmonella</i> from heavily contaminated feces.</li></ul></li><li><b>Kauffmann-White Serotyping Scheme:</b> Classifies over 2,500 serovars based on:<ul><li><b>O-Antigens (Somatic LPS):</b> Designated by numbers (1, 2, 4, 9, 12). Defines the serogroups (A, B, C, D, E).</li><li><b>H-Antigens (Flagellar):</b> Exhibit <b>diphasic variation</b>: Phase 1 (specific, designated by lowercase letters a, b, c) vs Phase 2 (non-specific, designated by Arabic numerals 1, 2).</li></ul></li><li><b>High-Yield Veterinary Serotypes & Diseases:</b><ul><li><b><i>Salmonella</i> Pullorum:</b> Non-motile, host-adapted to poultry. Causes <b>Pullorum Disease (Bacillary White Diarrhea - BWD)</b> in chicks under 3 weeks. Characterized by chalky white pasted vent, high mortality, unabsorbed yolk sac, caseous cecal cores, and grey nodules in lungs and gizzard. Transmitted vertically through the egg. Adult carrier hens diagnosed via the <b>Whole-Blood Stained Antigen Rapid Plate Agglutination Test</b>.</li><li><b><i>Salmonella</i> Gallinarum:</b> Non-motile, host-adapted to poultry. Causes <b>Fowl Typhoid</b> in growing and adult birds. Produces acute septicemia, watery greenish-yellow diarrhea, and a pathognomonic <b>bronze-green iridescent sheen on the enlarged liver</b> with pinpoint necrotic foci.</li><li><b><i>Salmonella</i> Dublin:</b> Host-adapted to cattle. Causes acute fatal septicemia and bloody dysentery in calves, late-term abortion storms in cows, and ischemic necrosis of ear tips and tail.</li><li><b><i>Salmonella</i> Typhimurium & <i>Salmonella</i> Enteritidis:</b> Non-host-adapted; broad host range. Major causes of enteritis in horses, calves, and dogs, and the primary global causes of <b>zoonotic foodborne salmonellosis</b> in humans via poultry eggs and meat.</li></ul></li></ul><h4>2. Genus Proteus (The Swarming Phenomenon & Urease)</h4><ul><li><b>Morphology & Characteristics:</b> Pleomorphic Gram-negative straight rods, actively motile via peritrichous flagella. Non-lactose fermenters on MacConkey agar (pale colonies). Rapidly deaminates phenylalanine to phenylpyruvic acid (PPA positive).</li><li><b>The Swarming Phenomenon:</b> When inoculated onto non-inhibitory solid media (Nutrient Agar or Blood Agar), <i>Proteus</i> does not form discrete single colonies. Instead, cycles of cellular differentiation occur: short swimmer cells elongate into hyperflagellated 'swarmer' filaments (up to 80 &mu;m long) that migrate rapidly outward in coordinated waves, followed by consolidation and division. This produces characteristic <b>concentric ripple-wave rings</b> covering the entire agar plate within 24 hours.<ul><li><b>Swarming Inhibition in Diagnostic Labs:</b> Swarming can overgrow and obscure other diagnostic pathogens. It is prevented by: (1) using <b>MacConkey agar</b> (bile salts inhibit swarming), (2) increasing agar concentration to 5%, or (3) adding 0.1% chloral hydrate or $p$-nitrophenylglycerol.</li></ul></li><li><b>Urease Production & Canine Urolithiasis:</b> <i>Proteus</i> is the most rapid urease producer in medical bacteriology. It hydrolyzes urea into ammonia and carbon dioxide ($CO(NH_2)_2 + 2H_2O + H^+ \\rightarrow 2NH_4^+ + HCO_3^-$), turning Christensen's urea agar bright pink in 2–4 hours. In canine urinary tract infections, excessive ammonia release alkalinizes the urine (pH &gt; 8.0). This alkaline environment precipitates magnesium, ammonium, and phosphate minerals, forming massive <b>struvite (triple phosphate) bladder calculi</b>.</li><li><b>Species Differentiation:</b> <i>Proteus vulgaris</i> is Indole positive and Maltose fermented; <i>Proteus mirabilis</i> is Indole negative and Maltose non-fermented (#1 cause of canine cystitis and otitis externa).</li></ul><h4>3. Genus Yersinia (Plague & Enteric Yersiniosis)</h4><ul><li><b>Morphology & Bipolar Staining:</b> Small, pleomorphic Gram-negative coccobacilli (0.5–1.0 &times; 1–2 &mu;m). When stained with Leishman, Giemsa, or Wayson stain, the dye concentrates heavily at the two cell poles while the central cytoplasm remains unstained, presenting a pathognomonic <b>bipolar 'safety-pin' appearance</b>.</li><li><b>Temperature-Dependent Motility Rule:</b> <i>Yersinia enterocolitica</i> and <i>Yersinia pseudotuberculosis</i> are <b>motile at 22–25°C</b> with peritrichous flagella, but strictly <b>non-motile at 37°C</b>! (<i>Yersinia pestis</i> is non-motile at all temperatures).</li><li><b>The Cold Enrichment Technique:</b> <i>Yersinia</i> species possess the unique physiological ability to replicate and divide at 4°C (psychrotolerant). When isolating <i>Y. enterocolitica</i> from fecal samples heavily contaminated with normal gut flora, the fecal suspension is incubated in Phosphate-Buffered Saline (PBS) at 4°C for 2–4 weeks. Normal coliforms die off or stall, allowing <i>Yersinia</i> to outgrow and be easily recovered on selective agar.</li><li><b>Major Pathogens & Animal Diseases:</b><ul><li><b><i>Yersinia pestis:</i></b> The causative agent of <b>Plague (The Black Death)</b>. Primary reservoir in wild rodents (sylvatic plague); transmitted by the oriental rat flea (<i>Xenopsylla cheopis</i>). Cats are exceptionally susceptible to bubonic plague (ingesting infected rodents), developing fever, submandibular buboes (severely abscessed lymph nodes), and pneumonic plague with direct lethal respiratory droplet spread to veterinarians!</li><li><b><i>Yersinia pseudotuberculosis:</i></b> Ingested via contaminated feed/water. Causes acute or chronic caseous necrotizing <b>mesenteric lymphadenitis ('pseudotuberculosis')</b> with miliary white nodules in liver and spleen in rodents, guinea pigs, turkeys, and sheep.</li><li><b><i>Yersinia enterocolitica:</i></b> Domestic swine are the primary asymptomatic reservoir (tonsils and feces). Causes ulcerative enterocolitis in animals and mesenteric adenitis mimicking acute appendicitis in humans.</li></ul></li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Salmonella Pathogenicity Islands (SPI-1 vs SPI-2):</b> Virulence in <i>Salmonella enterica</i> is driven by two major evolutionary pathogenicity islands that encode distinct Type III Secretion Systems (T3SS):</p><ul><li><b>SPI-1 (Invasion Machinery):</b> Encodes T3SS-1 (the 'molecular syringe') and effector proteins (SipA, SipB, SipC, SopB, SopE). When luminal <i>Salmonella</i> contacts the apical membrane of M-cells and enterocytes, T3SS-1 injects effectors that trigger massive actin cytoskeletal rearrangement, membrane ruffling, and receptor-independent macropinocytosis ('bacterial-mediated endocytosis'). SopB activates secretory chloride channels, initiating fluid secretion and diarrhea.</li><li><b>SPI-2 (Intracellular Survival & Macrophage Replication):</b> Activated only after the bacterium is internalized into the phagosome (Salmonella-Containing Vacuole - SCV). Low intraphagosomal pH and low $Mg^{2+}$ activate the EnvZ/OmpR and PhoP/PhoQ two-component systems, driving expression of T3SS-2. T3SS-2 effectors (SifA, SspH2) prevent the fusion of lysosomes with the SCV and neutralize NADPH oxidase and inducible nitric oxide synthase (iNOS), allowing <i>Salmonella</i> to replicate inside macrophages and disseminate systemically to the liver and spleen.</li></ul>",
     "keyPoints": [
-      "E. coli is a Gram-negative, motile rod that ferments lactose (pink on MacConkey).",
-      "EMB agar displays a pathognomonic sparkling greenish-metallic sheen with E. coli.",
-      "IMViC reaction is + + - - (Indole +, MR +, VP -, Citrate -).",
-      "ETEC causes neonatal calf scours and piglet diarrhea within the first 1 to 4 days of life.",
-      "ETEC virulence requires fimbriae (K99/F5 in calves; K88/F4 in pigs) and enterotoxin (STa/LT).",
-      "STa enterotoxin increases intracellular cGMP, causing profuse secretory diarrhea without mucosal damage.",
-      "Pig Edema Disease is caused by STEC expressing F18 fimbriae and Shiga toxin 2e (Stx2e).",
-      "Edema disease pathology: Endothelial vasculitis causing eyelid edema, stomach wall edema, and ataxia.",
-      "APEC causes Avian Colibacillosis: Hallmark triad of fibrinous perihepatitis, pericarditis, and airsacculitis.",
-      "Coliform mastitis in dairy cattle is an environmental infection causing acute endotoxic shock.",
-      "Maternal vaccination 3–6 weeks before calving protects calves by transferring anti-K99 antibodies in colostrum.",
-      "EHEC serotype O157:H7 colonizes adult cattle asymptomatically as a food-borne zoonotic reservoir."
+      "Salmonella, Proteus, and Yersinia are non-lactose fermenters producing pale colonies on MacConkey agar.",
+      "Salmonella Pullorum and Salmonella Gallinarum are strictly non-motile; other Salmonella serovars are motile.",
+      "XLD agar is diagnostic for Salmonella, forming distinctive red colonies with glossy black centers (H2S+).",
+      "The Kauffmann-White scheme serotypes Salmonella by somatic O (groups) and diphasic flagellar H antigens.",
+      "Pullorum disease causes chalky white scours and cecal cores in chicks; carrier hens detected by whole-blood stained antigen test.",
+      "Fowl Typhoid (S. Gallinarum) produces acute septicemia and a pathognomonic bronze-green sheen liver in adult poultry.",
+      "Proteus produces concentric ripple-ring swarming across blood agar, which is inhibited by bile salts in MacConkey agar.",
+      "Proteus is a rapid urease producer; ammonia alkalinization precipitates struvite bladder calculi in dogs.",
+      "Proteus mirabilis is indole-negative and the #1 proteus species in canine urinary tract infections and otitis externa.",
+      "Yersinia exhibits classic bipolar 'safety-pin' staining with Giemsa or Wayson stain.",
+      "Yersinia enterocolitica is motile at 25°C but non-motile at 37°C, and is selectively isolated by cold enrichment at 4°C.",
+      "Yersinia pestis causes feline bubonic plague with severe zoonotic hazard to veterinarians from draining buboes."
     ],
-    "clinical": "In newborn calves suffering from severe ETEC 'White Scours', the immediate cause of death is NOT the bacteria itself, but severe **hypovolemic dehydration and metabolic acidosis**. Antibiotics alone will not save the calf. Immediately infuse balanced oral electrolyte rehydration solutions (containing glucose, sodium, and glycine to drive co-transport water absorption) alongside intravenous sodium bicarbonate to correct blood pH.",
+    "clinical": "When presented with a flock of young broiler chicks displaying chalky white vent pasting and sudden mortality, never delay: collect liver, spleen, and unabsorbed yolk sac swabs directly into Selenite F broth for 24-hour enrichment before plating on XLD agar. To maintain Pullorum-free breeding farms, screen all breeder hens at 16 weeks of age using the Whole-Blood Stained Antigen Rapid Plate Agglutination Test. Any bird showing rapid dark purple clumping within 2 minutes must be culled immediately.",
     "tables": [
       {
-        "title": "Major Veterinary E. coli Pathotypes, Virulence Determinants, and Diseases",
+        "title": "Differential Diagnostic Comparison: Salmonella vs Proteus vs Yersinia",
         "headers": [
-          "Pathotype",
-          "Target Animal & Age",
-          "Primary Adhesin(s)",
-          "Key Toxin Produced",
-          "Hallmark Veterinary Disease"
+          "Diagnostic Parameter",
+          "Salmonella enterica",
+          "Proteus species",
+          "Yersinia species"
         ],
         "rows": [
           [
-            "ETEC (Enterotoxigenic)",
-            "Calves, lambs, piglets (1–4 days)",
-            "K99 (F5), F4 (K88), 987P",
-            "Heat-stable (STa) & Labile (LT)",
-            "Neonatal White Scours (secretory diarrhea)"
+            "Colony on MacConkey Agar",
+            "Pale / Colorless (NLF)",
+            "Pale / Colorless (NLF)",
+            "Tiny, pinpoint translucent (NLF)"
           ],
           [
-            "STEC / EHEC",
-            "Pigs post-weaning (1–2 weeks)",
-            "F18 fimbriae",
-            "Shiga toxin 2e (Stx2e / verotoxin)",
-            "Swine Edema Disease (eyelid edema, ataxia)"
+            "Swarming on Blood Agar",
+            "Negative (-) (discrete colonies)",
+            "Positive (+) (concentric ripple waves)",
+            "Negative (-) (discrete colonies)"
           ],
           [
-            "APEC (Avian Pathogenic)",
-            "Broilers & turkeys (4–8 weeks)",
-            "F1 fimbriae & curli",
-            "Colicin V, Aerobactin, hemolysin",
-            "Avian Colibacillosis (perihepatitis, pericarditis)"
+            "Motility Profile",
+            "Motile (+) (peritrichous; exc. Pullorum/Gallinarum)",
+            "Actively Motile (+) (hyperflagellated)",
+            "Motile at 25°C, Non-motile at 37°C"
           ],
           [
-            "EPEC (Enteropathogenic)",
-            "Calves, puppies, rabbits",
-            "Intimin (eae gene product)",
-            "Zero toxin (T3SS Tir pedestal)",
-            "Attaching and effacing lesion / malabsorption"
+            "Microscopic Morphology",
+            "Straight Gram-negative rod",
+            "Pleomorphic Gram-negative rod",
+            "Coccobacillus with bipolar safety-pin staining"
           ],
           [
-            "ExPEC (Extraintestinal)",
-            "Adult dairy cattle",
-            "Type 1 fimbriae, capsule",
-            "Endotoxin (Lipid A)",
-            "Acute Coliform Mastitis with endotoxic shock"
+            "H2S Production in TSI",
+            "Positive (+) (deep blackening)",
+            "Positive (+) (heavy blackening)",
+            "Negative (-) (rarely weak)"
+          ],
+          [
+            "Urease Activity",
+            "Negative (-)",
+            "Rapidly Positive (+) (bright pink in 2-4h)",
+            "Positive (+) (variable, slow)"
+          ],
+          [
+            "XLD Agar Colony Morphology",
+            "Red colonies with black centers",
+            "Yellow or pink colonies with black centers",
+            "Small, flat yellow colonies (no blackening)"
+          ],
+          [
+            "Cold Enrichment at 4°C",
+            "Negative (-)",
+            "Negative (-)",
+            "Positive (+) (selective replication in PBS at 4°C)"
+          ],
+          [
+            "Key Animal Pathologies",
+            "Pullorum disease, Fowl typhoid, calf dysentery",
+            "Canine cystitis & struvite calculi, otitis externa",
+            "Feline plague (buboes), rodent pseudotuberculosis"
           ]
         ]
       }
     ],
     "tags": [
-      "escherichia-coli",
-      "etec",
-      "k99",
-      "calf-scours",
-      "edema-disease",
-      "apec",
-      "emb-sheen",
-      "unit-1"
-    ]
-  },
-  "u1-t23": {
-    "summary": "Salmonella (Pullorum, Gallinarum, Dublin, Typhimurium), selective media (XLD, BGA), and Proteus swarming phenomenon and urease calculus formation.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> Both <i>Salmonella</i> and <i>Proteus</i> are Gram-negative, Non-Lactose Fermenting gut bacteria (pale colonies on MacConkey agar). <b><i>Salmonella</i></b> is one of the most dangerous herd and flock killers: in poultry, it causes <b>Bacillary White Diarrhea (Pullorum)</b> and <b>Fowl Typhoid (bronze liver)</b>; in calves, <i>Salmonella</i> Dublin causes bloody diarrhea and rotting lungs. <b><i>Proteus</i></b> is the 'swarmer'—it spreads in wave-like ripples across agar plates and produces powerful urease that forms rock-hard bladder stones in dogs!</div><h4>1. Genus Salmonella</h4><ul><li><b>General Features:</b> Gram-negative, facultatively anaerobic, actively motile rods with peritrichous flagella (except <b><i>Salmonella</i> Pullorum</b> and <b><i>Salmonella</i> Gallinarum</b>, which are completely <b>non-motile</b>; essential exam rule!).</li><li><b>Selective & Indicator Media Reactions:</b><ul><li><b>MacConkey Agar:</b> Non-lactose fermenter; forms <b>smooth, pale, colorless/translucent colonies</b>.</li><li><b>Brilliant Green Agar (BGA):</b> Highly selective; forms small, delicate <b>pale pink/red colonies surrounded by a brilliant red medium</b> (lactose/sucrose non-fermenter).</li><li><b>Xylose Lysine Deoxycholate (XLD) Agar:</b> Red colonies with glossy <b>black centers</b> (due to hydrogen sulfide, $H_2S$, precipitating with ferric ammonium citrate).</li><li><b>TSI Agar:</b> Alkaline slant / Acid butt (K/A, red/yellow), gas production, and <b>black $H_2S$ band</b> in the butt.</li></ul></li><li><b>Major Veterinary Diseases (Exam Must-Knows):</b><ul><li><b>Pullorum Disease (Bacillary White Diarrhea - <i>S. enterica</i> serovar Pullorum):</b> Acute, highly fatal disease of young chicks (first 2–3 weeks of life). Chalky white pasty diarrhea sticking to the vent ('pasting of vent'), high mortality, and necrotic white nodules in lungs, liver, and gizzard. Transmitted <b>vertically via the egg</b> (transovarian).</li><li><b>Fowl Typhoid (<i>S. enterica</i> serovar Gallinarum):</b> Affects growing and adult poultry. Causes watery sulfur-yellow diarrhea, pale shrunken comb, and pathognomonic <b>dark bronze, enlarged liver with a greenish metallic sheen</b>.</li><li><b>Bovine Salmonellosis (<i>S. enterica</i> serovar Dublin):</b> Host-adapted to cattle. Causes severe enteritis with foul-smelling bloody diarrhea containing fibrin casts ('fibrinous enteritis'), high fever, abortion storms, and dry gangrene of ears, tail, and feet in surviving calves.</li><li><b>Zoonotic Food-Poisoning (<i>S.</i> Typhimurium & <i>S.</i> Enteritidis):</b> Broad host range; colonizes poultry intestines asymptomatically, contaminating eggs and poultry meat, causing severe gastroenteritis in humans.</li></ul></li></ul><h4>2. Genus Proteus (The Swarming Bacterium)</h4><ul><li><b>Morphology & Swarming Phenomenon:</b> Gram-negative, pleomorphic rods with hyper-flagellated peritrichous motility. On plain moist nutrient agar or blood agar, cells do not form isolated colonies; instead, they undergo cyclic rounds of differentiation into long hyper-flagellated 'swarmer' cells that migrate outward in concentric wave-like ripples, covering the entire plate in a thin, stepping-terrace film known as the <b>Swarming Phenomenon</b>.</li><li><b>How to Inhibit Swarming in the Lab:</b> (1) Increase agar concentration to 5%; (2) Inoculate on MacConkey agar (bile salts suppress swarming); (3) Add chloral hydrate or alcohol.</li><li><b>Dienes Phenomenon:</b> When two identical strains of <i>Proteus</i> are inoculated on the same plate, their swarming waves merge smoothly. When two <i>different</i> strains meet, swarming halts abruptly, leaving a distinct, clear demarcation line (the <b>Dienes line</b>), used for epidemiological tracking.</li><li><b>Biochemical Hallmark (Rapid Urease Producer):</b> Strongly <b>Urease positive (+++)</b> within 2 to 4 hours on Christensen's Urea Agar (turns vivid bright magenta/pink).</li><li><b>Veterinary Disease (Struvite Urolithiasis in Dogs):</b> <i>Proteus mirabilis</i> is a major cause of ascending canine urinary tract infections. Massive urease production hydrolyzes urea into ammonia, raising urinary pH ($>8.0$). Alkaline pH causes precipitation of magnesium, ammonium, and phosphate ions, forming large, radiopaque <b>Struvite (triple phosphate) bladder stones (calculi)</b> that obstruct the canine urethra.</li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Salmonella Pathogenicity Islands (SPI-1 vs SPI-2):</b> <i>Salmonella</i> pathogenesis relies on two specialized Type III Secretion Systems (T3SS) encoded on distinct genomic islands:</p><ul><li><b>SPI-1 (Invasion Stage):</b> Encodes the <b>T3SS-1 needle complex</b>. When <i>Salmonella</i> contacts host gut enterocytes or M-cells, T3SS-1 injects effector proteins (SipA, SipC, SopB, SopE) into the host cell cytoplasm. These effectors trigger profound host actin cytoskeletal rearrangements, causing dramatic membrane ruffling that engulfs the bacterium via <b>macropinocytosis</b> ('cellular forced entry').</li><li><b>SPI-2 (Systemic Intracellular Survival):</b> Once inside host macrophages, the bacterium resides inside a specialized membrane compartment called the <b>Salmonella-Containing Vacuole (SCV)</b>. Under the acidic pH of the vacuole, <b>SPI-2</b> is activated, injecting effectors (SifA) that remodel the vacuolar membrane, blocking reactive oxygen species (ROS) and preventing lysosomal degradation, enabling systemic dissemination to the liver and spleen.</li></ul>",
-    "keyPoints": [
-      "Salmonella are Gram-negative, motile rods (except S. Pullorum and S. Gallinarum, which are non-motile).",
-      "Non-lactose fermenters: Produce pale, translucent colonies on MacConkey agar.",
-      "XLD agar produces pink/red colonies with glossy black centers due to H2S production.",
-      "Brilliant Green Agar (BGA) yields red/pink colonies surrounded by brilliant red medium.",
-      "Pullorum disease (Bacillary White Diarrhea) affects chicks <3 weeks old; transmitted transovarially.",
-      "Fowl Typhoid (S. Gallinarum) produces pathognomonic dark bronze, enlarged livers in adult poultry.",
-      "Salmonella Dublin is host-adapted to cattle, causing bloody fibrinous enteritis and dry gangrene in calves.",
-      "Salmonella uses SPI-1 for gut epithelial invasion and SPI-2 for intracellular survival inside macrophages.",
-      "Proteus exhibits cyclic swarming motility, covering moist agar in concentric stepping-terrace waves.",
-      "Swarming of Proteus is inhibited by MacConkey agar bile salts or increasing agar concentration to 5%.",
-      "Proteus produces rapid, massive urease (+++), turning Christensen's urea agar bright magenta pink.",
-      "Proteus mirabilis urease splits urea to ammonia, precipitating magnesium ammonium phosphate (struvite stones) in dogs."
-    ],
-    "clinical": "In commercial poultry hatcheries, eradication of Pullorum disease relies entirely on the **Whole Blood Plate Agglutination Test (stained antigen test)**. A single drop of fresh blood from the wing vein of the breeding hen is mixed with stained *Salmonella* Pullorum antigen on a warm porcelain tile. Agglutination (visible purple clumping) within 1 minute identifies carrier birds. All positive reactors must be culled immediately to prevent vertical egg transmission.",
-    "tables": [
-      {
-        "title": "Comparative Features of Major Avian and Mammalian Salmonella Serovars",
-        "headers": [
-          "Salmonella Serovar",
-          "Motility Status",
-          "Primary Host Species",
-          "Age Predilection",
-          "Hallmark Gross Pathology / Lesion"
-        ],
-        "rows": [
-          [
-            "S. enterica serovar Pullorum",
-            "Strictly Non-motile (-)",
-            "Chickens and turkeys",
-            "Chicks 1–3 weeks old",
-            "White chalky diarrhea, necrotic lung nodules"
-          ],
-          [
-            "S. enterica serovar Gallinarum",
-            "Strictly Non-motile (-)",
-            "Chickens and turkeys",
-            "Growing & adult birds",
-            "Bronze, enlarged liver with metallic sheen"
-          ],
-          [
-            "S. enterica serovar Dublin",
-            "Actively Motile (+)",
-            "Cattle and calves",
-            "Calves 2–10 weeks old",
-            "Fibrinous bloody enteritis, distal limb gangrene"
-          ],
-          [
-            "S. enterica serovar Typhimurium",
-            "Actively Motile (+)",
-            "Broad host range (pigs, calves)",
-            "Any age / neonates",
-            "Necrotizing enterocolitis, zoonotic food poisoning"
-          ],
-          [
-            "S. enterica serovar Choleraesuis",
-            "Actively Motile (+)",
-            "Swine (growing pigs)",
-            "Weaned pigs (2–4 months)",
-            "Cyanosis of ears and snout, button ulcers in colon"
-          ]
-        ]
-      }
-    ],
-    "tags": [
+      "enterobacteriaceae",
       "salmonella",
       "pullorum",
       "fowl-typhoid",
       "proteus",
       "swarming",
-      "struvite-calculi",
-      "xld-agar",
-      "unit-1"
-    ]
-  },
-  "u1-t24": {
-    "summary": "Klebsiella pneumoniae (mucoid colonies, string test, equine metritis, coliform mastitis) and Yersinia (safety-pin bipolar staining, plague, cold enrichment).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <b><i>Klebsiella pneumoniae</i></b> is the 'slime champion'—it has a giant polysaccharide capsule that makes its colonies on agar look like large, sticky, dripping blobs of mucus (positive string test!). In mares, it causes contagious infertility (metritis), and in cows, severe coliform mastitis. <b><i>Yersinia</i></b> is the 'safety-pin bacterium'—when stained with Wayson's stain, the two ends stain dark while the middle stays clear (bipolar staining). <i>Yersinia pestis</i> causes the historic Black Death (Plague), while <i>Y. pseudotuberculosis</i> causes caseous gut abscesses in birds and rodents.</div><h4>1. Klebsiella pneumoniae</h4><ul><li><b>Morphology & Physiology:</b> Plump, Gram-negative, straight bacilli (0.6–1.0 &times; 1.0–2.0 &mu;m). <b>Completely Non-motile (-)</b> (lacks flagella). Possesses an enormous, luxurious polysaccharide capsule.</li><li><b>Cultural Characteristics (The Slime Hallmark):</b><ul><li><b>MacConkey Agar:</b> Large, elevated, extremely mucoid, glistening, dome-shaped pink colonies that coalesce and drip down the plate (lactose fermenter).</li><li><b>The String Test:</b> Touching a colony with an inoculating loop and lifting it draws out a sticky, viscous, unbroken mucoid string longer than <b>5 mm</b>.</li><li><b>Biochemical Profile:</b> <b>IMViC: - - + +</b> (Indole -, MR -, VP +, Citrate +); Urease positive (slow/weak); TSI: Acid/Acid with gas, no $H_2S$.</li></ul></li><li><b>Veterinary Diseases:</b><ul><li><b>Equine Suppurative Metritis & Cervicitis:</b> Highly contagious venereal infection of mares transmitted by carrier stallions during service. Causes heavy mucopurulent vaginal discharge, chronic endometritis, failure of conception, and temporary infertility.</li><li><b>Bovine Coliform Mastitis:</b> Environmental mastitis in dairy herds using wood shavings or sawdust bedding (sawdust naturally harbors high populations of <i>Klebsiella</i>). Causes severe endotoxic shock, agalactia, and quarter atrophy.</li><li><b>Canine Urinary Tract Infections:</b> Frequent cause of chronic, recurrent cystitis and pyelonephritis in dogs.</li></ul></li></ul><h4>2. Genus Yersinia</h4><ul><li><b>Morphology & Bipolar Staining:</b> Small, pleomorphic Gram-negative coccobacilli (0.5–1.0 &times; 1.0–2.0 &mu;m). When stained with <b>Giemsa, Leishman, or Wayson's stain</b>, they exhibit pathognomonic <b>bipolar staining ('safety-pin appearance')</b>: the two rounded poles absorb the dye intensely dark, while the central cytoplasm remains clear and unstained.</li><li><b>Temperature-Dependent Motility (Exam Favorite):</b> <i>Yersinia pseudotuberculosis</i> and <i>Y. enterocolitica</i> are <b>motile at 22°C–25°C</b> (room temperature) with peritrichous flagella, but <b>completely non-motile at 37°C</b> (body temperature)! (<i>Y. pestis</i> is always non-motile).</li><li><b>Cold Enrichment:</b> Similar to <i>Listeria</i>, <i>Yersinia</i> can survive and multiply at <b>4°C</b> in phosphate-buffered saline, used to isolate it from heavily contaminated feces or food samples.</li><li><b>Veterinary & Zoonotic Pathogens:</b><ul><li><b>1. Yersinia pestis (Plague / Black Death):</b> Highly fatal zoonosis. Rodents (rats, gerbils) act as reservoirs, transmitted by the rodent flea (<b><i>Xenopsylla cheopis</i></b>). Causes <b>Bubonic Plague</b> (enlarged, suppurative lymph nodes called 'buboes'), septicemia, and lethal pneumonic plague. Domestic cats are highly susceptible, developing acute submandibular lymphadenitis, pneumonia, and serving as a direct transmission threat to veterinarians.</li><li><b>2. Yersinia pseudotuberculosis (Pseudotuberculosis / Rodentiosis):</b> Affects guinea pigs, rabbits, turkeys, and captive caged birds. Ingestion of contaminated feed $\\rightarrow$ penetrates gut mucosa $\\rightarrow$ produces chronic, nodular <b>caseous necrotic granulomas in mesenteric lymph nodes, liver, and spleen</b> that look identical to tuberculosis.</li><li><b>3. Yersinia enterocolitica:</b> Zoonotic food-borne pathogen causing acute terminal ileitis and mesenteric lymphadenitis (mimics appendicitis in humans). Pigs serve as the major asymptomatic carrier reservoir, carrying the bacteria in their tonsils.</li></ul></li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>The Yersinia Yop Virulence Injection Machine:</b> All virulent <i>Yersinia</i> carry a conserved 70-kb plasmid (pCD1/pYV) that encodes a contact-dependent <b>Type III Secretion System (T3SS)</b> and <b>Yersinia Outer Proteins (Yops)</b>:</p><ul><li>When the bacterium docks onto a host macrophage or neutrophil, the T3SS needle injects effector Yops directly into the host cell cytoplasm.</li><li><b>YopH:</b> A powerful protein tyrosine phosphatase that dephosphorylates focal adhesion proteins, completely paralyzing the macrophage's phagocytic machinery.</li><li><b>YopE & YopT:</b> Inactivate host Rho GTPases, depolymerizing actin stress fibers and inducing cell round-up.</li><li><b>YopJ/YopP:</b> Inhibits the NF-&kappa;B and MAPK signaling pathways, blocking pro-inflammatory cytokine synthesis and triggering rapid apoptosis (programmed cell death) of the host macrophage. The bacteria multiply extracellularly unimpeded!</li></ul>",
-    "keyPoints": [
-      "Klebsiella pneumoniae is a Gram-negative, strictly non-motile rod with a massive polysaccharide capsule.",
-      "Colonies on MacConkey agar are large, mucoid, dome-shaped pink domes (lactose fermenter).",
-      "Positive String Test (>5 mm mucoid string) confirms hypermucoviscous Klebsiella strains.",
-      "Klebsiella IMViC formula is - - + + (Indole negative, MR negative, VP positive, Citrate positive).",
-      "Klebsiella causes contagious suppurative endometritis in mares and severe coliform mastitis in dairy cows.",
-      "Sawdust and wood shavings in cattle stalls act as major environmental reservoirs for Klebsiella mastitis.",
-      "Yersinia species display pathognomonic bipolar staining ('safety-pin appearance') on Wayson or Giemsa stains.",
-      "Yersinia pseudotuberculosis and Y. enterocolitica are motile at 25°C, but non-motile at 37°C.",
-      "Yersinia pestis (Plague) is non-motile and transmitted from rodents to animals/humans via Xenopsylla cheopis fleas.",
-      "Domestic cats are highly susceptible to plague, developing severe cervical buboes and transmitting it to vets.",
-      "Yersinia pseudotuberculosis causes caseating, tuberculosis-like mesenteric abscesses in guinea pigs and birds.",
-      "Yersinia uses a Type III secretion system to inject Yop effectors that paralyze host macrophage phagocytosis."
-    ],
-    "clinical": "In equine breeding management, never allow a stallion to cover mares without prior bacteriological screening. Carrier stallions harbor *Klebsiella pneumoniae* (and *Pseudomonas aeruginosa*) asymptomatically in the preputial sheath, urethral fossa, and smegma. During natural service, the stallion inoculates the mare's uterus, triggering purulent endometritis and ruining the breeding season. Always swab the stallion's fossa glandis for culture before breeding.",
-    "tables": [
-      {
-        "title": "Differentiation: Klebsiella pneumoniae vs Yersinia species",
-        "headers": [
-          "Diagnostic Parameter",
-          "Klebsiella pneumoniae",
-          "Yersinia pseudotuberculosis",
-          "Yersinia pestis (Plague)"
-        ],
-        "rows": [
-          [
-            "Microscopic Morphology",
-            "Plump rod; massive capsule",
-            "Short coccobacillus; bipolar stain",
-            "Pleomorphic rod; safety-pin stain"
-          ],
-          [
-            "Motility at 25°C",
-            "Non-motile (-)",
-            "Actively Motile (+)",
-            "Completely Non-motile (-)"
-          ],
-          [
-            "Motility at 37°C",
-            "Non-motile (-)",
-            "Non-motile (-)",
-            "Non-motile (-)"
-          ],
-          [
-            "MacConkey Agar Growth",
-            "Large, viscous, mucoid pink",
-            "Slow, pinpoint, pale/colorless",
-            "Pinpoint, transparent colorless"
-          ],
-          [
-            "String Test",
-            "Positive (+) (>5 mm string)",
-            "Negative (-)",
-            "Negative (-)"
-          ],
-          [
-            "IMViC Pattern",
-            "- - + +",
-            "- + - -",
-            "- + - -"
-          ],
-          [
-            "Primary Veterinary Disease",
-            "Equine metritis, coliform mastitis",
-            "Pseudotuberculosis in rodents/birds",
-            "Plague in cats/rodents (zoonotic)"
-          ]
-        ]
-      }
-    ],
-    "tags": [
-      "klebsiella",
+      "urease",
+      "struvite",
       "yersinia",
       "bipolar-staining",
-      "safety-pin",
-      "string-test",
       "plague",
-      "equine-metritis",
       "unit-1"
     ]
   },
-  "u1-t25": {
-    "summary": "Pseudomonas aeruginosa (pyocyanin, otitis externa, fleece rot) and Burkholderia mallei (Glanders in equines, farcy buds, Mallein test, Strauss reaction).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <b><i>Pseudomonas aeruginosa</i></b> is the notorious 'green pus' bacterium. It loves moisture, produces a sweet grape-like odor, and turns bandages and agar plates vibrant blue-green (pyocyanin); in dogs, it causes stubborn ear infections, and in sheep, green 'fleece rot'. <b><i>Burkholderia mallei</i></b> is an obligate equine pathogen that causes <b>Glanders</b>—a fatal, highly contagious disease producing ulcerating nodules in horse lungs and skin ('Farcy buds'). Glanders is an internationally notifiable transboundary disease diagnosed using the intradermal <b>Mallein test</b>.</div><h4>1. Pseudomonas aeruginosa (The Green Opportunist)</h4><ul><li><b>Morphology:</b> Slender, straight or slightly curved Gram-negative rod (0.5–0.8 &times; 1.5–3.0 &mu;m). Strictly aerobic; motile with a single polar flagellum (<b>monotrichous</b>).</li><li><b>Cultural Hallmarks (Sweet Odor & Fluorescent Pigments):</b><ul><li><b>Characteristic Odor:</b> Cultures produce a distinct, sweet, fruity, <b>grape-like or fresh tortilla odor</b> (due to 2-aminoacetophenone production).</li><li><b>Pigments:</b> Produces two diagnostic water-soluble pigments that diffuse deep into agar:<ol><li><b>Pyocyanin:</b> Blue-green phenazine pigment (unique to *P. aeruginosa*). Catalyzes toxic reactive oxygen production, damaging host tissues.</li><li><b>Pyoverdine (Fluorescein):</b> Yellow-green siderophore pigment that fluoresces brilliant bright green under ultraviolet (UV) Wood's lamp light.</li></ol></li><li><b>Cetrimide Agar (Selective Medium):</b> Contains cetyltrimethylammonium bromide (cetrimide), a quaternary ammonium disinfectant that kills most bacteria but permits *P. aeruginosa* to flourish, displaying vivid green-blue colonies.</li><li><b>Biochemical Profile:</b> <b>Oxidase Positive (+)</b> (immediate dark purple with 1% tetramethyl-p-phenylenediamine); Catalase positive (+); Non-fermentative (oxidizes glucose; TSI is K/K with zero acid).</li></ul></li><li><b>Veterinary Pathologies:</b><ul><li><b>Canine Otitis Externa:</b> Chronic, recalcitrant, ulcerating ear canal infections with foul greenish-black exudate.</li><li><b>Fleece Rot / Green Wool (Sheep):</b> Prolonged rain softens sheep fleece, allowing *P. aeruginosa* to multiply in wool follicles, producing a green band across the wool fleece and triggering severe strike by blowflies (<i>Lucilia cuprina</i>).</li><li><b>Bovine Mastitis:</b> Caused by contaminated water washes in milking parlors; results in chronic agalactia.</li><li><b>Inherent Antibiotic Resistance:</b> Resistant to penicillins, ampicillin, 1st/2nd-generation cephalosporins, and tetracyclines due to impermeable outer membrane porins (OprD) and active MexAB-OprM efflux pumps. Requires fluoroquinolones, aminoglycosides, or piperacillin.</li></ul></li></ul><h4>2. Burkholderia mallei (Glanders in Equines)</h4><ul><li><b>Morphology:</b> Slender, straight or slightly curved Gram-negative rod with rounded ends. <b>Strictly non-motile (-)</b> (no flagella; crucial diagnostic difference from motile *B. pseudomallei*). Strictly aerobic.</li><li><b>Glanders (Farcy) in Equines (Horse, Donkey, Mule):</b><ul><li>Equines are natural hosts. Donkeys and mules develop hyperacute fatal disease; horses develop insidious chronic disease.</li><li><b>Three Clinical Manifestations:</b><ol><li><b>Nasal Form:</b> Nodules erupt on the nasal septum, ulcerate, discharge copious sticky mucopurulent yellow-green exudate, and heal leaving pathognomonic <b>star-shaped (stellate) cicatricial scars</b>.</li><li><b>Pulmonary Form:</b> Inhaled or ingested bacteria seed lung parenchyma, forming thousands of firm, round, shot-like grey-white miliary nodules resembling tubercles.</li><li><b>Cutaneous Form ('Farcy'):</b> Infection travels along subcutaneous lymphatics. The lymphatic vessels become visibly thickened, tortuous, and cord-like (<b>'Farcy pipes'</b>), developing subcutaneous nodules (<b>'Farcy buds'</b>) that rupture to discharge thick, oily, honeylike yellow pus, leaving deep, non-healing ulcers.</li></ol></li></ul></li><li><b>Diagnostic Tests (Exam Favorites):</b><ul><li><b>The Mallein Test (Official Field Test):</b> Intrapalpebro-dermal injection of 0.1 ml of mallein (purified protein derivative of *B. mallei*) into the lower eyelid. Evaluated at <b>24 and 48 hours</b>. <b>Positive Result:</b> Severe swelling of the eyelid, marked conjunctival chemosis, and purulent ocular discharge gluing the eye shut.</li><li><b>Strauss Reaction (Laboratory Animal Test):</b> Inoculate suspect exudate intraperitoneally into a male guinea pig. Within 2–4 days, severe acute purulent inflammation of the scrotal sac and testicles (<b>severe orchitis and periorchitis</b>) erupts, with scrotal ulceration.</li></ul></li><li><b>Burkholderia pseudomallei (Melioidosis):</b> Motile environmental saprophyte of tropical soil/mud. Causes Melioidosis (pseudoglanders) in sheep, goats, pigs, and humans; forms wrinkled, corrugated, dark purple colonies on <b>Ashdown's medium</b> with an earthy odor.</li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Exotoxin A of Pseudomonas aeruginosa:</b> <i>P. aeruginosa</i> secretes a powerful 66 kDa A-B exotoxin called <b>Exotoxin A (PEA)</b>. Its molecular mechanism of action is identical to *Corynebacterium diphtheriae* toxin: the active A domain catalyzes the transfer of an ADP-ribose moiety from intracellular $NAD^+$ onto <b>Elongation Factor 2 (EF-2)</b> in host eukaryotic cells ($NAD^+ + EF-2 \\rightarrow ADP\\text{-ribosyl-}EF-2 + \\text{Nicotinamide} + H^+$). This ADP-ribosylation completely inactivates EF-2, halting all ribosomal peptide chain elongation and protein synthesis, resulting in rapid necrotic cell death and widespread tissue ulceration.</p>",
+  "u1-t23": {
+    "summary": "Pseudomonas aeruginosa (pyocyanin, otitis externa, fleece rot) and Burkholderia (B. mallei Glanders in equines, farcy buds, Mallein test, Strauss reaction, and B. pseudomallei Melioidosis).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <b><i>Pseudomonas aeruginosa</i></b> is the notorious 'green opportunist' that thrives in wet environments and turns wounds, dog ears, and sheep wool bright blue-green with a sweet fruity smell, possessing unmatched resistance to routine antibiotics. <b><i>Burkholderia mallei</i></b> is the dreaded horse killer causing <b>Glanders</b>—a deadly, WOAH-notifiable disease forming ulcerated nodules along respiratory tracts and lymphatic vessels ('Farcy buds'), historically used as a biological weapon and diagnosed via the official intradermopalpebral Mallein test. <b><i>Burkholderia pseudomallei</i></b> is an environmental saprophyte causing <b>Melioidosis</b> (pseudoglanders) in ruminants and pigs.</div><h4>1. Pseudomonas aeruginosa (The Green Opportunist)</h4><ul><li><b>Morphology & Staining:</b> Slender Gram-negative rod (0.5–0.8 &times; 1.5–3.0 &mu;m). Motile with a single polar flagellum. Non-spore-forming, non-capsulated (produces copious alginate slime).</li><li><b>Physiology & Cultural Characteristics:</b> Strict aerobe. Non-lactose fermenter on MacConkey agar (produces pale, brownish, serrated colonies). Grows on Cetrimide agar (selective medium). Produces a characteristic <b>sweet, fruity, grape-like or corn-tortilla odor</b> due to 2-aminoacetophenone.</li><li><b>Pigment Production (Exam Diagnostic):</b><ul><li><b>Pyocyanin:</b> Blue-green phenazine pigment produced exclusively by <i>P. aeruginosa</i>. Soluble in water and chloroform.</li><li><b>Pyoverdine (Fluorescein):</b> Yellow-green pigment that fluoresces bright green under long-wave ultraviolet light (366 nm). Water-soluble, chloroform-insoluble; acts as an iron-scavenging siderophore.</li><li><b>Pyomelanin</b> (brown-black) and <b>Pyorubin</b> (red-brown) produced by occasional strains.</li></ul></li><li><b>Biochemical Profile:</b> <b>Oxidase-positive (+)</b> and Catalase-positive (+). Oxidizes glucose (oxidative/fermentative O/F test positive for oxidation only). Highly resistant to quaternary ammonium disinfectants.</li><li><b>Major Animal Diseases:</b><ul><li><b>Canine Otitis Externa & Pyoderma:</b> Chronic, foul-smelling, purulent, slimy ear discharge; highly refractory to antibiotic therapy due to biofilm formation.</li><li><b>Fleece Rot in Sheep ('Green Wool'):</b> Prolonged heavy rains soak the fleece $&rarr;arrow$ dermatitis $&rarr;arrow$ <i>P. aeruginosa</i> multiplies and secretes pyocyanin, staining the wool vibrant green, degrading wool quality and attracting secondary blowfly strike (<i>Lucilia cuprina</i>).</li><li><b>Bovine Mastitis:</b> Severe, acute, toxemic or gangrenous mastitis following contaminated intramammary infusions or wash water.</li><li><b>Hemorrhagic Pneumonia in Mink and Chinchillas:</b> Highly contagious, peracute hemorrhagic pneumonia with high mortality.</li></ul></li></ul><h4>2. Burkholderia mallei (Glanders in Equines)</h4><ul><li><b>Etiology & Regulatory Status:</b> <b><i>Burkholderia mallei</i></b> is the causative agent of <b>Glanders</b>. Category B select agent; WOAH-notifiable transboundary zoonosis. Primarily affects horses, donkeys, and mules (carnivores can acquire it by eating glandered horse meat). Humans are highly susceptible and can die of septicemia.</li><li><b>Morphology:</b> Slender Gram-negative rod with rounded ends. <b>Strictly NON-MOTILE</b> (unlike all other pseudomonads and <i>B. pseudomallei</i>!). Catalase positive, oxidase variable/positive. Grows as a translucent, amber, butter-like slime on potato-glycerol agar.</li><li><b>Clinical Forms of Glanders:</b><ul><li><b>1. Nasal Form:</b> Nodules develop in the nasal mucosa and septum $&rarr;arrow$ ulcerate $&rarr;arrow$ heal with pathognomonic <b>star-shaped (stellate) glistening white scars</b>. Bilateral thick, greenish-yellow, mucopurulent nasal discharge.</li><li><b>2. Pulmonary Form:</b> Chronic cough, dyspnea, progressive emaciation. Lungs show innumerable small, firm, gray, shotty nodules surrounded by a hemorrhagic zone (resembling tubercles).</li><li><b>3. Cutaneous Form ('Farcy'):</b> Nodules erupt along the subcutaneous lymph vessels, especially on the inner aspect of the hocks and limbs. The lymphatics become thickened, cord-like, and swollen ('farcy pipes'), and nodules rupture discharging thick yellow oily pus ('farcy buds').</li></ul></li><li><b>Diagnostic Tests for Glanders:</b><ol><li><b>The Mallein Test (Official Regulatory Test):</b> Intradermopalpebral injection of 0.1 ml of <b>Mallein</b> (a sterile protein extract of <i>B. mallei</i>) into the skin of the lower eyelid using a tuberculin syringe. Read at 48 hours. <b>Positive reaction:</b> Marked, painful, inflammatory eyelid swelling, severe blepharospasm, and copious purulent ocular discharge gluing the eye shut. (Glandered animals must be euthanized; treatment is strictly prohibited in endemic/quarantine zones).</li><li><b>Strauss Reaction:</b> Intraperitoneal injection of suspect pus or culture into male guinea pigs. Within 2–4 days, severe acute purulent periorchitis develops, causing marked scrotal swelling, ulceration, and purulent tunica vaginalis necrosis.</li><li><b>Complement Fixation Test (CFT):</b> Official international serological test for equine import/export certification.</li></ol></li></ul><h4>3. Burkholderia pseudomallei (Melioidosis / Pseudoglanders)</h4><ul><li><b>Biology & Epidemiology:</b> Motile with polar flagella (wrinkled, dry, cream-colored colonies with an earthy odor on Ashdown's selective agar). Environmental saprophyte residing in tropical soil and surface water (endemic in Southeast Asia and Northern Australia).</li><li><b>Melioidosis:</b> Ingestion, inhalation, or skin abrasion leads to chronic pyogranulomatous abscesses throughout the lungs, liver, spleen, and joints in sheep, goats, pigs, and humans. Highly resistant to routine antibiotics.</li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Molecular Basis of Pseudomonas Multi-Drug Resistance & Virulence:</b> <i>Pseudomonas aeruginosa</i> possesses one of the most formidable arrays of intrinsic defense mechanisms in bacterial physiology:</p><ul><li><b>Low Outer Membrane Permeability:</b> The major porin protein OprF allows solute transport at a rate 100-fold slower than classical enterobacterial porins like OmpF.</li><li><b>Active Multidrug Efflux Pumps:</b> Constitutive expression of RND-family multidrug efflux pumps (MexAB-OprM, MexCD-OprJ) that continuously pump &beta;-lactams, fluoroquinolones, macrolides, and tetracyclines out of the periplasm back into the extracellular space.</li><li><b>Inducible Chromosomal AmpC &beta;-Lactamase:</b> Exposure to aminopenicillins rapidly derepresses the <i>ampC</i> gene, hydrolyzing cephalosporins and penicillins.</li><li><b>Exotoxin A (PEA):</b> The most lethal secreted exotoxin of <i>P. aeruginosa</i>. Identical mechanism to diphtheria toxin: transfers an ADP-ribosyl moiety from $NAD^+$ to eukaryotic <b>Elongation Factor 2 (EF-2)</b>, irreversibly shutting down host protein translation, causing extensive tissue necrosis and organ failure.</li></ul>",
     "keyPoints": [
-      "Pseudomonas aeruginosa is a Gram-negative, strictly aerobic rod, motile via a single polar flagellum.",
-      "Oxidase-positive: Distinguishes Pseudomonas (+) from the Enterobacteriaceae (-) family.",
-      "Produces a sweet, fruity, grape-like or tortilla odor (2-aminoacetophenone).",
-      "Produces pyocyanin (blue-green pigment) and pyoverdine (yellow-green fluorescent siderophore).",
-      "Cetrimide agar is the selective isolation medium for Pseudomonas aeruginosa.",
-      "Causes chronic canine otitis externa and Fleece Rot ('green wool') in sheep.",
-      "Inherently resistant to standard penicillins and cephalosporins via efflux pumps and low porin permeability.",
-      "Burkholderia mallei is a non-motile, Gram-negative rod that causes Glanders (Farcy) in equines.",
-      "Nasal Glanders features ulcerating nodules on the nasal septum that heal into pathognomonic stellate scars.",
-      "Cutaneous Glanders (Farcy) produces corded lymphatics ('farcy pipes') and ulcerated 'farcy buds'.",
-      "The Mallein test (intrapalpebro-dermal injection into the lower eyelid) is the official OIE diagnostic test.",
-      "Strauss reaction produces acute purulent orchitis in male guinea pigs within 48–72 hours."
+      "Pseudomonas aeruginosa is a Gram-negative, motile rod, strict aerobe, and oxidase-positive.",
+      "P. aeruginosa produces pyocyanin (blue-green, chloroform-soluble) and pyoverdine (fluorescent yellow-green).",
+      "P. aeruginosa has a characteristic sweet grape-like or corn-tortilla odor caused by 2-aminoacetophenone.",
+      "Fleece rot ('green wool') in sheep is caused by P. aeruginosa multiplying in wet wool and producing pyocyanin.",
+      "P. aeruginosa causes refractory canine otitis externa and deep pyoderma due to alginate biofilm formation.",
+      "Exotoxin A is the major lethal toxin of P. aeruginosa, inactivating Elongation Factor 2 (EF-2) to block protein synthesis.",
+      "Burkholderia mallei causes Glanders, a WOAH-notifiable disease of equines historically used as a bioweapon.",
+      "Unlike other pseudomonads, Burkholderia mallei is strictly NON-MOTILE.",
+      "Glanders has three forms: Nasal (stellate scars), Pulmonary (lung nodules), and Cutaneous ('Farcy' pipes and buds).",
+      "The official field diagnostic test for Glanders is the Intradermopalpebral Mallein Test read at 48 hours.",
+      "Strauss reaction: Intraperitoneal inoculation of B. mallei in male guinea pigs produces acute purulent orchitis.",
+      "Burkholderia pseudomallei is motile, soil-borne, and causes Melioidosis (pseudoglanders) in tropical regions."
     ],
-    "clinical": "If you suspect Glanders (Farcy) in a horse, mule, or donkey, **never attempt treatment**. *Burkholderia mallei* is an incurable, fatal zoonotic pathogen that causes lethal multi-organ disease in humans. Glanders is a notifiable transboundary animal disease. The animal must be immediately quarantined, confirmed using the Mallein test or Complement Fixation Test (CFT), humanely euthanized under state veterinary supervision, and the carcass deeply buried with quicklime or incinerated.",
+    "clinical": "When treating a dog with chronic *Pseudomonas* otitis externa, routine empirical ear drops will fail because *Pseudomonas* secretes an impermeable alginate biofilm and possesses multidrug efflux pumps. The ear canal must be thoroughly flushed with a Tris-EDTA solution 15–30 minutes prior to applying topical antibiotics. Tris-EDTA chelates divalent cations ($Mg^{2+}, Ca^{2+}$) from the outer membrane, disrupting LPS cross-links and dramatically potentiating the penetration of topical fluoroquinolones (marbofloxacin/enrofloxacin) or aminoglycosides.",
     "tables": [
       {
-        "title": "Differentiation: Pseudomonas aeruginosa vs Burkholderia mallei vs B. pseudomallei",
+        "title": "Comprehensive Diagnostic Comparison: Pseudomonas aeruginosa vs Burkholderia mallei vs Burkholderia pseudomallei",
         "headers": [
-          "Diagnostic Parameter",
+          "Diagnostic Criterion",
           "Pseudomonas aeruginosa",
           "Burkholderia mallei",
           "Burkholderia pseudomallei"
         ],
         "rows": [
           [
-            "Motility",
+            "Motility & Flagella",
             "Motile (+) (single polar flagellum)",
-            "Completely Non-motile (-)",
-            "Motile (+) (polar flagella)"
+            "Strictly Non-motile (-) (no flagella)",
+            "Motile (+) (polar tuft of flagella)"
           ],
           [
-            "Colony Pigments",
+            "Natural Habitat",
+            "Ubiquitous environmental opportunist",
+            "Obligate mammalian parasite of equines",
+            "Tropical soil and surface water saprophyte"
+          ],
+          [
+            "Pigment Production",
             "Pyocyanin (blue-green) & Pyoverdine",
-            "Non-pigmented / translucent yellow",
-            "Wrinkled, corrugated purple/brown (Ashdown)"
+            "None (translucent to amber slime)",
+            "None (wrinkled, deep purple on Ashdown)"
           ],
           [
-            "Primary Animal Host",
-            "Dogs, sheep, cattle (opportunist)",
-            "Equines (horses, donkeys, mules)",
-            "Sheep, goats, pigs, humans (soil)"
+            "Odor on Agar",
+            "Sweet grape-like / corn-tortilla",
+            "No distinctive odor",
+            "Earthy / soil-like odor"
           ],
           [
-            "Characteristic Odor",
-            "Sweet, fruity grape-like odor",
-            "Faint / none",
-            "Distinctive wet earthy / putrid odor"
-          ],
-          [
-            "Mallein Test Response",
+            "Cetrimide Agar Growth",
+            "Positive (+) (selective growth)",
             "Negative (-)",
-            "Strong Positive (+) (eyelid swelling)",
-            "Weakly cross-reactive"
+            "Negative (-)"
           ],
           [
-            "Strauss Reaction (Guinea Pig)",
-            "Negative (-)",
-            "Positive (+) (purulent orchitis)",
-            "Positive (+) (purulent orchitis)"
+            "MacConkey Agar Growth",
+            "Positive (+) (large, irregular NLF)",
+            "Negative (-) or extremely poor/slow",
+            "Positive (+) (wrinkled, lactose-variable)"
           ],
           [
-            "Hallmark Disease",
-            "Canine otitis externa, Fleece rot",
-            "Glanders / Farcy (stellate scars)",
-            "Melioidosis (multiple caseous abscesses)"
+            "Animal Pathologies",
+            "Canine otitis externa, fleece rot, mastitis",
+            "Equine Glanders (nasal, lung, farcy)",
+            "Melioidosis (pseudoglanders, microabscesses)"
+          ],
+          [
+            "Official Regulatory Test",
+            "Not notifiable; routine ABST",
+            "Intradermopalpebral Mallein Test & CFT",
+            "Culture / IFA / PCR"
+          ],
+          [
+            "Biosafety / Select Agent",
+            "BSL-2 Opportunist",
+            "BSL-3 Select Agent (High Biosecurity)",
+            "BSL-3 High Consequence Pathogen"
           ]
         ]
       }
@@ -2008,72 +1869,88 @@ theoryData["unit-1"] = {
     "tags": [
       "pseudomonas",
       "pyocyanin",
-      "otitis-externa",
       "fleece-rot",
-      "burkholderia",
+      "otitis-externa",
+      "burkholderia-mallei",
       "glanders",
+      "farcy",
       "mallein-test",
-      "strauss-reaction",
+      "melioidosis",
       "unit-1"
     ]
   },
-  "u1-t26": {
-    "summary": "Pasteurella multocida (bipolar staining, Haemorrhagic Septicaemia B:2/E:2, fowl cholera), Mannheimia haemolytica (shipping fever, leukotoxin), and MacConkey differentiation.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> The family <i>Pasteurellaceae</i> contains the #1 killer of Indian cattle and buffaloes: <b><i>Pasteurella multocida</i></b>, the cause of <b>Haemorrhagic Septicaemia (HS / Galghotu)</b>. During the monsoon, stressed animals suddenly develop high fever, suffocating swelling of the throat (brisket edema), pneumonia, and die within 24 hours. Under the microscope, they show dramatic <b>bipolar staining</b> (the two ends stain dark like tiny dumbbells). Its close cousin, <b><i>Mannheimia haemolytica</i></b>, causes 'Shipping Fever' pneumonia in feedlot cattle, producing a lethal leukotoxin that kills white blood cells.</div><h4>1. Morphology & Staining (The Bipolar Hallmark)</h4><ul><li><b>Shape:</b> Very small, ovoid, Gram-negative coccobacilli (0.3–0.5 &times; 1.0–1.5 &mu;m) with rounded ends. Occur singly, in pairs, or small clusters. Non-motile, non-spore-forming.</li><li><b>Bipolar Staining (Exam Gold Standard):</b> In direct blood or tissue smears stained with <b>Leishman's, Giemsa, or Methylene Blue stain</b>, the cells exhibit marked <b>bipolar staining</b>: the two poles take up the dye intensely dark, while the central zone remains light and unstained. (Looks like tiny safety-pins or dumbbells). <i>Crucial:</i> Bipolarity is prominent in fresh animal blood smears, but readily lost on repeated artificial laboratory culture.</li><li><b>Capsule:</b> Virulent strains possess a prominent hyaluronic acid or polysaccharide capsule (demonstrated using negative India ink staining or capsular typing).</li></ul><h4>2. Cultural Characteristics (Crucial Exam Differentiation Table)</h4><ul><li><b>Blood Agar:</b><ul><li><i>Pasteurella multocida:</i> Circular, smooth, glistening, greyish colonies with a distinctive sweet, sickly, <b>musty / semen-like odor</b>. <b>Strictly Non-hemolytic (&gamma;-hemolysis)</b>.</li><li><i>Mannheimia haemolytica:</i> Produces a distinct, narrow zone of <b>Beta (&beta;) hemolysis</b> underneath and immediately surrounding colonies on sheep blood agar.</li></ul></li><li><b>MacConkey Agar (The Big Diagnostic Test!):</b><ul><li><b><i>Pasteurella multocida:</i></b> <b>DOES NOT GROW on MacConkey agar (Zero growth!)</b>. Inhibited completely by bile salts.</li><li><b><i>Mannheimia haemolytica:</i></b> <b>GROWS readily on MacConkey agar</b>, forming pinpoint, distinct pink lactose-fermenting colonies within 24–48 hours.</li></ul></li><li><b>Biochemical Profile:</b> Both are <b>Oxidase Positive (+)</b> and Catalase positive (+). <i>P. multocida</i> is Indole positive (+); <i>M. haemolytica</i> is Indole negative (-).</li></ul><h4>3. Pasteurella multocida Diseases (High-Yield Exam Focus)</h4><ul><li><b>1. Haemorrhagic Septicaemia (HS / Galghotu):</b><ul><li>Acute, fatal septicaemia of cattle and water buffaloes (buffaloes are significantly more susceptible).</li><li><b>Specific Serotypes:</b> <b>Asian Serotype B:2</b> (Robert's Type I) and <b>African Serotype E:2</b>.</li><li><b>Triggers:</b> Heavy monsoon rains, high humidity, exhaustion from plowing, and transportation stress.</li><li><b>Clinical Manifestations:</b> Sudden spike in body temperature (41°C–42°C), severe depression, profuse salivation, and warm, painful, tense <b>submandibular edema spreading down the brisket and neck</b>. The swelling compresses the trachea, causing severe dyspnea, stertorous snoring breathing with an open mouth and protruding tongue, leading to death from asphyxiation and endotoxic shock within 12–24 hours.</li><li><b>Post-Mortem:</b> Massive gelatinous straw-colored edema in subcutaneous tissue of neck and brisket; petechial and ecchymotic hemorrhages throughout subserous membranes, heart, and lungs.</li></ul></li><li><b>2. Fowl Cholera (Avian Pasteurellosis):</b><ul><li>Acute septicaemia in chickens, ducks, and turkeys (caused by Capsular Serogroup A). Sudden death, greenish-yellow watery diarrhea, cyanosis of comb and wattles, and necrotic white pinpoint foci in liver. Chronic form features swollen, localized abscessed wattles ('wattle disease') and joints.</li></ul></li><li><b>3. Atrophic Rhinitis in Swine (Progressive AR):</b><ul><li>Caused by toxigenic <i>P. multocida</i> Capsular Type D (producing <b>Dermonecrotic Toxin / PMT</b>), acting synergistically with <i>Bordetella bronchiseptica</i>. PMT destroys osteoblasts in the nasal turbinates, causing complete atrophy of turbinate bones and lateral facial distortion/snout shortening.</li></ul></li><li><b>4. Snuffles in Rabbits:</b> Chronic mucopurulent rhinosinusitis, sneezing, and torticollis (wry neck).</li></ul><h4>4. Mannheimia haemolytica (Bovine Pneumonic Pasteurellosis / Shipping Fever)</h4><ul><li>The primary bacterial agent of the <b>Bovine Respiratory Disease (BRD) Complex</b>.</li><li>Commensal of the nasopharynx. Viral infection (BVD, IBR, BRSV) or transit stress impairs lung defenses $\\rightarrow$ *Mannheimia* colonizes the lower respiratory tract.</li><li><b>Key Virulence Factor:</b> <b>Leukotoxin (LktA)</b>, a RTX pore-forming toxin that specifically binds <b>&beta;2-integrin (CD11a/CD18 / LFA-1)</b> on ruminant alveolar macrophages and neutrophils. At low doses, it triggers respiratory burst and toxic degranulation; at high doses, it punches pores and lyses white blood cells, causing acute <b>fibrinous pleuropneumonia ('marbled lung' appearance)</b>.</li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Molecular Specificity of Mannheimia Leukotoxin (LktA):</b> The leukotoxin produced by <i>Mannheimia haemolytica</i> displays absolute ruminant host-target specificity. It recognizes and binds exclusively to the <b>CD11a/CD18 (LFA-1)</b> integrin heterodimer expressed on the surface of ruminant (bovine, ovine) leukocytes, having zero affinity for non-ruminant (human, swine, murine) white blood cells. This explains why *Mannheimia* causes devastating fulminant pleuropneumonia in feedlot cattle but is completely non-pathogenic in non-ruminants. LktA pore formation causes an uncontrolled influx of extracellular $Ca^{2+}$, activating calpain and caspases, triggering necrotic lysis and dumping toxic lysosomal proteases directly into alveolar spaces, producing extensive pulmonary thrombosis and coagulative necrosis.</p>",
+  "u1-t24": {
+    "summary": "Pasteurella multocida (bipolar staining, Haemorrhagic Septicaemia B:2/E:2, Fowl Cholera, atrophic rhinitis), Mannheimia haemolytica (shipping fever, leukotoxin), and MacConkey differentiation.",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> The family <i>Pasteurellaceae</i> contains two of the most devastating respiratory and septicemic killers of Indian livestock. <b><i>Pasteurella multocida</i></b> exhibits classic <b>bipolar staining</b> (looks like tiny safety pins under Giemsa) and <b>FAILS to grow on MacConkey agar</b>. In cattle and buffaloes, it causes <b>Haemorrhagic Septicaemia (HS)</b>—a peracute killer with throat swelling and high mortality caused by serotype <b>B:2</b> in Asia and <b>E:2</b> in Africa—and causes <b>Fowl Cholera</b> in birds. <b><i>Mannheimia haemolytica</i></b>, by contrast, <b>GROWS on MacConkey agar</b> with pinpoint pink colonies, produces &beta;-hemolysis on blood agar, and secretes a lethal ruminant-specific <b>Leukotoxin (LktA)</b> that melts lung tissue in <b>Shipping Fever</b>.</div><h4>1. Morphology & Staining (The Bipolar Hallmark)</h4><ul><li><b>Gram Reaction & Shape:</b> Tiny, pleomorphic Gram-negative coccobacilli or short rods (0.3–0.5 &times; 1.0–1.5 &mu;m) with rounded ends. Occur singly, in pairs, or in short chains. Non-motile, non-spore-forming.</li><li><b>Bipolar Staining (Safety-Pin Appearance):</b> When stained directly from blood or fresh tissue impressions using polychrome methylene blue, Giemsa, or Leishman stain, the dye concentrates heavily at the two rounded ends while the center remains clear, producing a diagnostic <b>'safety-pin' bipolar appearance</b>. (Bipolar staining is easily lost upon subculture on artificial agar).</li><li><b>Capsule:</b> Virulent strains possess a prominent polysaccharide capsule that confers resistance to complement-mediated phagocytosis.</li></ul><h4>2. Cultural Differentiation: Pasteurella vs Mannheimia (High-Yield Exam Table)</h4><p>Veterinary examiners test this distinction on every single board paper:</p><ul><li><b>Growth on MacConkey Agar:</b><ul><li><b><i>Pasteurella multocida:</i></b> <b>Negative (-)</b>. Completely inhibited; zero growth.</li><li><b><i>Mannheimia haemolytica:</i></b> <b>Positive (+)</b>. Grows readily, producing tiny, pinpoint, lactose-fermenting pink colonies.</li></ul></li><li><b>Hemolysis on Sheep Blood Agar:</b><ul><li><b><i>Pasteurella multocida:</i></b> <b>Non-hemolytic (&gamma;)</b>. Forms smooth, glistening, grayish colonies with a characteristic sweet, mousy odor.</li><li><b><i>Mannheimia haemolytica:</i></b> <b>Beta-hemolytic (&beta;)</b>. Produces a distinct, narrow clear zone of complete hemolysis closely hugging the colony.</li></ul></li><li><b>Indole Production:</b> <i>P. multocida</i> is <b>Indole-positive (+)</b> (cherry red ring with Kovac's reagent); <i>M. haemolytica</i> is <b>Indole-negative (-)</b>.</li></ul><h4>3. Pasteurella multocida: Serotyping & Diseases</h4><ul><li><b>Carter's Capsular Classification:</b> Five capsular serogroups identified by indirect hemagglutination (A, B, D, E, F):<ul><li><b>Group A (Hyaluronic acid capsule):</b> Dissolved by hyaluronidase. Causes <b>Fowl Cholera</b> in poultry and bovine pneumonia.</li><li><b>Group B (Heparin-like polysaccharide):</b> Causes <b>Haemorrhagic Septicaemia (HS)</b> in cattle and buffaloes in Asia and India.</li><li><b>Group D (Heparin-like capsule):</b> Produces dermonecrotic toxin (PMT); causes <b>Progressive Atrophic Rhinitis</b> in swine.</li><li><b>Group E:</b> Causes <b>Haemorrhagic Septicaemia</b> in tropical Africa.</li></ul></li><li><b>Namioka's Somatic Typing:</b> 11 somatic types designated by Arabic numerals based on LPS antigens. The classic Asian HS serotype is <b>B:2</b>; the African HS serotype is <b>E:2</b>.</li><li><b>Major Animal Diseases:</b><ul><li><b>1. Haemorrhagic Septicaemia (HS / 'Gal Ghotu'):</b> Highly fatal acute disease of cattle and water buffaloes (buffaloes are significantly more susceptible). Triggered by monsoon rains, high humidity, draught stress, and exhaustion. Pathogenesis: Sudden massive bacteremia and endotoxemia. Clinical signs: High fever ($106–107&deg;F (41–41.7&deg;C)$), severe depression, profuse salivation, and marked <b>hot, painful, inflammatory submandibular and throat swelling ('dewlap edema')</b> extending down the brisket. Severe dyspnea, stertorous breathing with tongue protruding from the mouth, petechial mucosal hemorrhages, and death from asphyxiation and endotoxic shock within 12–24 hours. Lesions: Extensive serofibrinous edematous fluid in the throat, hemorrhagic lymphadenitis, and severe petechiae on epicardium.</li><li><b>2. Fowl Cholera in Poultry (Serogroups A:1, A:3, A:4):</b> Acute fatal septicemia in chickens, turkeys, and ducks. High fever, green diarrhea, dyspnea, and cyanotic dark-blue comb and wattles. Necropsy reveals pinpoint necrotic white foci throughout the liver ('cornmeal liver') and petechiae on the proventricular fat.</li><li><b>3. Progressive Atrophic Rhinitis in Swine:</b> <i>P. multocida</i> type D produces <b>PMT (Pasteurella multocida Toxin)</b>, a potent dermonecrotic toxin that stimulates osteoclasts and suppresses osteoblasts, completely resorbing and destroying the nasal turbinate bones. Produces snout wrinkling, lateral deviation of the upper jaw, snorting, and epistaxis. (Acts synergistically with <i>Bordetella bronchiseptica</i>).</li><li><b>4. Snuffles in Rabbits:</b> Chronic mucopurulent rhinitis, sneezing, and conjunctivitis.</li></ul></li></ul><h4>4. Mannheimia haemolytica (Bovine Pneumonic Pasteurellosis / Shipping Fever)</h4><ul><li><b>Etiology & Triggers:</b> Normal commensal of the bovine nasopharynx. When animals are subjected to severe transportation stress, overcrowding, exhaustion, or primary viral infection (Bovine Herpesvirus-1, PI-3, BRSV), host defenses collapse $&rarr;arrow$ <i>M. haemolytica</i> (primarily serotype <b>A1</b>) proliferates and descends into the lower respiratory tract.</li><li><b>Virulence Determinants:</b> Produces a powerful, ruminant-specific pore-forming RTX toxin called <b>Leukotoxin (LktA)</b>. At low concentrations, LktA activates bovine alveolar macrophages and neutrophils, causing massive degranulation; at high concentrations, it forms transmembrane pores, lysing macrophages and neutrophils. Lysed phagocytes release toxic reactive oxygen species and lysosomal proteases, destroying the lung parenchyma.</li><li><b>Pathology:</b> Fibrinous, necrotizing pleuropneumonia ('marbled lung' appearance with dark consolidated lobules separated by wide, gelatinous, thickened interlobular septa drenched in yellow fibrin).</li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Molecular Action of Leukotoxin (LktA) and Carter Capsular Chemistry:</b></p><ul><li><b>Leukotoxin Specificity:</b> <i>Mannheimia haemolytica</i> LktA exhibits strict target cell and species specificity: it binds exclusively to the <b>&beta;2-integrin receptor (LFA-1 / CD11a/CD18)</b> expressed on ruminant leukocytes. It cannot bind murine or equine leukocytes. Upon binding CD11a/CD18, it triggers sustained intracellular calcium influx, activating caspase-1 and apoptotic cascades at nanomolar levels, and driving necrotic membrane pore lysis at micromolar levels.</li><li><b>Carter Capsule Chemical Composition:</b> Group A capsule is made entirely of <b>hyaluronic acid</b> (identical to host connective tissue ground substance, making it completely non-immunogenic and providing molecular camouflage against phagocytosis). Group D capsule consists of <b>heparin-like polysaccharide</b>. Group B (Asian HS) possesses an acidic polysaccharide-protein complex that resists complement-mediated serum bactericidal killing.</li></ul>",
     "keyPoints": [
-      "Pasteurellaceae are tiny, Gram-negative, non-motile coccobacilli displaying prominent bipolar staining.",
-      "Bipolar staining (safety-pin/dumbbell appearance) is best visualized using Leishman, Giemsa, or methylene blue.",
-      "Bipolarity is prominent in direct animal blood smears, but lost upon prolonged laboratory subculture.",
-      "Pasteurella multocida DOES NOT GROW on MacConkey agar; Mannheimia haemolytica GROWS on MacConkey.",
-      "Pasteurella multocida is non-hemolytic on blood agar with a musty odor; Mannheimia is beta-hemolytic.",
-      "Haemorrhagic Septicaemia (HS) is caused by Pasteurella multocida Serotypes B:2 (Asia) and E:2 (Africa).",
-      "HS clinical signs: High fever, profuse salivation, submandibular/brisket edema, and death within 24 hours.",
-      "Water buffaloes are significantly more susceptible to fatal Haemorrhagic Septicaemia than cattle.",
-      "Fowl Cholera in poultry is caused by Capsular Serogroup A, causing cyanotic comb/wattles and liver necrosis.",
-      "Progressive Atrophic Rhinitis in swine involves P. multocida Type D dermonecrotic toxin (PMT) destroying turbinates.",
-      "Mannheimia haemolytica produces species-specific Leukotoxin (LktA) that targets bovine CD18/LFA-1 integrins.",
-      "Annual pre-monsoon vaccination with Alum-Precipitated (or oil adjuvant) HS vaccine is mandatory in India."
+      "Pasteurellaceae are tiny Gram-negative coccobacilli showing bipolar 'safety-pin' staining.",
+      "Pasteurella multocida does NOT grow on MacConkey agar; Mannheimia haemolytica GROWS on MacConkey agar.",
+      "P. multocida is non-hemolytic and indole-positive; M. haemolytica is beta-hemolytic and indole-negative.",
+      "Haemorrhagic Septicaemia (HS) is caused by P. multocida Carter Group B (B:2) in Asia and Group E (E:2) in Africa.",
+      "Buffaloes are far more susceptible to acute HS than cattle; disease is marked by throat edema and asphyxiation.",
+      "Fowl Cholera in poultry is caused by P. multocida Carter Group A (A:1, A:3), causing cyanotic combs and liver necrosis.",
+      "Pasteurella multocida dermonecrotic toxin (PMT) destroys nasal turbinates in swine Progressive Atrophic Rhinitis.",
+      "Mannheimia haemolytica (serotype A1) causes Bovine Shipping Fever following transit stress and viral infection.",
+      "M. haemolytica produces ruminant-specific Leukotoxin (LktA), which targets CD11a/CD18 on bovine leukocytes.",
+      "Shipping fever pathology features severe fibrinous pleuropneumonia with marbled lungs and thickened interlobular septa.",
+      "HS vaccines in India include Alum-precipitated and Oil-adjuvant vaccines administered before monsoon seasons.",
+      "Subculture on artificial media causes Pasteurella to lose its capsule and characteristic bipolar staining."
     ],
-    "clinical": "In India, Haemorrhagic Septicaemia (HS) outbreaks peak during the onset of the southwest monsoon (July–September). If an unvaccinated buffalo shows sudden fever and submandibular throat swelling, treat it as an extreme medical emergency. Administer intravenous broad-spectrum bactericidal antibiotics (such as Ceftiofur, Enrofloxacin, or long-acting Oxytetracycline) along with anti-inflammatory flunixin meglumine immediately. If delayed until severe brisket edema and stertorous snoring set in, death from tracheal compression and endotoxic shock is virtually 100% inevitable.",
+    "clinical": "When investigating sudden monsoon deaths in water buffaloes displaying massive submandibular throat swelling and stertorous breathing, act with emergency speed. Haemorrhagic Septicaemia kills within 12–24 hours of clinical onset. Collect peripheral jugular blood smears immediately before antibiotic administration. Fix and stain with Leishman or methylene blue to demonstrate classic bipolar safety-pin coccobacilli. Initiate emergency IV antimicrobial therapy with ceftiofur, oxytetracycline, or sulfadimidine (33.3% at 100 ml per 100 kg) immediately to all in-contact animals in the herd.",
     "tables": [
       {
-        "title": "Differentiation: Pasteurella multocida versus Mannheimia haemolytica",
+        "title": "Comprehensive Diagnostic Differentiation: Pasteurella multocida vs Mannheimia haemolytica",
         "headers": [
           "Diagnostic Parameter",
-          "Pasteurella multocida (HS Agent)",
-          "Mannheimia haemolytica (BRD Agent)"
+          "Pasteurella multocida",
+          "Mannheimia haemolytica"
         ],
         "rows": [
           [
-            "Growth on MacConkey Agar",
-            "Completely Absent (Zero Growth!)",
-            "Positive Growth (+) (pinpoint pink colonies)"
+            "MacConkey Agar Growth",
+            "Completely Negative (-) (inhibited)",
+            "Positive (+) (pinpoint pink lactose+ colonies)"
           ],
           [
             "Hemolysis on Sheep Blood Agar",
-            "Strictly Non-hemolytic (&gamma;-hemolysis)",
-            "Clear Beta (&beta;) Hemolysis"
-          ],
-          [
-            "Colony Odor",
-            "Distinctive sweet, musty / semen-like",
-            "Faint / non-specific"
+            "Non-hemolytic (Gamma, y)",
+            "Beta-hemolytic (narrow clear zone)"
           ],
           [
             "Indole Production",
-            "Positive (+) (cherry-red ring)",
-            "Negative (-)"
+            "Positive (+) (cherry-red ring with Kovac's)",
+            "Negative (-) (no color change)"
           ],
           [
-            "Primary Animal Disease",
-            "Haemorrhagic Septicaemia & Fowl Cholera",
-            "Shipping Fever (bovine pleuropneumonia)"
+            "Colony Odor",
+            "Sweet, distinct mousy odor",
+            "No distinctive mousy odor"
           ],
           [
-            "Key Virulence Mechanism",
-            "Polysaccharide capsule + LPS endotoxin",
+            "Bipolar Staining (Blood Smear)",
+            "Consistently and heavily Positive (+)",
+            "Weakly positive or variable"
+          ],
+          [
+            "Primary Animal Diseases",
+            "Haemorrhagic Septicaemia (HS), Fowl Cholera",
+            "Shipping Fever (Bovine Pleuropneumonia)"
+          ],
+          [
+            "Key Virulence Factor",
+            "Polysaccharide capsule (A-F) + PMT toxin",
             "Ruminant-specific Leukotoxin (LktA)"
+          ],
+          [
+            "Target Host Species",
+            "Cattle, water buffaloes, poultry, rabbits",
+            "Cattle and sheep (feedlot/transported)"
+          ],
+          [
+            "Carter Capsular Grouping",
+            "Groups A, B, D, E, F",
+            "Not applicable (serotypes 1 to 16)"
           ]
         ]
       }
@@ -2081,76 +1958,85 @@ theoryData["unit-1"] = {
     "tags": [
       "pasteurella",
       "haemorrhagic-septicaemia",
+      "fowl-cholera",
       "mannheimia",
       "shipping-fever",
+      "leukotoxin",
       "bipolar-staining",
       "macconkey",
-      "leukotoxin",
       "unit-1"
     ]
   },
-  "u1-t27": {
-    "summary": "Actinobacillus lignieresii (Wooden Tongue), A. pleuropneumoniae (swine pleuropneumonia, satellitism), and Glaesserella parasuis (Glässer's disease polyserositis).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This group consists of fastidious Gram-negative coccobacilli that love blood and serum. <b><i>Actinobacillus lignieresii</i></b> causes <b>'Wooden Tongue'</b> in cattle (the tongue becomes rock-hard, swollen, and protrudes from the mouth like a wooden block with small sulfur granules). <b><i>Actinobacillus pleuropneumoniae</i></b> kills feedlot pigs with bloody, foaming noses and lungs. <b><i>Glaesserella (Haemophilus) parasuis</i></b> causes <b>Glässer's Disease</b> in young pigs—a complete bodily inflammation where every internal organ gets coated in a thick, sticky layer of yellow fibrin (fibrinous polyserositis).</div><h4>1. Actinobacillus lignieresii (Bovine Wooden Tongue)</h4><ul><li><b>Morphology & Staining:</b> Small, pleomorphic Gram-negative rod or coccobacillus (0.4 &times; 1.0 &mu;m). Non-motile, non-spore-forming. Commensal of the bovine oral cavity and rumen.</li><li><b>Pathogenesis:</b> Sharp awns, rough dry fodder, or wire prick the oral mucosa $\\rightarrow$ bacteria invade the deep soft connective tissues of the tongue $\\rightarrow$ chronic pyogranulomatous inflammation.</li><li><b>Clinical Signs (Wooden Tongue):</b><ul><li>The tongue becomes severely enlarged, firm, indurated, and <b>rock-hard like a block of wood</b>.</li><li>The immobile tongue protrudes from the mouth; the animal drools continuous ropy saliva, cannot chew or swallow (prehension failure), and rapidly loses weight.</li><li>Regional lymph nodes (submandibular, retropharyngeal) swell and abscess, discharging thick yellow-white pus containing <b>small, grey-white sulfur granules</b>.</li></ul></li><li><b>Diagnostic Smear:</b> Crushing a sulfur granule between glass slides and Gram-staining reveals <b>Gram-negative tiny pleomorphic coccobacilli</b> surrounded by radiating eosinophilic clubs (Splendore-Hoeppli phenomenon). <i>Exam Crucial:</i> Differentiates it from Lumpy Jaw (*Actinomyces bovis*), which shows Gram-positive branching filaments!</li><li><b>Treatment:</b> Intravenous 10% Sodium Iodide solution and systemic streptomycin/tetracycline.</li></ul><h4>2. Actinobacillus pleuropneumoniae (Swine Pleuropneumonia - APP)</h4><ul><li>Affects pigs aged 8–16 weeks. Highly contagious, acute, and often fatal.</li><li><b>Clinical Signs & Lesions:</b> Sudden onset of high fever, dyspnea with 'dog-sitting' posture, and <b>bloody, frothy, foamy discharge pouring from nostrils and mouth</b>. Post-mortem reveals severe, bilateral, hemorrhagic, necrotizing fibrinous pleuropneumonia with extensive dark plum-colored lung consolidation.</li><li><b>Virulence Factors:</b> Produces 4 potent pore-forming RTX toxins: <b>ApxI, ApxII, ApxIII, and ApxIV</b> that lyse porcine alveolar macrophages and endothelial cells.</li><li><b>Satellitism (V-Factor Dependency):</b> Most virulent serotypes require <b>Factor V (NAD)</b>. When streaked on blood agar across a streak of *Staphylococcus aureus*, tiny colonies of *A. pleuropneumoniae* grow abundantly only as a <b>'satellite' ring</b> closely hugging the staph nurse streak (because staph secretes excess NAD).</li></ul><h4>3. Glaesserella (Haemophilus) parasuis (Glässer's Disease)</h4><ul><li><b>Growth Requirements (The X and V Factors):</b> Member of the pasteurellaceae family that strictly requires <b>Factor V (NAD - Nicotinamide Adenine Dinucleotide)</b> for growth on chocolate agar or blood agar with a staph nurse colony. Non-hemolytic.</li><li><b>Glässer's Disease in Swine (Fibrinous Polyserositis):</b><ul><li>Affects weaned pigs (4 to 8 weeks old) following stress, mixing, or chilling.</li><li>Bacteria breach the nasal mucosa $\\rightarrow$ bacteremia $\\rightarrow$ targets all serous cavities.</li><li><b>Pathognomonic Pathology:</b> <b>Severe Fibrinous Polyserositis, Polyarthritis, and Meningitis</b>. Upon opening the carcass, the pericardial sac, pleural cavity, and peritoneal cavity are drenched in massive, thick, yellow fibrinous exudate, gluing the lungs to the ribs ('bread-and-butter pericarditis') and swelling all joints with purulent fluid.</li></ul></li></ul><h4>4. Histophilus somni (TEME in Feedlot Cattle)</h4><ul><li>Gram-negative pleomorphic coccobacillus; microaerophilic ($5–10\\%\\ CO_2$).</li><li>Causes <b>Thromboembolic Meningoencephalitis (TEME / 'Sleeper Syndrome')</b> in young feedlot cattle. Induces endothelial apoptosis, forming microthrombi and multifocal septic infarcts in the cerebral cortex and brainstem, causing blindness, ataxia, somnolence, recumbency, and death.</li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>The Phenomenon of Satellitism and Factor Dependency:</b> In diagnostic veterinary bacteriology, fastidious Pasteurellaceae are classified based on their growth dependency on two heat-stable cofactors present in mammalian blood:</p><ul><li><b>Factor X (Hemin / Protoporphyrin IX):</b> Required for cytochrome synthesis in the electron transport chain. Stable to autoclaving.</li><li><b>Factor V (NAD / NADP):</b> Required as a coenzyme for oxidation-reduction dehydrogenases. Heat-labile; destroyed at 100°C. In intact sheep blood agar, Factor V remains trapped inside erythrocytes, while active plasma enzymes (NADases) destroy free NAD.</li><li><b>The Satellitism Technique:</b> When a bacterium requiring Factor V (such as <i>Glaesserella parasuis</i> or <i>A. pleuropneumoniae</i>) is inoculated onto sheep blood agar, it fails to grow. However, if a nurse streak of &beta;-hemolytic <i>Staphylococcus aureus</i> is drawn across the plate, the staph hemolysin lyses surrounding red blood cells, releasing trapped intracellular NAD and synthesizing excess free NAD. The fastidious organism grows as tiny, dewdrop-like <b>'satellite colonies'</b> exclusively within a 2–5 mm zone bordering the staph streak.</li></ul>",
+  "u1-t25": {
+    "summary": "Actinobacillus lignieresii (Wooden Tongue), A. pleuropneumoniae (swine pleuropneumonia, satellitism), Glaesserella parasuis (Glässer's disease polyserositis), Histophilus somni (TEME), and Avibacterium paragallinarum (Infectious Coryza).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This group consists of fastidious Gram-negative coccobacilli that love blood and serum cofactors. <b><i>Actinobacillus lignieresii</i></b> causes <b>'Wooden Tongue'</b> in cattle (the tongue becomes rock-hard, swollen, and protrudes from the mouth with small sulfur granules in pus). <b><i>Actinobacillus pleuropneumoniae</i></b> kills feedlot pigs with bloody, foaming noses and lungs. <b><i>Glaesserella (Haemophilus) parasuis</i></b> causes <b>Glässer's Disease</b> in young pigs—where every internal organ gets coated in a thick, sticky layer of yellow fibrin (fibrinous polyserositis), relying strictly on <b>Factor V (NAD)</b> to grow via the famous <b>satellitism phenomenon</b> around <i>Staphylococcus</i> nurse streaks. <b><i>Avibacterium paragallinarum</i></b> causes acute <b>Infectious Coryza</b> in chickens with severe facial swelling.</div><h4>1. Actinobacillus lignieresii (Bovine Wooden Tongue)</h4><ul><li><b>Morphology & Staining:</b> Small, pleomorphic Gram-negative rod or coccobacillus (0.4 &times; 1.0 &mu;m). Non-motile, non-spore-forming. Commensal of the bovine oral cavity and rumen.</li><li><b>Pathogenesis:</b> Sharp awns, rough dry fodder, or wire prick the oral mucosa $\\rightarrow$ bacteria invade the deep soft connective tissues of the tongue $\\rightarrow$ chronic pyogranulomatous inflammation.</li><li><b>Clinical Signs (Wooden Tongue):</b><ul><li>The tongue becomes severely enlarged, firm, indurated, and <b>rock-hard like a block of wood</b>.</li><li>The immobile tongue protrudes from the mouth; the animal drools continuous ropy saliva, cannot chew or swallow (prehension failure), and rapidly loses weight.</li><li>Regional lymph nodes (submandibular, retropharyngeal) swell and abscess, discharging thick yellow-white pus containing <b>small, grey-white sulfur granules</b>.</li></ul></li><li><b>Diagnostic Smear:</b> Crushing a sulfur granule between glass slides and Gram-staining reveals <b>Gram-negative tiny pleomorphic coccobacilli</b> surrounded by radiating eosinophilic clubs (Splendore-Hoeppli phenomenon). <i>Exam Crucial:</i> Differentiates it from Lumpy Jaw (<i>Actinomyces bovis</i>), which shows Gram-positive branching filaments!</li><li><b>Treatment:</b> Intravenous 10% Sodium Iodide solution and systemic streptomycin/tetracycline.</li></ul><h4>2. Actinobacillus pleuropneumoniae (Swine Pleuropneumonia - APP)</h4><ul><li>Affects pigs aged 8–16 weeks. Highly contagious, acute, and often fatal.</li><li><b>Clinical Signs & Lesions:</b> Sudden onset of high fever, dyspnea with 'dog-sitting' posture, and <b>bloody, frothy, foamy discharge pouring from nostrils and mouth</b>. Post-mortem reveals severe, bilateral, hemorrhagic, necrotizing fibrinous pleuropneumonia with extensive dark plum-colored lung consolidation.</li><li><b>Virulence Factors:</b> Produces 4 potent pore-forming RTX toxins: <b>ApxI, ApxII, ApxIII, and ApxIV</b> that lyse porcine alveolar macrophages and endothelial cells.</li><li><b>Satellitism (V-Factor Dependency):</b> Most virulent serotypes require <b>Factor V (NAD)</b>. When streaked on blood agar across a streak of <i>Staphylococcus aureus</i>, tiny colonies of <i>A. pleuropneumoniae</i> grow abundantly only as a <b>'satellite' ring</b> closely hugging the staph nurse streak (because staph secretes excess NAD).</li></ul><h4>3. Glaesserella (Haemophilus) parasuis (Glässer's Disease)</h4><ul><li><b>Growth Requirements (The X and V Factors):</b> Member of the pasteurellaceae family that strictly requires <b>Factor V (NAD - Nicotinamide Adenine Dinucleotide)</b> for growth on chocolate agar or blood agar with a staph nurse colony. Non-hemolytic.</li><li><b>Glässer's Disease in Swine (Fibrinous Polyserositis):</b><ul><li>Affects weaned pigs (4 to 8 weeks old) following stress, mixing, or chilling.</li><li>Bacteria breach the nasal mucosa $\\rightarrow$ bacteremia $\\rightarrow$ targets all serous cavities.</li><li><b>Pathognomonic Pathology:</b> <b>Severe Fibrinous Polyserositis, Polyarthritis, and Meningitis</b>. Upon opening the carcass, the pericardial sac, pleural cavity, and peritoneal cavity are drenched in massive, thick, yellow fibrinous exudate, gluing the lungs to the ribs ('bread-and-butter pericarditis') and swelling all joints with purulent fluid.</li></ul></li></ul><h4>4. Histophilus somni (TEME in Feedlot Cattle)</h4><ul><li>Gram-negative pleomorphic coccobacillus; microaerophilic ($5–10\\%\\ CO_2$).</li><li>Causes <b>Thromboembolic Meningoencephalitis (TEME / 'Sleeper Syndrome')</b> in young feedlot cattle. Induces endothelial apoptosis, forming microthrombi and multifocal septic infarcts in the cerebral cortex and brainstem, causing blindness, ataxia, somnolence, recumbency, and death.</li></ul><h4>5. Avibacterium paragallinarum (Infectious Coryza in Poultry)</h4><ul><li><b>Morphology & Growth:</b> Fastidious, Gram-negative, pleomorphic rod; strictly requires <b>Factor V (NAD)</b> and 5–10% $CO_2$. Grows as satellite colonies around a <i>Staphylococcus aureus</i> feeder streak.</li><li><b>Infectious Coryza:</b> Highly contagious acute upper respiratory infection of chickens. Characterized by marked <b>facial swelling and edema of the infraorbital sinuses</b>, foul-smelling nasal discharge, conjunctivitis with swollen eyelids, and an immediate 10–40% drop in egg production in commercial layers.</li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>The Phenomenon of Satellitism and Factor Dependency:</b> In diagnostic veterinary bacteriology, fastidious Pasteurellaceae are classified based on their growth dependency on two heat-stable cofactors present in mammalian blood:</p><ul><li><b>Factor X (Hemin / Protoporphyrin IX):</b> Required for cytochrome synthesis in the electron transport chain. Stable to autoclaving.</li><li><b>Factor V (NAD / NADP):</b> Required as a coenzyme for oxidation-reduction dehydrogenases. Heat-labile; destroyed at 100°C. In intact sheep blood agar, Factor V remains trapped inside erythrocytes, while active plasma enzymes (NADases) destroy free NAD.</li><li><b>The Satellitism Technique:</b> When a bacterium requiring Factor V (such as <i>Glaesserella parasuis</i>, <i>Avibacterium paragallinarum</i>, or <i>A. pleuropneumoniae</i>) is inoculated onto sheep blood agar, it fails to grow. However, if a nurse streak of &beta;-hemolytic <i>Staphylococcus aureus</i> is drawn across the plate, the staph hemolysin lyses surrounding red blood cells, releasing trapped intracellular NAD and synthesizing excess free NAD. The fastidious organism grows as tiny, dewdrop-like <b>'satellite colonies'</b> exclusively within a 2–5 mm zone bordering the staph streak.</li></ul>",
     "keyPoints": [
-      "Actinobacillus lignieresii causes 'Wooden Tongue' in cattle, a chronic pyogranulomatous soft tissue infection.",
-      "Wooden tongue signs: Indurated, immobile protruding tongue, continuous drooling saliva, and prehension failure.",
-      "Sulfur granules in wooden tongue contain Gram-negative coccobacilli (distinguishing it from Lumpy Jaw).",
-      "Actinobacillus pleuropneumoniae (APP) causes hyperacute fibrinous pleuropneumonia in feedlot swine.",
-      "APP clinical hallmarks: Dog-sitting posture, high fever, and bloody foamy discharge pouring from nostrils.",
-      "APP virulence relies on four pore-forming RTX leukotoxins designated ApxI to ApxIV.",
-      "Glaesserella (Haemophilus) parasuis is strictly Factor V (NAD) dependent for growth.",
-      "Glässer's disease features severe fibrinous polyserositis, polyarthritis, and meningitis in young pigs.",
-      "Gross pathology of Glässer's: Fibrinous pleuritis, peritonitis, and 'bread-and-butter' fibrinous pericarditis.",
-      "Satellitism: Fastidious Factor V-dependent bacteria grow as satellite rings around a beta-hemolytic Staph streak.",
-      "Histophilus somni causes Thromboembolic Meningoencephalitis (TEME / 'Sleeper Syndrome') in feedlot calves.",
-      "Treatment of Wooden Tongue relies on intravenous sodium iodide combined with streptomycin or tetracyclines."
+      "Actinobacillus lignieresii causes Wooden Tongue in cattle via trauma to the oral mucosa from coarse feed.",
+      "Wooden Tongue produces a hard, protruding, immobile tongue and soft-tissue sulfur granules in regional lymph nodes.",
+      "Crushed sulfur granules from Wooden Tongue reveal Gram-negative coccobacilli with Splendore-Hoeppli clubs.",
+      "Actinobacillus pleuropneumoniae (APP) produces ApxI-IV RTX toxins and severe fibrinous pleuropneumonia in pigs.",
+      "Glaesserella (Haemophilus) parasuis requires Factor V (NAD) and causes Glässer's disease in weaned pigs.",
+      "Glässer's disease pathology is marked by severe fibrinous polyserositis, polyarthritis, and meningitis.",
+      "Satellitism: Fastidious organisms grow as satellite colonies bordering a Staphylococcus aureus nurse streak.",
+      "Factor X is heat-stable hemin; Factor V is heat-labile NAD/NADP.",
+      "Histophilus somni causes Thromboembolic Meningoencephalitis (TEME / Sleeper Syndrome) in feedlot cattle.",
+      "Avibacterium paragallinarum causes Infectious Coryza in chickens with acute facial and sinus edema.",
+      "Wooden Tongue is treated with intravenous 10% Sodium Iodide solution and systemic streptomycin/tetracycline.",
+      "Sodium iodide must never be administered to pregnant cows in the final trimester as it can induce abortion."
     ],
     "clinical": "When treating a cow with 'Wooden Tongue' (*Actinobacillus lignieresii*), intravenous Sodium Iodide (1 gram per 12 kg body weight as a 10% solution) works like a miracle drug, breaking down the granulomatous tissue within days. However, always watch for signs of **iodism** (excessive lacrimation, coughing, dandruff, and skin scaling). If signs appear, halt iodide therapy immediately. *Warning:* Never administer sodium iodide to cows in their last trimester of pregnancy, as it can induce abortion.",
     "tables": [
       {
-        "title": "Differential Diagnosis: Bony Lumpy Jaw vs Soft Tissue Wooden Tongue",
+        "title": "Differential Diagnosis: Bony Lumpy Jaw vs Soft Tissue Wooden Tongue vs Glässer's Disease",
         "headers": [
           "Diagnostic Parameter",
           "Actinomycosis ('Lumpy Jaw')",
-          "Actinobacillosis ('Wooden Tongue')"
+          "Actinobacillosis ('Wooden Tongue')",
+          "Glässer's Disease"
         ],
         "rows": [
           [
             "Causative Organism",
             "Actinomyces bovis",
-            "Actinobacillus lignieresii"
+            "Actinobacillus lignieresii",
+            "Glaesserella parasuis"
           ],
           [
-            "Gram Stain Reaction",
-            "Gram-positive (+)",
-            "Gram-negative (-)"
+            "Gram Stain & Shape",
+            "Gram-positive branching filaments",
+            "Gram-negative pleomorphic rods",
+            "Gram-negative coccobacillus"
           ],
           [
-            "Microscopic Morphology",
-            "Long, tangled branching filaments",
-            "Tiny, pleomorphic rods and coccobacilli"
+            "Target Animal & Tissue",
+            "Cattle: Mandible & maxilla bones",
+            "Cattle: Muscular tongue & lymph nodes",
+            "Swine: Serous membranes & joints"
           ],
           [
-            "Primary Target Tissue",
-            "Bony mandible and maxilla (osteomyelitis)",
-            "Soft muscular tongue and regional lymph nodes"
+            "Primary Pathology",
+            "Rarefying osteomyelitis (honeycombed)",
+            "Granulomatous induration of tongue",
+            "Fibrinous polyserositis & polyarthritis"
           ],
           [
-            "Palpation Finding",
-            "Rock-hard, distorted, honeycombed bone",
-            "Hard, swollen, stiff protruding tongue"
+            "Pus Granules",
+            "Gritty, yellow sulfur granules",
+            "Small, soft, greyish-white granules",
+            "None (thick yellow fibrinous exudate)"
           ],
           [
-            "Pus Sulfur Granules",
-            "Large, gritty, bright yellow-white granules",
-            "Small, soft, greyish-white granules"
+            "Factor Dependency",
+            "No X or V factor requirement",
+            "No factor requirement",
+            "Strictly requires Factor V (NAD)"
           ],
           [
-            "Drug of Choice",
-            "High-dose Penicillin G + Sodium Iodide",
-            "Streptomycin / Tetracycline + Sodium Iodide"
+            "Primary Drug of Choice",
+            "Penicillin G + Sodium Iodide",
+            "Streptomycin / Tetracycline + NaI",
+            "Amoxicillin / Ceftiofur"
           ]
         ]
       }
@@ -2158,97 +2044,312 @@ theoryData["unit-1"] = {
     "tags": [
       "actinobacillus",
       "wooden-tongue",
-      "pleuropneumonia",
       "glaesserella",
       "haemophilus",
       "glaessers-disease",
       "satellitism",
+      "factor-v",
+      "infectious-coryza",
       "unit-1"
     ]
   },
-  "u1-t28": {
-    "summary": "Brucella (abortus, melitensis, suis, Bang's disease, Stamp's ZN, RBPT, MRT), Campylobacter fetus (vibriosis), and Bordetella bronchiseptica (kennel cough).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This triad covers three of the most crucial reproductive and respiratory bacterial pathogens in veterinary medicine: <b><i>Brucella</i></b> causes <b>Bang's Disease</b> in cattle (a storm of late-term abortions, retained placenta, and bull orchitis; diagnosed using Rose Bengal Plate Test and Milk Ring Test; severe zoonotic risk to vets!). <b><i>Campylobacter fetus</i></b> is the curved 'seagull-shaped' venereal bacterium causing early embryonic death and repeat breeding in cattle. <b><i>Bordetella bronchiseptica</i></b> causes <b>Kennel Cough</b> in dogs and atrophic rhinitis in swine.</div><h4>1. Genus Brucella (Brucellosis / Bang's Disease)</h4><ul><li><b>Morphology & Staining:</b> Tiny, partially acid-fast, Gram-negative coccobacilli (0.5–0.7 &times; 0.6–1.5 &mu;m) occurring singly or in small clusters. Non-motile, non-spore-forming, strictly aerobic, intracellular pathogens.</li><li><b>Stamp's Modified Acid-Fast Stain (Diagnostic Hallmark):</b> Because of lipoidal components in their outer envelope, <i>Brucella</i> resists weak acid decolorization (0.5% acetic acid). In placental cotyledon smears, <b><i>Brucella</i> stains bright red coccobacilli</b> in dense intra- and extracellular clumps against a pale blue background.</li><li><b>Veterinary Species & Host Tropism:</b><ul><li><b><i>Brucella abortus:</i></b> Cattle and buffaloes (Bovine Brucellosis / Bang's Disease).</li><li><b><i>Brucella melitensis:</i></b> Sheep and goats (Caprine Brucellosis; the most virulent zoonosis for humans!).</li><li><b><i>Brucella suis:</i></b> Swine (sows abort at any stage; severe destructive arthritis and spondylitis).</li><li><b><i>Brucella ovis:</i></b> Sheep (causes contagious ram epididymitis and ram infertility).</li><li><b><i>Brucella canis:</i></b> Dogs (generalized lymphadenitis, diskospondylitis, late abortion).</li></ul></li><li><b>Pathology of Bovine Brucellosis (Bang's Disease):</b><ul><li>Ingestion of contaminated feed, grazing pastures, or licking aborted fetuses $\\rightarrow$ bacteremia $\\rightarrow$ affinity for pregnant reproductive tissues containing <b>Erythritol</b> (a 4-carbon polyhydric alcohol produced by the bovine placenta and fetal fluids that dramatically stimulates <i>Brucella</i> multiplication).</li><li>Severe ulcerative, necrotic placentitis: cotyledons become swollen, yellowish-grey, and necrotic (<b>'morocco-leather appearance'</b>). Causes a <b>storm of late-term abortions (between 5th and 8th months of gestation)</b>, retained fetal membranes, severe metritis, and subsequent infertility.</li><li>In bulls, localizes in testes and seminal vesicles, causing severe <b>orchitis, epididymitis</b>, and shedding in semen.</li></ul></li><li><b>Standard Diagnostic Tests (Exam Must-Knows):</b><ul><li><b>1. Rose Bengal Plate Test (RBPT):</b> Rapid qualitative field agglutination test. Mix 30 &mu;l of animal serum with 30 &mu;l of Rose Bengal stained, acidified (pH 3.65) *B. abortus* antigen on a white tile. Visible agglutination clumping within 3 minutes is positive. Acidic pH suppresses non-specific IgM, detecting specific IgG1.</li><li><b>2. Milk Ring Test (MRT):</b> Herd screening test on bulk pooled milk. Add stained blue *Brucella* antigen to whole milk in a narrow tube. Incubate at 37°C for 1 hour. If milk contains anti-*Brucella* antibodies (mostly secretory IgA), they agglutinate the blue bacteria and attach to rising fat globules. <b>Positive Result:</b> A <b>deep blue cream ring forms at the top</b>, leaving the milk column white. Negative: cream ring is white, milk column stays blue.</li><li><b>3. Standard Tube Agglutination Test (STAT):</b> Quantitative tube titration; diagnostic cutoff $\\ge$80 IU/ml in unvaccinated cattle.</li></ul></li><li><b>Immunization:</b> <b>Cotton Strain 19 Vaccine:</b> Live attenuated smooth vaccine administered strictly to female calves aged <b>4 to 8 months</b>. Induces lifelong immunity. (Never vaccinate adult cows as it causes persistent antibody titers and abortion!).</li></ul><h4>2. Campylobacter fetus (Bovine Venereal Campylobacteriosis)</h4><ul><li><b>Morphology:</b> Slender, spirally curved, Gram-negative rod (0.2–0.5 &times; 1.5–5.0 &mu;m). In young cultures, exhibits a characteristic <b>'comma' or 'seagull-wing' appearance</b> (two curved cells attached end-to-end). Motile with a single polar flagellum displaying rapid, darting, corkscrew motility.</li><li><b>Culture:</b> Microaerophilic (requires 5–10% $CO_2$ and 3–5% $O_2$); selective <b>Skirrow's medium</b> (contains vancomycin, polymyxin B, trimethoprim) at 37°C.</li><li><b>Veterinary Pathology:</b><ul><li><b><i>C. fetus</i> subsp. <i>venerealis:</i></b> Obligate venereal pathogen. Carrier bulls harbor it asymptomatically in the prepuce and penis. Transmitted during coitus or AI $\\rightarrow$ mild endometritis $\\rightarrow$ causes <b>early embryonic death (EED) and repeat breeding</b> (irregular, prolonged estrus cycles of 28–35 days). Occasional abortion at 5–6 months.</li><li><b><i>C. fetus</i> subsp. <i>fetus:</i></b> Ingested orally; causes late-term abortion storms in sheep and goats, producing characteristic <b>target-shaped necrotic hepatic lesions in aborted lamb fetuses</b>.</li></ul></li></ul><h4>3. Bordetella bronchiseptica (Kennel Cough & Atrophic Rhinitis)</h4><ul><li>Small, Gram-negative, motile coccobacillus; strict aerobe.</li><li><b>Canine Infectious Tracheobronchitis (Kennel Cough):</b> Primary bacterial agent (often synergizes with canine parainfluenza virus). Adheres to tracheal ciliated epithelium via filamentous hemagglutinin (FHA) and secretes adenylate cyclase toxin, paralyzing the mucociliary escalator. Causes a dry, hacking, honking paroxysmal cough.</li><li><b>Swine Atrophic Rhinitis:</b> Produces dermonecrotic toxin that initiates mild nasal hypoplasia, creating the entry pathway for virulent *Pasteurella multocida* Type D.</li></ul>",
-    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Erythritol Metabolism and Brucella Tissue Tropism:</b> Why does <i>Brucella</i> specifically target the placenta and reproductive tract of ruminants? The answer is <b>Erythritol</b>. Erythritol is a 4-carbon polyhydric alcohol synthesized in large quantities in the bovine, ovine, and caprine placenta and seminal vesicles, but completely absent in human placenta. <i>Brucella abortus</i> possesses a dedicated four-gene operon (<i>eryA, eryB, eryC, eryD</i>) that preferentially metabolizes erythritol ahead of glucose. Erythritol serves as an explosive nutritional growth stimulator, driving exponential replication ($>10^{13}$ bacteria per gram of tissue) in chorionic trophoblasts, culminating in placental thrombosis, extensive cotyledonary necrosis, and abortion.</p>",
+  "u1-t26": {
+    "summary": "Brucella species (abortus, melitensis, suis, canis, ovis), Bang's disease abortion storms, erythritol tropism, Stamp's modified ZN, Milk Ring Test (MRT), RBPT, and S19/RB51 vaccines.",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <b><i>Brucella</i></b> is the premier reproductive pathogen of domestic animals and one of the world's most serious zoonoses. It is a tiny, slow-growing Gram-negative coccobacillus that lives as an intracellular parasite inside macrophages and reproductive tissues. In cattle, <b><i>Brucella abortus</i></b> causes <b>Bang's Disease</b>—late-term abortion storms at 6–8 months with necrotic, leathery, 'Moroccan-leather' fetal cotyledons, driven by the placental growth factor <b>erythritol</b>. <b><i>Brucella melitensis</i></b> (sheep and goats) is the most dangerous species for humans, causing debilitating <b>Undulant Fever (Malta Fever)</b> through raw milk. Routine herd surveillance relies on the <b>Milk Ring Test (MRT)</b> and <b>Rose Bengal Plate Test (RBPT)</b>, while control relies on calfhood vaccination with <b>Strain 19</b> or <b>RB51</b>.</div><h4>1. General Morphology & Growth Characteristics</h4><ul><li><b>Morphology:</b> Very small, non-motile, non-spore-forming, non-capsulated Gram-negative coccobacilli (0.5–0.7 &times; 0.6–1.5 &mu;m). Arranged singly, in pairs, or in small groups.</li><li><b>Staining Characteristics:</b> Stain poorly with standard Gram stain. <b>Stamp's Modified Ziehl-Neelsen (Stamp's ZN) Stain:</b> Decolorized with dilute (0.5%) acetic acid; <i>Brucella</i> resists weak acid decolorization and stains <b>bright red</b> against a blue background of cellular debris (diagnostic in cotyledon smears).</li><li><b>Growth & Fastidiousness:</b> Strict aerobe. <i>B. abortus</i> strictly requires <b>5–10% $CO_2$</b> for primary isolation on serum dextrose agar or Farrell's selective medium. Slow growing; colonies take 3–5 days to appear as tiny, translucent, glistening, dewdrop-like colonies.</li><li><b>Biochemical Profile:</b> Catalase positive, Oxidase positive, Urease positive (rapid in <i>B. suis</i>), reduces nitrates.</li></ul><h4>2. Host Range, Species & The Erythritol Mechanism</h4><ul><li><b>1. <i>Brucella abortus:</i></b> Primarily infects cattle and buffaloes (Bovine Brucellosis / Bang's Disease).</li><li><b>2. <i>Brucella melitensis:</i></b> Primarily infects sheep and goats. The most invasive, virulent, and lethal species for humans (Malta Fever).</li><li><b>3. <i>Brucella suis:</i></b> Infects swine (biovars 1–3 cause severe reproductive abortion, orchitis, and spondylitis).</li><li><b>4. <i>Brucella canis:</i></b> Infects dogs; possesses natural <b>rough (R) LPS</b>; causes epididymitis, prostatitis, diskospondylitis, and late abortions.</li><li><b>5. <i>Brucella ovis:</i></b> Infects sheep; rough (R) LPS; causes ram contagious epididymitis and testicular atrophy (non-zoonotic).</li><li><b>The Erythritol Tropism Mechanism:</b> Why does <i>Brucella</i> target the gravid uterus and fetal membranes? The placenta, chorion, cotyledons, and fetal fluids of ungulates synthesize enormous concentrations of <b>erythritol</b> (a four-carbon polyol sugar alcohol). Erythritol preferentially stimulates the replication rate of <i>B. abortus</i>, <i>B. melitensis</i>, and <i>B. suis</i> thousands of times faster than glucose, driving massive bacterial blooms in placental trophoblasts. (Humans lack placental erythritol, which is why <i>Brucella</i> rarely causes abortion in pregnant women).</li></ul><h4>3. Pathogenesis & Clinical Pathology (Bang's Disease)</h4><ul><li><b>Transmission:</b> Ingestion of contaminated feed/water with aborted fetuses, placenta, uterine discharge, or unpasteurized milk. Penetrates mucosal membranes $\\rightarrow$ phagocytosed by macrophages $\\rightarrow$ transported to regional lymph nodes $\\rightarrow$ bacteremia $\\rightarrow$ localizes in the erythritol-rich pregnant uterus, fetal cotyledons, mammary gland, and supramammary lymph nodes.</li><li><b>Clinical Signs in Cows:</b><ul><li><b>Abortion Storms:</b> Characteristically occurs during the <b>last trimester of pregnancy (6th to 8th month)</b>.</li><li><b>Placentitis:</b> Severe necrotic placentitis. The intercotyledonary placenta becomes thickened, opaque, leathery, and yellow-brown (<b>'Moroccan leather' appearance</b>). Cotyledons are severely necrotic, swollen, and covered in brownish exudate.</li><li>Retained placenta, metritis, and secondary permanent infertility.</li><li>In bulls: severe orchitis, epididymitis, and testicular degeneration (shed in semen).</li><li><b>Hygromas:</b> Painless swelling of carpal joints filled with serous fluid containing <i>Brucella</i>.</li></ul></li></ul><h4>4. Diagnostic Laboratory Protocols</h4><ol><li><b>Stamp's Modified ZN Stain:</b> Smears of aborted fetal stomach content, cotyledon, or uterine discharge show dense clusters of <b>bright red coccobacilli</b> inside blue macrophages.</li><li><b>Milk Ring Test (MRT / ABRT):</b> Herd-level screening test on bulk tank whole milk. Hematoxylin-stained killed <i>B. abortus</i> antigen is mixed with whole milk in a test tube. <b>Positive reaction:</b> Antibodies (secretory IgA) in milk bind the stained antigen; the agglutinated antigen-antibody complexes adhere to rising milk fat globules, forming a distinct <b>dark blue ring floating on top of white milk</b>. (If negative, the cream layer remains white and the milk below stays blue).</li><li><b>Rose Bengal Plate Test (RBPT):</b> The official rapid field screening serum agglutination test. Uses Rose Bengal-stained antigen buffered at <b>acidic pH (3.65)</b>. The low pH selectively inactivates non-specific agglutinins while allowing IgG1 antibodies to agglutinate, eliminating false-positive reactions.</li><li><b>Standard Tube Agglutination Test (STAT):</b> Quantitative titration. <i>Exam Warning:</i> Beware of the <b>Prozone Phenomenon</b> (antibody excess blocks lattice formation, causing false-negative readings in low dilutions; must dilute serum to 1:1280).</li><li><b>ELISA & PCR:</b> Indirect ELISA (serum) and Blocking ELISA (DIVA testing).</li></ol><h4>5. Prevention, Control & Vaccines</h4><ul><li><b>S19 Vaccine (Strain 19):</b> Smooth, live attenuated <i>B. abortus</i> strain. Administered strictly as a single dose to <b>female calves aged 4 to 8 months (calfhood vaccination)</b>. <i>Strict Rules:</i> Never vaccinate adult cattle or pregnant cows (induces abortion!); never vaccinate male calves/bulls (causes orchitis and sterility). Major drawback: produces persistent smooth O-antigen antibodies that cross-react with diagnostic tests.</li><li><b>RB51 Vaccine:</b> Stable rough (R) mutant of <i>B. abortus</i> lacking the O-polysaccharide side-chain. Does not induce antibodies detected by standard diagnostic tests (RBPT/STAT), functioning as an ideal <b>DIVA vaccine</b>. Can be used in adult cattle without interfering with serological surveillance.</li><li><b>Rev 1 Vaccine:</b> Live attenuated <i>B. melitensis</i> strain used for mass vaccination of young female sheep and goats.</li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Intracellular Trafficking & Brucella-Containing Vacuole (BCV):</b> <i>Brucella</i> is a facultative intracellular stealth pathogen that evades host immune detection through unique molecular adaptations:</p><ul><li><b>Non-Endotoxic LPS:</b> <i>Brucella</i> Lipid A contains unusually long fatty acid chains (C28) and a modified core polysaccharide, resulting in a non-canonical LPS with &gt;1000-fold weaker endotoxic potency and very low affinity for TLR4 and MD-2. It does not trigger strong pro-inflammatory cascades or early neutrophil recruitment.</li><li><b>Type IV Secretion System (T4SS - VirB Operon):</b> After macrophage phagocytosis, <i>Brucella</i> resides within an acidified phagosome (early BCV). Low pH triggers the <b>VirB operon</b> to express a Type IV secretion apparatus that injects effector proteins into the host cytosol. These effectors arrest normal endosomal maturation, prevent phagolysosome fusion, and traffic the vacuole toward the Endoplasmic Reticulum (ER). The BCV fuses with the ER membrane, transforming into a replicative organelle where <i>Brucella</i> multiplies exponentially without triggering host cell apoptosis.</li></ul>",
     "keyPoints": [
-      "Brucella species are tiny, Gram-negative, partially acid-fast coccobacilli (catalase and oxidase positive).",
-      "Stamp's modified ZN stain (0.5% acetic acid decolorizer) stains Brucella bright red against blue background.",
-      "Brucella abortus causes Bang's disease (bovine brucellosis) with late-term abortion (5th–8th month).",
-      "Erythritol in ruminant placenta and fetal fluids acts as a selective growth stimulant for Brucella.",
-      "Rose Bengal Plate Test (RBPT) is an acidified (pH 3.65) qualitative screening test for serum IgG1.",
-      "Milk Ring Test (MRT) is a herd test; positive pooled milk shows a distinct blue cream ring on white milk.",
-      "Cotton Strain 19 is a live attenuated vaccine administered strictly to heifer calves aged 4 to 8 months.",
-      "Brucella melitensis (sheep/goats) is the most virulent species, causing severe Undulant Fever in humans.",
-      "Campylobacter fetus cells are curved, comma-shaped or seagull-wing rods with darting corkscrew motility.",
-      "Campylobacter fetus subsp. venerealis is a venereal infection causing early embryonic death and repeat breeding.",
-      "Bordetella bronchiseptica adheres to respiratory cilia, causing Canine Kennel Cough and swine atrophic rhinitis.",
-      "Brucellosis is a critical occupational zoonosis for veterinarians, meat inspectors, and dairy farmers."
+      "Brucella species are tiny, non-motile, Gram-negative coccobacilli, facultative intracellular parasites.",
+      "Stamp's modified ZN stain uses 0.5% acetic acid; Brucella resists decolorization and stains bright red.",
+      "Brucella abortus requires 5-10% CO2 for primary isolation on serum dextrose or Farrell's selective medium.",
+      "Placental erythritol stimulates explosive growth of B. abortus, causing late-term abortion storms (6-8 months).",
+      "Pathognomonic bovine lesion: thickened leathery 'Moroccan-leather' placenta and necrotic cotyledons.",
+      "Brucella melitensis (sheep/goats) is the most virulent species for humans, causing Malta / Undulant Fever.",
+      "Milk Ring Test (MRT): Positive test shows a dark blue ring in the cream layer above white milk.",
+      "Rose Bengal Plate Test (RBPT) is buffered at acidic pH 3.65 to eliminate non-specific agglutination.",
+      "Standard Tube Agglutination Test (STAT) can show false-negative prozone phenomenon due to antibody excess.",
+      "Strain 19 (S19) live vaccine is administered strictly to female calves aged 4-8 months (never adult/pregnant cows).",
+      "RB51 is a rough mutant vaccine that does not induce O-antibodies, functioning as an ideal DIVA vaccine.",
+      "Rev 1 is the official live attenuated vaccine for sheep and goats against Brucella melitensis."
     ],
-    "clinical": "Whenever examining an aborted cow, sheep, or buffalo fetus in the field, **exercise extreme biosafety caution**. *Brucella melitensis* and *B. abortus* penetrate intact human mucous membranes and conjunctiva. Inhaling aerosolized droplets while handling aborted fetuses or drinking raw milk causes chronic, debilitating **Undulant Fever (Malta Fever)** in humans, characterized by drenching night sweats, intermittent spiking fever, and severe joint pain. Always wear double gloves, an N95 mask, and eye goggles during abortion investigations.",
+    "clinical": "Veterinarians and paravets are at extreme risk of contracting chronic Undulant Fever (Malta Fever) during obstetrical emergencies (retained placenta, dystocia, abortion investigation). Always wear elbow-length obstetrical gloves, goggles, and face masks when handling aborted fetuses or cleansing a cow with retained placenta. Ingestion of raw unboiled milk or unpasteurized paneer/cheese from infected cattle, sheep, or goats is the primary route of human infection in rural farming communities.",
     "tables": [
       {
-        "title": "Characteristics of Major Brucella Species in Domestic Animals",
+        "title": "Comprehensive Diagnostic Differentiation of Major Animal Brucella Species",
         "headers": [
-          "Brucella Species",
-          "Natural Animal Host",
-          "CO2 Requirement",
-          "H2S Production",
-          "Zoonotic Virulence in Humans"
+          "Diagnostic Parameter",
+          "Brucella abortus",
+          "Brucella melitensis",
+          "Brucella suis",
+          "Brucella canis"
         ],
         "rows": [
           [
-            "Brucella abortus",
-            "Cattle and water buffaloes",
-            "Positive (+) (requires 5–10% CO2)",
-            "Positive (+) (leads acetate paper)",
-            "High (causes classic Undulant Fever)"
+            "Primary Animal Host",
+            "Cattle, buffaloes",
+            "Sheep, goats",
+            "Domestic and wild pigs",
+            "Dogs (canines)"
           ],
           [
-            "Brucella melitensis",
-            "Goats and sheep",
-            "Negative (-) (independent)",
+            "Zoonotic Hazard Level",
+            "High (Undulant fever)",
+            "Extreme (Severe Malta fever)",
+            "High (chronic infection)",
+            "Moderate (low virulence)"
+          ],
+          [
+            "CO2 Requirement (1st isolation)",
+            "Strictly Required (5-10%)",
+            "Not Required (Aerobic)",
+            "Not Required (Aerobic)",
+            "Not Required (Aerobic)"
+          ],
+          [
+            "H2S Production",
+            "Positive (+) (heavy, 4 days)",
             "Negative (-)",
-            "Extremely High (most virulent zoonosis!)"
+            "Variable (+/-)",
+            "Negative (-)"
           ],
           [
-            "Brucella suis",
-            "Swine (pigs)",
-            "Negative (-) (independent)",
-            "Positive (+) (strong)",
-            "High (severe chronic granulomas)"
+            "Urease Activity",
+            "Slow (1 to 2 hours)",
+            "Slow to variable",
+            "Rapidly Positive (< 15 min)",
+            "Rapidly Positive (< 15 min)"
           ],
           [
-            "Brucella ovis",
-            "Sheep (rams)",
-            "Positive (+) (requires CO2)",
-            "Negative (-)",
-            "Non-pathogenic to humans"
+            "LPS Surface Phenotype",
+            "Smooth (S) LPS",
+            "Smooth (S) LPS",
+            "Smooth (S) LPS",
+            "Rough (R) LPS"
           ],
           [
-            "Brucella canis",
-            "Dogs (canines)",
-            "Negative (-) (independent)",
-            "Negative (-)",
-            "Moderate / Low zoonotic potential"
+            "Growth on Basic Fuchsin (20 ug/ml)",
+            "Positive (+) (grows)",
+            "Positive (+) (grows)",
+            "Negative (-) (inhibited)",
+            "Positive (+) (grows)"
+          ],
+          [
+            "Growth on Thionin (20 ug/ml)",
+            "Negative (-) (inhibited)",
+            "Positive (+) (grows)",
+            "Positive (+) (grows)",
+            "Negative (-) (inhibited)"
+          ],
+          [
+            "Primary Official Vaccine",
+            "S19 (calfhood) or RB51",
+            "Rev 1 vaccine",
+            "No approved vaccine",
+            "No approved vaccine"
           ]
         ]
       }
     ],
     "tags": [
       "brucella",
+      "brucellosis",
       "bangs-disease",
+      "undulant-fever",
       "erythritol",
+      "stamps-stain",
+      "mrt",
       "rbpt",
-      "milk-ring-test",
+      "strain-19",
+      "rb51",
+      "unit-1"
+    ]
+  },
+  "u1-t27": {
+    "summary": "Vibrio (V. cholerae, V. parahaemolyticus, TCBS agar, darting motility, cholera enterotoxin) and Campylobacter (C. fetus venerealis bovine infertility, C. fetus fetus ovine abortion, C. jejuni avian/canine enteritis, microaerophilic growth).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This topic unites the two famous curved, comma-, and spiral-shaped Gram-negative bacteria. <b><i>Vibrio</i></b> species are short, comma-shaped rods with a single polar flagellum that dart across the microscopic field like 'shooting stars', love alkaline and salty media (growing as yellow colonies on <b>TCBS agar</b>), and produce the classic rice-water diarrhea of cholera. <b><i>Campylobacter</i></b> species are slender, microaerophilic, gull-wing-shaped rods. In cattle, <b><i>Campylobacter fetus</i> subsp. <i>venerealis</i></b> is transmitted by asymptomatic carrier bulls, causing 'repeat breeder' infertility. In sheep, <b><i>Campylobacter fetus</i> subsp. <i>fetus</i></b> causes late-term abortion with pathognomonic target-shaped liver lesions in aborted lambs. <b><i>Campylobacter jejuni</i></b> is the premier zoonotic foodborne enteritis pathogen carried asymptomatically in poultry.</div><h4>1. Genus Vibrio (The Comma Bacteria)</h4><ul><li><b>Morphology & Motility:</b> Short, curved, comma-shaped Gram-negative rods (0.5 &times; 1.5–3.0 &mu;m). Possess a single, sheathed polar flagellum that imparts rapid, vigorous, darting <b>'shooting star' motility</b> in hanging drop preparations.</li><li><b>Physiology & Selective Culture:</b> Facultative anaerobes, halophilic (require NaCl for growth, except <i>V. cholerae</i> which tolerates salt). Strongly <b>alkaliphilic</b> (grows optimally at pH 8.5–9.0).<ul><li><b>Alkaline Peptone Water (APW, pH 8.6):</b> Highly effective liquid enrichment medium. Subcultured within 6–8 hours to avoid overgrowth.</li><li><b>Thiosulfate-Citrate-Bile Salts-Sucrose (TCBS) Agar:</b> Gold standard selective agar. High bile salts and pH (8.6) inhibit coliforms. <b><i>Vibrio cholerae</i></b> ferments sucrose, producing large, vibrant <b>yellow colonies</b>. <i>Vibrio parahaemolyticus</i> does not ferment sucrose, producing dark green / blue-green colonies.</li></ul></li><li><b>Biochemical Profile:</b> <b>Oxidase-positive (+)</b> (instantly differentiates <i>Vibrio</i> from <i>Enterobacteriaceae</i>). Positive <b>String Test</b> (a drop of 0.5% sodium deoxycholate lyses cells, releasing DNA; pulling a loop upward creates a viscous string &gt;10 mm).</li><li><b>Major Species & Diseases:</b><ul><li><b><i>Vibrio cholerae:</i></b> Produces <b>Cholera Toxin (CT)</b>, an AB5 enterotoxin that ADP-ribosylates the Gs protein, driving permanent adenylate cyclase activation $\\rightarrow$ massive intestinal efflux of water and electrolytes $\\rightarrow$ voluminous, non-fetid <b>'rice-water stools'</b>, hypovolemic shock, and death within hours.</li><li><b><i>Vibrio parahaemolyticus:</i></b> Halophilic marine organism (requires 2–3% NaCl). Causes acute seafood-borne gastroenteritis in humans and 'vibriosis' in marine fish, shrimp, and crustaceans.</li><li><b><i>Vibrio vulnificus:</i></b> Highly invasive marine pathogen causing fatal septicemia and necrotizing wound infections in animals and humans handling shellfish.</li><li><b><i>Vibrio metschnikovii:</i></b> Causes fatal cholera-like septicemia and hemorrhagic gastroenteritis in fowls and chickens (oxidase-negative exception).</li></ul></li></ul><h4>2. Genus Campylobacter (The Gull-Wing Bacteria)</h4><ul><li><b>Morphology & Motility:</b> Slender, spirally curved Gram-negative rods (0.2–0.5 &times; 1.5–5.0 &mu;m). In pairs, they resemble <b>'seagull wings'</b>, 'S'-shapes, or commas. In older cultures, they degenerate into spherical coccoid forms. Possess a single polar flagellum at one or both ends, exhibiting characteristic <b>corkscrew darting motility</b>.</li><li><b>Atmospheric & Cultural Requirements:</b> Strictly <b>microaerophilic</b> (require reduced oxygen: <b>5% $O_2$, 10% $CO_2$, 85% $N_2$</b>; standard atmospheric air containing 21% $O_2$ is toxic!). Slow growers (3–5 days).<ul><li><b>Campy-BAP / Skirrow's Medium:</b> Blood agar base supplemented with vancomycin, polymyxin B, and trimethoprim to inhibit contaminants.</li><li><b>Thermophilic Nature:</b> <b><i>Campylobacter jejuni</i></b> is thermophilic, growing optimally at <b>42°C</b>, but failing to grow at 25°C. <i>Campylobacter fetus</i> grows at 25°C and 37°C, but fails to grow at 42°C.</li></ul></li><li><b>Veterinary Campylobacter Pathogens & Diseases:</b><ul><li><b>1. <i>Campylobacter fetus</i> subsp. <i>venerealis</i> (Bovine Venereal Campylobacteriosis):</b><ul><li><b>Transmission:</b> Strict venereal transmission during natural mating by <b>asymptomatic carrier bulls</b> (harbors organism indefinitely in the preputial crypts and fornix of the penis without lesions or semen alteration).</li><li><b>Clinical Picture:</b> The cow develops subacute mucopurulent endometritis and salpingitis. Does not block conception, but triggers <b>early embryonic death (EED)</b> at days 15–35 post-breeding.</li><li><b>Herd Signs:</b> <b>'Repeat Breeder Syndrome'</b> (cows return to estrus at irregular, prolonged intervals of 28–45 days), prolonged calving intervals, and temporary herd infertility. Occasional sporadic late abortions occur at 4–7 months. Cows develop herd immunity after 3–5 months.</li></ul></li><li><b>2. <i>Campylobacter fetus</i> subsp. <i>fetus</i> (Ovine Epizootic Abortion):</b><ul><li><b>Transmission:</b> Ingestion of contaminated feed or water with aborted materials; not venereal. Bacteria invade intestinal mucosa $\\rightarrow$ bacteremia $\\rightarrow$ localizes in the placenta.</li><li><b>Clinical Pathology:</b> Causes explosive <b>late-term abortion storms in sheep</b> (third trimester). Severe necrotizing placentitis with friable, yellow-tan cotyledons.</li><li><b>Pathognomonic Lesion:</b> 25–40% of aborted lamb fetuses display pathognomonic <b>multifocal, circular, pale yellow-white necrotic liver lesions ('target-shaped lesions' with dark congested centers)</b>.</li></ul></li><li><b>3. <i>Campylobacter jejuni</i> (Enteritis in Pets & Avian Reservoir):</b><ul><li>Commensal organism colonizing the caeca and intestines of poultry flocks (&gt;90% of broiler chickens are asymptomatic carriers).</li><li>Causes watery to bloody diarrhea in young puppies and kittens. Leading cause of acute bacterial foodborne gastroenteritis in humans worldwide, with a recognized post-infectious autoimmune complication: <b>Guillain-Barré Syndrome</b> (molecular mimicry between <i>C. jejuni</i> LPS and human peripheral nerve gangliosides).</li></ul></li></ul></li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Molecular Actions: Cholera Toxin vs Campylobacter Cytolethal Distending Toxin (CDT):</b></p><ul><li><b>Cholera Enterotoxin (CtxAB):</b> The canonical $AB_5$ hexameric enterotoxin of <i>V. cholerae</i>. Five B subunits bind GM1 gangliosides on the apical surface of enterocytes, facilitating endocytosis of the enzymatic A subunit. In the cytosol, the A1 fragment catalyzes the <b>irreversible ADP-ribosylation of the Gs&alpha; regulatory protein</b>, inhibiting its intrinsic GTPase activity. Gs&alpha; remains permanently locked in the 'ON' state, continuously hyper-stimulating adenylate cyclase to produce massive intracellular cAMP. This continuously opens the CFTR chloride channel, dumping $Cl^-$, $HCO_3^-$, and water into the lumen while inhibiting neutral NaCl uptake.</li><li><b>Campylobacter CDT (Cytolethal Distending Toxin):</b> A tripartite genotoxin ($CdtA-CdtB-CdtC$). The catalytic subunit <b>CdtB functions as a structural homolog of mammalian DNase I</b>. Following receptor-mediated endocytosis, CdtB translocates into the nucleus and introduces double-strand breaks into host chromosomal DNA, activating the ataxia telangiectasia mutated (ATM) DNA damage response and permanently arresting host enterocytes in the <b>G2/M phase of the cell cycle</b>, causing cell distension and mucosal erosion.</li></ul>",
+    "keyPoints": [
+      "Vibrio are curved, comma-shaped Gram-negative rods with a single polar flagellum and darting motility.",
+      "Vibrio are oxidase-positive, string-test positive, halophilic, and alkaliphilic (growing in APW at pH 8.6).",
+      "TCBS agar is selective for Vibrio; Vibrio cholerae ferments sucrose to form vibrant yellow colonies.",
+      "Cholera toxin (AB5) ADP-ribosylates Gs-alpha, permanently elevating cAMP and causing rice-water diarrhea.",
+      "Campylobacter are slender, spirally curved, gull-wing-shaped Gram-negative rods with corkscrew motility.",
+      "Campylobacter are strictly microaerophilic (5% O2, 10% CO2, 85% N2) and grow on Campy-BAP / Skirrow's agar.",
+      "Campylobacter jejuni is thermophilic (grows at 42°C, not 25°C), colonizing poultry caeca asymptomatically.",
+      "Campylobacter fetus subsp. venerealis is transmitted venereally by asymptomatic carrier bulls.",
+      "Bovine venereal campylobacteriosis causes early embryonic death and the classic 'Repeat Breeder Syndrome'.",
+      "Campylobacter fetus subsp. fetus is ingested by sheep, causing late-term abortion and necrotic liver target lesions in lambs.",
+      "Campylobacter jejuni triggers human Guillain-Barre syndrome via molecular mimicry of gangliosides.",
+      "Diagnosis of bovine campylobacteriosis relies on bull preputial washings collected in Clark's transport medium."
+    ],
+    "clinical": "To diagnose *Campylobacter fetus* subsp. *venerealis* in a dairy herd experiencing repeat breeding and low pregnancy rates, target the bulls rather than the cows. Collect preputial scrapings or washings using 20–30 ml of sterile saline in an artificial insemination pipette, vigorously scrubbing the fornix and glans penis. Inoculate the aspirate directly into **Clark's transport medium** or Cary-Blair medium under microaerophilic conditions and transport on ice to the laboratory within 6 hours for culture and fluorescent antibody testing (FAT).",
+    "tables": [
+      {
+        "title": "Comprehensive Diagnostic Comparison: Genus Vibrio vs Genus Campylobacter",
+        "headers": [
+          "Diagnostic Parameter",
+          "Genus Vibrio",
+          "Genus Campylobacter"
+        ],
+        "rows": [
+          [
+            "Microscopic Morphology",
+            "Short, curved comma-shaped rod",
+            "Slender, gull-wing, S-shaped, or spiral rod"
+          ],
+          [
+            "Motility Characteristic",
+            "Darting 'shooting star' motility",
+            "Rapid corkscrew-like spinning motility"
+          ],
+          [
+            "Oxygen Requirement",
+            "Facultative anaerobe",
+            "Strictly Microaerophilic (5% O2, 10% CO2)"
+          ],
+          [
+            "pH Growth Range",
+            "Alkaliphilic (optimum pH 8.5 to 9.0)",
+            "Neutrophilic (pH 6.5 to 7.5)"
+          ],
+          [
+            "TCBS Agar Growth",
+            "Positive (+) (V. cholerae yellow colonies)",
+            "Negative (-) (inhibited)"
+          ],
+          [
+            "Optimal Incubation Temp",
+            "37°C",
+            "C. jejuni: 42°C (thermophilic); C. fetus: 25-37°C"
+          ],
+          [
+            "String Test (Deoxycholate)",
+            "Positive (+) (viscous string > 10 mm)",
+            "Negative (-)"
+          ],
+          [
+            "Primary Animal Pathology",
+            "V. metschnikovii: Avian cholera-like sepsis",
+            "Bovine repeat breeding, ovine abortion, enteritis"
+          ],
+          [
+            "Primary Transmission Mode",
+            "Water-borne / aquatic exposure",
+            "Venereal (cattle) / Ingestion (sheep & poultry)"
+          ]
+        ]
+      }
+    ],
+    "tags": [
+      "vibrio",
+      "cholera",
+      "tcbs-agar",
       "campylobacter",
+      "gull-wing",
+      "repeat-breeder",
+      "vibriosis",
+      "target-lesions",
+      "microaerophilic",
+      "unit-1"
+    ]
+  },
+  "u1-t28": {
+    "summary": "Bordetella bronchiseptica (Kennel Cough, porcine Atrophic Rhinitis), B. avium (Turkey Coryza), and Moraxella bovis (Infectious Bovine Keratoconjunctivitis / Pinkeye, type IV fimbriae, RTX cytotoxin).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> This topic pairs two strictly aerobic Gram-negative pathogens that possess a powerful affinity for animal mucosal membranes. <b><i>Bordetella bronchiseptica</i></b> possesses specialized ciliary adhesins and dermonecrotic toxins, causing the paroxysmal 'honking' cough of <b>Canine Kennel Cough</b> and working synergistically with <i>Pasteurella</i> to destroy the nasal turbinate bones in <b>Swine Atrophic Rhinitis</b>. <b><i>Moraxella bovis</i></b> is the notorious causative agent of <b>Infectious Bovine Keratoconjunctivitis (IBK / 'Pinkeye')</b> in cattle—a painful, blinding disease transmitted mechanically by <b>face flies</b>, where bacterial type IV fimbriae and an RTX cytotoxin ($MbxA$) erode and perforate the cornea.</div><h4>1. Genus Bordetella (Ciliated Epithelial Pathogens)</h4><ul><li><b>Morphology & Characteristics:</b> Tiny, Gram-negative coccobacilli (0.2–0.5 &times; 0.5–2.0 &mu;m), occurring singly or in pairs. Motile with peritrichous flagella in <i>B. bronchiseptica</i> (non-motile in <i>B. avium</i> and <i>B. pertussis</i>). Strictly aerobic; oxidase-positive and catalase-positive.</li><li><b>Virulence Determinants:</b> Expresses a coordinated arsenal regulated by the <b>BvgAS two-component locus</b>:<ul><li><b>Filamentous Hemagglutinin (FHA) & Pertactin:</b> Surface adhesins that bind specifically to sulfated glycolipids on ciliated respiratory epithelial cells, paralyzing the mucociliary escalator.</li><li><b>Dermonecrotic Toxin (DNT):</b> Induces severe localized vascular contraction, ischemia, osteoblast apoptosis, and mucosal necrosis.</li><li><b>Adenylate Cyclase Toxin (ACT):</b> Enters phagocytes and elevates intracellular cAMP, paralyzing neutrophils and macrophages.</li></ul></li><li><b>Major Animal Diseases:</b><ul><li><b>1. Canine Infectious Tracheobronchitis ('Kennel Cough'):</b> Highly contagious upper respiratory infection of dogs housed in close confinement (kennels, shelters). Characterized by sudden onset of a harsh, dry, paroxysmal, hacking <b>'goose-honk' cough</b>, retching, and gagging, exacerbated by gentle tracheal palpation or collar pulling. Often acts synergistically with Canine Parainfluenza Virus (CPIV) and Canine Adenovirus-2 (CAV-2).</li><li><b>2. Porcine Progressive Atrophic Rhinitis:</b> <i>B. bronchiseptica</i> colonizes young piglets during the first week of life; its dermonecrotic toxin (DNT) causes early hypoplasia of the nasal turbinates. This facilitates secondary colonization by toxigenic <b><i>Pasteurella multocida</i> type D</b>, whose dermonecrotic toxin (PMT) permanently destroys the ventral turbinate bones, causing dramatic facial distortion, snout shortening/wrinkling, and epistaxis.</li><li><b>3. Bordetella avium (Turkey Coryza):</b> Highly contagious rhinotracheitis in young turkey poults (1–6 weeks old), causing sneezing, watery eyes, submandibular edema, and tracheal collapse ('flattened tracheal rings').</li></ul></li></ul><h4>2. Genus Moraxella & Moraxella bovis (Bovine Pinkeye)</h4><ul><li><b>Morphology & Cultural Hallmarks:</b> Plump, short Gram-negative rods or coccobacilli (1.0–1.5 &times; 1.5–2.5 &mu;m), characteristically occurring in pairs as <b>diplobacilli</b> with flattened adjacent sides. Non-motile, non-spore-forming; possesses prominent surface fimbriae (pili).</li><li><b>Physiology & Growth:</b> Strictly aerobic. Grows on bovine or sheep blood agar at 37°C as small, round, friable colonies surrounded by a distinct <b>narrow zone of beta-hemolysis (&beta;)</b>. Catalase positive, Oxidase positive. <b>Asaccharolytic</b> (does not ferment carbohydrates; utilizes amino acids and organic acids for energy). Completely inhibited on MacConkey agar.</li><li><b>Infectious Bovine Keratoconjunctivitis (IBK / 'Pinkeye' / New Forest Eye):</b><ul><li>The most economically damaging ocular disease of cattle worldwide, characterized by painful keratitis, corneal ulceration, and potential blindness.</li><li><b>Pathogenesis of IBK:</b><ol><li><b>Adherence via Type IV Fimbriae:</b> Virulent strains possess <b>Q-fimbriae</b> (mediates initial attachment to corneal epithelial cells) and <b>I-fimbriae</b> (mediates persistent colonization). Non-fimbriated strains are completely non-pathogenic!</li><li><b>Cytotoxin Production (MbxA):</b> Secretes <b>Moraxella bovis Cytotoxin ($MbxA$)</b>, an RTX pore-forming toxin that lyses corneal epithelial cells and infiltrating neutrophils.</li><li><b>Corneal Melting:</b> Lysis of neutrophils releases high concentrations of endogenous lysosomal proteases and collagenases, digesting corneal collagen fibers and producing rapid stromal liquefaction and deep ulceration.</li></ol></li><li><b>Predisposing & Vector Factors:</b><ul><li><b>Face Flies (<i>Musca autumnalis</i>):</b> Act as the primary mechanical vector, feeding on ocular secretions and carrying bacteria from eye to eye.</li><li><b>Solar Ultraviolet (UV-B) Radiation:</b> Peak incidence in summer. UV radiation damages corneal epithelial cells, upregulating receptors for fimbrial adherence.</li><li>Tall grass, pasture seedheads, dust, and vitamin A deficiency irritate the cornea, facilitating bacterial entry.</li><li>Breeds lacking periocular pigmentation (e.g., Hereford cattle) are significantly more susceptible.</li></ul></li><li><b>Clinical Stages of Pinkeye:</b><ul><li><b>Stage 1:</b> Severe photophobia (squinting), blepharospasm, and copious watery lacrimation (epiphora). A small central corneal opacity (cloudiness) develops.</li><li><b>Stage 2:</b> Opacity spreads; deep vascularization (blood vessels grow from the limbus toward the lesion). Central opacity develops into a visible <b>cone-shaped corneal ulcer (keratoconus)</b>.</li><li><b>Stage 3:</b> Ulcer extends deep into the stroma; anterior chamber fills with yellow-white purulent fibrin exudate (<b>hypopyon</b>). The entire cornea becomes opaque and vascularized ('pinkeye').</li><li><b>Stage 4:</b> Rupture of the inner membrane (Descemetocele) $&rarr;arrow$ <b>corneal perforation</b>, iris prolapse, and permanent loss of sight.</li></ul></li><li><b>Treatment & Herd Management:</b> Subconjunctival injection of long-acting <b>Oxytetracycline</b> or Penicillin; topical ocular cloxacillin/oxytetracycline ointments; temporary tarsorrhaphy (suturing the eyelids shut) or gluing cloth eye patches to protect from sunlight and flies. Fly control using insecticide-impregnated ear tags is essential for prevention.</li></ul></li></ul>",
+    "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>BvgAS Phase Variation in Bordetella vs Pilin Phase Inversion in Moraxella:</b></p><ul><li><b>Bordetella BvgAS Two-Component System:</b> <i>Bordetella bronchiseptica</i> uses the <b>BvgAS signal transduction phosphorelay</b> to toggle between distinct phenotypic phases in response to environmental temperature:<ul><li><b>$Bvg^+$ (Virulent Phase - 37°C):</b> Transmembrane sensor kinase BvgS autophosphorylates and transfers phosphate to response regulator BvgA. Phosphorylated BvgA binds high-affinity promoters, activating expression of virulence factors: FHA, pertactin, DNT, and adenylate cyclase toxin. This phase mediates colonization and disease in the host respiratory tract.</li><li><b>$Bvg^-$ (Avirulent Phase - &lt;26°C):</b> In cold environmental conditions or in the presence of sulfate/nicotinic acid, BvgS is inactivated. BvgA remains unphosphorylated; virulence genes are silenced, and motility/flagellar genes are activated, preparing the bacterium for environmental survival.</li></ul></li><li><b>Moraxella Pilin Gene Inversion:</b> <i>Moraxella bovis</i> alternates between the infectious adherence phase (Q-pilin) and the persistence phase (I-pilin) through <b>site-specific DNA inversion</b> of a 2.1 kb chromosomal segment catalyzed by a site-specific invertase (Piv), allowing the pathogen to switch antigenic profiles and evade host secretory IgA.</li></ul>",
+    "keyPoints": [
+      "Bordetella bronchiseptica is a tiny, motile Gram-negative coccobacillus and strict aerobe.",
+      "B. bronchiseptica adheres to respiratory cilia via FHA and pertactin, paralyzing the mucociliary escalator.",
+      "Canine Kennel Cough produces a paroxysmal, dry, hacking 'goose-honk' cough exacerbated by tracheal pressure.",
+      "Swine Atrophic Rhinitis: B. bronchiseptica DNT damages nasal mucosa, allowing P. multocida PMT to destroy turbinates.",
+      "Bordetella avium causes Turkey Coryza, characterized by flattened tracheal rings and severe respiratory distress.",
+      "Moraxella bovis is a plump Gram-negative diplobacillus, strictly aerobic, oxidase-positive, and asaccharolytic.",
+      "M. bovis causes Infectious Bovine Keratoconjunctivitis (IBK / Pinkeye), producing corneal ulceration and blindness.",
+      "Type IV fimbriae (Q and I pili) mediate adherence of M. bovis to corneal epithelial cells.",
+      "MbxA is an RTX pore-forming cytotoxin that lyses bovine neutrophils, releasing collagenases that digest the cornea.",
+      "Face flies (Musca autumnalis) are the primary mechanical vectors of Moraxella bovis in cattle herds.",
+      "Solar UV-B radiation damages corneal cells and dramatically upregulates receptors for Moraxella fimbriae.",
+      "Pinkeye is treated with subconjunctival oxytetracycline/penicillin injections, tarsorrhaphy, and fly ear tags."
+    ],
+    "clinical": "When performing a subconjunctival injection for bovine pinkeye (*Moraxella bovis*), restrain the cow in a crush with a halter. Administer topical ophthalmic proparacaine or 2% lidocaine to desensitize the cornea. Using a 25-gauge needle, tent the bulbar conjunctiva in the upper quadrant (away from the limbus) and inject 1.0–1.5 ml of long-acting oxytetracycline or procaine penicillin G. The drug creates a visible subconjunctival bleb that slowly leaches active therapeutic concentrations into the precorneal tear film over 48–72 hours.",
+    "tables": [
+      {
+        "title": "Comprehensive Diagnostic Comparison: Bordetella bronchiseptica vs Moraxella bovis",
+        "headers": [
+          "Diagnostic Parameter",
+          "Bordetella bronchiseptica",
+          "Moraxella bovis"
+        ],
+        "rows": [
+          [
+            "Microscopic Morphology",
+            "Tiny coccobacillus (0.3 x 1.0 um)",
+            "Plump coccobacillus in pairs (diplobacillus, 1.2 x 2.0 um)"
+          ],
+          [
+            "Bacterial Motility",
+            "Motile (+) by peritrichous flagella",
+            "Strictly Non-motile (-) (fimbriated)"
+          ],
+          [
+            "Hemolysis on Blood Agar",
+            "Variable (weak or non-hemolytic)",
+            "Narrow zone of clear Beta-hemolysis (B)"
+          ],
+          [
+            "Growth on MacConkey Agar",
+            "Positive (+) (slow, pinpoint NLF)",
+            "Negative (-) (completely inhibited)"
+          ],
+          [
+            "Carbohydrate Fermentation",
+            "Non-fermentative (asaccharolytic)",
+            "Non-fermentative (asaccharolytic)"
+          ],
+          [
+            "Primary Target Host",
+            "Dogs, pigs, cats, rabbits, turkeys",
+            "Cattle (especially Hereford and unpigmented eyes)"
+          ],
+          [
+            "Primary Target Tissue",
+            "Ciliated respiratory epithelium",
+            "Corneal and conjunctival epithelium"
+          ],
+          [
+            "Key Virulence Factor",
+            "FHA adhesin, DNT dermonecrotic toxin",
+            "Type IV fimbriae (Q & I pili), MbxA RTX cytotoxin"
+          ],
+          [
+            "Classic Clinical Disease",
+            "Kennel Cough & Porcine Atrophic Rhinitis",
+            "Infectious Bovine Keratoconjunctivitis (Pinkeye)"
+          ],
+          [
+            "Vector / Transmission",
+            "Aerosol droplets / direct contact",
+            "Mechanical vector: Face fly (Musca autumnalis) & UV light"
+          ]
+        ]
+      }
+    ],
+    "tags": [
       "bordetella",
       "kennel-cough",
+      "atrophic-rhinitis",
+      "turkey-coryza",
+      "moraxella",
+      "moraxella-bovis",
+      "pinkeye",
+      "ibk",
+      "corneal-ulcer",
+      "face-fly",
       "unit-1"
     ]
   },
   "u1-t29": {
-    "summary": "Non-spore-forming Gram-negative anaerobes: Dichelobacter nodosus (contagious ovine footrot, fimbriae, elastase) and Fusobacterium necrophorum (calf diphtheria, necrobacillosis).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> These are the 'smelly anaerobes' that rot animal tissues. They live without oxygen and team up to cause two horrible diseases: (1) <b>Contagious Ovine Footrot</b> (caused by <i>Dichelobacter nodosus</i>, which secretes powerful elastase enzymes that dissolve the hoof horn until the sheep's hoof literally detaches from the foot); and (2) <b>Calf Diphtheria & Liver Abscesses</b> (caused by <i>Fusobacterium necrophorum</i>, which produces foul-smelling, cheesy yellow necrotic plugs in the throat and larynx, suffocating calves).</div><h4>1. General Features of Non-Spore-Forming Anaerobes</h4><ul><li>Gram-negative rods that cannot form endospores; strictly anaerobic; killed or inhibited by atmospheric oxygen.</li><li>Commensals of the gastrointestinal tract and mucous membranes of animals. They thrive in necrotic, traumatized, or devitalized tissues with a low oxidation-reduction potential ($Eh$).</li><li>Often act in synergistic polymicrobial teams (mixed infections) to produce severe foul-smelling, suppurative necrotizing lesions.</li></ul><h4>2. Dichelobacter nodosus (Contagious Ovine Footrot)</h4><ul><li><b>Morphology:</b> Large, straight or slightly curved Gram-negative rod (0.8–1.2 &times; 3–10 &mu;m) with characteristically enlarged, swollen knobs at one or both ends (dumbbell appearance). Strictly anaerobic, non-motile, non-spore-forming.</li><li><b>Contagious Footrot in Sheep & Goats:</b><ul><li><b>The Pathogenic Team:</b> Wet muddy pastures cause interdigital maceration $\\rightarrow$ *Fusobacterium necrophorum* invades first, causing superficial interdigital dermatitis ('foot scald') $\\rightarrow$ creates an anaerobic highway for <b><i>Dichelobacter nodosus</i></b>, the true primary contagious pathogen.</li><li><b>Virulence Determinants:</b><ol><li><b>K-Type Fimbriae (Type IV Pili):</b> Mediate twitching motility and tight adhesion to the interdigital epidermis.</li><li><b>Extracellular Heat-Stable Acid Proteases (Elastases: AprV2):</b> Digest the insoluble structural keratin and elastase of the hoof horn matrix, causing the hard hoof wall to separate and peel completely away from the underlying vascular sensitive laminae.</li></ol></li><li><b>Clinical Signs:</b> Severe, debilitating lameness; sheep graze on their knees; intense foul, pungent odor from the hooves; severe loss of body condition and wool fleece drop.</li></ul></li></ul><h4>3. Fusobacterium necrophorum (Bovine & Swine Necrobacillosis)</h4><ul><li><b>Morphology:</b> Pleomorphic Gram-negative rod; in young cultures, appears as short rods; in pathological lesions, forms <b>striking, long, tangled, non-branching filamentous chains</b> (up to 100 &mu;m long) with irregular, beaded staining. Produces a pungent, foul, putrid odor in culture and pus.</li><li><b>Major Veterinary Diseases (Necrobacillosis Spectrum):</b><ul><li><b>Calf Diphtheria (Necrotic Laryngitis / Stomatitis):</b> Affects housed dairy calves (1 to 4 months old). Ingestion of rough feed scratches oral mucosa $\\rightarrow$ bacteria invade the cheeks, tongue, pharynx, and larynx $\\rightarrow$ produces thick, deep, elevated, dry, grey-yellow diphtheritic necrotic plaques. The swollen larynx obstructs breathing, causing loud stertorous snoring dyspnea, painful swallowing, foul breath, and asphyxiation.</li><li><b>Bovine Foot Rot (Interdigital Phlegmon / Foul-in-the-Foot):</b> Sudden, acute necrotizing infection of the interdigital skin and subcutaneous tissues of adult cattle, causing severe symmetrical swelling above the coronary band, deep fissure formation, foul discharge, and extreme lameness.</li><li><b>Bovine Hepatic Abscesses:</b> Rumen acidosis from grain engorgement damages the rumen wall $\\rightarrow$ *F. necrophorum* enters the portal venules and travels to the liver, forming encapsulated, purulent <b>liver abscesses</b>.</li></ul></li><li><b>Key Virulence Factor:</b> <b>Leukotoxin:</b> A potent, heat-labile exotoxin that destroys bovine neutrophils and macrophages, preventing phagocytosis and driving extensive coagulative tissue necrosis.</li></ul>",
+    "summary": "Non-spore-forming Gram-negative anaerobes: Dichelobacter nodosus (contagious ovine footrot), Fusobacterium necrophorum (calf diphtheria, necrobacillosis), and Bacteroides fragilis (BBE agar, abscesses).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> These are the 'smelly anaerobes' that rot animal tissues. They live without oxygen and team up to cause two horrible diseases: (1) <b>Contagious Ovine Footrot</b> (caused by <i>Dichelobacter nodosus</i>, which secretes powerful elastase enzymes that dissolve the hoof horn until the sheep's hoof literally detaches from the foot); and (2) <b>Calf Diphtheria & Liver Abscesses</b> (caused by <i>Fusobacterium necrophorum</i>, which produces foul-smelling, cheesy yellow necrotic plugs in the throat and larynx, suffocating calves).</div><h4>1. General Features of Non-Spore-Forming Anaerobes</h4><ul><li>Gram-negative rods that cannot form endospores; strictly anaerobic; killed or inhibited by atmospheric oxygen.</li><li>Commensals of the gastrointestinal tract and mucous membranes of animals. They thrive in necrotic, traumatized, or devitalized tissues with a low oxidation-reduction potential ($Eh$).</li><li>Often act in synergistic polymicrobial teams (mixed infections) to produce severe foul-smelling, suppurative necrotizing lesions.</li></ul><h4>2. Dichelobacter nodosus (Contagious Ovine Footrot)</h4><ul><li><b>Morphology:</b> Large, straight or slightly curved Gram-negative rod (0.8–1.2 &times; 3–10 &mu;m) with characteristically enlarged, swollen knobs at one or both ends (dumbbell appearance). Strictly anaerobic, non-motile, non-spore-forming.</li><li><b>Contagious Footrot in Sheep & Goats:</b><ul><li><b>The Pathogenic Team:</b> Wet muddy pastures cause interdigital maceration $\\rightarrow$ *Fusobacterium necrophorum* invades first, causing superficial interdigital dermatitis ('foot scald') $\\rightarrow$ creates an anaerobic highway for <b><i>Dichelobacter nodosus</i></b>, the true primary contagious pathogen.</li><li><b>Virulence Determinants:</b><ol><li><b>K-Type Fimbriae (Type IV Pili):</b> Mediate twitching motility and tight adhesion to the interdigital epidermis.</li><li><b>Extracellular Heat-Stable Acid Proteases (Elastases: AprV2):</b> Digest the insoluble structural keratin and elastase of the hoof horn matrix, causing the hard hoof wall to separate and peel completely away from the underlying vascular sensitive laminae.</li></ol></li><li><b>Clinical Signs:</b> Severe, debilitating lameness; sheep graze on their knees; intense foul, pungent odor from the hooves; severe loss of body condition and wool fleece drop.</li></ul></li></ul><h4>3. Fusobacterium necrophorum (Bovine & Swine Necrobacillosis)</h4><ul><li><b>Morphology:</b> Pleomorphic Gram-negative rod; in young cultures, appears as short rods; in pathological lesions, forms <b>striking, long, tangled, non-branching filamentous chains</b> (up to 100 &mu;m long) with irregular, beaded staining. Produces a pungent, foul, putrid odor in culture and pus.</li><li><b>Major Veterinary Diseases (Necrobacillosis Spectrum):</b><ul><li><b>Calf Diphtheria (Necrotic Laryngitis / Stomatitis):</b> Affects housed dairy calves (1 to 4 months old). Ingestion of rough feed scratches oral mucosa $\\rightarrow$ bacteria invade the cheeks, tongue, pharynx, and larynx $\\rightarrow$ produces thick, deep, elevated, dry, grey-yellow diphtheritic necrotic plaques. The swollen larynx obstructs breathing, causing loud stertorous snoring dyspnea, painful swallowing, foul breath, and asphyxiation.</li><li><b>Bovine Foot Rot (Interdigital Phlegmon / Foul-in-the-Foot):</b> Sudden, acute necrotizing infection of the interdigital skin and subcutaneous tissues of adult cattle, causing severe symmetrical swelling above the coronary band, deep fissure formation, foul discharge, and extreme lameness.</li><li><b>Bovine Hepatic Abscesses:</b> Rumen acidosis from grain engorgement damages the rumen wall $\\rightarrow$ *F. necrophorum* enters the portal venules and travels to the liver, forming encapsulated, purulent <b>liver abscesses</b>.</li></ul></li><li><b>Key Virulence Factor:</b> <b>Leukotoxin:</b> A potent, heat-labile exotoxin that destroys bovine neutrophils and macrophages, preventing phagocytosis and driving extensive coagulative tissue necrosis.</li></ul><h4>3. Genus Bacteroides (Bacteroides fragilis & Anaerobic Abscesses)</h4><ul><li><b>Morphology & Cultural:</b> Gram-negative, pleomorphic, non-spore-forming, strictly anaerobic rods (0.8 &times; 1–3 &mu;m). Most abundant commensal organism of the mammalian colon, reaching concentrations of $10^{11}\\text{ cells/g}$ of feces. Highly resistant to 20% bile salts.</li><li><b>Selective Isolation (BBE Agar):</b> <b>Bacteroides Bile Esculin (BBE) Agar</b> contains 20% oxgall (inhibits most other anaerobes) and esculin. <i>Bacteroides fragilis</i> hydrolyzes esculin to esculetin, reacting with ferric ammonium citrate to produce dark brown to <b>jet-black colonies</b> surrounded by a black halo.</li><li><b>Unique Virulence Determinants:</b><ul><li><b>Polysaccharide Capsule:</b> Highly distinct capsular polysaccharide complex with zwitterionic motif; directly induces <b>intra-abdominal sterile abscess formation</b> even in the absence of living bacteria! Highly antiphagocytic.</li><li><b>Non-Toxic Lipopolysaccharide (LPS):</b> Unlike Enterobacteriaceae endotoxin, <i>Bacteroides</i> Lipid A lacks phosphate groups and possesses only 5 fatty acid chains, rendering it 100- to 1000-fold less pyrogenic and toxic.</li><li><b>Constitutive &beta;-Lactamase Production:</b> Naturally resistant to penicillin, ampicillin, and cephalosporins via cephalosporinase production. Drug of choice is <b>Metronidazole</b>, clindamycin, or amoxicillin-clavulanate.</li></ul></li><li><b>Veterinary Disease Role:</b> Key opportunistic pathogen in polymicrobial anaerobic infections: contaminated abdominal surgery, peritonitis following intestinal perforation, pyometra, deep bite wound abscesses in small animals, and synergistic interdigital phlegmon in ruminants.</li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Synergy in Ovine Footrot and Dichelobacter Protease Genetics:</b> The partnership between <i>Fusobacterium necrophorum</i> and <i>Dichelobacter nodosus</i> is an evolutionary masterpiece of polymicrobial synergy: <i>F. necrophorum</i> secretes leukotoxin, disabling host neutrophils, and synthesizes a growth-stimulating factor that accelerates <i>D. nodosus</i> multiplication. In return, <i>D. nodosus</i> secretes <b>AprV2 (Acidic Protease Virulent 2)</b>, an extremely potent, heat-stable subtilisin-like serine protease. A single amino acid difference at position 92 (Tyr in virulent strains vs Arg in benign strains) gives AprV2 a 10-fold higher elastase cleavage rate against hoof horn keratin. This hydrolyzes the stratum corneum, enabling <i>F. necrophorum</i> to penetrate deep into the dermis.</p>",
     "keyPoints": [
       "Dichelobacter and Fusobacterium are Gram-negative, non-spore-forming, strictly anaerobic rods.",
@@ -2262,7 +2363,9 @@ theoryData["unit-1"] = {
       "Rumenitis from grain engorgement permits Fusobacterium to seed the liver via portal blood, forming liver abscesses.",
       "Leukotoxin is the primary virulence determinant of Fusobacterium necrophorum, killing bovine neutrophils.",
       "Dichelobacter nodosus survives in soil/pasture for less than 14 days, making pasture spelling highly effective.",
-      "Treatment relies on foot-trimming, 10% zinc sulfate footbaths, and systemic long-acting oxytetracycline."
+      "Treatment relies on foot-trimming, 10% zinc sulfate footbaths, and systemic long-acting oxytetracycline.",
+      "Bacteroides fragilis is the predominant colon anaerobe; isolated selectively on Bacteroides Bile Esculin (BBE) agar as black colonies.",
+      "B. fragilis possesses a capsular polysaccharide that directly stimulates abscess formation and produces beta-lactamase (metronidazole is drug of choice)."
     ],
     "clinical": "Because *Dichelobacter nodosus* cannot survive in pastures or soil for more than **10 to 14 days** without an animal host, you can completely eradicate contagious footrot from a sheep flock without expensive total depopulation! Move all infected sheep to a treatment pen, foot-trim and bathe in 10% Zinc Sulfate solution, and keep pastures completely empty of sheep for at least 14 days ('pasture spelling'). Once the clean ground is free of live bacteria, reintroduce only clean, treated sheep.",
     "tables": [
@@ -2314,12 +2417,15 @@ theoryData["unit-1"] = {
       "calf-diphtheria",
       "anaerobes",
       "elastase",
-      "unit-1"
+      "unit-1",
+      "bacteroides",
+      "bbe-agar",
+      "abscesses"
     ]
   },
   "u1-t30": {
-    "summary": "Spirochaetes: Leptospira interrogans (darkfield, EMJH culture, MAT test, icterus, red water), Brachyspira hyodysenteriae, and Borrelia anserina.",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> Spirochaetes are the 'corkscrew bacteria'. They are long, flexible, spiral-shaped bacteria that swim using hidden motors (endoflagella) inside their cell walls. <b><i>Leptospira</i></b> is one of the most important zoonotic pathogens in India (transmitted from rat urine via floodwater, causing red water [hemoglobinuria], jaundice, abortion, and kidney failure in cattle, dogs, and humans). <b><i>Brachyspira</i></b> causes bloody, mucoid diarrhea in pigs (Swine Dysentery), while <b><i>Borrelia anserina</i></b> is transmitted by fowl ticks to poultry.</div><h4>1. General Biology of the Spirochaetes</h4><ul><li>Slender, helically coiled, flexible Gram-negative bacteria (0.1–0.3 &times; 5–20 &mu;m).</li><li><b>Axial Filaments (Endoflagella):</b> Unlike normal bacteria whose flagella stick out, spirochaete flagella reside inside the periplasmic space between the peptidoglycan and outer membrane. Contracting these filaments causes the entire cell to flex, rotate, and screw rapidly through dense viscous mucus and tissues.</li><li>Too thin (<0.2 &mu;m) to be seen under ordinary light microscopes; visualized using <b>Darkfield Microscopy</b> or silver impregnation staining (Fontana's stain).</li></ul><h4>2. Leptospira interrogans (Leptospirosis / Red Water / Weil's Disease)</h4><ul><li><b>Morphology:</b> Ultra-fine spiral with tightly wound coils and hooked ends resembling an umbrella handle or the letter <b>'C', 'S', or '?'</b> ('interrogans' = interrogation mark). Actively motile with rapid spinning and flexion.</li><li><b>Culture:</b> Obligate aerobe; requires specialized liquid or semi-solid media containing rabbit serum, polysorbate (Tween-80), and bovine serum albumin: <b>EMJH Medium (Ellinghausen-McCullough-Johnson-Harris)</b>. Incubated at 28°C–30°C for 2–8 weeks.</li><li><b>Serovars & Host Reservoirs (Exam Classification):</b><ul><li><b>Rodents (Rats):</b> Maintenance host for <b>Serovar Icterohaemorrhagiae</b> (shed perpetually in rat urine).</li><li><b>Dogs:</b> Maintenance host for <b>Serovar Canicula</b> (causes 'Stuttgart Disease' / uremic kidney failure).</li><li><b>Cattle:</b> Maintenance host for <b>Serovar Hardjo</b> (causes agalactia, 'flaccid udder', and late abortion).</li><li><b>Pigs:</b> Maintenance host for <b>Serovar Pomona</b> (causes 'swine abortion storms').</li></ul></li><li><b>Veterinary Pathogenesis & Clinical Signs:</b><ul><li>Bacteria in contaminated water/urine penetrate waterlogged skin or mucous membranes $\\rightarrow$ bacteremia $\\rightarrow$ damage capillary endothelium $\\rightarrow$ hemolysins cause acute intravascular hemolysis.</li><li><b>Calves & Cattle:</b> High fever, jaundice (icterus), anemia, and dark port-wine-colored urine (<b>Hemoglobinuria / 'Red Water of Calves'</b>). In dairy cows, produces <b>'Cold Mastitis' (Flaccid Bag)</b>: all 4 quarters become soft and flaccid with thick, yellow, blood-tinged milk without heat or pain.</li><li><b>Dogs:</b> Acute hemorrhagic gastroenteritis, jaundice, and chronic interstitial nephritis with uremia.</li></ul></li><li><b>Standard Diagnostic Tests:</b><ul><li><b>Darkfield Microscopy:</b> Direct examination of fresh warm urine (positive if hooked, rapidly rotating spiral filaments are seen).</li><li><b>Microscopic Agglutination Test (MAT - Gold Standard):</b> Dilutions of animal serum are mixed with live cultures of reference serovars and examined under darkfield microscopy. Agglutination titer $\\ge$1:400 is diagnostic.</li></ul></li></ul><h4>3. Brachyspira hyodysenteriae (Swine Dysentery)</h4><ul><li>Loosely coiled, oxygen-tolerant anaerobe; produces intense <b>strong &beta;-hemolysis</b> on blood agar.</li><li>Causes <b>Swine Dysentery (Bloody Scours)</b> in growing pigs (8–14 weeks old). Colonizes the cecum and colon, causing mucohemorrhagic colitis with rice-water diarrhea containing abundant fresh blood, shreds of mucus, and necrotic mucosal pseudomembranes.</li></ul><h4>4. Borrelia anserina (Avian Spirochaetosis)</h4><ul><li>Long, loosely coiled spirochaete (6–10 loose waves). Transmitted to chickens and geese by the bite of the <b>soft tick <i>Argas persicus</i> (fowl tick)</b>.</li><li>Causes high fever, cyanosis of the comb and wattles, bright green diarrhea, marked splenomegaly with mottled white necrotic spots, and paralysis. Smears of wing-vein blood during peak fever stained with Giemsa reveal abundant extracellular spirochaetes between red blood cells.</li></ul>",
+    "summary": "Spirochaetes: Leptospira interrogans (darkfield, EMJH culture, MAT test, icterus, red water), Brachyspira hyodysenteriae, Borrelia anserina, and Treponema (Rabbit Syphilis, Bovine Digital Dermatitis).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> Spirochaetes are the 'corkscrew bacteria'. They are long, flexible, spiral-shaped bacteria that swim using hidden motors (endoflagella) inside their cell walls. <b><i>Leptospira</i></b> is one of the most important zoonotic pathogens in India (transmitted from rat urine via floodwater, causing red water [hemoglobinuria], jaundice, abortion, and kidney failure in cattle, dogs, and humans). <b><i>Brachyspira</i></b> causes bloody, mucoid diarrhea in pigs (Swine Dysentery), while <b><i>Borrelia anserina</i></b> is transmitted by fowl ticks to poultry.</div><h4>1. General Biology of the Spirochaetes</h4><ul><li>Slender, helically coiled, flexible Gram-negative bacteria (0.1–0.3 &times; 5–20 &mu;m).</li><li><b>Axial Filaments (Endoflagella):</b> Unlike normal bacteria whose flagella stick out, spirochaete flagella reside inside the periplasmic space between the peptidoglycan and outer membrane. Contracting these filaments causes the entire cell to flex, rotate, and screw rapidly through dense viscous mucus and tissues.</li><li>Too thin (<0.2 &mu;m) to be seen under ordinary light microscopes; visualized using <b>Darkfield Microscopy</b> or silver impregnation staining (Fontana's stain).</li></ul><h4>2. Leptospira interrogans (Leptospirosis / Red Water / Weil's Disease)</h4><ul><li><b>Morphology:</b> Ultra-fine spiral with tightly wound coils and hooked ends resembling an umbrella handle or the letter <b>'C', 'S', or '?'</b> ('interrogans' = interrogation mark). Actively motile with rapid spinning and flexion.</li><li><b>Culture:</b> Obligate aerobe; requires specialized liquid or semi-solid media containing rabbit serum, polysorbate (Tween-80), and bovine serum albumin: <b>EMJH Medium (Ellinghausen-McCullough-Johnson-Harris)</b>. Incubated at 28°C–30°C for 2–8 weeks.</li><li><b>Serovars & Host Reservoirs (Exam Classification):</b><ul><li><b>Rodents (Rats):</b> Maintenance host for <b>Serovar Icterohaemorrhagiae</b> (shed perpetually in rat urine).</li><li><b>Dogs:</b> Maintenance host for <b>Serovar Canicula</b> (causes 'Stuttgart Disease' / uremic kidney failure).</li><li><b>Cattle:</b> Maintenance host for <b>Serovar Hardjo</b> (causes agalactia, 'flaccid udder', and late abortion).</li><li><b>Pigs:</b> Maintenance host for <b>Serovar Pomona</b> (causes 'swine abortion storms').</li></ul></li><li><b>Veterinary Pathogenesis & Clinical Signs:</b><ul><li>Bacteria in contaminated water/urine penetrate waterlogged skin or mucous membranes $\\rightarrow$ bacteremia $\\rightarrow$ damage capillary endothelium $\\rightarrow$ hemolysins cause acute intravascular hemolysis.</li><li><b>Calves & Cattle:</b> High fever, jaundice (icterus), anemia, and dark port-wine-colored urine (<b>Hemoglobinuria / 'Red Water of Calves'</b>). In dairy cows, produces <b>'Cold Mastitis' (Flaccid Bag)</b>: all 4 quarters become soft and flaccid with thick, yellow, blood-tinged milk without heat or pain.</li><li><b>Dogs:</b> Acute hemorrhagic gastroenteritis, jaundice, and chronic interstitial nephritis with uremia.</li></ul></li><li><b>Standard Diagnostic Tests:</b><ul><li><b>Darkfield Microscopy:</b> Direct examination of fresh warm urine (positive if hooked, rapidly rotating spiral filaments are seen).</li><li><b>Microscopic Agglutination Test (MAT - Gold Standard):</b> Dilutions of animal serum are mixed with live cultures of reference serovars and examined under darkfield microscopy. Agglutination titer $\\ge$1:400 is diagnostic.</li></ul></li></ul><h4>3. Brachyspira hyodysenteriae (Swine Dysentery)</h4><ul><li>Loosely coiled, oxygen-tolerant anaerobe; produces intense <b>strong &beta;-hemolysis</b> on blood agar.</li><li>Causes <b>Swine Dysentery (Bloody Scours)</b> in growing pigs (8–14 weeks old). Colonizes the cecum and colon, causing mucohemorrhagic colitis with rice-water diarrhea containing abundant fresh blood, shreds of mucus, and necrotic mucosal pseudomembranes.</li></ul><h4>4. Borrelia anserina (Avian Spirochaetosis)</h4><ul><li>Long, loosely coiled spirochaete (6–10 loose waves). Transmitted to chickens and geese by the bite of the <b>soft tick <i>Argas persicus</i> (fowl tick)</b>.</li><li>Causes high fever, cyanosis of the comb and wattles, bright green diarrhea, marked splenomegaly with mottled white necrotic spots, and paralysis. Smears of wing-vein blood during peak fever stained with Giemsa reveal abundant extracellular spirochaetes between red blood cells.</li></ul><h4>4. Genus Treponema (Rabbit Syphilis & Bovine Digital Dermatitis)</h4><ul><li><b>Morphology & Biology:</b> Slender, helically coiled, flexible spirochetes (0.1–0.2 &times; 5–20 &mu;m) with regular, tight, uniform coils and tapered ends. Possess 1–2 axial endoflagella in the periplasmic space. Microaerophilic to strictly anaerobic. Fastidious and non-culturable on plain cell-free laboratory agar.</li><li><b>Major Veterinary Pathogens:</b><ul><li><b><i>Treponema paraluiscuniculi</i> (Rabbit Syphilis / Vent Disease):</b> Transmitted venereally during mating or vertically from does to kits. Causes erythema, edematous papules, vesicles, and thick, dry, hyperkeratotic <b>crusts and scabs on the external genitalia (prepuce, vulva), perineum, and mucocutaneous junctions of the nose and lips</b>. Diagnosed by darkfield microscopy or silver impregnation staining of lesion scrapings. Highly sensitive to parenteral <b>Penicillin G</b>.</li><li><b>Bovine Digital Dermatitis (BDD / 'Mortellaro Disease' / Hairy Heel Warts):</b> Highly contagious ulcerative epidermal lesion affecting the skin of the plantar aspect of the bovine heel bulbs. Caused by a polymicrobial consortium dominated by invasive anaerobic <b>Treponemes</b> (<i>Treponema phagedenis</i>, <i>Treponema medium</i>, <i>Treponema pedis</i>). Produces intense circumscribed strawberry-like red granulation tissue with raised papillomatous projections, causing severe pain, lameness, and milk drop in dairy herds. Treated with topical oxytetracycline sprays and collective footbaths.</li></ul></li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Renal Colonization and Immune Evasion of Leptospira:</b> <i>Leptospira</i> possesses specialized outer membrane lipoproteins, predominantly <b>LipL32</b> and <b>LigA/LigB (Leptospiral Immunoglobulin-like proteins)</b>. LigA binds host extracellular matrix proteins (fibronectin, laminin, and collagen), facilitating rapid transmigration across endothelial barriers. During the leptospiremic phase, circulating antibodies clear the bacteria from the bloodstream. However, <i>Leptospira</i> migrates across the glomerular basement membrane and takes up residence inside the brush border lumen of the <b>proximal convoluted renal tubules</b>. In this immunological sanctuary, shielded from antibodies and complement, the spirochaetes replicate indefinitely, turning the host into an asymptomatic, permanent urinary shedder.</p>",
     "keyPoints": [
       "Spirochaetes possess periplasmic axial filaments (endoflagella) driving corkscrew motility.",
@@ -2333,7 +2439,9 @@ theoryData["unit-1"] = {
       "Brachyspira hyodysenteriae is a strong beta-hemolytic anaerobe causing Swine Dysentery (bloody scours).",
       "Borrelia anserina causes Avian Spirochaetosis (tick fever in poultry), transmitted by Argas persicus soft ticks.",
       "Wing-vein blood smears stained with Giemsa during peak fever demonstrate Borrelia anserina spirochaetes.",
-      "Leptospirosis is a major occupational zoonosis for veterinarians, rice paddy farmers, and sewage workers."
+      "Leptospirosis is a major occupational zoonosis for veterinarians, rice paddy farmers, and sewage workers.",
+      "Treponema paraluiscuniculi causes Rabbit Syphilis (Vent Disease), producing crusting genital and facial scabs.",
+      "Invasive Treponema species (T. phagedenis, T. medium) cause Bovine Digital Dermatitis (Mortellaro Disease / strawberry heel warts) in dairy cattle."
     ],
     "clinical": "In India, canine and human leptospirosis surges immediately after monsoon street flooding. When a dog presents with acute vomiting, high BUN/creatinine, and yellow icteric sclera, suspect leptospirosis immediately. **Isolate the dog and instruct veterinary assistants to wear protective rubber gloves, aprons, and eye protection**. Canine urine contains millions of infectious spirochaetes that penetrate human skin abrasions, causing life-threatening Weil's disease (acute renal and hepatic failure).",
     "tables": [
@@ -2380,7 +2488,11 @@ theoryData["unit-1"] = {
       "brachyspira",
       "borrelia",
       "argas-persicus",
-      "unit-1"
+      "unit-1",
+      "treponema",
+      "rabbit-syphilis",
+      "mortellaro",
+      "digital-dermatitis"
     ]
   },
   "u1-t31": {
@@ -2456,8 +2568,8 @@ theoryData["unit-1"] = {
     ]
   },
   "u1-t32": {
-    "summary": "Obligate intracellular bacteria: Anaplasma marginale (dense RBC inclusions, gall sickness), Ehrlichia canis (morulae in monocytes), and Coxiella burnetii (Q fever, SCV/LCV).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Rickettsiales</i> are the 'intracellular prisoners' of bacteriology. They cannot multiply outside a living animal cell (obligate intracellular), and they are almost always transmitted by tick bites. <b><i>Anaplasma marginale</i></b> enters red blood cells, causing severe anemia and yellow jaundice in cattle ('Gall Sickness'), but without red urine. <b><i>Ehrlichia canis</i></b> invades dog white blood cells, forming grape-like clusters called <b>morulae</b>. <b><i>Coxiella burnetii</i></b> causes <b>Q Fever</b>—a zoonosis from cattle placenta with spore-like resistance.</div><h4>1. General Biology of the Order Rickettsiales</h4><ul><li>Tiny, pleomorphic Gram-negative coccobacilli (0.3–0.5 &mu;m).</li><li><b>Obligate Intracellular Parasites:</b> Cannot synthesize sufficient ATP or metabolic cofactors; require living host eukaryotic cells (endothelial cells, erythrocytes, or leukocytes) to replicate.</li><li>Cannot grow on cell-free artificial agar; cultured in embryonated chicken eggs or tissue cell cultures. Stained with <b>Giemsa, Leishman, or Gimenez stain</b>.</li><li>Transmitted biologically by arthropod vectors (hard ticks, fleas, lice, and mites).</li></ul><h4>2. Anaplasma marginale (Bovine Anaplasmosis / Gall Sickness)</h4><ul><li><b>Target Host Cell:</b> Mature <b>erythrocytes (red blood cells)</b> of cattle and water buffaloes.</li><li><b>Microscopic Morphology (Exam Diagnostic):</b> In blood smears stained with Giemsa, appears as dense, round, dark purple-red inclusion bodies (0.3–1.0 &mu;m) located strictly on the <b>very periphery (margin) of the red blood cell</b> (hence <i>marginale</i>). (In contrast, *A. centrale* inclusions sit centrally within the RBC).</li><li><b>Vectors:</b> Hard ticks (<i>Rhipicephalus / Boophilus microplus</i>), biting flies (<i>Tabanus</i>), and iatrogenically via unsterilized dehorners and needles.</li><li><b>Pathology & Clinical Signs:</b><ul><li>Infected RBCs are removed and destroyed by macrophages in the spleen and liver (<b>Extravascular Hemolysis</b>).</li><li>Causes acute high fever, severe progressive anemia, marked icterus (jaundice), severe constipation, and an enormously enlarged, dark, bile-engorged gallbladder (<b>'Gall Sickness'</b>).</li><li><b>Exam Golden Distinction:</b> <b>NO Hemoglobinuria!</b> Because hemolysis is extravascular (inside macrophages, not inside the blood vessels), the urine remains clear/yellow (no red water!), cleanly distinguishing Anaplasmosis from Babesiosis!</li></ul></li></ul><h4>3. Ehrlichia canis (Canine Monocytic Ehrlichiosis - CME)</h4><ul><li><b>Vector:</b> Transmitted by the brown dog tick, <b><i>Rhipicephalus sanguineus</i></b>.</li><li><b>Target Host Cell:</b> Circulating <b>monocytes and macrophages</b>.</li><li><b>Microscopic Hallmark:</b> Inside the monocyte cytoplasm, the bacteria multiply within membrane-bound vacuoles to form pathognomonic, dense, basophilic clusters resembling mulberry fruits, called <b>Morulae</b> (stained with Giemsa).</li><li><b>Clinical Triad:</b> High fever, generalized lymphadenopathy, severe thrombocytopenia (causing epistaxis / nosebleeds and petechial hemorrhages), and pancytopenia.</li></ul><h4>4. Coxiella burnetii (Q Fever / Coxiellosis)</h4><ul><li>Small, pleomorphic, intracellular bacterium residing inside host macrophage phagolysosomes.</li><li><b>Biphasic Developmental Cycle (Extreme Resistance):</b><ul><li><b>Small Cell Variant (SCV):</b> A condensed, metabolically inactive, spore-like form that exhibits <b>phenomenal environmental resistance</b> to heat, drying, sunlight, and chemical disinfectants. It survives standard low-temperature milk pasteurization (hence modern milk pasteurization standards were raised to <b>72°C for 15 seconds</b> specifically to ensure 100% destruction of *Coxiella*!).</li><li><b>Large Cell Variant (LCV):</b> The metabolically active, replicating intracellular form.</li></ul></li><li><b>Veterinary Disease:</b> Causes necrotic placentitis and late-term abortions in sheep and goats. Shed in massive quantities ($>10^9$ bacteria/gram) in placenta, amniotic fluid, and milk.</li><li><b>Severe Human Zoonosis:</b> Inhaling dried placental dust causes acute <b>Q Fever</b> in humans (severe atypical pneumonia, hepatitis, and endocarditis).</li></ul>",
+    "summary": "Obligate intracellular bacteria: Anaplasma marginale (gall sickness), Ehrlichia canis (canine monocytic ehrlichiosis), Coxiella burnetii (Q fever), Neorickettsia (PHF, Salmon poisoning), and Rickettsia rickettsii (RMSF).",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Rickettsiales</i> are the 'intracellular prisoners' of bacteriology. They cannot multiply outside a living animal cell (obligate intracellular), and they are almost always transmitted by tick bites. <b><i>Anaplasma marginale</i></b> enters red blood cells, causing severe anemia and yellow jaundice in cattle ('Gall Sickness'), but without red urine. <b><i>Ehrlichia canis</i></b> invades dog white blood cells, forming grape-like clusters called <b>morulae</b>. <b><i>Coxiella burnetii</i></b> causes <b>Q Fever</b>—a zoonosis from cattle placenta with spore-like resistance.</div><h4>1. General Biology of the Order Rickettsiales</h4><ul><li>Tiny, pleomorphic Gram-negative coccobacilli (0.3–0.5 &mu;m).</li><li><b>Obligate Intracellular Parasites:</b> Cannot synthesize sufficient ATP or metabolic cofactors; require living host eukaryotic cells (endothelial cells, erythrocytes, or leukocytes) to replicate.</li><li>Cannot grow on cell-free artificial agar; cultured in embryonated chicken eggs or tissue cell cultures. Stained with <b>Giemsa, Leishman, or Gimenez stain</b>.</li><li>Transmitted biologically by arthropod vectors (hard ticks, fleas, lice, and mites).</li></ul><h4>2. Anaplasma marginale (Bovine Anaplasmosis / Gall Sickness)</h4><ul><li><b>Target Host Cell:</b> Mature <b>erythrocytes (red blood cells)</b> of cattle and water buffaloes.</li><li><b>Microscopic Morphology (Exam Diagnostic):</b> In blood smears stained with Giemsa, appears as dense, round, dark purple-red inclusion bodies (0.3–1.0 &mu;m) located strictly on the <b>very periphery (margin) of the red blood cell</b> (hence <i>marginale</i>). (In contrast, *A. centrale* inclusions sit centrally within the RBC).</li><li><b>Vectors:</b> Hard ticks (<i>Rhipicephalus / Boophilus microplus</i>), biting flies (<i>Tabanus</i>), and iatrogenically via unsterilized dehorners and needles.</li><li><b>Pathology & Clinical Signs:</b><ul><li>Infected RBCs are removed and destroyed by macrophages in the spleen and liver (<b>Extravascular Hemolysis</b>).</li><li>Causes acute high fever, severe progressive anemia, marked icterus (jaundice), severe constipation, and an enormously enlarged, dark, bile-engorged gallbladder (<b>'Gall Sickness'</b>).</li><li><b>Exam Golden Distinction:</b> <b>NO Hemoglobinuria!</b> Because hemolysis is extravascular (inside macrophages, not inside the blood vessels), the urine remains clear/yellow (no red water!), cleanly distinguishing Anaplasmosis from Babesiosis!</li></ul></li></ul><h4>3. Ehrlichia canis (Canine Monocytic Ehrlichiosis - CME)</h4><ul><li><b>Vector:</b> Transmitted by the brown dog tick, <b><i>Rhipicephalus sanguineus</i></b>.</li><li><b>Target Host Cell:</b> Circulating <b>monocytes and macrophages</b>.</li><li><b>Microscopic Hallmark:</b> Inside the monocyte cytoplasm, the bacteria multiply within membrane-bound vacuoles to form pathognomonic, dense, basophilic clusters resembling mulberry fruits, called <b>Morulae</b> (stained with Giemsa).</li><li><b>Clinical Triad:</b> High fever, generalized lymphadenopathy, severe thrombocytopenia (causing epistaxis / nosebleeds and petechial hemorrhages), and pancytopenia.</li></ul><h4>4. Coxiella burnetii (Q Fever / Coxiellosis)</h4><ul><li>Small, pleomorphic, intracellular bacterium residing inside host macrophage phagolysosomes.</li><li><b>Biphasic Developmental Cycle (Extreme Resistance):</b><ul><li><b>Small Cell Variant (SCV):</b> A condensed, metabolically inactive, spore-like form that exhibits <b>phenomenal environmental resistance</b> to heat, drying, sunlight, and chemical disinfectants. It survives standard low-temperature milk pasteurization (hence modern milk pasteurization standards were raised to <b>72°C for 15 seconds</b> specifically to ensure 100% destruction of *Coxiella*!).</li><li><b>Large Cell Variant (LCV):</b> The metabolically active, replicating intracellular form.</li></ul></li><li><b>Veterinary Disease:</b> Causes necrotic placentitis and late-term abortions in sheep and goats. Shed in massive quantities ($>10^9$ bacteria/gram) in placenta, amniotic fluid, and milk.</li><li><b>Severe Human Zoonosis:</b> Inhaling dried placental dust causes acute <b>Q Fever</b> in humans (severe atypical pneumonia, hepatitis, and endocarditis).</li></ul><h4>4. Genus Neorickettsia (Fluke-Borne Intracellular Pathogens)</h4><ul><li><b>Unique Biology (Trematode Vectors):</b> Obligate intracellular coccoid bacteria residing in membrane-bound cytoplasmic vacuoles of monocytes, macrophages, and intestinal crypt epithelial cells. Uniquely transmitted by <b>digenean trematodes (flukes)</b> via freshwater aquatic snails and insects!</li><li><b>Major Veterinary Diseases:</b><ul><li><b><i>Neorickettsia risticii</i> (Potomac Horse Fever - PHF / Equine Monocytic Ehrlichiosis):</b> Fluke metacercariae encyst inside aquatic caddisflies or mayflies; horses ingest contaminated insects in feed or drinking water. Multiplies in intestinal macrophages and crypt cells. Causes acute high biphasic fever, severe depression, profuse watery diarrhea, anorexia, ileus, severe colic, and <b>acute laminitis</b> in up to 30–40% of affected horses, with abortion in pregnant mares. Treated effectively with IV Oxytetracycline.</li><li><b><i>Neorickettsia helminthoeca</i> (Salmon Poisoning Disease - SPD in Canines):</b> Dogs ingest raw Pacific salmon or trout containing encysted metacercariae of the intestinal fluke <i>Nanophyetus salmincola</i>. Fluke attaches to canine duodenum $&rarr;arrow$ <i>N. helminthoeca</i> invades lymphoid tissue $&rarr;arrow$ marked enlargement of all lymph nodes, high fever, facial edema, vomiting, and severe <b>bloody dysentery</b>. Over 90% fatal in dogs if untreated with oxytetracycline.</li></ul></li></ul><h4>5. Genus Rickettsia (Endothelial Tropism & Vasculitis)</h4><ul><li><b>Biology & Replication:</b> Tiny, pleomorphic, obligate intracellular Gram-negative bacilli (0.3 &times; 1.0 &mu;m). Unlike <i>Ehrlichia</i> and <i>Anaplasma</i>, <i>Rickettsia</i> <b>replicate free within the host cell cytoplasm and nucleus</b> after rapidly escaping from the phagosome via hemolysin / phospholipase activity!</li><li><b><i>Rickettsia rickettsii</i> (Rocky Mountain Spotted Fever - RMSF):</b> Transmitted by ixodid ticks (<i>Dermacentor variabilis</i>, <i>Dermacentor andersoni</i>, <i>Rhipicephalus sanguineus</i>). Shows strict tropism for <b>vascular endothelial cells</b>. Bacterial multiplication causes endothelial cell necrosis, severe generalized necrotizing vasculitis, microthrombosis, microvascular leakage, and petechial hemorrhages in skin, mucous membranes, brain, and retina in dogs and humans. Diagnosed by IFA serology; treated with Doxycycline.</li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>Comparative Pathophysiology: Anaplasmosis vs Babesiosis:</b> A classic high-scoring question in veterinary board exams:</p><ul><li><b>Bovine Babesiosis (<i>Babesia bigemina</i> - Protozoan):</b> Causes <b>Intravascular Hemolysis</b>. The parasite ruptures erythrocytes directly inside blood vessels. Free hemoglobin spills into plasma, passes the renal threshold, and causes true <b>Hemoglobinuria (Port-wine red water)</b> and hemoglobinuric nephrosis.</li><li><b>Bovine Anaplasmosis (<i>Anaplasma marginale</i> - Bacterium):</b> Causes pure <b>Extravascular Hemolysis</b>. The bacteria do not lyse the RBC directly; instead, splenic macrophages recognize bacterial surface antigens and phagocytose the entire infected erythrocyte. Because destruction occurs inside tissue macrophages, free hemoglobin never enters systemic plasma. Bilirubin surges, causing severe <b>Jaundice (Icterus)</b>, but the urine contains <b>zero hemoglobin (no red water)</b>.</li></ul>",
     "keyPoints": [
       "Rickettsiales are obligate intracellular Gram-negative bacteria, transmitted by arthropod vectors.",
@@ -2471,7 +2583,10 @@ theoryData["unit-1"] = {
       "Coxiella burnetii possesses a spore-like Small Cell Variant (SCV) displaying extreme environmental heat resistance.",
       "Modern pasteurization (72°C for 15 sec) is calibrated specifically to ensure 100% kill of Coxiella burnetii.",
       "Coxiella causes abortion storms in sheep/goats and severe zoonotic Q Fever in humans via placental dust.",
-      "Tetracyclines (Oxytetracycline, Doxycycline) are the absolute drugs of choice for all Rickettsiales infections."
+      "Tetracyclines (Oxytetracycline, Doxycycline) are the absolute drugs of choice for all Rickettsiales infections.",
+      "Neorickettsia risticii causes Potomac Horse Fever (PHF) via trematode-infected aquatic insects, causing diarrhea and laminitis.",
+      "Neorickettsia helminthoeca causes Salmon Poisoning Disease in dogs eating raw fish containing the fluke Nanophyetus salmincola.",
+      "Rickettsia rickettsii replicates free in endothelial cytoplasm, causing necrotizing vasculitis and petechial hemorrhages (RMSF)."
     ],
     "clinical": "If a dairy cow presents with high fever, pale yellow mucous membranes, and profound weakness, collect a drop of blood from the ear tip for a thin blood smear. If the cow is voiding dark red urine, think *Babesia*. If the urine is clear/amber and you see dark purple dots on the edge of red blood cells under 100&times; oil immersion, it is **Anaplasmosis**. Immediately inject long-acting Oxytetracycline (20 mg/kg deep IM) and provide supportive blood-building therapy (iron, Vitamin B12).",
     "tables": [
@@ -2531,12 +2646,17 @@ theoryData["unit-1"] = {
       "coxiella",
       "q-fever",
       "extravascular-hemolysis",
-      "unit-1"
+      "unit-1",
+      "neorickettsia",
+      "phf",
+      "salmon-poisoning",
+      "rickettsia",
+      "rmsf"
     ]
   },
   "u1-t33": {
-    "summary": "Developmental cycle of Chlamydia (Elementary Body vs Reticulate Body), Chlamydia abortus (Enzootic Abortion of Ewes - EAE), and Chlamydia psittaci (Avian Chlamydiosis).",
-    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Chlamydia</i> are unique 'two-faced' bacteria. They survive in two alternating forms: the <b>Elementary Body (EB)</b>, which is a tough, infectious spore-like particle that flies through the air, and the <b>Reticulate Body (RB)</b>, which is the fragile intracellular form that feeds on host ATP inside the cell. In sheep, <b><i>Chlamydia abortus</i></b> causes <b>Enzootic Abortion of Ewes (EAE)</b> with necrotic, dirty-brown placenta. In birds, <b><i>Chlamydia psittaci</i></b> causes <b>Psittacosis</b>—a dangerous zoonotic disease that bird owners and pet store workers catch from parrot droppings.</div><h4>1. The Biphasic Developmental Cycle (Standard Exam Question)</h4><p><i>Chlamydia</i> cannot synthesize its own ATP ('energy parasites') and replicates through an obligate biphasic life cycle lasting 48–72 hours:</p><ol><li><b>1. The Elementary Body (EB - The Infectious Form):</b><ul><li>Small (0.2–0.3 &mu;m), rigid, spherical body.</li><li>Possesses a dense, heavily disulfide-cross-linked outer membrane that provides <b>high environmental resistance</b>.</li><li>Metabolically dormant; specialized exclusively for extracellular survival and <b>host cell invasion</b>.</li></ul></li><li><b>2. Endocytosis & Differentiation:</b><ul><li>The EB attaches to host mucosal epithelial cells and triggers receptor-mediated endocytosis. Resides inside a membrane-bound vacuole called an <b>Inclusion Body</b>.</li><li>Inhibits phagosome-lysosome fusion. Within 6–8 hours, the EB reorganizes into a <b>Reticulate Body (RB)</b>.</li></ul></li><li><b>3. The Reticulate Body (RB - The Replicating Form):</b><ul><li>Large (0.8–1.2 &mu;m), flexible, non-infectious body.</li><li>Metabolically active; steals host ATP and multiplies rapidly by <b>binary fission</b> inside the expanding cytoplasmic inclusion.</li></ul></li><li><b>4. Condensation & Lysis:</b><ul><li>After 24–48 hours, RBs condense back into hundreds of infectious small EBs.</li><li>The host cell bursts open, releasing millions of EBs to infect adjacent cells and neighboring animals.</li></ul></li></ol><h4>2. Chlamydia abortus (Enzootic Abortion of Ewes - EAE)</h4><ul><li>The leading infectious cause of ovine and caprine abortion worldwide.</li><li><b>Pathology & Lesions:</b><ul><li>Infection occurs orally during lambing from contaminated bedding $\\rightarrow$ remains dormant until the ewe becomes pregnant $\\rightarrow$ after day 90 of gestation, rapidly multiplies in the placenta.</li><li>Causes severe, acute necrotic placentitis. The placenta is thickened, edematous, and covered in <b>dirty reddish-brown, clay-colored necrotic cotyledons</b> and creamy purulent exudate between the cotyledons (intercotyledonary placentitis).</li><li>Causes a <b>storm of late abortions (last 2–3 weeks of pregnancy)</b> or delivery of weak, dying lambs. Ewes rarely abort twice; they develop solid immunity, but shed bacteria in vaginal lochia.</li></ul></li><li><b>Direct Smear Diagnosis:</b> Stamp's modified Ziehl-Neelsen stain of cotyledon smears demonstrates dense clumps of <b>bright red elementary bodies</b> inside and outside epithelial cells against a blue background.</li></ul><h4>3. Chlamydia psittaci (Avian Chlamydiosis / Psittacosis / Ornithosis)</h4><ul><li>Affects psittacine birds (parrots, parakeets) and domestic poultry (turkeys, ducks).</li><li><b>Clinical Signs in Birds:</b> Lethargy, ruffled feathers, ocular and nasal discharge, severe infraorbital sinusitis, and gelatinous <b>lime-green diarrhea</b>. Post-mortem shows marked splenomegaly (swollen dark spleen), fibrinous airsacculitis, and fibrinous perihepatitis.</li><li><b>Dangerous Zoonosis (Psittacosis):</b> Inhaling dried feces dust from infected caged birds causes severe, atypical interstitial pneumonia in humans, with high fever, dry cough, severe headache, and hepatosplenomegaly.</li></ul>",
+    "summary": "Developmental cycle of Chlamydia (Elementary Body vs Reticulate Body), Chlamydia abortus (EAE), Chlamydia psittaci (Psittacosis), and the Chlamydia / Chlamydophila taxonomic classification.",
+    "desc": "<div class=\"exam-grasp\"><b>🌟 First Grasp (In a Nutshell):</b> <i>Chlamydia</i> are unique 'two-faced' bacteria. They survive in two alternating forms: the <b>Elementary Body (EB)</b>, which is a tough, infectious spore-like particle that flies through the air, and the <b>Reticulate Body (RB)</b>, which is the fragile intracellular form that feeds on host ATP inside the cell. In sheep, <b><i>Chlamydia abortus</i></b> causes <b>Enzootic Abortion of Ewes (EAE)</b> with necrotic, dirty-brown placenta. In birds, <b><i>Chlamydia psittaci</i></b> causes <b>Psittacosis</b>—a dangerous zoonotic disease that bird owners and pet store workers catch from parrot droppings.</div><h4>1. The Biphasic Developmental Cycle (Standard Exam Question)</h4><p><i>Chlamydia</i> cannot synthesize its own ATP ('energy parasites') and replicates through an obligate biphasic life cycle lasting 48–72 hours:</p><ol><li><b>1. The Elementary Body (EB - The Infectious Form):</b><ul><li>Small (0.2–0.3 &mu;m), rigid, spherical body.</li><li>Possesses a dense, heavily disulfide-cross-linked outer membrane that provides <b>high environmental resistance</b>.</li><li>Metabolically dormant; specialized exclusively for extracellular survival and <b>host cell invasion</b>.</li></ul></li><li><b>2. Endocytosis & Differentiation:</b><ul><li>The EB attaches to host mucosal epithelial cells and triggers receptor-mediated endocytosis. Resides inside a membrane-bound vacuole called an <b>Inclusion Body</b>.</li><li>Inhibits phagosome-lysosome fusion. Within 6–8 hours, the EB reorganizes into a <b>Reticulate Body (RB)</b>.</li></ul></li><li><b>3. The Reticulate Body (RB - The Replicating Form):</b><ul><li>Large (0.8–1.2 &mu;m), flexible, non-infectious body.</li><li>Metabolically active; steals host ATP and multiplies rapidly by <b>binary fission</b> inside the expanding cytoplasmic inclusion.</li></ul></li><li><b>4. Condensation & Lysis:</b><ul><li>After 24–48 hours, RBs condense back into hundreds of infectious small EBs.</li><li>The host cell bursts open, releasing millions of EBs to infect adjacent cells and neighboring animals.</li></ul></li></ol><h4>2. Chlamydia abortus (Enzootic Abortion of Ewes - EAE)</h4><ul><li>The leading infectious cause of ovine and caprine abortion worldwide.</li><li><b>Pathology & Lesions:</b><ul><li>Infection occurs orally during lambing from contaminated bedding $\\rightarrow$ remains dormant until the ewe becomes pregnant $\\rightarrow$ after day 90 of gestation, rapidly multiplies in the placenta.</li><li>Causes severe, acute necrotic placentitis. The placenta is thickened, edematous, and covered in <b>dirty reddish-brown, clay-colored necrotic cotyledons</b> and creamy purulent exudate between the cotyledons (intercotyledonary placentitis).</li><li>Causes a <b>storm of late abortions (last 2–3 weeks of pregnancy)</b> or delivery of weak, dying lambs. Ewes rarely abort twice; they develop solid immunity, but shed bacteria in vaginal lochia.</li></ul></li><li><b>Direct Smear Diagnosis:</b> Stamp's modified Ziehl-Neelsen stain of cotyledon smears demonstrates dense clumps of <b>bright red elementary bodies</b> inside and outside epithelial cells against a blue background.</li></ul><h4>3. Chlamydia psittaci (Avian Chlamydiosis / Psittacosis / Ornithosis)</h4><ul><li>Affects psittacine birds (parrots, parakeets) and domestic poultry (turkeys, ducks).</li><li><b>Clinical Signs in Birds:</b> Lethargy, ruffled feathers, ocular and nasal discharge, severe infraorbital sinusitis, and gelatinous <b>lime-green diarrhea</b>. Post-mortem shows marked splenomegaly (swollen dark spleen), fibrinous airsacculitis, and fibrinous perihepatitis.</li><li><b>Dangerous Zoonosis (Psittacosis):</b> Inhaling dried feces dust from infected caged birds causes severe, atypical interstitial pneumonia in humans, with high fever, dry cough, severe headache, and hepatosplenomegaly.</li></ul><h4>4. The Genus Chlamydophila & Taxonomic Reclassification</h4><ul><li><b>The 1999–2015 Taxonomic Split:</b> In 1999, Everett, Bush, and Andersen published a landmark phylogenetic reclassification dividing the family <i>Chlamydiaceae</i> into two distinct genera based on 16S and 23S rRNA gene sequence divergence:<ul><li><b>Genus <i>Chlamydia:</i></b> Retained <i>Chlamydia trachomatis</i>, <i>Chlamydia suis</i> (swine conjunctivitis and enteritis), and <i>Chlamydia muridarum</i>. These species accumulate glycogen inside their inclusions (staining positive with Lugols iodine) and are sensitive to sulfadiazine.</li><li><b>Genus <i>Chlamydophila:</i></b> Contained the principal veterinary pathogens: <b><i>Chlamydophila abortus</i></b> (Enzootic Abortion of Ewes), <b><i>Chlamydophila psittaci</i></b> (Avian Chlamydiosis / Psittacosis), <b><i>Chlamydophila felis</i></b> (Feline Chlamydiosis / Conjunctivitis), and <b><i>Chlamydophila pecorum</i></b> (Bovine encephalomyelitis). These species produce inclusions lacking glycogen (iodine negative) and are naturally resistant to sulfadiazine.</li></ul></li><li><b>Current Re-unification:</b> Following extensive whole-genome sequencing in 2015, the genus <i>Chlamydophila</i> was officially re-merged back into the single genus <i>Chlamydia</i>. However, veterinary textbooks, diagnostic manuals, and university exam question papers consistently use both <i>Chlamydia</i> and <i>Chlamydophila</i> interchangeably.</li></ul>",
     "eliteDesc": "<h4>Topper Mechanism & Molecular Focus</h4><p><b>The Chlamydial Outer Membrane Complex (COMC):</b> The elementary body (EB) lacks typical peptidoglycan but withstands osmotic lysis due to the <b>Chlamydial Outer Membrane Complex (COMC)</b>. The COMC is an impenetrable protein armor composed of the <b>Major Outer Membrane Protein (MOMP)</b>, <b>OmpA</b>, and two cysteine-rich proteins (<b>OmcB and OmcA</b>). Extensive intermolecular <b>disulfide cross-linking (S-S bonds)</b> between these cysteine-rich proteins forms a rigid molecular cage. When the EB enters the host cell's reducing cytoplasmic environment, glutathione reduces the disulfide bridges (-SH), loosening the rigid structure and converting the EB into the flexible, metabolically active Reticulate Body (RB).</p>",
     "keyPoints": [
       "Chlamydiae are obligate intracellular bacteria that depend on host cell ATP ('energy parasites').",
@@ -2550,7 +2670,9 @@ theoryData["unit-1"] = {
       "Hallmark signs of avian psittacosis: Conjunctivitis, lime-green diarrhea, and marked splenomegaly.",
       "Psittacosis is a serious zoonosis transmitted to humans via dried fecal dust, causing atypical pneumonia.",
       "Pregnant women must strictly avoid handling lambing ewes due to fatal zoonotic Chlamydia abortion.",
-      "Tetracyclines (Doxycycline, Chlortetracycline) are the absolute drugs of choice for Chlamydia infections."
+      "Tetracyclines (Doxycycline, Chlortetracycline) are the absolute drugs of choice for Chlamydia infections.",
+      "Under the Everett 1999 taxonomy, animal pathogens (abortus, psittaci, felis) were assigned to the genus Chlamydophila (iodine-negative inclusions).",
+      "Both Chlamydia and Chlamydophila terms remain standard across veterinary microbiology and diagnostic state licensing boards."
     ],
     "clinical": "**Critical Veterinary Health Warning:** Never allow pregnant women to assist with lambing or touch aborted sheep/goat fetuses. *Chlamydia abortus* is directly zoonotic to pregnant women. Exposure to infected ovine fetal fluids triggers acute maternal septicemia, severe necrotizing placentitis, and human miscarriage or stillbirth. Enforce strict biosafety barriers in sheep sheds during lambing.",
     "tables": [
@@ -2608,7 +2730,9 @@ theoryData["unit-1"] = {
       "psittacosis",
       "ornithosis",
       "zoonosis",
-      "unit-1"
+      "unit-1",
+      "chlamydophila",
+      "taxonomy"
     ]
   },
   "u1-t34": {
