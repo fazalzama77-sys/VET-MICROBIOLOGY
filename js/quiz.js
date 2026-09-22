@@ -1685,11 +1685,11 @@ var quizApp = (function () {
           var dt = new Date(a.at);
           return '<div class="an-table__row an-table__row--hist">' +
             '<span><b>' + app.esc(a.label || "Quiz") + '</b>' +
-              '<span class="small faint block">' + (a.exam ? '📝 Exam · ' : '') +
+              '<span class="small faint subline">' + (a.exam ? '📝 Exam · ' : '') +
               (a.orderMode === "shuffle" ? '🔀 Shuffle' : '📋 Sequence') +
               (a.seconds ? ' · ' + fmtDuration(a.seconds) : '') + '</span></span>' +
             '<span class="small">' + dt.toLocaleDateString(undefined, { month: "short", day: "numeric" }) +
-              '<span class="small faint block">' + dt.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) + '</span></span>' +
+              '<span class="small faint subline">' + dt.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" }) + '</span></span>' +
             '<span><span class="chip ' + scoreChip(p) + '">' + a.correct + '/' + a.total + ' · ' + p + '%</span></span>' +
             '<span>' + (a.log && a.log.length
               ? '<a class="btn btn--sm" href="#/quiz/attempt/' + idx + '">Review</a>'

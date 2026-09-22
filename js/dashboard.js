@@ -1,15 +1,16 @@
 /* ============================================================
    dashboard.js — Elite Clinical Diagnostics & Analytics Engine
    ============================================================
-   Next-Gen EdTech Learning Dashboard:
-     - 0–1000 XP Microbiology Mastery Index with Circular Gauge & Ranks
-     - AI Next-Best-Action Clinical Prescriptions
-     - Dual VCI Board Exam Readiness (Paper I vs Paper II)
-     - Interactive Unit Mastery Matrix with Real-Time Filter Tabs
-     - 5-Box Leitner Spaced Repetition Memory Pipeline
-     - 84-Day Activity Heatmap with Month & Day Headings
-     - Diagnostic Assessment Ledger (Recent Quiz Attempts)
-     - Clinical Knowledge Vault (Highlights, Notes, Bookmarks)
+   The page is deliberately short. Only three things are always on
+   screen; everything else sits behind tabs so the student is not
+   made to scroll past six dashboards to find one number.
+
+     1. Hero      — Mastery XP, rank, exam countdown, four key numbers
+     2. Do this next — the three highest-value actions, nothing more
+     3. Tabs      — Units · Papers · Weak areas · Memory · Activity · Library
+
+   Deeper quiz analytics live in the quiz section's Review & Analysis
+   screen (#/quiz/analysis), not here.
    ============================================================ */
 
 var dashboardApp = (function () {
@@ -253,7 +254,8 @@ var dashboardApp = (function () {
       : left === 1 ? '<b>Tomorrow</b> is your exam'
       : left === 0 ? '<b>Today</b> is your exam — good luck!'
       : 'Exam date has passed';
-    var weeks = left > 7 ? ' · about ' + Math.round(left / 7) + ' weeks' : '';
+    var wks = Math.round(left / 7);
+    var weeks = left > 13 ? ' · about ' + wks + ' week' + (wks === 1 ? '' : 's') : '';
 
     return '<div class="dash-exam' + (left >= 0 && left <= 14 ? ' is-near' : '') + '">' +
       '<span class="dash-exam__lbl">⏳ ' + msg + weeks + '</span>' +
@@ -317,7 +319,7 @@ var dashboardApp = (function () {
             '<span class="dash-next__icon">' + r.icon + '</span>' +
             '<span class="dash-next__body">' +
               '<b>' + app.esc(r.title) + '</b>' +
-              '<span class="small muted block">' + app.esc(r.desc) + '</span>' +
+              '<span class="small muted subline">' + app.esc(r.desc) + '</span>' +
             '</span>' +
             '<span class="btn btn--sm btn--primary dash-next__cta">' + r.cta + '</span>' +
           '</a>';

@@ -4476,7 +4476,7 @@
   margin-right: 6px;
 }
 .an-mini-bar i { display: block; height: 100%; background: var(--accent); }
-.block { display: block; }
+.subline { display: block; }
 
 .an-qcard { border-left: 3px solid var(--border); }
 .an-qcard.is-ok { border-left-color: var(--ok); }

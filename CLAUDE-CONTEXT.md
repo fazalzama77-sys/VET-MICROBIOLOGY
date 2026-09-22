@@ -118,6 +118,7 @@ D:\VET MICROBIOLOGY APPLICATION\
 │
 ├── images/                    theory/ practical/ why/ qa/ figures
 └── tools/
+    ├── devserver.py           Dev-only preview server that disables browser caching
     ├── start-server.bat       Double-click → http://localhost:5177
     ├── make-data-files.bat    Double-click → scaffolds new topic blocks
     ├── make-data-files.py     Python topic block scaffolding script
