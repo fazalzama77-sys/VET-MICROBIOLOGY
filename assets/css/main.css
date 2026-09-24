@@ -719,3 +719,36 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
   .nav__link { padding-top: 5px; padding-bottom: 5px; }
   .sidebar__foot { padding: var(--s2) var(--s3); gap: 2px; }
 }
+
+/* ============================================================
+   EQUATIONS IN LESSON CONTENT
+   Content used to contain raw LaTeX ($CO_2$, $$...$$). It is now plain
+   HTML with <sub>/<sup>; these two classes lay out the display
+   equations and the labelled reaction arrows.
+   ============================================================ */
+.math-block {
+  display: block;
+  margin: var(--s3, 12px) 0;
+  padding: var(--s3, 12px) var(--s4, 16px);
+  border-left: 3px solid var(--accent, #1565c0);
+  border-radius: var(--r-sm, 6px);
+  background: var(--surface-2, var(--surface));
+  text-align: center;
+  line-height: 1.9;
+  overflow-x: auto;
+  overflow-wrap: anywhere;
+}
+.math-xarrow {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1.1;
+  margin: 0 .25em;
+}
+.math-xarrow small {
+  font-size: .72em;
+  color: var(--text-muted, inherit);
+  white-space: nowrap;
+}
+sub, sup { line-height: 0; }

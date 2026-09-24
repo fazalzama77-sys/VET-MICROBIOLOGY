@@ -324,13 +324,13 @@ var quizBank = {
       {
         "q": "What is the standard McFarland turbidity standard utilized to standardize bacterial inocula for Kirby-Bauer disk diffusion antimicrobial susceptibility testing?",
         "o": [
-          "0.5 McFarland (approx. 1.5 x 10^8 CFU/mL)",
+          "0.5 McFarland (approx. 1.5 x 10⁸ CFU/mL)",
           "1.0 McFarland",
           "2.0 McFarland",
           "0.1 McFarland"
         ],
         "a": 0,
-        "e": "A 0.5 McFarland standard (prepared from 0.05 mL 1.175% BaCl2 + 9.95 mL 1% H2SO4) equals approximately 1.5 x 10^8 CFU/mL, ensuring standard inoculum density.",
+        "e": "A 0.5 McFarland standard (prepared from 0.05 mL 1.175% BaCl2 + 9.95 mL 1% H2SO4) equals approximately 1.5 x 10⁸ CFU/mL, ensuring standard inoculum density.",
         "topicId": "u1-t12",
         "subSection": "u1-s2",
         "diff": 2
@@ -6009,13 +6009,13 @@ var quizBank = {
       {
         "q": "What is the theoretical amplification factor of a PCR reaction operating at 100% efficiency after 'n' thermal cycles?",
         "o": [
-          "2^n",
-          "n^2",
-          "10^n",
-          "2 x n"
+          "2ⁿ",
+          "n²",
+          "10ⁿ",
+          "2 × n"
         ],
         "a": 0,
-        "e": "Because each cycle ideally doubles the target DNA template, the amplification factor after n cycles is 2^n (yielding ~10^9-fold amplification after 30 cycles).",
+        "e": "Because each cycle ideally doubles the target DNA template, the amplification factor after n cycles is 2ⁿ (yielding ~10⁹-fold amplification after 30 cycles).",
         "topicId": "u3-t06",
         "subSection": "u3-s2",
         "diff": 1
@@ -6551,7 +6551,7 @@ var quizBank = {
       {
         "q": "Transformation efficiency of competent bacteria is defined as the number of transformed colony-forming units (CFU) generated per microgram of plasmid DNA.",
         "a": true,
-        "e": "True. Transformation efficiency is expressed as CFU/ug of DNA; high-efficiency electrocompetent cells typically yield 10^9 to 10^10 CFU/ug.",
+        "e": "True. Transformation efficiency is expressed as CFU/ug of DNA; high-efficiency electrocompetent cells typically yield 10⁹ to 10¹⁰ CFU/ug.",
         "topicId": "u3-t03",
         "subSection": "u3-s1",
         "diff": 1
@@ -6974,7 +6974,7 @@ var quizBank = {
           "electrotransformation"
         ],
         "a_display": "Electroporation",
-        "e": "Electroporation transiently permeabilizes the lipid bilayer, achieving transformation efficiencies >10^9 CFU/ug.",
+        "e": "Electroporation transiently permeabilizes the lipid bilayer, achieving transformation efficiencies >10⁹ CFU/ug.",
         "topicId": "u3-t03",
         "subSection": "u3-s1",
         "diff": 2
@@ -8413,13 +8413,13 @@ var quizBank = {
       {
         "q": "In Single Radial Immunodiffusion (SRID / Mancini technique) used to quantify calf IgG, how does the diameter of the precipitin ring correlate with immunoglobulin concentration?",
         "o": [
-          "The square of the ring diameter (d^2) is directly proportional to the antigen concentration",
+          "The square of the ring diameter (d²) is directly proportional to the antigen concentration",
           "The diameter is inversely proportional to concentration",
           "Ring diameter is completely independent of concentration",
           "The cube of the ring diameter is proportional to concentration"
         ],
         "a": 0,
-        "e": "In the Mancini technique, antigen diffuses radially into an antibody-containing agarose gel; at equilibrium, ring diameter squared (d^2) is linear with antigen concentration.",
+        "e": "In the Mancini technique, antigen diffuses radially into an antibody-containing agarose gel; at equilibrium, ring diameter squared (d²) is linear with antigen concentration.",
         "topicId": "u4-t16",
         "subSection": "u4-s5",
         "diff": 2
@@ -9991,7 +9991,7 @@ var quizBank = {
           "Presence of double-stranded DNA"
         ],
         "a": 0,
-        "e": "Velogenic NDV strains possess multi-basic motifs (^112R-R-Q-K-R-F^117) cleaved by ubiquitous host furin in all organs, allowing fatal systemic replication.",
+        "e": "Velogenic NDV strains possess multi-basic motifs (¹¹²R-R-Q-K-R-F¹¹⁷) cleaved by ubiquitous host furin in all organs, allowing fatal systemic replication.",
         "topicId": "u5-t11",
         "subSection": "u5-s2",
         "diff": 3
