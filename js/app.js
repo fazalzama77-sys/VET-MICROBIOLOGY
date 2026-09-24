@@ -1049,12 +1049,12 @@ var app = (function () {
       '<h2 class="mt-10">Explore Microbiology Domains</h2>' +
       '<p class="muted mt-1">Structured comprehensive curriculum following VCI MSVE 2016 guidelines.</p>' +
       '<div class="home-domains-grid">' +
-        homeDomainCard("theory", "Theory Curriculum", "Five units · 106 topics", "General &amp; systematic bacteriology, veterinary mycology, biotechnology, immunology, and veterinary virology.", readPct, readCount + " / " + allTopics + " read", "#/theory", "ico--blue") +
+        homeDomainCard("theory", "Theory Curriculum", "Five units · 106 topics", "General & systematic bacteriology, veterinary mycology, biotechnology, immunology, and veterinary virology.", readPct, readCount + " / " + allTopics + " read", "#/theory", "ico--blue") +
         homeDomainCard("practical", "Practical Diagnostics", "Five units · 55 practical labs", "Staining techniques, bacterial culture, biochemical tests, serology and diagnostic virology.", null, "5 Practical Units", "#/practical", "ico--teal") +
         homeDomainCard("quiz", "Diagnostic Quiz Studio", totalQ + " questions ready", "Unit-wise, paper-wise, grand mock test, timed exam mode and smart review.", accuracy, (q.attempts.length ? accuracy + "% accuracy" : "Untested"), "#/quiz", "ico--amber") +
         homeDomainCard("qa", "Written Exam Studio", totalQa + " written model answers", "Short notes, long answers and differentiate-between tables for university exams.", null, totalQa + " Solved Q&A", "#/qa", "ico--purple") +
         homeDomainCard("why", "WHY Mechanisms", totalWhy + " comparative explanations", "Comparative species pathophysiology. Why lesions look the way they do.", null, totalWhy + " Mechanisms", "#/why", "ico--purple") +
-        homeDomainCard("dashboard", "Clinical Dashboard", "Analytics &amp; SRS pipeline", "Microbiology mastery gauge, 84-day heatmap, weak spots and Leitner memory queue.", Math.round(masteryXp / 10), masteryXp + " / 1000 XP", "#/dashboard", "ico--blue") +
+        homeDomainCard("dashboard", "Clinical Dashboard", "Analytics & SRS pipeline", "Microbiology mastery gauge, 84-day heatmap, weak spots and Leitner memory queue.", Math.round(masteryXp / 10), masteryXp + " / 1000 XP", "#/dashboard", "ico--blue") +
       '</div>' +
 
       /* 6. Dual VCI Board Examination Structure */

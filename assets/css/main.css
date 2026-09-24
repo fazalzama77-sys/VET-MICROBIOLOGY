@@ -329,6 +329,13 @@ h5 { font-size: var(--fs-md); }
 
 .btn--lg { height: 46px; padding: 0 var(--s6); font-size: var(--fs-md); }
 .btn--sm { height: 30px; padding: 0 var(--s3); font-size: var(--fs-sm); }
+/* Phones: a long label (e.g. "Read the lesson on …") wraps instead of pushing the page sideways.
+   Heights become minimums, so ordinary one-line buttons look exactly the same. */
+@media (max-width: 640px) {
+  .btn { max-width: 100%; white-space: normal; text-align: center; height: auto; min-height: 38px; padding-top: 4px; padding-bottom: 4px; }
+  .btn--lg { min-height: 46px; }
+  .btn--sm { min-height: 30px; }
+}
 .btn--block { width: 100%; }
 
 /* ---------- Cards ---------- */
@@ -666,9 +673,12 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* long unit names drop to a second line on phones instead of overflowing */
   gap: var(--s2);
 }
 .glossary-card__term {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-size: var(--fs-base);
   font-weight: 700;
   color: var(--text);

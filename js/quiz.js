@@ -482,7 +482,7 @@ var quizApp = (function () {
           '</div>' +
 
           /* Action Bar */
-          '<div class="row mt-8 items-center">' +
+          '<div class="row row--wrap mt-8 items-center">' +
             '<a class="btn btn--ghost" href="#/quiz">Cancel</a>' +
             '<div class="push"></div>' +
             '<button class="btn btn--primary btn--lg" id="startbtn">' +
@@ -1335,6 +1335,7 @@ var quizApp = (function () {
 
         '<div class="grid grid--3 mt-6 text-left">' +
           [["mcq", "🔘", "Multiple Choice"], ["tf", "⚖️", "True / False"], ["fib", "✍️", "Fill in Blanks"]]
+            .filter(function (f) { return formatStats[f[0]].total > 0; }) // skip formats not in this quiz
             .map(function (f) {
               var st = formatStats[f[0]];
               return '<div class="card stat-card">' +
