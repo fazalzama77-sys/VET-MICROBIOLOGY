@@ -2,9 +2,10 @@
    quiz.js  —  The Veterinary Microbiology Quiz Engine
    ------------------------------------------------------------
    Features:
-     - 1,080 Curriculum-standard Questions across Units 1 to 6
-     - Strict 2 : 1 : 1 Ratio (90 MCQ : 45 TF : 45 FIB per unit)
-     - 32 Thematic Sub-sections with dedicated module testing
+     - Curriculum-standard questions across theory Units 1 to 5
+       (counts are read from data/data-quiz.JS at run time)
+     - 2 : 1 : 1 ratio of MCQ : True/False : Fill-in-the-blank
+     - 22 thematic sub-sections with dedicated module testing
      - Sequence Mode (Curriculum order) vs. Shuffle Mode (Randomized)
      - EdTech UI with live feedback, keyboard shortcuts & streak awards
      - Spaced Repetition (SRS) integration & Exam Simulation
@@ -15,7 +16,7 @@ var quizApp = (function () {
   var host;                 // container element
   var run = null;           // active run state
 
-  /* Sub-section metadata for Units 1 to 6 */
+  /* Sub-section metadata for Units 1 to 5 */
   var subSectionsByUnit = {
     "unit-1": [
       { id: "u1-s1", icon: "🔬", title: "Bacterial Morphology & Stains", desc: "Cellular anatomy, Gram staining, Ziehl-Neelsen, capsules, spores & motility" },
@@ -201,12 +202,21 @@ var quizApp = (function () {
         '<span class="tlist__right">' + (n ? app.icon("chevron", "faint") : '') + '</span></a>';
     }).join("");
 
+    // Counted from the bank itself, so these labels stay right as questions are added.
+    var allIds = theoryIds.concat(pracIds);
+    var fmtCount = {
+      mcq: bankFor(allIds, ["mcq"]).length,
+      tf: bankFor(allIds, ["tf"]).length,
+      fib: bankFor(allIds, ["fib"]).length
+    };
+    var subCount = Object.keys(subSectionsByUnit).reduce(function (n, k) { return n + subSectionsByUnit[k].length; }, 0);
+
     host.innerHTML =
       '<div class="pagehead quiz-hub-head">' +
         '<div class="row row--wrap items-center gap-2 mb-2">' +
           '<span class="chip chip--accent font-mono">🌟 ' + totalAll + ' Questions Bank</span>' +
-          '<span class="chip chip--ok">Exact 2:1:1 Ratio (90 MCQ • 45 T/F • 45 FIB)</span>' +
-          '<span class="chip">32 Sub-sections</span>' +
+          '<span class="chip chip--ok">2:1:1 Ratio (' + fmtCount.mcq + ' MCQ • ' + fmtCount.tf + ' T/F • ' + fmtCount.fib + ' FIB)</span>' +
+          '<span class="chip">' + subCount + ' Sub-sections</span>' +
         '</div>' +
         '<h1>' + app.icon("quiz") + ' Veterinary Microbiology Examination Suite</h1>' +
         '<p class="lede">Test individual sub-sections, full units, paper-wise or grand exams. ' +

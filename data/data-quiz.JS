@@ -1,8 +1,12 @@
 /* ============================================================
    data-quiz.JS  —  THE VETERINARY MICROBIOLOGY QUIZ BANK
    ------------------------------------------------------------
-   Units 1 to 5: 900 Curriculum-Standard Questions (180 Qs / Unit)
-   Strict 2 : 1 : 1 Ratio (90 MCQ : 45 True/False : 45 Fill-in-the-Blank)
+   Units 1 to 5: 1,040 Curriculum-Standard Questions
+   Units 1 & 5: 250 Qs each (126 MCQ : 62 T/F : 62 FIB)
+   Units 2, 3 & 4: 180 Qs each (90 MCQ : 45 T/F : 45 FIB)
+   All units keep the 2 : 1 : 1 ratio (MCQ : True/False : Fill-in-the-Blank)
+   New questions are always APPENDED to the end of a list, never inserted,
+   because each question's saved progress is keyed by its position.
    Calibrated for B.V.Sc & A.H. 2nd Year ICAR-IVRI / VCI MSVE 2016 Exam
    ============================================================ */
 
@@ -1268,6 +1272,510 @@ var quizBank = {
         "topicId": "u1-t34",
         "subSection": "u1-s5",
         "diff": 2
+      },
+      {
+        "q": "Who was the first to observe and describe bacteria, calling them 'animalcules', using his own single-lens microscopes?",
+        "o": [
+          "Antonie van Leeuwenhoek",
+          "Louis Pasteur",
+          "Robert Koch",
+          "Joseph Lister"
+        ],
+        "a": 0,
+        "e": "Antonie van Leeuwenhoek (1676) described 'animalcules' from rainwater and dental scrapings with hand-made simple microscopes, and is regarded as the father of microbiology.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Which scientist formulated the postulates used to prove that a specific microorganism is the cause of a specific disease?",
+        "o": [
+          "Robert Koch",
+          "Louis Pasteur",
+          "Edward Jenner",
+          "Paul Ehrlich"
+        ],
+        "a": 0,
+        "e": "Koch's postulates: the organism is present in every case, is isolated in pure culture, reproduces the disease when inoculated into a susceptible host, and is re-isolated from that host.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "The swan-neck flask experiment that finally disproved the theory of spontaneous generation was performed by",
+        "o": [
+          "Louis Pasteur",
+          "John Tyndall",
+          "Lazzaro Spallanzani",
+          "Francesco Redi"
+        ],
+        "a": 0,
+        "e": "Pasteur (1861) showed that boiled broth in a swan-neck flask stayed sterile because dust-borne microbes were trapped in the curved neck, even though air could enter.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "The standard reference work used worldwide for the classification and identification of bacteria is",
+        "o": [
+          "Bergey's Manual of Systematic Bacteriology",
+          "The Kauffmann-White scheme",
+          "The Lancefield grouping scheme",
+          "The Baltimore classification"
+        ],
+        "a": 0,
+        "e": "Bergey's Manual is the standard taxonomic reference for bacteria. Kauffmann-White serotypes Salmonella, Lancefield groups streptococci, and Baltimore classifies viruses.",
+        "topicId": "u1-t02",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Sequencing of which gene is the most widely used molecular basis for the modern classification and identification of bacteria?",
+        "o": [
+          "16S ribosomal RNA gene",
+          "Flagellin gene",
+          "Plasmid replication gene",
+          "O-antigen synthesis gene"
+        ],
+        "a": 0,
+        "e": "The 16S rRNA gene is present in all bacteria, is highly conserved with variable regions, and is the standard target for molecular identification and classification.",
+        "topicId": "u1-t02",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "In the binomial name Staphylococcus aureus, the word 'aureus' denotes the",
+        "o": [
+          "Specific epithet (species name)",
+          "Genus",
+          "Family",
+          "Serovar"
+        ],
+        "a": 0,
+        "e": "Binomial nomenclature: the genus is written first with a capital letter, followed by the specific epithet in lower case, both in italics.",
+        "topicId": "u1-t02",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Immersion oil improves the resolving power of the oil-immersion objective because it",
+        "o": [
+          "Increases the numerical aperture by preventing refraction of light rays between slide and lens",
+          "Magnifies the image a second time",
+          "Stains the bacterial cells",
+          "Increases the wavelength of the light used"
+        ],
+        "a": 0,
+        "e": "Oil has almost the same refractive index as glass (about 1.515), so light rays are not bent away from the lens. This raises the numerical aperture and hence the resolution.",
+        "topicId": "u1-t03",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "In micrometry, the ocular (eyepiece) micrometer must first be calibrated against a",
+        "o": [
+          "Stage micrometer",
+          "Haemocytometer",
+          "McFarland standard",
+          "Vernier scale of the mechanical stage"
+        ],
+        "a": 0,
+        "e": "The ocular micrometer has arbitrary divisions. Their true value is found by matching them against a stage micrometer of known graduation (1 mm divided into 100 parts of 10 micrometres).",
+        "topicId": "u1-t03",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Which microscope is used to study the internal ultrastructure of bacteria in ultra-thin sections?",
+        "o": [
+          "Transmission electron microscope",
+          "Scanning electron microscope",
+          "Phase-contrast microscope",
+          "Dark-field microscope"
+        ],
+        "a": 0,
+        "e": "The transmission EM passes electrons through thin sections and shows internal detail. The scanning EM shows surface topography in three dimensions.",
+        "topicId": "u1-t03",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "In bacteria, the electron transport chain and oxidative phosphorylation are located in the",
+        "o": [
+          "Cytoplasmic (plasma) membrane",
+          "Cell wall",
+          "Capsule",
+          "Ribosomes"
+        ],
+        "a": 0,
+        "e": "Bacteria have no mitochondria, so the cytoplasmic membrane carries the respiratory enzymes and generates ATP.",
+        "topicId": "u1-t05",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "Bacterial ribosomes, the target of tetracyclines and aminoglycosides, have a sedimentation coefficient of",
+        "o": [
+          "70S (50S + 30S subunits)",
+          "80S (60S + 40S subunits)",
+          "60S",
+          "90S"
+        ],
+        "a": 0,
+        "e": "Bacterial ribosomes are 70S. Eukaryotic cytoplasmic ribosomes are 80S, which explains the selective toxicity of drugs that act on the 30S or 50S subunit.",
+        "topicId": "u1-t05",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "The anaerobic jar in which hydrogen combines with residual oxygen to form water in the presence of a palladium catalyst is the",
+        "o": [
+          "McIntosh and Fildes' anaerobic jar",
+          "Candle jar",
+          "Craigie's tube",
+          "Durham's tube"
+        ],
+        "a": 0,
+        "e": "In the McIntosh and Fildes' jar a palladium catalyst combines hydrogen with oxygen. Methylene blue or resazurin indicators confirm that anaerobiosis has been achieved.",
+        "topicId": "u1-t06",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "A bacterium that lives harmlessly on the host but causes disease when host defences are lowered is termed a/an",
+        "o": [
+          "Opportunistic pathogen",
+          "Obligate pathogen",
+          "Saprophyte",
+          "Symbiont"
+        ],
+        "a": 0,
+        "e": "Opportunists (e.g., Pseudomonas, E. coli, Trueperella) cause disease when immunity is suppressed, the normal flora is disturbed, or tissue is damaged.",
+        "topicId": "u1-t07",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "An infection acquired in a veterinary hospital during treatment for another condition is known as a/an",
+        "o": [
+          "Nosocomial infection",
+          "Endogenous infection",
+          "Zoonotic infection",
+          "Latent infection"
+        ],
+        "a": 0,
+        "e": "Nosocomial (hospital-acquired) infections are commonly caused by resistant opportunists such as MRSA, Pseudomonas and Klebsiella.",
+        "topicId": "u1-t08",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Transmission of infection through inanimate objects such as feeding buckets, halters and milking equipment is by",
+        "o": [
+          "Fomites",
+          "Biological vectors",
+          "Vertical transmission",
+          "Droplet nuclei"
+        ],
+        "a": 0,
+        "e": "Fomites are contaminated inanimate objects. Milking machines, for example, spread contagious mastitis pathogens between cows.",
+        "topicId": "u1-t08",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "The virulence of a pathogen is quantitatively expressed as the",
+        "o": [
+          "LD50 or ID50 — the dose that kills or infects 50% of test animals",
+          "Minimum inhibitory concentration",
+          "Generation time",
+          "Zone of inhibition"
+        ],
+        "a": 0,
+        "e": "The lower the LD50 or ID50, the more virulent the strain. MIC measures antibiotic activity, not virulence.",
+        "topicId": "u1-t09",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Siderophores such as enterobactin increase bacterial virulence by",
+        "o": [
+          "Scavenging iron from host iron-binding proteins such as transferrin and lactoferrin",
+          "Inhibiting antibody synthesis",
+          "Forming endospores",
+          "Blocking complement activation"
+        ],
+        "a": 0,
+        "e": "Free iron in body fluids is kept extremely low. Siderophores have a higher affinity for iron than host proteins and deliver it to the bacterium for growth.",
+        "topicId": "u1-t09",
+        "subSection": "u1-s2",
+        "diff": 2
+      },
+      {
+        "q": "Hyaluronidase, the 'spreading factor' produced by staphylococci, streptococci and clostridia, contributes to virulence by",
+        "o": [
+          "Hydrolysing the hyaluronic acid of connective tissue ground substance, allowing spread through tissues",
+          "Lysing red blood cells",
+          "Clotting plasma around the organism",
+          "Inhibiting host protein synthesis"
+        ],
+        "a": 0,
+        "e": "By breaking down the ground substance of connective tissue, hyaluronidase lets the organism and its toxins spread, as seen in gas gangrene and cellulitis.",
+        "topicId": "u1-t09",
+        "subSection": "u1-s2",
+        "diff": 2
+      },
+      {
+        "q": "A disease that is constantly present at a usual, predictable level in the animal population of a particular region is described as",
+        "o": [
+          "Enzootic",
+          "Epizootic",
+          "Panzootic",
+          "Sporadic"
+        ],
+        "a": 0,
+        "e": "Enzootic = constantly present at the expected level. Epizootic = a sudden rise above the expected level (outbreak). Panzootic = spread over several continents. Sporadic = occasional, irregular cases.",
+        "topicId": "u1-t09",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "A toxoid is best defined as",
+        "o": [
+          "An exotoxin detoxified (e.g., with formalin) that retains its immunogenicity",
+          "An antibody that neutralises a toxin",
+          "The lipid A portion of endotoxin",
+          "A live attenuated toxigenic bacterium"
+        ],
+        "a": 0,
+        "e": "Toxoids such as tetanus toxoid are harmless but still stimulate protective antitoxin antibodies, giving active immunity.",
+        "topicId": "u1-t10",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Tetanus antitoxin given to a horse with a deep contaminated wound provides",
+        "o": [
+          "Immediate passive immunity by neutralising circulating toxin",
+          "Long-lasting active immunity",
+          "Killing of Clostridium tetani in the wound",
+          "Protection through cell-mediated immunity"
+        ],
+        "a": 0,
+        "e": "Antitoxin is preformed antibody, so protection is immediate but short-lived. Toxoid is given as well to induce long-term active immunity.",
+        "topicId": "u1-t10",
+        "subSection": "u1-s2",
+        "diff": 2
+      },
+      {
+        "q": "Vancomycin resistance in enterococci (VRE, vanA type) results from",
+        "o": [
+          "Replacement of the D-Ala-D-Ala terminus of peptidoglycan precursors with D-Ala-D-Lactate",
+          "Production of a beta-lactamase",
+          "An efflux pump that expels vancomycin",
+          "Methylation of the 23S ribosomal RNA"
+        ],
+        "a": 0,
+        "e": "Vancomycin binds the D-Ala-D-Ala terminus. Changing it to D-Ala-D-Lac reduces binding about 1000-fold, so cell wall synthesis continues.",
+        "topicId": "u1-t12",
+        "subSection": "u1-s2",
+        "diff": 3
+      },
+      {
+        "q": "Bumblefoot (plantar pododermatitis) in poultry is most commonly caused by",
+        "o": [
+          "Staphylococcus aureus",
+          "Escherichia coli",
+          "Pasteurella multocida",
+          "Mycoplasma synoviae"
+        ],
+        "a": 0,
+        "e": "Bumblefoot is a staphylococcal abscess of the foot pad, usually following injury from rough or wet litter and perches.",
+        "topicId": "u1-t13",
+        "subSection": "u1-s3",
+        "diff": 2
+      },
+      {
+        "q": "Streptococcus agalactiae, the cause of contagious bovine mastitis, belongs to Lancefield group",
+        "o": [
+          "B",
+          "A",
+          "C",
+          "D"
+        ],
+        "a": 0,
+        "e": "S. agalactiae is group B, an obligate parasite of the bovine udder that is CAMP-positive. S. equi, the cause of strangles, is group C.",
+        "topicId": "u1-t14",
+        "subSection": "u1-s3",
+        "diff": 1
+      },
+      {
+        "q": "Bovine pyelonephritis with Gram-positive rods in 'Chinese letter' arrangement in the urine is caused by",
+        "o": [
+          "Corynebacterium renale",
+          "Corynebacterium pseudotuberculosis",
+          "Trueperella pyogenes",
+          "Rhodococcus equi"
+        ],
+        "a": 0,
+        "e": "C. renale ascends the urinary tract of cows, causing cystitis and pyelonephritis with blood-tinged urine. Its pili help it attach to the urinary epithelium.",
+        "topicId": "u1-t15",
+        "subSection": "u1-s3",
+        "diff": 1
+      },
+      {
+        "q": "Summer mastitis in dry cows and heifers, with a thick, foul-smelling purulent secretion, is mainly associated with",
+        "o": [
+          "Trueperella pyogenes",
+          "Streptococcus agalactiae",
+          "Mycoplasma bovis",
+          "Leptospira hardjo"
+        ],
+        "a": 0,
+        "e": "Summer mastitis is a mixed infection led by Trueperella pyogenes with anaerobes such as Peptoniphilus indolicus. It is spread by flies (Hydrotaea irritans).",
+        "topicId": "u1-t15",
+        "subSection": "u1-s3",
+        "diff": 2
+      },
+      {
+        "q": "'Lumpy jaw' in cattle, a rarefying osteomyelitis of the mandible with 'sulphur granules' in the pus, is caused by",
+        "o": [
+          "Actinomyces bovis",
+          "Actinobacillus lignieresii",
+          "Nocardia asteroides",
+          "Dermatophilus congolensis"
+        ],
+        "a": 0,
+        "e": "Actinomyces bovis affects bone (lumpy jaw). Actinobacillus lignieresii affects soft tissue, especially the tongue (wooden tongue). Both produce sulphur granules.",
+        "topicId": "u1-t20",
+        "subSection": "u1-s3",
+        "diff": 1
+      },
+      {
+        "q": "Dermatophilus congolensis, the cause of streptothricosis ('lumpy wool', 'rain scald'), shows which characteristic microscopic morphology?",
+        "o": [
+          "Branching filaments dividing into parallel rows of coccoid zoospores ('railway track' appearance)",
+          "Gram-positive rods in 'Chinese letter' arrangement",
+          "Acid-fast beaded rods",
+          "Bipolar 'safety-pin' rods"
+        ],
+        "a": 0,
+        "e": "In Giemsa-stained crusts, the filaments divide transversely and longitudinally into packets of motile coccoid zoospores that look like railway tracks. Prolonged wetting of the skin favours infection.",
+        "topicId": "u1-t20",
+        "subSection": "u1-s3",
+        "diff": 2
+      },
+      {
+        "q": "Oedema disease (bowel oedema) of weaned piglets, with oedema of the eyelids and stomach wall and nervous signs, is caused by E. coli strains that produce",
+        "o": [
+          "Shiga toxin 2e (Stx2e), usually with F18 fimbriae",
+          "Heat-labile enterotoxin (LT) only",
+          "Alpha toxin",
+          "Pertussis-like toxin"
+        ],
+        "a": 0,
+        "e": "Stx2e damages vascular endothelium, leading to oedema and neurological signs. F18 fimbriae attach the bacteria to the small intestine after weaning.",
+        "topicId": "u1-t21",
+        "subSection": "u1-s4",
+        "diff": 3
+      },
+      {
+        "q": "Which Yersinia species causes 'pseudotuberculosis', with caseous nodules in the liver, spleen and lymph nodes of rodents, birds and ruminants?",
+        "o": [
+          "Yersinia pseudotuberculosis",
+          "Yersinia pestis",
+          "Yersinia ruckeri",
+          "Yersinia enterocolitica"
+        ],
+        "a": 0,
+        "e": "The caseous nodules resemble tubercles, hence the name. Y. pestis causes plague, and Y. ruckeri causes enteric redmouth disease in fish.",
+        "topicId": "u1-t22",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "The characteristic 'swarming' growth of Proteus mirabilis on blood agar can be prevented by",
+        "o": [
+          "Increasing the agar concentration to about 6% or using a medium with bile salts such as MacConkey agar",
+          "Adding penicillin to the medium",
+          "Incubating anaerobically",
+          "Adding 0.5% sodium chloride"
+        ],
+        "a": 0,
+        "e": "Swarming is caused by active flagellar migration over the moist surface. Drier or harder agar and bile salts suppress it, which is useful for obtaining isolated colonies.",
+        "topicId": "u1-t22",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Progressive atrophic rhinitis of pigs, with turbinate atrophy and twisting of the snout, results from combined infection with Bordetella bronchiseptica and toxigenic",
+        "o": [
+          "Pasteurella multocida type D",
+          "Glaesserella parasuis",
+          "Mycoplasma hyopneumoniae",
+          "Streptococcus suis"
+        ],
+        "a": 0,
+        "e": "B. bronchiseptica colonises the nasal mucosa and allows toxigenic P. multocida (mainly type D) to establish. Its dermonecrotic toxin inhibits osteoblasts, causing permanent turbinate atrophy.",
+        "topicId": "u1-t28",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Vibrio species are characterised as",
+        "o": [
+          "Curved, comma-shaped, oxidase-positive rods motile by a single polar flagellum",
+          "Spore-forming Gram-positive rods",
+          "Non-motile, oxidase-negative cocci",
+          "Acid-fast branching filaments"
+        ],
+        "a": 0,
+        "e": "Vibrios are Gram-negative comma-shaped rods with darting motility. They are salt-tolerant and grow on TCBS agar. V. anguillarum causes vibriosis in fish.",
+        "topicId": "u1-t27",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Potomac horse fever (equine monocytic ehrlichiosis), with fever, colitis, diarrhoea and laminitis, is caused by",
+        "o": [
+          "Neorickettsia risticii",
+          "Anaplasma phagocytophilum",
+          "Ehrlichia canis",
+          "Coxiella burnetii"
+        ],
+        "a": 0,
+        "e": "N. risticii lives in trematodes of freshwater snails. Horses become infected by accidentally eating aquatic insects (e.g., mayflies) that carry the infected flukes.",
+        "topicId": "u1-t32",
+        "subSection": "u1-s5",
+        "diff": 2
+      },
+      {
+        "q": "Non-sporing Gram-negative anaerobes such as Bacteroides and Fusobacterium are intrinsically resistant to aminoglycosides because",
+        "o": [
+          "Aminoglycoside uptake into the cell depends on oxygen-dependent electron transport",
+          "They produce beta-lactamase",
+          "They possess a thick peptidoglycan wall",
+          "They lack ribosomes"
+        ],
+        "a": 0,
+        "e": "Aminoglycosides are actively transported into bacteria by a process requiring aerobic respiration. Obligate anaerobes cannot take them up, so metronidazole or beta-lactams are used instead.",
+        "topicId": "u1-t29",
+        "subSection": "u1-s5",
+        "diff": 3
+      },
+      {
+        "q": "An infectious disease that has newly appeared in a population, or is rapidly increasing in incidence or geographic range, is best termed a/an",
+        "o": [
+          "Emerging disease",
+          "Enzootic disease",
+          "Sporadic disease",
+          "Endemic disease"
+        ],
+        "a": 0,
+        "e": "Emerging diseases are new or rapidly spreading. Re-emerging diseases return after a decline. Transboundary diseases spread rapidly across national borders.",
+        "topicId": "u1-t34",
+        "subSection": "u1-s5",
+        "diff": 1
       }
     ],
     "tf": [
@@ -1629,6 +2137,142 @@ var quizBank = {
         "e": "True. Because spirochetes are too thin to resolve well under standard bright-field optics with basic dyes, silver impregnation coats the cells, increasing their optical diameter.",
         "topicId": "u1-t29",
         "subSection": "u1-s5",
+        "diff": 2
+      },
+      {
+        "q": "Louis Pasteur developed an attenuated vaccine against fowl cholera using aged cultures of Pasteurella multocida.",
+        "a": true,
+        "e": "True. Pasteur (1879-80) found that old cultures of the fowl cholera bacterium lost virulence but still protected chickens — the first attenuated bacterial vaccine.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Joseph Lister introduced antiseptic surgery by using carbolic acid (phenol) to prevent wound infection.",
+        "a": true,
+        "e": "True. Lister (1867) applied Pasteur's germ theory to surgery, using phenol on wounds, instruments and dressings, and greatly reduced post-operative sepsis.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "In bacterial nomenclature, the genus name begins with a lower-case letter and the species name begins with a capital letter.",
+        "a": false,
+        "e": "False. The genus begins with a capital letter and the specific epithet with a lower-case letter, e.g., Brucella abortus, both in italics.",
+        "topicId": "u1-t02",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "The limit of resolution of a standard light microscope is about 0.2 micrometres, so most viruses cannot be resolved with it.",
+        "a": true,
+        "e": "True. Resolution is limited by the wavelength of visible light. Most viruses are 20-300 nm, so an electron microscope is needed to see them.",
+        "topicId": "u1-t03",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "In Gram staining, Gram-positive bacteria retain the crystal violet-iodine complex because their thick peptidoglycan is dehydrated by the decolouriser, closing the pores.",
+        "a": true,
+        "e": "True. Acetone-alcohol dehydrates the thick peptidoglycan and traps the large CV-I complex. In Gram-negative cells it dissolves the outer membrane and the complex washes out.",
+        "topicId": "u1-t04",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "Fimbriae (pili) are the main organs of locomotion in bacteria.",
+        "a": false,
+        "e": "False. Flagella are the organs of locomotion. Fimbriae are short adhesive appendages, and sex pili transfer DNA during conjugation.",
+        "topicId": "u1-t05",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Most bacterial pathogens of animals are mesophiles, with an optimum growth temperature close to 37°C.",
+        "a": true,
+        "e": "True. Mesophiles grow best at 20-45°C. Psychrophiles prefer cold, and thermophiles grow above 45°C.",
+        "topicId": "u1-t06",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "The rumen and large intestine of herbivores are nearly sterile sites with very few bacteria.",
+        "a": false,
+        "e": "False. The rumen and hindgut contain some of the densest microbial populations known (about 10 to the power 10 or more bacteria per ml). They are essential for fermenting cellulose.",
+        "topicId": "u1-t07",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Vertical transmission is the transfer of infection from dam to offspring through the placenta, the egg or colostrum/milk.",
+        "a": true,
+        "e": "True. Examples are Salmonella Pullorum through the egg and Brucella or Leptospira across the placenta. Horizontal transmission is between individuals of the same generation.",
+        "topicId": "u1-t08",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Endotoxins are heat-labile proteins that are readily converted into toxoids by treatment with formalin.",
+        "a": false,
+        "e": "False. Endotoxins are heat-stable lipopolysaccharides of the Gram-negative outer membrane and cannot be made into toxoids. Exotoxins are heat-labile proteins that can.",
+        "topicId": "u1-t10",
+        "subSection": "u1-s2",
+        "diff": 2
+      },
+      {
+        "q": "Exotoxins are generally much less potent than endotoxins and are poorly antigenic.",
+        "a": false,
+        "e": "False. Exotoxins are among the most potent poisons known (e.g., botulinum and tetanus toxins) and are highly antigenic. Endotoxins are less potent and weakly antigenic.",
+        "topicId": "u1-t10",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "Antibiotic-resistance mutations in bacteria arise only after exposure to the antibiotic, the drug itself causing the mutation.",
+        "a": false,
+        "e": "False. The Luria-Delbruck fluctuation test showed that mutations arise spontaneously and randomly before exposure. The antibiotic only selects the resistant mutants.",
+        "topicId": "u1-t11",
+        "subSection": "u1-s2",
+        "diff": 3
+      },
+      {
+        "q": "Nocardia species are Gram-positive branching filaments that are partially (weakly) acid-fast, whereas Actinomyces are not acid-fast.",
+        "a": true,
+        "e": "True. Nocardia stains with a modified Ziehl-Neelsen method using 1% sulphuric acid. It is aerobic, whereas Actinomyces is anaerobic to microaerophilic and non-acid-fast.",
+        "topicId": "u1-t20",
+        "subSection": "u1-s3",
+        "diff": 2
+      },
+      {
+        "q": "Melioidosis, caused by Burkholderia pseudomallei, is a soil- and water-borne emerging zoonosis of tropical regions, including India.",
+        "a": true,
+        "e": "True. B. pseudomallei lives in wet soil and water, and infects animals and humans through wounds, inhalation or ingestion. Cases are increasingly reported from coastal India.",
+        "topicId": "u1-t23",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Brucella canis is a naturally rough species, so it is not detected by standard smooth-antigen tests such as the Rose Bengal Plate Test.",
+        "a": true,
+        "e": "True. B. canis (like B. ovis) lacks the O-polysaccharide chain. Diagnosis needs rough-antigen serology or culture.",
+        "topicId": "u1-t26",
+        "subSection": "u1-s4",
+        "diff": 3
+      },
+      {
+        "q": "Rickettsia species can be grown on ordinary nutrient agar because they are free-living bacteria.",
+        "a": false,
+        "e": "False. Rickettsiae are obligate intracellular parasites. They are grown in the yolk sac of embryonated eggs, in cell cultures or in laboratory animals.",
+        "topicId": "u1-t32",
+        "subSection": "u1-s5",
+        "diff": 1
+      },
+      {
+        "q": "Bacillus cereus, like Bacillus anthracis, is non-motile and non-haemolytic on blood agar.",
+        "a": false,
+        "e": "False. B. cereus is motile and beta-haemolytic. Being non-motile, non-haemolytic and penicillin-sensitive helps identify B. anthracis.",
+        "topicId": "u1-t17",
+        "subSection": "u1-s3",
         "diff": 2
       }
     ],
@@ -2196,6 +2840,212 @@ var quizBank = {
         "a_display": "Coxiella burnetii",
         "e": "Coxiella burnetii replicates within eukaryotic phagolysosomes at acidic pH, shedding in milk and lochia.",
         "topicId": "u1-t33",
+        "subSection": "u1-s5",
+        "diff": 1
+      },
+      {
+        "q": "The scientist who established the germ theory of disease and developed the first rabies vaccine (1885) was Louis ______.",
+        "a": [
+          "pasteur"
+        ],
+        "a_display": "Pasteur",
+        "e": "Pasteur also developed attenuated vaccines against fowl cholera and anthrax, and introduced pasteurisation.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Koch's postulates were first fulfilled with the causal agent of ______, which he grew in pure culture in 1876.",
+        "a": [
+          "anthrax",
+          "bacillus anthracis",
+          "b anthracis"
+        ],
+        "a_display": "Anthrax (Bacillus anthracis)",
+        "e": "Koch traced the complete life cycle of B. anthracis, including spore formation, and reproduced anthrax in mice.",
+        "topicId": "u1-t01",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "The basic taxonomic unit of bacterial classification — a group of strains sharing about 70% or more DNA-DNA relatedness — is the ______.",
+        "a": [
+          "species"
+        ],
+        "a_display": "Species",
+        "e": "Strains within one species share at least 70% DNA-DNA hybridisation and at least 97-98.7% 16S rRNA identity.",
+        "topicId": "u1-t02",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "One division of a standard stage micrometer (1 mm divided into 100 parts) equals ______ micrometres.",
+        "a": [
+          "10",
+          "ten",
+          "10 um",
+          "10 m",
+          "10 micrometres",
+          "10 micrometers"
+        ],
+        "a_display": "10 micrometres",
+        "e": "1 mm = 1000 micrometres, so each of the 100 divisions is 10 micrometres. This known value is used to calibrate the ocular micrometer.",
+        "topicId": "u1-t03",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "In Albert's staining, the metachromatic (volutin) granules of Corynebacterium stain bluish-black while the cytoplasm stains ______.",
+        "a": [
+          "green",
+          "light green"
+        ],
+        "a_display": "Green",
+        "e": "Albert's stain uses toluidine blue and malachite green, followed by Albert's iodine. The polyphosphate granules appear bluish-black against green cytoplasm.",
+        "topicId": "u1-t04",
+        "subSection": "u1-s1",
+        "diff": 2
+      },
+      {
+        "q": "The space between the inner cytoplasmic membrane and the outer membrane of Gram-negative bacteria is the ______ space.",
+        "a": [
+          "periplasmic",
+          "periplasm"
+        ],
+        "a_display": "Periplasmic space",
+        "e": "The periplasm contains the thin peptidoglycan layer, binding proteins and enzymes such as beta-lactamases.",
+        "topicId": "u1-t05",
+        "subSection": "u1-s1",
+        "diff": 1
+      },
+      {
+        "q": "Bacteria that need complex nutrients such as blood, serum or growth factors in the medium are described as ______.",
+        "a": [
+          "fastidious"
+        ],
+        "a_display": "Fastidious",
+        "e": "Examples are Haemophilus (X and V factors), Brucella and Leptospira. Blood agar or special enriched media are used for them.",
+        "topicId": "u1-t06",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "A disease naturally transmitted between vertebrate animals and humans is called a ______.",
+        "a": [
+          "zoonosis",
+          "zoonotic disease",
+          "zoonoses"
+        ],
+        "a_display": "Zoonosis",
+        "e": "Important bacterial zoonoses include anthrax, brucellosis, tuberculosis, leptospirosis, salmonellosis, listeriosis and Q fever.",
+        "topicId": "u1-t08",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "The ability of a pathogen to penetrate and spread within the tissues of the host is termed ______.",
+        "a": [
+          "invasiveness",
+          "invasion"
+        ],
+        "a_display": "Invasiveness",
+        "e": "Virulence depends on both invasiveness (adhesins, invasins, spreading enzymes, capsules) and toxigenicity.",
+        "topicId": "u1-t09",
+        "subSection": "u1-s2",
+        "diff": 2
+      },
+      {
+        "q": "The presence of bacteria that are actively multiplying in the blood, with toxin production and severe systemic signs, is termed ______.",
+        "a": [
+          "septicaemia",
+          "septicemia",
+          "sepsis"
+        ],
+        "a_display": "Septicaemia",
+        "e": "Bacteraemia is the transient presence of bacteria in blood without multiplication. Septicaemia involves multiplication and toxaemia, e.g., anthrax and haemorrhagic septicaemia.",
+        "topicId": "u1-t10",
+        "subSection": "u1-s2",
+        "diff": 1
+      },
+      {
+        "q": "A bacterium that becomes toxigenic after acquiring a toxin gene from a temperate bacteriophage (e.g., Clostridium botulinum types C and D) is an example of lysogenic ______.",
+        "a": [
+          "conversion",
+          "phage conversion"
+        ],
+        "a_display": "Lysogenic (phage) conversion",
+        "e": "The prophage carries the toxin gene, so the bacterium makes the toxin only while it is lysogenised.",
+        "topicId": "u1-t11",
+        "subSection": "u1-s2",
+        "diff": 3
+      },
+      {
+        "q": "The genus of soil actinomycetes that produces streptomycin and most antibiotics in clinical use is ______.",
+        "a": [
+          "streptomyces"
+        ],
+        "a_display": "Streptomyces",
+        "e": "Streptomyces species are aerobic, spore-forming filamentous soil bacteria. They rarely cause disease but produce streptomycin, tetracyclines, erythromycin and many others.",
+        "topicId": "u1-t20",
+        "subSection": "u1-s3",
+        "diff": 1
+      },
+      {
+        "q": "Klebsiella pneumoniae is an important cause of severe coliform ______ in dairy cows, especially where sawdust bedding is used.",
+        "a": [
+          "mastitis",
+          "coliform mastitis"
+        ],
+        "a_display": "Mastitis",
+        "e": "Klebsiella thrives in organic bedding such as sawdust. Its mastitis is often severe and responds poorly to treatment.",
+        "topicId": "u1-t21",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Avibacterium (Haemophilus) paragallinarum needs the ______ factor (NAD), shown by 'satellite' growth around colonies of Staphylococcus.",
+        "a": [
+          "v",
+          "v factor",
+          "nad",
+          "nicotinamide adenine dinucleotide"
+        ],
+        "a_display": "V factor (NAD)",
+        "e": "The staphylococcal 'nurse' colony releases NAD into the medium, so tiny colonies grow only close to it (satellitism).",
+        "topicId": "u1-t25",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Vibrio species are selectively isolated on ______ agar (thiosulphate-citrate-bile salts-sucrose).",
+        "a": [
+          "tcbs"
+        ],
+        "a_display": "TCBS",
+        "e": "On TCBS, sucrose-fermenting vibrios (e.g., V. cholerae) form yellow colonies and non-fermenters form green colonies.",
+        "topicId": "u1-t27",
+        "subSection": "u1-s4",
+        "diff": 2
+      },
+      {
+        "q": "Salmon poisoning disease of dogs is caused by Neorickettsia ______, carried by a fluke in raw salmon or trout.",
+        "a": [
+          "helminthoeca"
+        ],
+        "a_display": "Neorickettsia helminthoeca",
+        "e": "Dogs eating raw fish containing the fluke Nanophyetus salmincola develop fever, vomiting, bloody diarrhoea and lymphadenopathy. It is fatal if untreated.",
+        "topicId": "u1-t32",
+        "subSection": "u1-s5",
+        "diff": 3
+      },
+      {
+        "q": "The approach recognising that the health of humans, animals and the environment are interconnected is called ______ Health.",
+        "a": [
+          "one"
+        ],
+        "a_display": "One Health",
+        "e": "One Health is central to controlling zoonoses, antimicrobial resistance and emerging transboundary infections.",
+        "topicId": "u1-t34",
         "subSection": "u1-s5",
         "diff": 1
       }
@@ -9985,6 +10835,510 @@ var quizBank = {
         "topicId": "u5-t32",
         "subSection": "u5-s5",
         "diff": 2
+      },
+      {
+        "q": "Who first showed (1892) that the agent of tobacco mosaic disease passes through bacteria-proof porcelain filters?",
+        "o": [
+          "Dmitri Ivanovsky",
+          "Martinus Beijerinck",
+          "Friedrich Loeffler",
+          "Wendell Stanley"
+        ],
+        "a": 0,
+        "e": "Ivanovsky showed that sap stayed infectious after Chamberland filtration. Beijerinck (1898) called the agent a 'contagium vivum fluidum', and Stanley crystallised TMV in 1935.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The first animal virus shown to be filterable, by Loeffler and Frosch in 1898, was the agent of",
+        "o": [
+          "Foot-and-mouth disease",
+          "Rabies",
+          "Rinderpest",
+          "Fowl plague"
+        ],
+        "a": 0,
+        "e": "Loeffler and Frosch showed that FMD passed through bacteria-proof filters. This was the first demonstration of a filterable agent causing disease in animals.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Which property is shared by all viruses?",
+        "o": [
+          "They contain only one type of nucleic acid — either DNA or RNA",
+          "They can grow on cell-free culture media",
+          "They multiply by binary fission",
+          "They possess their own ribosomes"
+        ],
+        "a": 0,
+        "e": "Viruses are obligate intracellular parasites with a single type of nucleic acid. They have no ribosomes or energy-generating system and replicate only in living cells.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The complete, fully assembled, infectious virus particle outside a host cell is termed the",
+        "o": [
+          "Virion",
+          "Capsomere",
+          "Nucleocapsid",
+          "Prion"
+        ],
+        "a": 0,
+        "e": "The virion is the complete infectious particle. The capsomere is a morphological subunit of the capsid, and the nucleocapsid is the capsid with its enclosed genome.",
+        "topicId": "u5-t02",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The envelope of enveloped viruses is derived from",
+        "o": [
+          "Host cell membranes (plasma membrane, nuclear membrane or ER/Golgi) acquired during budding",
+          "Viral capsid proteins alone",
+          "The bacterial cell wall",
+          "Host ribosomes"
+        ],
+        "a": 0,
+        "e": "The lipid envelope comes from host membranes but carries virus-coded glycoprotein spikes. Being lipid, it is destroyed by ether, chloroform and detergents.",
+        "topicId": "u5-t02",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "In the formal ICTV virus nomenclature, the suffix used for a virus family is",
+        "o": [
+          "-viridae",
+          "-virinae",
+          "-virales",
+          "-virus"
+        ],
+        "a": 0,
+        "e": "Order: -virales. Family: -viridae. Subfamily: -virinae. Genus: -virus. For example, Mononegavirales, Paramyxoviridae, Orthoavulavirus.",
+        "topicId": "u5-t03",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Poxviruses and herpesviruses belong to which Baltimore class?",
+        "o": [
+          "Class I — double-stranded DNA",
+          "Class II — single-stranded DNA",
+          "Class III — double-stranded RNA",
+          "Class VI — single-stranded RNA with reverse transcriptase"
+        ],
+        "a": 0,
+        "e": "Class I viruses have a dsDNA genome. Other Class I families are Adenoviridae, Papillomaviridae and Asfarviridae.",
+        "topicId": "u5-t03",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The period after uncoating when no infectious virus can be recovered from inside the infected cell is called the",
+        "o": [
+          "Eclipse phase",
+          "Latent period",
+          "Lag phase",
+          "Logarithmic phase"
+        ],
+        "a": 0,
+        "e": "Eclipse phase = no infectious virus inside the cell (genome uncoated, not yet assembled). The latent period is longer: no virus has yet been released outside the cell.",
+        "topicId": "u5-t04",
+        "subSection": "u5-s1",
+        "diff": 3
+      },
+      {
+        "q": "When infection of a cell with one virus inhibits the replication of a second virus in the same cell, often through interferon, the phenomenon is called",
+        "o": [
+          "Viral interference",
+          "Complementation",
+          "Phenotypic mixing",
+          "Reassortment"
+        ],
+        "a": 0,
+        "e": "Interference can be caused by interferon, receptor blockade or defective interfering particles. It explains why live vaccines given together may interfere with each other.",
+        "topicId": "u5-t05",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Phenotypic mixing occurs when",
+        "o": [
+          "The genome of one virus is packaged in a coat containing proteins of another virus during mixed infection, without any genetic change",
+          "Genes of two viruses recombine into one genome",
+          "Genome segments of two viruses are exchanged",
+          "Point mutations accumulate in surface antigens"
+        ],
+        "a": 0,
+        "e": "Phenotypic mixing is a non-genetic interaction. The progeny have altered antigenicity or host range for one generation only, because their genome is unchanged.",
+        "topicId": "u5-t05",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "An infection in which the viral genome persists in a non-productive state with periodic reactivation, as with herpesviruses, is called a/an",
+        "o": [
+          "Latent infection",
+          "Acute infection",
+          "Abortive infection",
+          "Slow infection"
+        ],
+        "a": 0,
+        "e": "Herpesviruses such as BHV-1, EHV-1 and PRV hide in sensory ganglia or lymphocytes and reactivate after stress or corticosteroids, then shed virus again.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Slow virus infections, with very long incubation periods and progressive, fatal disease, include",
+        "o": [
+          "Maedi-visna in sheep",
+          "Newcastle disease in chickens",
+          "Canine parvovirus enteritis",
+          "Rotavirus diarrhoea in calves"
+        ],
+        "a": 0,
+        "e": "The term 'slow virus infection' was introduced by Sigurdsson to describe maedi (pneumonia) and visna (encephalitis) of Icelandic sheep. The incubation period is months to years.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "Acutely transforming retroviruses such as Rous sarcoma virus produce tumours within days because they carry",
+        "o": [
+          "A viral oncogene (v-onc, e.g., v-src) closely related to a cellular proto-oncogene",
+          "No oncogene, acting only by insertion near host genes",
+          "Interferon genes",
+          "A defective reverse transcriptase gene"
+        ],
+        "a": 0,
+        "e": "The v-onc gene is expressed at high levels and transforms cells directly. Slow-transforming retroviruses lack v-onc and cause tumours much later by insertional activation.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 3
+      },
+      {
+        "q": "Avian leukosis virus, a slow-transforming retrovirus without an oncogene, induces B-cell lymphoma (lymphoid leukosis) mainly by",
+        "o": [
+          "Integrating near the cellular c-myc proto-oncogene and activating it with its LTR promoter",
+          "Expressing the v-src oncogene",
+          "Producing a cytotoxin",
+          "Directly killing bursal B cells"
+        ],
+        "a": 0,
+        "e": "Insertional activation of c-myc in bursal cells leads to tumours in birds 4 months old or more. Unlike Marek's disease, lymphoid leukosis tumours arise in the bursa.",
+        "topicId": "u5-t22",
+        "subSection": "u5-s5",
+        "diff": 3
+      },
+      {
+        "q": "Haemadsorption by infected cell monolayers is useful for detecting",
+        "o": [
+          "Non-cytopathic or slowly cytopathic viruses that express haemagglutinin on the infected cell surface, such as influenza and parainfluenza viruses",
+          "Bacterial contamination of cell cultures",
+          "Prions",
+          "All DNA viruses"
+        ],
+        "a": 0,
+        "e": "Red cells stick to cells displaying viral haemagglutinin. The test detects infection before any CPE appears. African swine fever virus also causes haemadsorption.",
+        "topicId": "u5-t06",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "In India, the principal reservoir and source of human rabies is the",
+        "o": [
+          "Dog",
+          "Bat",
+          "Mongoose",
+          "Fox"
+        ],
+        "a": 0,
+        "e": "Over 95% of human rabies in India follows dog bites. Mass vaccination of dogs is the key control measure. Bats are the main reservoir in the Americas.",
+        "topicId": "u5-t13",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "Post-exposure prophylaxis after a severe (Category III) dog bite consists of",
+        "o": [
+          "Immediate thorough wound washing, a course of anti-rabies vaccine and rabies immunoglobulin infiltrated into the wound",
+          "Antibiotics alone",
+          "The antiviral drug acyclovir",
+          "Waiting until clinical signs appear"
+        ],
+        "a": 0,
+        "e": "Washing the wound with soap and water removes virus, immunoglobulin neutralises it at the site, and the vaccine induces active immunity before the virus reaches the CNS.",
+        "topicId": "u5-t13",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Borna disease virus, which causes progressive non-suppurative meningoencephalitis in horses and sheep, is unusual because it",
+        "o": [
+          "Has a non-segmented negative-sense RNA genome but replicates in the nucleus",
+          "Has a double-stranded DNA genome",
+          "Has a segmented double-stranded RNA genome",
+          "Replicates only in bacteria"
+        ],
+        "a": 0,
+        "e": "Most negative-sense RNA viruses of the order Mononegavirales replicate in the cytoplasm. Bornaviruses are a striking exception: they replicate and persist in the nucleus, producing intranuclear Joest-Degen inclusion bodies.",
+        "topicId": "u5-t14",
+        "subSection": "u5-s3",
+        "diff": 3
+      },
+      {
+        "q": "Equine influenza is currently caused mainly by influenza A subtype",
+        "o": [
+          "H3N8",
+          "H5N1",
+          "H1N1",
+          "H9N2"
+        ],
+        "a": 0,
+        "e": "H3N8 is the predominant equine influenza subtype (H7N7 has not been isolated for decades). India had major H3N8 outbreaks in horses in 2008-09.",
+        "topicId": "u5-t15",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Which highly pathogenic avian influenza subtype has caused repeated outbreaks in Indian poultry since 2006?",
+        "o": [
+          "H5N1",
+          "H9N2",
+          "H3N8",
+          "H1N1"
+        ],
+        "a": 0,
+        "e": "India's first HPAI H5N1 outbreak was at Navapur, Maharashtra, in 2006. H9N2 is a low-pathogenic subtype that is endemic in Indian poultry.",
+        "topicId": "u5-t15",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "Transmissible gastroenteritis (TGE) causes severe watery diarrhoea and high mortality in piglets under two weeks of age because the virus",
+        "o": [
+          "Destroys the villous enterocytes of the jejunum and ileum, causing villous atrophy and malabsorption",
+          "Destroys the bursa of Fabricius",
+          "Causes pneumonia in the lungs",
+          "Infects the motor neurons of the spinal cord"
+        ],
+        "a": 0,
+        "e": "Villous atrophy causes maldigestion, malabsorption and dehydration. Young piglets replace enterocytes slowly, so mortality approaches 100% in the first week of life.",
+        "topicId": "u5-t16",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Primary isolation of infectious bronchitis virus is done in",
+        "o": [
+          "The allantoic cavity of 9-11 day embryonated chicken eggs, where serial passage produces curled, dwarfed embryos",
+          "Vero cells",
+          "The brains of suckling mice",
+          "The yolk sac of 5-day-old eggs"
+        ],
+        "a": 0,
+        "e": "Dwarfing and curling of embryos, with a clubbed down, are characteristic of IBV after several blind passages in eggs.",
+        "topicId": "u5-t16",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Duck viral hepatitis type 1, a highly fatal disease of ducklings under four weeks old with haemorrhagic hepatitis, is caused by",
+        "o": [
+          "Duck hepatitis A virus (family Picornaviridae)",
+          "Duck enteritis virus (family Herpesviridae)",
+          "Avian influenza virus",
+          "Avian reovirus"
+        ],
+        "a": 0,
+        "e": "Ducklings die within hours of showing signs, often lying on their side with the head drawn back. The swollen liver shows punctate and ecchymotic haemorrhages.",
+        "topicId": "u5-t18",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Foot-and-mouth disease virus is rapidly inactivated",
+        "o": [
+          "At pH below 6.0, which is why post-mortem acidification destroys the virus in muscle",
+          "At 4°C",
+          "By freezing",
+          "At neutral pH 7.0-7.5"
+        ],
+        "a": 0,
+        "e": "FMDV is acid-labile. Muscle pH falls during carcass maturation and inactivates the virus there, but it can survive in bone marrow, lymph nodes and offal.",
+        "topicId": "u5-t18",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Feline calicivirus infection is clinically characterised by",
+        "o": [
+          "Ulcers on the tongue and palate with rhinitis and conjunctivitis",
+          "Cerebellar hypoplasia in kittens",
+          "Haemorrhagic enteritis",
+          "Footpad hyperkeratosis"
+        ],
+        "a": 0,
+        "e": "Oral ulceration distinguishes FCV from feline herpesvirus-1, which mainly causes rhinotracheitis and corneal ulcers. Virulent systemic FCV strains can cause oedema and high mortality.",
+        "topicId": "u5-t19",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "The equine encephalomyelitis viruses (EEE, WEE and VEE) belong to the genus",
+        "o": [
+          "Alphavirus",
+          "Flavivirus",
+          "Pestivirus",
+          "Lyssavirus"
+        ],
+        "a": 0,
+        "e": "They are mosquito-borne alphaviruses of the family Togaviridae. EEE has the highest fatality rate in horses.",
+        "topicId": "u5-t20",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "The 'wet' (diphtheritic) form of fowl pox is characterised by",
+        "o": [
+          "Yellowish caseous plaques on the mucosa of the mouth, pharynx and trachea",
+          "Nodules on the comb and wattles only",
+          "Leg paralysis",
+          "Profuse greenish diarrhoea"
+        ],
+        "a": 0,
+        "e": "The dry (cutaneous) form produces wart-like nodules on unfeathered skin. The wet form can block the airway and causes higher mortality.",
+        "topicId": "u5-t23",
+        "subSection": "u5-s4",
+        "diff": 1
+      },
+      {
+        "q": "Cowpox virus is historically important because",
+        "o": [
+          "Edward Jenner used it in 1796 to protect against smallpox, founding the practice of vaccination",
+          "It was the first virus to be crystallised",
+          "It was the first retrovirus discovered",
+          "It causes foot-and-mouth disease"
+        ],
+        "a": 0,
+        "e": "The word 'vaccine' comes from vacca (cow). Cowpox is a zoonotic orthopoxvirus now maintained mainly in rodents.",
+        "topicId": "u5-t23",
+        "subSection": "u5-s4",
+        "diff": 1
+      },
+      {
+        "q": "Equine herpesvirus-1 (EHV-1) is particularly important because it causes",
+        "o": [
+          "Abortion storms in late-pregnant mares, neonatal foal deaths and neurological disease (myeloencephalopathy)",
+          "Only mild rhinitis in foals",
+          "Equine sarcoid",
+          "Equine viral arteritis"
+        ],
+        "a": 0,
+        "e": "EHV-1 infects vascular endothelium, which leads to abortion and myeloencephalopathy. EHV-4 mainly causes respiratory disease (rhinopneumonitis).",
+        "topicId": "u5-t25",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Infectious pustular vulvovaginitis in cows and infectious balanoposthitis in bulls are caused by",
+        "o": [
+          "Bovine herpesvirus-1",
+          "Bovine viral diarrhoea virus",
+          "Bluetongue virus",
+          "Bovine papillomavirus"
+        ],
+        "a": 0,
+        "e": "BHV-1 causes IBR (respiratory), IPV/IPB (genital), abortion and conjunctivitis. It spreads venereally, including through infected semen.",
+        "topicId": "u5-t25",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Duck plague, with cloacal necrosis and ring-like haemorrhagic bands in the intestine, is caused by",
+        "o": [
+          "Anatid alphaherpesvirus 1 (duck enteritis virus)",
+          "Duck hepatitis A virus",
+          "Avian influenza virus",
+          "Newcastle disease virus"
+        ],
+        "a": 0,
+        "e": "The annular haemorrhagic bands in the intestine are pathognomonic. Lesions also appear on the oesophageal mucosa and cloaca. Adult ducks are commonly affected.",
+        "topicId": "u5-t26",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "The feather follicle epithelium is epidemiologically important in Marek's disease because it is",
+        "o": [
+          "The only site where fully infectious, cell-free virus is produced and shed in feather dander",
+          "The site where the vaccine is injected",
+          "The main site of tumour formation",
+          "The only tissue that can be used for serology"
+        ],
+        "a": 0,
+        "e": "Elsewhere MDV is strongly cell-associated. Dander from infected birds carries virus that stays infective in poultry houses for months.",
+        "topicId": "u5-t26",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "'Blue eye' (corneal opacity) developing during recovery from infectious canine hepatitis is due to",
+        "o": [
+          "Immune-complex deposition causing anterior uveitis and corneal oedema",
+          "Direct virus replication in the lens",
+          "Vitamin A deficiency",
+          "Bacterial keratitis"
+        ],
+        "a": 0,
+        "e": "About 7-21 days after infection with canine adenovirus-1, virus-antibody complexes cause uveitis and corneal oedema. It is a classic example of viral immunopathology.",
+        "topicId": "u5-t28",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Hydropericardium-hepatitis syndrome ('Angara disease'), a major cause of mortality in broilers in India and Pakistan, is caused by",
+        "o": [
+          "Fowl adenovirus serotype 4 (FAdV-4)",
+          "Egg drop syndrome virus",
+          "Infectious bursal disease virus",
+          "Chicken anaemia virus"
+        ],
+        "a": 0,
+        "e": "Birds 3-6 weeks old show straw-coloured fluid in the pericardial sac and a swollen, friable liver with intranuclear inclusion bodies. Immunosuppression by IBDV or CAV worsens it.",
+        "topicId": "u5-t28",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Chicken infectious anaemia virus causes aplastic anaemia and immunosuppression by destroying",
+        "o": [
+          "Haemocytoblasts in the bone marrow and precursor T lymphocytes in the thymus",
+          "B lymphocytes in the bursa of Fabricius only",
+          "Kidney tubular cells",
+          "Hepatocytes"
+        ],
+        "a": 0,
+        "e": "Chicks 2-4 weeks old show pale, fatty bone marrow, thymic atrophy, haemorrhages and a low packed cell volume. The disease is prevented by vaccinating breeders.",
+        "topicId": "u5-t31",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Kyasanur Forest Disease, a tick-borne viral haemorrhagic fever first recognised in Karnataka in 1957 after deaths of monkeys, is caused by a",
+        "o": [
+          "Flavivirus transmitted mainly by Haemaphysalis ticks",
+          "Alphavirus transmitted by mosquitoes",
+          "Phlebovirus transmitted by sandflies",
+          "Henipavirus transmitted by bats"
+        ],
+        "a": 0,
+        "e": "Monkey deaths act as sentinel events for KFD. Humans are infected by tick bites in forest areas of the Western Ghats, and a vaccine is used in endemic districts.",
+        "topicId": "u5-t33",
+        "subSection": "u5-s5",
+        "diff": 2
       }
     ],
     "tf": [
@@ -10345,6 +11699,142 @@ var quizBank = {
         "a": true,
         "e": "True. RVFV causes nearly 100% abortion in pregnant ewes ('abortion storms') and high mortality in newborn lambs, accompanied by severe zoonotic hemorrhagic fever in humans.",
         "topicId": "u5-t32",
+        "subSection": "u5-s5",
+        "diff": 2
+      },
+      {
+        "q": "Most viruses can be seen with an ordinary light microscope because they are larger than 1 micrometre.",
+        "a": false,
+        "e": "False. Most viruses are 20-300 nm, below the 0.2 micrometre resolution limit of light microscopy. Only the largest poxviruses are near that limit.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Martinus Beijerinck described the agent of tobacco mosaic disease as a 'contagium vivum fluidum' (contagious living fluid).",
+        "a": true,
+        "e": "True. In 1898 Beijerinck showed that the filtrate multiplied in living plant tissue and was not a toxin. He called it a contagious living fluid.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "Helical nucleocapsids occur only in naked (non-enveloped) animal viruses.",
+        "a": false,
+        "e": "False. Every animal virus with a helical nucleocapsid is enveloped, e.g., paramyxoviruses, rhabdoviruses and orthomyxoviruses.",
+        "topicId": "u5-t02",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "The ICTV classifies viruses mainly according to the host they infect and the disease they cause.",
+        "a": false,
+        "e": "False. Classification is based on virion properties: nucleic acid type and strand, genome organisation, replication strategy, capsid symmetry, presence of an envelope and sequence data.",
+        "topicId": "u5-t03",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "Specificity of the viral attachment protein for host cell receptors is a major determinant of host range and tissue tropism.",
+        "a": true,
+        "e": "True. For example, avian influenza HA binds alpha-2,3 sialic acid receptors, and the rabies G protein binds nicotinic acetylcholine receptors on muscle and nerve.",
+        "topicId": "u5-t04",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Genetic reassortment can occur only in viruses with segmented genomes, such as influenza, bluetongue and rotaviruses.",
+        "a": true,
+        "e": "True. Reassortment is the exchange of whole genome segments during mixed infection. It produces antigenic shift in influenza.",
+        "topicId": "u5-t05",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "Oncogenic DNA viruses (e.g., papillomaviruses and adenoviruses) transform cells partly by producing early proteins that inactivate host tumour-suppressor proteins such as p53 and Rb.",
+        "a": true,
+        "e": "True. Inactivating p53 and Rb removes cell-cycle checkpoints. Examples are papillomavirus E6/E7 and adenovirus E1A/E1B.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 3
+      },
+      {
+        "q": "During latent herpesvirus infection, the virus is produced continuously in large amounts throughout the animal's life.",
+        "a": false,
+        "e": "False. In latency the genome persists with very limited gene expression and no virus production. Infectious virus appears only when it reactivates.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Negri bodies are present in every rabies-positive brain, so their absence rules out rabies.",
+        "a": false,
+        "e": "False. Negri bodies are found in only about 70-90% of cases. The fluorescent antibody test on brain tissue is the reference diagnostic test.",
+        "topicId": "u5-t13",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Borna disease virus produces intranuclear eosinophilic inclusion bodies (Joest-Degen bodies) in neurons.",
+        "a": true,
+        "e": "True. Joest-Degen bodies in hippocampal neurons are the histological hallmark of Borna disease, reflecting the virus's unusual nuclear replication.",
+        "topicId": "u5-t14",
+        "subSection": "u5-s3",
+        "diff": 3
+      },
+      {
+        "q": "Infectious bronchitis virus infection in very young chicks can permanently damage the developing oviduct, producing 'false layers'.",
+        "a": true,
+        "e": "True. Infection in the first two weeks of life can cause cystic oviducts. Such hens look normal but lay few or no eggs.",
+        "topicId": "u5-t16",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Equine viral arteritis virus is a DNA virus of the family Herpesviridae.",
+        "a": false,
+        "e": "False. EAV is a positive-sense single-stranded RNA virus of the family Arteriviridae. Carrier stallions shed it in semen.",
+        "topicId": "u5-t17",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "Horses are dead-end hosts for Eastern and Western equine encephalitis viruses because their viraemia is too low to infect mosquitoes.",
+        "a": true,
+        "e": "True. Birds are the reservoir for EEE and WEE. Horses and humans are dead-end hosts. In contrast, horses are amplifying hosts for VEE.",
+        "topicId": "u5-t20",
+        "subSection": "u5-s3",
+        "diff": 3
+      },
+      {
+        "q": "Classical swine fever and African swine fever are caused by viruses of the same family.",
+        "a": false,
+        "e": "False. CSF is a Pestivirus (Flaviviridae, ssRNA). ASF is the only member of Asfarviridae (dsDNA). They cause clinically similar haemorrhagic disease, so laboratory diagnosis is essential.",
+        "topicId": "u5-t21",
+        "subSection": "u5-s3",
+        "diff": 1
+      },
+      {
+        "q": "Lumpy skin disease was first reported in India in 2019 in Odisha, followed by major outbreaks in cattle across several states in 2022.",
+        "a": true,
+        "e": "True. LSD first appeared in Mayurbhanj, Odisha, in 2019. In 2022 it spread widely, especially in Rajasthan and Gujarat, and was controlled mainly by vaccination.",
+        "topicId": "u5-t23",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Vaccination of chicks with HVT against Marek's disease prevents infection with field Marek's disease virus.",
+        "a": false,
+        "e": "False. Marek's vaccines prevent tumours and paralysis but not infection or shedding of field virus. This has allowed more virulent strains to emerge.",
+        "topicId": "u5-t26",
+        "subSection": "u5-s4",
+        "diff": 3
+      },
+      {
+        "q": "Pigs act as amplifying hosts of Japanese encephalitis virus, from which Culex mosquitoes transmit the virus to humans.",
+        "a": true,
+        "e": "True. Pigs develop high viraemia without severe illness, although the virus can cause abortion and stillbirths in sows. Humans and horses are dead-end hosts.",
+        "topicId": "u5-t33",
         "subSection": "u5-s5",
         "diff": 2
       }
@@ -10887,6 +12377,220 @@ var quizBank = {
         "e": "Nipah virus is an emerging BSL-4 paramyxovirus carried by fruit bats that transmits to swine and humans.",
         "topicId": "u5-t32",
         "subSection": "u5-s5",
+        "diff": 2
+      },
+      {
+        "q": "Viruses that infect bacteria are called ______.",
+        "a": [
+          "bacteriophage",
+          "bacteriophages",
+          "phage",
+          "phages"
+        ],
+        "a_display": "Bacteriophages",
+        "e": "Bacteriophages were discovered by Twort (1915) and d'Herelle (1917). Temperate phages can transfer genes between bacteria (transduction).",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The size of viruses is conventionally expressed in ______.",
+        "a": [
+          "nanometres",
+          "nanometers",
+          "nm",
+          "nanometre",
+          "nanometer"
+        ],
+        "a_display": "Nanometres (nm)",
+        "e": "1 nm = 1/1000 of a micrometre. Circoviruses are about 17 nm and poxviruses about 300 x 200 nm.",
+        "topicId": "u5-t01",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The capsid together with the enclosed viral nucleic acid is termed the ______.",
+        "a": [
+          "nucleocapsid"
+        ],
+        "a_display": "Nucleocapsid",
+        "e": "In naked viruses the nucleocapsid is the whole virion. In enveloped viruses it is surrounded by the lipid envelope.",
+        "topicId": "u5-t02",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The Baltimore classification groups viruses into ______ classes based on their genome type and the way they make mRNA.",
+        "a": [
+          "seven",
+          "7"
+        ],
+        "a_display": "Seven",
+        "e": "Classes I-VII: dsDNA, ssDNA, dsRNA, +ssRNA, -ssRNA, ssRNA-RT (retroviruses) and dsDNA-RT (hepadnaviruses).",
+        "topicId": "u5-t03",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The release of the viral genome from its capsid inside the host cell is called ______.",
+        "a": [
+          "uncoating"
+        ],
+        "a_display": "Uncoating",
+        "e": "Uncoating follows attachment and penetration. It often occurs in acidified endosomes, as with influenza, where the M2 ion channel acidifies the virion interior.",
+        "topicId": "u5-t04",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The antiviral glycoproteins released by virus-infected cells that induce an antiviral state in neighbouring cells are called ______.",
+        "a": [
+          "interferons",
+          "interferon",
+          "ifn"
+        ],
+        "a_display": "Interferons",
+        "e": "Type I interferons (alpha, beta) induce enzymes such as protein kinase R and 2',5'-oligoadenylate synthetase that block viral protein synthesis.",
+        "topicId": "u5-t05",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "The visible degenerative changes (rounding, detachment, syncytia) produced by viruses in cell culture are collectively termed the ______ effect.",
+        "a": [
+          "cytopathic",
+          "cytopathogenic",
+          "cpe"
+        ],
+        "a_display": "Cytopathic effect (CPE)",
+        "e": "The type of CPE can suggest the virus group: rounding (picornaviruses), syncytia (paramyxoviruses), ballooning (poxviruses).",
+        "topicId": "u5-t06",
+        "subSection": "u5-s1",
+        "diff": 1
+      },
+      {
+        "q": "Immune-complex lesions such as glomerulonephritis in equine infectious anaemia are an example of type ______ hypersensitivity.",
+        "a": [
+          "iii",
+          "3",
+          "three"
+        ],
+        "a_display": "Type III",
+        "e": "Virus-antibody complexes deposit in glomeruli and blood vessels and activate complement, causing inflammation and tissue damage.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "Normal cellular genes that can become cancer-causing oncogenes when mutated or over-expressed are called ______.",
+        "a": [
+          "proto-oncogenes",
+          "proto-oncogene",
+          "protooncogenes",
+          "protooncogene",
+          "c-onc",
+          "cellular oncogenes"
+        ],
+        "a_display": "Proto-oncogenes (c-onc)",
+        "e": "Proto-oncogenes control normal cell growth. Retroviral insertion next to them (e.g., c-myc) or viral copies of them (v-onc) can cause tumours.",
+        "topicId": "u5-t07",
+        "subSection": "u5-s1",
+        "diff": 2
+      },
+      {
+        "q": "'Three-day sickness' of cattle is caused by a rhabdovirus classified in the genus ______.",
+        "a": [
+          "ephemerovirus"
+        ],
+        "a_display": "Ephemerovirus",
+        "e": "The disease causes sudden high fever, lameness and stiffness lasting about three days ('three-day sickness'). It is transmitted by biting midges and mosquitoes.",
+        "topicId": "u5-t13",
+        "subSection": "u5-s3",
+        "diff": 3
+      },
+      {
+        "q": "The 2009 pandemic influenza virus, which arose by reassortment of swine, avian and human virus genes, was subtype ______.",
+        "a": [
+          "h1n1",
+          "a h1n1"
+        ],
+        "a_display": "H1N1",
+        "e": "The 2009 pandemic H1N1 virus spread worldwide in humans and has also been transmitted back to pigs.",
+        "topicId": "u5-t15",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "A deletion mutant of TGE virus that causes only mild respiratory infection but gives cross-protection against TGE is porcine ______ coronavirus.",
+        "a": [
+          "respiratory"
+        ],
+        "a_display": "Porcine respiratory coronavirus (PRCV)",
+        "e": "PRCV lost part of the spike gene, so it no longer infects the intestine. Its spread has greatly reduced TGE in many countries.",
+        "topicId": "u5-t16",
+        "subSection": "u5-s3",
+        "diff": 3
+      },
+      {
+        "q": "Ducklings dying of duck viral hepatitis typically lie on their side with the head drawn back, a posture known as ______.",
+        "a": [
+          "opisthotonus",
+          "opisthotonos"
+        ],
+        "a_display": "Opisthotonus",
+        "e": "Death often occurs within an hour of the first signs, so the 'dead in back' posture in young ducklings is a strong field clue.",
+        "topicId": "u5-t18",
+        "subSection": "u5-s3",
+        "diff": 2
+      },
+      {
+        "q": "Rhinopneumonitis, the respiratory disease of young horses, is caused mainly by equine herpesvirus type ______.",
+        "a": [
+          "4",
+          "four",
+          "ehv-4",
+          "ehv 4"
+        ],
+        "a_display": "EHV-4",
+        "e": "EHV-4 is mostly limited to the respiratory tract. EHV-1 also causes abortion, neonatal death and myeloencephalopathy.",
+        "topicId": "u5-t25",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Duck plague is also called duck virus ______.",
+        "a": [
+          "enteritis"
+        ],
+        "a_display": "Duck virus enteritis",
+        "e": "The alternative name reflects the haemorrhagic lesions throughout the digestive tract. A live attenuated vaccine is used for control.",
+        "topicId": "u5-t26",
+        "subSection": "u5-s4",
+        "diff": 1
+      },
+      {
+        "q": "Infectious canine hepatitis, caused by canine adenovirus-1, is also known as ______ disease.",
+        "a": [
+          "rubarth's",
+          "rubarth",
+          "rubarths",
+          "rubarth s"
+        ],
+        "a_display": "Rubarth's disease",
+        "e": "Liver necrosis with intranuclear inclusion bodies and a thickened oedematous gall bladder wall are typical. CAV-2 vaccines cross-protect.",
+        "topicId": "u5-t28",
+        "subSection": "u5-s4",
+        "diff": 2
+      },
+      {
+        "q": "Chicken anaemia virus belongs to the genus ______.",
+        "a": [
+          "gyrovirus"
+        ],
+        "a_display": "Gyrovirus",
+        "e": "CAV has a small circular single-stranded DNA genome. It was formerly placed in Circoviridae and is now classified in Anelloviridae.",
+        "topicId": "u5-t31",
+        "subSection": "u5-s4",
         "diff": 2
       }
     ]
