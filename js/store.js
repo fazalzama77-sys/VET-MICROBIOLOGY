@@ -122,32 +122,35 @@ var store = (function () {
     return color;
   }
   function getHighlights() { return read(KEYS.highlights, {}); }
-  function addHighlight(id, text, color) {
+  /* A highlight is identified by its text AND which copy of that text in the
+     lesson it is on (occ: 0 = first). Older saved highlights have no occ and
+     count as the first copy, which is where they were always drawn. */
+  function hlOcc(item) { return item && typeof item.occ === "number" ? item.occ : 0; }
+  function hlText(item) { return typeof item === "string" ? item : (item ? item.text : ""); }
+  function addHighlight(id, text, color, occ) {
     color = (color && VALID_HL_COLORS.indexOf(color) !== -1) ? color : getHighlightColor();
+    occ = typeof occ === "number" && occ >= 0 ? occ : 0;
     var m = getHighlights();
     if (!m[id]) m[id] = [];
+    var entry = { text: text, color: color, occ: occ };
     var found = false;
     for (var i = 0; i < m[id].length; i++) {
-      var item = m[id][i];
-      var itemText = typeof item === "string" ? item : (item ? item.text : "");
-      if (itemText === text) {
-        m[id][i] = { text: text, color: color };
+      if (hlText(m[id][i]) === text && hlOcc(m[id][i]) === occ) {
+        m[id][i] = entry;
         found = true;
         break;
       }
     }
-    if (!found) {
-      m[id].push({ text: text, color: color });
-    }
+    if (!found) m[id].push(entry);
     write(KEYS.highlights, m);
     logActivity();
   }
-  function removeHighlight(id, text) {
+  function removeHighlight(id, text, occ) {
     var m = getHighlights();
     if (!m[id]) return;
+    var anyCopy = typeof occ !== "number";
     m[id] = m[id].filter(function (t) {
-      var itemText = typeof t === "string" ? t : (t ? t.text : "");
-      return itemText !== text;
+      return !(hlText(t) === text && (anyCopy || hlOcc(t) === occ));
     });
     if (!m[id].length) delete m[id];
     write(KEYS.highlights, m);
