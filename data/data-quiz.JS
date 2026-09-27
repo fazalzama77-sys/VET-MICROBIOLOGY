@@ -1,4 +1,16 @@
-const quizBank = {
+/* ============================================================
+   data-quiz.JS  —  THE VETERINARY MICROBIOLOGY QUIZ BANK
+   ------------------------------------------------------------
+   Units 1 to 5: 1,040 Curriculum-Standard Questions
+   Units 1 & 5: 250 Qs each (126 MCQ : 62 T/F : 62 FIB)
+   Units 2, 3 & 4: 180 Qs each (90 MCQ : 45 T/F : 45 FIB)
+   All units keep the 2 : 1 : 1 ratio (MCQ : True/False : Fill-in-the-Blank)
+   New questions are always APPENDED to the end of a list, never inserted,
+   because each question's saved progress is keyed by its position.
+   Calibrated for B.V.Sc & A.H. 2nd Year ICAR-IVRI / VCI MSVE 2016 Exam
+   ============================================================ */
+
+var quizBank = {
   "unit-1": {
     "mcq": [
       {
@@ -12580,3 +12592,7 @@ const quizBank = {
     ]
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.quizBank = quizBank;
+}
