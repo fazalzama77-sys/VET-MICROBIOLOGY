@@ -1,16 +1,4 @@
-/* ============================================================
-   data-quiz.JS  —  THE VETERINARY MICROBIOLOGY QUIZ BANK
-   ------------------------------------------------------------
-   Units 1 to 5: 1,040 Curriculum-Standard Questions
-   Units 1 & 5: 250 Qs each (126 MCQ : 62 T/F : 62 FIB)
-   Units 2, 3 & 4: 180 Qs each (90 MCQ : 45 T/F : 45 FIB)
-   All units keep the 2 : 1 : 1 ratio (MCQ : True/False : Fill-in-the-Blank)
-   New questions are always APPENDED to the end of a list, never inserted,
-   because each question's saved progress is keyed by its position.
-   Calibrated for B.V.Sc & A.H. 2nd Year ICAR-IVRI / VCI MSVE 2016 Exam
-   ============================================================ */
-
-var quizBank = {
+const quizBank = {
   "unit-1": {
     "mcq": [
       {
@@ -31,9 +19,9 @@ var quizBank = {
         "q": "Which enzyme specifically cleaves the beta-1,4 glycosidic bond between N-acetylmuramic acid (NAM) and N-acetylglucosamine (NAG) in bacterial peptidoglycan?",
         "o": [
           "Lysozyme",
-          "Beta-lactamase",
-          "Transpeptidase",
-          "Amylase"
+          "Beta-lactamase enzyme",
+          "Transpeptidase enzyme",
+          "DNA topoisomerase I"
         ],
         "a": 0,
         "e": "Lysozyme (muramidase), present in tears, saliva, and egg white, hydrolyzes the beta-1,4 glycosidic linkages between NAM and NAG residues.",
@@ -45,9 +33,9 @@ var quizBank = {
         "q": "In the Gram staining protocol, what is the chemical role of Gram's iodine?",
         "o": [
           "Mordant forming an insoluble Crystal Violet-Iodine complex",
-          "Primary stain",
-          "Decolorizing agent",
-          "Counterstain"
+          "Primary stain binding to acidic teichoic acids in Gram-positive walls",
+          "Decolorizing agent dissolving the outer lipid membrane of Gram negatives",
+          "Counterstain providing red/pink contrast to decolorized bacterial cells"
         ],
         "a": 0,
         "e": "Gram's iodine acts as a chemical mordant that binds with crystal violet inside the cell wall to form large, insoluble CV-I precipitates.",
@@ -59,9 +47,9 @@ var quizBank = {
         "q": "Which component is present exclusively in the cell wall of Gram-positive bacteria and absent in Gram-negative bacteria?",
         "o": [
           "Lipoteichoic and wall teichoic acids",
-          "Periplasmic space",
-          "Lipopolysaccharide (LPS)",
-          "Porin trimers"
+          "Periplasmic space containing beta-lactamases",
+          "Outer membrane lipopolysaccharide endotoxin",
+          "Trimeric porin channels in outer bilayer"
         ],
         "a": 0,
         "e": "Teichoic acids and lipoteichoic acids are polyol phosphate polymers anchored to peptidoglycan or the plasma membrane exclusively in Gram-positive bacteria.",
@@ -74,7 +62,7 @@ var quizBank = {
         "o": [
           "Mycolic acids",
           "Dipicolinic acid",
-          "Diaminopimelic acid",
+          "Diaminopimelate",
           "Hyaluronic acid"
         ],
         "a": 0,
@@ -87,9 +75,9 @@ var quizBank = {
         "q": "What is the primary chemical compound responsible for the extreme heat and desiccation resistance of bacterial endospores?",
         "o": [
           "Calcium dipicolinate (dipicolinic acid chelated with Ca2+)",
-          "Poly-beta-hydroxybutyrate",
-          "Magnesium sulfate",
-          "Trehalose dimycolate"
+          "Poly-beta-hydroxybutyrate lipid granules in central core",
+          "Magnesium phosphate crystals stabilized by SASP proteins",
+          "Trehalose dimycolate glycolipids anchored in inner wall"
         ],
         "a": 0,
         "e": "Dipicolinic acid (DPA) comprises 5–15% of spore dry weight, chelating calcium ions to dehydrate the core and stabilize bacterial DNA against thermal denaturation.",
@@ -101,9 +89,9 @@ var quizBank = {
         "q": "Which differential staining method is standard for demonstrating bacterial endospores where spores appear bright green?",
         "o": [
           "Schaeffer-Fulton stain",
-          "Ziehl-Neelsen stain",
-          "Albert's stain",
-          "Fontana silver stain"
+          "Ziehl-Neelsen acid-fast",
+          "Albert's diphtheria stain",
+          "Fontana silver method"
         ],
         "a": 0,
         "e": "In the Schaeffer-Fulton method, malachite green is driven into the impermeable spore coat using steam heat, followed by safranin counterstaining for vegetative cells.",
@@ -115,9 +103,9 @@ var quizBank = {
         "q": "A bacterium possessing a single flagellum located at one pole is described as having which flagellar arrangement?",
         "o": [
           "Monotrichous",
-          "Lophotrichous",
-          "Amphitrichous",
-          "Peritrichous"
+          "Lophotrichous arrangement",
+          "Amphitrichous arrangement",
+          "Peritrichous arrangement"
         ],
         "a": 0,
         "e": "Monotrichous refers to a single polar flagellum (e.g., Pseudomonas aeruginosa or Vibrio cholerae).",
@@ -129,9 +117,9 @@ var quizBank = {
         "q": "The flagella of bacteria are composed of polymer subunits of which globular protein?",
         "o": [
           "Flagellin",
-          "Pilin",
-          "Tubulin",
-          "Actin"
+          "Pilin monomer",
+          "Tubulin heterodimer",
+          "Actin microfilament"
         ],
         "a": 0,
         "e": "Bacterial flagella consist of helical filaments composed of the protein flagellin, which forms the basis of H-antigen serotyping in enterobacteria.",
@@ -157,9 +145,9 @@ var quizBank = {
         "q": "The M'Fadyean capsule reaction used for rapid presumptive diagnosis of Anthrax utilizes which staining reagent?",
         "o": [
           "Polychrome methylene blue",
-          "Crystal violet",
-          "Carbol fuchsin",
-          "Malachite green"
+          "Crystal violet solution",
+          "Dilute carbol fuchsin",
+          "Aqueous malachite green"
         ],
         "a": 0,
         "e": "In the M'Fadyean reaction, polychrome methylene blue stains B. anthracis bacilli blue, surrounded by a distinct purplish-pink disintegrated capsular halo.",
@@ -171,9 +159,9 @@ var quizBank = {
         "q": "Albert's stain is specifically employed to demonstrate which bacterial anatomical structures?",
         "o": [
           "Metachromatic (volutin) granules",
-          "Endospores",
-          "Flagella",
-          "Capsules"
+          "Bacterial endospores (calcium dipicolinate)",
+          "Peritrichous locomotory flagellar filaments",
+          "Hyaluronic acid capsular envelopes"
         ],
         "a": 0,
         "e": "Albert's stain (using toluidine blue and malachite green) stains metachromatic volutin (polyphosphate) granules bluish-black against light green cytoplasm in Corynebacterium.",
@@ -185,9 +173,9 @@ var quizBank = {
         "q": "Which bacterial structure mediates specific twitching motility across moist solid surfaces independently of flagella?",
         "o": [
           "Type IV pili (fimbriae)",
-          "Endoflagella",
-          "Capsule",
-          "Mesosome"
+          "Periplasmic endoflagella",
+          "Slime layer glycocalyx",
+          "Invaginated mesosomes"
         ],
         "a": 0,
         "e": "Type IV pili undergo ATP-dependent extension and retraction to propel bacteria via twitching motility (seen in Dichelobacter nodosus and Pseudomonas).",
@@ -199,9 +187,9 @@ var quizBank = {
         "q": "Bacteria that naturally lack a rigid peptidoglycan cell wall and are bounded solely by a sterol-stabilized triple-layered membrane belong to which class?",
         "o": [
           "Mollicutes (Mycoplasma)",
-          "Firmicutes",
-          "Gracilicutes",
-          "Actinobacteria"
+          "Firmicutes (thick wall)",
+          "Gracilicutes (thin wall)",
+          "Actinobacteria (branched)"
         ],
         "a": 0,
         "e": "Mycoplasma (class Mollicutes) lack genes for peptidoglycan synthesis; their cell membranes incorporate exogenous sterols (cholesterol) from host fluids.",
@@ -213,9 +201,9 @@ var quizBank = {
         "q": "In the Ziehl-Neelsen acid-fast staining procedure, what is the exact decolorizing solution used?",
         "o": [
           "3% (v/v) hydrochloric acid in 95% ethyl alcohol",
-          "95% ethyl alcohol alone",
-          "Acetone-alcohol (1:1)",
-          "1% sulfuric acid in water"
+          "95% ethyl alcohol without acid supplementation",
+          "Acetone-alcohol mixture in a 1:1 volume ratio",
+          "1% sulfuric acid aqueous solution without alcohol"
         ],
         "a": 0,
         "e": "Standard ZN staining uses acid-alcohol (3% concentrated HCl in 95% ethanol), which readily decolorizes non-acid-fast bacteria while mycobacteria retain carbol fuchsin.",
@@ -227,9 +215,9 @@ var quizBank = {
         "q": "What term describes bacteria that undergo extreme morphological variation in size and shape due to absence of a rigid cell wall?",
         "o": [
           "Pleomorphic",
-          "Monomorphic",
-          "Heterotrophic",
-          "Siderophilic"
+          "Monomorphic bacilli",
+          "Heterotrophic rods",
+          "Siderophilic cocci"
         ],
         "a": 0,
         "e": "Pleomorphism describes bacteria lacking rigid wall architecture (e.g., Mycoplasma, Corynebacterium) exhibiting variable coccoid, filamentous, and pear shapes.",
@@ -241,9 +229,9 @@ var quizBank = {
         "q": "What optical microscopic technique is required to visualize unstained, extremely thin living spirochetes like Leptospira in clinical urine or fluids?",
         "o": [
           "Dark-field microscopy",
-          "Bright-field microscopy",
-          "Fluorescence microscopy",
-          "Confocal microscopy"
+          "Bright-field optical",
+          "Fluorescence UV filter",
+          "Confocal laser beam"
         ],
         "a": 0,
         "e": "Dark-field microscopy utilizes a central light stop so only light diffracted by the thin spirochetes enters the objective, rendering them brilliant silver against a dark field.",
@@ -255,9 +243,9 @@ var quizBank = {
         "q": "The periplasmic flagella (axial filaments) responsible for corkscrew flexuous motility in spirochetes are located in which anatomical space?",
         "o": [
           "Between the peptidoglycan layer and outer membrane (periplasmic space)",
-          "Protruding freely from the cell poles",
-          "Inside the central cytoplasm",
-          "Anchored to the capsule outer surface"
+          "Protruding freely from both cell poles through outer membrane pores",
+          "Inside the central cytoplasm embedded directly within the nucleoid",
+          "Anchored externally to the capsular polysaccharide surface layer"
         ],
         "a": 0,
         "e": "In spirochetes (Leptospira, Borrelia, Treponema), endoflagella reside entirely within the periplasmic space, wrapping around the protoplasmic cylinder.",
@@ -269,9 +257,9 @@ var quizBank = {
         "q": "In which phase of the bacterial growth curve is cell division occurring at the maximal and constant geometric rate?",
         "o": [
           "Logarithmic (Exponential) phase",
-          "Lag phase",
-          "Stationary phase",
-          "Decline (Death) phase"
+          "Lag phase of metabolic adaptation",
+          "Stationary phase of nutrient depletion",
+          "Decline phase of toxic accumulation"
         ],
         "a": 0,
         "e": "During the logarithmic (exponential) phase, bacteria synthesize cellular components at maximum velocity, doubling geometrically with constant generation time.",
@@ -283,9 +271,9 @@ var quizBank = {
         "q": "The horizontal gene transfer mechanism that involves direct uptake of naked, free environmental DNA by a competent bacterial cell is termed:",
         "o": [
           "Transformation",
-          "Transduction",
-          "Conjugation",
-          "Transposition"
+          "Phage transduction",
+          "Pilus conjugation",
+          "IS transposition"
         ],
         "a": 0,
         "e": "Transformation, first demonstrated by Frederick Griffith (1928) using Streptococcus pneumoniae, requires physiological competence to transport exogenous naked DNA into the cell.",
@@ -311,9 +299,9 @@ var quizBank = {
         "q": "Methicillin-resistant Staphylococcus aureus (MRSA) confers resistance to all beta-lactam antibiotics via acquisition of the mecA gene, which encodes which altered penicillin-binding protein?",
         "o": [
           "PBP2a (PBP2')",
-          "PBP1",
-          "PBP3",
-          "PBP4"
+          "PBP1a transglycosylase/transpeptidase",
+          "PBP3 septal peptidoglycan synthase",
+          "PBP4 carboxypeptidase/endopeptidase"
         ],
         "a": 0,
         "e": "The mecA gene (located on Staphylococcal Cassette Chromosome SCCmec) encodes PBP2a, which has extremely low binding affinity for all beta-lactams.",
@@ -325,9 +313,9 @@ var quizBank = {
         "q": "What is the standard McFarland turbidity standard utilized to standardize bacterial inocula for Kirby-Bauer disk diffusion antimicrobial susceptibility testing?",
         "o": [
           "0.5 McFarland (approx. 1.5 x 10⁸ CFU/mL)",
-          "1.0 McFarland",
-          "2.0 McFarland",
-          "0.1 McFarland"
+          "1.0 McFarland (approx. 3.0 x 10⁸ CFU/mL)",
+          "2.0 McFarland (approx. 6.0 x 10⁸ CFU/mL)",
+          "0.1 McFarland (approx. 3.0 x 10⁷ CFU/mL)"
         ],
         "a": 0,
         "e": "A 0.5 McFarland standard (prepared from 0.05 mL 1.175% BaCl2 + 9.95 mL 1% H2SO4) equals approximately 1.5 x 10⁸ CFU/mL, ensuring standard inoculum density.",
@@ -339,8 +327,8 @@ var quizBank = {
         "q": "What is the standard agar medium and depth specified by CLSI for performing the Kirby-Bauer disk diffusion susceptibility test?",
         "o": [
           "Mueller-Hinton agar (MHA) at 4 mm depth",
-          "Nutrient agar at 2 mm depth",
-          "Blood agar at 6 mm depth",
+          "Nutrient agar poured at 2 mm uniform depth",
+          "5% Sheep blood agar at 6 mm uniform depth",
           "Brain Heart Infusion agar at 8 mm depth"
         ],
         "a": 0,
@@ -354,8 +342,8 @@ var quizBank = {
         "o": [
           "Microaerophiles",
           "Obligate aerobes",
-          "Facultative anaerobes",
-          "Capnophiles alone"
+          "Facultative bugs",
+          "Capnophiles only"
         ],
         "a": 0,
         "e": "Microaerophiles (e.g., Campylobacter fetus, Helicobacter) thrive at lower oxygen tensions (3–5% O2) and are inhibited by atmospheric 21% O2.",
@@ -367,9 +355,9 @@ var quizBank = {
         "q": "Which type of bacterial culture system maintains cells in continuous logarithmic growth by continuously adding fresh sterile medium while siphoning spent culture at an equal rate?",
         "o": [
           "Chemostat (continuous culture)",
-          "Batch culture",
-          "Semi-solid slant",
-          "Stab culture"
+          "Enriched non-selective",
+          "Differential indicator",
+          "Nutrient basal agar"
         ],
         "a": 0,
         "e": "A chemostat controls bacterial growth rate by limiting a single nutrient in continuous fresh feed, balancing growth rate with dilution rate.",
@@ -381,9 +369,9 @@ var quizBank = {
         "q": "Which enzyme inactivates penicillins and cephalosporins by hydrolyzing the cyclic amide bond of the four-membered beta-lactam ring?",
         "o": [
           "Beta-lactamase",
-          "DNA gyrase",
-          "Acetyltransferase",
-          "Phosphotransferase"
+          "Hfr chromosomal segment",
+          "Colicin-producing ColE1",
+          "Ti tumor-inducing replicon"
         ],
         "a": 0,
         "e": "Beta-lactamase breaks the four-membered beta-lactam ring, converting penicillins into microbiologically inactive penicilloic acid.",
@@ -395,9 +383,9 @@ var quizBank = {
         "q": "Mobile genetic elements that encode transposase enzymes and can excise and re-insert themselves into different loci within bacterial chromosomes or plasmids are called:",
         "o": [
           "Transposons ('jumping genes')",
-          "Pathogenicity islands",
-          "Introns",
-          "Exons"
+          "Pathogenicity genomic islands",
+          "Spliceosomal eukaryotic introns",
+          "Exonic coding gene sequences"
         ],
         "a": 0,
         "e": "Transposons carry inverted terminal repeats flanking transposase and often resistance determinants, translocating between plasmids and the chromosome.",
@@ -409,9 +397,9 @@ var quizBank = {
         "q": "In high-frequency recombination (Hfr) bacterial strains, what is the precise genomic status of the F (fertility) factor?",
         "o": [
           "Integrated into the bacterial host circular chromosome",
-          "Replicating autonomously in the cytoplasm as a small episome",
-          "Encapsidated within a bacteriophage head",
-          "Degraded into single nucleotides"
+          "Replicating autonomously in the cytoplasm as an episome",
+          "Encapsidated within a virulent bacteriophage icosahedron",
+          "Degraded into single nucleotides by host exonucleases"
         ],
         "a": 0,
         "e": "An Hfr strain arises when an F plasmid integrates into the main circular bacterial chromosome via homologous recombination at IS elements.",
@@ -424,8 +412,8 @@ var quizBank = {
         "o": [
           "Minimum Inhibitory Concentration (MIC)",
           "Minimum Bactericidal Concentration (MBC)",
-          "Break-point concentration",
-          "Therapeutic index"
+          "Clinical breakpoint breakpoint diameter",
+          "Maximum tolerated therapeutic drug index"
         ],
         "a": 0,
         "e": "MIC represents the lowest antimicrobial concentration preventing turbidity in standard broth or agar dilution after 18–24 hours incubation.",
@@ -437,9 +425,9 @@ var quizBank = {
         "q": "Which mechanism mediates fluoroquinolone (e.g., enrofloxacin, ciprofloxacin) resistance in bacteria?",
         "o": [
           "Point mutations in DNA gyrase (gyrA) and topoisomerase IV (parC) genes",
-          "Hydrolysis by metallo-beta-lactamase",
-          "Ribosomal methylation by erm genes",
-          "Acetylation by AAC(6') enzyme"
+          "Enzymatic hydrolysis by plasmid-encoded metallo-beta-lactamases (blaNDM-1)",
+          "Target-site ribosomal methylation by erythromycin resistance erm genes",
+          "Enzymatic aminoglycoside acetylation by the AAC(6')-Ib-cr transferase"
         ],
         "a": 0,
         "e": "Fluoroquinolone resistance develops via mutations in the quinolone resistance-determining regions (QRDR) of gyrA and parC, preventing drug-target binding.",
@@ -451,9 +439,9 @@ var quizBank = {
         "q": "Plasmids that carry genes conferring simultaneous resistance to multiple diverse classes of antibacterial drugs are known as:",
         "o": [
           "R plasmids (Resistance factors)",
-          "Col plasmids",
-          "Degradative plasmids",
-          "Ti plasmids"
+          "Col plasmids (colicin production)",
+          "Degradative metabolic plasmids",
+          "Virulence ent plasmids of E. coli"
         ],
         "a": 0,
         "e": "R plasmids (resistance factors) typically possess an RTF (resistance transfer factor) region for conjugative transfer and an r-determinant bearing multiple drug resistance genes.",
@@ -465,9 +453,9 @@ var quizBank = {
         "q": "Which bacterial enzyme catalyzes the relaxation of supercoiled DNA and is the primary molecular target of fluoroquinolone antimicrobials?",
         "o": [
           "DNA gyrase (Topoisomerase II)",
-          "DNA ligase",
-          "RNA polymerase",
-          "Peptidyl transferase"
+          "ATP-dependent DNA ligase enzyme",
+          "Core bacterial RNA polymerase",
+          "Ribosomal peptidyl transferase"
         ],
         "a": 0,
         "e": "DNA gyrase introduces negative supercoils into bacterial DNA; fluoroquinolones trap the enzyme-DNA cleavage complex, inducing lethal double-strand DNA breaks.",
@@ -479,9 +467,9 @@ var quizBank = {
         "q": "Cold-loving bacteria that can replicate at refrigerated temperatures (0–7°C) with an optimum growth temperature between 20–30°C (e.g., Listeria) are termed:",
         "o": [
           "Psychrotrophs (Psychrotolerant)",
-          "Thermophiles",
-          "Mesophiles",
-          "Extreme halophiles"
+          "Obligate thermophilic bacteria",
+          "Standard mesophilic organisms",
+          "Extreme halophilic eubacteria"
         ],
         "a": 0,
         "e": "Psychrotrophs can replicate at refrigerator temperatures (0–7°C), allowing Listeria monocytogenes and Yersinia enterocolitica to multiply in chilled foods and cold enrichment media.",
@@ -493,9 +481,9 @@ var quizBank = {
         "q": "Generalized transduction differs from specialized transduction in that generalized transduction:",
         "o": [
           "Can transfer any random gene from the donor bacterial chromosome",
-          "Transfers only specific genes adjacent to the phage prophage insertion site",
-          "Requires direct cell-to-cell contact through a sex pilus",
-          "Is mediated exclusively by virulent RNA bacteriophages"
+          "Transfers only specific genes flanking the prophage insertion locus",
+          "Requires direct cell-to-cell contact through a sex pilus bridge",
+          "Is mediated exclusively by virulent double-stranded RNA phages"
         ],
         "a": 0,
         "e": "Generalized transduction occurs during lytic phage cycles when random fragments of host chromosome are packaged; specialized transduction transfers only adjacent flanking genes upon prophage excision.",
@@ -507,9 +495,9 @@ var quizBank = {
         "q": "What is the mode of action of aminoglycoside antibiotics (e.g., streptomycin, gentamicin) in sensitive bacteria?",
         "o": [
           "Irreversible binding to the 30S ribosomal subunit causing mistranslation and membrane disruption",
-          "Inhibition of cell wall transpeptidation",
-          "Inhibition of bacterial RNA polymerase",
-          "Disruption of outer membrane lipids"
+          "Competitive inhibition of cell wall transpeptidases (penicillin-binding proteins)",
+          "Allosteric inhibition of DNA-dependent RNA polymerase beta subunit (rpoB gene)",
+          "Detergent-like disruption of outer membrane phospholipids by polymyxin binding"
         ],
         "a": 0,
         "e": "Aminoglycosides bind to 16S rRNA within the 30S subunit, inducing misreading of genetic code and generating toxic aberrant proteins that damage the cell membrane.",
@@ -521,9 +509,9 @@ var quizBank = {
         "q": "Which major cell wall-associated surface protein of Staphylococcus aureus binds specifically to the Fc region of host IgG, thereby preventing opsonization and phagocytosis?",
         "o": [
           "Protein A",
-          "Protein G",
-          "M protein",
-          "Fibronectin-binding protein"
+          "Protein G surface antigen",
+          "M protein surface fibril",
+          "Fibronectin-binding ligand"
         ],
         "a": 0,
         "e": "Protein A binds the Fc region of IgG molecules in an inverted orientation, preventing Fc-receptor recognition by host neutrophils and macrophages.",
@@ -535,9 +523,9 @@ var quizBank = {
         "q": "In the CAMP test used to identify Streptococcus agalactiae, an arrowhead of synergistic complete beta-hemolysis is observed adjacent to the streak of which organism?",
         "o": [
           "Staphylococcus aureus (beta-toxin / sphingomyelinase C producing strain)",
-          "Escherichia coli",
-          "Pseudomonas aeruginosa",
-          "Bacillus cereus"
+          "Corynebacterium pseudotuberculosis (phospholipase D exotoxin strain)",
+          "Rhodococcus equi (cholesterol oxidase producing equi-factor strain)",
+          "Listeria monocytogenes (listeriolysin O producing beta-hemolytic strain)"
         ],
         "a": 0,
         "e": "Streptococcus agalactiae produces diffusible CAMP factor that synergizes with S. aureus beta-lysin (sphingomyelinase C) to lyse sheep erythrocytes in an arrowhead pattern.",
@@ -549,8 +537,8 @@ var quizBank = {
         "q": "Which bacterial pathogen is the causative agent of 'Strangles' in horses, characterized by acute purulent pharyngitis and suppurative abscessation of the submandibular and retropharyngeal lymph nodes?",
         "o": [
           "Streptococcus equi subsp. equi",
-          "Streptococcus equi subsp. zooepidemicus",
-          "Rhodococcus equi",
+          "Streptococcus equi zooepidemicus",
+          "Rhodococcus equi purulent strain",
           "Corynebacterium pseudotuberculosis"
         ],
         "a": 0,
@@ -563,9 +551,9 @@ var quizBank = {
         "q": "Why is performing a post-mortem necropsy strictly contraindicated in an animal suspected to have died from Anthrax (Bacillus anthracis)?",
         "o": [
           "Exposure of vegetative bacilli in blood to atmospheric oxygen triggers rapid formation of resistant, persistent endospores",
-          "The carcass blood is non-infectious until opened",
-          "Bacilli multiply only in buried carcasses",
-          "The carcass produces lethal gas when cut"
+          "Vegetative bacilli rapidly lyse and lose diagnostic cultural viability upon contact with ambient atmospheric oxygen",
+          "Opening the body cavities releases high concentrations of volatile cyanogenic toxins into the surrounding environment",
+          "Atmospheric exposure converts non-toxic encapsulated bacilli into hyper-toxigenic unencapsulated vegetative variants"
         ],
         "a": 0,
         "e": "B. anthracis bacilli sporulate upon exposure to atmospheric oxygen; opening the carcass contaminates the soil with spores that survive for decades.",
@@ -577,9 +565,9 @@ var quizBank = {
         "q": "The tripartite exotoxin complex of Bacillus anthracis consists of Protective Antigen (PA) combined with which two catalytic subunits?",
         "o": [
           "Edema Factor (EF, adenylate cyclase) and Lethal Factor (LF, zinc metalloprotease)",
-          "Alpha toxin and Beta toxin",
-          "Exfoliative toxin A and B",
-          "Pneumolysin and Streptolysin O"
+          "Alpha toxin (phospholipase C) and Beta toxin (pore-forming sphingomyelinase)",
+          "Exfoliative toxin A (serine protease) and Enterotoxin B (superantigen activator)",
+          "Theta toxin (perfringolysin O) and Epsilon protoxin (zinc endopeptidase)"
         ],
         "a": 0,
         "e": "Anthrax toxin has three components: PA binds host receptors and translocates EF (calmodulin-dependent adenylate cyclase causing edema) and LF (cleaves MAPK kinases causing necrosis).",
@@ -591,9 +579,9 @@ var quizBank = {
         "q": "What characteristic in vitro reaction is demonstrated by Bacillus anthracis when cultured on nutrient agar containing 0.05–0.5 IU/mL of penicillin?",
         "o": [
           "'String of pearls' reaction (chains of spherical, swollen protoplasts)",
-          "Medusa-head colonies",
-          "Inverted fir-tree liquefaction",
-          "CAMP arrowhead reaction"
+          "'Medusa-head' colony borders with prominent curling filamentous fringes",
+          "'Inverted fir-tree' gelatin liquefaction line down the stab track",
+          "'CAMP-like' synergistic hemolysis arrowhead adjacent to staph streaks"
         ],
         "a": 0,
         "e": "Low levels of penicillin inhibit cell wall synthesis in B. anthracis, causing young bacilli to round up into chains resembling a string of pearls.",
@@ -606,8 +594,8 @@ var quizBank = {
         "o": [
           "Clostridium chauvoei",
           "Clostridium septicum",
-          "Clostridium perfringens",
-          "Clostridium novyi"
+          "Clostridium novyi type B",
+          "Clostridium perfringens"
         ],
         "a": 0,
         "e": "Clostridium chauvoei spores germinate in bruised, anoxic skeletal muscle, producing necrotizing toxins that cause emphysematous, crepitant myonecrosis with a rancid butyric odor.",
@@ -619,9 +607,9 @@ var quizBank = {
         "q": "What is the cellular mechanism of action of tetanospasmin, the potent neurotoxin produced by Clostridium tetani?",
         "o": [
           "Retrograde axonal transport to spinal cord where it cleaves synaptobrevin, blocking inhibitory glycine and GABA release from Renshaw cells",
-          "Inhibition of acetylcholine release at the peripheral neuromuscular junction",
-          "Pore formation in vascular endothelial cells",
-          "ADP-ribosylation of elongation factor 2"
+          "Cleavage of SNAP-25 at peripheral cholinergic motor nerve terminals, permanently blocking quantal acetylcholine vesicle release",
+          "Direct formation of heptameric transmembrane pores in vascular endothelial cell membranes, triggering acute fatal microvascular leakage",
+          "Catalytic ADP-ribosylation of eukaryotic Elongation Factor 2 (EF-2) in mucosal enterocytes, completely shutting down cellular protein translation"
         ],
         "a": 0,
         "e": "Tetanospasmin cleaves VAMP/synaptobrevin in inhibitory Renshaw interneurons, abolishing glycine and GABA release and resulting in spastic paralysis and tetanus.",
@@ -633,9 +621,9 @@ var quizBank = {
         "q": "In contrast to tetanus, botulinum neurotoxin produced by Clostridium botulinum induces which clinical hallmark?",
         "o": [
           "Flaccid paralysis due to inhibition of acetylcholine release at peripheral neuromuscular junctions",
-          "Spastic muscular tetany and lockjaw",
-          "Severe watery enterotoxemic diarrhea",
-          "Extensive subcutaneous edema"
+          "Spastic muscular hypertonia, extensor rigidity, and trismus ('lockjaw') due to disinhibition of spinal alpha motor neurons",
+          "Profuse secretory watery enterotoxemic diarrhea driven by excessive guanylate cyclase activation in mucosal enterocytes",
+          "Extensive gelatinous subcutaneous edema and microvascular endothelial damage mediated by Shiga toxin 2e angiotropism"
         ],
         "a": 0,
         "e": "Botulinum toxin blocks presynaptic acetylcholine release at the motor endplate, resulting in generalized lower motor neuron flaccid paralysis (limberneck in birds, shaker foal syndrome).",
@@ -661,9 +649,9 @@ var quizBank = {
         "q": "The Nagler reaction used to identify Clostridium perfringens demonstrates inhibition of lecithinase (alpha-toxin) activity on egg yolk agar by:",
         "o": [
           "Specific Clostridium perfringens alpha-antitoxin",
-          "Penicillin G",
-          "Normal horse serum",
-          "Zinc sulfate"
+          "Parenteral crystalline procaine penicillin G",
+          "Normal unheated equine hyperimmune serum",
+          "Acidified zinc sulfate diagnostic solution"
         ],
         "a": 0,
         "e": "In the Nagler reaction, opalescence (lecithinase) around C. perfringens on egg yolk agar is selectively inhibited on the half of the plate spread with alpha-antitoxin.",
@@ -675,9 +663,9 @@ var quizBank = {
         "q": "Which organism causes 'Caseous Lymphadenitis' (CLA) in sheep and goats, characterized by 'onion-ring' lamellated caseous necrosis of superficial and visceral lymph nodes?",
         "o": [
           "Corynebacterium pseudotuberculosis",
-          "Actinomyces bovis",
-          "Mycobacterium bovis",
-          "Rhodococcus equi"
+          "Actinomyces bovis (filamentous)",
+          "Mycobacterium bovis (acid-fast)",
+          "Rhodococcus equi (capsulated)"
         ],
         "a": 0,
         "e": "Corynebacterium pseudotuberculosis produces phospholipase D and a waxy lipid coat, establishing chronic granulomatous abscesses with concentric laminated 'onion-ring' rings.",
@@ -703,9 +691,9 @@ var quizBank = {
         "q": "Listeria monocytogenes exhibits which characteristic motility pattern when examined in a wet mount or semi-solid motility agar incubated at 22–25°C?",
         "o": [
           "Tumbling motility in broth and umbrella-shaped growth in semi-solid agar",
-          "Darting motility",
-          "Gliding motility",
-          "Rapid swarming across the entire agar surface"
+          "Darting 'shooting star' motility in alkaline peptone water hanging drops",
+          "Gliding surface translocation mediated by localized type IV pilus retraction",
+          "Concentric wave-like swarming motility spreading across non-inhibitory agar"
         ],
         "a": 0,
         "e": "L. monocytogenes expresses 1–4 peritrichous flagella at 20–25°C (exhibiting tumbling motility and sub-surface umbrella growth), but flagella synthesis is downregulated at 37°C.",
@@ -717,9 +705,9 @@ var quizBank = {
         "q": "Which clinical hallmark is characteristically observed in pigs infected with Erysipelothrix rhusiopathiae (Swine Erysipelas)?",
         "o": [
           "Rhomboid or diamond-shaped erythematous cutaneous urticarial plaques",
-          "Severe flaccid paralysis",
-          "Profuse bloody mucoid diarrhea",
-          "Severe subcutaneous crepitant gas formation"
+          "Ascending flaccid paralysis with loss of peripheral spinal reflexes",
+          "Profuse bloody mucoid diarrhea with necrotic diphtheritic membranes",
+          "Severe subcutaneous crepitant gas formation with rancid butter odor"
         ],
         "a": 0,
         "e": "Erysipelothrix rhusiopathiae causes cutaneous vasculitis and thrombosis, producing pathognomonic raised, red-purple rhomboid or 'diamond-skin' lesions in pigs.",
@@ -732,8 +720,8 @@ var quizBank = {
         "o": [
           "Malachite green",
           "Crystal violet",
-          "Sodium azide",
-          "Bile salts"
+          "Sodium azide salt",
+          "Bile salts 20%"
         ],
         "a": 0,
         "e": "Malachite green (0.025 g/100 mL) in LJ medium suppresses fast-growing Gram-positive and Gram-negative bacteria while tolerating slow-growing mycobacteria.",
@@ -745,9 +733,9 @@ var quizBank = {
         "q": "Johne's disease (Paratuberculosis) in ruminants is caused by Mycobacterium avium subsp. paratuberculosis, which requires which iron-chelating growth factor for in vitro culture?",
         "o": [
           "Mycobactin (Mycobactin J)",
-          "Hemin (X factor)",
-          "NAD (V factor)",
-          "Erythritol"
+          "Hemin factor (X factor)",
+          "NAD cofactor (V factor)",
+          "Placental erythritol"
         ],
         "a": 0,
         "e": "M. avium subsp. paratuberculosis cannot synthesize the iron-transporting compound mycobactin and requires supplementation with exogenous Mycobactin J for in vitro growth.",
@@ -759,9 +747,9 @@ var quizBank = {
         "q": "In the Comparative Cervical Tuberculin (CCT) test in cattle, what two tuberculin purified protein derivatives (PPD) are injected at separate sites in the mid-cervical region?",
         "o": [
           "Bovine PPD (PPD-B) and Avian PPD (PPD-A)",
-          "Bovine PPD and Human PPD",
-          "PPD-B and Mallein",
-          "PPD-B and Brucellin"
+          "Bovine PPD and Human M. tuberculosis PPD",
+          "Bovine PPD and Burkholderia mallein PPD",
+          "Bovine PPD and Brucella abortus brucellin"
         ],
         "a": 0,
         "e": "The CCT test compares skin-thickness reactions to Bovine PPD and Avian PPD at 72 hours to differentiate true M. bovis infection from cross-reactivity with environmental mycobacteria.",
@@ -773,9 +761,9 @@ var quizBank = {
         "q": "Which fimbrial adhesin is most commonly associated with Enterotoxigenic Escherichia coli (ETEC) strains causing neonatal watery diarrhea (white scours) in calves?",
         "o": [
           "F5 (K99)",
-          "F4 (K88)",
-          "F18",
-          "F41"
+          "F4 (K88 adhesin)",
+          "F18 fimbrial pilus",
+          "F41 fimbrial pilus"
         ],
         "a": 0,
         "e": "F5 (formerly K99) pilus antigen mediates adherence of ETEC to specific glycoprotein receptors on the microvilli of small intestinal enterocytes in neonatal calves.",
@@ -787,9 +775,9 @@ var quizBank = {
         "q": "On MacConkey agar, Escherichia coli colonies appear bright pink due to the fermentation of lactose and absorption of which pH indicator?",
         "o": [
           "Neutral red",
-          "Phenol red",
-          "Bromothymol blue",
-          "Methyl red"
+          "Phenol red indicator",
+          "Bromothymol blue dye",
+          "Methyl red indicator"
         ],
         "a": 0,
         "e": "MacConkey agar uses neutral red as a pH indicator; lactose fermentation produces acid, causing neutral red to turn deep pink/red.",
@@ -801,9 +789,9 @@ var quizBank = {
         "q": "What characteristic colony appearance does Escherichia coli exhibit on Eosin Methylene Blue (EMB) agar?",
         "o": [
           "Dark purple colonies with a distinctive green metallic sheen",
-          "Colorless translucent colonies",
-          "Bright yellow mucoid colonies",
-          "Snow-white chalky colonies"
+          "Colorless, translucent non-lactose fermenting colonies",
+          "Bright yellow-gold mucoid colonies with positive strings",
+          "Chalky snow-white opaque colonies with irregular borders"
         ],
         "a": 0,
         "e": "Rapid vigorous fermentation of lactose by E. coli precipitates the eosin-methylene blue dye complex, producing an unmistakable iridescent green metallic sheen.",
@@ -815,9 +803,9 @@ var quizBank = {
         "q": "Which Salmonella serotype is non-motile, host-adapted to poultry, and causes 'Fowl Typhoid' characterized by bronze-colored liver enlargement?",
         "o": [
           "Salmonella enterica serovar Gallinarum",
-          "Salmonella enterica serovar Typhimurium",
-          "Salmonella enterica serovar Enteritidis",
-          "Salmonella enterica serovar Dublin"
+          "Salmonella enterica serovar Pullorum",
+          "Salmonella enterica serovar Dublin",
+          "Salmonella enterica serovar Typhimurium"
         ],
         "a": 0,
         "e": "Salmonella Gallinarum is non-motile and causes Fowl Typhoid in adult poultry, marked by greenish-bronze enlarged livers and focal necrotic hepatitis.",
@@ -829,9 +817,9 @@ var quizBank = {
         "q": "The Kauffmann-White scheme classifies Salmonella serotypes based on the antigenic diversity of which surface structures?",
         "o": [
           "Somatic O antigen, flagellar H antigen (phases 1 & 2), and capsular Vi antigen",
-          "Capsular K antigen and fimbriae alone",
-          "Exotoxin serotypes and enterotoxin types",
-          "Cell wall teichoic acids and peptidoglycan"
+          "Capsular K polysaccharide antigens and fimbrial F adhesins alone",
+          "Secreted enterotoxin types (LT/ST) and cytolysin toxin variants",
+          "Cell wall lipoteichoic acids and peptidoglycan stem peptide repeats"
         ],
         "a": 0,
         "e": "The Kauffmann-White scheme categorizes >2,500 Salmonella serovars based on lipopolysaccharide somatic O antigens and biphasic flagellar protein H antigens.",
@@ -843,9 +831,9 @@ var quizBank = {
         "q": "What is the standard IMViC reaction pattern for pure cultures of Escherichia coli?",
         "o": [
           "++-- (Indole +, Methyl Red +, Voges-Proskauer -, Citrate -)",
-          "--++",
-          "+-+-",
-          "-+-+"
+          "--++ (Indole -, Methyl Red -, Voges-Proskauer +, Citrate +)",
+          "+-+- (Indole +, Methyl Red -, Voges-Proskauer +, Citrate -)",
+          "-+-+ (Indole -, Methyl Red +, Voges-Proskauer -, Citrate +)"
         ],
         "a": 0,
         "e": "E. coli produces indole from tryptophan (++), ferments mixed acids (MR +), does not form acetoin (VP -), and cannot use citrate as sole carbon source (Citrate -).",
@@ -857,9 +845,9 @@ var quizBank = {
         "q": "What is the characteristic IMViC biochemical profile of Klebsiella pneumoniae?",
         "o": [
           "--++ (Indole -, Methyl Red -, Voges-Proskauer +, Citrate +)",
-          "++--",
-          "+-+-",
-          "+--+"
+          "++-- (Indole +, Methyl Red +, Voges-Proskauer -, Citrate -)",
+          "+-+- (Indole +, Methyl Red -, Voges-Proskauer +, Citrate -)",
+          "+--+ (Indole +, Methyl Red -, Voges-Proskauer -, Citrate +)"
         ],
         "a": 0,
         "e": "Klebsiella pneumoniae is indole-negative, methyl red-negative, VP-positive (acetoin producer), and citrate-positive (--++), exactly opposite to typical E. coli.",
@@ -871,9 +859,9 @@ var quizBank = {
         "q": "Pasteurella multocida exhibits which classic staining pattern in blood smears from animals that died acutely of Hemorrhagic Septicemia (HS)?",
         "o": [
           "Bipolar staining ('safety-pin' appearance) with methylene blue or Giemsa",
-          "Beaded acid-fast bacilli",
-          "Gram-positive chains with square ends",
-          "Club-shaped palisades with metachromatic granules"
+          "Beaded, acid-fast branching bacilli with hot carbol fuchsin staining",
+          "Gram-positive sporulating square-ended chains with methylene blue halos",
+          "Metachromatic volutin granules at the swollen poles with Albert's stain"
         ],
         "a": 0,
         "e": "Pasteurella multocida shows dense accumulation of dye at both poles with a clear unstained center, producing a 'safety-pin' appearance in peripheral blood smears.",
@@ -885,9 +873,9 @@ var quizBank = {
         "q": "Which Carter's capsular type of Pasteurella multocida is the predominant cause of Asian bovine Hemorrhagic Septicemia (HS)?",
         "o": [
           "Capsular Type B (Heddleston serotype B:2)",
-          "Capsular Type A",
-          "Capsular Type D",
-          "Capsular Type E"
+          "Capsular Type A (Carter serotype A:1)",
+          "Capsular Type D (Carter serotype D:2)",
+          "Capsular Type E (African serotype E:2)"
         ],
         "a": 0,
         "e": "Carter's Type B (specifically B:2) causes Asian hemorrhagic septicemia in cattle and buffaloes; Type E causes African HS; Type A causes fowl cholera.",
@@ -900,8 +888,8 @@ var quizBank = {
         "o": [
           "Mannheimia haemolytica",
           "Bibersteinia trehalosi",
-          "Histophilus somni",
-          "Actinobacillus pleuropneumoniae"
+          "Histophilus somni rod",
+          "Actinobacillus capsular"
         ],
         "a": 0,
         "e": "Mannheimia haemolytica (serotype A1) expresses a potent repeats-in-toxin (RTX) leukotoxin that specifically lyses bovine alveolar macrophages and neutrophils in shipping fever.",
@@ -914,8 +902,8 @@ var quizBank = {
         "o": [
           "Erythritol",
           "Glucose-6-phosphate",
-          "Lactose",
-          "Cholesterol"
+          "Lactose disaccharide",
+          "Cholesterol molecule"
         ],
         "a": 0,
         "e": "Erythritol, a four-carbon polyol synthesized in high concentrations in ungulate placenta and chorionic trophoblasts, preferentially stimulates the growth of Brucella.",
@@ -927,9 +915,9 @@ var quizBank = {
         "q": "In the Milk Ring Test (ABRT) for Brucella surveillance, what indicates a positive reaction in a pooled whole milk sample?",
         "o": [
           "A distinct blue or purple ring in the risen cream layer with white milk below",
-          "Uniformly blue milk with a white cream layer",
-          "Formation of a dark yellow precipitate at the bottom of the tube",
-          "A bright red disc floating on top of the milk"
+          "A uniformly dark blue milk column accompanied by a completely white cream layer",
+          "Formation of a dense purple insoluble precipitate pellet at the tube bottom",
+          "A bright crimson ring floating on top of an emerald-green defatted milk layer"
         ],
         "a": 0,
         "e": "In the Milk Ring Test, hematoxylin-stained Brucella antigen binds to fat-associated secretory IgA antibodies; agglutinated complexes rise with cream globules to form a blue top ring.",
@@ -941,9 +929,9 @@ var quizBank = {
         "q": "Which Brucella species is the most invasive and hazardous to humans, causing severe undulant fever (Malta fever) and transmitted predominantly by sheep and goats?",
         "o": [
           "Brucella melitensis",
-          "Brucella abortus",
-          "Brucella suis",
-          "Brucella ovis"
+          "Brucella abortus (bovine)",
+          "Brucella suis (porcine)",
+          "Brucella canis (canine)"
         ],
         "a": 0,
         "e": "Brucella melitensis is the most pathogenic and zoonotic Brucella species; unpasteurized goat milk or cheese is a major vehicle of transmission.",
@@ -955,9 +943,9 @@ var quizBank = {
         "q": "Which microaerophilic, curved, comma- or gull wing-shaped bacterium is transmitted venereally in cattle, causing early embryonic death, repeat breeding, and infertility?",
         "o": [
           "Campylobacter fetus subsp. venerealis",
-          "Campylobacter jejuni",
-          "Helicobacter pylori",
-          "Brucella abortus"
+          "Campylobacter fetus subsp. fetus",
+          "Campylobacter jejuni thermophile",
+          "Helicobacter pylori gastric rod"
         ],
         "a": 0,
         "e": "Campylobacter fetus subsp. venerealis colonizes the preputial crypts of bulls and produces subacute endometritis and early embryonic mortality in cows.",
@@ -970,8 +958,8 @@ var quizBank = {
         "o": [
           "Moraxella bovis",
           "Pasteurella multocida",
-          "Haemophilus somnus",
-          "Mannheimia haemolytica"
+          "Mannheimia haemolytica",
+          "Histophilus somni coccus"
         ],
         "a": 0,
         "e": "Moraxella bovis uses type IV fimbriae to adhere to corneal epithelial cells, producing an RTX corneal hemolysin that ulcerates the cornea and causes blindness.",
@@ -983,9 +971,9 @@ var quizBank = {
         "q": "What allergic hypersensitivity test is the official diagnostic standard for detecting Glanders (Burkholderia mallei) in equines?",
         "o": [
           "Intradermo-palpebral Mallein test",
-          "Ascoli test",
-          "Tuberculin skin test",
-          "Strauss test"
+          "Ascoli thermoprecipitin test",
+          "Comparative cervical tuberculin",
+          "Guinea pig Strauss test reaction"
         ],
         "a": 0,
         "e": "The intradermo-palpebral mallein test involves injecting mallein into the lower eyelid; positive cases exhibit marked palpebral edema and purulent conjunctival discharge at 48 hours.",
@@ -997,9 +985,9 @@ var quizBank = {
         "q": "The Strauss reaction, observed following intraperitoneal inoculation of Burkholderia mallei into male guinea pigs, consists of:",
         "o": [
           "Severe purulent periorchitis and testicular swelling with scrotal ulceration",
-          "Generalized flaccid paralysis",
-          "Extensive subcutaneous crepitant gas formation",
-          "Enlargement and blackening of the spleen"
+          "Ascending flaccid paralysis with bilateral loss of deep tendon spinal reflexes",
+          "Extensive subcutaneous crepitant gas gangrene with dark hemorrhagic transudate",
+          "Massive congestive splenomegaly with soft 'blackberry jam' pulpy consistency"
         ],
         "a": 0,
         "e": "The Strauss reaction is severe purulent inflammation of the tunica vaginalis and testicles in male guinea pigs within 3–4 days after IP inoculation with B. mallei.",
@@ -1011,9 +999,9 @@ var quizBank = {
         "q": "Pseudomonas aeruginosa produces which phenazine pigment that imparts a characteristic blue-green color and possesses redox-active cytotoxic properties?",
         "o": [
           "Pyocyanin",
-          "Prodigiosin",
-          "Violacein",
-          "Pyoverdine alone"
+          "Prodigiosin pigment",
+          "Violacein pigment",
+          "Pyomelanin pigment"
         ],
         "a": 0,
         "e": "Pyocyanin is a blue-green chloroform-soluble phenazine toxin produced by P. aeruginosa that generates reactive oxygen species and damages host cilia.",
@@ -1026,7 +1014,7 @@ var quizBank = {
         "o": [
           "Fusobacterium necrophorum",
           "Dichelobacter nodosus",
-          "Bacteroides fragilis",
+          "Bacteroides fragilis rod",
           "Clostridium perfringens"
         ],
         "a": 0,
@@ -1039,9 +1027,9 @@ var quizBank = {
         "q": "In contagious ovine foot rot, Dichelobacter nodosus functions as the primary transmitting and underrunning agent by producing which extracellular enzyme?",
         "o": [
           "Elastase (heat-stable protease)",
-          "Lecithinase",
-          "Coagulase",
-          "Hyaluronidase"
+          "Lecithinase (phospholipase C)",
+          "Coagulase (plasma clotting)",
+          "Hyaluronidase (spreading factor)"
         ],
         "a": 0,
         "e": "Virulent D. nodosus produces heat-stable acidic elastase and extracellular proteases that digest hoof horn keratin and soft tissue, underrunning the hoof sole.",
@@ -1053,9 +1041,9 @@ var quizBank = {
         "q": "Under dark-field microscopy, Leptospira interrogans is distinguished by which morphological feature?",
         "o": [
           "Extremely thin, tightly coiled spirals with one or both ends bent into a distinct hook",
-          "Broad loose irregular waves without hooks",
-          "Rigid straight rods with terminal spores",
-          "Pleomorphic coccobacilli in chains"
+          "Broad, coarse, loosely coiled undulating waves with blunt unbent non-hooked terminal poles",
+          "Straight rigid vegetative rods with terminal spherical endospores ('drumstick' morphology)",
+          "Short pleomorphic coccobacilli arranged in parallel pairs displaying prominent bipolar granules"
         ],
         "a": 0,
         "e": "Leptospira measures 0.1 x 6–20 um with tight regular coils and hooked terminal ends resembling a question mark or umbrella handle.",
@@ -1067,9 +1055,9 @@ var quizBank = {
         "q": "What specialized liquid or semi-solid culture medium incorporating rabbit serum, bovine serum albumin, and polysorbate (Tween 80) is standard for isolating Leptospira?",
         "o": [
           "Ellinghausen-McCullough-Johnson-Harris (EMJH) medium",
-          "Lowenstein-Jensen medium",
-          "PPLO broth",
-          "Sabouraud dextrose broth"
+          "Leptospira interrogans serovar Pomona",
+          "Leptospira interrogans serovar Canicola",
+          "Leptospira interrogans Icterohaemorrhagiae"
         ],
         "a": 0,
         "e": "EMJH medium contains Tween 80 as a source of long-chain fatty acids (the sole energy and carbon source for Leptospira) and BSA to bind toxic free fatty acids.",
@@ -1081,9 +1069,9 @@ var quizBank = {
         "q": "What serological assay is regarded as the international gold-standard reference test for diagnosis and serovar identification of Leptospira?",
         "o": [
           "Microscopic Agglutination Test (MAT)",
-          "Rose Bengal Plate Test",
-          "Standard Tube Agglutination Test",
-          "Direct Immunofluorescence Assay"
+          "Rose Bengal Plate Test (RBPT assay)",
+          "Complement Fixation Test (CFT assay)",
+          "Indirect Hemagglutination Assay (IHA)"
         ],
         "a": 0,
         "e": "The MAT measures agglutination and lysis of live leptospiral reference cultures by patient sera under dark-field microscopy, determining serovar-specific titers.",
@@ -1097,7 +1085,7 @@ var quizBank = {
           "Borrelia anserina",
           "Borrelia burgdorferi",
           "Borrelia theileri",
-          "Treponema paraluiscuniculi"
+          "Treponema paraluis"
         ],
         "a": 0,
         "e": "Borrelia anserina is transmitted by the soft fowl tick Argas persicus; infected birds display severe depression, hyperthermia, yellowish-green feces, and huge mottled spleens.",
@@ -1109,9 +1097,9 @@ var quizBank = {
         "q": "What biological vector transmits Borrelia anserina to poultry flocks?",
         "o": [
           "Argas persicus (Soft fowl tick)",
-          "Dermanyssus gallinae (Red mite)",
-          "Menacanthus stramineus (Shaft louse)",
-          "Musca domestica (House fly)"
+          "Dermanyssus gallinae (Red poultry mite)",
+          "Menacanthus stramineus (Avian body louse)",
+          "Musca domestica (Common filth house fly)"
         ],
         "a": 0,
         "e": "Argas persicus (the blue bug or fowl tick) is the biological vector and reservoir; it transmits B. anserina through its salivary secretions during nocturnal blood feeding.",
@@ -1123,9 +1111,9 @@ var quizBank = {
         "q": "Lyme borreliosis in dogs, horses, and humans is caused by Borrelia burgdorferi and is transmitted by which genus of hard ticks?",
         "o": [
           "Ixodes (e.g., Ixodes scapularis, Ixodes ricinus)",
-          "Rhipicephalus",
-          "Amblyomma",
-          "Hyalomma"
+          "Rhipicephalus (e.g., R. microplus, R. sanguineus)",
+          "Amblyomma (e.g., A. americanum, A. variegatum)",
+          "Hyalomma (e.g., H. anatolicum, H. marginatum)"
         ],
         "a": 0,
         "e": "Hard ticks of the genus Ixodes (black-legged ticks) transmit B. burgdorferi after attachment and feeding for >=24–48 hours.",
@@ -1137,9 +1125,9 @@ var quizBank = {
         "q": "Rabbit Syphilis (Venereal spirochetosis or 'vent disease'), characterized by crusting ulcerations of the perineum and genitalia in domestic rabbits, is caused by:",
         "o": [
           "Treponema paraluiscuniculi",
-          "Treponema pallidum",
-          "Borrelia burgdorferi",
-          "Leptospira interrogans"
+          "Treponema pallidum genital",
+          "Borrelia burgdorferi spiro",
+          "Leptospira interrogans rod"
         ],
         "a": 0,
         "e": "Treponema paraluiscuniculi is an unculturable spirochete transmitted venereally among rabbits, producing papules, vesicles, and scabs on external genitalia and muzzle.",
@@ -1151,9 +1139,9 @@ var quizBank = {
         "q": "What microscopic colony morphology is uniquely diagnostic of Mycoplasma species when grown on solid PPLO agar and viewed under low-power magnification?",
         "o": [
           "'Fried-egg' appearance (dense central zone penetrating agar surrounded by a flat translucent peripheral zone)",
-          "Medusa-head colony",
-          "String of pearls colony",
-          "Rough cauliflower-like colony"
+          "'Medusa-head' colony (intertwining filamentous bacterial chains characteristic of Bacillus anthracis)",
+          "'String-of-pearls' reaction (cellular rounding and chain fragmentation upon low-dose penicillin exposure)",
+          "'Cauliflower' / wrinkled buff colony (rough, crumbly, verrucose growth characteristic of Mycobacterium)"
         ],
         "a": 0,
         "e": "Mycoplasma colonies penetrate the agar at their center and grow laterally at the surface, creating a classic fried-egg appearance best seen under a stereomicroscope.",
@@ -1165,9 +1153,9 @@ var quizBank = {
         "q": "Which major respiratory pathogen causes Contagious Bovine Pleuropneumonia (CBPP), marked by unilateral serofibrinous pleuropneumonia, marbled lung parenchyma, and necrotic sequestra?",
         "o": [
           "Mycoplasma mycoides subsp. mycoides",
-          "Mycoplasma bovis",
-          "Pasteurella multocida",
-          "Mannheimia haemolytica"
+          "Mycoplasma bovis (mastitis)",
+          "Pasteurella multocida type B",
+          "Mannheimia haemolytica A1"
         ],
         "a": 0,
         "e": "Mycoplasma mycoides subsp. mycoides causes CBPP, producing massive interlobular edema, hepatization leading to a 'marbled' lung appearance, and encapsulated sequestra.",
@@ -1179,9 +1167,9 @@ var quizBank = {
         "q": "Contagious Caprine Pleuropneumonia (CCPP), a devastating classical pleuropneumonia restricted to goats, is caused by which organism?",
         "o": [
           "Mycoplasma capricolum subsp. capripneumoniae",
-          "Mycoplasma agalactiae",
-          "Mycoplasma mycoides subsp. capri",
-          "Mycoplasma putrefaciens"
+          "Mycoplasma agalactiae (contagious agalactia)",
+          "Mycoplasma mycoides subsp. capri (pleuropneumonia)",
+          "Mycoplasma putrefaciens (caprine polyarthritis)"
         ],
         "a": 0,
         "e": "Mycoplasma capricolum subsp. capripneumoniae (formerly F38-like biotype) is the primary cause of true CCPP, characterized by severe fibrinous pleuropneumonia.",
@@ -1193,9 +1181,9 @@ var quizBank = {
         "q": "Why are Mycoplasma species entirely unaffected by penicillin, ampicillin, cephalosporins, and other beta-lactam antibiotics?",
         "o": [
           "They completely lack a peptidoglycan cell wall and penicillin-binding proteins",
-          "They produce hyper-potent beta-lactamases that rapidly destroy all penicillins",
-          "Their outer membrane porins exclude beta-lactam molecules",
-          "They active efflux all beta-lactams within seconds"
+          "They synthesize hyper-potent inducible broad-spectrum class A beta-lactamases",
+          "Their outer membrane lipopolysaccharide excludes hydrophilic beta-lactam rings",
+          "They utilize constitutive proton-motive multidrug RND efflux pump super-families"
         ],
         "a": 0,
         "e": "Beta-lactam antibiotics target cell wall peptidoglycan transpeptidases; because Mycoplasma lack peptidoglycan entirely, they possess complete intrinsic resistance.",
@@ -1208,8 +1196,8 @@ var quizBank = {
         "o": [
           "Elementary Body (EB)",
           "Reticulate Body (RB)",
-          "Initial Body",
-          "Inclusion Body"
+          "Initial vegetative form",
+          "Inclusion body matrix"
         ],
         "a": 0,
         "e": "The Elementary Body (EB, 0.2–0.3 um) has a rigid cross-linked protein envelope, enabling it to survive extracellularly and attach to host cells to initiate infection.",
@@ -1222,8 +1210,8 @@ var quizBank = {
         "o": [
           "Reticulate Body (RB)",
           "Elementary Body (EB)",
-          "Morula",
-          "Spheroplast"
+          "Dense core morula",
+          "Osmotic spheroplast"
         ],
         "a": 0,
         "e": "Inside the host phagosome, EBs differentiate into Reticulate Bodies (RBs, 0.8–1.0 um), which replicate by binary fission before condensing back into infective EBs.",
@@ -1236,7 +1224,7 @@ var quizBank = {
         "o": [
           "Chlamydia abortus",
           "Chlamydia psittaci",
-          "Brucella ovis",
+          "Brucella ovis ram",
           "Coxiella burnetii"
         ],
         "a": 0,
@@ -1251,7 +1239,7 @@ var quizBank = {
           "Coxiella burnetii",
           "Rickettsia rickettsii",
           "Anaplasma marginale",
-          "Ehrlichia canis"
+          "Ehrlichia canis dog"
         ],
         "a": 0,
         "e": "Coxiella burnetii produces small cell variants (SCV) that resist heat, drying, and disinfectants, contaminating sheep and goat milk, placenta, and birth fluids.",
@@ -1263,9 +1251,9 @@ var quizBank = {
         "q": "Which intra-erythrocytic rickettsial organism causes bovine anaplasmosis ('Gall Sickness'), manifested by severe progressive anemia, fever, and jaundice WITHOUT hemoglobinuria?",
         "o": [
           "Anaplasma marginale",
-          "Babesia bigemina",
-          "Theileria annulata",
-          "Trypanosoma evansi"
+          "Babesia bigemina protozoa",
+          "Theileria annulata schizont",
+          "Trypanosoma evansi flagellate"
         ],
         "a": 0,
         "e": "Anaplasma marginale invades mature erythrocytes; infected RBCs undergo extravascular phagocytosis in the spleen, causing severe anemia and icterus without free hemoglobin in urine.",
@@ -1277,9 +1265,9 @@ var quizBank = {
         "q": "Who was the first to observe and describe bacteria, calling them 'animalcules', using his own single-lens microscopes?",
         "o": [
           "Antonie van Leeuwenhoek",
-          "Louis Pasteur",
-          "Robert Koch",
-          "Joseph Lister"
+          "Louis Pasteur (rabies)",
+          "Robert Koch (tuberculosis)",
+          "Joseph Lister (antisepsis)"
         ],
         "a": 0,
         "e": "Antonie van Leeuwenhoek (1676) described 'animalcules' from rainwater and dental scrapings with hand-made simple microscopes, and is regarded as the father of microbiology.",
@@ -1305,9 +1293,9 @@ var quizBank = {
         "q": "The swan-neck flask experiment that finally disproved the theory of spontaneous generation was performed by",
         "o": [
           "Louis Pasteur",
-          "John Tyndall",
-          "Lazzaro Spallanzani",
-          "Francesco Redi"
+          "John Tyndall physicist",
+          "Lazzaro Spallanzani priest",
+          "Francesco Redi physician"
         ],
         "a": 0,
         "e": "Pasteur (1861) showed that boiled broth in a swan-neck flask stayed sterile because dust-borne microbes were trapped in the curved neck, even though air could enter.",
@@ -1319,9 +1307,9 @@ var quizBank = {
         "q": "The standard reference work used worldwide for the classification and identification of bacteria is",
         "o": [
           "Bergey's Manual of Systematic Bacteriology",
-          "The Kauffmann-White scheme",
-          "The Lancefield grouping scheme",
-          "The Baltimore classification"
+          "The Kauffmann-White Salmonella scheme",
+          "The Lancefield Streptococcal grouping",
+          "The Baltimore Viral Classification Index"
         ],
         "a": 0,
         "e": "Bergey's Manual is the standard taxonomic reference for bacteria. Kauffmann-White serotypes Salmonella, Lancefield groups streptococci, and Baltimore classifies viruses.",
@@ -1333,9 +1321,9 @@ var quizBank = {
         "q": "Sequencing of which gene is the most widely used molecular basis for the modern classification and identification of bacteria?",
         "o": [
           "16S ribosomal RNA gene",
-          "Flagellin gene",
-          "Plasmid replication gene",
-          "O-antigen synthesis gene"
+          "Flagellin fliC gene locus",
+          "Plasmid repA origin gene",
+          "Somatic rfb O-antigen gene"
         ],
         "a": 0,
         "e": "The 16S rRNA gene is present in all bacteria, is highly conserved with variable regions, and is the standard target for molecular identification and classification.",
@@ -1347,9 +1335,9 @@ var quizBank = {
         "q": "In the binomial name Staphylococcus aureus, the word 'aureus' denotes the",
         "o": [
           "Specific epithet (species name)",
-          "Genus",
-          "Family",
-          "Serovar"
+          "Generic designation (genus name)",
+          "Taxonomic family classification",
+          "Subspecies serological serovar"
         ],
         "a": 0,
         "e": "Binomial nomenclature: the genus is written first with a capital letter, followed by the specific epithet in lower case, both in italics.",
@@ -1361,9 +1349,9 @@ var quizBank = {
         "q": "Immersion oil improves the resolving power of the oil-immersion objective because it",
         "o": [
           "Increases the numerical aperture by preventing refraction of light rays between slide and lens",
-          "Magnifies the image a second time",
-          "Stains the bacterial cells",
-          "Increases the wavelength of the light used"
+          "Magnifies the real intermediate image by adding supplementary optical focal length to objective",
+          "Selectively absorbs chromatic aberrations by filtering peripheral blue and ultraviolet wavelengths",
+          "Increases the physical wavelength of illumination light to expand the Rayleigh resolution limit"
         ],
         "a": 0,
         "e": "Oil has almost the same refractive index as glass (about 1.515), so light rays are not bent away from the lens. This raises the numerical aperture and hence the resolution.",
@@ -1375,9 +1363,9 @@ var quizBank = {
         "q": "In micrometry, the ocular (eyepiece) micrometer must first be calibrated against a",
         "o": [
           "Stage micrometer",
-          "Haemocytometer",
+          "Neubauer chamber",
           "McFarland standard",
-          "Vernier scale of the mechanical stage"
+          "Mechanical vernier"
         ],
         "a": 0,
         "e": "The ocular micrometer has arbitrary divisions. Their true value is found by matching them against a stage micrometer of known graduation (1 mm divided into 100 parts of 10 micrometres).",
@@ -1389,9 +1377,9 @@ var quizBank = {
         "q": "Which microscope is used to study the internal ultrastructure of bacteria in ultra-thin sections?",
         "o": [
           "Transmission electron microscope",
-          "Scanning electron microscope",
-          "Phase-contrast microscope",
-          "Dark-field microscope"
+          "Scanning electron microscope (SEM)",
+          "Phase-contrast optical microscope",
+          "Dark-field condenser microscope"
         ],
         "a": 0,
         "e": "The transmission EM passes electrons through thin sections and shows internal detail. The scanning EM shows surface topography in three dimensions.",
@@ -1403,9 +1391,9 @@ var quizBank = {
         "q": "In bacteria, the electron transport chain and oxidative phosphorylation are located in the",
         "o": [
           "Cytoplasmic (plasma) membrane",
-          "Cell wall",
-          "Capsule",
-          "Ribosomes"
+          "Peptidoglycan cell wall layer",
+          "Polysaccharide capsular slime",
+          "Free cytosolic polyribosomes"
         ],
         "a": 0,
         "e": "Bacteria have no mitochondria, so the cytoplasmic membrane carries the respiratory enzymes and generates ATP.",
@@ -1418,8 +1406,8 @@ var quizBank = {
         "o": [
           "70S (50S + 30S subunits)",
           "80S (60S + 40S subunits)",
-          "60S",
-          "90S"
+          "60S (40S + 20S subunits)",
+          "90S (60S + 30S subunits)"
         ],
         "a": 0,
         "e": "Bacterial ribosomes are 70S. Eukaryotic cytoplasmic ribosomes are 80S, which explains the selective toxicity of drugs that act on the 30S or 50S subunit.",
@@ -1431,9 +1419,9 @@ var quizBank = {
         "q": "The anaerobic jar in which hydrogen combines with residual oxygen to form water in the presence of a palladium catalyst is the",
         "o": [
           "McIntosh and Fildes' anaerobic jar",
-          "Candle jar",
-          "Craigie's tube",
-          "Durham's tube"
+          "Candle combustion extinction jar",
+          "Craigie's semi-solid motility tube",
+          "Durham's inverted fermentation vial"
         ],
         "a": 0,
         "e": "In the McIntosh and Fildes' jar a palladium catalyst combines hydrogen with oxygen. Methylene blue or resazurin indicators confirm that anaerobiosis has been achieved.",
@@ -1445,9 +1433,9 @@ var quizBank = {
         "q": "A bacterium that lives harmlessly on the host but causes disease when host defences are lowered is termed a/an",
         "o": [
           "Opportunistic pathogen",
-          "Obligate pathogen",
-          "Saprophyte",
-          "Symbiont"
+          "Primary obligate bug",
+          "Free saprophytic flora",
+          "Commensal symbiont bug"
         ],
         "a": 0,
         "e": "Opportunists (e.g., Pseudomonas, E. coli, Trueperella) cause disease when immunity is suppressed, the normal flora is disturbed, or tissue is damaged.",
@@ -1459,9 +1447,9 @@ var quizBank = {
         "q": "An infection acquired in a veterinary hospital during treatment for another condition is known as a/an",
         "o": [
           "Nosocomial infection",
-          "Endogenous infection",
-          "Zoonotic infection",
-          "Latent infection"
+          "Endogenous flora shift",
+          "Zoonotic reservoir spill",
+          "Subclinical latent carrier"
         ],
         "a": 0,
         "e": "Nosocomial (hospital-acquired) infections are commonly caused by resistant opportunists such as MRSA, Pseudomonas and Klebsiella.",
@@ -1473,9 +1461,9 @@ var quizBank = {
         "q": "Transmission of infection through inanimate objects such as feeding buckets, halters and milking equipment is by",
         "o": [
           "Fomites",
-          "Biological vectors",
-          "Vertical transmission",
-          "Droplet nuclei"
+          "Vectors",
+          "Aerosol",
+          "Placenta"
         ],
         "a": 0,
         "e": "Fomites are contaminated inanimate objects. Milking machines, for example, spread contagious mastitis pathogens between cows.",
@@ -1487,9 +1475,9 @@ var quizBank = {
         "q": "The virulence of a pathogen is quantitatively expressed as the",
         "o": [
           "LD50 or ID50 — the dose that kills or infects 50% of test animals",
-          "Minimum inhibitory concentration",
-          "Generation time",
-          "Zone of inhibition"
+          "MIC (Minimum Inhibitory Concentration) arresting in vitro growth",
+          "Generation time — the temporal duration required for cells to double",
+          "Therapeutic index — the ratio of toxic dose to effective cure dose"
         ],
         "a": 0,
         "e": "The lower the LD50 or ID50, the more virulent the strain. MIC measures antibiotic activity, not virulence.",
@@ -1501,9 +1489,9 @@ var quizBank = {
         "q": "Siderophores such as enterobactin increase bacterial virulence by",
         "o": [
           "Scavenging iron from host iron-binding proteins such as transferrin and lactoferrin",
-          "Inhibiting antibody synthesis",
-          "Forming endospores",
-          "Blocking complement activation"
+          "Inhibiting host plasma cell immunoglobulin synthesis by degrading heavy-chain transcripts",
+          "Forming heat-resistant dipicolinate endospores to persist inside host phagolysosomes",
+          "Directly cleaving serum C3b and C5 convertases to block membrane attack complex assembly"
         ],
         "a": 0,
         "e": "Free iron in body fluids is kept extremely low. Siderophores have a higher affinity for iron than host proteins and deliver it to the bacterium for growth.",
@@ -1515,9 +1503,9 @@ var quizBank = {
         "q": "Hyaluronidase, the 'spreading factor' produced by staphylococci, streptococci and clostridia, contributes to virulence by",
         "o": [
           "Hydrolysing the hyaluronic acid of connective tissue ground substance, allowing spread through tissues",
-          "Lysing red blood cells",
-          "Clotting plasma around the organism",
-          "Inhibiting host protein synthesis"
+          "Pore-forming lysis of erythrocyte membranes causing intravascular hemolysis and hemoglobinuria",
+          "Converting host soluble fibrinogen into insoluble fibrin clots around local bacterial clusters",
+          "ADP-ribosylating host Elongation Factor 2 to halt eukaryotic ribosomal protein translation"
         ],
         "a": 0,
         "e": "By breaking down the ground substance of connective tissue, hyaluronidase lets the organism and its toxins spread, as seen in gas gangrene and cellulitis.",
@@ -1543,9 +1531,9 @@ var quizBank = {
         "q": "A toxoid is best defined as",
         "o": [
           "An exotoxin detoxified (e.g., with formalin) that retains its immunogenicity",
-          "An antibody that neutralises a toxin",
-          "The lipid A portion of endotoxin",
-          "A live attenuated toxigenic bacterium"
+          "A purified polyclonal hyperimmune antiserum that neutralizes circulating exotoxin in vivo",
+          "The toxic Lipid A core moiety of Gram-negative bacterial lipopolysaccharide endotoxin",
+          "A genetically modified live-attenuated bacterial strain lacking enterotoxin operons"
         ],
         "a": 0,
         "e": "Toxoids such as tetanus toxoid are harmless but still stimulate protective antitoxin antibodies, giving active immunity.",
@@ -1557,9 +1545,9 @@ var quizBank = {
         "q": "Tetanus antitoxin given to a horse with a deep contaminated wound provides",
         "o": [
           "Immediate passive immunity by neutralising circulating toxin",
-          "Long-lasting active immunity",
-          "Killing of Clostridium tetani in the wound",
-          "Protection through cell-mediated immunity"
+          "Long-lasting active immunity through memory B-cell clonal expansion",
+          "Direct bactericidal killing of vegetative Clostridium tetani cells",
+          "Induction of delayed-type cell-mediated CD8+ T-cell cytotoxicity"
         ],
         "a": 0,
         "e": "Antitoxin is preformed antibody, so protection is immediate but short-lived. Toxoid is given as well to induce long-term active immunity.",
@@ -1571,9 +1559,9 @@ var quizBank = {
         "q": "Vancomycin resistance in enterococci (VRE, vanA type) results from",
         "o": [
           "Replacement of the D-Ala-D-Ala terminus of peptidoglycan precursors with D-Ala-D-Lactate",
-          "Production of a beta-lactamase",
-          "An efflux pump that expels vancomycin",
-          "Methylation of the 23S ribosomal RNA"
+          "Enzymatic hydrolysis of the glycopeptide heptapeptide core by plasmid beta-lactamase",
+          "Constitutive RND-family multi-drug efflux pumps expelling vancomycin across the wall",
+          "Specific N6-dimethylation of adenine A2058 in the 23S ribosomal RNA by erm enzymes"
         ],
         "a": 0,
         "e": "Vancomycin binds the D-Ala-D-Ala terminus. Changing it to D-Ala-D-Lac reduces binding about 1000-fold, so cell wall synthesis continues.",
@@ -1585,9 +1573,9 @@ var quizBank = {
         "q": "Bumblefoot (plantar pododermatitis) in poultry is most commonly caused by",
         "o": [
           "Staphylococcus aureus",
-          "Escherichia coli",
-          "Pasteurella multocida",
-          "Mycoplasma synoviae"
+          "Escherichia coli avian",
+          "Pasteurella multocida A",
+          "Mycoplasma synoviae rod"
         ],
         "a": 0,
         "e": "Bumblefoot is a staphylococcal abscess of the foot pad, usually following injury from rough or wet litter and perches.",
@@ -1613,9 +1601,9 @@ var quizBank = {
         "q": "Bovine pyelonephritis with Gram-positive rods in 'Chinese letter' arrangement in the urine is caused by",
         "o": [
           "Corynebacterium renale",
-          "Corynebacterium pseudotuberculosis",
-          "Trueperella pyogenes",
-          "Rhodococcus equi"
+          "C. pseudotuberculosis",
+          "Trueperella pyogenes rod",
+          "Rhodococcus equi foal"
         ],
         "a": 0,
         "e": "C. renale ascends the urinary tract of cows, causing cystitis and pyelonephritis with blood-tinged urine. Its pili help it attach to the urinary epithelium.",
@@ -1628,8 +1616,8 @@ var quizBank = {
         "o": [
           "Trueperella pyogenes",
           "Streptococcus agalactiae",
-          "Mycoplasma bovis",
-          "Leptospira hardjo"
+          "Mycoplasma bovis agent",
+          "Leptospira hardjo spiro"
         ],
         "a": 0,
         "e": "Summer mastitis is a mixed infection led by Trueperella pyogenes with anaerobes such as Peptoniphilus indolicus. It is spread by flies (Hydrotaea irritans).",
@@ -1642,7 +1630,7 @@ var quizBank = {
         "o": [
           "Actinomyces bovis",
           "Actinobacillus lignieresii",
-          "Nocardia asteroides",
+          "Nocardia asteroides wall",
           "Dermatophilus congolensis"
         ],
         "a": 0,
@@ -1655,9 +1643,9 @@ var quizBank = {
         "q": "Dermatophilus congolensis, the cause of streptothricosis ('lumpy wool', 'rain scald'), shows which characteristic microscopic morphology?",
         "o": [
           "Branching filaments dividing into parallel rows of coccoid zoospores ('railway track' appearance)",
-          "Gram-positive rods in 'Chinese letter' arrangement",
-          "Acid-fast beaded rods",
-          "Bipolar 'safety-pin' rods"
+          "Coryneform Gram-positive pleomorphic club-shaped rods in angular 'Chinese letter' palisades",
+          "Slender beaded acid-fast bacilli in dense serpentine cords stained by Ziehl-Neelsen",
+          "Pleomorphic coccobacilli displaying prominent bipolar safety-pin staining with Giemsa"
         ],
         "a": 0,
         "e": "In Giemsa-stained crusts, the filaments divide transversely and longitudinally into packets of motile coccoid zoospores that look like railway tracks. Prolonged wetting of the skin favours infection.",
@@ -1669,9 +1657,9 @@ var quizBank = {
         "q": "Oedema disease (bowel oedema) of weaned piglets, with oedema of the eyelids and stomach wall and nervous signs, is caused by E. coli strains that produce",
         "o": [
           "Shiga toxin 2e (Stx2e), usually with F18 fimbriae",
-          "Heat-labile enterotoxin (LT) only",
-          "Alpha toxin",
-          "Pertussis-like toxin"
+          "Heat-labile enterotoxin (LT) with K88 (F4) fimbriae",
+          "Alpha hemolysin cytolysin with P fimbrial adhesins",
+          "Dermonecrotic pertussis-like toxin without fimbriae"
         ],
         "a": 0,
         "e": "Stx2e damages vascular endothelium, leading to oedema and neurological signs. F18 fimbriae attach the bacteria to the small intestine after weaning.",
@@ -1683,8 +1671,8 @@ var quizBank = {
         "q": "Which Yersinia species causes 'pseudotuberculosis', with caseous nodules in the liver, spleen and lymph nodes of rodents, birds and ruminants?",
         "o": [
           "Yersinia pseudotuberculosis",
-          "Yersinia pestis",
-          "Yersinia ruckeri",
+          "Yersinia pestis (plague)",
+          "Yersinia ruckeri (enteric)",
           "Yersinia enterocolitica"
         ],
         "a": 0,
@@ -1697,9 +1685,9 @@ var quizBank = {
         "q": "The characteristic 'swarming' growth of Proteus mirabilis on blood agar can be prevented by",
         "o": [
           "Increasing the agar concentration to about 6% or using a medium with bile salts such as MacConkey agar",
-          "Adding penicillin to the medium",
-          "Incubating anaerobically",
-          "Adding 0.5% sodium chloride"
+          "Supplementing with 0.1% chloral hydrate or incorporating 5% whole blood without bile salts",
+          "Lowering the agar concentration to 0.4% to facilitate rapid swarmer differentiation",
+          "Inoculating on potassium tellurite agar under anaerobic incubation at 42 degrees Celsius"
         ],
         "a": 0,
         "e": "Swarming is caused by active flagellar migration over the moist surface. Drier or harder agar and bile salts suppress it, which is useful for obtaining isolated colonies.",
@@ -1711,9 +1699,9 @@ var quizBank = {
         "q": "Progressive atrophic rhinitis of pigs, with turbinate atrophy and twisting of the snout, results from combined infection with Bordetella bronchiseptica and toxigenic",
         "o": [
           "Pasteurella multocida type D",
-          "Glaesserella parasuis",
-          "Mycoplasma hyopneumoniae",
-          "Streptococcus suis"
+          "Glaesserella parasuis type 5",
+          "Mycoplasma hyopneumoniae rod",
+          "Streptococcus suis serotype 2"
         ],
         "a": 0,
         "e": "B. bronchiseptica colonises the nasal mucosa and allows toxigenic P. multocida (mainly type D) to establish. Its dermonecrotic toxin inhibits osteoblasts, causing permanent turbinate atrophy.",
@@ -1725,9 +1713,9 @@ var quizBank = {
         "q": "Vibrio species are characterised as",
         "o": [
           "Curved, comma-shaped, oxidase-positive rods motile by a single polar flagellum",
-          "Spore-forming Gram-positive rods",
-          "Non-motile, oxidase-negative cocci",
-          "Acid-fast branching filaments"
+          "Large, spore-forming, Gram-positive aerobic bacilli with squared truncate ends",
+          "Non-motile, strictly anaerobic, oxidase-negative Gram-negative coccobacilli",
+          "Partially acid-fast, strictly aerobic, branched filamentous actinomycetes"
         ],
         "a": 0,
         "e": "Vibrios are Gram-negative comma-shaped rods with darting motility. They are salt-tolerant and grow on TCBS agar. V. anguillarum causes vibriosis in fish.",
@@ -1740,8 +1728,8 @@ var quizBank = {
         "o": [
           "Neorickettsia risticii",
           "Anaplasma phagocytophilum",
-          "Ehrlichia canis",
-          "Coxiella burnetii"
+          "Ehrlichia canis rickettsia",
+          "Coxiella burnetii organism"
         ],
         "a": 0,
         "e": "N. risticii lives in trematodes of freshwater snails. Horses become infected by accidentally eating aquatic insects (e.g., mayflies) that carry the infected flukes.",
@@ -1753,9 +1741,9 @@ var quizBank = {
         "q": "Non-sporing Gram-negative anaerobes such as Bacteroides and Fusobacterium are intrinsically resistant to aminoglycosides because",
         "o": [
           "Aminoglycoside uptake into the cell depends on oxygen-dependent electron transport",
-          "They produce beta-lactamase",
-          "They possess a thick peptidoglycan wall",
-          "They lack ribosomes"
+          "Constitutive secretion of extended-spectrum metallo-beta-lactamase enzymes",
+          "An exceptionally thick, impermeable peptidoglycan cell wall with tight teichoic cross-links",
+          "Natural absence of 30S ribosomal target subunits and aminoacyl-tRNA binding clefts"
         ],
         "a": 0,
         "e": "Aminoglycosides are actively transported into bacteria by a process requiring aerobic respiration. Obligate anaerobes cannot take them up, so metronidazole or beta-lactams are used instead.",
@@ -3051,7 +3039,6 @@ var quizBank = {
       }
     ]
   },
-
   "unit-2": {
     "mcq": [
       {
@@ -3086,9 +3073,9 @@ var quizBank = {
         "q": "What is the primary carbohydrate constituent of standard Sabouraud Dextrose Agar (SDA) and at what concentration is it routinely formulated?",
         "o": [
           "Dextrose (Glucose) at 4% (40 g/L)",
-          "Dextrose at 1%",
-          "Sucrose at 5%",
-          "Maltose at 10%"
+          "Maltose at 4% (40 g/L) with neutral peptone",
+          "Sucrose at 3% (30 g/L) with sodium chloride",
+          "Lactose at 5% (50 g/L) with beef extract"
         ],
         "a": 0,
         "e": "SDA contains 4% dextrose and 1% peptone with an acidic pH of 5.4–5.6, which favors fungal growth over bacterial proliferation.",
@@ -3100,9 +3087,9 @@ var quizBank = {
         "q": "In the formulation of selective mycology media, what antibiotic is routinely added to inhibit saprophytic environmental contaminant molds without inhibiting dermatophytes?",
         "o": [
           "Cycloheximide (Actidione)",
-          "Chloramphenicol",
-          "Penicillin G",
-          "Gentamicin"
+          "Chloramphenicol broad-spectrum antibiotic",
+          "Gentamicin aminoglycoside antibacterial",
+          "Potassium tellurite metabolic inhibitor"
         ],
         "a": 0,
         "e": "Cycloheximide (0.5 g/L) suppresses fast-growing airborne saprophytic molds (e.g., Rhizopus, Mucor) while dermatophytes remain resistant.",
@@ -3114,9 +3101,9 @@ var quizBank = {
         "q": "In a Lactophenol Cotton Blue (LPCB) mounting solution, what is the exact function of the lactic acid component?",
         "o": [
           "Preserves and clarifies fungal structures by clearing internal cellular debris",
-          "Kills the fungal elements instantly",
-          "Stains the chitin cell wall blue",
-          "Prevents evaporation of the mounting fluid"
+          "Acts as a rapid fungicidal fixative inactivating hazardous viable fungal elements",
+          "Selectively stains the fungal chitinous cell wall dark blue for contrast",
+          "Prevents evaporation and drying of the wet mount during prolonged microscopic exam"
         ],
         "a": 0,
         "e": "In LPCB: phenol kills fungi, lactic acid clears and preserves internal architecture, glycerol prevents drying, and cotton blue stains chitin deep blue.",
@@ -3128,9 +3115,9 @@ var quizBank = {
         "q": "What is the chief diagnostic advantage of Riddell's slide culture technique over a routine wet mount preparation?",
         "o": [
           "Preserves undisturbed spatial arrangements of conidiophores, vesicles, and spore chains intact",
-          "Accelerates fungal growth rate by fourfold",
-          "Differentiates viable from non-viable spores",
-          "Eliminates the requirement for incubator heating"
+          "Accelerates vegetative fungal growth rate by fourfold compared to standard agar plates",
+          "Enhances production of macroconidia by exposing aerial hyphae to elevated oxygen tension",
+          "Eliminates contamination by incorporating selective antifungal inhibitors into slide agar"
         ],
         "a": 0,
         "e": "Slide culture allows molds to sporulate directly between slide and coverslip, preserving fragile spore heads (e.g., Aspergillus, Penicillium) intact.",
@@ -3142,9 +3129,9 @@ var quizBank = {
         "q": "What molecular mechanism of action distinguishes the polyene class of antifungals (e.g., Amphotericin B, Nystatin)?",
         "o": [
           "Direct binding to membrane ergosterol creating trans-membrane ion channels and lethal cytoplasmic leakage",
-          "Inhibition of squalene epoxidase",
-          "Inhibition of 14-alpha-demethylase",
-          "Inhibition of beta-1,3-glucan synthase"
+          "Selective inhibition of fungal squalene epoxidase leading to toxic intracellular squalene accumulation",
+          "Competitive inhibition of fungal cytochrome P450 14-alpha-demethylase blocking ergosterol biosynthesis",
+          "Non-competitive inhibition of beta-1,3-D-glucan synthase preventing structural fungal cell wall synthesis"
         ],
         "a": 0,
         "e": "Amphotericin B binds ergosterol molecules to form hydrophilic transmembrane pores, causing rapid leakage of monovalent ions (K+, Na+) and cell death.",
@@ -3156,9 +3143,9 @@ var quizBank = {
         "q": "Azole antifungals (e.g., Ketoconazole, Itraconazole, Fluconazole) exert their fungistatic action by selectively inhibiting which fungal cytochrome P450 enzyme?",
         "o": [
           "14-alpha-demethylase (CYP51 / ERG11)",
-          "Squalene epoxidase",
-          "Thymidylate synthase",
-          "Topoisomerase II"
+          "Squalene epoxidase (ERG1 monooxygenase)",
+          "Beta-1,3-D-glucan synthase (FKS1 subunit)",
+          "Chitin UDP-acetylglucosaminyltransferase"
         ],
         "a": 0,
         "e": "Azoles inhibit lanosterol 14-alpha-demethylase, depleting ergosterol and accumulating toxic 14-methylated sterols that disrupt membrane function.",
@@ -3170,9 +3157,9 @@ var quizBank = {
         "q": "The echinocandin class of antifungals (e.g., Caspofungin, Micafungin) exerts targeted antifungal therapy by inhibiting which biosynthetic enzyme?",
         "o": [
           "Beta-1,3-D-glucan synthase",
-          "Chitin synthase",
-          "Lanosterol demethylase",
-          "Squalene epoxidase"
+          "Lanosterol 14-alpha-demethylase",
+          "Squalene epoxidase monooxygenase",
+          "Chitin UDP-acetylglucosaminyltransferase"
         ],
         "a": 0,
         "e": "Echinocandins inhibit 1,3-beta-glucan synthase, weakening cell wall integrity and inducing osmotic lysis in Candida and Aspergillus.",
@@ -3184,9 +3171,9 @@ var quizBank = {
         "q": "What phenomenon is defined by a fungus growing as a filamentous mycelial mold at ambient environmental temperature (25°C) and converting into a parasitic yeast phase at mammalian body temperature (37°C)?",
         "o": [
           "Thermal dimorphism",
-          "Pleomorphism",
-          "Heterothallism",
-          "Schizogony"
+          "Morphological pleomorphism",
+          "Phenotypic phase variation",
+          "Heterothallic mating shift"
         ],
         "a": 0,
         "e": "Thermal dimorphism is exhibited by systemic fungal pathogens (Histoplasma, Blastomyces, Coccidioides, Sporothrix): mold in soil, yeast in host tissue.",
@@ -3198,9 +3185,9 @@ var quizBank = {
         "q": "Which clearing reagent is routinely mixed with clinical skin scrapings or hair clippings to dissolve host keratin without destroying fungal hyphae and arthroconidia?",
         "o": [
           "10–20% Potassium hydroxide (KOH)",
-          "70% Ethyl alcohol",
-          "0.1 N Hydrochloric acid",
-          "Concentrated formalin"
+          "70% Isopropanol alcohol solution",
+          "10% Buffered neutral formalin fixative",
+          "0.1 N Hydrochloric acid clearing bath"
         ],
         "a": 0,
         "e": "A 10–20% KOH wet mount hydrolyzes proteinaceous epithelial keratin and cellular debris, leaving alkali-resistant fungal chitin clear for examination.",
@@ -3212,9 +3199,9 @@ var quizBank = {
         "q": "Asexual fungal spores produced by direct fragmentation of septate vegetative hyphae into thick-walled individual rectangular or barrel-shaped cells are:",
         "o": [
           "Arthroconidia (Arthrospores)",
-          "Blastospores",
-          "Chlamydospores",
-          "Sporangiospores"
+          "Blastospores produced by apical budding",
+          "Chlamydospores formed within hyphal segments",
+          "Sporangiospores enclosed in terminal sacs"
         ],
         "a": 0,
         "e": "Arthroconidia form by the disarticulation of vegetative hyphal septa, seen in Coccidioides immitis and dermatophytes in hair shafts.",
@@ -3282,9 +3269,9 @@ var quizBank = {
         "q": "What is the specific antifungal mechanism of action of Griseofulvin in treating clinical dermatophytosis?",
         "o": [
           "Disruption of the mitotic spindle apparatus by binding to fungal tubulin dimers",
-          "Inhibition of chitin synthase",
-          "Direct pore formation in ergosterol membranes",
-          "Inhibition of RNA polymerase"
+          "Inhibition of fungal squalene epoxidase leading to toxic squalene accumulation",
+          "Direct binding to membrane ergosterol forming fatal trans-membrane pore channels",
+          "Competitive inhibition of fungal cytosine deaminase blocking pyrimidine synthesis"
         ],
         "a": 0,
         "e": "Griseofulvin concentrates in newly formed keratin precursor cells and binds to fungal tubulin, disrupting mitotic spindle microtubules and arresting mitosis.",
@@ -3296,9 +3283,9 @@ var quizBank = {
         "q": "Flucytosine (5-fluorocytosine / 5-FC) is converted inside fungal cells into 5-fluorouracil by which fungal-specific enzyme absent in mammalian cells?",
         "o": [
           "Cytosine deaminase",
+          "Thymidylate synthase enzyme",
           "Uracil phosphoribosyltransferase",
-          "Thymidylate kinase",
-          "Ribonucleotide reductase"
+          "Ribonucleotide reductase subunit"
         ],
         "a": 0,
         "e": "Fungi express cytosine deaminase, converting non-toxic 5-FC into 5-fluorouracil (5-FU), which inhibits thymidylate synthase and halts fungal DNA synthesis.",
@@ -3310,9 +3297,9 @@ var quizBank = {
         "q": "Hyphae that lack internal cross-walls (septa), containing continuous multinucleate cytoplasm, are properly termed:",
         "o": [
           "Coenocytic (Aseptate)",
-          "Septate",
-          "Pseudohyphae",
-          "Dimorphic"
+          "Pseudohyphal branching",
+          "Septate with clamp links",
+          "Dimorphic yeast-phase"
         ],
         "a": 0,
         "e": "Coenocytic hyphae (seen in Mucorales such as Rhizopus and Mucor) are broad and lack regular septa, forming continuous multi-nucleated tubes.",
@@ -3324,9 +3311,9 @@ var quizBank = {
         "q": "What optical feature distinguishes pseudohyphae produced by budding yeasts from true fungal hyphae?",
         "o": [
           "Constrictions at branch points and septal junctions with terminal blastoconidia",
-          "Uniform parallel cell walls without constrictions",
-          "Presence of clamp connections",
-          "Absence of any nuclei"
+          "Uniform parallel cell walls lacking septal constrictions with true apical branching",
+          "Dichotomous 45-degree branching hyphae with characteristic clamp connections at septa",
+          "Broad ribbon-like aseptate hyphae devoid of internal septa and lateral blastospores"
         ],
         "a": 0,
         "e": "Pseudohyphae consist of chains of elongated budding blastoconidia that remain attached, exhibiting distinct constrictions at every cell junction.",
@@ -3338,9 +3325,9 @@ var quizBank = {
         "q": "In the CLSI M27 microdilution standard for testing yeasts, what synthetic buffered liquid medium is universally specified?",
         "o": [
           "RPMI-1640 broth buffered with MOPS",
-          "Mueller-Hinton broth",
-          "Brain Heart Infusion broth",
-          "Sabouraud dextrose broth"
+          "Mueller-Hinton broth buffered to pH 7.2",
+          "Brain Heart Infusion broth with dextrose",
+          "Sabouraud dextrose broth with chloramphenicol"
         ],
         "a": 0,
         "e": "CLSI M27-A3 specifies RPMI-1640 buffered to pH 7.0 with morpholinepropanesulfonic acid (MOPS) for reproducible in vitro antifungal MIC determination.",
@@ -3380,9 +3367,9 @@ var quizBank = {
         "q": "What rapid diagnostic screening test differentiates Candida albicans from other Candida species when yeast cells are incubated in mammalian serum at 37°C for 2–3 hours?",
         "o": [
           "Germ tube test (Reynolds-Braude phenomenon)",
-          "India ink preparation",
-          "Urease test",
-          "Sugar assimilation test"
+          "Trehalose fermentation and assimilation assay",
+          "Terminal chlamydospore formation on cornmeal",
+          "Rapid urea hydrolysis in Christensen broth"
         ],
         "a": 0,
         "e": "In serum at 37°C within 2–3 hours, C. albicans produces true germ tubes (slender, parallel-walled hyphal outgrowths lacking constrictions at origin).",
@@ -3394,9 +3381,9 @@ var quizBank = {
         "q": "When cultivated on cornmeal agar supplemented with 1% Tween 80 at 25°C, Candida albicans characteristically develops which diagnostic structures?",
         "o": [
           "Thick-walled spherical terminal chlamydospores",
-          "Arthroconidia in chains",
-          "Endospores inside spherules",
-          "Macroconidia with verrucose walls"
+          "Arthroconidia arranged in alternating chains",
+          "Multicellular spindle-shaped macroconidia",
+          "Endospore-filled giant spherical spherules"
         ],
         "a": 0,
         "e": "Cornmeal agar + Tween 80 stimulates C. albicans to form pseudohyphae with clusters of blastospores and distinctive thick-walled terminal chlamydospores.",
@@ -3408,9 +3395,9 @@ var quizBank = {
         "q": "On differential CHROMagar Candida medium, colonies of Candida albicans characteristically appear:",
         "o": [
           "Light to emerald green",
-          "Deep metallic blue",
-          "Pale pink with whitish borders",
-          "Dark brown to black"
+          "Deep metallic navy blue",
+          "Pale pinkish-cream shade",
+          "Dark chocolate-brown hue"
         ],
         "a": 0,
         "e": "C. albicans cleaves chromogenic beta-galactosidase/hexosaminidase substrates in CHROMagar to produce light green colonies, distinguishing it from C. tropicalis (blue) and C. krusei (pink).",
@@ -3422,9 +3409,9 @@ var quizBank = {
         "q": "Which clinical condition in young poultry (chickens, turkeys) is caused by Candida albicans proliferation, characterized by thick white pseudomembranous 'Turkish towel' lesions in the upper digestive tract?",
         "o": [
           "Crop mycosis ('Sour Crop' or Thrush)",
-          "Brooder pneumonia",
-          "Aspergillosis",
-          "Favus"
+          "Brooder pneumonia (pulmonary aspergillosis)",
+          "Avian favus ('white comb' trichophytosis)",
+          "Infectious coryza (bacterial sinusitis)"
         ],
         "a": 0,
         "e": "Avian candidiasis ('sour crop' or moniliasis) produces corrugated, curd-like diphtheritic patches resembling a Turkish towel on crop and esophageal mucosa.",
@@ -3436,9 +3423,9 @@ var quizBank = {
         "q": "The prominent extracellular virulence structure of Cryptococcus neoformans that repels phagocytosis and is readily demonstrated as a clear halo using India ink is composed of:",
         "o": [
           "Glucuronoxylomannan (GXM) polysaccharide capsule",
-          "Lipoteichoic acid",
-          "Hyaluronic acid",
-          "Poly-D-glutamic acid"
+          "Galactoxylomannan (GalXM) outer capsular sheath",
+          "Peptidoglycan-associated lipoteichoic complex",
+          "Poly-D-glutamic acid antiphagocytic envelope"
         ],
         "a": 0,
         "e": "Cryptococcus neoformans possesses a thick acidic polysaccharide capsule consisting of glucuronoxylomannan (GXM, 90%) and galactoxylomannan (GalXM).",
@@ -3450,9 +3437,9 @@ var quizBank = {
         "q": "What avian environmental reservoir is classical for the high-density accumulation and global dissemination of Cryptococcus neoformans?",
         "o": [
           "Pigeon droppings (guano) and roosting sites",
-          "Duck ponds",
-          "Parrot feather dander",
-          "Chicken litter alone"
+          "Decomposing oak leaves and damp pine forest mulch",
+          "Standing stagnant pond water and aquatic vegetation",
+          "Commercial poultry brooder litter and poultry dust"
         ],
         "a": 0,
         "e": "Pigeon droppings contain abundant creatinine, urea, and salts that favor C. neoformans growth without sickening the birds (whose 42°C body temp protects them).",
@@ -3464,9 +3451,9 @@ var quizBank = {
         "q": "On Birdseed agar (Staib agar / Guizotia abyssinica seed agar), Cryptococcus neoformans develops dark brown to black colonies due to the activity of which enzyme?",
         "o": [
           "Phenoloxidase (Laccase) converting caffeic acid into melanin",
-          "Urease",
-          "Coagulase",
-          "Amylase"
+          "Urease hydrolyzing urea into ammonia and carbon dioxide",
+          "Nitrate reductase converting nitrate into reactive nitrites",
+          "Coagulase catalyzing mammalian plasma fibrin clotting"
         ],
         "a": 0,
         "e": "C. neoformans expresses laccase (phenoloxidase), an essential virulence factor that oxidizes diphenolic compounds (caffeic acid) into protective melanin pigment.",
@@ -3478,9 +3465,9 @@ var quizBank = {
         "q": "Which clinical manifestation of Cryptococcus neoformans infection is classical in domestic cats?",
         "o": [
           "Nasal granulomas producing firm subcutaneous bridge-of-the-nose swelling ('Roman nose')",
-          "Severe chronic diarrhea",
-          "Profuse generalized skin scaling without swelling",
-          "Crepitant muscle gangrene"
+          "Severe chronic ulcerative gastroenteritis with intractable hemorrhagic diarrhea",
+          "Generalized symmetrical alopecia and extensive cutaneous scaling without swelling",
+          "Acute suppurative polyarthritis causing severe crepitant hindlimb lameness"
         ],
         "a": 0,
         "e": "Feline cryptococcosis primarily invades the nasal cavity, causing chronic mucopurulent discharge, polypoid nasal masses, and firm facial swelling ('Roman nose').",
@@ -3492,9 +3479,9 @@ var quizBank = {
         "q": "Which characteristic unipolar-budding, lipophilic yeast exhibits a classic 'peanut', 'footprint', or 'bottle' shape and is a primary cause of canine otitis externa and pruritic dermatitis?",
         "o": [
           "Malassezia pachydermatis",
-          "Candida albicans",
-          "Cryptococcus neoformans",
-          "Trichosporon beigelii"
+          "Candida albicans blastospore",
+          "Cryptococcus neoformans yeast",
+          "Trichosporon beigelii fungus"
         ],
         "a": 0,
         "e": "Malassezia pachydermatis is a commensal of canine skin and ears; overgrowth produces pruritic, greasy, malodorous dermatitis and otitis with classic footprint-shaped budding yeasts.",
@@ -3506,9 +3493,9 @@ var quizBank = {
         "q": "Unlike most other Malassezia species (e.g., M. furfur), Malassezia pachydermatis is unique in that it:",
         "o": [
           "Is non-lipid-dependent and can grow on routine Sabouraud Dextrose Agar without olive oil supplementation",
-          "Requires long-chain fatty acid supplementation for any in vitro growth",
-          "Forms abundant ascospores",
-          "Lacks a cell wall entirely"
+          "Has an absolute dietary requirement for C12–C24 long-chain fatty acids provided by olive oil overlay",
+          "Produces true septate hyphae branching at 45-degree angles with terminal echinulate conidia in pairs",
+          "Forms endogenously produced sexual ascospores inside spherical asci following hyphal conjugation"
         ],
         "a": 0,
         "e": "M. pachydermatis can synthesize its own fatty acids, allowing it to grow on plain SDA, unlike lipid-obligate species (M. furfur, M. sympodialis) requiring lipid overlays.",
@@ -3520,9 +3507,9 @@ var quizBank = {
         "q": "Which opportunistic filamentous mold produces septate hyphae branching dichotomously at acute 45° angles and causes 'Brooder Pneumonia' in poultry chicks?",
         "o": [
           "Aspergillus fumigatus",
-          "Rhizopus microsporus",
-          "Mucor circinelloides",
-          "Candida albicans"
+          "Rhizopus microsporus mold",
+          "Mucor circinelloides mycelium",
+          "Candida albicans pseudohypha"
         ],
         "a": 0,
         "e": "Aspergillus fumigatus produces slender (3–5 um) septate hyphae with progressive 45-degree branching, causing acute mycotic pneumonia and yellow nodular lung granulomas in brooder chicks.",
@@ -3534,9 +3521,9 @@ var quizBank = {
         "q": "What microscopic conidial head morphology is characteristic of Aspergillus fumigatus?",
         "o": [
           "Dome-shaped terminal vesicle with a single row of phialides (uniseriate) restricted to the upper two-thirds, bearing green columnar chains of conidia",
-          "Biseriate phialides radiating 360 degrees around a globose vesicle",
-          "Branched penicillus resembling a paint brush",
-          "Terminal sporangium with an apophysis"
+          "Globose terminal vesicle completely covered by biseriate phialides radiating 360 degrees around, bearing jet-black conidial chains",
+          "Branched, brush-like penicillus consisting of metulae and phialides producing radiating chains of spherical blue-green conidia",
+          "Terminal spherical sporangium supported by a distinct apophysis and columella, releasing non-motile rectangular sporangiospores"
         ],
         "a": 0,
         "e": "A. fumigatus conidiophores terminate in a conical to dome-shaped vesicle with uniseriate phialides covering the upper half to two-thirds, producing compact columnar spore chains.",
@@ -3548,9 +3535,9 @@ var quizBank = {
         "q": "Guttural Pouch Mycosis in equids is most commonly caused by which opportunistic fungal pathogen eroding the internal carotid artery?",
         "o": [
           "Aspergillus species (primarily Aspergillus fumigatus / A. nidulans)",
-          "Candida albicans",
-          "Cryptococcus neoformans",
-          "Fusarium solani"
+          "Candida species (principally Candida albicans and Candida tropicalis)",
+          "Cryptococcus species (principally Cryptococcus neoformans capsular)",
+          "Fusarium species (principally Fusarium solani and Fusarium oxysporum)"
         ],
         "a": 0,
         "e": "Aspergillus plaques on the caudodorsal roof of the guttural pouch invade the internal or external carotid arteries, precipitating fatal epistaxis (nasal bleeding).",
@@ -3562,9 +3549,9 @@ var quizBank = {
         "q": "In cattle, mycotic abortion occurring during the third trimester is most frequently associated with hematogenous placentitis caused by:",
         "o": [
           "Aspergillus fumigatus",
-          "Malassezia pachydermatis",
-          "Histoplasma capsulatum",
-          "Blastomyces dermatitidis"
+          "Rhizopus arrhizus mold",
+          "Absidia corymbifera fungus",
+          "Candida albicans yeast"
         ],
         "a": 0,
         "e": "Aspergillus fumigatus accounts for >60–75% of bovine mycotic abortions; fungal hyphae invade maternal caruncles and fetal cotyledons, causing thickened leathery placentitis.",
@@ -3576,9 +3563,9 @@ var quizBank = {
         "q": "What microscopic feature clearly distinguishes members of the order Mucorales (e.g., Rhizopus, Mucor, Lichtheimia) from Aspergillus in histological tissue sections?",
         "o": [
           "Broad (6–15 um), irregular, non-septate (coenocytic) ribbon-like hyphae branching at wide angles (approx. 90°)",
-          "Narrow (3–5 um) regularly septate hyphae branching at 45°",
-          "Spherical broad-based budding yeasts",
-          "Small intracellular yeast clusters in macrophages"
+          "Slender (2–4 um), regularly septate, parallel-walled hyphae branching dichotomously at acute 45-degree angles",
+          "Large (8–15 um) round double-contoured yeast cells displaying unipolar single broad-based daughter budding",
+          "Small (2–4 um) oval intracellular yeast clusters packed within the cytoplasm of circulating macrophages"
         ],
         "a": 0,
         "e": "Mucorales hyphae are broad, pleomorphic, thin-walled, non-septate ribbons that branch irregularly at 90-degree angles and show intense angioinvasion and infarction.",
@@ -3590,9 +3577,9 @@ var quizBank = {
         "q": "Which anatomical structure is present in Rhizopus species that differentiates it microscopically from Mucor?",
         "o": [
           "Root-like rhizoids situated directly opposite the unbranched sporangiophores",
-          "Uniseriate phialides on a vesicle",
-          "Sterigmata bearing basidiospores",
-          "Terminal chlamydospores in chains"
+          "Rhizoids situated midway between sporangiophores in an internodal arrangement",
+          "Uniseriate phialides covering the upper two-thirds of a dome-shaped vesicle",
+          "Terminal spherical chlamydospores arranged in solitary intercalary chains"
         ],
         "a": 0,
         "e": "Rhizopus possesses root-like rhizoids arising at nodes directly opposite the sporangiophores, whereas Mucor completely lacks rhizoids and stolons.",
@@ -3604,9 +3591,9 @@ var quizBank = {
         "q": "Mycotic rumenitis in feedlot cattle commonly occurs secondary to which predisposing metabolic condition?",
         "o": [
           "Acute lactic ruminal acidosis (grain overload)",
-          "Hypocalcemia (milk fever)",
-          "Bovine ketosis",
-          "Hypomagnesemia (grass tetany)"
+          "Severe hypocalcemic parturient paresis (milk fever)",
+          "Subclinical hepatic ketosis and negative energy balance",
+          "Acute hypomagnesemic tetany following lush pasture grazing"
         ],
         "a": 0,
         "e": "Lactic acidosis damages the ruminal stratified squamous epithelium, allowing ingested Mucorales and Aspergillus spores to invade blood vessels, causing thrombosis and necrosis.",
@@ -3646,9 +3633,9 @@ var quizBank = {
         "q": "Which non-invasive serological biomarker test detects fungal cell wall galactomannan antigen in serum for the early diagnosis of invasive aspergillosis?",
         "o": [
           "Platelia Aspergillus sandwich ELISA",
-          "Coggins AGID test",
-          "Rose Bengal test",
-          "Microscopic Agglutination Test"
+          "Aspergillus lateral flow galactomannan assay",
+          "Indirect hemagglutination antibody test",
+          "Agar gel immunodiffusion precipitation test"
         ],
         "a": 0,
         "e": "The serum galactomannan ELISA detects circulating fungal cell wall polysaccharide released by Aspergillus hyphae during angioinvasion.",
@@ -3674,9 +3661,9 @@ var quizBank = {
         "q": "Which pigment produced by Aspergillus niger produces dense, jet-black conidial heads that obscure the underlying vesicle?",
         "o": [
           "Aspergilline (melanin-like black pigment)",
-          "Pyocyanin",
-          "Prodigiosin",
-          "Rhodotorulic acid"
+          "Pyocyanin phenazine blue-green pigment",
+          "Prodigiosin tripyrrole red chromophore",
+          "Rhodotorulic acid hydroxamate siderophore"
         ],
         "a": 0,
         "e": "Aspergillus niger produces biseriate phialides with dense, carbon-black conidia covering the entire spherical vesicle.",
@@ -3688,9 +3675,9 @@ var quizBank = {
         "q": "The primary mode of transmission of Cryptococcus neoformans into companion animals and humans is:",
         "o": [
           "Inhalation of aerosolized basidiospores or desiccated, poorly encapsulated yeast cells",
-          "Direct skin contact with infected animal scabs",
-          "Ingestion of contaminated meat",
-          "Bite of Ixodes ticks"
+          "Percutaneous direct inoculation from handling abrasive infected animal scabs",
+          "Ingestion of unpasteurized colostrum or contaminated raw offal tissues",
+          "Transmission via mechanical vectors like hematophagous Stomoxys flies"
         ],
         "a": 0,
         "e": "Inhalation of small (1–2 um) unencapsulated yeasts or basidiospores from pigeon roosts into the respiratory tract initiates cryptococcal infection.",
@@ -3716,9 +3703,9 @@ var quizBank = {
         "q": "What microscopic morphology characterizes the macroconidia of Microsporum canis on Lactophenol Cotton Blue mounts?",
         "o": [
           "Spindle-shaped, thick-walled, rough (verrucose) with a curved asymmetrical terminal knob and 6–12 internal cells",
-          "Smooth-walled, thin-walled, cigar-shaped with 2–5 cells",
-          "Globose single-celled microconidia in grape-like clusters",
-          "Barrel-shaped alternating arthrospores"
+          "Cigar-shaped, smooth, thin-walled macroconidia with 2–6 internal septa and blunt rounded distal extremities",
+          "Club-shaped or pyriform microconidia arranged in prominent grape-like clusters alongside coiled spiral hyphae",
+          "Ellipsoidal, moderately thin-walled, symmetrical macroconidia with 4–6 cells lacking a curved terminal beak"
         ],
         "a": 0,
         "e": "M. canis produces large spindle-shaped macroconidia with thick, distinctly echinulate/verrucose walls, >6 internal septa, and a terminal curved knob.",
@@ -3772,9 +3759,9 @@ var quizBank = {
         "q": "Which microscopic feature is characteristic of Trichophyton mentagrophytes in culture?",
         "o": [
           "Abundant spherical microconidia arranged in grape-like clusters alongside spiral hyphae",
-          "Giant spindle-shaped rough macroconidia with 12 cells",
-          "Thick-walled tuberculate macroconidia",
-          "Large endospore-filled spherules"
+          "Giant spindle-shaped rough-walled macroconidia bearing 6 to 12 transverse internal septa",
+          "Large spherical thick-walled tuberculate macroconidia covered with finger-like projections",
+          "Giant thick-walled double-contoured spherules packed tightly with small internal endospores"
         ],
         "a": 0,
         "e": "T. mentagrophytes produces innumerable spherical microconidia in dense clusters, spiral hyphal coils, and smooth, thin-walled cigar-shaped macroconidia.",
@@ -3786,9 +3773,9 @@ var quizBank = {
         "q": "What diagnostic hair test differentiates Trichophyton mentagrophytes (positive) from Trichophyton rubrum (negative)?",
         "o": [
           "In vitro hair perforation test (forming wedge-shaped transverse perforations)",
-          "Wood's lamp fluorescence",
-          "Germ tube test",
-          "India ink mount"
+          "Wood's lamp bright yellow-green fluorescence test under 365 nm ultraviolet light",
+          "Christensen urea agar hydrolysis test evaluated after four hours of incubation",
+          "Growth tolerance assay on Sabouraud agar supplemented with 5% sodium chloride"
         ],
         "a": 0,
         "e": "T. mentagrophytes produces wedge-shaped conical perforations penetrating perpendicular to the hair shaft in vitro, while T. rubrum merely erodes the hair surface.",
@@ -3800,9 +3787,9 @@ var quizBank = {
         "q": "Dermatophyte Test Medium (DTM) indicates the growth of a dermatophyte by changing color from yellow to bright red due to which biochemical process?",
         "o": [
           "Preferential utilization of peptones/proteins producing alkaline amine metabolites that raise the pH",
-          "Vigorous acid fermentation of dextrose lowering the pH",
-          "Direct reduction of potassium tellurite into black tellurium",
-          "Production of hydrogen sulfide reacting with iron"
+          "Vigorous aerobic fermentation of dextrose producing lactic and acetic acids that rapidly lower the pH",
+          "Reduction of soluble potassium tellurite into insoluble black metallic tellurium deposits in the agar",
+          "Enzymatic cleavage of sodium thiosulfate generating hydrogen sulfide gas that reacts with iron citrate"
         ],
         "a": 0,
         "e": "Dermatophytes preferentially consume proteins, releasing alkaline ammonium ions that shift the phenol red indicator from yellow to red within 3–7 days.",
@@ -3814,9 +3801,9 @@ var quizBank = {
         "q": "In ectothrix hair invasion by dermatophytes, where do the arthroconidia accumulate relative to the host hair shaft?",
         "o": [
           "Forming a dense sheath or crust on the external outer surface of the hair shaft while hyphae penetrate within",
-          "Confined strictly inside the internal hair medulla without outer surface growth",
-          "Exclusively within the dermal papilla",
-          "Within the sebaceous gland lumen only"
+          "Multiplying exclusively within the internal hair cortex and medulla with no arthroconidia on the shaft exterior",
+          "Localizing strictly inside the dermal sheath of the hair follicle without ever breaching the follicular lumen",
+          "Colonizing exclusively the sebaceous gland ducts without invading or disrupting the keratin of the hair shaft"
         ],
         "a": 0,
         "e": "Ectothrix fungi (e.g., M. canis, T. verrucosum) produce arthroconidia on the exterior surface of the hair shaft, destroying the cuticle; endothrix spores stay internal.",
@@ -3842,9 +3829,9 @@ var quizBank = {
         "q": "What diagnostic macroconidial structure is produced by the mycelial phase of Histoplasma capsulatum when grown at 25°C on Sabouraud agar?",
         "o": [
           "Large, spherical, thick-walled macroconidia covered with finger-like projections (tuberculate macroconidia)",
-          "Smooth-walled cigar-shaped macroconidia",
-          "Spindle-shaped macroconidia with a terminal knob",
-          "Flask-shaped phialides with collarettes"
+          "Cigar-shaped, smooth-walled macroconidia with 3 to 5 internal cells borne singly on short conidiophores",
+          "Spindle-shaped, thick-walled, rough macroconidia terminating in a prominent recurved asymmetrical knob",
+          "Flask-shaped phialides with distinct flaring collarettes producing uniseriate chains of smooth conidia"
         ],
         "a": 0,
         "e": "At 25°C, H. capsulatum produces characteristic large (8–15 um) tuberculate macroconidia with prominent rounded, finger-like projections.",
@@ -3856,9 +3843,9 @@ var quizBank = {
         "q": "Blastomyces dermatitidis is microscopically recognized in purulent tissue exudates by which morphological feature?",
         "o": [
           "Large (8–15 um) spherical yeasts with a thick double-contoured wall and a broad-based single bud",
-          "Small intracellular oval yeasts inside monocytes",
-          "Endospore-filled giant spherules",
-          "Multiple narrow-based budding yeast cells resembling a pilot's wheel"
+          "Small (2–4 um) oval intracellular yeast cells clustering densely inside host mononuclear phagocytes",
+          "Thick-walled giant spherules (20–100 um) containing dozens to hundreds of spherical endospores inside",
+          "Round mother yeasts surrounded by multiple narrow-based daughter buds producing a mariner's wheel pattern"
         ],
         "a": 0,
         "e": "B. dermatitidis yeasts possess a thick refractile double wall and form daughter buds connected by a broad, flat neck of attachment.",
@@ -3870,9 +3857,9 @@ var quizBank = {
         "q": "Which dimorphic fungal pathogen endemic to arid alkaline desert soils produces thick-walled spherules (20–100 um) filled with endospores inside infected animal tissues?",
         "o": [
           "Coccidioides immitis (and C. posadasii)",
-          "Histoplasma capsulatum",
-          "Blastomyces dermatitidis",
-          "Sporothrix schenckii"
+          "Histoplasma capsulatum var. capsulatum",
+          "Blastomyces dermatitidis yeast phase",
+          "Sporothrix schenckii complex mold"
         ],
         "a": 0,
         "e": "In tissue, inhaled barrel-shaped arthroconidia of Coccidioides enlarge into giant thick-walled spherules filled with hundreds of internal endospores.",
@@ -3884,9 +3871,9 @@ var quizBank = {
         "q": "What morphological spore type is produced by the saprophytic mycelial phase of Coccidioides immitis in the environment or on culture media, representing an extreme biohazard?",
         "o": [
           "Barrel-shaped, alternating arthroconidia separated by clear empty disjunctor cells",
-          "Tuberculate macroconidia",
-          "Sporangiospores inside a columella",
-          "Blastospores in clusters"
+          "Large, spherical tuberculate macroconidia with distinct finger-like surface pegs",
+          "Terminal spherical sporangiospores enclosed in a persistent membranous columella",
+          "Pyriform microconidia arranged in dense clusters along delicate branching hyphae"
         ],
         "a": 0,
         "e": "Coccidioides hyphae fragment into barrel-shaped arthroconidia separated by thin, non-viable disjunctor cells; these airborne arthrospores are highly infectious BSL-3 agents.",
@@ -3912,9 +3899,9 @@ var quizBank = {
         "q": "What is the microscopic morphology of Sporothrix schenckii in its mold phase grown at 25°C?",
         "o": [
           "Slender, delicate conidiophores bearing clusters of tear-shaped or oval conidia arranged like a 'flower' or 'rosette'",
-          "Large tuberculate macroconidia",
-          "Spindle-shaped multi-septate macroconidia",
-          "Broad ribbon-like aseptate hyphae"
+          "Thick conidiophores bearing large spherical macroconidia covered with prominent finger-like tuberculate projections",
+          "Rough-walled, thick spindle-shaped multicellular macroconidia terminating in a prominent recurved asymmetrical beak",
+          "Broad, ribbon-like, aseptate hyphae branching at wide right angles with terminal sporangia and rudimentary rhizoids"
         ],
         "a": 0,
         "e": "At 25°C, S. schenckii produces delicate hyphae with conidiophores bearing clusters of conidia on denticles resembling a daisy head or rosette.",
@@ -3926,9 +3913,9 @@ var quizBank = {
         "q": "In histological sections of feline sporotrichosis, the parasitic yeast cells of Sporothrix schenckii classically appear as:",
         "o": [
           "Pleomorphic, elongated, round to oval 'cigar-shaped' budding yeasts",
-          "Giant round spherules filled with endospores",
-          "Chains of square arthroconidia",
-          "Large broad-based budding spherical yeasts"
+          "Giant thick-walled spherules containing numerous globular endospores",
+          "Square or barrel-shaped arthroconidia arranged in alternating chains",
+          "Large double-contoured spherical yeast cells with broad-based buds"
         ],
         "a": 0,
         "e": "S. schenckii tissue yeasts (especially abundant in domestic cats) are characteristically elongated, oval to cigar-shaped budding cells (2–6 um).",
@@ -3940,9 +3927,9 @@ var quizBank = {
         "q": "Rhinosporidiosis in cattle, horses, and dogs is characterized by large, friable, strawberry-like polypoid growths on the nasal mucosa, caused by Rhinosporidium seeberi, which is taxonomically classified as a:",
         "o": [
           "Mesomycetozoan (Ichthyosporean protist)",
-          "True Ascomycete fungus",
-          "Zygomycete mold",
-          "Basidiomycete yeast"
+          "Ascomycetous dimorphic fungal pathogen",
+          "Mucoralean coenocytic opportunistic mold",
+          "Basidiomycetous encapsulated yeast fungus"
         ],
         "a": 0,
         "e": "Molecular phylogenetic analysis of 18S rDNA demonstrated that Rhinosporidium seeberi is an aquatic mesomycetozoan fish parasite, not a true fungus.",
@@ -3954,9 +3941,9 @@ var quizBank = {
         "q": "In histological biopsy sections of nasal polyps from an animal with rhinosporidiosis, what pathognomonic structures are visualized?",
         "o": [
           "Giant, thick-walled sporangia (up to 350 um in diameter) containing thousands of mature and immature endospores",
-          "Tiny intracellular yeasts inside macrophages",
-          "Broad non-septate hyphae invading arteries",
-          "Multiple branching sulfur granules"
+          "Clusters of tiny oval yeast cells (2–4 um) packed intracellularly within splenic and hepatic macrophages",
+          "Broad, coenocytic ribbon-like hyphae showing marked angioinvasion and severe acute vascular thrombosis",
+          "Branching filamentous bacterial microcolonies enclosed in radiating eosinophilic Splendore-Hoeppli clubs"
         ],
         "a": 0,
         "e": "Rhinosporidium seeberi develops enormous mature sporangia (100–350 um) filled with up to 16,000 endospores, which exit through an apical pore.",
@@ -3968,9 +3955,9 @@ var quizBank = {
         "q": "Paracoccidioidomycosis (South American blastomycosis) is microscopically diagnosed in tissue exudates by the pathognomonic presence of:",
         "o": [
           "Large round yeast cells with multiple peripheral daughter buds resembling a 'ship's wheel' or 'mariner's wheel'",
-          "Intracellular yeasts in monocytes",
-          "Cigar-shaped yeasts inside asteroid bodies",
-          "Chains of macroconidia"
+          "Small (2–4 um) oval intracellular yeasts densely packed within the cytoplasm of reticuloendothelial monocytes",
+          "Elongated, pleomorphic cigar-shaped budding yeast cells surrounded by radiating eosinophilic asteroid bodies",
+          "Chains of alternating barrel-shaped arthroconidia separated by fragile, empty non-staining disjunctor cells"
         ],
         "a": 0,
         "e": "Paracoccidioides brasiliensis produces a large central yeast surrounded by multiple narrow-necked radiating buds, resembling a ship's steering wheel.",
@@ -4052,9 +4039,9 @@ var quizBank = {
         "q": "Which estrogenic mycotoxin produced by Fusarium graminearum in moldy corn causes hyperestrogenism, swollen vulva, vaginal prolapse, and infertility in prepubertal gilts?",
         "o": [
           "Zearalenone (F-2 toxin)",
-          "Fumonisin B1",
-          "Ochratoxin A",
-          "T-2 toxin"
+          "Fumonisin B1 sphingosine analog",
+          "Ochratoxin A nephrotoxin moiety",
+          "T-2 trichothecene sesquiterpene"
         ],
         "a": 0,
         "e": "Zearalenone binds host cytoplasmic estrogen receptors with high affinity, inducing clinical estrus, vulvovaginitis, mammary enlargement, and rectal prolapse in pigs.",
@@ -4066,9 +4053,9 @@ var quizBank = {
         "q": "Equine Leukoencephalomalacia (ELEM), characterized by liquefactive necrosis of the cerebral white matter, blindness, head pressing, and death in horses, is caused by ingestion of corn contaminated with:",
         "o": [
           "Fumonisin B1 (produced by Fusarium verticillioides)",
-          "Aflatoxin B1",
-          "Ergot alkaloids",
-          "Sporidesmin"
+          "Aflatoxin B1 (produced by Aspergillus flavus strains)",
+          "Ergotamine (produced by Claviceps purpurea sclerotia)",
+          "Sporidesmin A (produced by Pithomyces chartarum mold)"
         ],
         "a": 0,
         "e": "Fumonisin B1 inhibits ceramide synthase, disrupting sphingolipid metabolism in equine cerebral vascular endothelium, causing edema, liquefactive malacia, and death.",
@@ -4080,9 +4067,9 @@ var quizBank = {
         "q": "In swine, ingestion of Fumonisin B1-contaminated corn causes which pathognomonic acute cardiopulmonary condition?",
         "o": [
           "Porcine Pulmonary Edema (PPE) and hydrothorax",
-          "Diamond skin disease",
-          "Necrotic laryngitis",
-          "Proliferative enteropathy"
+          "Diamond skin lesions (Erysipelothrix septicemia)",
+          "Necrotic laryngitis and mucosal croupous casts",
+          "Proliferative enteropathy and ileal hemorrhage"
         ],
         "a": 0,
         "e": "Fumonisins induce acute left-sided heart failure and pulmonary hypertension in pigs, leading to fatal acute pulmonary edema and heavy hydrothorax.",
@@ -4108,9 +4095,9 @@ var quizBank = {
         "q": "Ochratoxin A, produced primarily by Aspergillus ochraceus and Penicillium verrucosum in stored cereal grains, acts as a primary target toxin for which organ?",
         "o": [
           "Kidney (inducing porcine nephropathy and proximal tubular degeneration)",
-          "Heart",
-          "Brain",
-          "Skeletal muscle"
+          "Heart (causing myocardial necrosis and acute congestive heart failure)",
+          "Brain (inducing extensive liquefactive necrosis of cerebral white matter)",
+          "Liver (producing massive acute centrilobular necrosis and steatosis)"
         ],
         "a": 0,
         "e": "Ochratoxin A is primarily nephrotoxic; it impairs phenylalanine-tRNA synthetase and promotes lipid peroxidation, causing tubular atrophy and interstitial fibrosis in pigs.",
@@ -4122,9 +4109,9 @@ var quizBank = {
         "q": "Classical Ergotism in cattle grazing parasitized rye or pasture grasses is caused by the sclerotia of Claviceps purpurea producing ergot alkaloids that induce:",
         "o": [
           "Intense peripheral vasoconstriction leading to dry gangrene and sloughing of hooves, ears, and tail tips",
-          "Generalized flaccid motor paralysis",
-          "Severe pulmonary edema and emphysema",
-          "Excessive salivation and sweating alone"
+          "Generalized symmetrical motor paralysis resulting from irreversible blockade of presynaptic acetylcholine",
+          "Acute massive pulmonary edema with marked interstitial emphysema caused by cellular histamine release",
+          "Profound central nervous system depression characterized by prolonged stupor and muscular flaccidity"
         ],
         "a": 0,
         "e": "Ergot alkaloids (ergotamine, ergocristine) stimulate alpha-1 adrenergic receptors, causing persistent peripheral arteriolar spasm, endothelial thrombosis, and ischemic dry gangrene.",
@@ -4164,9 +4151,9 @@ var quizBank = {
         "q": "Pythiosis ('Swamp Cancer', 'Florida Horse Leech', or 'Kunkers') in horses and dogs is caused by Pythium insidiosum, an aquatic organism belonging to the class:",
         "o": [
           "Oomycetes (water molds, stramenopiles)",
-          "Zygomycetes",
-          "Basidiomycetes",
-          "Deuteromycetes"
+          "Zygomycetes (aseptate pinhead molds)",
+          "Basidiomycetes (bracket and mushroom)",
+          "Deuteromycetes (imperfect mold fungi)"
         ],
         "a": 0,
         "e": "Pythium insidiosum is an Oomycete (Kingdom Stramenopila); it possesses cellulose and beta-glucan in its wall but completely lacks chitin and ergosterol.",
@@ -4178,9 +4165,9 @@ var quizBank = {
         "q": "Why are standard antifungal drugs (e.g., Amphotericin B, Fluconazole) completely ineffective in the clinical treatment of Pythium insidiosum infections?",
         "o": [
           "Pythium insidiosum cell membranes contain cholesterol and completely lack ergosterol",
-          "The cell wall excludes all small molecules",
-          "The organism destroys antifungals with metallo-enzymes",
-          "The organism is strictly intracellular"
+          "The thick chitin-cellulose cell wall forms an impenetrable barrier to drug entry",
+          "The organism secretes potent metallo-beta-lactamases that degrade all antifungal azoles",
+          "The pathogen resides strictly inside macrophages where antifungal drugs cannot penetrate"
         ],
         "a": 0,
         "e": "As an Oomycete, P. insidiosum incorporates host or exogenous sterols into its plasma membrane and does NOT synthesize ergosterol, conferring intrinsic resistance to polyenes and azoles.",
@@ -4192,9 +4179,9 @@ var quizBank = {
         "q": "What pathognomonic macroscopic structures are found embedded within the ulcerating, granulomatous cutaneous tracts of horses suffering from pythiosis?",
         "o": [
           "'Kunkers' (hard, irregular, coral-like yellowish-white necrotic masses)",
-          "Sulfur granules containing club-like bacteria",
-          "Black grain eumycetoma granules",
-          "Transparent cystic spherules"
+          "'Sulfur granules' containing dense microcolonies surrounded by clubs",
+          "'Black grains' composed of pigmented dark septate fungal mycelia",
+          "'Medlar bodies' formed by thick-walled muriform brown sclerotic cells"
         ],
         "a": 0,
         "e": "Kunkers are irregular, coral-like calcified necrotic masses (1–5 cm) composed of degranulated eosinophils, necrotic debris, and embedded Pythium hyphae.",
@@ -4206,9 +4193,9 @@ var quizBank = {
         "q": "Eumycetoma (true fungal mycetoma) is clinically distinguished from actinomycetoma (bacterial mycetoma) by:",
         "o": [
           "Presence of thick, true septate fungal hyphae (>=2–4 um wide) with chlamydospores inside draining tissue granules",
-          "Presence of delicate branching Gram-positive filaments (<1 um wide)",
-          "Rapid acute purulent liquefaction without granules",
-          "Zero subcutaneous swelling"
+          "Presence of delicate, thin branching Gram-positive bacterial filaments (0.5–1.0 um wide) in stained granules",
+          "Rapid acute suppurative liquefactive necrosis of underlying bone without any discernible granular formation",
+          "Diffuse granulomatous tissue inflammation containing exclusively non-staining intracellular acid-fast rods"
         ],
         "a": 0,
         "e": "Eumycetoma granules contain wide (2–6 um) true septate fungal hyphae and swollen chlamydospores, whereas actinomycetoma granules contain thin (<1 um) bacterial filaments.",
@@ -4220,9 +4207,9 @@ var quizBank = {
         "q": "Stachybotryotoxicosis in horses and cattle is caused by Stachybotrys chartarum ('black mold') growing on damp straw, producing which class of toxins?",
         "o": [
           "Macrocyclic trichothecenes (e.g., Satratoxins)",
-          "Aflatoxins",
-          "Ergot alkaloids",
-          "Fumonisins"
+          "Aflatoxin difuranocoumarins (e.g., Aflatoxin B1)",
+          "Ergot peptide alkaloids (e.g., Ergotamine tartrate)",
+          "Fumonisin sphingoid base analogs (e.g., Fumonisin B1)"
         ],
         "a": 0,
         "e": "Stachybotrys chartarum synthesizes macrocyclic trichothecenes (satratoxins G and H) that cause severe mucosal ulceration, hemorrhage, and severe pancytopenia.",
@@ -4234,9 +4221,9 @@ var quizBank = {
         "q": "The tremorgenic mycotoxins (e.g., Penitrem A, Roquefortine C) produced by Penicillium crustosum on moldy garbage and food scraps cause which clinical syndrome in dogs?",
         "o": [
           "Acute muscle tremors, hyperthermia, ataxia, and severe extensor seizures",
-          "Generalized flaccid paralysis",
-          "Profuse bloody diarrhea without neurological signs",
-          "Chronic renal failure"
+          "Generalized flaccid lower motor paralysis accompanied by profound hyporeflexia",
+          "Profuse watery to bloody diarrhea without any detectable neurological involvement",
+          "Chronic progressive renal failure characterized by marked polydipsia and anuria"
         ],
         "a": 0,
         "e": "Penitrem A inhibits calcium-activated potassium channels and GABA transmission, triggering severe muscle tremors, ataxia, paddling, and seizures in dogs.",
@@ -4262,9 +4249,9 @@ var quizBank = {
         "q": "Lupinosis in grazing sheep is a hepatotoxic disease caused by the ingestion of lupin plants infected with the fungus Diaporthe toxica, which produces:",
         "o": [
           "Phomopsins (microtubule-disrupting hexapeptides)",
-          "Aflatoxin B1",
-          "Zearalenone",
-          "Ochratoxin A"
+          "Aflatoxins (potent hepatotoxic difuranocoumarins)",
+          "Zearalenone (resorcylic acid lactone estrogen)",
+          "Ochratoxins (nephrotoxic isocoumarin derivatives)"
         ],
         "a": 0,
         "e": "Diaporthe toxica (formerly Phomopsis leptostromiformis) produces phomopsins that arrest mitosis in hepatic parenchymal cells, causing severe liver atrophy and jaundice.",
@@ -4290,9 +4277,9 @@ var quizBank = {
         "q": "What is the primary pathological lesion observed in poultry suffering from acute aflatoxicosis?",
         "o": [
           "Severe enlarged, pale yellow, friable liver with petechial hemorrhages and bile duct hyperplasia",
-          "Severe pulmonary consolidation with nodules",
-          "Softening and liquefaction of the cerebrum",
-          "Hardened gangrenous comb and wattles"
+          "Extensive bilateral pulmonary consolidation with numerous gray-white granulomatous mycotic nodules",
+          "Focal liquefactive malacia and cavitation of the subcortical white matter in both cerebral hemispheres",
+          "Dry gangrene with ischemic mummification and sloughing of the distal comb, wattles, and digit tips"
         ],
         "a": 0,
         "e": "Aflatoxicosis causes acute hepatic steatosis, centrilobular necrosis, intense bile duct hyperplasia, and coagulopathy in young broilers and ducklings.",
@@ -4304,9 +4291,9 @@ var quizBank = {
         "q": "Slaframine, an indolizidine alkaloid mycotoxin produced by Rhizoctonia leguminicola on red clover ('black patch disease'), causes which characteristic clinical sign in horses and cattle?",
         "o": [
           "Copious, uncontrolled salivation ('Slobbers' syndrome)",
-          "Severe alopecia and skin cracking",
-          "Flaccid paralysis of the tongue",
-          "Dry gangrene of the tail tip"
+          "Severe extensive alopecia with hyperkeratotic skin cracking",
+          "Complete flaccid paralysis of the tongue and pharyngeal muscles",
+          "Ischemic dry gangrene and spontaneous sloughing of the tail tip"
         ],
         "a": 0,
         "e": "Slaframine is converted by hepatic metabolism into a potent muscarinic acetylcholine agonist that stimulates extreme exocrine salivary hypersecretion ('slobbers').",
@@ -5219,16 +5206,15 @@ var quizBank = {
       }
     ]
   },
-
   "unit-3": {
     "mcq": [
       {
         "q": "Type II restriction endonucleases are preferred in recombinant DNA technology over Type I and Type III enzymes primarily because they:",
         "o": [
           "Cleave DNA at precise, predictable phosphodiester positions within or immediately adjacent to their specific palindromic recognition sequences without requiring ATP",
-          "Cleave at random non-specific sites several thousand base pairs away",
-          "Require both ATP and S-adenosylmethionine for endonucleolytic activity",
-          "Act solely as exonucleases degrading from the 3' end"
+          "Cleave non-specifically several thousand base pairs away from asymmetrical recognition sequences while consuming stoichiometric ATP",
+          "Require simultaneous interaction with ATP, S-adenosylmethionine, and magnesium ions to cleave variable distances outside target sequences",
+          "Possess intrinsic 5'-to-3' exonuclease activity that progressively digests both strands from terminal nicks without endonucleolytic cleavage"
         ],
         "a": 0,
         "e": "Type II enzymes recognize symmetrical palindromic sequences (4–8 bp) and cleave predictably within them, requiring only Mg2+ as a cofactor without ATP.",
@@ -5240,9 +5226,9 @@ var quizBank = {
         "q": "What is the specific 6-base pair palindromic recognition sequence and cleavage pattern of the classical Type II restriction enzyme EcoRI?",
         "o": [
           "5'-G^AATTC-3' (generating 5' overhang cohesive ends)",
-          "5'-A^AGCTT-3'",
-          "5'-G^GATCC-3'",
-          "5'-CCC^GGG-3'"
+          "5'-A^AGCTT-3' (producing 5' staggered hind-end termini)",
+          "5'-G^GATCC-3' (generating 5' protruding cohesive termini)",
+          "5'-C^CCGGG-3' (producing flush blunt-ended duplex fragments)"
         ],
         "a": 0,
         "e": "EcoRI (isolated from E. coli RY13) cleaves between G and A in 5'-GAATTC-3', producing 4-nucleotide 5' cohesive (sticky) overhangs.",
@@ -5268,9 +5254,9 @@ var quizBank = {
         "q": "In plasmid cloning vectors, the synthetic DNA segment containing closely spaced, unique recognition sites for multiple restriction endonucleases is termed the:",
         "o": [
           "Multiple Cloning Site (MCS or Polylinker)",
-          "Origin of replication (ori)",
-          "Selectable marker cassette",
-          "Promoter-operator region"
+          "Autonomous replication origin sequence (oriC)",
+          "Selectable antibiotic resistance marker gene",
+          "Promoter-operator transcriptional cassette"
         ],
         "a": 0,
         "e": "An MCS (polylinker) provides unique restriction enzyme cleavage sites within the lacZ alpha-peptide gene, allowing flexible insertion of foreign DNA.",
@@ -5282,9 +5268,9 @@ var quizBank = {
         "q": "In blue-white colony screening with pUC series plasmids, why do bacterial colonies containing recombinant plasmids containing inserts appear white on X-gal agar?",
         "o": [
           "Insertional inactivation of the lacZ alpha-peptide gene prevents functional alpha-complementation of beta-galactosidase",
-          "The inserted gene destroys the ampicillin resistance protein",
-          "X-gal is destroyed by bacterial exonucleases",
-          "Foreign DNA prevents uptake of IPTG"
+          "Physical disruption of the ampicillin resistance (bla) gene prevents enzymatic cleavage of chromogenic indoxyl substrates",
+          "Direct enzymatic destruction of X-gal indicator dye by overexpressed host bacterial exonucleases and alkaline phosphatases",
+          "Exogenous foreign DNA sequences physically block cellular uptake and transport of the gratuitous inducer IPTG into the cytoplasm"
         ],
         "a": 0,
         "e": "Insertion of foreign DNA into the MCS disrupts the lacZ alpha-peptide open reading frame; without alpha-complementation, inactive beta-galactosidase cannot cleave X-gal to form blue indigo.",
@@ -5296,9 +5282,9 @@ var quizBank = {
         "q": "In blue-white screening, what is the exact biochemical function of Isopropyl-beta-D-1-thiogalactopyranoside (IPTG)?",
         "o": [
           "Non-metabolizable gratuitous inducer that binds and inactivates the LacI repressor protein",
-          "Chromogenic substrate that turns blue upon enzymatic cleavage",
-          "Selective antibiotic killing non-transformed bacteria",
-          "Osmotic stabilizer during heat shock"
+          "Chromogenic substrate that yields an insoluble indigo blue dimer following enzymatic cleavage",
+          "Selectable bacteriostatic aminoglycoside antibiotic that selectively kills non-transformed hosts",
+          "High-affinity allosteric corepressor that binds directly to the lac operator to block transcription"
         ],
         "a": 0,
         "e": "IPTG acts as a non-metabolizable gratuitous inducer; it binds the LacI repressor to induce lac promoter transcription without being degraded by beta-galactosidase.",
@@ -5310,9 +5296,9 @@ var quizBank = {
         "q": "What chromogenic substrate is cleaved by active beta-galactosidase in blue-white screening to yield an insoluble 5,5'-dibromo-4,4'-dichloro-indigo blue precipitate?",
         "o": [
           "X-gal (5-bromo-4-chloro-3-indolyl-beta-D-galactopyranoside)",
-          "ONPG",
-          "Fluorescein di-beta-D-galactopyranoside",
-          "NBT/BCIP"
+          "ONPG (ortho-nitrophenyl-beta-D-galactopyranoside yellow dye)",
+          "FDG (fluorescein di-beta-D-galactopyranoside green fluorophore)",
+          "NBT/BCIP (nitro blue tetrazolium with 5-bromo-4-chloroindolyl)"
         ],
         "a": 0,
         "e": "Active beta-galactosidase hydrolyzes X-gal to galactose and a substituted indoxyl monomer that spontaneously dimerizes into an intense blue insoluble indigo dye.",
@@ -5338,9 +5324,9 @@ var quizBank = {
         "q": "To prevent self-ligation of linearized cloning vector plasmids during a recombinant ligation reaction, vectors are pre-treated with which enzyme?",
         "o": [
           "Alkaline phosphatase (e.g., Calf Intestinal Alkaline Phosphatase - CIAP)",
-          "Polynucleotide kinase",
-          "Exonuclease III",
-          "Terminal deoxynucleotidyl transferase"
+          "T4 Polynucleotide kinase adding 5'-phosphates to blunt end vectors",
+          "Exonuclease III digesting single strands from 3'-hydroxyl overhangs",
+          "Terminal deoxynucleotidyl transferase adding homopolymeric tails"
         ],
         "a": 0,
         "e": "Alkaline phosphatase removes 5'-phosphate groups from linearized vector ends; lacking 5'-phosphates, the vector cannot self-ligate, forcing insertion of phosphorylated foreign DNA.",
@@ -5352,9 +5338,9 @@ var quizBank = {
         "q": "What is the maximum theoretical foreign DNA insert capacity of standard plasmid cloning vectors (e.g., pBR322, pUC19)?",
         "o": [
           "Up to 10–15 kilobase pairs (kb)",
-          "Up to 45 kb",
-          "Up to 300 kb",
-          "Up to 2,000 kb"
+          "Up to 35 to 45 kilobase pairs (kb)",
+          "Up to 100 to 300 kilobase pairs (kb)",
+          "Up to 1,000 to 2,000 kilobase pairs"
         ],
         "a": 0,
         "e": "Standard plasmids become unstable and suffer drastically reduced transformation efficiency when inserts exceed 10–15 kb in size.",
@@ -5366,9 +5352,9 @@ var quizBank = {
         "q": "Cosmid cloning vectors are engineered hybrids combining standard plasmid elements with which specialized sequence from bacteriophage lambda?",
         "o": [
           "cos (cohesive end) sites",
-          "attP integration site",
-          "cro gene",
-          "cI repressor gene"
+          "attP phage attachment site",
+          "cro transcriptional operon",
+          "cI repressor promoter locus"
         ],
         "a": 0,
         "e": "Cosmids contain lambda phage cos sites (cohesive ends), enabling them to be packaged in vitro into lambda phage heads with insert capacities of 35–45 kb.",
@@ -5380,9 +5366,9 @@ var quizBank = {
         "q": "What is the typical foreign DNA insert packaging capacity of cosmid vectors?",
         "o": [
           "35 to 45 kilobase pairs (kb)",
-          "5 to 10 kb",
-          "100 to 300 kb",
-          "1,000 to 2,000 kb"
+          "5 to 10 kilobase pairs (kb)",
+          "100 to 300 kilobase pairs",
+          "1,000 to 2,000 kilobases"
         ],
         "a": 0,
         "e": "Lambda phage heads require 37–52 kb of DNA between cos sites; subtracting the 5 kb cosmid vector leaves an insert cloning capacity of 35–45 kb.",
@@ -5394,9 +5380,9 @@ var quizBank = {
         "q": "Bacterial Artificial Chromosomes (BACs), used to clone large genomic fragments (100–300 kb), are constructed based on the low-copy-number replication machinery of which natural plasmid?",
         "o": [
           "Escherichia coli F (Fertility) episome",
-          "ColE1 plasmid",
-          "pSC101",
-          "R100 resistance plasmid"
+          "ColE1 high-copy relaxation plasmid",
+          "pSC101 low-copy partition plasmid",
+          "R100 broad-host conjugative replicon"
         ],
         "a": 0,
         "e": "BACs utilize the parA, parB, and repE replication and partitioning system of the F factor, maintaining strictly 1–2 stable copies per host cell to prevent recombination.",
@@ -5408,9 +5394,9 @@ var quizBank = {
         "q": "Yeast Artificial Chromosomes (YACs) can clone massive DNA fragments (up to 1,000–2,000 kb) because they contain which three essential eukaryotic chromosomal elements?",
         "o": [
           "Centromere (CEN), Telomeres (TEL), and Autonomously Replicating Sequences (ARS / origin)",
-          "Origin, promoter, and enhancer",
-          "Long terminal repeats, gag, and pol",
-          "Histones, nuclear pore, and polyA tail"
+          "Terminal long repeats (LTR), structural gag-pol-env genes, and packaging psi encapsidation signals",
+          "High-copy 2-micron circle origin, strong GAL1 promoter, and downstream alpha-factor secretion leader",
+          "Nuclear localization signal, poly-adenylation cassette, and ubiquitous internal ribosomal entry site"
         ],
         "a": 0,
         "e": "YACs function as linear eukaryotic mini-chromosomes in yeast by incorporating telomeres (TEL), a yeast centromere (CEN), and an origin of replication (ARS).",
@@ -5436,9 +5422,9 @@ var quizBank = {
         "q": "Why does plasmid DNA remain soluble after neutralization with Solution III (3 M potassium acetate, pH 4.8) while genomic chromosomal DNA precipitates?",
         "o": [
           "Covalently closed circular (ccc) plasmid strands remain physically topologically intertwined and rapidly re-anneal, while long linear chromosomal DNA tangles into an insoluble SDS-protein clot",
-          "Plasmids contain no nitrogenous bases",
-          "Chromosomal DNA is degraded into single nucleotides by acetate",
-          "Plasmids migrate out of the tube"
+          "Supercoiled circular plasmid DNA completely lacks exposed phosphodiester termini, preventing denaturing strand dissociation that shatters fragile genomic DNA into basic fragments",
+          "High-molecular-weight chromosomal DNA possesses an elevated adenine-thymine content that irreversibly precipitates below pH 5.0, whereas guanine-rich plasmids remain fully dispersed",
+          "Linearized chromosomal DNA fragments rapidly bind potassium ions to form insoluble crystalline salt chelates, while small circular plasmids stay buoyant in aqueous acetate solution"
         ],
         "a": 0,
         "e": "Topological interlocking of supercoiled circular plasmid strands allows instantaneous re-annealing at acidic pH; linear chromosomal DNA tangles with SDS and potassium to precipitate.",
@@ -5464,9 +5450,9 @@ var quizBank = {
         "q": "What is the standard physical parameters for the brief heat-shock step in transformation of chemically competent E. coli cells?",
         "o": [
           "42°C for 45 to 90 seconds followed by immediate return to ice",
-          "55°C for 5 minutes",
-          "37°C for 30 minutes",
-          "100°C for 10 seconds"
+          "55°C for 5 to 10 minutes followed by room temperature recovery",
+          "37°C for 30 to 45 minutes with continuous vigorous agitation",
+          "65°C for 15 to 30 seconds followed by rapid ethanol quenching"
         ],
         "a": 0,
         "e": "A rapid thermal pulse at 42°C for 45–90 seconds creates transient pores across the calcium-destabilized bacterial membrane through which plasmids enter.",
@@ -5478,9 +5464,9 @@ var quizBank = {
         "q": "Electroporation introduces recombinant DNA into bacterial host cells by applying:",
         "o": [
           "A high-voltage electrical pulse (e.g., 1.8–2.5 kV) for a few milliseconds to create transient membrane micropores",
-          "Continuous low-voltage ultrasonic sound waves",
-          "Intense microwave thermal radiation",
-          "Alternating magnetic polarity shifts"
+          "Continuous low-voltage ultrasonic acoustic cavitation generating transient shear microfissures in bacterial walls",
+          "Intense coherent infrared laser irradiation producing localized photochemical destabilization of outer lipids",
+          "Rapid alternating electromagnetic fields inducing transient polar reorientation of outer membrane phospholipids"
         ],
         "a": 0,
         "e": "Electroporation subjects cells to a brief high-voltage electric field (12.5–15 kV/cm), inducing temporary physical dielectric breakdown and nanopore formation in the membrane.",
@@ -5492,9 +5478,9 @@ var quizBank = {
         "q": "Which enzyme is added to synthetic oligonucleotide linkers or foreign DNA to add single protruding 3'-adenine (A) overhangs for non-restriction 'TA cloning'?",
         "o": [
           "Taq DNA Polymerase (terminal transferase activity)",
-          "Pfu DNA Polymerase",
-          "T4 Polynucleotide Kinase",
-          "Klenow fragment"
+          "Pfu DNA Polymerase (3'-to-5' proofreading domain)",
+          "T4 Polynucleotide Kinase (5'-phosphorylation)",
+          "Klenow Fragment (5'-to-3' template-dependent fill)"
         ],
         "a": 0,
         "e": "Taq polymerase possesses template-independent terminal transferase activity, adding a single non-templated deoxyadenosine (A) to the 3' ends of PCR amplicons for TA cloning.",
@@ -5506,9 +5492,9 @@ var quizBank = {
         "q": "In affinity chromatography purification of recombinant fusion proteins, a 6xHistidine (His-tag) fusion peptide binds specifically to:",
         "o": [
           "Immobilized nickel (Ni2+) or cobalt (Co2+) affinity resin (Ni-NTA)",
-          "Glutathione-agarose beads",
-          "Protein A sepharose",
-          "Avidin-conjugated cellulose"
+          "Cross-linked glutathione-agarose beads via covalent sulfur bonding",
+          "Immobilized recombinant Protein A sepharose high-affinity matrix",
+          "Streptavidin-conjugated magnetic nanoparticles via biotin captures"
         ],
         "a": 0,
         "e": "The imidazole rings of six consecutive histidine residues form coordination bonds with immobilized divalent nickel ions (Ni2+-nitrilotriacetic acid / Ni-NTA).",
@@ -5520,9 +5506,9 @@ var quizBank = {
         "q": "Recombinant proteins expressed with a Glutathione S-Transferase (GST) tag are purified by binding specifically to which immobilized matrix and eluted with which competitor?",
         "o": [
           "Immobilized glutathione matrix and eluted with reduced free glutathione",
-          "Nickel resin eluted with EDTA",
-          "Heparin column eluted with high salt",
-          "Dextran beads eluted with maltose"
+          "Immobilized nickel-NTA agarose matrix and eluted with imidazole gradient",
+          "Cross-linked amylose resin column and eluted with soluble maltose buffer",
+          "Heparin-sepharose cartridge and eluted with increasing sodium chloride"
         ],
         "a": 0,
         "e": "The GST tag binds immobilized reduced glutathione beads; competitive elution with excess free reduced glutathione displaces the recombinant fusion protein.",
@@ -5534,9 +5520,9 @@ var quizBank = {
         "q": "Which expression vector promoter system utilizes IPTG induction to drive ultra-high level transcription via a bacteriophage-specific RNA polymerase?",
         "o": [
           "T7 RNA polymerase / T7 promoter system (e.g., pET vectors in BL21(DE3))",
-          "pUC lac promoter system alone",
-          "SV40 early promoter",
-          "CMV immediate early promoter"
+          "Endogenous E. coli lacUV5 promoter-operator repressed by LacIq peptide",
+          "Bacteriophage lambda pL/pR promoters controlled by cI857 repressor gene",
+          "Mammalian cytomegalovirus (CMV) immediate-early transcriptional promoter"
         ],
         "a": 0,
         "e": "In pET vectors, the gene is under a T7 promoter; IPTG derepresses lacUV5 in BL21(DE3) hosts to express T7 RNA polymerase, which transcribes target mRNA at extreme rates.",
@@ -5548,9 +5534,9 @@ var quizBank = {
         "q": "What is the biological function of the selectable marker gene beta-lactamase (bla / ampR) present on cloning vectors like pBR322?",
         "o": [
           "Confers resistance to ampicillin, allowing only successfully transformed bacteria to form colonies on ampicillin-containing agar",
-          "Hydrolyzes tetracycline to allow selection",
-          "Synthesizes X-gal to turn colonies blue",
-          "Stimulates plasmid DNA replication"
+          "Encodes a multidrug active efflux pump conferring broad cross-resistance to tetracyclines, sulfonamides, and fluoroquinolones",
+          "Synthesizes an exogenous beta-galactosidase subunit that metabolizes chromogenic X-gal substrates into intense blue colonies",
+          "Inactivates host restriction-modification endonucleases, protecting newly transformed plasmid DNA against cellular degradation"
         ],
         "a": 0,
         "e": "The bla gene encodes periplasmic beta-lactamase that degrades ampicillin, killing untransformed plasmid-free bacterial cells during antibiotic selection.",
@@ -5576,9 +5562,9 @@ var quizBank = {
         "q": "What is the primary role of the origin of replication (ori) in a plasmid cloning vector?",
         "o": [
           "Directs the host bacterial DNA replication machinery to initiate autonomous plasmid DNA synthesis and regulates plasmid copy number",
-          "Encodes resistance to kanamycin",
-          "Provides multiple unique cleavage sites for enzymes",
-          "Directs integration into the host chromosome"
+          "Encodes an aminoglycoside phosphotransferase that inactivates kanamycin by transferring a phosphate group to antibiotic molecules",
+          "Provides an engineered synthetic DNA segment containing closely spaced, unique restriction endonuclease cleavage recognition sites",
+          "Encodes a site-specific recombinase enzyme directing stable integration of foreign donor DNA into the host bacterial chromosome"
         ],
         "a": 0,
         "e": "The ori sequence (e.g., pMB1 or ColE1 origin) is recognized by host replication proteins (DnaA, DNA pol III), dictating autonomous replication and copy number.",
@@ -5604,9 +5590,9 @@ var quizBank = {
         "q": "Which enzyme is utilized in recombinant DNA technology to remove single-stranded sticky overhangs or fill in recessed 3' ends to create blunt ends?",
         "o": [
           "Klenow fragment of DNA Polymerase I",
-          "T4 RNA ligase",
-          "Reverse transcriptase",
-          "Taq polymerase alone"
+          "T4 RNA Ligase single-strand enzyme",
+          "Avian myeloblastosis transcriptase",
+          "Thermostable Taq DNA Polymerase"
         ],
         "a": 0,
         "e": "The Klenow fragment retains 5'->3' DNA polymerase and 3'->5' proofreading exonuclease activities but lacks 5'->3' exonuclease, filling in 5' overhangs to blunt ends.",
@@ -5618,9 +5604,9 @@ var quizBank = {
         "q": "What chemical method is routinely employed to precipitate pure nucleic acids from aqueous solutions during mini-preparation protocols?",
         "o": [
           "Addition of 2.0 to 2.5 volumes of ice-cold absolute ethanol (or 0.7 volumes of isopropanol) in the presence of 0.3 M monovalent salt",
-          "Addition of concentrated hydrochloric acid",
-          "Boiling at 100°C for 20 minutes",
-          "Filtration through whatman paper alone"
+          "Addition of 0.5 volumes of 6 M guanidinium thiocyanate followed by rapid boiling at 100°C for twenty minutes to denature nucleases",
+          "Adjusting solution pH to 2.0 with concentrated hydrochloric acid followed by overnight incubation at 4°C to precipitate nucleic acids",
+          "Direct molecular size-exclusion filtration through 0.22-micrometer nitrocellulose membranes in the absence of monovalent counterions"
         ],
         "a": 0,
         "e": "Ethanol/isopropanol lowers the dielectric constant of water, allowing monovalent cations (Na+, K+, NH4+) to neutralize phosphate charges, precipitating DNA.",
@@ -5632,9 +5618,9 @@ var quizBank = {
         "q": "In recombinant protein expression, an inclusion body refers to:",
         "o": [
           "Dense, insoluble aggregates of misfolded recombinant protein accumulating in the host cytoplasm",
-          "A membrane-bound secretory vesicle",
-          "A viral capsid packaging recombinant DNA",
-          "A chromatin clump inside the nucleus"
+          "A membrane-bound secretory vesicle transporting folded recombinant polypeptides to periplasm",
+          "An engineered viral nucleocapsid packaging concatemeric recombinant DNA within host cells",
+          "A dense nuclear heterochromatin condensation locus actively silencing foreign gene expression"
         ],
         "a": 0,
         "e": "High-level overexpression in E. coli often overwhelms host molecular chaperones, causing recombinant polypeptides to aggregate into insoluble inclusion bodies.",
@@ -5646,9 +5632,9 @@ var quizBank = {
         "q": "The Southern blotting technique, invented by Edwin Southern in 1975, involves the transfer and hybridization analysis of which macromolecule?",
         "o": [
           "DNA fragments transferred from an agarose gel to a membrane",
-          "RNA fragments transferred from a denaturing gel",
-          "Proteins transferred from an SDS-PAGE gel",
-          "Lipopolysaccharides transferred from a TLC plate"
+          "RNA fragments transferred from a formaldehyde-agarose gel to a membrane",
+          "Cellular proteins transferred from an SDS-polyacrylamide gel to a membrane",
+          "Lipopolysaccharides resolved by thin-layer chromatography on silica plates"
         ],
         "a": 0,
         "e": "Southern blotting transfers restriction-digested DNA fragments from an agarose gel to a nitrocellulose or nylon membrane, followed by hybridizing with labeled DNA/RNA probes.",
@@ -5660,9 +5646,9 @@ var quizBank = {
         "q": "Why must an agarose gel containing double-stranded DNA fragments be soaked in an alkaline solution (0.5 M NaOH) prior to Southern blot transfer?",
         "o": [
           "To denature double-stranded DNA into single-stranded targets accessible for probe hybridization",
-          "To stain the DNA fragments bright orange",
-          "To fragment the DNA into small oligonucleotides",
-          "To remove agarose from the gel pores"
+          "To hydrolyze excess agarose matrix polymers and increase gel pore diameter for rapid capillary flow",
+          "To covalently cross-link intact double-stranded DNA fragments directly onto the nitrocellulose membrane",
+          "To inactivate residual restriction endonucleases and remove intercalated ethidium bromide dye molecules"
         ],
         "a": 0,
         "e": "Alkaline treatment disrupts hydrogen bonds, converting double-stranded DNA into single-stranded targets that can bind the single-stranded labeled hybridization probe.",
@@ -5688,9 +5674,9 @@ var quizBank = {
         "q": "In Western blotting, proteins resolved by SDS-PAGE are transferred onto which membrane and detected by which specific probes?",
         "o": [
           "PVDF or nitrocellulose membrane, detected by primary and secondary labeled antibodies",
-          "Nylon membrane, detected by radiolabeled cDNA",
-          "Cellulose acetate, detected by Coomassie blue",
-          "Dialysis membrane, detected by ninhydrin"
+          "Positively charged nylon membrane, detected by radiolabeled complementary DNA probes",
+          "Cellulose acetate membrane, detected by chromogenic Coomassie brilliant blue staining",
+          "Dialysis membrane sheet, detected by ninhydrin reagent reacting with free amino acids"
         ],
         "a": 0,
         "e": "Western blotting transfers proteins from SDS-PAGE to PVDF or nitrocellulose membranes, using specific antibodies (primary antibody + enzyme-conjugated secondary antibody) for detection.",
@@ -5702,9 +5688,9 @@ var quizBank = {
         "q": "What is the primary function of the blocking step (e.g., using 5% non-fat dry milk or bovine serum albumin) in Western blotting protocols?",
         "o": [
           "To saturate unreacted non-specific protein-binding sites on the membrane, preventing non-specific antibody background binding",
-          "To denature the transferred target proteins",
-          "To fix the proteins covalently to the membrane",
-          "To inactivate the secondary antibody enzyme conjugate"
+          "To chemically denature transferred target proteins and permanently expose buried antigenic epitope domains",
+          "To covalently cross-link the transferred polypeptides directly to reactive chemical groups on the membrane",
+          "To irreversibly inhibit endogenous phosphatase and peroxidase enzymes before adding detection reagents"
         ],
         "a": 0,
         "e": "Blocking prevents non-specific adsorption of antibodies to free membrane binding sites, eliminating background noise and false-positive signals.",
@@ -5730,9 +5716,9 @@ var quizBank = {
         "q": "In the standard 3-step Polymerase Chain Reaction (PCR), what is the typical temperature range and purpose of the denaturation step?",
         "o": [
           "94–95°C; disrupts hydrogen bonds to melt double-stranded template DNA into single strands",
-          "50–60°C; allows primers to anneal to template",
-          "72°C; optimal activity for Taq polymerase extension",
-          "4°C; stores the reaction mix"
+          "50–60°C; enables synthetic forward and reverse primers to hybridize specifically to target sites",
+          "72°C; activates optimal polymerase nucleotide incorporation velocity for exponential extension",
+          "4°C; holds finished amplification reactions indefinitely in an inactivated enzymatic condition"
         ],
         "a": 0,
         "e": "Denaturation at 94–95°C melts the hydrogen bonds between complementary strands, producing single-stranded DNA templates for primer binding.",
@@ -5758,9 +5744,9 @@ var quizBank = {
         "q": "What major enzymatic proofreading activity is notably absent in standard Taq DNA polymerase, resulting in a relatively high error rate (approx. 1 in 10,000 bp)?",
         "o": [
           "3' to 5' exonuclease proofreading activity",
-          "5' to 3' exonuclease activity",
-          "5' to 3' polymerase activity",
-          "Terminal transferase activity"
+          "5' to 3' exonuclease nick-translation action",
+          "5' to 3' template-directed polymerase action",
+          "Terminal transferase non-templated adenylation"
         ],
         "a": 0,
         "e": "Taq polymerase possesses 5'->3' exonuclease activity (nicking translation) but lacks 3'->5' exonuclease proofreading, causing misincorporations.",
@@ -5772,9 +5758,9 @@ var quizBank = {
         "q": "According to the empirical Wallace rule, what is the approximate calculation for the melting temperature (Tm) of a short oligonucleotide primer?",
         "o": [
           "Tm = 2(A + T) + 4(G + C) degrees Celsius",
-          "Tm = 4(A + T) + 2(G + C)",
-          "Tm = (A + T + G + C) x 3",
-          "Tm = 64.9 + 41(G + C - 16.4) / N"
+          "Tm = 4(A + T) + 2(G + C) degrees Celsius",
+          "Tm = (A + T + G + C) x 3 degrees Celsius",
+          "Tm = 64.9 + 41(G + C - 16.4) / N Celsius"
         ],
         "a": 0,
         "e": "The Wallace rule estimates Tm for oligonucleotides <=20 nt by counting 2°C for each A or T (two H-bonds) and 4°C for each G or C (three H-bonds).",
@@ -5786,9 +5772,9 @@ var quizBank = {
         "q": "As a standard rule of thumb in PCR optimization, what should the primer annealing temperature (Ta) be set relative to the primer melting temperature (Tm)?",
         "o": [
           "Approximately 3°C to 5°C below the lowest calculated Tm of the primer pair",
-          "Exactly 10°C above the primer Tm",
-          "Equal to the extension temperature (72°C)",
-          "At 95°C"
+          "Approximately 10°C to 15°C above the highest calculated melting temperature",
+          "Exactly equal to the optimal enzymatic elongation temperature of 72°C",
+          "Fixed universally at 37°C regardless of GC content or nucleotide length"
         ],
         "a": 0,
         "e": "Setting the annealing temperature 3–5°C below the lowest primer Tm ensures stable hybrid formation while minimizing non-specific secondary priming.",
@@ -5800,9 +5786,9 @@ var quizBank = {
         "q": "In Reverse Transcription PCR (RT-PCR), what specialized enzyme is utilized first to synthesize complementary DNA (cDNA) from an RNA template?",
         "o": [
           "Reverse transcriptase (RNA-directed DNA polymerase, e.g., M-MuLV or AMV)",
-          "Taq DNA polymerase",
-          "RNA polymerase II",
-          "DNA Ligase"
+          "Thermostable Taq DNA Polymerase operating in low-fidelity manganese buffer",
+          "DNA-dependent RNA Polymerase II synthesizing messenger RNA from promoters",
+          "T4 DNA Ligase catalyzing ATP-dependent covalent phosphodiester synthesis"
         ],
         "a": 0,
         "e": "Reverse transcriptase uses an oligo(dT) primer, random hexamers, or specific reverse primer to synthesize a first-strand cDNA copy of RNA genomes or transcripts.",
@@ -5814,9 +5800,9 @@ var quizBank = {
         "q": "In Real-Time Quantitative PCR (qPCR), what defines the Cycle Threshold (Ct) or Cq value?",
         "o": [
           "The cycle number at which the reporter fluorescence signal crosses a statistically significant threshold above background baseline",
-          "The maximum cycle number before the plateau phase",
-          "The temperature at which 50% of the DNA amplicon is melted",
-          "The time required to complete 30 cycles"
+          "The maximum cycle number attained before the enzymatic amplification curve enters an asymptotic non-linear saturation plateau",
+          "The exact temperature point at which precisely fifty percent of the double-stranded DNA amplicon dissociates into single strands",
+          "The cumulative incubation time in minutes required for the thermocycler to complete thirty consecutive geometric PCR cycles"
         ],
         "a": 0,
         "e": "The Ct value is the fractional PCR cycle number at which the fluorescent signal emerges above the calculated baseline threshold; lower Ct indicates higher starting target copy number.",
@@ -5828,9 +5814,9 @@ var quizBank = {
         "q": "How does the initial target nucleic acid copy number relate to the observed Cycle Threshold (Ct) value in a qPCR assay?",
         "o": [
           "Ct is inversely proportional to the logarithm of the initial target copy number (higher target DNA = lower Ct value)",
-          "Ct is directly proportional to target copy number",
-          "Ct remains constant regardless of target concentration",
-          "Ct is independent of cycle number"
+          "Ct is directly proportional to the linear quantity of starting template (higher starting target DNA yields a higher Ct value)",
+          "Ct remains completely invariant across serial template dilutions because fluorescence thresholds normalize sample concentrations",
+          "Ct correlates solely with total primer concentration and is completely independent of initial target template quantity in tubes"
         ],
         "a": 0,
         "e": "Because PCR amplifies exponentially, a sample with 10-fold more starting template reaches the threshold ~3.32 cycles earlier (lower Ct value).",
@@ -5842,9 +5828,9 @@ var quizBank = {
         "q": "What is the primary diagnostic disadvantage of using non-specific DNA intercalating dyes (such as SYBR Green I) in Real-Time PCR?",
         "o": [
           "Binds non-specifically to any double-stranded DNA, including primer-dimers and non-target artefacts",
-          "Inhibits Taq polymerase enzymatic activity completely",
-          "Emits toxic radioactive particles",
-          "Degrades the template DNA during extension"
+          "Irreversibly inhibits Taq DNA polymerase catalytic elongation activity during early geometric cycles",
+          "Emits hazardous ionizing radioactive particles requiring dedicated lead-shielded containment hoods",
+          "Enzymatically digests template single strands during thermal cycling, truncating amplicon yields"
         ],
         "a": 0,
         "e": "SYBR Green I fluoresces upon binding the minor groove of ANY double-stranded DNA; non-specific amplicons or primer-dimers generate false-positive fluorescence.",
@@ -5856,9 +5842,9 @@ var quizBank = {
         "q": "How is the sequence specificity and purity of a SYBR Green Real-Time PCR amplicon verified at the conclusion of cycling?",
         "o": [
           "Performing a post-PCR Dissociation (Melt Curve) Analysis",
-          "Running a Southern blot",
-          "Measuring optical density at 280 nm",
-          "Adding excessive EDTA"
+          "Capillary electrophoresis on automated denaturing polymers",
+          "Spectrophotometric optical density ratio (A260/A280) check",
+          "Enzymatic single-strand digestion using S1 endonuclease"
         ],
         "a": 0,
         "e": "A melt curve gradually heats the product; specific amplicons melt cooperatively at a single characteristic Tm peak, whereas primer-dimers melt earlier at lower temperatures.",
@@ -5870,9 +5856,9 @@ var quizBank = {
         "q": "TaqMan real-time fluorogenic probes rely on which biophysical principle between the 5' reporter fluorophore and 3' quencher dye?",
         "o": [
           "Förster (Fluorescence) Resonance Energy Transfer (FRET)",
-          "Surface plasmon resonance",
-          "Chemiluminescence",
-          "Phosphorescence"
+          "Localized surface plasmon resonance of colloidal gold",
+          "Chemiluminescent oxidation of acridinium ester probes",
+          "Delayed time-resolved europium chelate phosphorescence"
         ],
         "a": 0,
         "e": "In intact TaqMan probes, the 3' quencher absorbs the emission energy of the 5' fluorophore via FRET; cleavage by Taq's 5'->3' exonuclease separates them, releasing fluorescence.",
@@ -5912,9 +5898,9 @@ var quizBank = {
         "q": "Which PCR modification enables the simultaneous amplification and detection of multiple distinct pathogen targets in a single reaction tube?",
         "o": [
           "Multiplex PCR (using multiple primer pairs simultaneously)",
-          "Touchdown PCR",
-          "Hot-start PCR alone",
-          "Asymmetric PCR"
+          "Touchdown PCR (using decreasing annealing cycles)",
+          "Nested PCR (using sequential outer and inner primers)",
+          "Asymmetric PCR (using unequal forward-reverse ratios)"
         ],
         "a": 0,
         "e": "Multiplex PCR incorporates multiple distinct primer pairs in one tube, producing amplicons of different sizes distinguishable on gel or distinct fluorescent probes in qPCR.",
@@ -5926,9 +5912,9 @@ var quizBank = {
         "q": "What is the primary mechanism of Touchdown PCR in eliminating non-specific primer binding during early reaction cycles?",
         "o": [
           "Starting with an initial annealing temperature several degrees above the calculated Tm and incrementally lowering it in subsequent cycles",
-          "Doubling the concentration of Taq polymerase every cycle",
-          "Starting with a low temperature and raising it to 95°C",
-          "Adding high concentrations of urea"
+          "Doubling the active catalytic concentration of thermostable Taq DNA polymerase progressively at the start of each thermal cycle",
+          "Starting with an extremely low annealing temperature (37°C) and ramping it gradually to 95°C to destabilize non-homologous duplexes",
+          "Supplementing master mix with progressive concentrations of dimethyl sulfoxide (DMSO) and betaine during mid-exponential cycles"
         ],
         "a": 0,
         "e": "Touchdown PCR initiates at an annealing temperature higher than primer Tm; only perfectly matched duplexes prime, outcompeting non-specific products as temperature steps down.",
@@ -5940,9 +5926,9 @@ var quizBank = {
         "q": "What is the primary purpose of 'Hot-Start' PCR formulations?",
         "o": [
           "To inhibit DNA polymerase activity during reaction setup at ambient temperature, preventing non-specific priming and primer-dimer formation",
-          "To accelerate cycle extension speed at 72°C",
-          "To preserve template DNA during storage",
-          "To allow PCR without thermal cycling"
+          "To accelerate enzymatic elongation velocity at 72°C, reducing the duration of thirty-cycle amplification runs to under fifteen minutes",
+          "To preserve fragile single-stranded RNA templates against hydrolytic cleavage during ambient-temperature benchtop reaction assembly",
+          "To permit continuous isothermal amplification of double-stranded DNA templates without requiring cyclical thermocycling equipment"
         ],
         "a": 0,
         "e": "Hot-start uses antibodies, aptamers, or chemical modifications to block Taq polymerase activity at room temperature; Taq is activated only after the initial 95°C heating step.",
@@ -5982,9 +5968,9 @@ var quizBank = {
         "q": "What is the critical role of magnesium chloride (MgCl2, typically 1.5–2.5 mM) in a PCR reaction mixture?",
         "o": [
           "Essential catalytic cofactor for Taq DNA polymerase activity and stabilizes primer-template duplexes",
-          "Acts as a primary energy source",
-          "Provides buffering capacity at pH 8.3",
-          "Inactivates contaminant nucleases"
+          "Serves as the primary high-energy nucleotide donor fueling covalent phosphodiester bond formation",
+          "Acts as a biological zwitterionic buffer maintaining reaction pH at precisely 8.3 throughout cycling",
+          "Irreversibly inactivates heat-stable contaminant nucleases through selective chelation of trace ions"
         ],
         "a": 0,
         "e": "Mg2+ coordinates with dNTPs and active-site aspartate residues in Taq polymerase; insufficient Mg2+ yields no product, while excess Mg2+ causes non-specific amplification.",
@@ -6038,9 +6024,9 @@ var quizBank = {
         "q": "In a diagnostic PCR laboratory, which physical control tube containing all master mix reagents except template DNA is mandatory to rule out false-positive reagent contamination?",
         "o": [
           "No-Template Control (NTC / Negative Control)",
-          "Positive Control",
-          "Extraction Control",
-          "Internal Amplification Control (IAC)"
+          "Positive Target Control (amplification standard)",
+          "Extraction Lysis Blank (isolation procedure run)",
+          "Internal Amplification Control (in-tube spike)"
         ],
         "a": 0,
         "e": "The NTC (containing sterile water instead of DNA) must remain completely free of amplification to confirm that reagents and workspace are uncontaminated.",
@@ -6066,9 +6052,9 @@ var quizBank = {
         "q": "What unique chemical structural modification distinguishes 2',3'-dideoxynucleoside triphosphates (ddNTPs) from normal dNTPs in the Sanger sequencing method?",
         "o": [
           "ddNTPs lack a 3'-hydroxyl (-OH) group on the deoxyribose sugar, terminating phosphodiester chain elongation upon incorporation",
-          "ddNTPs lack the 5'-triphosphate group",
-          "ddNTPs lack a nitrogenous base",
-          "ddNTPs contain ribose instead of deoxyribose"
+          "ddNTPs lack the essential 5'-triphosphate moiety, preventing enzymatic interaction with the active site of DNA polymerase",
+          "ddNTPs contain an altered nitrogenous base that cannot form complementary Watson-Crick hydrogen bonds with template bases",
+          "ddNTPs possess an extra 2'-hydroxyl group that sterically blocks entry of subsequent deoxynucleotides into the active groove"
         ],
         "a": 0,
         "e": "DNA polymerases require a free 3'-OH group to attack the incoming 5'-phosphate; incorporation of a ddNTP terminates chain elongation.",
@@ -6080,9 +6066,9 @@ var quizBank = {
         "q": "In automated modern Sanger DNA sequencing, how are the four individual termination reactions (ddATP, ddCTP, ddGTP, ddTTP) distinguished in a single capillary tube?",
         "o": [
           "Each of the four ddNTPs is conjugated to a distinct fluorophore that emits light at a characteristic wavelength upon laser excitation",
-          "By using four radioactive isotopes",
-          "By varying the capillary temperature",
-          "By running four separate gels in sequence"
+          "Each of the four terminator reactions is labeled with a distinct radioactive sulfur or phosphorus isotope distinguished by gamma counters",
+          "The capillary electrophoresis column operates across a linear thermal gradient that separates identical-length fragments by Tm values",
+          "Individual bases are determined sequentially by loading four aliquots into separate parallel capillary channels in chronological order"
         ],
         "a": 0,
         "e": "Dye-terminator chemistry labels ddATP (green), ddCTP (blue), ddGTP (black/yellow), and ddTTP (red) with distinct fluorescent dyes, analyzed by laser capillary electrophoresis.",
@@ -6094,9 +6080,9 @@ var quizBank = {
         "q": "Next-Generation Sequencing (NGS) on Illumina platforms utilizes which amplification technology to generate dense clonal clusters on a glass flow cell surface?",
         "o": [
           "Bridge amplification (solid-phase PCR generating localized clusters)",
-          "Emulsion PCR on magnetic beads",
-          "Rolling circle amplification",
-          "Standard liquid tube PCR"
+          "Emulsion PCR on microscopic paramagnetic beads in water-in-oil droplets",
+          "Rolling circle amplification using phi29 DNA polymerase concatemerization",
+          "Multiplex liquid capillary amplification using fluorescent adaptors"
         ],
         "a": 0,
         "e": "Illumina sequencing relies on bridge amplification, where adapter-ligated DNA fragments arch over to hybridize to adjacent flow cell primers, producing dense clonal clusters.",
@@ -6108,9 +6094,9 @@ var quizBank = {
         "q": "In 454 Pyrosequencing, what enzymatic cascade converts released inorganic pyrophosphate (PPi) into detectable visible light?",
         "o": [
           "ATP sulfurylase converts PPi into ATP, which fuels firefly luciferase oxidation of luciferin to emit light",
-          "Alkaline phosphatase cleaves PPi directly to release photons",
-          "Peroxidase oxidizes luminol in the presence of PPi",
-          "Taq polymerase excites fluorescent probes"
+          "Calf intestinal alkaline phosphatase hydrolyzes PPi directly to release high-energy photons registered by CCD",
+          "Horseradish peroxidase oxidizes luminol in the presence of PPi, generating continuous chemiluminescent emissions",
+          "Taq DNA polymerase incorporates fluorescently tagged dNTPs that emit light when cleaved by inorganic pyrophosphate"
         ],
         "a": 0,
         "e": "Upon dNTP incorporation, DNA polymerase releases PPi; ATP sulfurylase converts PPi + APS into ATP, which fuels luciferase-mediated bioluminescent light emission.",
@@ -6122,9 +6108,9 @@ var quizBank = {
         "q": "Oxford Nanopore sequencing decodes nucleotide sequences in real time by measuring:",
         "o": [
           "Disruptions in characteristic ionic current as an intact single-stranded DNA molecule threads through a protein nanopore",
-          "Fluorescent pulses of dye-labeled dNTPs",
-          "Release of hydrogen ions using a pH sensor chip",
-          "Radioactive decay of phosphorus-32"
+          "Transient fluorescent pulses emitted by gamma-phosphate fluorophores as individual dNTPs are cleaved during synthesis",
+          "Microscopic fluctuations in local pH detected by an underlying semiconductor field-effect transistor as protons release",
+          "Diffraction patterns generated by coherent X-ray pulses scattering off crystallized DNA molecules passing through channels"
         ],
         "a": 0,
         "e": "As single-stranded DNA translocates through an engineered protein nanopore, each k-mer base combination creates a distinct blockade in ionic current, read by a sensor chip.",
@@ -6136,9 +6122,9 @@ var quizBank = {
         "q": "Which molecular typing technique analyzes variations in the lengths of restriction fragments visualized by Southern hybridization or PCR?",
         "o": [
           "Restriction Fragment Length Polymorphism (RFLP)",
-          "Random Amplified Polymorphic DNA (RAPD)",
-          "Multilocus Sequence Typing (MLST)",
-          "Fluorescence in situ hybridization (FISH)"
+          "Random Amplified Polymorphic DNA (RAPD assay)",
+          "Multilocus Sequence Typing (MLST allelic assay)",
+          "Amplified Fragment Length Polymorphism (AFLP)"
         ],
         "a": 0,
         "e": "RFLP detects single-nucleotide polymorphisms or insertions/deletions that create or abolish specific restriction enzyme recognition sites.",
@@ -6150,9 +6136,9 @@ var quizBank = {
         "q": "What key feature distinguishes Random Amplified Polymorphic DNA (RAPD) from conventional PCR typing?",
         "o": [
           "Uses short arbitrary oligonucleotide primers (approx. 10 nt) at low annealing temperatures without any prior knowledge of target genome sequence",
-          "Requires complete genomic sequence data beforehand",
-          "Uses four specific primers with high GC content",
-          "Uses fluorescent labeled ddNTPs"
+          "Requires complete prior nucleotide sequence data of the target pathogen genome to design highly specific 24-mer forward and reverse primers",
+          "Employs fluorescently labeled dideoxynucleotides in a standard four-color capillary electrophoresis array to identify structural variations",
+          "Utilizes dual-labeled fluorogenic TaqMan hydrolysis probes that anneal exclusively to conserved ribosomal housekeeping gene sequences"
         ],
         "a": 0,
         "e": "RAPD uses single 10-mer primers of arbitrary sequence that anneal at low stringency (35–40°C) across random loci throughout unsequenced genomes.",
@@ -6164,9 +6150,9 @@ var quizBank = {
         "q": "Multilocus Sequence Typing (MLST) characterizes bacterial isolates into Sequence Types (ST) based on the nucleotide sequence variations of:",
         "o": [
           "Internal fragments (approx. 450–500 bp) of seven conserved housekeeping genes",
-          "Hypervariable plasmid virulence genes",
-          "Complete ribosomal RNA operons",
-          "The entire circular chromosome"
+          "Hypervariable accessory plasmid virulence loci and antimicrobial resistance cassettes",
+          "The complete nucleotide sequence of the circular bacterial chromosome and all plasmids",
+          "Intergenic spacer regions situated between the 16S and 23S ribosomal RNA operons"
         ],
         "a": 0,
         "e": "MLST sequences ~500 bp internal fragments of seven conserved housekeeping genes; each distinct allele is assigned an integer, generating an allelic profile (Sequence Type).",
@@ -6206,9 +6192,9 @@ var quizBank = {
         "q": "What does the E-value (Expect value) signify in a BLAST search output?",
         "o": [
           "The number of different alignment hits one can 'expect' to see by random chance when searching a database of a particular size",
-          "The percentage of identical amino acid residues",
-          "The thermodynamic stability of the duplex",
-          "The total length of the query sequence"
+          "The exact percentage of identical amino acid residues shared between query and subject sequences across the full-length match",
+          "The calculated thermodynamic melting temperature and free energy of the theoretical hybrid duplex formed by the two sequences",
+          "The physical length of the query sequence in nucleotides or residues minus the penalty scores assigned for insertion-deletion gaps"
         ],
         "a": 0,
         "e": "The E-value decreases exponentially with alignment score; an E-value close to zero (e.g., e-50) indicates that the match is non-random and statistically significant.",
@@ -6234,9 +6220,9 @@ var quizBank = {
         "q": "In molecular phylogenetics, what computational resampling method is universally used to assess the statistical confidence and stability of clades on a phylogenetic tree?",
         "o": [
           "Bootstrap analysis (typically 1,000 pseudo-replicate datasets)",
-          "Principal component analysis",
-          "Markov chain Monte Carlo alone",
-          "Student's t-test"
+          "Principal component analysis (evaluating variance eigenvectors)",
+          "Markov chain Monte Carlo sampling across parameter states",
+          "Analysis of variance (ANOVA) comparing branch length residuals"
         ],
         "a": 0,
         "e": "Bootstrapping randomly resamples columns of the sequence alignment with replacement to build hundreds of trees; bootstrap values >=70–80% indicate robust clade support.",
@@ -6262,9 +6248,9 @@ var quizBank = {
         "q": "The landmark United States Supreme Court decision in Diamond v. Chakrabarty (1980) established what precedent in biotechnology patent law?",
         "o": [
           "Genetically engineered living microorganisms are patentable subject matter ('anything under the sun made by man')",
-          "Living organisms can never be patented under any circumstances",
-          "Only plant seeds may be patented",
-          "Patents on genetic sequences are granted for 100 years"
+          "Living biological organisms and their genetic components can never be patented under any sovereign legal jurisdiction",
+          "Only genetically modified plant seeds and crop varieties qualify for patent protection, excluding all microbial strains",
+          "Patents on living organisms are granted for an unlimited perpetual duration rather than standard twenty-year TRIPS terms"
         ],
         "a": 0,
         "e": "The US Supreme Court ruled (5–4) that Ananda Chakrabarty's genetically engineered, crude-oil-degrading Pseudomonas bacterium was a patentable human-made manufacture.",
@@ -6276,9 +6262,9 @@ var quizBank = {
         "q": "Under standard patent legislation worldwide, what are the three indispensable criteria that an invention must satisfy to be granted a patent?",
         "o": [
           "Novelty, Non-obviousness (Inventive step), and Industrial applicability (Utility)",
-          "Novelty, High commercial profitability, and Academic publication",
-          "Public popularity, Trademark protection, and Copyright registration",
-          "Chemical purity, Natural occurrence, and Clinical trials"
+          "Novelty, High projected commercial profitability, and Peer-reviewed publication",
+          "Prior public disclosure, International trademark, and Copyright registration",
+          "Natural botanical origin, Absolute chemical purity, and Pre-clinical trial data"
         ],
         "a": 0,
         "e": "Patentability requires: Novelty (new worldwide), Inventive step (non-obvious to a person skilled in the art), and Industrial applicability (practical utility).",
@@ -6304,9 +6290,9 @@ var quizBank = {
         "q": "Which institution serves as an officially recognized International Depository Authority (IDA) under the Budapest Treaty in India?",
         "o": [
           "Microbial Type Culture Collection and Gene Bank (MTCC), Chandigarh",
-          "National Institute of Virology (NIV), Pune",
-          "Indian Veterinary Research Institute (IVRI), Izatnagar",
-          "Central Research Institute (CRI), Kasauli"
+          "National Institute of Virology (NIV) Avian Influenza Repository, Pune",
+          "Indian Veterinary Research Institute (IVRI) Biological Products, Bareilly",
+          "National Bureau of Animal Genetic Resources (NBAGR) Cryobank, Karnal"
         ],
         "a": 0,
         "e": "The MTCC at the Institute of Microbial Technology (IMTECH), Chandigarh (and the NCMR/MCC, Pune) are recognized IDAs under the Budapest Treaty in India.",
@@ -6319,8 +6305,8 @@ var quizBank = {
         "o": [
           "Genetic Engineering Appraisal Committee (GEAC)",
           "Review Committee on Genetic Manipulation (RCGM)",
-          "Institutional Biosafety Committee (IBSC)",
-          "Recombinant DNA Advisory Committee (RDAC)"
+          "Institutional Biosafety Committee (IBSC board)",
+          "Recombinant DNA Advisory Committee (RDAC apex)"
         ],
         "a": 0,
         "e": "GEAC is the apex regulatory body under the Environment (Protection) Act 1986 authorized to approve field trials and commercial release of GM organisms in India.",
@@ -6332,9 +6318,9 @@ var quizBank = {
         "q": "At the institutional level (e.g., veterinary college or research institute), which committee reviews and oversees all recombinant DNA research proposals to ensure biological safety?",
         "o": [
           "Institutional Biosafety Committee (IBSC)",
-          "Genetic Engineering Appraisal Committee (GEAC)",
-          "Department of Biotechnology (DBT)",
-          "Recombinant DNA Advisory Committee (RDAC)"
+          "Genetic Engineering Appraisal Committee",
+          "Department of Biotechnology (DBT council)",
+          "Review Committee on Genetic Manipulation"
         ],
         "a": 0,
         "e": "Every Indian institution conducting r-DNA research must establish an IBSC, which includes a DBT nominee to approve safety protocols and monitor lab containment.",
@@ -6346,9 +6332,9 @@ var quizBank = {
         "q": "The Cartagena Protocol on Biosafety to the Convention on Biological Diversity specifically regulates the international:",
         "o": [
           "Transboundary movement, transit, handling, and safe use of Living Modified Organisms (LMOs) resulting from modern biotechnology",
-          "Trade of endangered wild animals under CITES",
-          "Patent duration on pharmaceutical vaccines",
-          "Standardization of international laboratory reagents"
+          "Commercial global trade and international tariff structures governing endangered wild fauna and flora under CITES regulations",
+          "Harmonization of statutory patent protection lifespans and intellectual property rights for animal pharmaceutical vaccines",
+          "Standardization of quality assurance protocols and international manufacturing norms for veterinary diagnostic test kits"
         ],
         "a": 0,
         "e": "Adopted in 2000, the Cartagena Protocol provides the Advance Informed Agreement (AIA) procedure to ensure safe transboundary movement and handling of LMOs.",
@@ -6374,9 +6360,9 @@ var quizBank = {
         "q": "Which computational software program is universally used for multiple sequence alignment (MSA) of homologous protein or nucleotide sequences?",
         "o": [
           "Clustal Omega (or ClustalW)",
-          "BLAST alone",
-          "Primer3",
-          "NEBcutter"
+          "BLASTn local alignment program",
+          "Primer3 synthetic design tool",
+          "NEBcutter restriction analyzer"
         ],
         "a": 0,
         "e": "Clustal Omega aligns multiple divergent protein or nucleotide sequences using seeded guide trees and HMM profile-profile techniques to highlight conserved motifs.",
@@ -6402,9 +6388,9 @@ var quizBank = {
         "q": "Which molecular marker system involves digestion of genomic DNA with two restriction enzymes, ligation of double-stranded adapters, and selective PCR amplification?",
         "o": [
           "Amplified Fragment Length Polymorphism (AFLP)",
-          "Random Amplified Polymorphic DNA (RAPD)",
-          "Southern blotting",
-          "DNA barcoding"
+          "Random Amplified Polymorphic DNA (RAPD assay)",
+          "Restriction Fragment Length Polymorphism",
+          "Single Nucleotide Polymorphism array (SNP)"
         ],
         "a": 0,
         "e": "AFLP combines restriction digestion (rare cutter + frequent cutter) with adapter ligation and selective PCR, generating hundreds of reproducible polymorphic bands.",
@@ -6416,9 +6402,9 @@ var quizBank = {
         "q": "In high-throughput sequencing, what is 'coverage' or 'sequencing depth'?",
         "o": [
           "The average number of times a given nucleotide in the genome is sequenced by independent overlapping reads (e.g., 30x coverage)",
-          "The physical length of the sequencing read in base pairs",
-          "The number of flow cell lanes used",
-          "The total size of the organism's genome"
+          "The physical length in base pairs of an individual high-throughput forward or reverse sequencing read generated on a flow cell",
+          "The total number of operational optical imaging channels or surface flow lanes utilized simultaneously during a sequencing run",
+          "The absolute total size of the haploid target genome expressed in millions or billions of base pairs (megabases or gigabases)"
         ],
         "a": 0,
         "e": "Depth of coverage (e.g., 30X) indicates how many distinct sequenced reads cover each base position, ensuring high base-calling accuracy and assembly confidence.",
@@ -6430,9 +6416,9 @@ var quizBank = {
         "q": "Which bioinformatics resource at NCBI is the primary repository for high-throughput Next-Generation Sequencing raw read archives?",
         "o": [
           "Sequence Read Archive (SRA)",
-          "GenBank",
-          "RefSeq",
-          "dbSNP"
+          "GenBank Nucleotide Database",
+          "RefSeq Curated Repository",
+          "Swiss-Prot Protein Bank"
         ],
         "a": 0,
         "e": "The SRA stores raw sequencing data and alignment files (FASTQ, BAM) generated by Illumina, Oxford Nanopore, and PacBio platforms.",
@@ -6444,9 +6430,9 @@ var quizBank = {
         "q": "Biological containment in recombinant DNA guidelines refers to:",
         "o": [
           "The use of genetically disabled host organisms (e.g., auxotrophic E. coli K-12) and specialized vectors that cannot survive outside controlled laboratory media",
-          "HEPA air filtration and glove boxes",
-          "Sterilization by autoclaving",
-          "Vaccination of laboratory staff"
+          "The installation of specialized Class III biosafety cabinets, sealed negative-pressure airlocks, and certified high-efficiency HEPA exhaust filtration systems",
+          "Mandatory chemical and thermal decontamination of all effluent liquid streams, sharp instruments, and solid solid-waste bags via certified pressure autoclaving",
+          "Compulsory annual medical surveillance, pre-exposure immunological vaccination, and baseline serum banking for all personnel handling hazardous biological agents"
         ],
         "a": 0,
         "e": "Biological containment minimizes escape risks by engineering bacterial hosts that require specialized nutrients (e.g., diaminopimelic acid) absent in natural environments.",
@@ -6472,9 +6458,9 @@ var quizBank = {
         "q": "In bioinformatics, an Open Reading Frame (ORF) is identified by:",
         "o": [
           "A continuous stretch of codons starting with a translation initiation codon (AUG) and ending with an in-frame stop codon (UAA, UAG, UGA)",
-          "A sequence containing only purines",
-          "Any region with multiple restriction sites",
-          "A stretch of poly-A residues"
+          "A conserved non-coding promoter segment rich in adenine and thymine residues (TATA box) recognized by eukaryotic RNA polymerase II holoenzymes",
+          "A genomic region containing clustered recognition palindromes for multiple restriction endonucleases utilized for recombinant vector cloning",
+          "A terminal post-transcriptionally added tail of two hundred adenosine residues essential for eukaryotic messenger RNA stability and export"
         ],
         "a": 0,
         "e": "An ORF begins with a start codon (typically AUG), continues in-frame without premature stops for at least 100 codons, and concludes with a stop codon.",
@@ -7399,16 +7385,15 @@ var quizBank = {
       }
     ]
   },
-
   "unit-4": {
     "mcq": [
       {
         "q": "Which primary lymphoid organ in birds is responsible for B-cell diversification and development through somatic gene conversion?",
         "o": [
           "Bursa of Fabricius",
-          "Thymus",
-          "Harderian gland",
-          "Cecal tonsils"
+          "Thymus epithelial reticular network",
+          "Harderian paraocular gland",
+          "Cecal tonsil lymphoid patch"
         ],
         "a": 0,
         "e": "The Bursa of Fabricius, a dorsal diverticulum of the proctodaeum in birds, provides the specialized microenvironment for B-cell maturation and somatic gene conversion.",
@@ -7434,9 +7419,9 @@ var quizBank = {
         "q": "What unique anatomical feature characterizes the lymph nodes of domestic swine (pigs) compared to all other domestic mammals?",
         "o": [
           "Inverted architecture where cortical follicles are located internally and the lymph sinus/medulla is located peripherally",
-          "Complete absence of germinal centers",
-          "Absence of any afferent lymphatic vessels",
-          "Lymph enters at the hilus and exits over the capsule"
+          "Complete absence of subcapsular sinuses, with all afferent lymphatics directly piercing deep paracortical cords",
+          "Complete absence of germinal centers, resulting in an inability to form high-affinity IgG antibody molecules",
+          "Afferent lymphatic vessels entering exclusively at the central hilus and efferent vessels exiting over the capsule"
         ],
         "a": 0,
         "e": "Porcine lymph nodes have an inverted layout: lymphoid nodules and germinal centers reside in the center, while lymph cords and sinuses surround the periphery.",
@@ -7448,9 +7433,9 @@ var quizBank = {
         "q": "In the mammalian spleen, T lymphocytes are primarily concentrated within which specific anatomical compartment of the white pulp?",
         "o": [
           "Periarteriolar Lymphoid Sheaths (PALS) surrounding central arterioles",
-          "Splenic cords of Billroth",
-          "Primary lymphoid follicles",
-          "Marginal zone"
+          "Splenic red pulp venous sinuses and filtering cords of Billroth directly",
+          "Primary and secondary lymphoid follicles of the peripheral marginal zone",
+          "Outer mantle zone immediately adjacent to the subcapsular splenic sinus"
         ],
         "a": 0,
         "e": "The PALS forms a cylindrical sheath of mature T lymphocytes encircling the central arterioles within the splenic white pulp.",
@@ -7504,9 +7489,9 @@ var quizBank = {
         "q": "In neutrophil azurophilic granules, which heme enzyme utilizes hydrogen peroxide and chloride ions to synthesize highly microbicidal hypochlorous acid (HOCl / bleach)?",
         "o": [
           "Myeloperoxidase (MPO)",
-          "Lysozyme",
-          "Alkaline phosphatase",
-          "Defensin synthase"
+          "Lysozyme muramidase enzyme",
+          "Alkaline phosphatase kinase",
+          "Defensin peptide synthase"
         ],
         "a": 0,
         "e": "Myeloperoxidase (MPO) converts H2O2 and Cl- into hypochlorous acid (HOCl), the most potent oxidant produced by activated neutrophils.",
@@ -7518,9 +7503,9 @@ var quizBank = {
         "q": "In the classical pathway of complement activation, which multi-subunit protein complex initiates the cascade by binding to the Fc regions of antigen-bound IgM or IgG?",
         "o": [
           "C1 complex (C1q, C1r, C1s)",
-          "C3 convertase",
-          "Factor B",
-          "Mannose-binding lectin"
+          "Alternative pathway C3 convertase",
+          "Mannose-binding lectin MASP complex",
+          "Properdin factor P stabilizer"
         ],
         "a": 0,
         "e": "The collagenous stalks of C1q bind to adjacent Fc domains of antigen-complexed IgM or clustered IgG, activating C1r and C1s serine proteases.",
@@ -7546,9 +7531,9 @@ var quizBank = {
         "q": "In the alternative complement pathway, what stabilized bimolecular complex functions as the active C3 convertase enzyme on microbial surfaces?",
         "o": [
           "C3bBb (stabilized by Properdin)",
-          "C4b2a",
-          "C1qrs",
-          "C5b6"
+          "C4b2a (stabilized by Factor H cofactor)",
+          "C1qrs (activated by immune complex IgG)",
+          "C5b67 (complexed on microbial membranes)"
         ],
         "a": 0,
         "e": "Hydrolyzed or deposited C3b binds Factor B, which is cleaved by Factor D to yield C3bBb; association with properdin (Factor P) stabilizes this active C3 convertase.",
@@ -7574,9 +7559,9 @@ var quizBank = {
         "q": "The final lytic structure formed by the terminal complement cascade that inserts a 10 nm pore into lipid bilayer membranes is the:",
         "o": [
           "Membrane Attack Complex (MAC: C5b-C6-C7-C8-polyC9)",
-          "C3 convertase",
-          "C5 convertase",
-          "Properdin complex"
+          "Alternative C3 convertase (C3bBbP catalytic dimer)",
+          "Classical C5 convertase (C4b2a3b proteolytic unit)",
+          "Terminal opsonizing complex (poly-C3b-iC3b lattice)"
         ],
         "a": 0,
         "e": "C5b recruits C6, C7, and C8; C8 mediates membrane penetration, polymerizing 12–18 molecules of C9 into a hollow cylindrical lytic transmembrane pore (MAC).",
@@ -7616,9 +7601,9 @@ var quizBank = {
         "q": "Which antiviral cytokines are classified as Type I Interferons, synthesized rapidly by virally infected cells to induce an antiviral state in neighboring uninfected cells?",
         "o": [
           "Interferon-alpha (IFN-alpha) and Interferon-beta (IFN-beta)",
-          "Interferon-gamma (IFN-gamma)",
-          "Interleukin-2",
-          "Tumor Necrosis Factor-alpha"
+          "Interferon-gamma (IFN-gamma) and Interleukin-12 heterodimer",
+          "Interleukin-1-beta (IL-1beta) and Interleukin-6 pyrogen",
+          "Tumor Necrosis Factor-alpha (TNF-alpha) and Interleukin-18"
         ],
         "a": 0,
         "e": "Type I IFNs (IFN-alpha/beta) bind IFNAR receptors on adjacent cells to activate the JAK-STAT pathway, inducing enzymes like 2',5'-oligoadenylate synthetase and PKR.",
@@ -7630,9 +7615,9 @@ var quizBank = {
         "q": "Natural Killer (NK) cells identify and selectively lyse abnormal host cells (tumor or virally infected cells) that have downregulated which cell-surface molecule?",
         "o": [
           "MHC Class I molecules ('missing-self' recognition)",
-          "CD4 receptors",
-          "Toll-like receptors",
-          "Complement receptor 1"
+          "CD4 coreceptor molecules on antigen-presenting cells",
+          "Toll-like receptor 4 complexes on host endothelia",
+          "Complement receptor 1 molecules on host erythrocytes"
         ],
         "a": 0,
         "e": "Inhibitory Killer Immunoglobulin-like Receptors (KIRs) on NK cells bind normal self-MHC Class I; loss of MHC I relieves inhibition, triggering NK cell cytotoxicity.",
@@ -7672,9 +7657,9 @@ var quizBank = {
         "q": "Bacterial superantigens (such as Staphylococcal Enterotoxin B) induce massive systemic cytokine release ('cytokine storm') by which mechanism?",
         "o": [
           "Binding directly and simultaneously to the outer invariant region of MHC Class II and the V-beta domain of T-cell receptors without internal processing",
-          "Cleaving host immunoglobulins into Fab fragments",
-          "Forming pores in macrophage cell membranes",
-          "Inactivating complement C3 directly"
+          "Enzymatically cleaving host circulating immunoglobulins into non-functional monovalent Fab fragments and fragmented heavy-chain peptide sequences",
+          "Forming lethal transmembrane pore channels directly within the cytoplasmic membranes of circulating antigen-presenting macrophages and dendritic cells",
+          "Irreversibly inhibiting host complement C3 convertase enzymes, preventing the downstream formation of essential opsonic fragments and anaphylatoxins"
         ],
         "a": 0,
         "e": "Superantigens bypass normal processing, binding outside the peptide groove to activate up to 20% of all systemic T cells simultaneously.",
@@ -7686,9 +7671,9 @@ var quizBank = {
         "q": "Digestion of an IgG antibody molecule with the proteolytic plant enzyme papain cleaves the heavy chains above the hinge region, yielding:",
         "o": [
           "Two identical Fab fragments (monovalent) and one Fc fragment",
-          "One F(ab')2 fragment and fragmented pFc' pieces",
-          "Four separate polypeptide chains",
-          "Intact light chains and degraded heavy chains"
+          "One bivalent F(ab')2 fragment and multiple small degraded pFc' pieces",
+          "Four separate monomeric immunoglobulin polypeptide chains in solution",
+          "Two intact light chain dimers and degraded heavy chain constant fragments"
         ],
         "a": 0,
         "e": "Papain cleaves on the amino-terminal side of the inter-heavy chain disulfide bonds, producing two univalent antigen-binding Fab fragments and one crystallizable Fc fragment.",
@@ -7700,9 +7685,9 @@ var quizBank = {
         "q": "In contrast to papain, digestion of an IgG molecule with pepsin cleaves on the carboxy-terminal side of the hinge disulfide bonds, generating:",
         "o": [
           "One bivalent F(ab')2 fragment and multiple small degraded pFc' peptides",
-          "Two separate Fab fragments",
-          "Intact Fc fragment alone",
-          "Individual heavy and light chain monomers"
+          "Two separate monovalent Fab fragments and one intact crystallized Fc piece",
+          "Four distinct monomeric immunoglobulin chains held by non-covalent bonds",
+          "An intact bivalent Fc fragment and multiple degraded variable peptides"
         ],
         "a": 0,
         "e": "Pepsin leaves the inter-heavy chain disulfide bonds intact, yielding a single bivalent F(ab')2 fragment capable of precipitation and agglutination.",
@@ -7728,9 +7713,9 @@ var quizBank = {
         "q": "Which antibody class is the principal immunoglobulin present in mucosal secretions (saliva, tears, bile, colostrum) and is protected from proteolytic cleavage by a Secretory Component?",
         "o": [
           "Secretory IgA (sIgA)",
-          "IgM",
-          "IgE",
-          "IgD"
+          "Pentameric IgM (pIgM)",
+          "Monomeric IgE (mIgE)",
+          "Dimeric IgG1 (dIgG1)"
         ],
         "a": 0,
         "e": "Dimeric IgA acquires the Secretory Component (cleaved from the pIgR receptor) during epithelial transcytosis, shielding it from luminal digestive proteases.",
@@ -7756,9 +7741,9 @@ var quizBank = {
         "q": "In camelids (camels, llamas, alpacas), a unique subclass of functional heavy-chain-only antibodies (HCAbs) naturally exists that completely lacks:",
         "o": [
           "Light chains and the CH1 constant domain of the heavy chain",
-          "The Fc domain",
-          "Antigen-binding variable domains",
-          "The hinge region"
+          "The entire Fc crystallizable domain of the heavy immunoglobulin chains",
+          "Antigen-binding variable domains and flexible proline-rich hinge linkers",
+          "The CH2 and CH3 constant domains of the dimeric heavy chain backbone"
         ],
         "a": 0,
         "e": "Camelid HCAbs are homodimers of heavy chains devoid of light chains and CH1 domains; their single variable domains (VHH or nanobodies) retain full antigen binding.",
@@ -7784,9 +7769,9 @@ var quizBank = {
         "q": "The three hypervariable loops located within the variable domains of both heavy and light chains that directly contact the antigen epitope are termed:",
         "o": [
           "Complementarity-Determining Regions (CDR1, CDR2, CDR3)",
-          "Framework regions (FR1 to FR4)",
-          "Constant domains (CH1 to CH3)",
-          "Hinge regions"
+          "Conserved framework regions (FR1, FR2, FR3, and FR4)",
+          "Constant heavy chain domains (CH1, CH2, and CH3 spans)",
+          "Flexible proline-rich hinge regions linking Fc and Fab"
         ],
         "a": 0,
         "e": "CDRs exhibit extreme amino acid diversity; three on VH and three on VL fold together to form the specific three-dimensional antigen-binding paratope.",
@@ -7798,9 +7783,9 @@ var quizBank = {
         "q": "In the classical hybridoma technique developed by Georges Köhler and César Milstein (1975), monoclonal antibodies are produced by fusing:",
         "o": [
           "Immunized mouse splenic B lymphocytes with immortal HGPRT-deficient myeloma cells",
-          "T lymphocytes with macrophage cell lines",
-          "Plasma cells with dendritic cells",
-          "B lymphocytes with transformed fibroblasts"
+          "Activated helper T lymphocytes with transformed immortal macrophage cell lines in vitro",
+          "Terminally differentiated plasma cells with primary bone marrow-derived dendritic cells",
+          "Resting memory B lymphocytes with SV40-transformed immortalized fibroblastic cells"
         ],
         "a": 0,
         "e": "Hybridomas inherit antibody specificity from primary splenic B cells and immortal in vitro proliferation from the myeloma fusion partner.",
@@ -7826,9 +7811,9 @@ var quizBank = {
         "q": "In the selective HAT culture medium used in hybridoma production, what is the specific biochemical role of Aminopterin?",
         "o": [
           "Blocks the de novo pathway of purine and pyrimidine nucleotide synthesis by inhibiting dihydrofolate reductase",
-          "Provides an exogenous purine source for salvage",
-          "Provides an exogenous pyrimidine source for salvage",
-          "Directly kills unfused splenic B cells"
+          "Supplies an essential exogenous purine substrate for the enzymatic salvage pathway of cellular nucleic acid synthesis",
+          "Provides an exogenous pyrimidine donor enabling continuous DNA synthesis via thymidine kinase salvage pathways",
+          "Selectively permeabilizes the cell membranes of unfused primary splenic lymphocytes to induce accelerated cytolysis"
         ],
         "a": 0,
         "e": "Aminopterin is a folic acid analog that blocks dihydrofolate reductase, shutting down de novo nucleotide synthesis and forcing cells to use the salvage pathway.",
@@ -7840,9 +7825,9 @@ var quizBank = {
         "q": "Why do unfused myeloma cells die in HAT selective medium?",
         "o": [
           "They are deficient in hypoxanthine-guanine phosphoribosyltransferase (HGPRT-) and cannot utilize the salvage pathway when de novo synthesis is blocked",
-          "They are sensitive to hypoxanthine toxicity",
-          "They lack thymidine kinase",
-          "They are destroyed by normal B-cell antibodies"
+          "They possess lethal mutations in cellular thymidine kinase (TK-) that permanently prevent utilization of exogenous pyrimidine bases in salvage synthesis",
+          "They suffer direct chemical cytotoxicity from accumulated hypoxanthine metabolites that disrupt mitochondrial oxidative phosphorylation pathways",
+          "They are selectively recognized and destroyed by specific cytotoxic neutralizing antibodies secreted by unfused splenic B cells during fusion"
         ],
         "a": 0,
         "e": "Because myeloma cells lack HGPRT, they cannot use exogenous hypoxanthine to synthesize purines via the salvage pathway and starve when aminopterin blocks de novo synthesis.",
@@ -7854,9 +7839,9 @@ var quizBank = {
         "q": "Why do unfused primary splenic B lymphocytes die in HAT culture within 7 to 10 days?",
         "o": [
           "They have a naturally limited lifespan in in vitro culture and cannot divide indefinitely",
-          "They are killed by aminopterin",
-          "They are HGPRT-deficient",
-          "They are killed by polyethylene glycol"
+          "They are killed directly by aminopterin because they completely lack the nucleotide salvage pathway",
+          "They lack endogenous thymidine kinase and cannot incorporate exogenous thymidine from HAT medium",
+          "They undergo immediate osmotic lysis caused by prolonged exposure to polyethylene glycol fusogen"
         ],
         "a": 0,
         "e": "Primary normal B lymphocytes have a finite programmed lifespan and die naturally in culture, ensuring only immortal hybridomas survive in HAT medium.",
@@ -7868,9 +7853,9 @@ var quizBank = {
         "q": "Antibody affinity describes the binding strength between:",
         "o": [
           "A single antigen-binding site (paratope) on an antibody and a single monovalent epitope on an antigen",
-          "The overall functional strength of all binding sites combined",
-          "The cross-reactivity between different antigens",
-          "The rate of antibody catabolism"
+          "The cumulative functional binding strength of all individual antigen-binding sites present on a multivalent antibody",
+          "The degree of unexpected immunological cross-reactivity between structurally related epitopes on different antigens",
+          "The biological catabolic half-life and rate of metabolic clearance of an antibody isotype from systemic circulation"
         ],
         "a": 0,
         "e": "Affinity is the thermodynamic association constant (Ka) between a single paratope and its complementary epitope, whereas avidity is the overall multivalent binding strength.",
@@ -7910,9 +7895,9 @@ var quizBank = {
         "q": "MHC Class I molecules present endogenous peptide antigens to which subset of T lymphocytes?",
         "o": [
           "CD8+ Cytotoxic T Lymphocytes (CTLs)",
-          "CD4+ T helper cells",
-          "B lymphocytes",
-          "Natural Killer cells alone"
+          "CD4+ T helper lymphocytes (Th1/Th2)",
+          "B-2 follicular lymphocytes in spleen",
+          "Natural Killer cells in circulation"
         ],
         "a": 0,
         "e": "MHC Class I alpha-3 domains bind the CD8 coreceptor, presenting 8–10 amino acid endogenous peptides to CD8+ CTLs.",
@@ -7938,9 +7923,9 @@ var quizBank = {
         "q": "What is the molecular composition of the invariant light chain non-covalently associated with the heavy alpha chain of all MHC Class I molecules?",
         "o": [
           "Beta-2 microglobulin (beta2m)",
-          "Alpha-2 macroglobulin",
-          "J chain",
-          "Secretory component"
+          "Alpha-2 macroglobulin heavy",
+          "Immunoglobulin J chain peptide",
+          "Secretory component glycoprotein"
         ],
         "a": 0,
         "e": "Beta-2 microglobulin (12 kDa, encoded outside the MHC locus) stabilizes the MHC Class I alpha-chain for surface expression.",
@@ -7952,9 +7937,9 @@ var quizBank = {
         "q": "Which molecular complex inside the host cytoplasm degrades endogenous ubiquitinated viral and self-proteins into peptides for MHC Class I presentation?",
         "o": [
           "26S Proteasome (Immunoproteasome)",
-          "Lysosome",
-          "Endosome",
-          "Peroxisome"
+          "Acidic phagolysosome digestive body",
+          "Early endosomal sorting vesicle system",
+          "Peroxisomal catalase crystalline core"
         ],
         "a": 0,
         "e": "The immunoproteasome cleaves cytosolic viral or tumoral proteins into 8–10 amino acid peptides for translocation into the ER.",
@@ -7966,9 +7951,9 @@ var quizBank = {
         "q": "Which ATP-dependent transporter pumps cytosolic peptides across the endoplasmic reticulum membrane for loading onto newly assembled MHC Class I molecules?",
         "o": [
           "TAP (Transporter associated with Antigen Processing: TAP1/TAP2)",
-          "ABC transporter B1",
-          "Sec61 translocon",
-          "Calnexin"
+          "ATP-binding cassette sub-family B member 1 (P-glycoprotein efflux)",
+          "Sec61 heterotrimeric protein-conducting translocon channel pore",
+          "Calnexin-calreticulin endoplasmic membrane chaperone assembly"
         ],
         "a": 0,
         "e": "TAP1 and TAP2 form a heterodimeric peptide channel in the ER membrane, selectively pumping 8–16 aa peptides into the ER lumen.",
@@ -7980,9 +7965,9 @@ var quizBank = {
         "q": "In the exogenous MHC Class II antigen processing pathway, what chaperone molecule blocks the peptide-binding groove in the ER to prevent premature endogenous peptide binding?",
         "o": [
           "Invariant chain (Ii / CD74)",
-          "Calreticulin",
-          "Tapasin",
-          "Beta-2 microglobulin"
+          "Calreticulin chaperone unit",
+          "Tapasin peptide-loading link",
+          "Beta-2 microglobulin peptide"
         ],
         "a": 0,
         "e": "The invariant chain occupies the MHC II groove in the ER, directing the complex to endosomal compartments where it is digested to leave CLIP.",
@@ -7994,9 +7979,9 @@ var quizBank = {
         "q": "Which non-classical MHC molecule catalyzes the removal of the CLIP peptide fragment from MHC Class II, facilitating the loading of processed antigenic peptides?",
         "o": [
           "HLA-DM (BoLA-DM in cattle)",
-          "HLA-DO",
-          "TAP1",
-          "Calnexin"
+          "HLA-DO (BoLA-DO in cattle)",
+          "TAP1 transporter molecule",
+          "Calnexin chaperone protein"
         ],
         "a": 0,
         "e": "HLA-DM acts as a peptide exchanger in endosomes, displacing the residual CLIP fragment to allow high-affinity antigenic peptides to bind MHC II.",
@@ -8008,9 +7993,9 @@ var quizBank = {
         "q": "What is the official international designation for the Major Histocompatibility Complex (MHC) gene cluster in cattle?",
         "o": [
           "BoLA (Bovine Leukocyte Antigen)",
-          "ELA",
-          "SLA",
-          "DLA"
+          "ELA (Equine Leukocyte Antigen)",
+          "SLA (Swine Leukocyte Antigen)",
+          "DLA (Dog Leukocyte Antigen)"
         ],
         "a": 0,
         "e": "Bovine MHC is termed BoLA (Bovine Leukocyte Antigen), located on bovine chromosome 23 and associated with mastitis and leukemia susceptibility.",
@@ -8022,9 +8007,9 @@ var quizBank = {
         "q": "What is the official international designation for the swine Major Histocompatibility Complex?",
         "o": [
           "SLA (Swine Leukocyte Antigen)",
-          "BoLA",
-          "ELA",
-          "DLA"
+          "BoLA (Bovine Leukocyte Antigen)",
+          "ELA (Equine Leukocyte Antigen)",
+          "DLA (Dog Leukocyte Antigen)"
         ],
         "a": 0,
         "e": "Swine MHC is SLA (Swine Leukocyte Antigen), located on chromosome 7, encoding classical Class I and Class II loci.",
@@ -8036,9 +8021,9 @@ var quizBank = {
         "q": "Which cytokine secreted predominantly by T-helper 1 (Th1) cells is the master activator of macrophages and promotes cell-mediated immunity against intracellular pathogens?",
         "o": [
           "Interferon-gamma (IFN-gamma)",
-          "Interleukin-4 (IL-4)",
-          "Interleukin-10 (IL-10)",
-          "Interleukin-13 (IL-13)"
+          "Interleukin-4 (IL-4 cytokine)",
+          "Interleukin-10 (IL-10 factor)",
+          "Transforming Growth Factor-b"
         ],
         "a": 0,
         "e": "IFN-gamma is the signature Th1 cytokine; it activates microbicidal nitric oxide (iNOS) and ROI synthesis in macrophages to eliminate intracellular microbes.",
@@ -8078,9 +8063,9 @@ var quizBank = {
         "q": "Cytotoxic T Lymphocytes (CTLs) induce programmed apoptotic cell death in target cells via the directed exocytosis of which two cytotoxic granule proteins?",
         "o": [
           "Perforin and Granzymes (e.g., Granzyme B)",
-          "Lysozyme and Defensins",
-          "Histamine and Heparin",
-          "Interferon and Interleukin-2"
+          "Lysozyme and bactericidal defensin peptides",
+          "Histamine and vasoactive heparin molecules",
+          "Interferon-gamma and Interleukin-2 factor"
         ],
         "a": 0,
         "e": "Perforin polymerizes in the target membrane to create pores through which serine proteases (granzymes) enter, cleaving caspases to trigger apoptosis.",
@@ -8092,9 +8077,9 @@ var quizBank = {
         "q": "In cattle, sheep, and pigs, what unconventional T-lymphocyte population represents up to 60% of all circulating blood lymphocytes in neonatal animals?",
         "o": [
           "Gamma-delta (gammadelta) T cells",
-          "CD4+ T helper cells",
-          "Natural Killer cells",
-          "B-1 cells"
+          "Alpha-beta CD4+ T helper cells",
+          "CD8+ Cytotoxic T lymphocytes",
+          "CD1d-restricted NKT lymphocytes"
         ],
         "a": 0,
         "e": "Young ruminants and swine have large populations of circulating gamma-delta T cells (60% in calves/piglets), which respond to non-peptide antigens at mucosal surfaces.",
@@ -8120,9 +8105,9 @@ var quizBank = {
         "q": "What is the second costimulatory signal required for full activation of naive T cells, provided by the interaction between CD28 on the T cell and which molecules on the APC?",
         "o": [
           "CD80 (B7-1) and CD86 (B7-2)",
-          "CD40 and CD40L",
-          "ICAM-1 and LFA-1",
-          "Fas and FasL"
+          "CD40 and CD40 Ligand (CD154)",
+          "ICAM-1 (CD54) and LFA-1 (CD11a)",
+          "Fas (CD95) and Fas Ligand"
         ],
         "a": 0,
         "e": "Signal 1 is TCR-MHC recognition; Signal 2 is costimulation between T-cell CD28 and APC CD80/CD86. Antigen recognition without Signal 2 leads to clonal anergy.",
@@ -8134,9 +8119,9 @@ var quizBank = {
         "q": "Which inhibitory receptor is upregulated on activated T cells to deliver a negative shutdown signal by competitively binding CD80/CD86 with higher affinity than CD28?",
         "o": [
           "CTLA-4 (CD152)",
-          "CD4",
-          "CD8",
-          "CD3"
+          "PD-1 (CD279)",
+          "LAG-3 (CD223)",
+          "TIM-3 (CD366)"
         ],
         "a": 0,
         "e": "CTLA-4 binds CD80/CD86 with ~20-fold higher affinity than CD28, outcompeting costimulation and terminating T-cell proliferation.",
@@ -8190,9 +8175,9 @@ var quizBank = {
         "q": "What is the primary shock organ that suffers acute venous pooling and hepatic congestion during systemic anaphylaxis in the dog?",
         "o": [
           "Liver and hepatic veins (hepatic hepatic outflow sphincter constriction)",
-          "Lungs (pulmonary bronchoconstriction)",
-          "Right atrium",
-          "Urinary bladder"
+          "Lungs and bronchial airways (intense smooth muscle bronchoconstriction)",
+          "Heart and right atrium (severe myocardial conduction nodal depression)",
+          "Urinary bladder and urethra (intense detrusor muscle hypercontraction)"
         ],
         "a": 0,
         "e": "In the dog, the primary anaphylactic shock organ is the liver; constriction of hepatic veins causes massive splanchnic pooling, vomiting, and collapse.",
@@ -8204,9 +8189,9 @@ var quizBank = {
         "q": "In domestic cattle, sheep, and cats, what is the primary shock organ during systemic anaphylaxis?",
         "o": [
           "Lungs (severe pulmonary venoconstriction and acute asphyxiating dyspnea)",
-          "Kidneys",
-          "Spleen",
-          "Pancreas"
+          "Liver (acute hepatic congestion and hepatic outflow sphincter spasm)",
+          "Kidneys (acute bilateral renal cortical necrosis and severe oliguria)",
+          "Spleen (massive splenic venous contraction and acute hemoconcentration)"
         ],
         "a": 0,
         "e": "In ruminants and cats, the lungs are the primary shock organ; pulmonary vasoconstriction and edema produce severe respiratory distress and asphyxia.",
@@ -8218,9 +8203,9 @@ var quizBank = {
         "q": "Culicoides hypersensitivity ('Sweet Itch' or Queensland itch) in domestic horses is an itchy, seasonal, pruritic skin disorder mediated by which hypersensitivity mechanism?",
         "o": [
           "Type I and delayed Type IV hypersensitivity to salivary antigens of biting midges (Culicoides spp.)",
-          "Type II cytotoxic reaction to red blood cells",
-          "Type III immune complex deposition in joints",
-          "Graft-versus-host disease"
+          "Type II antibody-dependent cytotoxicity directed against erythrocyte surface antigens in circulation",
+          "Type III immune complex deposition within synovial membranes and peripheral glomerular capillaries",
+          "Graft-versus-host disease initiated by maternal alloreactive T lymphocytes passing into the fetus"
         ],
         "a": 0,
         "e": "Salivary proteins from Culicoides midges trigger IgE-mediated Type I immediate mast cell degranulation and late-phase Type IV eosinophilic dermatitis along the mane and tail.",
@@ -8246,9 +8231,9 @@ var quizBank = {
         "q": "What diagnostic serological assay detects IgG or C3b bound to the surface of a patient's red blood cells in suspected Canine Immune-Mediated Hemolytic Anemia (IMHA)?",
         "o": [
           "Direct Antiglobulin Test (Direct Coombs' test)",
-          "Indirect Coombs' test",
-          "Agar gel immunodiffusion",
-          "Rose Bengal plate test"
+          "Indirect Antiglobulin Test (Indirect Coombs')",
+          "Agar Gel Immunodiffusion (AGID precipitin)",
+          "Rose Bengal Rapid Plate Agglutination Test"
         ],
         "a": 0,
         "e": "The direct Coombs' test uses anti-canine IgG/IgM/C3 antiserum; cross-linking of antibody-coated erythrocytes in vitro produces macroscopic agglutination.",
@@ -8260,9 +8245,9 @@ var quizBank = {
         "q": "Type III hypersensitivity is initiated by the vascular and tissue deposition of:",
         "o": [
           "Soluble circulating antigen-antibody (immune) complexes activating complement",
-          "Cell-bound IgE cross-linking allergens",
-          "Activated CD8+ cytotoxic T cells",
-          "Anti-platelet autoantibodies alone"
+          "Cell-bound IgE antibodies cross-linking multivalent allergen macromolecules",
+          "Sensitized CD8+ cytotoxic T lymphocytes inducing target cellular apoptosis",
+          "Pathogenic autoantibodies directed against platelet surface glycoproteins"
         ],
         "a": 0,
         "e": "Slight antigen excess produces intermediate-sized soluble immune complexes that lodge in vessel walls (glomeruli, joints, skin), activating complement and recruiting neutrophils.",
@@ -8274,9 +8259,9 @@ var quizBank = {
         "q": "The transient bilateral corneal edema ('Blue Eye' phenomenon) observed in dogs infected with or vaccinated with unmodified live Canine Adenovirus Type 1 (CAV-1) is a manifestation of:",
         "o": [
           "Type III Hypersensitivity (immune complex deposition in the anterior uvea and corneal endothelium)",
-          "Type I Hypersensitivity",
-          "Type II cytotoxic lysis of corneal keratocytes",
-          "Type IV delayed-type granuloma"
+          "Type I Hypersensitivity (mast cell degranulation triggering acute ocular edema and conjunctival chemosis)",
+          "Type II Hypersensitivity (complement-mediated lysis of corneal keratocytes and anterior endothelium)",
+          "Type IV Hypersensitivity (delayed T-cell mediated chronic anterior granulomatous uveitis infiltration)"
         ],
         "a": 0,
         "e": "CAV-1 antigen-antibody complexes deposit in the filtration angle and corneal endothelium, activating complement and causing endothelial fluid pump failure and corneal edema ('blue eye').",
@@ -8302,9 +8287,9 @@ var quizBank = {
         "q": "The Tuberculin skin test (evaluating delayed swelling at 72 hours following intradermal injection of Purified Protein Derivative) is the classical diagnostic example of:",
         "o": [
           "Type IV (Delayed-Type) Hypersensitivity (DTH)",
-          "Type I Anaphylactic Hypersensitivity",
-          "Type II Cytotoxic Hypersensitivity",
-          "Type III Immune Complex Disease"
+          "Type I (Immediate Anaphylactic) Hypersensitivity",
+          "Type II (Antibody-Dependent Cytotoxic) Reaction",
+          "Type III (Immune Complex-Mediated) Vasculitis"
         ],
         "a": 0,
         "e": "Type IV DTH involves sensitized memory Th1 cells that release IFN-gamma, attracting and activating a mononuclear macrophage infiltrate that creates hard induration at 48–72 hr.",
@@ -8316,9 +8301,9 @@ var quizBank = {
         "q": "Pemphigus foliaceus, the most common autoimmune skin disease of domestic dogs and cats, is caused by autoantibodies targeting which epidermal adhesion glycoprotein?",
         "o": [
           "Desmocollin-1 (and Desmoglein-1)",
-          "Collagen Type VII",
-          "Keratin 10",
-          "Integrin alpha-6"
+          "Collagen Type VII anchoring fibrils",
+          "Keratin 10 / Keratin 1 cytoskeleton",
+          "Integrin alpha-6 beta-4 hemidesmosome"
         ],
         "a": 0,
         "e": "Autoantibodies against desmosomal adhesion proteins (desmocollin-1 in dogs) cause acantholysis: detachment of keratinocytes and intraepidermal subcorneal pustule formation.",
@@ -8330,9 +8315,9 @@ var quizBank = {
         "q": "Myasthenia Gravis in dogs and cats causes progressive muscular weakness exacerbated by exercise, resulting from pathogenic autoantibodies directed against:",
         "o": [
           "Nicotinic acetylcholine receptors (AChR) on the postsynaptic neuromuscular junction",
-          "Voltage-gated calcium channels",
-          "Ryanodine receptors",
-          "Muscarinic receptors in the heart"
+          "Presynaptic voltage-gated calcium channels impairing acetylcholine vesicle fusion",
+          "Sarcoplasmic reticulum ryanodine receptors causing defective calcium ion release",
+          "Muscarinic acetylcholine receptors within cardiac nodal conducting fibers alone"
         ],
         "a": 0,
         "e": "Anti-AChR autoantibodies block neuromuscular transmission and induce complement-mediated motor endplate destruction, causing muscle weakness, megaesophagus, and collapse.",
@@ -8344,9 +8329,9 @@ var quizBank = {
         "q": "Severe Combined Immunodeficiency (SCID) in Arabian foals is an inherited autosomal recessive fatal disorder caused by a defect in which gene?",
         "o": [
           "DNA-dependent protein kinase catalytic subunit (DNA-PKcs)",
-          "CD18 beta-integrin",
-          "Gamma-c cytokine receptor chain",
-          "Recombination activating gene 1 (RAG1)"
+          "CD18 leukocyte beta-2 integrin cell adhesion subunit",
+          "Common gamma chain (gamma-c) shared cytokine receptor",
+          "Recombination Activating Gene 1 (RAG1 endonuclease)"
         ],
         "a": 0,
         "e": "A 5-base-pair frameshift deletion in DNA-PKcs prevents non-homologous end joining during V(D)J recombination, resulting in complete absence of mature B and T lymphocytes.",
@@ -8358,9 +8343,9 @@ var quizBank = {
         "q": "Bovine Leukocyte Adhesion Deficiency (BLAD) in Holstein calves is caused by a point mutation in the gene encoding which cell adhesion molecule?",
         "o": [
           "CD18 (beta-2 integrin subunit)",
-          "L-selectin (CD62L)",
-          "ICAM-1",
-          "PECAM-1"
+          "L-selectin (CD62L adhesion mol)",
+          "ICAM-1 (CD54 endothelial mol)",
+          "PECAM-1 (CD31 junctional mol)"
         ],
         "a": 0,
         "e": "BLAD is an autosomal recessive mutation in CD18; neutrophils cannot form functional beta-2 integrins (LFA-1/Mac-1) to extravasate through capillaries, causing severe leukocytosis and ulcers.",
@@ -8372,9 +8357,9 @@ var quizBank = {
         "q": "Canine Systemic Lupus Erythematosus (SLE) is classically characterized by the production of autoantibodies targeting:",
         "o": [
           "Nuclear components, particularly double-stranded DNA (Antinuclear Antibodies - ANA)",
-          "Red blood cell glycophorin alone",
-          "Thyroid peroxidase alone",
-          "Myelin basic protein"
+          "Erythrocyte membrane glycophorin molecules causing severe auto-immune hemolytic anemia",
+          "Thyroid peroxidase and thyroglobulin resulting in chronic lymphocytic thyroiditis",
+          "Myelin basic protein causing extensive peripheral motor nerve axonal demyelination"
         ],
         "a": 0,
         "e": "SLE is a prototype multisystem autoimmune disease characterized by high-titer circulating Antinuclear Antibodies (ANA) and systemic immune complex deposition.",
@@ -8386,9 +8371,9 @@ var quizBank = {
         "q": "Central immunological tolerance is established through the negative selection (clonal deletion) of strongly self-reactive developing lymphocytes within the:",
         "o": [
           "Thymus (for T cells) and Bone Marrow (for B cells)",
-          "Spleen and lymph nodes",
-          "Peyer's patches",
-          "Liver"
+          "Spleen and regional draining lymph node cortices",
+          "Peyer's patches and mucosal lamina propria beds",
+          "Fetal yolk sac and neonatal mesenteric lacteals"
         ],
         "a": 0,
         "e": "Central tolerance physically eliminates or edits immature developing lymphocytes in primary lymphoid organs if their antigen receptors bind self-antigens with high affinity.",
@@ -8400,9 +8385,9 @@ var quizBank = {
         "q": "What transcription factor expressed in medullary thymic epithelial cells drives the ectopic expression of peripheral tissue-specific antigens to mediate negative selection of autoreactive T cells?",
         "o": [
           "Autoimmune Regulator (AIRE)",
-          "FoxP3",
-          "NF-kappa-B",
-          "AP-1"
+          "Forkhead box P3 (FoxP3 fac)",
+          "Nuclear Factor kappa B unit",
+          "Activator Protein 1 complex"
         ],
         "a": 0,
         "e": "AIRE drives expression of organ-specific self-proteins (e.g., insulin, thyroglobulin) in the thymic medulla, eliminating self-reactive thymocytes.",
@@ -8414,9 +8399,9 @@ var quizBank = {
         "q": "In Single Radial Immunodiffusion (SRID / Mancini technique) used to quantify calf IgG, how does the diameter of the precipitin ring correlate with immunoglobulin concentration?",
         "o": [
           "The square of the ring diameter (d²) is directly proportional to the antigen concentration",
-          "The diameter is inversely proportional to concentration",
-          "Ring diameter is completely independent of concentration",
-          "The cube of the ring diameter is proportional to concentration"
+          "The ring diameter (d) is inversely proportional to the logarithm of antigen concentration",
+          "The precipitin ring diameter is completely independent of the loaded antigen concentration",
+          "The cube of the ring diameter (d³) is directly proportional to the antigen concentration"
         ],
         "a": 0,
         "e": "In the Mancini technique, antigen diffuses radially into an antibody-containing agarose gel; at equilibrium, ring diameter squared (d²) is linear with antigen concentration.",
@@ -8428,9 +8413,9 @@ var quizBank = {
         "q": "In Agar Gel Immunodiffusion (AGID / Ouchterlony assay), what precipitin line pattern is observed when two adjacent antigen wells contain identical, cross-reactive epitopes?",
         "o": [
           "A smooth, continuous arc of identity without any spur formation",
-          "Two crossed lines of non-identity",
-          "A continuous line with a prominent projecting spur",
-          "Zero precipitation lines"
+          "Two intersecting crossed precipitation lines of non-identity",
+          "A continuous curved precipitation line with a prominent spur",
+          "A diffuse hazy precipitation zone lacking distinct line edges"
         ],
         "a": 0,
         "e": "When two antigens share identical epitopes, their diffusing fronts fuse into a smooth continuous circular arc of identity with no projection.",
@@ -8442,9 +8427,9 @@ var quizBank = {
         "q": "The official diagnostic Coggins test, universally mandated for international movement and surveillance of Equine Infectious Anemia (EIA), is an:",
         "o": [
           "Agar Gel Immunodiffusion (AGID) assay detecting antibodies against p26 core antigen",
-          "Indirect fluorescent antibody test",
-          "Standard tube agglutination test",
-          "Western blot test alone"
+          "Indirect Fluorescent Antibody Test (IFAT) detecting membrane envelope glycoprotein",
+          "Standard Tube Agglutination Test (STAT) quantifying surface agglutinating titers",
+          "Western blot immunoassay detecting reverse transcriptase enzyme subunits alone"
         ],
         "a": 0,
         "e": "Developed by Leroy Coggins in 1970, the Coggins AGID test detects precipitating antibodies against the major 26 kDa capsid core antigen (p26) of EIA lentivirus.",
@@ -8470,9 +8455,9 @@ var quizBank = {
         "q": "What is the primary chromogenic enzyme substrate paired with Horseradish Peroxidase (HRP) in standard microplate ELISA assays?",
         "o": [
           "3,3',5,5'-Tetramethylbenzidine (TMB)",
-          "p-Nitrophenyl phosphate (pNPP)",
-          "X-gal",
-          "Bromocresol purple"
+          "p-Nitrophenyl phosphate (pNPP dye)",
+          "5-Bromo-4-chloro-3-indolyl phosphate",
+          "Bromocresol purple chromogenic broth"
         ],
         "a": 0,
         "e": "TMB is oxidized by HRP and H2O2 to form a blue diimine product, which turns yellow upon addition of sulfuric acid stop solution, absorbing at 450 nm.",
@@ -8484,9 +8469,9 @@ var quizBank = {
         "q": "A competitive ELISA designed to Differentiate Infected from Vaccinated Animals (DIVA) operates on which diagnostic principle?",
         "o": [
           "Antibodies in patient serum compete with a labeled monoclonal antibody for binding to a specific diagnostic epitope",
-          "Direct sandwich capture of all host immunoglobulins",
-          "Precipitation of immune complexes in agar",
-          "Hemolysis of sheep red blood cells"
+          "Direct double-antibody sandwich capture measuring all circulating host immunoglobulins non-specifically in serum",
+          "Precipitation of soluble immune complexes in agarose gels to form visible diagnostic arcs within forty-eight hours",
+          "Complement-mediated lysis of sensitized indicator sheep erythrocytes measured by spectrophotometric absorbance"
         ],
         "a": 0,
         "e": "In competitive DIVA ELISA, antibodies in infected animals displace labeled monoclonal antibodies; higher patient antibody levels produce a LOWER optical density.",
@@ -8512,9 +8497,9 @@ var quizBank = {
         "q": "Failure of Passive Transfer (FPT) in neonatal calves is clinically defined as a serum IgG concentration of less than what threshold at 24 to 48 hours of life?",
         "o": [
           "< 1,000 mg/dL (10 g/L)",
-          "< 500 mg/dL",
-          "< 2,000 mg/dL",
-          "< 100 mg/dL"
+          "< 500 mg/dL (5.0 g/L)",
+          "< 2,000 mg/dL (20 g/L)",
+          "< 100 mg/dL (1.0 g/L)"
         ],
         "a": 0,
         "e": "Serum IgG <1000 mg/dL (10 g/L) at 24–48 hours defines Failure of Passive Transfer, dramatically predisposing calves to septicemia and fatal enteritis.",
@@ -8526,9 +8511,9 @@ var quizBank = {
         "q": "Why must newborn calves, foals, and piglets ingest maternal colostrum within the first 12 to 24 hours after birth?",
         "o": [
           "Specialized neonatal intestinal enterocytes absorb macromolecular intact immunoglobulins via non-selective pinocytosis before 'gut closure' occurs",
-          "Colostrum is digested into amino acids by gastric acid",
-          "Calves develop an allergy to milk after 24 hours",
-          "Maternal antibodies are only produced for 2 hours"
+          "Colostral immunoglobulins are rapidly degraded by gastric pepsin and hydrochloric acid into nutritive amino acids for intestinal development",
+          "Neonatal calves rapidly develop life-threatening allergic anaphylactic reactions to foreign maternal milk proteins after twenty-four hours",
+          "Maternal mammary glands permanently cease secreting any protective immunoglobulins after the initial two hours following parturition"
         ],
         "a": 0,
         "e": "Enterocytes express high levels of macromolecular endocytic receptors during the first 6–12 hours; enterocyte replacement causes progressive 'gut closure' by 24 hours.",
@@ -8540,9 +8525,9 @@ var quizBank = {
         "q": "What chemical compound is universally used to convert active, lethal bacterial exotoxins (e.g., Clostridium tetani toxin) into safe, immunogenic toxoids?",
         "o": [
           "Formaldehyde (Formalin)",
-          "Beta-propiolactone",
-          "Glutaraldehyde",
-          "Acetone"
+          "Beta-propiolactone vapor",
+          "Glutaraldehyde fixative",
+          "Dilute hypochlorite base"
         ],
         "a": 0,
         "e": "Formaldehyde cross-links lysine amino groups in protein toxins, abolishing enzymatic toxicity while preserving three-dimensional antigenic epitopes to create toxoids.",
@@ -8554,9 +8539,9 @@ var quizBank = {
         "q": "Which mineral adjuvant is the most widely approved and utilized adjuvant in domestic veterinary and human vaccines, functioning by creating an antigen depot and promoting Th2 responses?",
         "o": [
           "Aluminum hydroxide / Aluminum phosphate (Alum)",
-          "Freund's Complete Adjuvant",
-          "Squalene alone",
-          "Lipopolysaccharide"
+          "Freund's Complete Adjuvant water-in-oil emulsion",
+          "Squalene-based oil-in-water nanoemulsion (MF59)",
+          "Bacterial lipopolysaccharide detoxified lipid A"
         ],
         "a": 0,
         "e": "Alum adjuvants adsorb protein antigens, providing slow sustained antigen release and activating the NLRP3 inflammasome to induce strong antibody titers.",
@@ -8568,9 +8553,9 @@ var quizBank = {
         "q": "Freund's Complete Adjuvant (FCA) is strictly prohibited in food-producing livestock and routine companion animal vaccines because it contains:",
         "o": [
           "Heat-killed Mycobacterium tuberculosis suspended in mineral oil, causing severe granulomatous injection-site abscesses and false-positive tuberculin reactions",
-          "Live rabies virus",
-          "Toxic mercury salts",
-          "Arsenic trioxide"
+          "Live virulent rabies virus particles capable of neurotropic retrograde axonal replication, inducing fatal paralytic encephalitis in exposed livestock",
+          "Toxic organic mercury preservatives that bioaccumulate in bovine muscle and kidney tissues, exceeding statutory maximum residue limits in milk",
+          "Insoluble arsenic trioxide minerals that trigger widespread hepatocellular necrosis and acute nephrotoxic tubular degenerative changes in calves"
         ],
         "a": 0,
         "e": "FCA induces severe chronic granulomas, sterile abscesses, and sensitizes animals to bovine PPD, ruining national tuberculosis eradication testing.",
@@ -8582,9 +8567,9 @@ var quizBank = {
         "q": "The Bacillus anthracis Sterne strain vaccine used to immunize livestock against anthrax is an example of what type of vaccine?",
         "o": [
           "Live attenuated bacterial spore vaccine (lacking the pXO2 capsule plasmid)",
-          "Formalin-killed whole-cell bacterin",
-          "Recombinant subunit vaccine",
-          "Toxoid vaccine"
+          "Formalin-inactivated whole-cell bacterin supplemented with alum adjuvant",
+          "Recombinant protective antigen (PA) subunit vaccine expressed in yeast",
+          "Alum-precipitated cell-free lethal factor (LF) and edema factor toxoid"
         ],
         "a": 0,
         "e": "The Sterne strain (34F2) possesses plasmid pXO1 (encoding lethal and edema toxins) but lacks plasmid pXO2 (capsule synthesis), rendering it non-encapsulated and attenuated.",
@@ -8610,9 +8595,9 @@ var quizBank = {
         "q": "What is the primary advantage of live attenuated viral vaccines over inactivated (killed) vaccines?",
         "o": [
           "Replicate inside host cells, presenting endogenous viral peptides on MHC Class I to stimulate robust CD8+ Cytotoxic T Lymphocyte (CTL) memory",
-          "100% stable at room temperature without cold chain",
-          "Zero risk of reversion to virulence in immunosuppressed animals",
-          "Can be safely administered to pregnant females without risk"
+          "Remain completely stable at ambient room temperature for years without requiring cold chain refrigeration storage during field delivery",
+          "Possess zero inherent risk of reversion to virulence or residual pathogenicity when administered to severely immunocompromised animals",
+          "Can be safely administered to pregnant livestock during all trimesters without any potential risk of transplacental fetal infection"
         ],
         "a": 0,
         "e": "Live attenuated viruses infect host cells and synthesize viral proteins in the cytosol, driving endogenous MHC Class I presentation and powerful long-lived CTL responses.",
@@ -8624,9 +8609,9 @@ var quizBank = {
         "q": "DNA vaccines elicit immune responses in domestic animals by delivering a bacterial plasmid that contains:",
         "o": [
           "A eukaryotic promoter (e.g., CMV promoter) driving the expression of a pathogen gene inside host muscle cells and dendritic cells",
-          "A live attenuated virus in plasmid form",
-          "Synthetic peptide fragments coupled to BSA",
-          "Pre-formed viral capsids"
+          "A live replication-competent bacterial vector that secretes intact neutralizing immunoglobulin molecules directly into the blood",
+          "A cocktail of synthetic oligopeptide fragments covalently coupled to bovine serum albumin carriers and formulated in mineral oil",
+          "Pre-formed recombinant viral capsid nanoparticles that bind directly to host cell surface receptors without genetic expression"
         ],
         "a": 0,
         "e": "Intramuscularly injected plasmid DNA enters host myocytes and APCs; the CMV promoter directs transcription and translation of the foreign antigen, inducing both CMI and antibodies.",
@@ -8638,9 +8623,9 @@ var quizBank = {
         "q": "Which rapid field turbidity test is commonly performed on foal or calf serum to detect Failure of Passive Transfer based on precipitation by a heavy metal sulfate solution?",
         "o": [
           "Zinc Sulfate Turbidity (ZST) test",
-          "Ascoli test",
-          "Schirmer tear test",
-          "California mastitis test"
+          "Ascoli thermoprecipitin ring test",
+          "Sodium sulfite precipitation test",
+          "Glutaraldehyde coagulation test"
         ],
         "a": 0,
         "e": "Low-ionic zinc sulfate solution precipitates serum immunoglobulins; cloudiness measured by spectrophotometer or newsprint visibility quantifies passive transfer.",
@@ -8652,9 +8637,9 @@ var quizBank = {
         "q": "In a classical quantitative serum agglutination assay, the antibody titer is defined as the:",
         "o": [
           "Reciprocal of the highest dilution of serum that produces visible, detectable agglutination",
-          "Concentration of total serum protein in g/dL",
-          "Optical density multiplied by 100",
-          "Volume of antigen added to the first tube"
+          "Absolute concentration of antigen-specific serum immunoglobulins expressed in milligrams per deciliter",
+          "Measured spectrophotometric optical density at 450 nanometers multiplied by a dilution normalization factor",
+          "Total volume in microliters of standard bacterial antigen suspension added to the initial diagnostic tube"
         ],
         "a": 0,
         "e": "Titer is the reciprocal of the greatest serum dilution showing positive reaction (e.g., if agglutination occurs up to 1:640 dilution, the titer is 640).",
@@ -9573,16 +9558,15 @@ var quizBank = {
       }
     ]
   },
-
   "unit-5": {
     "mcq": [
       {
         "q": "An icosahedral viral capsid exhibits which exact geometric arrangement of faces, vertices, and axes of rotational symmetry?",
         "o": [
           "20 equilateral triangular faces, 12 vertices, and 5:3:2 rotational symmetry",
-          "12 pentagonal faces and 20 vertices",
-          "24 square faces and 8 vertices",
-          "30 diamond faces and 6 vertices"
+          "12 regular pentagonal faces, 20 vertices, and distinct 3:2:1 rotational symmetry",
+          "24 square rectangular faces, 8 vertices, and 4:2:1 rotational symmetry",
+          "30 diamond rhombic faces, 6 vertices, and 2:2:1 rotational symmetry"
         ],
         "a": 0,
         "e": "An icosahedron is a regular polyhedron composed of 20 identical equilateral triangular faces meeting at 12 vertices, exhibiting 5-fold, 3-fold, and 2-fold rotational axes.",
@@ -9594,9 +9578,9 @@ var quizBank = {
         "q": "Why are non-enveloped (naked) viruses (e.g., Parvoviruses, Circoviruses, Picornaviruses) significantly more resistant to lipid solvents, detergents, and environmental drying than enveloped viruses?",
         "o": [
           "They possess a dense, rigid proteinaceous capsid shell and lack a delicate host-derived lipid bilayer envelope",
-          "Their nucleic acid is double-stranded DNA",
-          "They encode lipid-destroying enzymes",
-          "They replicate only at freezing temperatures"
+          "Their viral genome is composed of double-stranded circular DNA protected by basic host polyamine complexes",
+          "They actively synthesize extracellular zinc metalloproteinases that digest and clear organic lipid solvents",
+          "They possess an exceptionally thick multi-layered outer tegument matrix that resists environmental lipophilic detergents"
         ],
         "a": 0,
         "e": "Enveloped viruses rely on their fragile host-derived lipid bilayer envelope for infectivity; ether, chloroform, or bile salts dissolve the lipids, while naked protein capsids survive.",
@@ -9608,9 +9592,9 @@ var quizBank = {
         "q": "In the Baltimore virus classification scheme, Class IV viruses possess which genome type and replication strategy?",
         "o": [
           "Positive-sense single-stranded RNA (+)ssRNA that can function directly as mRNA inside host ribosomes",
-          "Negative-sense single-stranded RNA requiring virion-associated RdRp",
-          "Double-stranded RNA requiring transcription",
-          "Single-stranded DNA converting to dsDNA"
+          "Negative-sense single-stranded RNA (-)ssRNA requiring virion-associated transcriptase to synthesize mRNA",
+          "Double-stranded segmented RNA requiring transcription inside core capsids before translation in ribosomes",
+          "Single-stranded DNA (+)ssDNA converting to a double-stranded intermediate prior to cellular transcription"
         ],
         "a": 0,
         "e": "Class IV (+)ssRNA genomes (e.g., Picornaviridae, Coronaviridae) are directly infectious; host ribosomes translate them immediately upon uncoating without needing a virion polymerase.",
@@ -9622,9 +9606,9 @@ var quizBank = {
         "q": "Which enzyme must be packaged within the mature virion of all negative-sense single-stranded RNA (-)ssRNA viruses to initiate infection in host cells?",
         "o": [
           "RNA-dependent RNA Polymerase (RdRp / Transcriptase)",
-          "DNA-dependent DNA polymerase",
-          "Reverse transcriptase",
-          "RNA Ligase"
+          "DNA-dependent RNA polymerase II host enzyme complex",
+          "Reverse transcriptase (RNA-directed DNA polymerase)",
+          "RNA Ligase and capping guanylyltransferase complex"
         ],
         "a": 0,
         "e": "Host cells lack enzymes to transcribe (-)ssRNA; therefore, (-)ssRNA viruses (Rhabdo, Paramyxo, Orthomyxo) must carry an active RdRp inside the virion to synthesize (+)mRNA.",
@@ -9636,9 +9620,9 @@ var quizBank = {
         "q": "What cytopathic effect (CPE) is defined by the fusion of infected neighboring cell membranes, producing massive multinucleated giant cells?",
         "o": [
           "Syncytium formation (Polykayocyte formation)",
-          "Cell rounding and pyknosis",
-          "Plaque formation",
-          "Cellular detachment alone"
+          "Pyknosis and karyorrhexis of infected nuclei",
+          "Discrete micro-plaque focal clearing formation",
+          "Cell rounding and detachment from monolayer"
         ],
         "a": 0,
         "e": "Viral fusion (F) glycoproteins expressed on the infected host plasma membrane fuse with adjacent uninfected cells, generating large multinucleated syncytia (seen in Paramyxoviruses).",
@@ -9650,9 +9634,9 @@ var quizBank = {
         "q": "Negri bodies, the pathognomonic diagnostic inclusion bodies of Rabies virus infection, are cytologically characterized as:",
         "o": [
           "Eosinophilic, intracytoplasmic inclusions containing basophilic internal granules in hippocampal Ammon's horn neurons and cerebellar Purkinje cells",
-          "Basophilic intranuclear inclusions",
-          "Cowdry Type A inclusions in the nucleus",
-          "Large extracellular amyloid plaques"
+          "Basophilic, intranuclear inclusions surrounded by a distinct halo with peripheral chromatin margination in cerebral cortical neurons",
+          "Eosinophilic, Cowdry Type A intranuclear bodies accompanied by widespread liquefactive necrosis throughout the midbrain tegmentum",
+          "Large, spherical eosinophilic intracytoplasmic inclusions surrounded by dense neurofilament networks located predominantly within motor neurons of the ventral spinal horn"
         ],
         "a": 0,
         "e": "Described by Adelchi Negri in 1903, Negri bodies are sharp, round to oval magenta-red intracytoplasmic viral replication complexes (0.5–20 um) with dark basophilic inner granules.",
@@ -9664,9 +9648,9 @@ var quizBank = {
         "q": "In avian virology, large intracytoplasmic lipophilic inclusion bodies found in feather follicles and cutaneous lesions of Fowlpox are known as:",
         "o": [
           "Bollinger bodies (containing elementary Borrel bodies)",
-          "Guarnieri bodies",
-          "Cowdry Type B bodies",
-          "Torres bodies"
+          "Guarnieri bodies (containing Paschen elementary bodies)",
+          "Cowdry Type B bodies (containing granular aggregates)",
+          "Torres bodies (containing dense acidophilic nucleoli)"
         ],
         "a": 0,
         "e": "Bollinger bodies are giant intracytoplasmic inclusions in fowlpox-infected epithelial cells; treatment with ether dissolves their lipid matrix to reveal minute infectious Borrel bodies.",
@@ -9678,9 +9662,9 @@ var quizBank = {
         "q": "Cowdry Type A inclusion bodies, produced by Alphaherpesviruses (e.g., IBR, EHV-1, Pseudorabies), are located in which cellular compartment?",
         "o": [
           "Intranuclear (eosinophilic, amorphous, surrounded by a clear halo with margination of chromatin)",
-          "Intracytoplasmic exclusively",
-          "Intramitochondrial",
-          "Peroxisomal"
+          "Intracytoplasmic (dense, acidophilic, displacing the host cell nucleus and cytoplasm toward the cell membrane)",
+          "Intramitochondrial (crystalline, associated with severe swelling of the mitochondrial cristae)",
+          "Intraperoxisomal (filamentous, associated with high-level catalase enzyme accumulation)"
         ],
         "a": 0,
         "e": "Cowdry Type A inclusions are dense eosinophilic intranuclear bodies separated from the condensed, marginated nuclear chromatin ring by a distinct clear halo.",
@@ -9692,9 +9676,9 @@ var quizBank = {
         "q": "Which route of inoculation in 10- to 12-day-old embryonated chicken eggs is specifically utilized to cultivate Poxviruses and observe discrete pock lesions?",
         "o": [
           "Chorioallantoic Membrane (CAM) route",
-          "Allantoic cavity route",
-          "Yolk sac route",
-          "Amniotic cavity route"
+          "Allantoic cavity fluid inoculation route",
+          "Yolk sac vascular injection route",
+          "Amniotic cavity fluid route"
         ],
         "a": 0,
         "e": "Inoculation onto the dropped CAM produces discrete focal proliferative opaque necrotic lesions ('pocks') characteristic of Poxviruses and Herpesviruses.",
@@ -9706,9 +9690,9 @@ var quizBank = {
         "q": "Newcastle Disease Virus (NDV) and Avian Influenza Virus are routinely cultivated in 9- to 11-day-old embryonated eggs via which route, yielding high-titer viral fluids?",
         "o": [
           "Allantoic cavity route",
-          "Yolk sac route",
-          "Intracerebral route",
-          "Intravenous route"
+          "Yolk sac injection route",
+          "Intracerebral inoculation",
+          "Intravenous vessel route"
         ],
         "a": 0,
         "e": "The allantoic cavity route yields large volumes (5–10 mL per egg) of sterile, high-titer viral allantoic fluid for diagnostic hemagglutination and vaccine harvesting.",
@@ -9720,9 +9704,9 @@ var quizBank = {
         "q": "What primary tissue source is classically digested with trypsin to prepare Primary Chick Embryo Fibroblast (CEF) cell cultures?",
         "o": [
           "9- to 11-day-old decapitated, eviscerated chick embryos",
-          "Avian liver alone",
-          "Adult chicken bone marrow",
-          "Egg albumen"
+          "Adult chicken splenic red pulp and peripheral lymphocytes",
+          "Fertile unincubated egg yolk and dense chalaza membranes",
+          "Bursa of Fabricius and thymic lymphoid lobes from pullets"
         ],
         "a": 0,
         "e": "CEF cells are prepared by mincing 9–11 day decapitated chick embryo carcasses and dissociating with warm 0.25% trypsin-EDTA to seed monolayer cultures.",
@@ -9734,9 +9718,9 @@ var quizBank = {
         "q": "Continuous (immortalized) cell lines such as Vero (African green monkey kidney) and BHK-21 (Baby hamster kidney) differ from primary cell cultures in that they:",
         "o": [
           "Can be subcultured indefinitely through infinite serial passages without undergoing senescence",
-          "Die after exactly 5 passages",
-          "Retain a strictly normal diploid karyotype",
-          "Require chicken serum to grow"
+          "Undergo immediate replicative arrest and spontaneous apoptosis after five serial subcultures",
+          "Retain a strictly unaltered diploid karyotype and normal contact-inhibited growth monolayers",
+          "Have an absolute nutritional dependence on homologous avian serum and high-titer chick extract"
         ],
         "a": 0,
         "e": "Continuous cell lines possess transformed or aneuploid karyotypes that bypass the Hayflick limit of replicative senescence, permitting endless subculturing.",
@@ -9748,9 +9732,9 @@ var quizBank = {
         "q": "In viral titration, the Tissue Culture Infective Dose 50 (TCID50) endpoint titer is calculated mathematically from quantal microplate assay data using which formula?",
         "o": [
           "Reed and Muench formula (or Kärber method)",
-          "Michaelis-Menten equation",
-          "Henderson-Hasselbalch equation",
-          "Scatchard plot"
+          "Michaelis-Menten enzyme kinetics equation",
+          "Henderson-Hasselbalch physiological buffer",
+          "Scatchard equilibrium ligand plot analysis"
         ],
         "a": 0,
         "e": "The Reed-Muench proportionate distance formula calculates the exact dilution that produces cytopathic effect in exactly 50% of inoculated culture wells.",
@@ -9762,9 +9746,9 @@ var quizBank = {
         "q": "In a Plaque Assay for enumerating infectious virions, what is the function of the semi-solid agarose or carboxymethyl cellulose (CMC) overlay applied onto the cell monolayer?",
         "o": [
           "Prevents fluid convection currents so that progeny virions spread only to adjacent neighboring cells to form localized focal plaques",
-          "Provides essential glucose nutrients",
-          "Stains the living cells blue",
-          "Inactivates non-infectious defective particles"
+          "Supplies essential glucose, amino acids, and physiological buffers required for sustained monolayer viability during incubation",
+          "Selectively stains viable host cells deep crystal violet while neutralizing infectious virions released into the culture medium",
+          "Forms an impermeable semi-solid gel matrix that physically traps circulating neutralizing antibodies while permitting viral diffusion"
         ],
         "a": 0,
         "e": "The solid/semi-solid overlay restricts viral diffusion to adjacent cells, converting each initial infectious virion into a discrete localized clearing (plaque).",
@@ -9790,9 +9774,9 @@ var quizBank = {
         "q": "The hemagglutination (HA) phenomenon, where certain viruses clump mammalian or avian erythrocytes, is mediated by viral surface proteins binding to which host cell surface receptor?",
         "o": [
           "Sialic acid (N-acetylneuraminic acid) residues",
-          "Phosphatidylserine",
-          "Fibronectin",
-          "Heparan sulfate"
+          "Phosphatidylserine outer bilayer phospholipids",
+          "Fibronectin extracellular matrix glycoproteins",
+          "Heparan sulfate proteoglycan cell-surface core"
         ],
         "a": 0,
         "e": "Viral hemagglutinins (e.g., in Influenza, Paramyxo, Parvoviruses) bind terminal sialic acid sugars on red blood cell glycoproteins, forming a cross-linked agglutinated lattice.",
@@ -9804,9 +9788,9 @@ var quizBank = {
         "q": "What term describes the exchange of entire, intact genomic segments between two different influenza or reovirus strains coinfecting the same host cell?",
         "o": [
           "Genetic reassortment (Antigenic shift)",
-          "Antigenic drift",
-          "Homologous recombination",
-          "Complementation"
+          "Antigenic drift point-mutation evolution",
+          "Homologous intra-strand DNA crossover",
+          "Non-genetic phenotypic complementation"
         ],
         "a": 0,
         "e": "In segmented RNA viruses (Orthomyxo, Reo, Birna), coinfection allows random packaging of heterologous segments, causing abrupt antigenic shifts.",
@@ -9818,9 +9802,9 @@ var quizBank = {
         "q": "Defective Interfering (DI) particles are spontaneous viral deletion mutants that:",
         "o": [
           "Lack essential replication genes and require a coinfecting homologous helper virus to replicate, competing with and attenuating wild-type virus growth",
-          "Can replicate completely autonomously",
-          "Produce toxic antibiotics that kill bacteria",
-          "Lack a protein capsid entirely"
+          "Replicate completely autonomously at accelerated rates, causing catastrophic systemic cytolysis in the absence of wild-type parent virions",
+          "Carry mutated structural genes that encode truncated, non-functional capsid proteins incapable of packaging full-length viral genomic nucleic acids",
+          "Contain foreign host-derived oncogenes that induce rapid neoplastic cellular transformation and contact-inhibition loss in primary fibroblast cultures"
         ],
         "a": 0,
         "e": "DI particles carry truncated genomes that replicate rapidly by parasiting wild-type helper virus replication enzymes, interfering with normal viral yields.",
@@ -9832,9 +9816,9 @@ var quizBank = {
         "q": "Infectious Bursal Disease Virus (IBDV / Gumboro Disease), belonging to the family Birnaviridae, possesses which unique genomic architecture?",
         "o": [
           "Non-enveloped, bisegmented double-stranded RNA (dsRNA: segments A and B)",
-          "Single-stranded negative RNA",
-          "Enveloped segmented DNA",
-          "Single-stranded positive DNA"
+          "Enveloped, single-stranded negative-sense segmented RNA with helical core",
+          "Non-enveloped, circular single-stranded negative-sense DNA with one frame",
+          "Enveloped, unsegmented positive-sense single-stranded RNA with poly-A"
         ],
         "a": 0,
         "e": "IBDV is a non-enveloped icosahedral birnavirus containing two segments of double-stranded RNA: Segment A encodes polyprotein (VP2-VP4-VP3) and VP5; Segment B encodes RdRp (VP1).",
@@ -9860,9 +9844,9 @@ var quizBank = {
         "q": "What is the primary target organ of pathology and cellular destruction in young chicks (3–6 weeks old) infected with Infectious Bursal Disease Virus?",
         "o": [
           "Bursa of Fabricius (selective lysis of dividing IgM+ B lymphocytes)",
-          "Thymus alone",
-          "Pancreas",
-          "Gizzard"
+          "Thymic cortex (causing extensive apoptosis of immature CD4+ T cells)",
+          "Pancreatic acinar tissue (inducing severe necrotizing pancreatitis)",
+          "Gizzard koilin layer (producing diffuse ulcerative ventriculitis)"
         ],
         "a": 0,
         "e": "IBDV infects immature B lymphocytes in the bursa, causing early gelatinous bursal edema followed by follicular necrosis, severe bursal atrophy, and profound immunosuppression.",
@@ -9874,9 +9858,9 @@ var quizBank = {
         "q": "Bluetongue Virus (BTV), an Orbivirus of the family Reoviridae, contains a segmented genome composed of how many double-stranded RNA segments?",
         "o": [
           "10 dsRNA segments",
-          "8 segments",
-          "11 segments",
-          "12 segments"
+          "11 double-stranded RNA segments",
+          "12 double-stranded RNA segments",
+          "8 double-stranded RNA segments"
         ],
         "a": 0,
         "e": "Orbiviruses (Bluetongue, African Horse Sickness) possess exactly 10 dsRNA segments encoding 7 structural (VP1–VP7) and 5 non-structural proteins.",
@@ -9888,9 +9872,9 @@ var quizBank = {
         "q": "What biological vector is responsible for the transmission of Bluetongue Virus and African Horse Sickness Virus between domestic and wild ungulates?",
         "o": [
           "Culicoides biting midges (e.g., Culicoides oxystoma, C. imicola)",
-          "Ixodes hard ticks",
-          "Musca domestica houseflies",
-          "Tabanus horseflies"
+          "Hard ticks of the genus Rhipicephalus and Ixodes ricinus species",
+          "Biting stable flies of the species Stomoxys calcitrans and horseflies",
+          "Aedes aegypti and Culex tritaeniorhynchus mosquito vectors"
         ],
         "a": 0,
         "e": "Female Culicoides biting midges (family Ceratopogonidae) transmit BTV and AHSV biologically after viral replication in salivary glands.",
@@ -9902,9 +9886,9 @@ var quizBank = {
         "q": "Which clinical hallmark gives Bluetongue its name, resulting from severe endothelial damage, vascular thrombosis, and hypoxia in sheep?",
         "o": [
           "Cyanosis and edema of the tongue and oral mucous membranes",
-          "Severe bright-red conjunctival injection",
-          "Hardening of the ear tips",
-          "Greenish discoloration of the hooves"
+          "Bright-red petechial injection of the palpebral conjunctiva",
+          "Necrotic ulceration and gangrene of the coronary hoof band",
+          "Diffuse bilateral subcutaneous edema of the pectoral region"
         ],
         "a": 0,
         "e": "BTV replicates in microvascular endothelial cells, causing vascular thrombosis, extravasation, and cyanosis that colors the swollen tongue deep blue/purple.",
@@ -9916,9 +9900,9 @@ var quizBank = {
         "q": "The acute pulmonary form ('Dunkop' or thin head) of African Horse Sickness (AHSV) in susceptible horses is characterized clinically by:",
         "o": [
           "Sudden severe paroxysmal coughing with profuse white or yellowish frothy fluid discharging from both nostrils, with mortality exceeding 95%",
-          "Marked subcutaneous swelling of the supraorbital fossae and head alone",
-          "Chronic watery diarrhea without fever",
-          "Generalized skin warts"
+          "Marked gelatinous subcutaneous edema filling the supraorbital fossae, eyelids, facial tissues, and ventral neck, with mortality approaching 50%",
+          "Severe chronic hemorrhagic enteritis accompanied by persistent profuse watery diarrhea and dehydration, with 20% mortality",
+          "Extensive multifocal cutaneous papillomas and hyperkeratotic plaques erupting over the dorsal neck, with under 5% mortality"
         ],
         "a": 0,
         "e": "The Dunkop form causes acute alveolar and interlobular pulmonary edema; horses die within hours from drowning in frothy tracheobronchial exudate (>95% mortality).",
@@ -9930,9 +9914,9 @@ var quizBank = {
         "q": "The cardiac form ('Dikkop' or thick head) of African Horse Sickness is distinguished by which striking physical lesion in equines?",
         "o": [
           "Marked gelatinous edema filling the supraorbital fossae, eyelids, face, and neck",
-          "Severe pulmonary rales without head swelling",
-          "Cyanosis of the tongue",
-          "Bloody diarrhea"
+          "Severe paroxysmal coughing with copious white frothy fluid discharging from nose",
+          "Deep cyanotic discoloration and ulceration of the lingual mucosa and hard palate",
+          "Intractable profuse watery to hemorrhagic diarrhea causing rapid hypovolemia"
         ],
         "a": 0,
         "e": "Dikkop features prominent edema of the supraorbital fossae, conjunctiva, and intermandibular space with petechiae under the tongue (mortality ~50%).",
@@ -9944,9 +9928,9 @@ var quizBank = {
         "q": "Rotaviruses exhibit a distinct electron microscopic morphology resembling a:",
         "o": [
           "Wheel with sharp hub, radiating spokes, and a well-defined outer rim",
-          "Bullet with one flat end",
-          "Brick with lateral bodies",
-          "Crown with petal-shaped spikes"
+          "Bullet with one flat planar end and one rounded hemispherical distal tip",
+          "Brick with a central biconcave core flanked by two lateral protein bodies",
+          "Spherical virion displaying prominent radiating crown-like spike peplomers"
         ],
         "a": 0,
         "e": "Rotaviruses (from Latin rota = wheel) appear by negative-contrast EM as 70 nm wheel-like particles with an inner hub, spokes, and smooth outer rim.",
@@ -9958,9 +9942,9 @@ var quizBank = {
         "q": "What is the primary pathological mechanism by which Rotavirus causes severe watery diarrhea in neonatal calves and piglets?",
         "o": [
           "Selective destruction of mature enterocytes on the tips of small intestinal villi, causing villus atrophy and osmotic malabsorption",
-          "Production of a lethal hepatotoxin",
-          "Necrosis of colonic crypts of Lieberkühn",
-          "Systemic intravascular thrombosis"
+          "Direct lytic destruction of intestinal crypt progenitor stem cells within the crypts of Lieberkühn, arresting continuous epithelial regeneration",
+          "Secretion of a potent pore-forming protein exotoxin that induces rapid cyclic AMP-dependent hypersecretion across mucosal crypts",
+          "Widespread systemic endothelial lysis triggering diffuse intravascular coagulation, ischemic mucosal infarction, and hemorrhage"
         ],
         "a": 0,
         "e": "Rotavirus infects and lyses mature absorptive enterocytes on villous tips; replacement by immature crypt cells deficient in lactase causes osmotic diarrhea.",
@@ -9986,9 +9970,9 @@ var quizBank = {
         "q": "What is the primary molecular determinant governing the high virulence of Velogenic Newcastle Disease Virus strains?",
         "o": [
           "A multi-basic amino acid cleavage site in the Fusion (F) glycoprotein cleaved by ubiquitous intracellular furin",
-          "The length of the hemagglutinin gene",
-          "Absence of a viral envelope",
-          "Presence of double-stranded DNA"
+          "The length and nucleotide sequence of the viral hemagglutinin-neuraminidase attachment protein receptor domain",
+          "Complete absence of an outer host-derived lipid envelope, rendering virions highly resistant to gastric acidity",
+          "The presence of a double-stranded circular DNA genome that integrates directly into host cellular chromosomes"
         ],
         "a": 0,
         "e": "Velogenic NDV strains possess multi-basic motifs (¹¹²R-R-Q-K-R-F¹¹⁷) cleaved by ubiquitous host furin in all organs, allowing fatal systemic replication.",
@@ -10000,9 +9984,9 @@ var quizBank = {
         "q": "At post-mortem examination, what pathognomonic necropsy lesion is classically observed in poultry infected with Viscerotropic Velogenic Newcastle Disease (VVND)?",
         "o": [
           "Petechial to ecchymotic hemorrhages and button-like ulcerations on the proventricular papillae and cecal tonsils",
-          "Severe enlargement of the liver alone",
-          "Dry caseous scabs on the comb",
-          "Thickened corrugations of the crop"
+          "Severe diffuse hepatomegaly accompanied by multiple circumscribed yellowish-white necrotic focus lesions throughout",
+          "Dry caseous diphtheritic scabs and proliferative wart-like crusts covering the unfeathered skin of comb and wattles",
+          "Marked thickening, corrugation, and white pseudomembranous exudation covering the mucosal lining of the crop"
         ],
         "a": 0,
         "e": "Hemorrhages on the summits of proventricular mucosal papillae and necrotic ulceration of the cecal tonsils are classic diagnostic hallmarks of Velogenic NDV.",
@@ -10028,9 +10012,9 @@ var quizBank = {
         "q": "What distinctive post-mortem pathognomonic lesion in the large intestine of goats that died of PPR is described as 'zebra striping'?",
         "o": [
           "Parallel dark red or black longitudinal streaks of mucosal hemorrhage and congestion along the rugae of the posterior colon and rectum",
-          "Transverse white chalky bands across the cecum",
-          "Concentric circular rings in the ileum",
-          "Yellow necrosis in the gall bladder"
+          "Transverse chalky-white caseous necrotic bands extending continuously across the serosal surface of the cecal pouches and mesenteric borders",
+          "Concentric circular button ulcers with necrotic raised edges distributed densely throughout the ileum and colon",
+          "Diffuse bile-stained fibrinous pseudomembranes completely occluding the lumen of the gall bladder and bile ducts"
         ],
         "a": 0,
         "e": "Zebra marking or striping represents linear mucosal congestion and hemorrhage along the longitudinal folds of the colon and rectum in acute PPR.",
@@ -10056,9 +10040,9 @@ var quizBank = {
         "q": "Canine Distemper Virus (CDV) infection in dogs is characterized by which clinical dermatological hallmark in animals that survive the acute respiratory phase?",
         "o": [
           "Hyperkeratosis of the digital footpads and nasal planum ('Hardpad Disease')",
-          "Rhomboid urticarial diamond plaques",
-          "Extensive alopecia with circular crusts",
-          "Subcutaneous crepitant emphysema"
+          "Rhomboid-shaped erythematous urticarial plaques erupting over the dorsal trunk",
+          "Circumscribed circular alopecic crusts with brittle broken hair shafts",
+          "Crepitant subcutaneous gas gangrene with cold dark discoloration of skin"
         ],
         "a": 0,
         "e": "CDV replicates in epithelial basal cells, inducing marked hyperkeratosis of the nose and footpads ('Hardpad Disease'), often preceding neurological distemper.",
@@ -10070,9 +10054,9 @@ var quizBank = {
         "q": "In puppies surviving Canine Distemper infection during tooth development, what permanent enamel defect is characteristically observed?",
         "o": [
           "Enamel hypoplasia (irregular pitting, brown discoloration, and loss of enamel on permanent teeth)",
-          "Supernumerary teeth",
-          "Complete absence of tooth roots",
-          "Continuous tooth elongation"
+          "Continuous accelerated incisor tooth elongation resulting in severe malocclusion and oral mucosal ulceration",
+          "Supernumerary teeth erupting abnormally within both the maxillary and mandibular dental arcades",
+          "Complete agenesis of deciduous tooth roots causing premature spontaneous loss of milk teeth"
         ],
         "a": 0,
         "e": "CDV destroys ameloblasts in developing tooth buds, leading to severe enamel hypoplasia with rough, pitted, stained dentin on erupted adult teeth.",
@@ -10084,9 +10068,9 @@ var quizBank = {
         "q": "Rabies virus, the prototype neurotropic Lyssavirus in the family Rhabdoviridae, exhibits which characteristic morphology under electron microscopy?",
         "o": [
           "Bullet-shaped virions with one planar flat end and one rounded hemispherical end",
-          "Icosahedral non-enveloped capsid",
-          "Brick-shaped complex virion",
-          "Filamentous branched particle"
+          "Icosahedral non-enveloped capsid containing twenty equilateral triangular facets and twelve vertices",
+          "Brick-shaped complex virion enclosing a biconcave dumb-bell shaped core shell",
+          "Long flexuous filamentous virion with prominent helical surface peplomer spikes"
         ],
         "a": 0,
         "e": "Rabies virions measure 75 x 180 nm and have a classic bullet shape, consisting of an envelope covered by G-protein spikes and an internal helical ribonucleoprotein core.",
@@ -10112,9 +10096,9 @@ var quizBank = {
         "q": "Following peripheral bite inoculation, Rabies virus migrates centripetally from the neuromuscular junction to the central nervous system via which pathway?",
         "o": [
           "Retrograde axoplasmic flow along peripheral sensory and motor nerve axons at 8 to 20 mm per day",
-          "Rapid hematogenous spread through circulating monocytes",
-          "Dissemination through the lymphatic duct",
-          "Cerebrospinal fluid circulation alone"
+          "Rapid hematogenous dissemination via circulating mononuclear phagocytes within twenty-four hours",
+          "Passive drainage through afferent lymphatic channels into the thoracic duct and venous system",
+          "Direct bulk circulation through cerebrospinal fluid within the central spinal canal and cisterns"
         ],
         "a": 0,
         "e": "Rabies travels via retrograde fast axonal transport (8–20 mm/day) through peripheral nerves to spinal ganglia and the brainstem.",
@@ -10126,9 +10110,9 @@ var quizBank = {
         "q": "The gold-standard international reference diagnostic test for post-mortem confirmation of Rabies in fresh brain smears is the:",
         "o": [
           "Direct Fluorescent Antibody Test (dFAT) on brainstem and cerebellum/hippocampus",
-          "Enzyme-linked immunosorbent assay (ELISA)",
-          "Agar gel immunodiffusion test",
-          "Serum virus neutralization test"
+          "Serum Virus Neutralization test in BHK-21 cell cultures (RFFIT test measuring neutralizing antibodies)",
+          "Enzyme-Linked Immunosorbent Assay (ELISA) measuring salivary rabies antigens",
+          "Agar Gel Immunodiffusion (AGID) precipitin assay on cerebrospinal fluid taps"
         ],
         "a": 0,
         "e": "Direct FAT using FITC-conjugated anti-rabies monoclonal or polyclonal antibodies provides >99% diagnostic sensitivity and specificity on fresh brain impression smears.",
@@ -10154,9 +10138,9 @@ var quizBank = {
         "q": "In the influenza virion, what is the enzymatic role of the surface glycoprotein Neuraminidase (NA)?",
         "o": [
           "Cleaves terminal sialic acid residues from host cell surface glycoproteins, permitting newly assembled budding virions to detach and disperse",
-          "Binds sialic acid to initiate entry",
-          "Transcribes viral RNA into cDNA",
-          "Pores open host nuclear membranes"
+          "Binds high-affinity sialic acid receptors on host respiratory epithelial cells to mediate receptosome-mediated endocytosis and viral membrane fusion",
+          "Transcribes the viral negative-sense RNA segments into complementary messenger RNA and full-length genomic cRNA templates",
+          "Forms selective trans-membrane proton channels across the viral envelope, acidifying the interior core during uncoating"
         ],
         "a": 0,
         "e": "Neuraminidase is a sialidase that removes terminal sialic acid from host receptors and viral envelopes, preventing virion clumping and facilitating dissemination.",
@@ -10168,9 +10152,9 @@ var quizBank = {
         "q": "Why are domestic swine classically referred to as the 'mixing vessel' for the generation of pandemic influenza virus strains?",
         "o": [
           "Swine tracheal respiratory epithelium simultaneously expresses both alpha-2,3 (avian-type) and alpha-2,6 (human-type) linked sialic acid receptors",
-          "Swine do not develop antibodies against influenza",
-          "Swine produce 12 segments of RNA",
-          "Swine transmit influenza venereally"
+          "Swine possess a completely defective interferon-mediated antiviral defense system, allowing unimpeded coinfection by all mammalian influenza strains",
+          "Swine alveolar macrophages generate twelve novel RNA segments via non-homologous recombination during mixed viral respiratory infections in barns",
+          "Swine transmit influenza viruses venereally through infected seminal fluids, facilitating rapid cross-species viral adaptation across herds"
         ],
         "a": 0,
         "e": "Pigs express both alpha-2,3 and alpha-2,6 sialyloligosaccharide receptors, allowing avian and human influenza strains to coinfect the same cell and reassort.",
@@ -10182,9 +10166,9 @@ var quizBank = {
         "q": "Foot-and-Mouth Disease Virus (FMDV), an Aphthovirus in the family Picornaviridae, is classified into how many distinct immunological serotypes that offer zero cross-protection?",
         "o": [
           "7 serotypes (O, A, C, Asia-1, SAT-1, SAT-2, SAT-3)",
-          "4 serotypes",
-          "9 serotypes",
-          "2 serotypes"
+          "4 serotypes (O, A, C, and Indian Subtype-1)",
+          "9 serotypes (SAT-1 through SAT-9 variants)",
+          "2 major serotypes (European and Asian types)"
         ],
         "a": 0,
         "e": "FMDV has 7 immunologically distinct serotypes: O, A, C, Asia-1, and South African Territories SAT-1, SAT-2, and SAT-3; vaccination with one serotype confers no protection against others.",
@@ -10196,9 +10180,9 @@ var quizBank = {
         "q": "In young calves, piglets, and lambs infected with Foot-and-Mouth Disease Virus, sudden death without blister formation is caused by acute acute myocardial necrosis producing which pathognomonic lesion?",
         "o": [
           "'Tiger Heart' (myocarditis with grayish-yellow striped myocardial degeneration)",
-          "Pulpy kidney",
-          "Cirrhosis of the liver",
-          "Enlarged splenic infarcts"
+          "'Blackleg' (crepitant emphysematous necrotizing myositis of the upper hindquarter muscles)",
+          "'Pulpy Kidney' (rapid bilateral renal cortical softening and glycosuria)",
+          "'Nutmeg Liver' (chronic passive congestion and centrilobular steatosis)"
         ],
         "a": 0,
         "e": "Acute FMDV replication in neonatal cardiac myocytes causes focal myocardial necrosis and striped degeneration resembling tiger stripes ('tiger heart').",
@@ -10210,9 +10194,9 @@ var quizBank = {
         "q": "Classical Swine Fever Virus (CSFV / Hog Cholera), a Pestivirus of the family Flaviviridae, produces which classic necropsy lesion on the cortical surface of porcine kidneys?",
         "o": [
           "Petechial hemorrhages giving a 'turkey-egg' appearance",
-          "Diffuse amyloidosis",
-          "Hydronephrosis",
-          "Large solitary cysts"
+          "Diffuse renal amyloidosis with waxy, enlarged cortices",
+          "Hydronephrosis with marked dilation of the renal pelvis",
+          "Large solitary polycystic lesions in the outer cortex"
         ],
         "a": 0,
         "e": "CSFV infects capillary endothelial cells, causing vascular fragility and petechiae across the kidney cortex, resembling a mottled turkey egg.",
@@ -10224,9 +10208,9 @@ var quizBank = {
         "q": "In the large intestine of pigs that died of subacute or chronic Classical Swine Fever, what pathognomonic necropsy lesions are observed around the ileocecal valve?",
         "o": [
           "'Button ulcers' (raised, concentric, circular necrotic ulcers)",
-          "Continuous diphtheritic pseudomembrane",
-          "Diffuse polypoid adenomas",
-          "Multiple linear longitudinal tears"
+          "Continuous diphtheritic pseudomembranous mucosal exudate in ileum",
+          "Diffuse polypoid adenomatous hyperplastic mucosa lesions",
+          "Multiple linear longitudinal hemorrhagic tears in rectum"
         ],
         "a": 0,
         "e": "Button ulcers result from ischemic necrosis and secondary bacterial infection of intestinal lymphoid follicles around the ileocecal valve in chronic CSFV.",
@@ -10238,9 +10222,9 @@ var quizBank = {
         "q": "In Bovine Viral Diarrhea Virus (BVDV) pathogenesis, when a pregnant cow is infected with a non-cytopathic (NCP) strain between 40 and 120 days of gestation, the resulting calf:",
         "o": [
           "Is born Persistently Infected (PI), immunotolerant to BVDV, and continually sheds large quantities of virus",
-          "Is born completely immune to all BVDV strains",
-          "Aborts immediately within 12 hours",
-          "Develops immediate fatal mucosal disease at birth"
+          "Is born completely immune to all BVDV genotypes with lifelong circulating high-titer neutralizing antibodies",
+          "Undergoes immediate spontaneous abortion and fetal mummification within forty-eight hours of exposure",
+          "Develops acute fatal mucosal disease within the first twenty-four hours after birth due to viremia"
         ],
         "a": 0,
         "e": "Infection before fetal immunocompetence (40–120 days) causes the fetal immune system to recognize the NCP virus as 'self', generating a seronegative, persistently infected (PI) shedder.",
@@ -10252,9 +10236,9 @@ var quizBank = {
         "q": "In a persistently infected (PI) BVDV calf, fatal Mucosal Disease is triggered when the animal is superinfected with which viral entity?",
         "o": [
           "A homologous cytopathic (CP) BVDV strain (often arising via de novo mutation of the endogenous NCP strain)",
-          "Foot-and-Mouth Disease virus",
-          "Bovine rotavirus",
-          "Bovine coronavirus"
+          "A heterologous Foot-and-Mouth Disease aphthovirus strain introduced via contaminated dairy cattle silage feed",
+          "A highly virulent strain of bovine rotavirus or coronavirus causing synergistic mucosal necrosis",
+          "An opportunistic infection by Bovine Herpesvirus-1 reactivating from dormant trigeminal latency"
         ],
         "a": 0,
         "e": "Because the PI calf is immunotolerant to the non-cytopathic virus, an antigenically similar cytopathic (CP) strain replicates unchecked, destroying mucosal crypts and causing fatal mucosal disease.",
@@ -10266,9 +10250,9 @@ var quizBank = {
         "q": "What structural feature gives Coronaviruses their characteristic 'crown-like' appearance under negative-contrast electron microscopy?",
         "o": [
           "Large, club-shaped, petal-like Spike (S) glycoprotein projections",
-          "Icosahedral vertices",
-          "A dense peptidoglycan shell",
-          "Helical fibers without an envelope"
+          "Dense icosahedral vertex fibers extending from penton base capsomeres",
+          "A rigid double-layered protein capsid shell with razor-sharp edges",
+          "A thick amorphous lipid envelope completely devoid of surface spikes"
         ],
         "a": 0,
         "e": "The trimeric Spike (S) glycoproteins form a prominent halo of bulbous projections resembling the solar corona around the viral envelope.",
@@ -10280,9 +10264,9 @@ var quizBank = {
         "q": "The wet (effusive) form of Feline Infectious Peritonitis (FIP), caused by mutated feline coronavirus in macrophages, is clinically characterized by:",
         "o": [
           "Abdominal distension with clear, highly viscous, straw-yellow, protein-rich peritoneal effusion that froths upon shaking",
-          "Severe watery diarrhea without effusion",
-          "Generalized skin crusting",
-          "Dry gangrene of the tail"
+          "Intractable profuse watery to mucoid diarrhea accompanied by severe dehydration and complete absence of any peritoneal fluid",
+          "Widespread multifocal ulcerative crusting dermatitis distributed symmetrically across the face, ears, and digits",
+          "Acute ischemic dry gangrene and spontaneous sloughing of the distal tail tip, ear margins, and footpads in kittens"
         ],
         "a": 0,
         "e": "Wet FIP features immune complex-mediated pyogranulomatous vasculitis, leaking high-protein, straw-colored peritoneal fluid containing fibrinous clots.",
@@ -10294,9 +10278,9 @@ var quizBank = {
         "q": "In laying hens, Avian Infectious Bronchitis Virus (IBV), a Gammacoronavirus, induces which reproductive abnormality alongside respiratory rales?",
         "o": [
           "Marked decline in egg production with thin-shelled, rough, misshapen, and watery-albumen eggs",
-          "Bloody cloacal discharge",
-          "Ovarian cancer",
-          "Production of hard, giant eggs"
+          "Copious, fetid bloody cloacal discharge accompanied by severe acute fibrinous peritonitis in hens",
+          "Rapid development of malignant granulosa cell ovarian carcinomas with abdominal metastasis",
+          "Production of abnormally large, rock-hard eggs that cause severe fatal oviduct impaction"
         ],
         "a": 0,
         "e": "IBV replicates in the oviduct magnum and uterus, causing permanent hypoplasia, misshapen eggs with corrugated shells, and watery albumen.",
@@ -10308,9 +10292,9 @@ var quizBank = {
         "q": "Equine Viral Arteritis (EAV), an Arterivirus, establishes persistent long-term carrier states in which equine sex category, where the virus is maintained and shed in semen?",
         "o": [
           "Intact adult stallions (localized in the accessory sex glands / ampullae)",
-          "Mares in the uterus",
-          "Castrated geldings",
-          "Weaned foals"
+          "Post-parturient mares (localized chronically in the uterine endometrium)",
+          "Castrated geldings (localized in the mesenteric lymph nodes and spleen)",
+          "Weaned foals (localized persistently in the thyroid and adrenal cortex)"
         ],
         "a": 0,
         "e": "Testosterone maintains EAV persistence in the ampulla and bulbourethral glands of asymptomatic carrier stallions, who transmit it to mares during breeding.",
@@ -10350,9 +10334,9 @@ var quizBank = {
         "q": "Lumpy Skin Disease in cattle is clinically characterized by the sudden eruption of:",
         "o": [
           "Multiple, well-circumscribed, firm, painful cutaneous nodules (2 to 5 cm) involving the full thickness of the skin and necrotic cores ('sitfasts')",
-          "Superficial pustules restricted to the lips alone",
-          "Linear ulcers along the limbs",
-          "Generalized hair loss without swelling"
+          "Superficial vesicular pustules restricted exclusively to the mucosal surfaces of the oral cavity and coronary bands, healing spontaneously in a week",
+          "Extensive linear ulcerative tracts draining thick yellowish purulent exudate along the lymphatic vessels of both hindlimbs ('farcy buds')",
+          "Generalized symmetrical alopecia and extensive epidermal scaling without any discernible cutaneous swelling, nodule formation, or pain"
         ],
         "a": 0,
         "e": "LSDV produces full-thickness dermis nodules ('lumps') with swollen lymph nodes; the central core sloughs out, leaving deep ulcerated craters ('sitfasts').",
@@ -10364,9 +10348,9 @@ var quizBank = {
         "q": "Contagious Ecthyma (Orf / Sore Mouth), a zoonotic parapoxvirus infection in sheep and goats, produces proliferative scabby lesions primarily upon which anatomical location?",
         "o": [
           "Muzzle, lips, gums, and oral commissures",
-          "Dorsal rump alone",
-          "Horn base",
-          "Tail tip alone"
+          "Dorsal rump, tailhead, and perineum",
+          "Horn base, poll, and frontal crest",
+          "Ventral abdomen and inguinal folds"
         ],
         "a": 0,
         "e": "Orf produces papules, vesicles, and proliferative thick brown crusts along the lips, dental pad, and gums in nursing lambs, transmissible to human shearers.",
@@ -10378,9 +10362,9 @@ var quizBank = {
         "q": "Under negative-contrast electron microscopy, Parapoxviruses (such as Orf virus) are morphologically distinguished from Orthopoxviruses by having an:",
         "o": [
           "Ovoid shape with a distinctive regular criss-cross / spiral thread-like surface pattern resembling a ball of yarn",
-          "Irregular rectangular shape without pattern",
-          "Icosahedral symmetry",
-          "Spherical shape with peplomers"
+          "Irregular brick shape enclosing a central biconcave core flanked by two prominent lateral proteinaceous dumbbell bodies",
+          "Rigid icosahedral symmetry featuring twenty triangular facets and twelve vertices devoid of an outer envelope",
+          "Spherical enveloped morphology studded with large club-shaped, petal-like glycoprotein peplomer projections"
         ],
         "a": 0,
         "e": "Parapoxviruses are ovoid (160 x 260 nm) and feature a unique spiral filament wrapped around the capsid in a continuous criss-cross yarn-like pattern.",
@@ -10406,9 +10390,9 @@ var quizBank = {
         "q": "Which clinical manifestation of Marek's Disease Virus (MDV / Gallid alphaherpesvirus 2) in poultry is caused by asymmetric lymphoid infiltration of the sciatic nerve?",
         "o": [
           "Classic 'range paralysis' where one leg is stretched forward and the other backward",
-          "Complete flaccid paralysis of the neck alone",
-          "Spastic lockjaw",
-          "Bilateral blindness without leg signs"
+          "Complete flaccid paralysis of the cervical neck muscles causing a persistent 'limberneck' posture",
+          "Persistent spastic tetanic lockjaw with retraction of the third eyelid in eyes",
+          "Rapid bilateral blindness caused by acute cataract without any peripheral signs"
         ],
         "a": 0,
         "e": "T-lymphoblast infiltration into sciatic and brachial nerve plexuses causes asymmetric enlargement, loss of striations, and classic range paralysis.",
@@ -10434,9 +10418,9 @@ var quizBank = {
         "q": "What live herpesvirus vaccine of turkeys (HVT / Meleagrid alphaherpesvirus 1) is routinely administered in ovo at 18 days of egg incubation to protect broilers against Marek's Disease?",
         "o": [
           "HVT (Herpesvirus of Turkeys - FC126 strain)",
-          "LaSota strain",
-          "Sterne strain",
-          "Sungri 96 strain"
+          "LaSota strain (lentogenic NDV vaccine)",
+          "Sterne strain (attenuated anthrax spore)",
+          "Sungri 96 strain (live attenuated PPR)"
         ],
         "a": 0,
         "e": "HVT is non-pathogenic in chickens and antigenically related to MDV serotype 1; automated in ovo injection into 18-day eggs protects chicks.",
@@ -10448,9 +10432,9 @@ var quizBank = {
         "q": "Infectious Laryngotracheitis (ILT) in poultry is clinically diagnosed at post-mortem examination by which pathognomonic lesion?",
         "o": [
           "Hemorrhagic tracheitis with expectoration of bloody mucus and obstructive caseous/fibrinous tracheal plugs",
-          "Enlarged sciatic nerves",
-          "Corrugated crop mucosa",
-          "White pocks on the heart alone"
+          "Bilateral asymmetric enlargement and yellowish-gray discoloration of the sciatic and brachial nerve trunks",
+          "Thickening, corrugation, and white pseudomembranous diphtheritic exudation in the mucosal crop lining",
+          "Multiple discrete white pock lesions scattered across the epicardial surface of the heart ventricles"
         ],
         "a": 0,
         "e": "ILTV causes necrosis of the tracheal mucosa; gasping birds violently shake their heads and cough bloody tracheal casts, producing high mortality.",
@@ -10462,9 +10446,9 @@ var quizBank = {
         "q": "In non-porcine secondary hosts (cattle, sheep, dogs, cats), Pseudorabies (Aujeszky's Disease) is clinically characterized by which hallmark neurological presentation?",
         "o": [
           "'Mad Itch' (frenzied, unbearable localized pruritus leading to severe self-mutilation and death within 48 hours)",
-          "Flaccid paralysis without scratching",
-          "Excessive salivation without scratching",
-          "Chronic weight loss over months"
+          "Generalized symmetrical flaccid paralysis without any cutaneous irritation, scratching, restlessness, or vocalization",
+          "Copious frothy salivation and aggressive biting behavior accompanied by profound hydrophobia in water",
+          "Chronic progressive emaciation and cachexia developing insidiously over several months without pruritus"
         ],
         "a": 0,
         "e": "Pseudorabies in dead-end hosts triggers intense localized sensory ganglioneuritis; animals scratch and bite the affected dermatome until raw ('Mad Itch').",
@@ -10476,9 +10460,9 @@ var quizBank = {
         "q": "Malignant Catarrhal Fever (MCF) in cattle and deer is caused by Macaviruses carried subclinically by which domestic and wild reservoir species?",
         "o": [
           "Sheep (Ovine Herpesvirus-2) and Wildebeest (Alcelaphine Herpesvirus-1)",
-          "Horses and donkeys",
-          "Domestic chickens",
-          "Feral dogs"
+          "Equids (Equine Herpesvirus-1) and domestic donkeys (Equine Herpesvirus-4)",
+          "Domestic poultry (Gallid Herpesvirus-1) and wild migratory birds",
+          "Feral swine (Suid Herpesvirus-1) and domestic warthogs in plains"
         ],
         "a": 0,
         "e": "OvHV-2 is carried subclinically by sheep (lambing time transmission), and AlHV-1 is carried by wildebeest, transmitting cross-species to cattle and deer.",
@@ -10490,9 +10474,9 @@ var quizBank = {
         "q": "What pathognomonic ocular lesion is observed in the 'head-and-eye' form of Malignant Catarrhal Fever in cattle?",
         "o": [
           "Bilateral centripetal corneal opacity (edema advancing from the limbus inward to the center)",
-          "Retinal detachment alone",
-          "Complete lens luxation",
-          "Unilateral conjunctivitis with no corneal haze"
+          "Spontaneous complete retinal detachment accompanied by acute bilateral intraocular hemorrhage",
+          "Anterior lens luxation causing secondary acute angle-closure glaucoma and globe enlargement",
+          "Severe unilateral purulent conjunctivitis without any corneal opacity or iris involvement"
         ],
         "a": 0,
         "e": "Vasculitis of the ciliary arteries produces progressive bilateral centripetal corneal edema starting at the corneoscleral limbus and advancing centrally.",
@@ -10504,9 +10488,9 @@ var quizBank = {
         "q": "Which adenoviral disease in laying hens causes sudden, severe loss of eggshell pigment followed by the production of soft-shelled and completely shell-less eggs?",
         "o": [
           "Egg Drop Syndrome-76 (EDS-76 / Atadenovirus)",
-          "Infectious Bronchitis",
-          "Newcastle Disease",
-          "Avian Encephalomyelitis"
+          "Infectious Bronchitis (Avian Gammacoronavirus)",
+          "Velogenic Newcastle Disease (Avian Paramyxovirus)",
+          "Avian Encephalomyelitis (Avian Picornavirus)"
         ],
         "a": 0,
         "e": "EDS-76 virus infects the pouch shell gland (uterus), causing complete cessation of calcium shell deposition, producing shell-less, rubbery eggs.",
@@ -10518,9 +10502,9 @@ var quizBank = {
         "q": "Why does Canine Parvovirus-2 (CPV-2) exhibit a strict tissue tropism for intestinal crypts of Lieberkühn and bone marrow hematopoietic precursors?",
         "o": [
           "It is a small autonomous single-stranded DNA virus that lacks a DNA polymerase and requires host cellular factors present only during S-phase of the cell cycle",
-          "It binds only to keratin receptors",
-          "It replicates solely in anaerobic environments",
-          "It infects only mature enterocytes"
+          "It expresses surface hemagglutinins that bind exclusively to complex ganglioside receptors concentrated only on the plasma membranes of mature enterocytes",
+          "It replicates strictly under anaerobic microenvironments found only deep within the ischemic lumen of the intestinal crypts and unvascularized bone marrow",
+          "Its viral genomic single-stranded DNA integrates site-specifically into the host ribosomal RNA gene cluster, which is transcribed only in dividing crypt cells"
         ],
         "a": 0,
         "e": "Parvoviruses depend on host DNA polymerases active during the mitotic S-phase, selectively destroying rapidly multiplying crypt cells and bone marrow blasts.",
@@ -10532,9 +10516,9 @@ var quizBank = {
         "q": "In young puppies under 8 weeks of age infected in utero or during early neonacy, Canine Parvovirus-2 can cause sudden death due to:",
         "o": [
           "Acute non-suppurative myocarditis with basophilic intranuclear inclusion bodies",
-          "Hepatic cirrhosis",
-          "Renal tubular necrosis",
-          "Pulmonary hypertension"
+          "Massive acute hepatocellular necrosis with widespread icterus and hepatic lipidosis",
+          "Severe acute renal cortical tubular necrosis and rapid anuric uremic death",
+          "Acute necrotizing hemorrhagic pancreatitis with abdominal fat saponification"
         ],
         "a": 0,
         "e": "Rapidly dividing neonatal cardiomyocytes permit CPV-2 replication, causing acute non-suppurative myocarditis, pulmonary edema, and sudden heart failure.",
@@ -10546,9 +10530,9 @@ var quizBank = {
         "q": "What cerebellar developmental defect is characteristically produced in newborn kittens when their queen is infected during late pregnancy with Feline Panleukopenia Virus (FPV)?",
         "o": [
           "Cerebellar hypoplasia (due to lytic destruction of dividing external germinal layer neurons)",
-          "Hydrocephalus",
-          "Anencephaly",
-          "Spina bifida"
+          "Severe congenital internal hydrocephalus (due to viral stenosis of the mesencephalic aqueduct)",
+          "Complete anencephaly (due to failure of anterior neural tube closure during gastrulation)",
+          "Thoracolumbar spina bifida (due to defective vertebral arch formation in early gestation)"
         ],
         "a": 0,
         "e": "FPV destroys dividing neuroblasts in the subplasial external germinal layer of the neonatal cerebellum, resulting in permanent cerebellar hypoplasia and ataxia.",
@@ -10560,9 +10544,9 @@ var quizBank = {
         "q": "Postweaning Multisystemic Wasting Syndrome (PMWS) in nursery and grower pigs (6–16 weeks old) is caused by which virus?",
         "o": [
           "Porcine Circovirus Type 2 (PCV-2)",
-          "Porcine Parvovirus",
-          "Swine Pox Virus",
-          "Pseudorabies Virus"
+          "Porcine Parvovirus (PPV autonomous)",
+          "Swine Pox Virus (Suipoxvirus genus)",
+          "Pseudorabies Virus (Suid herpes-1)"
         ],
         "a": 0,
         "e": "PCV-2 targets monocytes and dendritic cells, causing lymphoid depletion, progressive emaciation (PMWS), and massive mesenteric lymphadenopathy.",
@@ -10574,9 +10558,9 @@ var quizBank = {
         "q": "In cattle, Bovine Papillomavirus Type 2 (BPV-2) and Type 4 (BPV-4) act as co-carcinogens with which toxic pasture plant to induce bladder cancer and Enzootic Hematuria?",
         "o": [
           "Bracken fern (Pteridium aquilinum / ptaquiloside)",
-          "Lupinus albus",
-          "Senecio jacobaea",
-          "Cestrum diurnum"
+          "Sweet clover (Melilotus alba / dicoumarol toxin)",
+          "Ragwort plant (Senecio jacobaea / pyrrolizidine)",
+          "Day-blooming jessamine (Cestrum / calcitriol tox)"
         ],
         "a": 0,
         "e": "Ptaquiloside in bracken fern causes immunosuppression and DNA adducts, synergizing with BPV to induce chronic enzootic hematuria and bladder carcinomas.",
@@ -10588,9 +10572,9 @@ var quizBank = {
         "q": "African Swine Fever Virus (ASFV), the sole member of the family Asfarviridae, is unique among all known arboviruses because it is the only:",
         "o": [
           "Arbovirus possessing a double-stranded DNA genome",
-          "Arbovirus that infects birds",
-          "Virus lacking a capsid",
-          "Virus that cannot replicate in cell culture"
+          "Arbovirus that replicates only in avian reservoirs",
+          "Animal virus completely lacking an outer envelope",
+          "DNA virus that cannot be cultured in primary cells"
         ],
         "a": 0,
         "e": "ASFV is the only known DNA arbovirus; it contains a large (~180 kb) enveloped icosahedral dsDNA genome and is transmitted by soft ticks of the genus Ornithodoros.",
@@ -10602,9 +10586,9 @@ var quizBank = {
         "q": "What biological vector transmits African Swine Fever Virus between wild African suids (warthogs) and domestic pigs?",
         "o": [
           "Soft ticks of the genus Ornithodoros (e.g., Ornithodoros moubata)",
-          "Hard ticks of the genus Rhipicephalus",
-          "Stomoxys calcitrans biting flies alone",
-          "Culiseta mosquitoes"
+          "Hard ticks of the genus Rhipicephalus (e.g., Rhipicephalus microplus)",
+          "Biting stable flies of the genus Stomoxys (e.g., Stomoxys calcitrans)",
+          "Culicine mosquitoes of the genus Culex (e.g., Culex tritaeniorhynchus)"
         ],
         "a": 0,
         "e": "Ornithodoros moubata (eyeless tampan) soft ticks live in warthog burrows and pigsties, transmitting ASFV transovarially and transstadially.",
@@ -10616,9 +10600,9 @@ var quizBank = {
         "q": "What pathognomonic phenomenon is observed when peripheral blood mononuclear cells or alveolar macrophages infected with African Swine Fever Virus are cultured with red blood cells?",
         "o": [
           "Hemadsorption (HAD) phenomenon (erythrocytes adhere to the surface of infected macrophages in a rosette / mulberry pattern)",
-          "Direct erythrocyte lysis",
-          "Syncytial giant cell formation",
-          "Complete inhibition of bacterial growth"
+          "Syncytial giant cell formation where adjacent infected macrophages fuse into large multinucleated polykaryocytes with dozens of nuclei",
+          "Direct intravascular hemolysis where host erythrocytes undergo rapid complement-mediated osmotic lysis within thirty minutes",
+          "Complete inhibition of bacterial phagocytosis accompanied by acute cytotoxic degranulation of all polymorphonuclear cells"
         ],
         "a": 0,
         "e": "ASFV CD2v protein expressed on infected macrophage surfaces binds swine red blood cells, causing them to cluster in characteristic rosettes (hemadsorption).",
@@ -10630,9 +10614,9 @@ var quizBank = {
         "q": "At necropsy of a domestic pig that died acutely of African Swine Fever, which striking macroscopic lesion is consistently observed in the spleen?",
         "o": [
           "Massive splenomegaly (spleen enlarged up to 3 to 6 times, dark purplish-black, extremely friable, and congested)",
-          "Severely shrunken atrophic spleen",
-          "Multiple small white nodules without enlargement",
-          "Absence of spleen"
+          "Severe splenic atrophy where the spleen is markedly shrunken, pale white, firm, and completely depleted of lymphocytes",
+          "Multiple discrete, raised, circumscribed white granulomatous nodules scattered throughout the splenic red and white pulp",
+          "Complete congenital agenesis of the spleen with compensatory hypertrophy of all visceral and peripheral lymph nodes"
         ],
         "a": 0,
         "e": "ASFV causes extensive vascular destruction and pooling of blood in splenic red pulp, producing massive, dark friable splenomegaly.",
@@ -10644,9 +10628,9 @@ var quizBank = {
         "q": "Why has the development of an effective commercial vaccine against African Swine Fever remained elusive for decades?",
         "o": [
           "ASFV does not elicit classic neutralizing antibodies and encodes multiple complex immunosuppressive evasion genes that inhibit apoptosis and interferon pathways",
-          "The virus cannot be cultured in laboratories",
-          "The virus lacks a protein capsid",
-          "Pigs produce no antibodies against any DNA viruses"
+          "The virus undergoes rapid antigenic drift through error-prone RNA-dependent RNA polymerase mutations, constantly altering its protective outer surface epitopes",
+          "The pathogen completely lacks any structural envelope or capsid proteins, existing as naked viral genomic DNA that cannot be recognized by host B cells",
+          "Pigs are biologically incapable of synthesizing high-affinity IgG antibodies against any double-stranded DNA viruses due to genetic MHC deficiencies"
         ],
         "a": 0,
         "e": "ASFV encodes over 160 proteins that subvert host immune pathways (e.g., A238L, I329L); infected swine do not produce neutralizing antibodies that clear infection.",
@@ -10658,9 +10642,9 @@ var quizBank = {
         "q": "Bovine Leukemia Virus (BLV), a Deltaretrovirus, is the etiological agent of Enzootic Bovine Leukosis (EBL), which characteristically causes multicentric lymphosarcomas in which predilection sites?",
         "o": [
           "Abomasum, right atrium of the heart, uterus, and peripheral lymph nodes (HAUL sites)",
-          "Brain and cerebellum exclusively",
-          "Lungs and trachea only",
-          "Skeletal muscle alone"
+          "Cerebral cortex, cerebellar peduncles, and brainstem nuclei (central nervous sites)",
+          "Tracheal mucosa, pulmonary parenchyma, and bronchial lymph nodes (respiratory sites)",
+          "Skeletal gastrocnemius muscles, tongue, and diaphragm tendons (musculoskeletal sites)"
         ],
         "a": 0,
         "e": "BLV lymphomas classically infiltrate the Heart (right atrium), Abomasum, Uterus, and Lymph nodes (the 'HAUL' predilection sites) in adult cattle.",
@@ -10686,9 +10670,9 @@ var quizBank = {
         "q": "Equine Infectious Anemia Virus (EIAV), a Lentivirus in the family Retroviridae, establishes lifelong persistent infection targeting which host cells?",
         "o": [
           "Monocytes and tissue macrophages",
-          "B lymphocytes alone",
-          "Erythrocytes directly",
-          "Epidermal keratinocytes"
+          "Follicular B lymphocytes in spleen",
+          "Erythrocytes directly in marrow",
+          "Basal epidermal skin keratinocytes"
         ],
         "a": 0,
         "e": "EIAV selectively infects and persists inside circulating monocytes and mature tissue macrophages, causing recurring cyclical bouts of fever, anemia, and thrombocytopenia.",
@@ -10700,9 +10684,9 @@ var quizBank = {
         "q": "Which vector acts as the primary mechanical transmitter of Equine Infectious Anemia Virus between horses in field conditions?",
         "o": [
           "Large biting flies of the family Tabanidae (Horseflies and Deerflies)",
-          "Ixodes ticks",
-          "Culicoides midges",
-          "Houseflies"
+          "Hard ticks of the family Ixodidae (including Ixodes and Rhipicephalus species)",
+          "Biting midges of the genus Culicoides (e.g., Culicoides oxystoma)",
+          "Haematophagous mosquitoes of the genus Anopheles and Aedes species"
         ],
         "a": 0,
         "e": "Interrupted feeding by tabanid horseflies transfers virus-contaminated blood on mouthparts mechanically from infected carrier horses to susceptible equines.",
@@ -10714,9 +10698,9 @@ var quizBank = {
         "q": "Caprine Arthritis-Encephalitis Virus (CAEV) and Maedi-Visna Virus (MVV) are small ruminant lentiviruses that produce chronic, progressive lesions in which target organs?",
         "o": [
           "Lungs ('Maedi' chronic interstitial pneumonia), Brain ('Visna' encephalitis), Joints (carpal arthritis / 'big knee'), and Mammary gland ('hard bag' indurative mastitis)",
-          "Liver and gallbladder exclusively",
-          "Intestinal crypts of Lieberkühn alone",
-          "Cornea and iris"
+          "Liver ('infectious hepatitis' with jaundice), Gallbladder (cholecystitis), Pancreas (acute necrotizing pancreatitis), and Small intestine (fibrinous catarrhal enteritis)",
+          "Kidneys (acute membranoproliferative glomerulonephritis), Urinary bladder (chronic polypoid cystitis), Ureters (hydronephrosis), and Renal pelvis (suppurative pyelitis)",
+          "Cornea (severe bilateral centripetal keratitis), Retina (diffuse neuroretinitis), Sclera (episcleritis), and Anterior chamber (fibrinous uveitis with hypopyon exudates)"
         ],
         "a": 0,
         "e": "Small ruminant lentiviruses cause chronic progressive lymphocytic infiltration in lungs (Maedi), CNS (Visna), synovial membranes (arthritis), and udder (indurative mastitis).",
@@ -10728,9 +10712,9 @@ var quizBank = {
         "q": "According to the Prion Hypothesis formulated by Stanley Prusiner (1982), the infectious agent of Transmissible Spongiform Encephalopathies (TSEs) consists entirely of:",
         "o": [
           "A misfolded, proteinase K-resistant isoform (PrPSc) of a normal host-encoded cellular glycoprotein (PrPC), lacking any nucleic acid genome",
-          "A small circular single-stranded RNA viroid",
-          "A defective interfering DNA virus",
-          "A retrotransposon coated in lipid"
+          "A small circular single-stranded infectious ribonucleic acid viroid molecule that replicates inside host nuclei without encoding any proteins",
+          "A replication-defective retrotransposon DNA sequence wrapped inside a host-derived phospholipid membrane envelope lacking capsid proteins",
+          "A novel autonomous sub-viral satellite particle requiring coinfecting helper adenovirus genomes to assemble into infectious virions"
         ],
         "a": 0,
         "e": "Prions are proteinaceous infectious particles devoid of nucleic acids; PrPSc acts as a conformational template that converts alpha-helical PrPC into beta-sheet-rich PrPSc.",
@@ -10742,9 +10726,9 @@ var quizBank = {
         "q": "At the molecular level, what structural transition distinguishes the pathogenic scrapie prion protein (PrPSc) from the normal cellular prion protein (PrPC)?",
         "o": [
           "Marked increase in beta-sheet secondary structure content and acquired resistance to proteolytic digestion by Proteinase K",
-          "Conversion from beta-sheet to alpha-helix",
-          "Complete loss of all amino acids",
-          "Acquisition of an RNA primer"
+          "Complete conformational conversion from a beta-sheet enriched matrix into a flexible, protease-sensitive alpha-helical conformation",
+          "Complete enzymatic hydrolysis and loss of all constituent amino acids, leaving an empty carbohydrate backbone scaffold in tissues",
+          "Acquisition of an internal single-stranded RNA primer that catalyzes continuous non-templated polypeptide chain elongation steps"
         ],
         "a": 0,
         "e": "Normal PrPC is ~43% alpha-helical and monomeric/soluble; pathogenic PrPSc is ~43% beta-sheet, highly insoluble, aggregate-prone, and resistant to Proteinase K digestion.",
@@ -10756,9 +10740,9 @@ var quizBank = {
         "q": "What is the characteristic clinical hallmark that gives Scrapie in sheep its historical name?",
         "o": [
           "Compulsive, intense pruritus causing the animal to repeatedly scrape and rub its fleece against fences, posts, and rocks, leading to extensive wool loss",
-          "Sudden acute coughing",
-          "Severe watery green diarrhea",
-          "Rapid blindness with corneal opacity"
+          "Severe intractable watery to hemorrhagic green diarrhea causing profound electrolyte loss, rapid hypovolemic shock, and severe dehydration in adult ewes",
+          "Sudden onset of severe paroxysmal coughing accompanied by profuse frothy nasal discharge and acute asphyxiating pulmonary edema, with rapid fatality",
+          "Rapid bilateral blindness caused by acute total cataract formation and corneal ulceration without any perceptible cutaneous or wool abnormalities"
         ],
         "a": 0,
         "e": "Spongiform neurodegeneration in the spinal cord and brainstem produces intractable itching (pruritus); sheep rub their wool raw, chew their legs, and develop ataxia.",
@@ -10770,9 +10754,9 @@ var quizBank = {
         "q": "What specific anatomical region of the brainstem is harvested at post-mortem examination for statutory diagnostic confirmation of Scrapie and Bovine Spongiform Encephalopathy (BSE)?",
         "o": [
           "The Obex region of the medulla oblongata (specifically the solitary tract nucleus and spinal trigeminal nucleus)",
-          "The cerebral cortex",
-          "The olfactory bulbs",
-          "The pituitary gland"
+          "The frontal cerebral cortex and hippocampus (specifically the pyramidal neurons of the cornu Ammonis CA1 region)",
+          "The anterior cerebellar vermis and Purkinje cell layer (specifically the dentate and fastigial deep cerebellar nuclei)",
+          "The adenohypophysis of the pituitary gland (specifically the anterior hormone-secreting somatotroph cell population)"
         ],
         "a": 0,
         "e": "The obex of the medulla oblongata displays the earliest and most severe spongiform vacuolation and PrPSc accumulation, serving as the official statutory testing site.",
@@ -10784,9 +10768,9 @@ var quizBank = {
         "q": "Bovine Spongiform Encephalopathy (BSE / 'Mad Cow Disease') was amplified and transmitted through the British cattle population during the 1980s primarily via:",
         "o": [
           "Feeding cattle Meat and Bone Meal (MBM) derived from ruminant carcasses processed with reduced solvent/heat rendering methods",
-          "Direct animal-to-animal aerosol transmission in barns",
-          "Bites from infected soft ticks",
-          "Contaminated drinking water wells"
+          "Direct horizontal transmission through aerosolized respiratory droplets between closely confined dairy cattle in winter barns",
+          "Mechanical transmission through contaminated mouthparts of hematophagous soft ticks and biting stable flies on summer pastures",
+          "Consumption of municipal drinking water contaminated with agricultural runoff containing infectious chemical neurotoxins"
         ],
         "a": 0,
         "e": "Changes in industrial rendering (lowering temperatures and omitting hydrocarbons) allowed heat-stable prions from scrapie sheep or spontaneous BSE cows to contaminate cattle feed (MBM).",
@@ -10798,8 +10782,8 @@ var quizBank = {
         "q": "What fatal human neurodegenerative disease was linked epidemiologically and molecularly to the consumption of beef contaminated with Bovine Spongiform Encephalopathy prions?",
         "o": [
           "Variant Creutzfeldt-Jakob Disease (vCJD)",
-          "Classic sporadic CJD",
-          "Kuru",
+          "Classic sporadic Creutzfeldt-Jakob Disease",
+          "Kuru cannibalistic spongiform encephalitis",
           "Gerstmann-Sträussler-Scheinker syndrome"
         ],
         "a": 0,
@@ -10812,9 +10796,9 @@ var quizBank = {
         "q": "Chronic Wasting Disease (CWD), an infectious prion disease affecting cervids (deer, elk, moose), differs uniquely from BSE in that CWD prions:",
         "o": [
           "Are shed in high concentrations in saliva, urine, and feces, permitting direct animal-to-animal and environmental transmission through contaminated pastures",
-          "Are transmitted exclusively through tick bites",
-          "Are destroyed by boiling water in 5 minutes",
-          "Affect only aged animals over 15 years"
+          "Are transmitted strictly through the biological salivary bites of infected hematophagous soft ticks and biting midges during late summer and autumn seasons",
+          "Are completely inactivated and rendered non-infectious by boiling in water at one hundred degrees Celsius for five minutes or routine chlorine bleach washes",
+          "Exclusively infect aged senile animals over fifteen years of age, producing zero clinical disease or microscopic pathology in young free-ranging cervids"
         ],
         "a": 0,
         "e": "CWD prions shed in bodily secretions and bind tightly to soil clay particles, creating infectious environmental reservoirs that transmit horizontally among free-ranging deer.",
@@ -10854,9 +10838,9 @@ var quizBank = {
         "q": "The first animal virus shown to be filterable, by Loeffler and Frosch in 1898, was the agent of",
         "o": [
           "Foot-and-mouth disease",
-          "Rabies",
-          "Rinderpest",
-          "Fowl plague"
+          "Rabies neurotropic lyssavirus",
+          "Rinderpest morbillivirus agent",
+          "Fowl plague avian influenza"
         ],
         "a": 0,
         "e": "Loeffler and Frosch showed that FMD passed through bacteria-proof filters. This was the first demonstration of a filterable agent causing disease in animals.",
@@ -10868,9 +10852,9 @@ var quizBank = {
         "q": "Which property is shared by all viruses?",
         "o": [
           "They contain only one type of nucleic acid — either DNA or RNA",
-          "They can grow on cell-free culture media",
-          "They multiply by binary fission",
-          "They possess their own ribosomes"
+          "They can grow and multiply vigorously on synthetic cell-free agar",
+          "They multiply by binary fission similar to prokaryotic bacteria",
+          "They possess functional 70S ribosomes for autonomous translation"
         ],
         "a": 0,
         "e": "Viruses are obligate intracellular parasites with a single type of nucleic acid. They have no ribosomes or energy-generating system and replicate only in living cells.",
@@ -10896,9 +10880,9 @@ var quizBank = {
         "q": "The envelope of enveloped viruses is derived from",
         "o": [
           "Host cell membranes (plasma membrane, nuclear membrane or ER/Golgi) acquired during budding",
-          "Viral capsid proteins alone",
-          "The bacterial cell wall",
-          "Host ribosomes"
+          "De novo synthesized viral structural proteins assembled directly in the extracellular milieu",
+          "The peptidoglycan cell wall of coinfecting commensal or pathogenic bacterial organisms",
+          "Aggregated host cytoplasmic ribosomes cross-linked by viral non-structural polypeptides"
         ],
         "a": 0,
         "e": "The lipid envelope comes from host membranes but carries virus-coded glycoprotein spikes. Being lipid, it is destroyed by ether, chloroform and detergents.",
@@ -10952,9 +10936,9 @@ var quizBank = {
         "q": "When infection of a cell with one virus inhibits the replication of a second virus in the same cell, often through interferon, the phenomenon is called",
         "o": [
           "Viral interference",
-          "Complementation",
+          "Genetic reassortment",
           "Phenotypic mixing",
-          "Reassortment"
+          "Complementation"
         ],
         "a": 0,
         "e": "Interference can be caused by interferon, receptor blockade or defective interfering particles. It explains why live vaccines given together may interfere with each other.",
@@ -10966,9 +10950,9 @@ var quizBank = {
         "q": "Phenotypic mixing occurs when",
         "o": [
           "The genome of one virus is packaged in a coat containing proteins of another virus during mixed infection, without any genetic change",
-          "Genes of two viruses recombine into one genome",
-          "Genome segments of two viruses are exchanged",
-          "Point mutations accumulate in surface antigens"
+          "The genomes of two related coinfecting viruses undergo homologous crossing-over to generate a stable, novel recombinant hybrid genome",
+          "Intact genomic segments of two different segmented viruses are exchanged during viral assembly inside a dually infected host cell",
+          "Point mutations accumulate progressively in surface glycoprotein antigens under selective pressure from host neutralizing antibodies"
         ],
         "a": 0,
         "e": "Phenotypic mixing is a non-genetic interaction. The progeny have altered antigenicity or host range for one generation only, because their genome is unchanged.",
@@ -11008,9 +10992,9 @@ var quizBank = {
         "q": "Acutely transforming retroviruses such as Rous sarcoma virus produce tumours within days because they carry",
         "o": [
           "A viral oncogene (v-onc, e.g., v-src) closely related to a cellular proto-oncogene",
-          "No oncogene, acting only by insertion near host genes",
-          "Interferon genes",
-          "A defective reverse transcriptase gene"
+          "No viral oncogene, acting exclusively by insertional activation of host proto-oncogenes",
+          "A set of viral interferon-stimulating genes that induce excessive cellular growth",
+          "A defective reverse transcriptase gene that causes host cell cycle deregulation"
         ],
         "a": 0,
         "e": "The v-onc gene is expressed at high levels and transforms cells directly. Slow-transforming retroviruses lack v-onc and cause tumours much later by insertional activation.",
@@ -11022,9 +11006,9 @@ var quizBank = {
         "q": "Avian leukosis virus, a slow-transforming retrovirus without an oncogene, induces B-cell lymphoma (lymphoid leukosis) mainly by",
         "o": [
           "Integrating near the cellular c-myc proto-oncogene and activating it with its LTR promoter",
-          "Expressing the v-src oncogene",
-          "Producing a cytotoxin",
-          "Directly killing bursal B cells"
+          "Carrying and directly expressing the v-src tyrosine kinase oncogene in infected host cells",
+          "Secreting a potent cytotoxic peptide that destroys cortical thymocytes in young chickens",
+          "Directly lysing mature bursal B lymphocytes and producing acute severe immunosuppression"
         ],
         "a": 0,
         "e": "Insertional activation of c-myc in bursal cells leads to tumours in birds 4 months old or more. Unlike Marek's disease, lymphoid leukosis tumours arise in the bursa.",
@@ -11036,9 +11020,9 @@ var quizBank = {
         "q": "Haemadsorption by infected cell monolayers is useful for detecting",
         "o": [
           "Non-cytopathic or slowly cytopathic viruses that express haemagglutinin on the infected cell surface, such as influenza and parainfluenza viruses",
-          "Bacterial contamination of cell cultures",
-          "Prions",
-          "All DNA viruses"
+          "Subclinical bacterial or mycoplasmal contamination of in vitro animal cell culture monolayers prior to downstream vaccine manufacturing processes",
+          "Infectious misfolded prion proteins accumulating within the cytoplasm and extracellular space of cultured neural and lymphoid tissue explants",
+          "All double-stranded DNA viruses that replicate inside the host nucleus regardless of surface hemagglutinin glycoprotein peplomer expression"
         ],
         "a": 0,
         "e": "Red cells stick to cells displaying viral haemagglutinin. The test detects infection before any CPE appears. African swine fever virus also causes haemadsorption.",
@@ -11064,9 +11048,9 @@ var quizBank = {
         "q": "Post-exposure prophylaxis after a severe (Category III) dog bite consists of",
         "o": [
           "Immediate thorough wound washing, a course of anti-rabies vaccine and rabies immunoglobulin infiltrated into the wound",
-          "Antibiotics alone",
-          "The antiviral drug acyclovir",
-          "Waiting until clinical signs appear"
+          "Oral broad-spectrum antibacterial therapy alone to control secondary Pasteurella and Staphylococcus bite-wound infections",
+          "Intravenous administration of high-dose acyclovir antiviral therapy combined with topical antiseptic povidone-iodine dressing",
+          "Strict quarantine of the bite victim and withholding all therapeutic interventions until overt neurological symptoms develop"
         ],
         "a": 0,
         "e": "Washing the wound with soap and water removes virus, immunoglobulin neutralises it at the site, and the vaccine induces active immunity before the virus reaches the CNS.",
@@ -11078,9 +11062,9 @@ var quizBank = {
         "q": "Borna disease virus, which causes progressive non-suppurative meningoencephalitis in horses and sheep, is unusual because it",
         "o": [
           "Has a non-segmented negative-sense RNA genome but replicates in the nucleus",
-          "Has a double-stranded DNA genome",
-          "Has a segmented double-stranded RNA genome",
-          "Replicates only in bacteria"
+          "Possesses a double-stranded circular DNA genome that replicates in mitochondria",
+          "Contains a bisegmented double-stranded RNA genome replicating in the cytoplasm",
+          "Replicates exclusively inside intracellular symbiotic bacteria within neurons"
         ],
         "a": 0,
         "e": "Most negative-sense RNA viruses of the order Mononegavirales replicate in the cytoplasm. Bornaviruses are a striking exception: they replicate and persist in the nucleus, producing intranuclear Joest-Degen inclusion bodies.",
@@ -11120,9 +11104,9 @@ var quizBank = {
         "q": "Transmissible gastroenteritis (TGE) causes severe watery diarrhoea and high mortality in piglets under two weeks of age because the virus",
         "o": [
           "Destroys the villous enterocytes of the jejunum and ileum, causing villous atrophy and malabsorption",
-          "Destroys the bursa of Fabricius",
-          "Causes pneumonia in the lungs",
-          "Infects the motor neurons of the spinal cord"
+          "Selectively destroys dividing IgM+ B lymphocytes within the follicular cortex of the bursa of Fabricius",
+          "Produces severe acute interstitial fibrinous pneumonia and diffuse pulmonary atelectasis in the lungs",
+          "Infects and lyses lower motor neurons in the ventral horns of the cervical and lumbar spinal cord segments"
         ],
         "a": 0,
         "e": "Villous atrophy causes maldigestion, malabsorption and dehydration. Young piglets replace enterocytes slowly, so mortality approaches 100% in the first week of life.",
@@ -11134,9 +11118,9 @@ var quizBank = {
         "q": "Primary isolation of infectious bronchitis virus is done in",
         "o": [
           "The allantoic cavity of 9-11 day embryonated chicken eggs, where serial passage produces curled, dwarfed embryos",
-          "Vero cells",
-          "The brains of suckling mice",
-          "The yolk sac of 5-day-old eggs"
+          "Continuous Vero and BHK-21 immortalized cell lines, where infection produces rapid syncytial polykaryocyte formation",
+          "Intracerebral inoculation of one- to two-day-old suckling Swiss albino mice, resulting in fatal acute flaccid paralysis",
+          "The yolk sac vascular route of five- to six-day-old embryonated eggs, where viral growth causes rapid embryo liquefaction"
         ],
         "a": 0,
         "e": "Dwarfing and curling of embryos, with a clubbed down, are characteristic of IBV after several blind passages in eggs.",
@@ -11148,9 +11132,9 @@ var quizBank = {
         "q": "Duck viral hepatitis type 1, a highly fatal disease of ducklings under four weeks old with haemorrhagic hepatitis, is caused by",
         "o": [
           "Duck hepatitis A virus (family Picornaviridae)",
-          "Duck enteritis virus (family Herpesviridae)",
-          "Avian influenza virus",
-          "Avian reovirus"
+          "Duck enteritis herpesvirus (family Herpesviridae)",
+          "Avian orthomyxovirus (avian influenza A virus)",
+          "Avian orthoreovirus (family Spinareoviridae)"
         ],
         "a": 0,
         "e": "Ducklings die within hours of showing signs, often lying on their side with the head drawn back. The swollen liver shows punctate and ecchymotic haemorrhages.",
@@ -11162,9 +11146,9 @@ var quizBank = {
         "q": "Foot-and-mouth disease virus is rapidly inactivated",
         "o": [
           "At pH below 6.0, which is why post-mortem acidification destroys the virus in muscle",
-          "At 4°C",
-          "By freezing",
-          "At neutral pH 7.0-7.5"
+          "At temperatures below 4°C, which is why cold storage rapidly inactivates viral infectivity",
+          "By standard freezing at -20°C, which causes irreversible denaturation of the viral capsid",
+          "At neutral pH 7.0 to 7.5, which is why alkaline carbolic soaps are required for disinfection"
         ],
         "a": 0,
         "e": "FMDV is acid-labile. Muscle pH falls during carcass maturation and inactivates the virus there, but it can survive in bone marrow, lymph nodes and offal.",
@@ -11176,9 +11160,9 @@ var quizBank = {
         "q": "Feline calicivirus infection is clinically characterised by",
         "o": [
           "Ulcers on the tongue and palate with rhinitis and conjunctivitis",
-          "Cerebellar hypoplasia in kittens",
-          "Haemorrhagic enteritis",
-          "Footpad hyperkeratosis"
+          "Severe cerebellar hypoplasia in neonatal kittens infected in utero",
+          "Hemorrhagic enteritis with crypt necrosis in adult cats",
+          "Digital hyperkeratosis and nasal planum cracking in cats"
         ],
         "a": 0,
         "e": "Oral ulceration distinguishes FCV from feline herpesvirus-1, which mainly causes rhinotracheitis and corneal ulcers. Virulent systemic FCV strains can cause oedema and high mortality.",
@@ -11204,9 +11188,9 @@ var quizBank = {
         "q": "The 'wet' (diphtheritic) form of fowl pox is characterised by",
         "o": [
           "Yellowish caseous plaques on the mucosa of the mouth, pharynx and trachea",
-          "Nodules on the comb and wattles only",
-          "Leg paralysis",
-          "Profuse greenish diarrhoea"
+          "Nodular, proliferative wart-like scabs restricted to the comb and wattles",
+          "Asymmetrical flaccid paralysis of the wings and legs ('range paralysis')",
+          "Profuse watery green diarrhea with proventricular papillae hemorrhages"
         ],
         "a": 0,
         "e": "The dry (cutaneous) form produces wart-like nodules on unfeathered skin. The wet form can block the airway and causes higher mortality.",
@@ -11218,9 +11202,9 @@ var quizBank = {
         "q": "Cowpox virus is historically important because",
         "o": [
           "Edward Jenner used it in 1796 to protect against smallpox, founding the practice of vaccination",
-          "It was the first virus to be crystallised",
-          "It was the first retrovirus discovered",
-          "It causes foot-and-mouth disease"
+          "Wendell Stanley used it in 1935 to demonstrate that viruses can be crystallized into pure form",
+          "Peyton Rous discovered it in 1911 as the first infectious virus capable of causing solid tumors",
+          "Loeffler and Frosch demonstrated in 1898 that it is the first filterable animal viral pathogen"
         ],
         "a": 0,
         "e": "The word 'vaccine' comes from vacca (cow). Cowpox is a zoonotic orthopoxvirus now maintained mainly in rodents.",
@@ -11232,9 +11216,9 @@ var quizBank = {
         "q": "Equine herpesvirus-1 (EHV-1) is particularly important because it causes",
         "o": [
           "Abortion storms in late-pregnant mares, neonatal foal deaths and neurological disease (myeloencephalopathy)",
-          "Only mild rhinitis in foals",
-          "Equine sarcoid",
-          "Equine viral arteritis"
+          "Transient, mild upper respiratory catarrhal rhinitis and coughing in young weanling foals on breeding farms",
+          "Locally aggressive, fibroblastic, non-metastatic cutaneous tumors ('equine sarcoids') on the limbs and ears",
+          "Edema of the prepuce, scrotum, ventral abdomen, and periorbital tissues accompanied by severe conjunctivitis"
         ],
         "a": 0,
         "e": "EHV-1 infects vascular endothelium, which leads to abortion and myeloencephalopathy. EHV-4 mainly causes respiratory disease (rhinopneumonitis).",
@@ -11260,9 +11244,9 @@ var quizBank = {
         "q": "Duck plague, with cloacal necrosis and ring-like haemorrhagic bands in the intestine, is caused by",
         "o": [
           "Anatid alphaherpesvirus 1 (duck enteritis virus)",
-          "Duck hepatitis A virus",
-          "Avian influenza virus",
-          "Newcastle disease virus"
+          "Duck hepatitis A virus (avihepatovirus 1 picorna)",
+          "Avian orthomyxovirus (highly pathogenic influenza)",
+          "Avian orthoavulavirus 1 (velogenic Newcastle virus)"
         ],
         "a": 0,
         "e": "The annular haemorrhagic bands in the intestine are pathognomonic. Lesions also appear on the oesophageal mucosa and cloaca. Adult ducks are commonly affected.",
@@ -11274,9 +11258,9 @@ var quizBank = {
         "q": "The feather follicle epithelium is epidemiologically important in Marek's disease because it is",
         "o": [
           "The only site where fully infectious, cell-free virus is produced and shed in feather dander",
-          "The site where the vaccine is injected",
-          "The main site of tumour formation",
-          "The only tissue that can be used for serology"
+          "The exclusive primary anatomical site where the lyophilized commercial vaccine is administered",
+          "The principal site of multicentric malignant lymphoma formation and organomegaly in adult hens",
+          "The only avian tissue suitable for collecting diagnostic diagnostic agar gel immunodiffusion serum"
         ],
         "a": 0,
         "e": "Elsewhere MDV is strongly cell-associated. Dander from infected birds carries virus that stays infective in poultry houses for months.",
@@ -11288,9 +11272,9 @@ var quizBank = {
         "q": "'Blue eye' (corneal opacity) developing during recovery from infectious canine hepatitis is due to",
         "o": [
           "Immune-complex deposition causing anterior uveitis and corneal oedema",
-          "Direct virus replication in the lens",
-          "Vitamin A deficiency",
-          "Bacterial keratitis"
+          "Direct lytic replication of viral particles within the crystalline lens fibers",
+          "Severe dietary hypovitaminosis A triggering bilateral squamous corneal metaplasia",
+          "Secondary opportunistic bacterial keratitis caused by Moraxella bovis ulcerations"
         ],
         "a": 0,
         "e": "About 7-21 days after infection with canine adenovirus-1, virus-antibody complexes cause uveitis and corneal oedema. It is a classic example of viral immunopathology.",
@@ -11302,9 +11286,9 @@ var quizBank = {
         "q": "Hydropericardium-hepatitis syndrome ('Angara disease'), a major cause of mortality in broilers in India and Pakistan, is caused by",
         "o": [
           "Fowl adenovirus serotype 4 (FAdV-4)",
-          "Egg drop syndrome virus",
-          "Infectious bursal disease virus",
-          "Chicken anaemia virus"
+          "Egg drop syndrome virus (EDS-76 atadeno)",
+          "Infectious bursal disease virus (birna)",
+          "Chicken infectious anaemia virus (gyrovirus)"
         ],
         "a": 0,
         "e": "Birds 3-6 weeks old show straw-coloured fluid in the pericardial sac and a swollen, friable liver with intranuclear inclusion bodies. Immunosuppression by IBDV or CAV worsens it.",
@@ -11316,9 +11300,9 @@ var quizBank = {
         "q": "Chicken infectious anaemia virus causes aplastic anaemia and immunosuppression by destroying",
         "o": [
           "Haemocytoblasts in the bone marrow and precursor T lymphocytes in the thymus",
-          "B lymphocytes in the bursa of Fabricius only",
-          "Kidney tubular cells",
-          "Hepatocytes"
+          "Dividing IgM+ B lymphocytes within the follicular cortex of the bursa of Fabricius",
+          "Proximal and distal convoluted tubular epithelial cells of the avian metanephros",
+          "Mature hepatocytes and sinusoidal Kupffer cells throughout the hepatic parenchyma"
         ],
         "a": 0,
         "e": "Chicks 2-4 weeks old show pale, fatty bone marrow, thymic atrophy, haemorrhages and a low packed cell volume. The disease is prevented by vaccinating breeders.",
@@ -11330,9 +11314,9 @@ var quizBank = {
         "q": "Kyasanur Forest Disease, a tick-borne viral haemorrhagic fever first recognised in Karnataka in 1957 after deaths of monkeys, is caused by a",
         "o": [
           "Flavivirus transmitted mainly by Haemaphysalis ticks",
-          "Alphavirus transmitted by mosquitoes",
-          "Phlebovirus transmitted by sandflies",
-          "Henipavirus transmitted by bats"
+          "Alphavirus transmitted predominantly by Aedes aegypti",
+          "Phlebovirus transmitted by Phlebotomus sandfly vectors",
+          "Henipavirus transmitted by Pteropus fruit bat saliva"
         ],
         "a": 0,
         "e": "Monkey deaths act as sentinel events for KFD. Humans are infected by tick bites in forest areas of the Western Ghats, and a vaccine is used in endemic districts.",
@@ -12596,7 +12580,3 @@ var quizBank = {
     ]
   }
 };
-
-if (typeof window !== 'undefined') {
-  window.quizBank = quizBank;
-}
