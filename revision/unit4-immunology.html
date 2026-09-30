@@ -280,6 +280,90 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   .bank{grid-template-columns:1fr 1fr!important}
   .bank.one{grid-template-columns:1fr!important}
 }
+
+/* ---------- PRINT-ONLY REFLOW VERSIONS OF THE WIDE DIAGRAMS ---------- */
+.print-alt{display:none}
+
+/* ================= LARGE-PRINT EDITION (paper only) ================= */
+@media print{
+  @page{size:A4; margin:13mm 14mm 14mm}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+  .sheet{font-size:11pt!important; line-height:1.45!important}
+  .sheet > *{margin-bottom:5mm!important}
+  .row{display:block!important}
+  .row > *{margin-bottom:5.5mm}
+  .mod{padding-left:3.5mm!important; border-left-width:2.6pt!important}
+
+  .sheet-head{padding-bottom:2mm!important; margin-bottom:6mm!important}
+  .sheet-head h2{font-size:18pt!important}
+  .sheet-head .no{font-size:11pt!important; padding:.8mm 2.4mm!important}
+  .sheet-head .sub{font-size:9.5pt!important}
+  .mod > h3{font-size:13.5pt!important; margin-bottom:2.2mm!important}
+  .mod > h3 .kind{font-size:8pt!important; padding:.3mm 1.6mm!important}
+
+  ul.k, ol.k{font-size:11pt!important}
+  ul.k li{margin-bottom:1.4mm!important}
+  ul.k li::before{top:2.2mm!important; width:1.5mm!important; height:1.5mm!important}
+
+  table{font-size:10pt!important; line-height:1.4!important}
+  th, td{padding:1.4mm 2mm!important}
+  thead th{font-size:10pt!important}
+  .sheet .mono, .sheet [style*="font-size"]:not(table){font-size:inherit!important}
+  td .mono, th .mono{font-size:9.5pt!important}
+
+  .bank{grid-template-columns:1fr 1fr!important; gap:0 5mm!important}
+  .bank.one{grid-template-columns:1fr!important}
+  .bank div{font-size:10.5pt!important; padding:1.2mm 0!important; gap:2.4mm!important}
+  .bank div b{flex:0 0 36%!important}
+
+  .mnem, .trap, .skel{font-size:10.5pt!important; line-height:1.45!important; padding:2.4mm 3mm!important}
+  .mnem .key{font-size:11pt!important}
+  .skel ol{padding-left:5.5mm!important}
+  .skel li{margin-bottom:.9mm!important}
+  .tag{font-size:9pt!important; padding:.6mm 2mm!important}
+
+  .cover h1{font-size:34pt!important}
+  .cover .brand{font-size:10pt!important}
+  .cover .lede{font-size:13pt!important; max-width:none!important}
+  .cover .meta{font-size:10.5pt!important}
+  .cover .meta b{font-size:8.5pt!important}
+  .cover .plan table{font-size:11pt!important}
+  .legend{font-size:10.5pt!important}
+  .legend i{width:3.4mm!important; height:3.4mm!important}
+
+  svg{width:var(--pw,100%)!important; max-width:100%!important; margin:1mm auto 3mm!important}
+  svg.wide{display:none!important}
+  .print-alt{display:block!important; font-size:10.5pt; line-height:1.45}
+  .print-alt, .pa-box{break-inside:avoid; page-break-inside:avoid}
+  .pa-root{display:inline-block; font-weight:700; border:1.2pt solid var(--ink); border-radius:1mm; padding:1.6mm 3.5mm; margin-bottom:3mm}
+  .pa-cols{display:grid; grid-template-columns:1fr 1fr; gap:4mm}
+  .pa-steps{display:grid; grid-template-columns:1fr 1fr 1fr; gap:3mm; margin-bottom:3mm}
+  .pa-q{font-family:"IBM Plex Mono",monospace; font-size:9.5pt; font-weight:600; color:var(--amber); letter-spacing:.03em; margin:0 0 2mm}
+  .pa-box{border:1pt solid var(--ink-3); border-radius:1.2mm; padding:2.2mm 3mm; margin-bottom:3mm}
+  .pa-box > b:first-child{display:block; font-family:"IBM Plex Sans Condensed",sans-serif; font-size:11pt; margin-bottom:1mm}
+  .pa-box b.in{display:inline; font-family:inherit; font-size:inherit; margin:0}
+  .pa-box.v{border-color:var(--violet); background:var(--violet-w)} .pa-box.v > b:first-child{color:var(--violet)}
+  .pa-box.r{border-color:var(--safranin); background:var(--safranin-w)} .pa-box.r > b:first-child{color:var(--safranin)}
+  .pa-box.g{border-color:var(--malachite); background:var(--malachite-w)} .pa-box.g > b:first-child{color:var(--malachite)}
+  .pa-box.a{border-color:var(--amber); background:var(--amber-w)} .pa-box.a > b:first-child{color:var(--amber)}
+  .pa-box.k{border-color:var(--ink); background:var(--tint)}
+  .pa-mono{display:block; font-family:"IBM Plex Mono",monospace; white-space:pre; font-size:10.5pt; margin:1mm 0 1.5mm}
+  .pa-temp{display:block; font-family:"IBM Plex Mono",monospace; font-weight:600; margin-bottom:1mm}
+  .pa-ol{margin:1mm 0 2mm; padding-left:5.5mm}
+  .pa-ol li{margin-bottom:1mm}
+}
+
+@media print{
+  .pa-steps.four{grid-template-columns:repeat(4,1fr)}
+  .pa-box.b{border-color:var(--blue); background:var(--blue-w)} .pa-box.b > b:first-child{color:var(--blue)}
+  .pa-box.f{border-color:var(--fuchsin); background:var(--fuchsin-w)} .pa-box.f > b:first-child{color:var(--fuchsin)}
+  .pa-box.k > b:first-child:last-child{margin:0}
+  .pa-down{text-align:center; font-size:13pt; line-height:1; margin:-1.5mm 0 1.5mm; color:var(--safranin)}
+  .pa-note{margin:0 0 2mm}
+  .pa-side{grid-template-columns:64mm 1fr; align-items:center}
+  .pa-side > svg{margin:0!important}
+}
 </style>
 </head>
 
@@ -363,7 +447,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
     <div class="mod m-violet">
       <h3>Lymphoid organs <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 200 150" role="img" aria-label="Primary and secondary lymphoid organs and the origin of B and T cells">
+      <svg class="wide" style="--pw:97mm" viewBox="0 0 200 150" role="img" aria-label="Primary and secondary lymphoid organs and the origin of B and T cells">
         <g font-size="7.6">
           <rect x="4" y="4" width="192" height="18" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
           <text x="12" y="16" font-weight="700" fill="var(--violet)">BONE MARROW — haematopoietic stem cell</text>
@@ -393,6 +477,15 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="4" y="144" fill="var(--ink-2)">T cells in the <tspan font-weight="600">paracortex</tspan>. <tspan font-weight="600">Spleen:</tspan> B in follicle, T in PALS</text>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-box v"><b>BONE MARROW &mdash; haematopoietic stem cell</b></div>
+  <div class="pa-cols">
+    <div class="pa-box"><b>B CELL matures in</b>Bone marrow (mammals)<br><b class="in">Bursa of Fabricius</b> (birds),<br>ileal Peyer's patches (ruminants)</div>
+    <div class="pa-box"><b>T CELL matures in</b><b class="in">THYMUS</b> &mdash; cortex then medulla; involutes with age</div>
+  </div>
+  <div class="pa-box v"><b>SECONDARY &mdash; where the response happens</b>Lymph node &middot; spleen &middot; MALT (GALT, BALT, tonsil, Peyer's patch, haemal node)</div>
+  <p class="pa-note"><b class="in">Node:</b> B cells in cortical <b class="in">follicles/germinal centres</b>; T cells in the <b class="in">paracortex</b>. <b class="in">Spleen:</b> B in follicle, T in PALS</p>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>Two species facts examiners love:</b> the <b>pig has an inverted lymph node</b> — medulla outside, cortex inside, with afferent lymph entering centrally; and the <b>bursa of Fabricius</b>, a dorsal cloacal sac, is the site of B-cell maturation unique to birds (bursectomy abolishes antibody production but leaves cell-mediated immunity intact — the experiment that separated the two arms). <b>Haemal nodes</b> occur in ruminants and filter blood rather than lymph.</div>
     </div>
   </div>
@@ -517,7 +610,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2a">
     <div class="mod m-violet">
       <h3>The immunoglobulin molecule <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 126" role="img" aria-label="Y-shaped immunoglobulin showing heavy and light chains, variable and constant domains, Fab and Fc, and enzyme cleavage sites">
+      <svg style="--pw:182mm" viewBox="0 0 340 126" role="img" aria-label="Y-shaped immunoglobulin showing heavy and light chains, variable and constant domains, Fab and Fc, and enzyme cleavage sites">
         <g font-size="7.6">
           <!-- heavy chains -->
           <path d="M170 118 L170 66 L120 24" fill="none" stroke="var(--violet)" stroke-width="3"/>
@@ -650,7 +743,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2a">
     <div class="mod m-violet">
       <h3>MHC &amp; antigen presentation — one diagram, two pathways <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 132" role="img" aria-label="Endogenous MHC class I and exogenous MHC class II antigen processing pathways">
+      <svg class="wide" style="--pw:166mm" viewBox="0 0 340 132" role="img" aria-label="Endogenous MHC class I and exogenous MHC class II antigen processing pathways">
         <g font-size="7.6">
           <!-- class I -->
           <rect x="4" y="4" width="164" height="60" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
@@ -687,6 +780,14 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="176" y="128" fill="var(--ink-2)">not a presenting molecule at all</text>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-cols">
+    <div class="pa-box v"><b>ENDOGENOUS &rarr; MHC CLASS I</b>Viral / tumour protein made <i>inside</i> the cell<br>&darr; ubiquitin &rarr; <b class="in">PROTEASOME</b> &rarr; peptide 8&ndash;10 aa<br>&darr; <b class="in">TAP</b> transporter into the ER<br>&darr; loaded on MHC-I (&alpha; chain + <b class="in">&beta;&#8322;-microglobulin</b>)<br>&darr; surface &rarr; presented to <b class="in">CD8 Tc</b> &rarr; kill</div>
+    <div class="pa-box r"><b>EXOGENOUS &rarr; MHC CLASS II</b>Bacterium taken up from <i>outside</i><br>&darr; endosome &rarr; <b class="in">LYSOSOME</b> &rarr; peptide 13&ndash;18 aa<br>&darr; MHC-II arrives with the <b class="in">invariant chain (CLIP)</b><br>&darr; HLA-DM swaps CLIP for the peptide<br>&darr; surface &rarr; presented to <b class="in">CD4 Th</b> &rarr; help</div>
+    <div class="pa-box a"><b>MHC CLASS I</b>On <b class="in">ALL nucleated cells</b> (+ platelets)<br>&alpha;1 &alpha;2 &alpha;3 + &beta;&#8322;-m &middot; groove <b class="in">closed</b> at both ends<br>Binds <b class="in">CD8</b> &middot; target of Tc and of graft rejection<br>Species names: <b class="in">BoLA</b> cattle &middot; <b class="in">SLA</b> pig &middot; <b class="in">ELA</b> horse &middot; <b class="in">DLA</b> dog &middot; <b class="in">OLA</b> sheep &middot; <b class="in">B complex</b> chicken &middot; <b class="in">HLA</b> man</div>
+    <div class="pa-box a"><b>MHC CLASS II</b>Only on <b class="in">professional APCs</b> &mdash; dendritic cell, macrophage, B cell (+ thymic epithelium)<br>&alpha; + &beta; chain &middot; groove <b class="in">open</b> at both ends<br>Binds <b class="in">CD4</b> &middot; <b class="in">Class III</b> = C4, C2, factor B, TNF &mdash; not a presenting molecule at all</div>
+  </div>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>MHC is polygenic and the most polymorphic gene system known, is co-dominantly expressed, and is inherited as a haplotype block.</b> Consequences to quote: it determines graft acceptance or rejection, it sets the <b>immune response (Ir) gene</b> control of vaccine responsiveness, and MHC associations underlie several autoimmune and disease-resistance traits (for example BoLA associations with mastitis resistance).</div>
     </div>
 
@@ -712,7 +813,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2b">
     <div class="mod m-safranin">
       <h3>Complement — three pathways, one lytic end <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 118" role="img" aria-label="Classical lectin and alternative complement pathways converging on C3 and the membrane attack complex">
+      <svg style="--pw:166mm" viewBox="0 0 340 118" role="img" aria-label="Classical lectin and alternative complement pathways converging on C3 and the membrane attack complex">
         <g font-size="7.6">
           <rect x="2" y="4" width="104" height="34" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
           <text x="8" y="15" font-weight="700" fill="var(--safranin)">CLASSICAL</text>
@@ -825,7 +926,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
   <div class="mod m-malachite">
     <h3>The antigen-antibody reaction — principles that apply to every test <span class="kind">mechanism</span></h3>
-    <svg viewBox="0 0 700 96" role="img" aria-label="Precipitation curve showing antibody excess, zone of equivalence and antigen excess">
+    <svg class="wide" viewBox="0 0 700 96" role="img" aria-label="Precipitation curve showing antibody excess, zone of equivalence and antigen excess">
       <g font-size="9">
         <line x1="40" y1="76" x2="300" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
         <line x1="40" y1="8" x2="40" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
@@ -856,6 +957,49 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         </g>
       </g>
     </svg>
+<div class="print-alt">
+  <svg style="--pw:140mm" viewBox="0 0 312 96" role="img" aria-label="Precipitation curve showing antibody excess, zone of equivalence and antigen excess">
+      <g font-size="9">
+        <line x1="40" y1="76" x2="300" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
+        <line x1="40" y1="8" x2="40" y2="76" stroke="var(--ink-3)" stroke-width=".9"/>
+        <path d="M44 70 Q120 4 170 14 Q230 26 296 70" fill="none" stroke="var(--malachite)" stroke-width="2"/>
+        <g stroke="var(--rule)" stroke-width=".6" stroke-dasharray="2 2">
+          <line x1="120" y1="10" x2="120" y2="76"/><line x1="220" y1="10" x2="220" y2="76"/>
+        </g>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="46" y="88">Antibody excess</text>
+          <text x="132" y="88" font-weight="700" fill="var(--malachite)">EQUIVALENCE</text>
+          <text x="228" y="88">Antigen excess</text>
+          <text x="46" y="30">no visible</text><text x="46" y="39">lattice</text>
+          <text x="140" y="34" fill="var(--malachite)" font-weight="600">maximum</text>
+          <text x="140" y="43" fill="var(--malachite)" font-weight="600">precipitate</text>
+          <text x="240" y="34">soluble small</text><text x="240" y="43">complexes</text>
+        </g>
+        <text x="14" y="46" font-size="8" fill="var(--ink-2)" transform="rotate(-90 16 46)">precipitate</text>
+
+        <line x1="320" y1="4" x2="320" y2="92" stroke="var(--rule)" stroke-width=".7"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="334" y="14" font-weight="700" fill="var(--amber)">FIVE RULES THAT ANSWER EVERY SEROLOGY QUESTION</text>
+          <text x="334" y="27"><tspan font-weight="600">1 Specificity —</tspan> the reaction is lock-and-key; cross-reaction occurs when two antigens share an epitope (heterophile antigens)</text>
+          <text x="334" y="39"><tspan font-weight="600">2 Non-covalent —</tspan> held by H bonds, ionic, hydrophobic and van der Waals forces; therefore <tspan font-weight="600">reversible</tspan></text>
+          <text x="334" y="51"><tspan font-weight="600">3 Two stages —</tspan> a rapid invisible primary binding, then a slow visible secondary stage (lattice, precipitate, clump, lysis)</text>
+          <text x="334" y="63"><tspan font-weight="600">4 Optimal proportion —</tspan> visible reaction only near equivalence; excess of either partner gives the <tspan font-weight="600">PROZONE</tspan> (Ab excess) or postzone (Ag excess) false negative — always test serial dilutions</text>
+          <text x="334" y="75"><tspan font-weight="600">5 Affinity vs avidity —</tspan> affinity is the strength of one paratope-epitope bond; <tspan font-weight="600">avidity</tspan> is the total strength of a multivalent interaction, which is why IgM works so well</text>
+          <text x="334" y="88"><tspan font-weight="600">Titre</tspan> = the reciprocal of the highest serum dilution still giving a visible reaction. <tspan font-weight="600">A four-fold rise in paired sera 2–3 weeks apart proves recent infection.</tspan></text>
+        </g>
+      </g>
+    </svg>
+  <div class="pa-box a"><b>FIVE RULES THAT ANSWER EVERY SEROLOGY QUESTION</b>
+    <ol class="pa-ol">
+      <li><b class="in">Specificity</b> &mdash; the reaction is lock-and-key; cross-reaction occurs when two antigens share an epitope (heterophile antigens)</li>
+      <li><b class="in">Non-covalent</b> &mdash; held by H bonds, ionic, hydrophobic and van der Waals forces; therefore <b class="in">reversible</b></li>
+      <li><b class="in">Two stages</b> &mdash; a rapid invisible primary binding, then a slow visible secondary stage (lattice, precipitate, clump, lysis)</li>
+      <li><b class="in">Optimal proportion</b> &mdash; visible reaction only near equivalence; excess of either partner gives the <b class="in">PROZONE</b> (Ab excess) or postzone (Ag excess) false negative &mdash; always test serial dilutions</li>
+      <li><b class="in">Affinity vs avidity</b> &mdash; affinity is the strength of one paratope-epitope bond; <b class="in">avidity</b> is the total strength of a multivalent interaction, which is why IgM works so well</li>
+    </ol>
+    <b class="in">Titre</b> = the reciprocal of the highest serum dilution still giving a visible reaction. <b class="in">A four-fold rise in paired sera 2&ndash;3 weeks apart proves recent infection.</b>
+  </div>
+</div>
   </div>
 
   <div class="row r-2a">
@@ -881,7 +1025,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
     <div class="mod m-malachite">
       <h3>Hybridoma &amp; monoclonal antibodies <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 200 116" role="img" aria-label="Steps of hybridoma production from immunised mouse to monoclonal antibody">
+      <svg class="wide" style="--pw:100mm" viewBox="0 0 200 116" role="img" aria-label="Steps of hybridoma production from immunised mouse to monoclonal antibody">
         <g font-size="7.4">
           <rect x="2" y="4" width="196" height="15" rx="2" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width=".9"/>
           <text x="8" y="14"><tspan font-weight="700" fill="var(--malachite)">1</tspan> Immunise a mouse → harvest <tspan font-weight="600">spleen B cells</tspan> (short-lived, specific)</text>
@@ -903,6 +1047,16 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="8" y="110" fill="var(--paper)"><tspan font-weight="700">6</tspan> Expand in culture or as ascites → monoclonal antibody</text>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-steps">
+    <div class="pa-box g"><b>1</b>Immunise a mouse &rarr; harvest <b class="in">spleen B cells</b> (short-lived, specific)</div>
+    <div class="pa-box g"><b>2</b>Myeloma cells &mdash; immortal, but <b class="in">HGPRT-negative</b></div>
+    <div class="pa-box g"><b>3</b><b class="in">FUSE with PEG</b> (or electrofusion) &rarr; hybridoma</div>
+    <div class="pa-box a"><b>4</b>Select in <b class="in">HAT medium</b> &mdash; aminopterin blocks the de novo pathway; only cells with the B-cell HGPRT survive the salvage route</div>
+    <div class="pa-box g"><b>5</b>Screen by ELISA &rarr; <b class="in">clone by limiting dilution</b></div>
+    <div class="pa-box k"><b>6</b>Expand in culture or as ascites &rarr; monoclonal antibody</div>
+  </div>
+</div>
       <table style="margin-top:1.2mm">
         <thead><tr><th>Feature</th><th>Polyclonal</th><th>Monoclonal</th></tr></thead>
         <tbody>

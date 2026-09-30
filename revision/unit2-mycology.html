@@ -280,6 +280,90 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   .bank{grid-template-columns:1fr 1fr!important}
   .bank.one{grid-template-columns:1fr!important}
 }
+
+/* ---------- PRINT-ONLY REFLOW VERSIONS OF THE WIDE DIAGRAMS ---------- */
+.print-alt{display:none}
+
+/* ================= LARGE-PRINT EDITION (paper only) ================= */
+@media print{
+  @page{size:A4; margin:13mm 14mm 14mm}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+  .sheet{font-size:11pt!important; line-height:1.45!important}
+  .sheet > *{margin-bottom:5mm!important}
+  .row{display:block!important}
+  .row > *{margin-bottom:5.5mm}
+  .mod{padding-left:3.5mm!important; border-left-width:2.6pt!important}
+
+  .sheet-head{padding-bottom:2mm!important; margin-bottom:6mm!important}
+  .sheet-head h2{font-size:18pt!important}
+  .sheet-head .no{font-size:11pt!important; padding:.8mm 2.4mm!important}
+  .sheet-head .sub{font-size:9.5pt!important}
+  .mod > h3{font-size:13.5pt!important; margin-bottom:2.2mm!important}
+  .mod > h3 .kind{font-size:8pt!important; padding:.3mm 1.6mm!important}
+
+  ul.k, ol.k{font-size:11pt!important}
+  ul.k li{margin-bottom:1.4mm!important}
+  ul.k li::before{top:2.2mm!important; width:1.5mm!important; height:1.5mm!important}
+
+  table{font-size:10pt!important; line-height:1.4!important}
+  th, td{padding:1.4mm 2mm!important}
+  thead th{font-size:10pt!important}
+  .sheet .mono, .sheet [style*="font-size"]:not(table){font-size:inherit!important}
+  td .mono, th .mono{font-size:9.5pt!important}
+
+  .bank{grid-template-columns:1fr 1fr!important; gap:0 5mm!important}
+  .bank.one{grid-template-columns:1fr!important}
+  .bank div{font-size:10.5pt!important; padding:1.2mm 0!important; gap:2.4mm!important}
+  .bank div b{flex:0 0 36%!important}
+
+  .mnem, .trap, .skel{font-size:10.5pt!important; line-height:1.45!important; padding:2.4mm 3mm!important}
+  .mnem .key{font-size:11pt!important}
+  .skel ol{padding-left:5.5mm!important}
+  .skel li{margin-bottom:.9mm!important}
+  .tag{font-size:9pt!important; padding:.6mm 2mm!important}
+
+  .cover h1{font-size:34pt!important}
+  .cover .brand{font-size:10pt!important}
+  .cover .lede{font-size:13pt!important; max-width:none!important}
+  .cover .meta{font-size:10.5pt!important}
+  .cover .meta b{font-size:8.5pt!important}
+  .cover .plan table{font-size:11pt!important}
+  .legend{font-size:10.5pt!important}
+  .legend i{width:3.4mm!important; height:3.4mm!important}
+
+  svg{width:var(--pw,100%)!important; max-width:100%!important; margin:1mm auto 3mm!important}
+  svg.wide{display:none!important}
+  .print-alt{display:block!important; font-size:10.5pt; line-height:1.45}
+  .print-alt, .pa-box{break-inside:avoid; page-break-inside:avoid}
+  .pa-root{display:inline-block; font-weight:700; border:1.2pt solid var(--ink); border-radius:1mm; padding:1.6mm 3.5mm; margin-bottom:3mm}
+  .pa-cols{display:grid; grid-template-columns:1fr 1fr; gap:4mm}
+  .pa-steps{display:grid; grid-template-columns:1fr 1fr 1fr; gap:3mm; margin-bottom:3mm}
+  .pa-q{font-family:"IBM Plex Mono",monospace; font-size:9.5pt; font-weight:600; color:var(--amber); letter-spacing:.03em; margin:0 0 2mm}
+  .pa-box{border:1pt solid var(--ink-3); border-radius:1.2mm; padding:2.2mm 3mm; margin-bottom:3mm}
+  .pa-box > b:first-child{display:block; font-family:"IBM Plex Sans Condensed",sans-serif; font-size:11pt; margin-bottom:1mm}
+  .pa-box b.in{display:inline; font-family:inherit; font-size:inherit; margin:0}
+  .pa-box.v{border-color:var(--violet); background:var(--violet-w)} .pa-box.v > b:first-child{color:var(--violet)}
+  .pa-box.r{border-color:var(--safranin); background:var(--safranin-w)} .pa-box.r > b:first-child{color:var(--safranin)}
+  .pa-box.g{border-color:var(--malachite); background:var(--malachite-w)} .pa-box.g > b:first-child{color:var(--malachite)}
+  .pa-box.a{border-color:var(--amber); background:var(--amber-w)} .pa-box.a > b:first-child{color:var(--amber)}
+  .pa-box.k{border-color:var(--ink); background:var(--tint)}
+  .pa-mono{display:block; font-family:"IBM Plex Mono",monospace; white-space:pre; font-size:10.5pt; margin:1mm 0 1.5mm}
+  .pa-temp{display:block; font-family:"IBM Plex Mono",monospace; font-weight:600; margin-bottom:1mm}
+  .pa-ol{margin:1mm 0 2mm; padding-left:5.5mm}
+  .pa-ol li{margin-bottom:1mm}
+}
+
+@media print{
+  .pa-steps.four{grid-template-columns:repeat(4,1fr)}
+  .pa-box.b{border-color:var(--blue); background:var(--blue-w)} .pa-box.b > b:first-child{color:var(--blue)}
+  .pa-box.f{border-color:var(--fuchsin); background:var(--fuchsin-w)} .pa-box.f > b:first-child{color:var(--fuchsin)}
+  .pa-box.k > b:first-child:last-child{margin:0}
+  .pa-down{text-align:center; font-size:13pt; line-height:1; margin:-1.5mm 0 1.5mm; color:var(--safranin)}
+  .pa-note{margin:0 0 2mm}
+  .pa-side{grid-template-columns:64mm 1fr; align-items:center}
+  .pa-side > svg{margin:0!important}
+}
 </style>
 </head>
 
@@ -340,7 +424,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2a">
     <div class="mod">
       <h3>What a fungus is — and is not <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 128" role="img" aria-label="Comparison of fungal and bacterial cell features with hyphal structure">
+      <svg class="wide" style="--pw:157mm" viewBox="0 0 340 128" role="img" aria-label="Comparison of fungal and bacterial cell features with hyphal structure">
         <!-- hypha -->
         <rect x="6" y="14" width="196" height="26" rx="4" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.3"/>
         <line x1="72" y1="14" x2="72" y2="40" stroke="var(--violet)" stroke-width="1.1"/>
@@ -373,6 +457,47 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="188" y="123">ER, Golgi. Heterotroph, absorptive nutrition</text>
         </g>
       </svg>
+<div class="print-alt">
+  <svg style="--pw:120mm" viewBox="0 0 206 82" role="img" aria-label="Comparison of fungal and bacterial cell features with hyphal structure">
+        <!-- hypha -->
+        <rect x="6" y="14" width="196" height="26" rx="4" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.3"/>
+        <line x1="72" y1="14" x2="72" y2="40" stroke="var(--violet)" stroke-width="1.1"/>
+        <line x1="138" y1="14" x2="138" y2="40" stroke="var(--violet)" stroke-width="1.1"/>
+        <circle cx="72" cy="27" r="3.2" fill="var(--paper)" stroke="var(--violet)" stroke-width=".9"/>
+        <circle cx="138" cy="27" r="3.2" fill="var(--paper)" stroke="var(--violet)" stroke-width=".9"/>
+        <circle cx="38" cy="27" r="4" fill="var(--safranin)"/><circle cx="104" cy="27" r="4" fill="var(--safranin)"/><circle cx="170" cy="27" r="4" fill="var(--safranin)"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="10">SEPTATE HYPHA</text>
+          <text x="210" y="20" fill="var(--violet)">septum with pore</text>
+          <text x="210" y="31" fill="var(--safranin)">nucleus — true, membrane-bound</text>
+          <text x="210" y="42">cytoplasm continuous</text>
+        </g>
+        <!-- aseptate -->
+        <rect x="6" y="54" width="196" height="24" rx="4" fill="none" stroke="var(--safranin)" stroke-width="1.3"/>
+        <circle cx="40" cy="66" r="3.4" fill="var(--safranin)"/><circle cx="80" cy="66" r="3.4" fill="var(--safranin)"/>
+        <circle cx="122" cy="66" r="3.4" fill="var(--safranin)"/><circle cx="164" cy="66" r="3.4" fill="var(--safranin)"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="50">ASEPTATE / COENOCYTIC HYPHA</text>
+          <text x="210" y="63" fill="var(--safranin)">Zygomycetes — <tspan font-style="italic">Mucor</tspan>, <tspan font-style="italic">Rhizopus</tspan>,</text>
+          <text x="210" y="74" fill="var(--safranin)"><tspan font-style="italic">Absidia</tspan>. Ribbon-like, wide, irregular</text>
+        </g>
+        <line x1="6" y1="88" x2="334" y2="88" stroke="var(--rule)" stroke-width=".7"/>
+        <g font-size="8" fill="var(--ink-2)">
+          <text x="6" y="101" font-weight="600" fill="var(--blue)">Wall = CHITIN + glucan + mannan</text>
+          <text x="6" y="112">(bacteria = peptidoglycan) → β-lactams useless</text>
+          <text x="6" y="123">Membrane sterol = <tspan font-weight="600">ERGOSTEROL</tspan> (mammals = cholesterol)</text>
+          <text x="188" y="101" font-weight="600" fill="var(--blue)">Eukaryote:</text>
+          <text x="188" y="112">true nucleus, 80S ribosome, mitochondria,</text>
+          <text x="188" y="123">ER, Golgi. Heterotroph, absorptive nutrition</text>
+        </g>
+      </svg>
+  <div class="pa-cols">
+    <div class="pa-box v"><b>SEPTATE HYPHA</b>Septum with pore &middot; nucleus &mdash; true, membrane-bound &middot; cytoplasm continuous</div>
+    <div class="pa-box r"><b>ASEPTATE / COENOCYTIC HYPHA</b>Zygomycetes &mdash; <i>Mucor</i>, <i>Rhizopus</i>, <i>Absidia</i>. Ribbon-like, wide, irregular</div>
+    <div class="pa-box b"><b>Wall = CHITIN + glucan + mannan</b>(bacteria = peptidoglycan) &rarr; &beta;-lactams useless<br>Membrane sterol = <b class="in">ERGOSTEROL</b> (mammals = cholesterol)</div>
+    <div class="pa-box b"><b>Eukaryote</b>True nucleus, 80S ribosome, mitochondria, ER, Golgi. Heterotroph, absorptive nutrition</div>
+  </div>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>Why this matters therapeutically:</b> every antifungal in the exam targets one of the two things above — <b>ergosterol</b> (polyenes bind it, azoles block its synthesis, allylamines block squalene epoxidase) or <b>chitin/glucan</b> (echinocandins block β-1,3-glucan synthase). Griseofulvin is the exception: it binds tubulin and blocks mitosis.</div>
     </div>
 
@@ -532,7 +657,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2b">
     <div class="mod m-fuchsin">
       <h3>Dermatophytes — identify by macroconidium <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 118" role="img" aria-label="Macroconidial morphology of Microsporum, Trichophyton and Epidermophyton">
+      <svg class="wide" style="--pw:157mm" viewBox="0 0 340 118" role="img" aria-label="Macroconidial morphology of Microsporum, Trichophyton and Epidermophyton">
         <g font-size="8">
           <!-- Microsporum -->
           <text x="4" y="10" font-weight="700" fill="var(--fuchsin)">MICROSPORUM</text>
@@ -563,6 +688,44 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="4" y="114" fill="var(--ink-2)"><tspan font-weight="700" fill="var(--safranin)">EPIDERMOPHYTON</tspan> — club-shaped smooth macroconidia in twos and threes, <tspan font-weight="600">NO microconidia</tspan>; skin &amp; nail only, never hair; human pathogen</text>
         </g>
       </svg>
+<div class="print-alt">
+  <svg style="--pw:150mm" viewBox="0 0 290 58" role="img" aria-label="Macroconidial morphology of Microsporum, Trichophyton and Epidermophyton">
+        <g font-size="8">
+          <!-- Microsporum -->
+          <text x="4" y="10" font-weight="700" fill="var(--fuchsin)">MICROSPORUM</text>
+          <path d="M8 22 q28 -12 56 0 q28 12 56 0 q-6 20 -56 20 q-50 0 -56 -20 z" fill="var(--fuchsin-w)" stroke="var(--fuchsin)" stroke-width="1.2"/>
+          <g stroke="var(--fuchsin)" stroke-width=".8">
+            <line x1="30" y1="18" x2="30" y2="40"/><line x1="52" y1="16" x2="52" y2="42"/>
+            <line x1="76" y1="16" x2="76" y2="42"/><line x1="98" y1="18" x2="98" y2="40"/>
+          </g>
+          <text x="4" y="54" fill="var(--ink-2)">Large, spindle-shaped, <tspan font-weight="600">rough/echinulate</tspan> thick wall,</text>
+          <text x="4" y="64" fill="var(--ink-2)">6–15 septa. Macroconidia abundant, microconidia few.</text>
+          <text x="4" y="74" fill="var(--ink-2)"><tspan font-style="italic">M. canis</tspan> — dog &amp; cat, <tspan font-weight="600">Wood's lamp +ve</tspan>, reverse yellow</text>
+          <text x="4" y="84" fill="var(--ink-2)"><tspan font-style="italic">M. gypseum</tspan> — geophilic, soil, horses; <tspan font-style="italic">M. nanum</tspan> — pigs</text>
+
+          <!-- Trichophyton -->
+          <text x="180" y="10" font-weight="700" fill="var(--violet)">TRICHOPHYTON</text>
+          <path d="M184 24 q40 -6 92 0 q6 8 0 14 q-52 6 -92 0 q-6 -8 0 -14 z" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1.2"/>
+          <g stroke="var(--violet)" stroke-width=".8">
+            <line x1="208" y1="21" x2="208" y2="40"/><line x1="232" y1="20" x2="232" y2="40"/><line x1="256" y1="21" x2="256" y2="40"/>
+          </g>
+          <circle cx="196" cy="50" r="3" fill="var(--violet)"/><circle cx="212" cy="52" r="3" fill="var(--violet)"/>
+          <circle cx="228" cy="50" r="3" fill="var(--violet)"/><circle cx="244" cy="52" r="3" fill="var(--violet)"/>
+          <text x="180" y="66" fill="var(--ink-2)">Cigar / pencil-shaped, <tspan font-weight="600">smooth thin</tspan> wall, 2–6 septa.</text>
+          <text x="180" y="76" fill="var(--ink-2)"><tspan font-weight="600">Microconidia abundant</tspan> (grape-like clusters, above).</text>
+          <text x="180" y="86" fill="var(--ink-2)"><tspan font-style="italic">T. verrucosum</tspan> — <tspan font-weight="600">cattle ringworm</tspan>, needs thiamine + inositol,</text>
+          <text x="180" y="96" fill="var(--ink-2)">grows best at 37 °C. <tspan font-style="italic">T. mentagrophytes</tspan> — rodents, dogs, horses</text>
+
+          <line x1="4" y1="102" x2="336" y2="102" stroke="var(--rule)" stroke-width=".7"/>
+          <text x="4" y="114" fill="var(--ink-2)"><tspan font-weight="700" fill="var(--safranin)">EPIDERMOPHYTON</tspan> — club-shaped smooth macroconidia in twos and threes, <tspan font-weight="600">NO microconidia</tspan>; skin &amp; nail only, never hair; human pathogen</text>
+        </g>
+      </svg>
+  <div class="pa-cols">
+    <div class="pa-box f"><b>MICROSPORUM</b>Large, spindle-shaped, <b class="in">rough/echinulate</b> thick wall, 6&ndash;15 septa. Macroconidia abundant, microconidia few.<br><i>M. canis</i> &mdash; dog &amp; cat, <b class="in">Wood's lamp +ve</b>, reverse yellow<br><i>M. gypseum</i> &mdash; geophilic, soil, horses; <i>M. nanum</i> &mdash; pigs</div>
+    <div class="pa-box v"><b>TRICHOPHYTON</b>Cigar / pencil-shaped, <b class="in">smooth thin</b> wall, 2&ndash;6 septa. <b class="in">Microconidia abundant</b> (grape-like clusters, above).<br><i>T. verrucosum</i> &mdash; <b class="in">cattle ringworm</b>, needs thiamine + inositol, grows best at 37 &deg;C. <i>T. mentagrophytes</i> &mdash; rodents, dogs, horses</div>
+  </div>
+  <div class="pa-box r"><b>EPIDERMOPHYTON</b>Club-shaped smooth macroconidia in twos and threes, <b class="in">NO microconidia</b>; skin &amp; nail only, never hair; human pathogen</div>
+</div>
     </div>
 
     <div class="mod m-fuchsin">
@@ -630,7 +793,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2a">
     <div class="mod m-safranin">
       <h3><i>Aspergillus</i> vs <i>Penicillium</i> vs Zygomycetes <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 116" role="img" aria-label="Conidiophore heads of Aspergillus and Penicillium compared with a Rhizopus sporangium">
+      <svg class="wide" style="--pw:157mm" viewBox="0 0 340 116" role="img" aria-label="Conidiophore heads of Aspergillus and Penicillium compared with a Rhizopus sporangium">
         <g font-size="8">
           <!-- Aspergillus -->
           <text x="4" y="9" font-weight="700" fill="var(--safranin)">ASPERGILLUS</text>
@@ -677,6 +840,60 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="228" y="116" fill="var(--ink-2)"><tspan font-weight="600">opposite</tspan> the stolon = <tspan font-style="italic">Rhizopus</tspan></text>
         </g>
       </svg>
+<div class="print-alt">
+  <svg style="--pw:150mm" viewBox="0 0 320 98" role="img" aria-label="Conidiophore heads of Aspergillus and Penicillium compared with a Rhizopus sporangium">
+        <g font-size="8">
+          <!-- Aspergillus -->
+          <text x="4" y="9" font-weight="700" fill="var(--safranin)">ASPERGILLUS</text>
+          <line x1="34" y1="96" x2="34" y2="52" stroke="var(--safranin)" stroke-width="1.6"/>
+          <path d="M26 96 q8 6 16 0" fill="none" stroke="var(--safranin)" stroke-width="1.6"/>
+          <circle cx="34" cy="44" r="9" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1.2"/>
+          <g stroke="var(--safranin)" stroke-width=".9">
+            <line x1="34" y1="35" x2="34" y2="26"/><line x1="26" y1="38" x2="18" y2="31"/><line x1="42" y1="38" x2="50" y2="31"/>
+            <line x1="24" y1="46" x2="14" y2="46"/><line x1="44" y1="46" x2="54" y2="46"/>
+          </g>
+          <g fill="var(--safranin)">
+            <circle cx="34" cy="22" r="2.2"/><circle cx="15" cy="28" r="2.2"/><circle cx="53" cy="28" r="2.2"/>
+            <circle cx="11" cy="46" r="2.2"/><circle cx="57" cy="46" r="2.2"/>
+          </g>
+          <text x="4" y="107" fill="var(--ink-2)"><tspan font-weight="600">Foot cell</tspan> + swollen <tspan font-weight="600">vesicle</tspan> + phialides</text>
+          <text x="4" y="116" fill="var(--ink-2)">radiating in a whole or half circle</text>
+
+          <!-- Penicillium -->
+          <text x="120" y="9" font-weight="700" fill="var(--violet)">PENICILLIUM</text>
+          <line x1="152" y1="96" x2="152" y2="60" stroke="var(--violet)" stroke-width="1.6"/>
+          <g stroke="var(--violet)" stroke-width="1.1">
+            <line x1="152" y1="60" x2="138" y2="48"/><line x1="152" y1="60" x2="166" y2="48"/>
+            <line x1="138" y1="48" x2="130" y2="38"/><line x1="138" y1="48" x2="144" y2="38"/>
+            <line x1="166" y1="48" x2="160" y2="38"/><line x1="166" y1="48" x2="174" y2="38"/>
+          </g>
+          <g fill="var(--violet)">
+            <circle cx="129" cy="33" r="2"/><circle cx="129" cy="27" r="2"/><circle cx="145" cy="33" r="2"/><circle cx="145" cy="27" r="2"/>
+            <circle cx="159" cy="33" r="2"/><circle cx="159" cy="27" r="2"/><circle cx="175" cy="33" r="2"/><circle cx="175" cy="27" r="2"/>
+          </g>
+          <text x="112" y="107" fill="var(--ink-2)"><tspan font-weight="600">No vesicle</tspan> — branched brush</text>
+          <text x="112" y="116" fill="var(--ink-2)">("penicillus"), chains of conidia</text>
+
+          <!-- Rhizopus -->
+          <text x="236" y="9" font-weight="700" fill="var(--malachite)">RHIZOPUS</text>
+          <line x1="278" y1="96" x2="278" y2="46" stroke="var(--malachite)" stroke-width="1.6"/>
+          <circle cx="278" cy="34" r="12" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1.3"/>
+          <circle cx="278" cy="34" r="4" fill="none" stroke="var(--malachite)" stroke-width="1"/>
+          <g fill="var(--malachite)" opacity=".7">
+            <circle cx="272" cy="28" r="1.6"/><circle cx="284" cy="28" r="1.6"/><circle cx="272" cy="40" r="1.6"/><circle cx="284" cy="40" r="1.6"/>
+          </g>
+          <path d="M266 96 l-8 6 M290 96 l8 6 M278 96 l0 8" stroke="var(--malachite)" stroke-width="1.1"/>
+          <line x1="252" y1="96" x2="306" y2="96" stroke="var(--malachite)" stroke-width="1.4"/>
+          <text x="228" y="107" fill="var(--ink-2)"><tspan font-weight="600">Sporangium</tspan> + columella; rhizoids</text>
+          <text x="228" y="116" fill="var(--ink-2)"><tspan font-weight="600">opposite</tspan> the stolon = <tspan font-style="italic">Rhizopus</tspan></text>
+        </g>
+      </svg>
+  <div class="pa-steps">
+    <div class="pa-box r"><b>ASPERGILLUS</b><b class="in">Foot cell</b> + swollen <b class="in">vesicle</b> + phialides radiating in a whole or half circle</div>
+    <div class="pa-box v"><b>PENICILLIUM</b><b class="in">No vesicle</b> &mdash; branched brush ("penicillus"), chains of conidia</div>
+    <div class="pa-box g"><b>RHIZOPUS</b><b class="in">Sporangium</b> + columella; rhizoids <b class="in">opposite</b> the stolon = <i>Rhizopus</i></div>
+  </div>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>Zygomycete separation:</b> <i>Rhizopus</i> — rhizoids <b>directly opposite</b> the sporangiophore · <i>Absidia</i> — rhizoids <b>between</b> two sporangiophores, pear-shaped sporangium with apophysis · <i>Mucor</i> — <b>no rhizoids at all</b>. All three are <b>angio-invasive</b>, causing thrombosis and infarction, and all grow fast, filling the plate in 2–3 days ("lid-lifters").</div>
     </div>
 

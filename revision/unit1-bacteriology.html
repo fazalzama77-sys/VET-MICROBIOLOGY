@@ -280,6 +280,90 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   .bank{grid-template-columns:1fr 1fr!important}
   .bank.one{grid-template-columns:1fr!important}
 }
+
+/* ---------- PRINT-ONLY REFLOW VERSIONS OF THE WIDE DIAGRAMS ---------- */
+.print-alt{display:none}
+
+/* ================= LARGE-PRINT EDITION (paper only) ================= */
+@media print{
+  @page{size:A4; margin:13mm 14mm 14mm}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+  .sheet{font-size:11pt!important; line-height:1.45!important}
+  .sheet > *{margin-bottom:5mm!important}
+  .row{display:block!important}
+  .row > *{margin-bottom:5.5mm}
+  .mod{padding-left:3.5mm!important; border-left-width:2.6pt!important}
+
+  .sheet-head{padding-bottom:2mm!important; margin-bottom:6mm!important}
+  .sheet-head h2{font-size:18pt!important}
+  .sheet-head .no{font-size:11pt!important; padding:.8mm 2.4mm!important}
+  .sheet-head .sub{font-size:9.5pt!important}
+  .mod > h3{font-size:13.5pt!important; margin-bottom:2.2mm!important}
+  .mod > h3 .kind{font-size:8pt!important; padding:.3mm 1.6mm!important}
+
+  ul.k, ol.k{font-size:11pt!important}
+  ul.k li{margin-bottom:1.4mm!important}
+  ul.k li::before{top:2.2mm!important; width:1.5mm!important; height:1.5mm!important}
+
+  table{font-size:10pt!important; line-height:1.4!important}
+  th, td{padding:1.4mm 2mm!important}
+  thead th{font-size:10pt!important}
+  .sheet .mono, .sheet [style*="font-size"]:not(table){font-size:inherit!important}
+  td .mono, th .mono{font-size:9.5pt!important}
+
+  .bank{grid-template-columns:1fr 1fr!important; gap:0 5mm!important}
+  .bank.one{grid-template-columns:1fr!important}
+  .bank div{font-size:10.5pt!important; padding:1.2mm 0!important; gap:2.4mm!important}
+  .bank div b{flex:0 0 36%!important}
+
+  .mnem, .trap, .skel{font-size:10.5pt!important; line-height:1.45!important; padding:2.4mm 3mm!important}
+  .mnem .key{font-size:11pt!important}
+  .skel ol{padding-left:5.5mm!important}
+  .skel li{margin-bottom:.9mm!important}
+  .tag{font-size:9pt!important; padding:.6mm 2mm!important}
+
+  .cover h1{font-size:34pt!important}
+  .cover .brand{font-size:10pt!important}
+  .cover .lede{font-size:13pt!important; max-width:none!important}
+  .cover .meta{font-size:10.5pt!important}
+  .cover .meta b{font-size:8.5pt!important}
+  .cover .plan table{font-size:11pt!important}
+  .legend{font-size:10.5pt!important}
+  .legend i{width:3.4mm!important; height:3.4mm!important}
+
+  svg{width:var(--pw,100%)!important; max-width:100%!important; margin:1mm auto 3mm!important}
+  svg.wide{display:none!important}
+  .print-alt{display:block!important; font-size:10.5pt; line-height:1.45}
+  .print-alt, .pa-box{break-inside:avoid; page-break-inside:avoid}
+  .pa-root{display:inline-block; font-weight:700; border:1.2pt solid var(--ink); border-radius:1mm; padding:1.6mm 3.5mm; margin-bottom:3mm}
+  .pa-cols{display:grid; grid-template-columns:1fr 1fr; gap:4mm}
+  .pa-steps{display:grid; grid-template-columns:1fr 1fr 1fr; gap:3mm; margin-bottom:3mm}
+  .pa-q{font-family:"IBM Plex Mono",monospace; font-size:9.5pt; font-weight:600; color:var(--amber); letter-spacing:.03em; margin:0 0 2mm}
+  .pa-box{border:1pt solid var(--ink-3); border-radius:1.2mm; padding:2.2mm 3mm; margin-bottom:3mm}
+  .pa-box > b:first-child{display:block; font-family:"IBM Plex Sans Condensed",sans-serif; font-size:11pt; margin-bottom:1mm}
+  .pa-box b.in{display:inline; font-family:inherit; font-size:inherit; margin:0}
+  .pa-box.v{border-color:var(--violet); background:var(--violet-w)} .pa-box.v > b:first-child{color:var(--violet)}
+  .pa-box.r{border-color:var(--safranin); background:var(--safranin-w)} .pa-box.r > b:first-child{color:var(--safranin)}
+  .pa-box.g{border-color:var(--malachite); background:var(--malachite-w)} .pa-box.g > b:first-child{color:var(--malachite)}
+  .pa-box.a{border-color:var(--amber); background:var(--amber-w)} .pa-box.a > b:first-child{color:var(--amber)}
+  .pa-box.k{border-color:var(--ink); background:var(--tint)}
+  .pa-mono{display:block; font-family:"IBM Plex Mono",monospace; white-space:pre; font-size:10.5pt; margin:1mm 0 1.5mm}
+  .pa-temp{display:block; font-family:"IBM Plex Mono",monospace; font-weight:600; margin-bottom:1mm}
+  .pa-ol{margin:1mm 0 2mm; padding-left:5.5mm}
+  .pa-ol li{margin-bottom:1mm}
+}
+
+@media print{
+  .pa-steps.four{grid-template-columns:repeat(4,1fr)}
+  .pa-box.b{border-color:var(--blue); background:var(--blue-w)} .pa-box.b > b:first-child{color:var(--blue)}
+  .pa-box.f{border-color:var(--fuchsin); background:var(--fuchsin-w)} .pa-box.f > b:first-child{color:var(--fuchsin)}
+  .pa-box.k > b:first-child:last-child{margin:0}
+  .pa-down{text-align:center; font-size:13pt; line-height:1; margin:-1.5mm 0 1.5mm; color:var(--safranin)}
+  .pa-note{margin:0 0 2mm}
+  .pa-side{grid-template-columns:64mm 1fr; align-items:center}
+  .pa-side > svg{margin:0!important}
+}
 </style>
 </head>
 
@@ -342,7 +426,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2a">
     <div class="mod">
       <h3>Cell architecture <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 158" role="img" aria-label="Labelled bacterial cell showing envelope layers and appendages">
+      <svg style="--pw:180mm" viewBox="0 0 340 158" role="img" aria-label="Labelled bacterial cell showing envelope layers and appendages">
         <rect x="0" y="0" width="340" height="158" fill="none"/>
         <!-- cell body -->
         <rect x="66" y="34" width="150" height="86" rx="43" fill="var(--blue-w)" stroke="var(--blue)" stroke-width="1.6"/>
@@ -409,7 +493,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-2b">
     <div class="mod m-violet">
       <h3>Staining — what each step actually does <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 340 96" role="img" aria-label="Four steps of Gram staining with the fate of positive and negative cells">
+      <svg class="wide" style="--pw:166mm" viewBox="0 0 340 96" role="img" aria-label="Four steps of Gram staining with the fate of positive and negative cells">
         <g font-size="7.6">
           <!-- step boxes -->
           <rect x="2" y="8" width="76" height="26" rx="2" fill="var(--violet-w)" stroke="var(--violet)" stroke-width=".9"/>
@@ -443,6 +527,18 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="180" y="79" fill="var(--ink-2)">membrane → CV-I washes out → takes PINK</text>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-steps four">
+    <div class="pa-box v"><b>1 &middot; Crystal violet</b>60 s &mdash; primary stain</div>
+    <div class="pa-box v"><b>2 &middot; Gram's iodine</b>mordant &rarr; CV-I complex</div>
+    <div class="pa-box a"><b>3 &middot; Decolouriser</b>acetone-alcohol, 5&ndash;10 s</div>
+    <div class="pa-box r"><b>4 &middot; Safranin</b>counterstain, 30 s</div>
+  </div>
+  <div class="pa-cols">
+    <div class="pa-box v"><b>Gram POSITIVE</b>Thick peptidoglycan dehydrates, pores shut &rarr; CV-I trapped &rarr; stays VIOLET</div>
+    <div class="pa-box r"><b>Gram NEGATIVE</b>Alcohol dissolves the lipid-rich outer membrane &rarr; CV-I washes out &rarr; takes PINK</div>
+  </div>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>Single most common mistake:</b> over-decolourisation. Beyond ~10 s even true Gram +ve cells go pink. Decolouriser is the <i>only</i> timed-to-the-second step.</div>
     </div>
 
@@ -481,7 +577,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
     <div class="mod m-malachite">
       <h3>Growth curve &amp; requirements <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 210 108" role="img" aria-label="Bacterial growth curve with lag, log, stationary and decline phases">
+      <svg style="--pw:122mm" viewBox="0 0 210 108" role="img" aria-label="Bacterial growth curve with lag, log, stationary and decline phases">
         <line x1="22" y1="88" x2="204" y2="88" stroke="var(--ink-3)" stroke-width=".9"/>
         <line x1="22" y1="8" x2="22" y2="88" stroke="var(--ink-3)" stroke-width=".9"/>
         <path d="M24 74 L54 74 L104 22 L156 22 L200 62" fill="none" stroke="var(--malachite)" stroke-width="2"/>
@@ -490,9 +586,9 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         </g>
         <g font-size="7" fill="var(--ink-2)">
           <text x="26" y="98">LAG</text><text x="64" y="98">LOG</text><text x="112" y="98">STATIONARY</text><text x="164" y="98">DECLINE</text>
-          <text x="26" y="68" font-size="6.4">enzyme</text><text x="26" y="75" font-size="6.4">synthesis</text>
-          <text x="62" y="46" font-size="6.4" fill="var(--malachite)">generation time</text>
-          <text x="62" y="53" font-size="6.4" fill="var(--malachite)">constant · stain best</text>
+          <text x="26" y="62" font-size="6.4">enzyme</text><text x="26" y="69" font-size="6.4">synthesis</text>
+          <text x="64" y="78" font-size="6.4" fill="var(--malachite)">generation time</text>
+          <text x="64" y="85" font-size="6.4" fill="var(--malachite)">constant · stain best</text>
           <text x="108" y="36" font-size="6.4">division = death;</text>
           <text x="108" y="43" font-size="6.4">spores &amp; exotoxin</text>
         </g>
@@ -648,7 +744,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
     <div class="mod m-safranin">
       <h3>Pathogenicity → disease <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 200 176" role="img" aria-label="Sequence from entry to disease with virulence determinants at each stage">
+      <svg class="wide" style="--pw:100mm" viewBox="0 0 200 176" role="img" aria-label="Sequence from entry to disease with virulence determinants at each stage">
         <g font-size="7.4">
           <rect x="4" y="4" width="192" height="22" rx="2" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width=".9"/>
           <text x="10" y="14" font-weight="600" fill="var(--safranin)">1 · ADHESION &amp; COLONISATION</text>
@@ -681,6 +777,19 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           </g>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-box r"><b>1 &middot; ADHESION &amp; COLONISATION</b>Fimbriae (K88/F4, K99/F5, 987P), LTA, biofilm</div>
+  <div class="pa-down">&darr;</div>
+  <div class="pa-box r"><b>2 &middot; INVASION</b>Invasins, T3SS injectisome, hyaluronidase, collagenase</div>
+  <div class="pa-down">&darr;</div>
+  <div class="pa-box r"><b>3 &middot; EVASION OF DEFENCE</b>Capsule (antiphagocytic), protein A, coagulase, IgA protease, catalase, antigenic variation, intracellular survival</div>
+  <div class="pa-down">&darr;</div>
+  <div class="pa-box r"><b>4 &middot; IRON ACQUISITION</b>Siderophores &mdash; enterobactin, aerobactin; Tf/Lf receptors</div>
+  <div class="pa-down">&darr;</div>
+  <div class="pa-box r"><b>5 &middot; DAMAGE</b>Exotoxin, endotoxin, enzymes, immunopathology</div>
+  <div class="pa-down">&darr;</div>
+  <div class="pa-box k"><b>DISEASE</b></div>
+</div>
       <div class="mnem" style="margin-top:1.2mm"><span class="key">Define</span> <b>Pathogenicity</b> = <i>qualitative</i> ability of a species to cause disease. <b>Virulence</b> = <i>quantitative</i> degree of pathogenicity, measured as <b>LD₅₀ / ID₅₀</b>. Lower LD₅₀ = more virulent.</div>
     </div>
   </div>
@@ -727,7 +836,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   <div class="row r-3">
     <div class="mod m-malachite">
       <h3>Gene transfer — the three routes <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 200 128" role="img" aria-label="Transformation, transduction and conjugation compared">
+      <svg class="wide" style="--pw:103mm" viewBox="0 0 200 128" role="img" aria-label="Transformation, transduction and conjugation compared">
         <g font-size="7.2">
           <text x="2" y="10" font-weight="600" fill="var(--malachite)">TRANSFORMATION</text>
           <circle cx="26" cy="28" r="11" fill="var(--malachite-w)" stroke="var(--malachite)" stroke-width="1"/>
@@ -744,8 +853,8 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <path d="M26 82 l0 6 M22 88 l4 -3 l4 3" fill="none" stroke="var(--malachite)" stroke-width=".9"/>
           <circle cx="56" cy="78" r="10" fill="none" stroke="var(--ink-3)" stroke-width="1"/>
           <text x="80" y="70" fill="var(--ink-2)">Bacteriophage carries DNA</text>
-          <text x="80" y="78" fill="var(--ink-2)"><b>Generalised</b> — lytic, any gene</text>
-          <text x="80" y="86" fill="var(--ink-2)"><b>Specialised</b> — lysogenic, adjacent genes</text>
+          <text x="80" y="78" fill="var(--ink-2)"><tspan font-weight="600">Generalised</tspan> — lytic, any gene</text>
+          <text x="80" y="86" fill="var(--ink-2)"><tspan font-weight="600">Specialised</tspan> — lysogenic, adjacent genes</text>
           <text x="80" y="94" fill="var(--ink-2)">Zinder &amp; Lederberg 1952</text>
 
           <line x1="2" y1="100" x2="198" y2="100" stroke="var(--rule)" stroke-width=".6"/>
@@ -758,6 +867,13 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
           <text x="80" y="126" fill="var(--ink-2)">Hfr = integrated F · Lederberg &amp; Tatum 1946</text>
         </g>
       </svg>
+<div class="print-alt">
+  <div class="pa-steps">
+    <div class="pa-box g"><b>TRANSFORMATION</b>Naked DNA taken up by <i>competent</i> cell &middot; Griffith 1928<br>Avery, MacLeod &amp; McCarty 1944</div>
+    <div class="pa-box g"><b>TRANSDUCTION</b>Bacteriophage carries DNA<br><b class="in">Generalised</b> &mdash; lytic, any gene<br><b class="in">Specialised</b> &mdash; lysogenic, adjacent genes<br>Zinder &amp; Lederberg 1952</div>
+    <div class="pa-box g"><b>CONJUGATION</b>Sex pilus, cell contact &middot; F&#8314; &rarr; F&#8315;<br>Hfr = integrated F &middot; Lederberg &amp; Tatum 1946</div>
+  </div>
+</div>
       <div class="trap" style="margin-top:1.2mm"><b>Transposons</b> ("jumping genes") move within/between replicons and carry resistance cassettes. <b>Integrons</b> capture gene cassettes by site-specific recombination — the engine of multi-drug R plasmids.</div>
     </div>
 
@@ -850,7 +966,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
   <div class="mod m-violet">
     <h3>Sorting the Gram-positives at the bench <span class="kind">mechanism</span></h3>
-    <svg viewBox="0 0 700 130" role="img" aria-label="Decision tree separating Gram positive cocci and rods by catalase, coagulase and haemolysis">
+    <svg class="wide" viewBox="0 0 700 130" role="img" aria-label="Decision tree separating Gram positive cocci and rods by catalase, coagulase and haemolysis">
       <g font-size="10">
         <rect x="270" y="2" width="160" height="20" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
         <text x="284" y="16" fill="var(--violet)" font-weight="700">Gram-positive isolate</text>
@@ -904,6 +1020,21 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         <text x="582" y="119" font-size="8.5" fill="var(--ink-2)">H₂S in TSI, non-motile → <tspan font-style="italic">Erysipelothrix</tspan></text>
       </g>
     </svg>
+<div class="print-alt">
+  <div class="pa-root">Gram-positive isolate</div>
+  <div class="pa-cols">
+    <div>
+      <div class="pa-q">COCCI &rarr; test: CATALASE</div>
+      <div class="pa-box v"><b>Catalase +ve</b>Clusters &middot; <i>Staphylococcus</i><br>Coagulase + &rarr; <i>S. aureus</i><br>Coagulase &minus; &rarr; CNS (<i>S. epidermidis</i>)</div>
+      <div class="pa-box v"><b>Catalase &minus;ve</b>Chains &middot; <i>Streptococcus</i><br>&beta;-haem &rarr; <i>S. agalactiae</i>, <i>S. equi</i><br>Bile-esculin + &rarr; <i>Enterococcus</i></div>
+    </div>
+    <div>
+      <div class="pa-q">RODS &rarr; test: SPORES?</div>
+      <div class="pa-box g"><b>Spore-forming</b>Aerobe &rarr; <i>Bacillus</i><br>Anaerobe &rarr; <i>Clostridium</i><br>(see sheet 04)</div>
+      <div class="pa-box v"><b>Non-sporing</b>Pleomorphic, granules &rarr; <i>Coryne.</i><br>Tumbling motility &rarr; <i>Listeria</i><br>H&#8322;S in TSI, non-motile &rarr; <i>Erysipelothrix</i></div>
+    </div>
+  </div>
+</div>
   </div>
 
   <div class="row r-2">
@@ -1147,7 +1278,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
   <div class="mod m-safranin">
     <h3>Identifying a Gram-negative rod in six moves <span class="kind">mechanism</span></h3>
-    <svg viewBox="0 0 700 116" role="img" aria-label="Flow from oxidase and lactose reactions to the main Gram negative genera">
+    <svg class="wide" viewBox="0 0 700 116" role="img" aria-label="Flow from oxidase and lactose reactions to the main Gram negative genera">
       <g font-size="9.5">
         <rect x="284" y="2" width="132" height="18" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
         <text x="294" y="15" fill="var(--safranin)" font-weight="700">Gram −ve rod on MacConkey</text>
@@ -1200,6 +1331,21 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         <text x="572" y="110" font-size="8.5" fill="var(--ink-2)">CO₂-dependent → <tspan font-style="italic">Brucella</tspan>; seagull → <tspan font-style="italic">Campylobacter</tspan></text>
       </g>
     </svg>
+<div class="print-alt">
+  <div class="pa-root">Gram &minus;ve rod on MacConkey &rarr; test: OXIDASE</div>
+  <div class="pa-cols">
+    <div>
+      <div class="pa-q">OXIDASE &minus;ve &middot; Enterobacteriaceae &middot; glucose fermenter &middot; nitrate &rarr; nitrite &nbsp;&rarr; test: LACTOSE</div>
+      <div class="pa-box r"><b>Lactose FERMENTER</b>Pink on MacConkey<br><i>E. coli</i> (IMViC ++&minus;&minus;, green sheen EMB)<br><i>Klebsiella</i> (mucoid, non-motile, VP+)</div>
+      <div class="pa-box r"><b>NON-fermenter</b>Pale colonies<br>H&#8322;S+, motile &rarr; <i>Salmonella</i><br>Swarms, urease++ &rarr; <i>Proteus</i>; <i>Yersinia</i> 22 &deg;C motile</div>
+    </div>
+    <div>
+      <div class="pa-q">OXIDASE +ve &middot; non-enteric &nbsp;&rarr; test: GROWTH ON MacCONKEY</div>
+      <div class="pa-box r"><b>Grows</b>Pigment, grape odour &rarr; <i>Pseudomonas</i><br>Safety-pin, glanders &rarr; <i>Burkholderia</i><br>Curved, TCBS &rarr; <i>Vibrio</i></div>
+      <div class="pa-box r"><b>Poor / no growth</b>Bipolar coccobacillus &rarr; <i>Pasteurella</i><br>X &amp; V factors &rarr; <i>Haemophilus</i><br>CO&#8322;-dependent &rarr; <i>Brucella</i>; seagull &rarr; <i>Campylobacter</i></div>
+    </div>
+  </div>
+</div>
   </div>
 
   <div class="row r-2">

@@ -280,6 +280,90 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
   .bank{grid-template-columns:1fr 1fr!important}
   .bank.one{grid-template-columns:1fr!important}
 }
+
+/* ---------- PRINT-ONLY REFLOW VERSIONS OF THE WIDE DIAGRAMS ---------- */
+.print-alt{display:none}
+
+/* ================= LARGE-PRINT EDITION (paper only) ================= */
+@media print{
+  @page{size:A4; margin:13mm 14mm 14mm}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+  .sheet{font-size:11pt!important; line-height:1.45!important}
+  .sheet > *{margin-bottom:5mm!important}
+  .row{display:block!important}
+  .row > *{margin-bottom:5.5mm}
+  .mod{padding-left:3.5mm!important; border-left-width:2.6pt!important}
+
+  .sheet-head{padding-bottom:2mm!important; margin-bottom:6mm!important}
+  .sheet-head h2{font-size:18pt!important}
+  .sheet-head .no{font-size:11pt!important; padding:.8mm 2.4mm!important}
+  .sheet-head .sub{font-size:9.5pt!important}
+  .mod > h3{font-size:13.5pt!important; margin-bottom:2.2mm!important}
+  .mod > h3 .kind{font-size:8pt!important; padding:.3mm 1.6mm!important}
+
+  ul.k, ol.k{font-size:11pt!important}
+  ul.k li{margin-bottom:1.4mm!important}
+  ul.k li::before{top:2.2mm!important; width:1.5mm!important; height:1.5mm!important}
+
+  table{font-size:10pt!important; line-height:1.4!important}
+  th, td{padding:1.4mm 2mm!important}
+  thead th{font-size:10pt!important}
+  .sheet .mono, .sheet [style*="font-size"]:not(table){font-size:inherit!important}
+  td .mono, th .mono{font-size:9.5pt!important}
+
+  .bank{grid-template-columns:1fr 1fr!important; gap:0 5mm!important}
+  .bank.one{grid-template-columns:1fr!important}
+  .bank div{font-size:10.5pt!important; padding:1.2mm 0!important; gap:2.4mm!important}
+  .bank div b{flex:0 0 36%!important}
+
+  .mnem, .trap, .skel{font-size:10.5pt!important; line-height:1.45!important; padding:2.4mm 3mm!important}
+  .mnem .key{font-size:11pt!important}
+  .skel ol{padding-left:5.5mm!important}
+  .skel li{margin-bottom:.9mm!important}
+  .tag{font-size:9pt!important; padding:.6mm 2mm!important}
+
+  .cover h1{font-size:34pt!important}
+  .cover .brand{font-size:10pt!important}
+  .cover .lede{font-size:13pt!important; max-width:none!important}
+  .cover .meta{font-size:10.5pt!important}
+  .cover .meta b{font-size:8.5pt!important}
+  .cover .plan table{font-size:11pt!important}
+  .legend{font-size:10.5pt!important}
+  .legend i{width:3.4mm!important; height:3.4mm!important}
+
+  svg{width:var(--pw,100%)!important; max-width:100%!important; margin:1mm auto 3mm!important}
+  svg.wide{display:none!important}
+  .print-alt{display:block!important; font-size:10.5pt; line-height:1.45}
+  .print-alt, .pa-box{break-inside:avoid; page-break-inside:avoid}
+  .pa-root{display:inline-block; font-weight:700; border:1.2pt solid var(--ink); border-radius:1mm; padding:1.6mm 3.5mm; margin-bottom:3mm}
+  .pa-cols{display:grid; grid-template-columns:1fr 1fr; gap:4mm}
+  .pa-steps{display:grid; grid-template-columns:1fr 1fr 1fr; gap:3mm; margin-bottom:3mm}
+  .pa-q{font-family:"IBM Plex Mono",monospace; font-size:9.5pt; font-weight:600; color:var(--amber); letter-spacing:.03em; margin:0 0 2mm}
+  .pa-box{border:1pt solid var(--ink-3); border-radius:1.2mm; padding:2.2mm 3mm; margin-bottom:3mm}
+  .pa-box > b:first-child{display:block; font-family:"IBM Plex Sans Condensed",sans-serif; font-size:11pt; margin-bottom:1mm}
+  .pa-box b.in{display:inline; font-family:inherit; font-size:inherit; margin:0}
+  .pa-box.v{border-color:var(--violet); background:var(--violet-w)} .pa-box.v > b:first-child{color:var(--violet)}
+  .pa-box.r{border-color:var(--safranin); background:var(--safranin-w)} .pa-box.r > b:first-child{color:var(--safranin)}
+  .pa-box.g{border-color:var(--malachite); background:var(--malachite-w)} .pa-box.g > b:first-child{color:var(--malachite)}
+  .pa-box.a{border-color:var(--amber); background:var(--amber-w)} .pa-box.a > b:first-child{color:var(--amber)}
+  .pa-box.k{border-color:var(--ink); background:var(--tint)}
+  .pa-mono{display:block; font-family:"IBM Plex Mono",monospace; white-space:pre; font-size:10.5pt; margin:1mm 0 1.5mm}
+  .pa-temp{display:block; font-family:"IBM Plex Mono",monospace; font-weight:600; margin-bottom:1mm}
+  .pa-ol{margin:1mm 0 2mm; padding-left:5.5mm}
+  .pa-ol li{margin-bottom:1mm}
+}
+
+@media print{
+  .pa-steps.four{grid-template-columns:repeat(4,1fr)}
+  .pa-box.b{border-color:var(--blue); background:var(--blue-w)} .pa-box.b > b:first-child{color:var(--blue)}
+  .pa-box.f{border-color:var(--fuchsin); background:var(--fuchsin-w)} .pa-box.f > b:first-child{color:var(--fuchsin)}
+  .pa-box.k > b:first-child:last-child{margin:0}
+  .pa-down{text-align:center; font-size:13pt; line-height:1; margin:-1.5mm 0 1.5mm; color:var(--safranin)}
+  .pa-note{margin:0 0 2mm}
+  .pa-side{grid-template-columns:64mm 1fr; align-items:center}
+  .pa-side > svg{margin:0!important}
+}
 </style>
 </head>
 
@@ -339,7 +423,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
   <div class="mod m-violet">
     <h3>Gene cloning — the six steps, in order <span class="kind">mechanism</span></h3>
-    <svg viewBox="0 0 700 108" role="img" aria-label="Six steps of gene cloning from isolation of insert to expression of product">
+    <svg class="wide" viewBox="0 0 700 108" role="img" aria-label="Six steps of gene cloning from isolation of insert to expression of product">
       <g font-size="9">
         <rect x="2" y="6" width="110" height="40" rx="3" fill="var(--violet-w)" stroke="var(--violet)" stroke-width="1"/>
         <text x="10" y="19" font-weight="700" fill="var(--violet)">1 · ISOLATE</text>
@@ -395,6 +479,22 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         <text x="510" y="95" font-size="8" fill="var(--ink-2)">any other → versatile but inefficient</text>
       </g>
     </svg>
+<div class="print-alt">
+  <div class="pa-steps">
+    <div class="pa-box v"><b>1 &middot; ISOLATE</b>Gene of interest &mdash; genomic DNA, cDNA or PCR</div>
+    <div class="pa-box v"><b>2 &middot; CUT</b>Same restriction enzyme on insert AND vector</div>
+    <div class="pa-box v"><b>3 &middot; LIGATE</b>T4 DNA ligase + ATP, 16 &deg;C overnight &rarr; chimera</div>
+    <div class="pa-box v"><b>4 &middot; INTRODUCE</b>Transform competent host (CaCl&#8322; heat-shock / electro)</div>
+    <div class="pa-box v"><b>5 &middot; SELECT</b>Antibiotic marker + blue-white screening</div>
+    <div class="pa-box k"><b>6 &middot; EXPRESS</b>Induce, harvest &amp; purify the recombinant protein</div>
+  </div>
+  <div class="pa-cols">
+    <div class="pa-box a"><b>STICKY (COHESIVE) ENDS</b><span class="pa-mono">5'-G     AATTC-3'
+3'-CTTAA     G-5'</span><i>Eco</i>RI &middot; staggered cut &middot; self-anneal easily &rarr; high ligation efficiency, directional cloning</div>
+    <div class="pa-box a"><b>BLUNT ENDS</b><span class="pa-mono">5'-GTT  AAC-3'
+3'-CAA  TTG-5'</span><i>Hpa</i>I &middot; straight cut &middot; any blunt end joins any other &rarr; versatile but inefficient</div>
+  </div>
+</div>
   </div>
 
   <div class="row r-2a">
@@ -533,7 +633,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
     <div class="mod m-amber">
       <h3>Selection &amp; screening of recombinants <span class="kind">mechanism</span></h3>
-      <svg viewBox="0 0 200 118" role="img" aria-label="Blue white screening showing insertional inactivation of lacZ">
+      <svg style="--pw:97mm" viewBox="0 0 200 118" role="img" aria-label="Blue white screening showing insertional inactivation of lacZ">
         <g font-size="7.6">
           <circle cx="52" cy="40" r="34" fill="none" stroke="var(--ink-3)" stroke-width="1.1"/>
           <g fill="#2f6fd0"><circle cx="38" cy="28" r="4"/><circle cx="64" cy="30" r="4"/><circle cx="44" cy="52" r="4"/><circle cx="66" cy="52" r="4"/></g>
@@ -651,7 +751,7 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
 
   <div class="mod m-safranin">
     <h3>PCR — the cycle, the components, the reading <span class="kind">mechanism</span></h3>
-    <svg viewBox="0 0 700 116" role="img" aria-label="The three temperature steps of a PCR cycle and exponential amplification">
+    <svg class="wide" viewBox="0 0 700 116" role="img" aria-label="The three temperature steps of a PCR cycle and exponential amplification">
       <g font-size="9">
         <rect x="4" y="6" width="150" height="52" rx="3" fill="var(--safranin-w)" stroke="var(--safranin)" stroke-width="1"/>
         <text x="12" y="20" font-weight="700" fill="var(--safranin)">1 · DENATURATION</text>
@@ -686,6 +786,16 @@ svg text{font-family:"IBM Plex Sans Condensed",sans-serif}
         <text x="4" y="112" font-size="8" fill="var(--ink-2)">Always run a <tspan font-weight="600">positive control</tspan> (known DNA), a <tspan font-weight="600">negative/no-template control</tspan> (detects contamination) and an <tspan font-weight="600">internal control</tspan> (detects inhibitors). Nucleic acid migrates <tspan font-weight="600">cathode → anode</tspan> because the phosphate backbone is negatively charged.</text>
       </g>
     </svg>
+<div class="print-alt">
+  <div class="pa-steps">
+    <div class="pa-box r"><b>1 &middot; DENATURATION</b><span class="pa-temp">94&ndash;95 &deg;C &middot; 30 s</span>Hydrogen bonds break; dsDNA &rarr; two single strands</div>
+    <div class="pa-box r"><b>2 &middot; ANNEALING</b><span class="pa-temp">50&ndash;60 &deg;C &middot; 30 s</span>Primers bind. <b class="in">The step that decides specificity</b> &mdash; set 5 &deg;C below T<sub>m</sub></div>
+    <div class="pa-box r"><b>3 &middot; EXTENSION</b><span class="pa-temp">72 &deg;C &middot; 1 min per kb</span>Taq adds dNTPs 5'&rarr;3'; final extension 72 &deg;C / 5&ndash;10 min</div>
+  </div>
+  <div class="pa-q">&#8635; repeat 25&ndash;40 cycles &rarr; 2&#8319; copies (exponential)</div>
+  <div class="pa-box k"><b>REACTION MIX &mdash; name all seven</b>Template DNA &middot; forward &amp; reverse primers (18&ndash;25 nt) &middot; dNTPs &middot; <b class="in">Taq polymerase</b> &middot; <b class="in">MgCl&#8322; (cofactor)</b> &middot; 10&times; buffer (KCl, Tris pH 8.3) &middot; nuclease-free water</div>
+  <div class="pa-box a"><b>READING THE GEL</b>Run the product on <b class="in">agarose + ethidium bromide</b> beside a <b class="in">100 bp ladder</b>. A band of the expected size = positive. Always run a <b class="in">positive control</b> (known DNA), a <b class="in">negative/no-template control</b> (detects contamination) and an <b class="in">internal control</b> (detects inhibitors). Nucleic acid migrates <b class="in">cathode &rarr; anode</b> because the phosphate backbone is negatively charged.</div>
+</div>
   </div>
 
   <div class="row r-2a">
