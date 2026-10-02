@@ -232,7 +232,7 @@ var quizBank = {
           "Siderophilic cocci"
         ],
         "a": 0,
-        "e": "Pleomorphism describes bacteria lacking rigid wall architecture (e.g., Mycoplasma, Corynebacterium) exhibiting variable coccoid, filamentous, and pear shapes.",
+        "e": "Pleomorphism describes bacteria lacking rigid wall architecture (e.g., Mycoplasma and L-forms) exhibiting variable coccoid, filamentous, and pear shapes.",
         "topicId": "u1-t01",
         "subSection": "u1-s1",
         "diff": 1
@@ -462,7 +462,7 @@ var quizBank = {
         "diff": 1
       },
       {
-        "q": "Which bacterial enzyme catalyzes the relaxation of supercoiled DNA and is the primary molecular target of fluoroquinolone antimicrobials?",
+        "q": "Which bacterial enzyme introduces negative supercoils into DNA to relieve torsional strain ahead of the replication fork and is the primary molecular target of fluoroquinolone antimicrobials?",
         "o": [
           "DNA gyrase (Topoisomerase II)",
           "ATP-dependent DNA ligase enzyme",
@@ -4572,7 +4572,7 @@ var quizBank = {
         "diff": 1
       },
       {
-        "q": "The presence of an asteroid body (Splendore-Hoeppli phenomenon) surrounding an extracellular yeast is pathognomonic for sporotrichosis in tissue sections.",
+        "q": "The presence of an asteroid body (Splendore-Hoeppli phenomenon) surrounding an extracellular yeast is characteristic of sporotrichosis in tissue sections.",
         "a": true,
         "e": "True. Asteroid bodies represent radiant eosinophilic deposits of host immunoglobulin and complement complexes coating the central yeast cell.",
         "topicId": "u2-t07",
@@ -6047,7 +6047,7 @@ var quizBank = {
         "diff": 1
       },
       {
-        "q": "In Western blotting, what substrate is commonly oxidized by Horseradish Peroxidase (HRP) conjugate to produce blue-violet bands on the membrane in chromogenic assays?",
+        "q": "In Western blotting, what substrate is commonly oxidized by Horseradish Peroxidase (HRP) conjugate to produce insoluble brown bands on the membrane in chromogenic assays?",
         "o": [
           "3,3'-Diaminobenzidine (DAB)",
           "NBT/BCIP",
@@ -7246,7 +7246,7 @@ var quizBank = {
           "454 pyrosequencing"
         ],
         "a_display": "Pyrosequencing",
-        "e": "Developed by Ronaghi and Nygren, pyrosequencing measures real-time light emission proportional to the number of incorporated nucleotides.",
+        "e": "Developed by Ronaghi and Nyrén, pyrosequencing measures real-time light emission proportional to the number of incorporated nucleotides.",
         "topicId": "u3-t08",
         "subSection": "u3-s3",
         "diff": 2
@@ -7433,7 +7433,7 @@ var quizBank = {
           "Inverted architecture where cortical follicles are located internally and the lymph sinus/medulla is located peripherally",
           "Complete absence of subcapsular sinuses, with all afferent lymphatics directly piercing deep paracortical cords",
           "Complete absence of germinal centers, resulting in an inability to form high-affinity IgG antibody molecules",
-          "Afferent lymphatic vessels entering exclusively at the central hilus and efferent vessels exiting over the capsule"
+          "Presence of blood-filled sinuses functioning as hemolymph nodes that filter erythrocytes instead of lymph"
         ],
         "a": 0,
         "e": "Porcine lymph nodes have an inverted layout: lymphoid nodules and germinal centers reside in the center, while lymph cords and sinuses surround the periphery.",
@@ -8824,7 +8824,7 @@ var quizBank = {
       {
         "q": "Beta-2 microglobulin is encoded within the core Major Histocompatibility Complex genetic locus on chromosome 6 in mammals.",
         "a": false,
-        "e": "False. Beta-2 microglobulin is invariant and encoded on a completely different, unlinked chromosome (chromosome 15 in humans and mice).",
+        "e": "False. Beta-2 microglobulin is invariant and encoded on a completely different, unlinked chromosome (chromosome 15 in humans, chromosome 2 in mice).",
         "topicId": "u4-t09",
         "subSection": "u4-s3",
         "diff": 2
