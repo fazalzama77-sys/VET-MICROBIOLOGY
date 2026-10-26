@@ -16,12 +16,12 @@
    PRECACHE, otherwise students keep seeing the old version.
    ============================================================ */
 
-var CACHE_VERSION = "vmicro-v18";
+var CACHE_VERSION = "vmicro-v19";
 var SHELL_CACHE = CACHE_VERSION + "-shell";
 var IMG_CACHE = CACHE_VERSION + "-img";
 var FONT_CACHE = CACHE_VERSION + "-font";
 
-var IMG_LIMIT = 160;      // most recently used images kept offline
+var IMG_LIMIT = 220;      // most recently used images kept offline
 
 var PRECACHE = [
   "./",
@@ -44,6 +44,7 @@ var PRECACHE = [
   "data/data-theory-unit4.JS",
   "data/data-theory-unit5.JS",
   "data/data-practical.JS",
+  "data/data-images.js",
   "data/data-why.JS",
   "data/data-qa.JS",
   "data/data-quiz.JS",

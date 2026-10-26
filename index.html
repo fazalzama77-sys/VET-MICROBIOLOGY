@@ -209,6 +209,14 @@
   </div>
 </div>
 
+<!-- ==================== SINGLE-IMAGE LIGHTBOX MODAL ==================== -->
+<div class="img-lightbox-modal" id="img-lightbox-modal" style="display:none;" onclick="if(event.target===this) app.closeImageModal()">
+  <div class="img-lightbox-card" role="dialog" aria-modal="true" aria-label="Diagnostic Image Viewer">
+    <button class="img-lightbox-close" onclick="app.closeImageModal()" aria-label="Close">&times;</button>
+    <div id="img-lightbox-content"></div>
+  </div>
+</div>
+
 <!-- ==================== ONBOARDING TOUR ==================== -->
 <div class="onboard-modal" id="onboard-modal" style="display:none;" onclick="if(event.target===this) app.closeOnboarding(true)">
   <div class="onboard-card" role="dialog" aria-modal="true" aria-label="Welcome tour">
@@ -244,6 +252,7 @@
 <script src="data/data-theory-unit4.JS"></script>
 <script src="data/data-theory-unit5.JS"></script>
 <script src="data/data-practical.JS"></script>
+<script src="data/data-images.js"></script>
 <script src="data/data-why.JS"></script>
 <script src="data/data-qa.JS"></script>
 <script src="data/data-quiz.JS"></script>
