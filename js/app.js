@@ -206,6 +206,28 @@ var app = (function () {
   }
 
   function route() {
+    // 1-Tap QR / Pairing Link Handler (#/sync?db=...&pin=...)
+    if (location.hash && location.hash.indexOf("#/sync") === 0) {
+      var queryIdx = location.hash.indexOf("?");
+      if (queryIdx !== -1) {
+        var queryStr = location.hash.substring(queryIdx + 1);
+        var params = new URLSearchParams(queryStr);
+        var pairDb = params.get("db");
+        var pairPin = params.get("pin");
+        if (pairDb && pairPin && window.syncApp) {
+          syncApp.connect(pairDb, pairPin)
+            .then(function () {
+              toast("🎉 Device linked successfully! Study data synchronized.");
+              location.hash = "#/dashboard";
+            })
+            .catch(function (err) {
+              toast("⚠️ Pairing failed: " + (err.message || "check database connection"));
+              location.hash = "#/me";
+            });
+          return;
+        }
+      }
+    }
     var p = parseHash();
     var name = p[0] || "home";
 
@@ -3952,40 +3974,67 @@ var app = (function () {
       '</div>' +
 
       /* Multi-Device Cloud Sync Card */
-      '<div class="card mb-4" id="firebase-sync-card" style="border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 4%, var(--surface));">' +
+      '<div class="card mb-4 sync-card" id="firebase-sync-card">' +
         '<div class="row items-center justify-between">' +
-          '<h3 class="m-0 flex items-center gap-2"><span>📱</span> Link Mobile &amp; Tablet (Google Firebase)</h3>' +
-          '<span id="sync-status-pill" class="chip font-bold">⚪ Local Only</span>' +
+          '<h3 class="m-0 flex items-center gap-2"><span>☁️</span> Cross-Device Sync (Firebase Realtime DB)</h3>' +
+          '<span id="sync-status-pill" class="chip font-bold">⚪ Inactive</span>' +
         '</div>' +
         '<p class="muted mt-2">' +
-          'Automatically sync your quizzes, text highlights, notes, reading progress, and daily streaks between your phone and tablet in real time.' +
+          'Live real-time sync for text highlights, notes, bookmarks, quiz attempts, and spaced repetition cards between your tablet, mobile phone, and PC.' +
         '</p>' +
 
-        '<div class="mt-4" style="background: var(--surface); padding: 14px; border-radius: 12px; border: 1px solid var(--border);">' +
-          '<label class="font-bold small" for="synckeyinput">Device Pair Code / Sync Key:</label>' +
-          '<div class="row gap-2 mt-1">' +
-            '<input type="text" id="synckeyinput" class="input font-mono" placeholder="e.g. FAZAL-VET-2026" style="text-transform: uppercase; font-weight: 750; flex: 1;" value="' + esc((window.syncApp && syncApp.getSyncKey) ? syncApp.getSyncKey() : "") + '">' +
-            '<button type="button" class="btn btn--primary font-bold" id="savesynckeybtn">Connect</button>' +
+        '<div class="sync-form-box mt-4">' +
+          '<div class="mb-3">' +
+            '<label class="font-bold small" for="syncdburl">Firebase Realtime Database URL:</label>' +
+            '<input type="url" id="syncdburl" class="input font-mono mt-1" placeholder="https://your-project-default-rtdb.firebaseio.com" style="width: 100%; font-size: 13px;" value="' + esc((window.syncApp && syncApp.getDbUrl) ? syncApp.getDbUrl() : "") + '">' +
+            '<p class="small faint mt-1 m-0">Found in Firebase Console &rarr; Build &rarr; Realtime Database.</p>' +
           '</div>' +
-          '<p class="small faint mt-2 m-0">Enter the <b>same code</b> on both your phone and tablet to link them together.</p>' +
-        '</div>' +
 
-        '<div class="row row--wrap items-center gap-2 mt-4">' +
-          '<button type="button" class="btn btn--sm btn--primary font-bold" id="manualsyncbtn">🔄 Sync Now</button>' +
-          '<button type="button" class="btn btn--sm btn--ghost" id="editfbconfigbtn">⚙️ Configure Firebase Credentials</button>' +
-          '<div class="push"></div>' +
-          '<span class="small faint" id="lastsyncindicator"></span>' +
-        '</div>' +
+          '<div class="mb-3">' +
+            '<label class="font-bold small" for="syncpininput">6-Digit Secret Sync PIN:</label>' +
+            '<div class="row gap-2 mt-1">' +
+              '<input type="text" id="syncpininput" class="input font-mono font-bold" placeholder="e.g. 582910" maxlength="10" style="letter-spacing: 2px; font-size: 16px; flex: 1;" value="' + esc((window.syncApp && syncApp.getPin) ? syncApp.getPin() : "") + '">' +
+              '<button type="button" class="btn btn--ghost small font-bold" id="syncgenpinbtn">🎲 Random PIN</button>' +
+            '</div>' +
+            '<p class="small faint mt-1 m-0">Both devices must use this same PIN to access your study data.</p>' +
+          '</div>' +
 
-        '<div id="fbconfigbox" class="mt-4 p-3" style="display: none; background: var(--bg); border: 1px dashed var(--border); border-radius: 10px;">' +
-          '<b class="small">Paste Your Firebase Configuration:</b>' +
-          '<p class="small muted mt-1">Paste the <code>firebaseConfig = { ... }</code> object from your Firebase Console.</p>' +
-          '<textarea id="fbconfigarea" class="input font-mono mt-2" rows="6" placeholder="{\n  \"apiKey\": \"AIzaSy...\",\n  \"projectId\": \"vet-microbiology\"\n}" style="font-size: 12px; width: 100%;"></textarea>' +
-          '<div class="row gap-2 mt-2">' +
-            '<button type="button" class="btn btn--sm btn--primary" id="savefbconfigbtn">Save Firebase Config</button>' +
-            '<button type="button" class="btn btn--sm btn--ghost" id="cancelfbconfigbtn">Cancel</button>' +
+          '<div class="row row--wrap items-center gap-2 mt-3">' +
+            '<button type="button" class="btn btn--primary font-bold" id="syncconnectbtn">🔌 Connect &amp; Test</button>' +
+            '<button type="button" class="btn btn--accent font-bold" id="syncshowqrbtn">📱 1-Tap QR Pairing</button>' +
+            '<button type="button" class="btn btn--ghost" id="syncnowbtn">🔄 Sync Now</button>' +
+            '<button type="button" class="btn btn--ghost" id="syncdisconnectbtn" style="color: var(--danger, #e53e3e);">✕ Disconnect</button>' +
           '</div>' +
         '</div>' +
+
+        '<!-- QR Pairing Drawer -->' +
+        '<div id="sync-qr-drawer" class="sync-qr-drawer mt-4 p-4 text-center" style="display: none;">' +
+          '<h4 class="m-0">📱 Scan to Pair Your Mobile Phone</h4>' +
+          '<p class="small muted mt-1">Open your phone camera or QR scanner. It will link your phone instantly without any typing.</p>' +
+          '<div class="sync-qr-img-wrap my-3 flex justify-center">' +
+            '<img id="sync-qr-img" src="" alt="Pairing QR Code" style="width: 220px; height: 220px; border-radius: 12px; border: 2px solid var(--border); background: #fff; padding: 8px;">' +
+          '</div>' +
+          '<div class="row items-center justify-center gap-2 mt-2">' +
+            '<button type="button" class="btn btn--sm btn--primary" id="synccopylinkbtn">📋 Copy Pairing Link</button>' +
+            '<button type="button" class="btn btn--sm btn--ghost" id="synccloseqrbtn">Close</button>' +
+          '</div>' +
+        '</div>' +
+
+        '<!-- Collapsible 60-Second Setup Guide -->' +
+        '<details class="sync-guide-box mt-4">' +
+          '<summary class="font-bold cursor-pointer small">📖 60-Second Setup Guide (Free &amp; 100% Private on Your Gmail)</summary>' +
+          '<div class="sync-guide-content mt-3 p-3">' +
+            '<ol class="small m-0 pl-4" style="line-height: 1.8;">' +
+              '<li>Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener"><b>console.firebase.google.com</b></a> on your browser and sign in with your Google account.</li>' +
+              '<li>Click <b>Add project</b> (name it e.g. <code>vet-microbiology</code>) &rarr; Continue &rarr; Create project.</li>' +
+              '<li>In the left sidebar under <b>Build</b>, click <b>Realtime Database</b> &rarr; Click <b>Create Database</b>.</li>' +
+              '<li>Choose any location &rarr; Choose <b>Start in test mode</b> &rarr; Click <b>Enable</b>.</li>' +
+              '<li>Copy your database URL at the top (it looks like <code>https://your-app-default-rtdb.firebaseio.com</code>).</li>' +
+              '<li>Paste the URL above, click <b>🎲 Random PIN</b>, and click <b>Connect &amp; Test</b>.</li>' +
+              '<li>Tap <b>📱 1-Tap QR Pairing</b> and scan the screen with your phone camera to link both devices immediately!</li>' +
+            '</ol>' +
+          '</div>' +
+        '</details>' +
       '</div>' +
 
       '<div class="card mb-4">' +
@@ -4015,106 +4064,135 @@ var app = (function () {
         '</div>' +
       '</div>';
 
-    // Wire Multi-Device Cloud Sync
-    var saveKeyBtn = document.getElementById("savesynckeybtn");
-    if (saveKeyBtn) {
-      saveKeyBtn.addEventListener("click", function () {
-        var keyInput = document.getElementById("synckeyinput");
-        var val = (keyInput ? keyInput.value : "").trim().toUpperCase();
-        if (!val) { toast("Please enter a device pair code"); return; }
-        if (window.syncApp) {
-          syncApp.setSyncKey(val);
-          toast("Linked with device code: " + val);
-          syncApp.pull();
+    // Wire Multi-Device Cloud Sync (Realtime DB REST + SSE)
+    var syncConnectBtn = document.getElementById("syncconnectbtn");
+    if (syncConnectBtn) {
+      syncConnectBtn.addEventListener("click", function () {
+        var dbInput = document.getElementById("syncdburl");
+        var pinInput = document.getElementById("syncpininput");
+        var db = (dbInput ? dbInput.value : "").trim();
+        var pin = (pinInput ? pinInput.value : "").trim();
+
+        if (!db) { toast("Please enter your Firebase Database URL"); return; }
+        if (!pin) { toast("Please enter a 6-digit Sync PIN"); return; }
+
+        syncConnectBtn.textContent = "⏳ Testing...";
+        syncApp.connect(db, pin)
+          .then(function () {
+            syncConnectBtn.textContent = "🔌 Connect & Test";
+            toast("🎉 Connected! Live sync active.");
+          })
+          .catch(function (err) {
+            syncConnectBtn.textContent = "🔌 Connect & Test";
+            toast("⚠️ Connection error: " + (err.message || "check URL & rules"));
+          });
+      });
+    }
+
+    var syncGenPinBtn = document.getElementById("syncgenpinbtn");
+    if (syncGenPinBtn) {
+      syncGenPinBtn.addEventListener("click", function () {
+        var pinInput = document.getElementById("syncpininput");
+        if (pinInput && window.syncApp) {
+          pinInput.value = syncApp.generateRandomPin();
         }
       });
     }
 
-    var manualSyncBtn = document.getElementById("manualsyncbtn");
-    if (manualSyncBtn) {
-      manualSyncBtn.addEventListener("click", function () {
-        if (!window.syncApp || !syncApp.getSyncKey()) {
-          toast("Please enter and connect a device pair code first");
+    var syncNowBtn = document.getElementById("syncnowbtn");
+    if (syncNowBtn) {
+      syncNowBtn.addEventListener("click", function () {
+        if (!window.syncApp || !syncApp.getDbUrl() || !syncApp.getPin()) {
+          toast("Please connect your Database URL & PIN first");
           return;
         }
-        manualSyncBtn.textContent = "🔄 Syncing...";
-        syncApp.pull().then(function (ok) {
-          manualSyncBtn.textContent = "🔄 Sync Now";
-          toast(ok ? "All study data synchronized!" : "Sync failed — check internet connection or Firebase setup");
-        });
+        syncNowBtn.textContent = "🔄 Syncing...";
+        syncApp.pull()
+          .then(function () { return syncApp.push(true); })
+          .then(function (ok) {
+            syncNowBtn.textContent = "🔄 Sync Now";
+            toast(ok ? "All study data synchronized!" : "Sync failed — check connection");
+          });
       });
     }
 
-    var editConfigBtn = document.getElementById("editfbconfigbtn");
-    var configBox = document.getElementById("fbconfigbox");
-    if (editConfigBtn && configBox) {
-      editConfigBtn.addEventListener("click", function () {
-        var open = configBox.style.display !== "none";
-        configBox.style.display = open ? "none" : "block";
-        if (!open && window.syncApp && syncApp.getFirebaseConfig) {
-          var area = document.getElementById("fbconfigarea");
-          var cfg = syncApp.getFirebaseConfig();
-          if (area && cfg) area.value = JSON.stringify(cfg, null, 2);
+    var syncDisconnectBtn = document.getElementById("syncdisconnectbtn");
+    if (syncDisconnectBtn) {
+      syncDisconnectBtn.addEventListener("click", function () {
+        if (confirm("Disconnect cloud sync on this device? Your local data will remain safe.")) {
+          syncApp.disconnect();
+          var dbInput = document.getElementById("syncdburl");
+          var pinInput = document.getElementById("syncpininput");
+          if (dbInput) dbInput.value = "";
+          if (pinInput) pinInput.value = "";
+          toast("Cloud sync disconnected");
         }
       });
     }
 
-    var saveConfigBtn = document.getElementById("savefbconfigbtn");
-    if (saveConfigBtn) {
-      saveConfigBtn.addEventListener("click", function () {
-        var area = document.getElementById("fbconfigarea");
-        var raw = (area ? area.value : "").trim();
-        if (!raw) { toast("Paste your Firebase config object"); return; }
-        try {
-          var clean = raw;
-          if (clean.indexOf("firebaseConfig") !== -1) {
-            clean = clean.substring(clean.indexOf("{"), clean.lastIndexOf("}") + 1);
-          }
-          // Support relaxed JS object format if needed
-          var parsed;
-          try {
-            parsed = JSON.parse(clean);
-          } catch(e) {
-            parsed = (new Function("return " + clean + ";"))();
-          }
-          if (!parsed || !parsed.apiKey || !parsed.projectId) {
-            toast("Config must include apiKey and projectId");
-            return;
-          }
-          if (window.syncApp) {
-            syncApp.setFirebaseConfig(parsed);
-            toast("Firebase credentials saved and connected!");
-            if (configBox) configBox.style.display = "none";
-            syncApp.reconnect();
-          }
-        } catch (err) {
-          toast("Could not parse config — please check formatting");
+    var syncShowQrBtn = document.getElementById("syncshowqrbtn");
+    var qrDrawer = document.getElementById("sync-qr-drawer");
+    var qrImg = document.getElementById("sync-qr-img");
+    if (syncShowQrBtn && qrDrawer) {
+      syncShowQrBtn.addEventListener("click", function () {
+        if (!window.syncApp || !syncApp.getDbUrl() || !syncApp.getPin()) {
+          toast("Please enter and connect your Database URL & PIN first");
+          return;
         }
+        var pairUrl = syncApp.generatePairingUrl();
+        if (qrImg) qrImg.src = syncApp.generateQrCodeUrl(pairUrl);
+        qrDrawer.style.display = "block";
+        qrDrawer.scrollIntoView({ behavior: "smooth" });
       });
     }
 
-    var cancelConfigBtn = document.getElementById("cancelfbconfigbtn");
-    if (cancelConfigBtn && configBox) {
-      cancelConfigBtn.addEventListener("click", function () { configBox.style.display = "none"; });
+    var syncCloseQrBtn = document.getElementById("synccloseqrbtn");
+    if (syncCloseQrBtn && qrDrawer) {
+      syncCloseQrBtn.addEventListener("click", function () {
+        qrDrawer.style.display = "none";
+      });
     }
 
-    // Update initial sync status badge
-    if (window.syncApp) {
-      var syncKey = syncApp.getSyncKey();
-      var cfg = syncApp.getFirebaseConfig();
-      var pill = document.getElementById("sync-status-pill");
-      if (pill) {
-        if (cfg && syncKey) {
-          pill.className = "chip chip--ok font-bold";
-          pill.textContent = "🟢 Synced Live";
-        } else if (syncKey) {
-          pill.className = "chip chip--accent font-bold";
-          pill.textContent = "🟡 Code Set (Needs Firebase Config)";
+    var syncCopyLinkBtn = document.getElementById("synccopylinkbtn");
+    if (syncCopyLinkBtn) {
+      syncCopyLinkBtn.addEventListener("click", function () {
+        var pairUrl = (window.syncApp && syncApp.generatePairingUrl) ? syncApp.generatePairingUrl() : "";
+        if (!pairUrl) { toast("Connect your Database URL & PIN first"); return; }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pairUrl).then(function () {
+            toast("📋 Pairing link copied to clipboard!");
+          });
         } else {
-          pill.className = "chip chip--subtle font-bold";
-          pill.textContent = "⚪ Local Only";
+          prompt("Copy your pairing link:", pairUrl);
         }
+      });
+    }
+
+    // Dynamic Live Status Pill Listener
+    function updateSyncStatusBadge(status) {
+      var pill = document.getElementById("sync-status-pill");
+      if (!pill) return;
+      if (status === "active") {
+        pill.className = "chip chip--ok font-bold";
+        pill.textContent = "🟢 Auto-Sync Active";
+      } else if (status === "connecting") {
+        pill.className = "chip chip--accent font-bold";
+        pill.textContent = "🟡 Connecting...";
+      } else if (status === "offline") {
+        pill.className = "chip chip--accent font-bold";
+        pill.textContent = "🟠 Offline (Queued)";
+      } else if (status === "error") {
+        pill.className = "chip chip--bad font-bold";
+        pill.textContent = "🔴 Connection Error";
+      } else {
+        pill.className = "chip chip--subtle font-bold";
+        pill.textContent = "⚪ Inactive";
       }
+    }
+
+    if (window.syncApp) {
+      syncApp.onStatusChange(updateSyncStatusBadge);
+      updateSyncStatusBadge(syncApp.getStatus());
     }
 
     els("[data-theme]").forEach(function (b) {

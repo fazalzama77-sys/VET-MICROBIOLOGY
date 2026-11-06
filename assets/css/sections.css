@@ -5631,3 +5631,46 @@
   flex-wrap: nowrap;
   width: 100%;
 }
+
+
+/* ============================================================
+   Cross-Device Sync (Firebase Realtime Database REST + SSE)
+   ============================================================ */
+.sync-card {
+  border: 1.5px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 3%, var(--surface));
+  border-radius: var(--radius-lg, 16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sync-form-box {
+  background: var(--surface);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.sync-qr-drawer {
+  background: var(--surface);
+  border: 1.5px dashed var(--accent);
+  border-radius: 14px;
+}
+
+.sync-guide-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.sync-guide-box summary {
+  user-select: none;
+  outline: none;
+}
+
+.sync-guide-content {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+}

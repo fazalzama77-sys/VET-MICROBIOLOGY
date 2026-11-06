@@ -1,71 +1,62 @@
 /* ============================================================
-   sync.js — Real-Time Multi-Device Cloud Sync (Google Firebase)
+   sync.js — Cross-Device Cloud Sync Engine (Firebase Realtime DB REST + SSE)
+   Veterinary Microbiology Studio
    ------------------------------------------------------------
-   Synchronizes your study data across Mobile Phone, Tablet & PC:
-     - Reading progress & chapters completed
-     - High-yield text highlights (color, exact text & location)
-     - Personal topic notes
-     - Bookmarks & saved revision topics
-     - Quiz scores, streak records & attempt logs
-     - Spaced Repetition (SRS) memory boxes & review queues
-     - Daily study habit calendar activity
+   Zero-dependency real-time sync between Mobile Phone, Tablet & PC:
+     1. Uses Google Firebase Realtime Database REST API + Server-Sent Events (SSE).
+     2. Zero external client SDKs (no CDN libraries, 100% native fetch & EventSource).
+     3. Conflict-Free Data Merging (CRDT): smart union of highlights,
+        custom notes, bookmarks, quiz attempts, and SRS flashcards.
+     4. 6-Digit PIN & 1-Tap QR Pairing (#/sync?db=...&pin=...).
+     5. 100% Offline-First: saves locally first, debounces cloud push.
+     6. Multi-User Independence: every student connects their own free
+        database URL & PIN, keeping quotas completely isolated.
    ============================================================ */
 
 var syncApp = (function () {
+  "use strict";
 
-  var SYNC_KEY_STORAGE = "vmicro-sync-key";
-  var FIREBASE_CONFIG_STORAGE = "vmicro-firebase-config";
-  var LAST_SYNC_STORAGE = "vmicro-last-sync-time";
+  var STORAGE_DB = "vmicro-sync-db";
+  var STORAGE_PIN = "vmicro-sync-pin";
+  var STORAGE_LAST_TIME = "vmicro-sync-last-time";
 
-  var db = null;
-  var unsubscribe = null;
-  var isSyncing = false;
+  // Unique client session ID to ignore self-sent SSE echos
+  var clientId = "client_" + Math.random().toString(36).substring(2, 9) + "_" + Date.now();
+
+  var sseSource = null;
   var debounceTimer = null;
+  var isMerging = false;
+  var statusListeners = [];
 
-  /* Retrieve stored sync key (e.g. "FAZAL-VET-2026") */
-  function getSyncKey() {
-    try {
-      return (localStorage.getItem(SYNC_KEY_STORAGE) || "").trim().toUpperCase();
-    } catch (e) {
-      return "";
+  // Status enum: 'inactive' | 'connecting' | 'active' | 'offline' | 'error'
+  var currentStatus = "inactive";
+
+  /* ---------- Helpers & Storage ---------- */
+
+  function cleanDbUrl(url) {
+    if (!url) return "";
+    var u = String(url).trim().replace(/\/+$/, "");
+    if (!/^https?:\/\//i.test(u)) {
+      u = "https://" + u;
     }
+    return u;
   }
 
-  function setSyncKey(key) {
-    var clean = String(key || "").trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "");
-    try {
-      if (clean) localStorage.setItem(SYNC_KEY_STORAGE, clean);
-      else localStorage.removeItem(SYNC_KEY_STORAGE);
-    } catch (e) {}
-    reconnect();
-    return clean;
+  function cleanPin(pin) {
+    return String(pin || "").trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "").substring(0, 12);
   }
 
-  /* Retrieve stored Firebase Config */
-  function getFirebaseConfig() {
-    try {
-      var raw = localStorage.getItem(FIREBASE_CONFIG_STORAGE);
-      if (!raw) return null;
-      return JSON.parse(raw);
-    } catch (e) {
-      return null;
-    }
+  function getDbUrl() {
+    try { return localStorage.getItem(STORAGE_DB) || ""; } catch (e) { return ""; }
   }
 
-  function setFirebaseConfig(config) {
-    try {
-      if (!config) {
-        localStorage.removeItem(FIREBASE_CONFIG_STORAGE);
-      } else {
-        localStorage.setItem(FIREBASE_CONFIG_STORAGE, JSON.stringify(config));
-      }
-    } catch (e) {}
-    reconnect();
+  function getPin() {
+    try { return localStorage.getItem(STORAGE_PIN) || ""; } catch (e) { return ""; }
   }
 
   function getLastSyncTime() {
     try {
-      var t = localStorage.getItem(LAST_SYNC_STORAGE);
+      var t = localStorage.getItem(STORAGE_LAST_TIME);
       return t ? parseInt(t, 10) : 0;
     } catch (e) {
       return 0;
@@ -74,277 +65,426 @@ var syncApp = (function () {
 
   function setLastSyncTime(ts) {
     try {
-      localStorage.setItem(LAST_SYNC_STORAGE, String(ts || Date.now()));
+      localStorage.setItem(STORAGE_LAST_TIME, String(ts || Date.now()));
     } catch (e) {}
   }
 
-  /* ---------- Firebase Initialization ---------- */
-  function initFirebase() {
-    if (!window.firebase) return false;
-    var config = getFirebaseConfig();
-    if (!config || !config.apiKey || !config.projectId) return false;
+  function setStatus(st) {
+    currentStatus = st;
+    statusListeners.forEach(function (cb) {
+      try { cb(currentStatus); } catch (e) {}
+    });
+  }
 
-    try {
-      if (!firebase.apps.length) {
-        firebase.initializeApp(config);
-      }
-      db = firebase.firestore();
-      return true;
-    } catch (e) {
-      console.warn("[sync] Firebase init failed", e);
-      return false;
+  function onStatusChange(cb) {
+    if (typeof cb === "function") {
+      statusListeners.push(cb);
+      cb(currentStatus);
     }
   }
 
-  /* ---------- Real-Time Listener ---------- */
-  function startListening() {
-    stopListening();
-    var key = getSyncKey();
-    if (!db || !key) return;
+  function generateRandomPin() {
+    return String(Math.floor(100000 + Math.random() * 900000));
+  }
 
-    try {
-      unsubscribe = db.collection("students").doc(key).onSnapshot(function (doc) {
-        if (!doc.exists) {
-          // New sync key: push current local data to initialize cloud
-          pushLocalToCloud(true);
-          return;
+  /* ---------- Endpoint Generator ---------- */
+
+  function getEndpoint() {
+    var db = getDbUrl();
+    var pin = getPin();
+    if (!db || !pin) return null;
+    return cleanDbUrl(db) + "/students/" + cleanPin(pin) + ".json";
+  }
+
+  /* ---------- Live Push / Pull REST Engine ---------- */
+
+  function pull() {
+    var endpoint = getEndpoint();
+    if (!endpoint) return Promise.resolve(false);
+
+    if (navigator.onLine === false) {
+      setStatus("offline");
+      return Promise.resolve(false);
+    }
+
+    return fetch(endpoint, { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (data && data.payload) {
+          mergeRemoteData(data.payload);
+          setLastSyncTime(data.updatedAt || Date.now());
         }
-        var remoteData = doc.data();
-        if (remoteData && remoteData.updatedAt) {
-          var lastSync = getLastSyncTime();
-          // If remote is newer than our last sync, merge it
-          if (remoteData.updatedAt > lastSync) {
-            mergeRemoteData(remoteData);
-          }
-        }
-      }, function (err) {
-        console.warn("[sync] Firestore onSnapshot error", err);
+        setStatus("active");
+        return true;
+      })
+      .catch(function (err) {
+        console.warn("[sync] Pull failed:", err);
+        setStatus(navigator.onLine === false ? "offline" : "error");
+        return false;
       });
-    } catch (e) {
-      console.warn("[sync] Failed to start Firestore listener", e);
-    }
   }
 
-  function stopListening() {
-    if (unsubscribe) {
-      try { unsubscribe(); } catch (e) {}
-      unsubscribe = null;
+  function push(immediate) {
+    var endpoint = getEndpoint();
+    if (!endpoint) return Promise.resolve(false);
+
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+      debounceTimer = null;
     }
+
+    if (!immediate) {
+      return new Promise(function (resolve) {
+        debounceTimer = setTimeout(function () {
+          push(true).then(resolve);
+        }, 2200);
+      });
+    }
+
+    if (navigator.onLine === false) {
+      setStatus("offline");
+      return Promise.resolve(false);
+    }
+
+    // Build comprehensive state bundle
+    var bundle = {
+      clientId: clientId,
+      updatedAt: Date.now(),
+      payload: {
+        read: (window.store && store.getRead) ? store.getRead() : {},
+        bookmarks: (window.store && store.getBookmarks) ? store.getBookmarks() : [],
+        notes: (window.store && store.getNotes) ? store.getNotes() : {},
+        highlights: (window.store && store.getHighlights) ? store.getHighlights() : {},
+        quiz: (window.store && store.getQuiz) ? store.getQuiz() : {},
+        srs: getLocalJson("vmicro-srs", {}),
+        activity: getLocalJson("vmicro-activity", []),
+        qaDone: getLocalJson("vmicro-qa-done", []),
+        examDate: localStorage.getItem("vmicro-exam-date") || "",
+        lastTopic: localStorage.getItem("vmicro-last-topic") || ""
+      }
+    };
+
+    return fetch(endpoint, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bundle)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        setLastSyncTime(bundle.updatedAt);
+        setStatus("active");
+        return true;
+      })
+      .catch(function (err) {
+        console.warn("[sync] Push failed:", err);
+        setStatus(navigator.onLine === false ? "offline" : "error");
+        return false;
+      });
   }
 
-  function reconnect() {
-    stopListening();
-    if (initFirebase()) {
-      startListening();
-      pullAndMerge();
-    }
-  }
+  /* ---------- Real-Time SSE Listener (Server-Sent Events) ---------- */
 
-  /* ---------- Smart Merge Logic ---------- */
-  function mergeRemoteData(remote) {
-    if (!remote || isSyncing) return;
-    isSyncing = true;
+  function startSSE() {
+    stopSSE();
+    var endpoint = getEndpoint();
+    if (!endpoint || !window.EventSource) return;
 
     try {
-      // 1. Reading Progress (Union of read topics)
-      var localRead = store.getRead() || {};
+      sseSource = new EventSource(endpoint);
+
+      sseSource.addEventListener("put", function (e) {
+        try {
+          var msg = JSON.parse(e.data);
+          if (!msg) return;
+
+          // If the update originated from this client instance, ignore it
+          if (msg.data && msg.data.clientId === clientId) return;
+
+          if (msg.path === "/" && msg.data && msg.data.payload) {
+            mergeRemoteData(msg.data.payload);
+            setLastSyncTime(msg.data.updatedAt || Date.now());
+            setStatus("active");
+          } else if (msg.path && msg.data !== undefined) {
+            // Partial node updated — pull full clean snapshot
+            pull();
+          }
+        } catch (err) {
+          console.warn("[sync] SSE parse error:", err);
+        }
+      });
+
+      sseSource.addEventListener("patch", function (e) {
+        try {
+          var msg = JSON.parse(e.data);
+          if (msg && msg.data && msg.data.clientId !== clientId) {
+            pull();
+          }
+        } catch (err) {}
+      });
+
+      sseSource.onerror = function () {
+        if (navigator.onLine === false) {
+          setStatus("offline");
+        } else if (getDbUrl() && getPin()) {
+          setStatus("error");
+        }
+      };
+
+      sseSource.onopen = function () {
+        setStatus("active");
+      };
+    } catch (e) {
+      console.warn("[sync] EventSource init failed:", e);
+      setStatus("error");
+    }
+  }
+
+  function stopSSE() {
+    if (sseSource) {
+      try { sseSource.close(); } catch (e) {}
+      sseSource = null;
+    }
+  }
+
+  /* ---------- Conflict-Free CRDT Merging Logic ---------- */
+
+  function mergeRemoteData(remote) {
+    if (!remote || isMerging) return;
+    isMerging = true;
+
+    try {
+      // 1. Reading Progress (Union of completed topics)
+      var localRead = (window.store && store.getRead) ? store.getRead() : {};
       var remoteRead = remote.read || {};
       var mergedRead = Object.assign({}, localRead, remoteRead);
-      store.KEYS && localStorage.setItem(store.KEYS.read, JSON.stringify(mergedRead));
+      setLocalJson("vmicro-read", mergedRead);
 
-      // 2. Bookmarks (Union of bookmarked topic IDs)
-      var localBm = store.getBookmarks() || [];
+      // 2. Bookmarks (Union array of topic IDs)
+      var localBm = (window.store && store.getBookmarks) ? store.getBookmarks() : [];
       var remoteBm = remote.bookmarks || [];
-      var mergedBm = Array.from(new Set(localBm.concat(remoteBm)));
-      store.KEYS && localStorage.setItem(store.KEYS.bookmarks, JSON.stringify(mergedBm));
+      var bmSet = {};
+      localBm.concat(remoteBm).forEach(function (id) { if (id) bmSet[id] = true; });
+      setLocalJson("vmicro-bookmarks", Object.keys(bmSet));
 
-      // 3. Notes (Per-topic merge)
-      var localNotes = store.getNotes() || {};
+      // 3. Notes (Dictionary union)
+      var localNotes = (window.store && store.getNotes) ? store.getNotes() : {};
       var remoteNotes = remote.notes || {};
       var mergedNotes = Object.assign({}, localNotes, remoteNotes);
-      store.KEYS && localStorage.setItem(store.KEYS.notes, JSON.stringify(mergedNotes));
+      setLocalJson("vmicro-notes", mergedNotes);
 
-      // 4. Highlights (Per-topic array union)
-      var localHl = store.getHighlights() || {};
+      // 4. Highlights (Per-topic array union, deduplicated by exact text)
+      var localHl = (window.store && store.getHighlights) ? store.getHighlights() : {};
       var remoteHl = remote.highlights || {};
       var mergedHl = Object.assign({}, localHl);
       for (var tid in remoteHl) {
-        var rArr = remoteHl[tid] || [];
-        var lArr = mergedHl[tid] || [];
+        var rArr = Array.isArray(remoteHl[tid]) ? remoteHl[tid] : [];
+        var lArr = Array.isArray(mergedHl[tid]) ? mergedHl[tid] : [];
         var combined = lArr.slice();
         rArr.forEach(function (rh) {
-          var exists = combined.some(function (lh) { return lh.text === rh.text; });
+          if (!rh || !rh.text) return;
+          var exists = combined.some(function (lh) { return lh && lh.text === rh.text; });
           if (!exists) combined.push(rh);
         });
         mergedHl[tid] = combined;
       }
-      store.KEYS && localStorage.setItem(store.KEYS.highlights, JSON.stringify(mergedHl));
+      setLocalJson("vmicro-highlights", mergedHl);
 
-      // 5. Quiz Stats & Attempts (Unique by attempt timestamp)
-      var localQuiz = store.getQuiz() || { attempts: [], byUnit: {}, bySub: {}, byTopic: {} };
+      // 5. Quiz Attempts & Best Unit Stats (Deduplicated by attempt timestamp 'at')
+      var localQuiz = (window.store && store.getQuiz) ? store.getQuiz() : { attempts: [] };
       var remoteQuiz = remote.quiz || { attempts: [] };
-      var mergedAttemptsMap = {};
+      var attemptsMap = {};
       (localQuiz.attempts || []).concat(remoteQuiz.attempts || []).forEach(function (att) {
-        if (att && att.at) mergedAttemptsMap[att.at] = att;
+        if (att && att.at) attemptsMap[att.at] = att;
       });
-      var mergedAttempts = Object.keys(mergedAttemptsMap).map(function (k) { return mergedAttemptsMap[k]; });
-      mergedAttempts.sort(function (a, b) { return a.at - b.at; });
+      var mergedAttempts = Object.keys(attemptsMap).map(function (k) { return attemptsMap[k]; });
+      mergedAttempts.sort(function (a, b) { return (a.at || 0) - (b.at || 0); });
       localQuiz.attempts = mergedAttempts;
 
       // Merge best unit records
       var rByUnit = remoteQuiz.byUnit || {};
       var lByUnit = localQuiz.byUnit || {};
       for (var u in rByUnit) {
-        if (!lByUnit[u] || (rByUnit[u].best > lByUnit[u].best)) {
+        if (!lByUnit[u] || ((rByUnit[u].best || 0) > (lByUnit[u].best || 0))) {
           lByUnit[u] = rByUnit[u];
         }
       }
       localQuiz.byUnit = lByUnit;
-      store.KEYS && localStorage.setItem(store.KEYS.quiz, JSON.stringify(localQuiz));
+      setLocalJson("vmicro-quiz", localQuiz);
 
-      // 6. Spaced Repetition (SRS)
-      var localSrs = store.getSrs() || {};
-      var remoteSrs = remote.srs || {};
-      var mergedSrs = Object.assign({}, localSrs);
-      for (var sk in remoteSrs) {
-        var rCard = remoteSrs[sk];
-        var lCard = mergedSrs[sk];
-        if (!lCard || (rCard.box > lCard.box) || (rCard.due > lCard.due)) {
-          mergedSrs[sk] = rCard;
+      // 6. Spaced Repetition (SRS Leitner flashcard boxes)
+      var localSRS = getLocalJson("vmicro-srs", {});
+      var remoteSRS = remote.srs || {};
+      var mergedSRS = Object.assign({}, localSRS);
+      for (var cardId in remoteSRS) {
+        var rCard = remoteSRS[cardId];
+        var lCard = mergedSRS[cardId];
+        if (!lCard || (rCard.lastReviewed && (!lCard.lastReviewed || rCard.lastReviewed > lCard.lastReviewed))) {
+          mergedSRS[cardId] = rCard;
         }
       }
-      store.KEYS && localStorage.setItem(store.KEYS.srs, JSON.stringify(mergedSrs));
+      setLocalJson("vmicro-srs", mergedSRS);
 
-      // 7. Activity Habits (Merge counts)
-      var localAct = store.getActivity() || {};
-      var remoteAct = remote.activity || {};
-      var mergedAct = Object.assign({}, localAct);
-      for (var dateKey in remoteAct) {
-        mergedAct[dateKey] = Math.max(mergedAct[dateKey] || 0, remoteAct[dateKey] || 0);
+      // 7. Daily Habit Calendar Activity (Union of YYYY-MM-DD date strings)
+      var localAct = getLocalJson("vmicro-activity", []);
+      var remoteAct = remote.activity || [];
+      var actSet = {};
+      localAct.concat(remoteAct).forEach(function (d) { if (d) actSet[d] = true; });
+      setLocalJson("vmicro-activity", Object.keys(actSet).sort());
+
+      // 8. Q&A Completed IDs
+      var localQA = getLocalJson("vmicro-qa-done", []);
+      var remoteQA = remote.qaDone || [];
+      var qaSet = {};
+      localQA.concat(remoteQA).forEach(function (qid) { if (qid) qaSet[qid] = true; });
+      setLocalJson("vmicro-qa-done", Object.keys(qaSet));
+
+      // 9. Exam Date
+      if (remote.examDate && !localStorage.getItem("vmicro-exam-date")) {
+        localStorage.setItem("vmicro-exam-date", remote.examDate);
       }
-      store.KEYS && localStorage.setItem(store.KEYS.activity, JSON.stringify(mergedAct));
-
-      // 8. Q&A Done
-      var localQa = store.getQaDone() || [];
-      var remoteQa = remote.qaDone || [];
-      var mergedQa = Array.from(new Set(localQa.concat(remoteQa)));
-      store.KEYS && localStorage.setItem(store.KEYS.qaDone, JSON.stringify(mergedQa));
-
-      setLastSyncTime(remote.updatedAt || Date.now());
-
-      // Notify the app that data has synced so active views refresh
-      window.dispatchEvent(new CustomEvent("vmicro:synced", { detail: { at: Date.now() } }));
-
-    } catch (e) {
-      console.warn("[sync] Error during mergeRemoteData", e);
+    } catch (err) {
+      console.warn("[sync] CRDT Merge error:", err);
     } finally {
-      isSyncing = false;
+      isMerging = false;
     }
   }
 
-  /* ---------- Push Local Data to Cloud ---------- */
-  function pushLocalToCloud(immediate) {
-    var key = getSyncKey();
-    if (!db || !key || isSyncing) return;
-
-    if (!immediate) {
-      if (debounceTimer) clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(function () { pushLocalToCloud(true); }, 800);
-      return;
-    }
-
+  function getLocalJson(key, fallback) {
     try {
-      var now = Date.now();
-      var payload = {
-        syncKey: key,
-        read: store.getRead() || {},
-        bookmarks: store.getBookmarks() || [],
-        notes: store.getNotes() || {},
-        highlights: store.getHighlights() || {},
-        quiz: store.getQuiz() || {},
-        srs: store.getSrs() || {},
-        activity: store.getActivity() || {},
-        qaDone: store.getQaDone() || [],
-        examDate: store.getExamDate() || "",
-        lastTopic: store.getLastTopic() || null,
-        device: navigator.userAgent.indexOf("Mobile") !== -1 ? "Mobile" : "Tablet/PC",
-        updatedAt: now
-      };
-
-      db.collection("students").doc(key).set(payload, { merge: true }).then(function () {
-        setLastSyncTime(now);
-        updateUiStatus("synced");
-      }).catch(function (err) {
-        console.warn("[sync] Firestore write failed", err);
-        updateUiStatus("error");
-      });
+      var v = localStorage.getItem(key);
+      return v ? JSON.parse(v) : fallback;
     } catch (e) {
-      console.warn("[sync] pushLocalToCloud exception", e);
+      return fallback;
     }
   }
 
-  /* Manual Pull */
-  function pullAndMerge() {
-    var key = getSyncKey();
-    if (!db || !key) return Promise.resolve(false);
-    updateUiStatus("syncing");
+  function setLocalJson(key, val) {
+    try {
+      localStorage.setItem(key, JSON.stringify(val));
+    } catch (e) {}
+  }
 
-    return db.collection("students").doc(key).get().then(function (doc) {
-      if (doc.exists) {
-        mergeRemoteData(doc.data());
-        updateUiStatus("synced");
-        return true;
-      } else {
-        pushLocalToCloud(true);
-        updateUiStatus("synced");
-        return true;
+  /* ---------- Connection & Setup Management ---------- */
+
+  function testConnection(dbUrl, pin) {
+    var cleanDb = cleanDbUrl(dbUrl);
+    var cleanP = cleanPin(pin);
+    if (!cleanDb || !cleanP) {
+      return Promise.reject(new Error("Please enter both a valid Database URL and 6-digit PIN"));
+    }
+
+    var testUrl = cleanDb + "/students/" + cleanP + ".json";
+    return fetch(testUrl, { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) {
+          throw new Error("Could not access database (HTTP " + res.status + "). Make sure Realtime Database rules allow read/write or start in Test Mode.");
+        }
+        return res.json();
+      });
+  }
+
+  function connect(dbUrl, pin) {
+    var cleanDb = cleanDbUrl(dbUrl);
+    var cleanP = cleanPin(pin);
+    if (!cleanDb || !cleanP) {
+      return Promise.reject(new Error("Missing Database URL or PIN"));
+    }
+
+    setStatus("connecting");
+    return testConnection(cleanDb, cleanP)
+      .then(function () {
+        localStorage.setItem(STORAGE_DB, cleanDb);
+        localStorage.setItem(STORAGE_PIN, cleanP);
+        setStatus("active");
+        startSSE();
+        // Initial two-way sync: pull latest remote, then push local
+        return pull().then(function () {
+          return push(true);
+        }).then(function () {
+          return true;
+        });
+      })
+      .catch(function (err) {
+        setStatus("error");
+        throw err;
+      });
+  }
+
+  function disconnect() {
+    stopSSE();
+    try {
+      localStorage.removeItem(STORAGE_DB);
+      localStorage.removeItem(STORAGE_PIN);
+      localStorage.removeItem(STORAGE_LAST_TIME);
+    } catch (e) {}
+    setStatus("inactive");
+  }
+
+  /* ---------- QR & Pairing Link Generator ---------- */
+
+  function generatePairingUrl() {
+    var db = getDbUrl();
+    var pin = getPin();
+    if (!db || !pin) return "";
+    var base = window.location.origin + window.location.pathname;
+    return base + "#/sync?db=" + encodeURIComponent(db) + "&pin=" + encodeURIComponent(pin);
+  }
+
+  function generateQrCodeUrl(url) {
+    if (!url) return "";
+    return "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=" + encodeURIComponent(url);
+  }
+
+  /* ---------- Auto-Boot & Network Listeners ---------- */
+
+  function init() {
+    window.addEventListener("online", function () {
+      if (getDbUrl() && getPin()) {
+        setStatus("connecting");
+        startSSE();
+        pull().then(function () { push(true); });
       }
-    }).catch(function (err) {
-      console.warn("[sync] Pull failed", err);
-      updateUiStatus("error");
-      return false;
     });
-  }
 
-  function updateUiStatus(status) {
-    var statusEl = document.getElementById("sync-status-pill");
-    if (!statusEl) return;
-    if (status === "synced") {
-      statusEl.className = "chip chip--ok font-bold";
-      statusEl.innerHTML = "🟢 Synced Live";
-    } else if (status === "syncing") {
-      statusEl.className = "chip chip--accent font-bold";
-      statusEl.innerHTML = "🔄 Syncing...";
-    } else if (status === "error") {
-      statusEl.className = "chip chip--danger font-bold";
-      statusEl.innerHTML = "⚠️ Sync Error";
+    window.addEventListener("offline", function () {
+      if (getDbUrl() && getPin()) {
+        setStatus("offline");
+      }
+    });
+
+    if (getDbUrl() && getPin()) {
+      setStatus("connecting");
+      startSSE();
+      pull();
     } else {
-      statusEl.className = "chip chip--subtle font-bold";
-      statusEl.innerHTML = "⚪ Local Only";
+      setStatus("inactive");
     }
   }
 
-  /* Hook into window events */
-  window.addEventListener("online", function () {
-    if (db && getSyncKey()) pullAndMerge();
-  });
+  // Auto-init once document is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 
-  // Automatically initialize on page load
-  setTimeout(function () {
-    if (initFirebase()) {
-      startListening();
-      pullAndMerge();
-    }
-  }, 100);
+  /* ---------- Public API ---------- */
 
   return {
-    getSyncKey: getSyncKey,
-    setSyncKey: setSyncKey,
-    getFirebaseConfig: getFirebaseConfig,
-    setFirebaseConfig: setFirebaseConfig,
-    getLastSyncTime: getLastSyncTime,
-    push: pushLocalToCloud,
-    pull: pullAndMerge,
-    reconnect: reconnect
+    getDbUrl: getDbUrl,
+    getPin: getPin,
+    getStatus: function () { return currentStatus; },
+    onStatusChange: onStatusChange,
+    generateRandomPin: generateRandomPin,
+    testConnection: testConnection,
+    connect: connect,
+    disconnect: disconnect,
+    pull: pull,
+    push: push,
+    generatePairingUrl: generatePairingUrl,
+    generateQrCodeUrl: generateQrCodeUrl
   };
 })();
