@@ -3952,6 +3952,15 @@ var app = (function () {
       '</div>' +
 
       '<div class="card mb-4">' +
+        '<h3>' + icon("sparkle") + ' Quiz Sound Effects</h3>' +
+        '<p class="muted mt-2">Enable or disable audio chimes for correct answers, gentle tones for errors, and celebratory streak arpeggios during tests.</p>' +
+        '<div class="seg mt-4" role="group" id="soundsettingsseg">' +
+          '<button class="seg__btn' + (localStorage.getItem("vmicro-quiz-sound") !== "off" ? " is-on" : "") + '" data-sound="on" type="button">🔊 Sound On</button>' +
+          '<button class="seg__btn' + (localStorage.getItem("vmicro-quiz-sound") === "off" ? " is-on" : "") + '" data-sound="off" type="button">🔇 Sound Off (Muted)</button>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="card mb-4">' +
         '<h3>' + icon("download") + ' Backup and restore</h3>' +
         '<p class="muted mt-2">Your progress, notes, bookmarks and quiz history are stored in this browser only. ' +
         'Clearing browser data will erase them. Export a backup file before you reinstall or switch phone.</p>' +
@@ -3977,6 +3986,16 @@ var app = (function () {
           '<button class="btn" onclick="app.openAbout()">' + icon("target") + 'About Platform & Credits</button>' +
         '</div>' +
       '</div>';
+
+    els("[data-sound]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var val = b.getAttribute("data-sound");
+        try { localStorage.setItem("vmicro-quiz-sound", val); } catch (e) {}
+        els("[data-sound]").forEach(function (btn) { btn.classList.remove("is-on"); });
+        b.classList.add("is-on");
+        toast(val === "on" ? "🔊 Quiz sound effects enabled" : "🔇 Quiz sound effects turned off");
+      });
+    });
 
     els("[data-theme]").forEach(function (b) {
       b.addEventListener("click", function () {

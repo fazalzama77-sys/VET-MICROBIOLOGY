@@ -41,12 +41,16 @@ var quizApp = (function () {
     }
   }
 
+  function setSoundEnabled(enable) {
+    try {
+      localStorage.setItem("vmicro-quiz-sound", enable ? "on" : "off");
+    } catch (e) {}
+    return enable;
+  }
+
   function toggleSound() {
     var cur = isSoundEnabled();
-    try {
-      localStorage.setItem("vmicro-quiz-sound", cur ? "off" : "on");
-    } catch (e) {}
-    return !cur;
+    return setSoundEnabled(!cur);
   }
 
   function playTone(freqs, times, type, duration) {
@@ -311,6 +315,9 @@ var quizApp = (function () {
             '<span class="chip chip--accent font-mono">🌟 ' + totalAll + ' Questions Bank</span>' +
             '<span class="chip chip--ok">🎯 2:1:1 Ratio (' + fmtCount.mcq + ' MCQ · ' + fmtCount.tf + ' T/F · ' + fmtCount.fib + ' FIB)</span>' +
             '<span class="chip">📑 ' + subCount + ' Sub-sections</span>' +
+            '<button type="button" class="qz-sound-btn' + (isSoundEnabled() ? '' : ' is-muted') + '" id="hubsoundbtn" style="cursor:pointer;" title="Click to turn sound effects on or off">' +
+              (isSoundEnabled() ? '🔊 Sound On' : '🔇 Sound Off') +
+            '</button>' +
           '</div>' +
           '<h1 class="qz-hub-title"><span>🎮</span> Veterinary Microbiology Quiz Arena</h1>' +
           '<p class="lede mb-0">Level up your veterinary diagnosis &amp; retention. ' +
@@ -454,6 +461,18 @@ var quizApp = (function () {
         '</div>' +
 
       '</div>';
+
+    // Wire Hub Sound Button
+    var hubSound = document.getElementById("hubsoundbtn");
+    if (hubSound) {
+      hubSound.addEventListener("click", function () {
+        var on = toggleSound();
+        hubSound.classList.toggle("is-muted", !on);
+        hubSound.textContent = on ? "🔊 Sound On" : "🔇 Sound Off";
+        app.toast(on ? "🔊 Sound effects enabled" : "🔇 Sound effects turned off");
+        if (on) playSound("correct");
+      });
+    }
 
     // Wire Rapid Sprint
     var rapidBtn = document.getElementById("btnrapidsprint");
@@ -683,6 +702,15 @@ var quizApp = (function () {
             '</div>' +
           '</div>' +
 
+          /* Sound Effects Toggle */
+          '<div class="setup__row">' +
+            '<div>' +
+              '<b style="font-size: 15px;">🔊 Sound Effects (Audio Feedback)</b>' +
+              '<p class="small muted">Play audio chimes for correct answers, gentle tones for errors, and celebratory streak arpeggios.</p>' +
+            '</div>' +
+            '<label class="switch"><input type="checkbox" id="soundeffectscheck"' + (isSoundEnabled() ? ' checked' : '') + '><span></span></label>' +
+          '</div>' +
+
           /* Exam Mode Toggle */
           '<div class="setup__row">' +
             '<div>' +
@@ -762,6 +790,15 @@ var quizApp = (function () {
           if (startBtn) startBtn.textContent = '🚀 Start Quiz (' + state.count + ' Questions)';
         });
       });
+
+      // Sound Effects Toggle
+      var soundEffectsChk = document.getElementById("soundeffectscheck");
+      if (soundEffectsChk) {
+        soundEffectsChk.addEventListener("change", function (e) {
+          setSoundEnabled(e.target.checked);
+          app.toast(e.target.checked ? "🔊 Sound effects enabled" : "🔇 Sound effects turned off");
+        });
+      }
 
       // Exam Mode
       var examChk = document.getElementById("exammode");
@@ -1137,6 +1174,7 @@ var quizApp = (function () {
     }
 
     return '<button class="btn" id="prevbtn"' + (run.i === 0 ? ' disabled' : '') + '>← Previous</button>' +
+      
       '<div class="push"></div>' +
       '<span class="small faint mr-3" id="qanswered">' + answeredCount() + ' of ' + run.qs.length + ' answered</span>' +
       right;
@@ -1191,13 +1229,14 @@ var quizApp = (function () {
         '<div class="qz-game-hud">' +
           '<button class="btn btn--sm btn--ghost" id="quitbtn">Save &amp; Exit</button>' +
           '<button type="button" class="qz-sound-btn' + (soundOn ? '' : ' is-muted') + '" id="soundtogglebtn" title="Toggle audio feedback">' +
-            (soundOn ? '🔊 Sound On' : '🔇 Muted') +
+            (soundOn ? '🔊 Sound On' : '🔇 Sound Off') +
           '</button>' +
           '<span class="chip font-medium">' + app.esc(run.label) + '</span>' +
           '<div class="push"></div>' +
           '<span id="qstreak">' + streakChipHtml() + '</span>' +
           (run.exam ? '<span class="chip chip--warn font-bold" id="qtimer">⏱️ ' + fmtTime(run.endsAt - Date.now()) + '</span>' : '') +
           '<span class="chip font-mono font-bold" id="qcounter">' + (run.i + 1) + ' / ' + run.qs.length + '</span>' +
+          '<button type="button" class="btn btn--sm btn--primary font-bold ml-2" id="topsubmitbtn" style="box-shadow: 0 2px 8px rgba(21, 101, 192, 0.25);" title="Submit your test and see full score breakdown">🏁 Submit Test</button>' +
         '</div>' +
 
         /* Smooth Progress Bar */
@@ -1401,6 +1440,8 @@ var quizApp = (function () {
         case "finishbtn":
           finish(false);
           break;
+        case "topsubmitbtn":
+        case "bottomsubmitbtn":
         case "submitbtn":
           submitPaper();
           break;
@@ -1441,11 +1482,15 @@ var quizApp = (function () {
   }
 
   function submitPaper() {
-    var missing = run.qs.length - answeredCount();
-    var msg = missing
-      ? "You have " + missing + " unanswered question" + (missing === 1 ? "" : "s") + ". Submit the paper anyway?"
-      : "Submit your examination paper now?";
-    if (confirm(msg)) finish(false);
+    var answered = answeredCount();
+    var total = run.qs.length;
+    var missing = total - answered;
+    var msg = missing > 0
+      ? "You have answered " + answered + " of " + total + " questions (" + missing + " unanswered).\n\nAre you sure you want to submit your test now and view your results breakdown?"
+      : "You have answered all " + total + " questions!\n\nSubmit your test now and view your full results breakdown?";
+    if (confirm(msg)) {
+      finish(false);
+    }
   }
 
   /* ---------- Keyboard Shortcuts ---------- */
