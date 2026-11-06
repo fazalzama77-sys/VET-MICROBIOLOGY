@@ -1303,7 +1303,7 @@
   padding: 0 38px 0 38px;
   border: 1px solid var(--border);
   border-radius: var(--r-md);
-  background: var(--bg);
+  background: #ffffff !important;
   font-size: var(--fs-sm);
   color: var(--text);
   transition: all var(--dur-fast) var(--ease);
@@ -1902,7 +1902,7 @@
   gap: 10px;
   padding: 8px 14px;
   border-radius: 10px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   font-size: 13px;
   margin-top: 6px;
@@ -2226,7 +2226,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 12px;
@@ -2318,7 +2318,7 @@
   gap: 10px;
   padding: 8px 10px;
   border-radius: 8px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   font-size: 13px;
 }
@@ -2413,7 +2413,7 @@
   gap: 12px;
   padding: 10px 12px;
   border-radius: 8px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   transition: background 0.15s ease;
 }
@@ -2752,7 +2752,7 @@
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1.5px solid var(--border);
   font-family: var(--font-mono, monospace);
   font-size: 13px;
@@ -4241,7 +4241,7 @@
   padding: 0 var(--s3) 0 34px;
   border: 1px solid var(--border);
   border-radius: var(--r-full);
-  background: var(--bg);
+  background: #ffffff !important;
   font-size: var(--fs-xs);
   color: var(--text);
   outline: none;
@@ -5412,7 +5412,7 @@
   display: grid;
   place-items: center;
   border-radius: 10px;
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   transition: all 0.15s ease;
 }
@@ -5475,7 +5475,7 @@
 }
 
 .qz-config-box {
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
@@ -5589,7 +5589,7 @@
 
 /* Exam Mode Box */
 .qz-exam-box {
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
@@ -5659,7 +5659,7 @@
 }
 
 .sync-guide-box {
-  background: var(--bg);
+  background: #ffffff !important;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 14px;
@@ -5686,7 +5686,7 @@
   line-height: 1.5;
   font-family: var(--font-mono, monospace);
   color: var(--text);
-  background: var(--bg);
+  background: #ffffff !important;
   border: 2px solid var(--border);
   border-radius: 12px;
   outline: none;
