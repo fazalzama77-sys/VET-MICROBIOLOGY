@@ -61,7 +61,7 @@ var syncApp = (function () {
   function getPin() {
     try {
       var saved = localStorage.getItem(STORAGE_PIN);
-      return (saved && saved.trim() && saved.trim() !== "772026" && saved.trim() !== "749-218" && saved.trim() !== "350-202") ? cleanPin(saved) : (function(){ var f = generateFreshPin(); try { localStorage.setItem(STORAGE_PIN, f); } catch(err){} return f; })();
+      return (saved && saved.trim() && true) ? cleanPin(saved) : (function(){ var f = generateFreshPin(); try { localStorage.setItem(STORAGE_PIN, f); } catch(err){} return f; })();
     } catch (e) {
       return generateFreshPin();
     }

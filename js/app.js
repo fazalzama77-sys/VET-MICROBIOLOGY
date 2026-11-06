@@ -4170,6 +4170,17 @@ var app = (function () {
               localStorage.setItem("vmicro-sync-pin", val);
               var qrPin = document.getElementById("sync-qr-pin");
               if (qrPin) qrPin.value = val;
+              var dbInput = document.getElementById("syncdburl");
+              var dbVal = (dbInput && dbInput.value ? dbInput.value.trim() : (window.syncApp ? syncApp.getDbUrl() : ""));
+              if (window.syncApp && syncApp.connect) {
+                syncApp.connect(dbVal, val).then(function () {
+                  var qrDrawer = document.getElementById("sync-qr-drawer");
+                  var qrImg = document.getElementById("sync-qr-img");
+                  if (qrImg && qrDrawer && qrDrawer.style.display !== "none") {
+                    qrImg.src = syncApp.generateQrCodeUrl(syncApp.generatePairingUrl());
+                  }
+                }).catch(function () {});
+              }
             } else if (mode === "url") {
               localStorage.setItem("vmicro-sync-db", val);
             }
@@ -4187,6 +4198,29 @@ var app = (function () {
         if (pinInput && pinInput.value.trim()) {
           copyTextToClipboard(pinInput.value.trim());
           toast("Sync PIN copied: " + pinInput.value.trim() + " 📋");
+        }
+      });
+    }
+
+    var syncQrPinInput = document.getElementById("sync-qr-pin");
+    if (syncQrPinInput) {
+      syncQrPinInput.addEventListener("input", function () {
+        var val = syncQrPinInput.value.trim();
+        if (val) {
+          var pinInput = document.getElementById("syncpininput");
+          if (pinInput) pinInput.value = val;
+          try { localStorage.setItem("vmicro-sync-pin", val); } catch (e) {}
+          var dbInput = document.getElementById("syncdburl");
+          var dbVal = (dbInput && dbInput.value ? dbInput.value.trim() : (window.syncApp ? syncApp.getDbUrl() : ""));
+          if (window.syncApp && syncApp.connect) {
+            syncApp.connect(dbVal, val).then(function () {
+              var qrDrawer = document.getElementById("sync-qr-drawer");
+              var qrImg = document.getElementById("sync-qr-img");
+              if (qrImg && qrDrawer && qrDrawer.style.display !== "none") {
+                qrImg.src = syncApp.generateQrCodeUrl(syncApp.generatePairingUrl());
+              }
+            }).catch(function () {});
+          }
         }
       });
     }
