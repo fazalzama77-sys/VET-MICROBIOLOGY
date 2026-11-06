@@ -6,7 +6,6 @@
      - 2 : 1 : 1 ratio of MCQ : True/False : Fill-in-the-blank
      - 22 modular sub-sections with individual diagnostic testing
      - Sequence Mode (curriculum order) vs. Shuffle Mode (randomized)
-     - Tactile 3D option buttons, instant audio feedback (Web Audio synthesizer)
      - Flame streaks, combo multipliers, particle confetti & milestone badges
      - Collapsible Question Map drawer (zero visual clutter)
      - High-yield explanations with one-tap deep links to theory lessons
@@ -17,75 +16,6 @@ var quizApp = (function () {
 
   var host;                 // container element
   var run = null;           // active run state
-
-  /* ============================================================
-     WEB AUDIO SYNTHESIZER (Playful & Lightweight)
-     ============================================================ */
-  var audioCtx = null;
-  function getAudioCtx() {
-    if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
-      var Cls = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new Cls();
-    }
-    if (audioCtx && audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
-    return audioCtx;
-  }
-
-  function isSoundEnabled() {
-    try {
-      return localStorage.getItem("vmicro-quiz-sound") !== "off";
-    } catch (e) {
-      return true;
-    }
-  }
-
-  function setSoundEnabled(enable) {
-    try {
-      localStorage.setItem("vmicro-quiz-sound", enable ? "on" : "off");
-    } catch (e) {}
-    return enable;
-  }
-
-  function toggleSound() {
-    var cur = isSoundEnabled();
-    return setSoundEnabled(!cur);
-  }
-
-  function playTone(freqs, times, type, duration) {
-    if (!isSoundEnabled()) return;
-    var ctx = getAudioCtx();
-    if (!ctx) return;
-    try {
-      var now = ctx.currentTime;
-      freqs.forEach(function (f, idx) {
-        var osc = ctx.createOscillator();
-        var gain = ctx.createGain();
-        osc.type = type || "sine";
-        osc.frequency.setValueAtTime(f, now + times[idx]);
-        gain.gain.setValueAtTime(0.12, now + times[idx]);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + times[idx] + (duration || 0.16));
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now + times[idx]);
-        osc.stop(now + times[idx] + (duration || 0.16) + 0.05);
-      });
-    } catch (e) {}
-  }
-
-  function playSound(name) {
-    if (name === "correct") {
-      // Bright, cheerful ascending chime (E5 -> B5)
-      playTone([659.25, 987.77], [0, 0.08], "sine", 0.18);
-    } else if (name === "wrong") {
-      // Gentle, subtle descending boop (C3 -> A2)
-      playTone([130.81, 110.0], [0, 0.09], "triangle", 0.16);
-    } else if (name === "milestone") {
-      // Celebratory 4-note arpeggio (C5 -> E5 -> G5 -> C6)
-      playTone([523.25, 659.25, 783.99, 1046.50], [0, 0.07, 0.14, 0.22], "triangle", 0.22);
-    }
-  }
 
   /* Sub-section metadata for Units 1 to 5 */
   var subSectionsByUnit = {
@@ -315,13 +245,10 @@ var quizApp = (function () {
             '<span class="chip chip--accent font-mono">🌟 ' + totalAll + ' Questions Bank</span>' +
             '<span class="chip chip--ok">🎯 2:1:1 Ratio (' + fmtCount.mcq + ' MCQ · ' + fmtCount.tf + ' T/F · ' + fmtCount.fib + ' FIB)</span>' +
             '<span class="chip">📑 ' + subCount + ' Sub-sections</span>' +
-            '<button type="button" class="qz-sound-btn' + (isSoundEnabled() ? '' : ' is-muted') + '" id="hubsoundbtn" style="cursor:pointer;" title="Click to turn sound effects on or off">' +
-              (isSoundEnabled() ? '🔊 Sound On' : '🔇 Sound Off') +
-            '</button>' +
           '</div>' +
           '<h1 class="qz-hub-title"><span>🎮</span> Veterinary Microbiology Quiz Arena</h1>' +
           '<p class="lede mb-0">Level up your veterinary diagnosis &amp; retention. ' +
-          'Pick a rapid sprint, full university mock exam, or master sub-topics at your own pace with tactile controls, audio chimes, and streak bonuses.</p>' +
+          'Pick a rapid sprint, full university mock exam, or master sub-topics at your own pace with tactile controls, streak bonuses, and instant feedback.</p>' +
         '</div>' +
 
         resumeCardHtml() +
@@ -461,18 +388,6 @@ var quizApp = (function () {
         '</div>' +
 
       '</div>';
-
-    // Wire Hub Sound Button
-    var hubSound = document.getElementById("hubsoundbtn");
-    if (hubSound) {
-      hubSound.addEventListener("click", function () {
-        var on = toggleSound();
-        hubSound.classList.toggle("is-muted", !on);
-        hubSound.textContent = on ? "🔊 Sound On" : "🔇 Sound Off";
-        app.toast(on ? "🔊 Sound effects enabled" : "🔇 Sound effects turned off");
-        if (on) playSound("correct");
-      });
-    }
 
     // Wire Rapid Sprint
     var rapidBtn = document.getElementById("btnrapidsprint");
@@ -702,15 +617,6 @@ var quizApp = (function () {
             '</div>' +
           '</div>' +
 
-          /* Sound Effects Toggle */
-          '<div class="setup__row">' +
-            '<div>' +
-              '<b style="font-size: 15px;">🔊 Sound Effects (Audio Feedback)</b>' +
-              '<p class="small muted">Play audio chimes for correct answers, gentle tones for errors, and celebratory streak arpeggios.</p>' +
-            '</div>' +
-            '<label class="switch"><input type="checkbox" id="soundeffectscheck"' + (isSoundEnabled() ? ' checked' : '') + '><span></span></label>' +
-          '</div>' +
-
           /* Exam Mode Toggle */
           '<div class="setup__row">' +
             '<div>' +
@@ -790,15 +696,6 @@ var quizApp = (function () {
           if (startBtn) startBtn.textContent = '🚀 Start Quiz (' + state.count + ' Questions)';
         });
       });
-
-      // Sound Effects Toggle
-      var soundEffectsChk = document.getElementById("soundeffectscheck");
-      if (soundEffectsChk) {
-        soundEffectsChk.addEventListener("change", function (e) {
-          setSoundEnabled(e.target.checked);
-          app.toast(e.target.checked ? "🔊 Sound effects enabled" : "🔇 Sound effects turned off");
-        });
-      }
 
       // Exam Mode
       var examChk = document.getElementById("exammode");
@@ -1220,7 +1117,6 @@ var quizApp = (function () {
         ? '<span class="chip chip--subtle">⭐⭐ Core UG</span>'
         : '<span class="chip chip--warn">⭐⭐⭐ Rank 1 Classic</span>';
 
-    var soundOn = isSoundEnabled();
 
     host.innerHTML =
       '<div class="quizrun animate-fade-in" id="quizrun" style="max-width: 900px; margin: 0 auto;">' +
@@ -1228,9 +1124,6 @@ var quizApp = (function () {
         /* Top Game HUD */
         '<div class="qz-game-hud">' +
           '<button class="btn btn--sm btn--ghost" id="quitbtn">Save &amp; Exit</button>' +
-          '<button type="button" class="qz-sound-btn' + (soundOn ? '' : ' is-muted') + '" id="soundtogglebtn" title="Toggle audio feedback">' +
-            (soundOn ? '🔊 Sound On' : '🔇 Sound Off') +
-          '</button>' +
           '<span class="chip font-medium">' + app.esc(run.label) + '</span>' +
           '<div class="push"></div>' +
           '<span id="qstreak">' + streakChipHtml() + '</span>' +
@@ -1347,7 +1240,6 @@ var quizApp = (function () {
     store.gradeSrs(q.key, ok);
 
     if (ok) {
-      playSound("correct");
       run.streak = (run.streak || 0) + 1;
       if (run.streak > run.bestStreak) run.bestStreak = run.streak;
 
@@ -1355,17 +1247,13 @@ var quizApp = (function () {
       if (app.burstConfetti && anchor) app.burstConfetti(anchor);
 
       if (run.streak === 3) {
-        playSound("milestone");
         if (app.popMilestone) app.popMilestone("🔥 3 in a row! You're on fire!");
       } else if (run.streak === 5) {
-        playSound("milestone");
         if (app.popMilestone) app.popMilestone("⚡ 5 Streak! Unstoppable Clinician!");
       } else if (run.streak === 10) {
-        playSound("milestone");
         if (app.popMilestone) app.popMilestone("👑 10 STREAK! Master Topper!");
       }
     } else {
-      playSound("wrong");
       run.streak = 0;
     }
 
@@ -1413,12 +1301,6 @@ var quizApp = (function () {
       if (!btn) return;
 
       switch (btn.id) {
-        case "soundtogglebtn":
-          var on = toggleSound();
-          btn.classList.toggle("is-muted", !on);
-          btn.textContent = on ? "🔊 Sound On" : "🔇 Muted";
-          if (on) playSound("correct");
-          break;
         case "paltogglebtn":
           run.paletteOpen = !run.paletteOpen;
           var pal = document.getElementById("qpalette");
@@ -1631,7 +1513,6 @@ var quizApp = (function () {
       return { id: sid, meta: meta, p: p, s: s };
     }).sort(function (a, b) { return a.p - b.p; });
 
-    if (percent >= 70) playSound("milestone");
 
     host.innerHTML =
       '<div class="result animate-scale-up" style="max-width: 860px; margin: 0 auto; text-align: center;">' +
@@ -2035,9 +1916,6 @@ var quizApp = (function () {
   return {
     render: render,
     reset: resetRun,
-    findSubSection: findSubSection,
-    isSoundEnabled: isSoundEnabled,
-    toggleSound: toggleSound,
-    playSound: playSound
+    findSubSection: findSubSection
   };
 })();

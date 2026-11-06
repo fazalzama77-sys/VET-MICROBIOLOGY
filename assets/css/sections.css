@@ -2667,28 +2667,7 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.qz-sound-btn {
-  font-size: 12px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
 
-.qz-sound-btn:hover {
-  background: var(--surface-hover);
-  border-color: var(--accent);
-}
-
-.qz-sound-btn.is-muted {
-  opacity: 0.65;
-}
 
 /* Flame & Combo Animation */
 .qz-streak-flame {
