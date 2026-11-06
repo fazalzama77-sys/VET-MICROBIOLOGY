@@ -47,7 +47,7 @@ var syncApp = (function () {
   }
 
   var EMBEDDED_DB_URL = "https://vet-pathology-default-rtdb.firebaseio.com";
-  var DEFAULT_PIN = "772026";
+  function generateFreshPin() { return String(Math.floor(100000 + Math.random() * 900000)); }
 
   function getDbUrl() {
     try {
@@ -61,9 +61,9 @@ var syncApp = (function () {
   function getPin() {
     try {
       var saved = localStorage.getItem(STORAGE_PIN);
-      return saved && saved.trim() ? cleanPin(saved) : DEFAULT_PIN;
+      return saved && saved.trim() ? cleanPin(saved) : generateFreshPin();
     } catch (e) {
-      return DEFAULT_PIN;
+      return generateFreshPin();
     }
   }
 
