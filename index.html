@@ -238,6 +238,46 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<!-- ==================== UNIVERSAL PASTE & QUICK ENTRY MODAL ==================== -->
+<div class="sync-modal-overlay" id="sync-paste-modal" style="display:none;" onclick="if(event.target===this) app.closePasteModal()">
+  <div class="sync-modal-card" style="max-width:460px; text-align:left;" role="dialog" aria-modal="true" aria-label="Paste or Enter Details">
+    <button class="sync-modal-close" onclick="app.closePasteModal()" aria-label="Close">&times;</button>
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+      <span style="font-size:1.7rem;">📋</span>
+      <h3 style="margin:0; font-size:var(--fs-md);" id="sync-paste-modal-title">Paste or Enter Details</h3>
+    </div>
+    <p class="muted small mt-1" id="sync-paste-modal-desc">Press <b>Ctrl+V</b> (or long-press inside the box and tap <b>Paste</b>), or type directly below:</p>
+    <div class="mt-3">
+      <textarea id="sync-paste-modal-input" class="sync-input" rows="2" style="width:100%; font-family:var(--font-mono); resize:none;" placeholder="Paste or type here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+    </div>
+    <div id="sync-paste-keypad" style="display:none; margin-top:12px;">
+      <div class="small muted mb-2" style="font-weight:600;">🔢 Or tap digits directly on keypad:</div>
+      <div class="sync-keypad-grid">
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="1">1</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="2">2</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="3">3</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="4">4</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="5">5</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="6">6</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="7">7</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="8">8</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="9">9</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="-">-</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="0">0</button>
+        <button type="button" class="btn btn--sm btn--soft sync-kp-btn" data-kp="BACK">⌫</button>
+      </div>
+      <div class="mt-2 row" style="gap:8px;">
+        <button type="button" class="btn btn--sm btn--ghost" id="sync-kp-clear" style="flex:1;">Clear</button>
+        <button type="button" class="btn btn--sm btn--soft" id="sync-kp-random" style="flex:2;">🎲 Generate 6-Digit PIN</button>
+      </div>
+    </div>
+    <div class="mt-3 row" style="justify-content:flex-end; gap:8px;">
+      <button class="btn btn--sm btn--ghost" type="button" onclick="app.closePasteModal()">Cancel</button>
+      <button class="btn btn--sm btn--primary" type="button" id="sync-paste-modal-confirm">Apply &amp; Fill</button>
+    </div>
+  </div>
+</div>
+
 <!-- ==================== SCRIPTS ====================
      ORDER MATTERS.
      1. Data files first — they only declare variables.

@@ -3997,7 +3997,8 @@ var app = (function () {
             '<label class="font-bold small cursor-pointer" for="syncpininput" onclick="var el = document.getElementById(\'syncpininput\'); if (el) el.focus();">6-Digit Secret Sync PIN:</label>' +
             '<div class="row gap-2 mt-1 items-center">' +
               '<input type="text" id="syncpininput" class="sync-input font-bold" placeholder="e.g. 582910" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" style="letter-spacing: 2px; font-size: 16px; flex: 1;" value="' + esc((window.syncApp && syncApp.getPin) ? syncApp.getPin() : "") + '">' +
-              '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="syncpastepinbtn" title="Paste PIN from Clipboard">📋 Paste</button>' +
+              '<button type="button" class="btn btn--primary font-bold sync-action-btn" id="syncpastepinbtn" title="Type, Edit, or Paste PIN">✏️ Edit / Type PIN</button>' +
+              '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="synccopypinbtn" title="Copy PIN">📄 Copy</button>' +
               '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="syncgenpinbtn">🎲 Random PIN</button>' +
             '</div>' +
             '<p class="small faint mt-1 m-0">Both devices must use this same PIN to access your study data.</p>' +
@@ -4017,6 +4018,14 @@ var app = (function () {
           '<p class="small muted mt-1">Open your phone camera or QR scanner. It will link your phone instantly without any typing.</p>' +
           '<div class="sync-qr-img-wrap my-3 flex justify-center">' +
             '<img id="sync-qr-img" src="" alt="Pairing QR Code" style="width: 220px; height: 220px; border-radius: 12px; border: 2px solid var(--border); background: #fff; padding: 8px;">' +
+          '</div>' +
+          '<div class="mt-2 mb-3">' +
+            '<div class="small muted mb-1">Or type / edit your 6-Digit PIN here on both devices:</div>' +
+            '<div class="row items-center justify-center gap-2">' +
+              '<input type="text" id="sync-qr-pin" class="sync-input font-bold" style="max-width: 170px; text-align: center; letter-spacing: 2px;" placeholder="e.g. 582910" value="' + esc((window.syncApp && syncApp.getPin) ? syncApp.getPin() : "") + '" autocomplete="off" spellcheck="false">' +
+              '<button type="button" class="btn btn--sm btn--soft" onclick="document.getElementById(\'syncpastepinbtn\') && document.getElementById(\'syncpastepinbtn\').click();">🔢 Keypad</button>' +
+              '<button type="button" class="btn btn--sm btn--primary" id="syncsaveqrpinbtn">💾 Save PIN &amp; Connect</button>' +
+            '</div>' +
           '</div>' +
           '<div class="row items-center justify-center gap-2 mt-2">' +
             '<button type="button" class="btn btn--sm btn--primary" id="synccopylinkbtn">📋 Copy Pairing Link</button>' +
@@ -4093,6 +4102,133 @@ var app = (function () {
       });
     }
 
+    function openUniversalPaste(targetInput, title, mode) {
+      var modal = el("#sync-paste-modal");
+      var titleEl = el("#sync-paste-modal-title");
+      var descEl = el("#sync-paste-modal-desc");
+      var textEl = el("#sync-paste-modal-input");
+      var keypadEl = el("#sync-paste-keypad");
+      var confirmBtn = el("#sync-paste-modal-confirm");
+      if (!modal || !textEl) return;
+
+      if (titleEl) titleEl.textContent = (mode === "pin" ? "Enter or Paste 6-Digit Sync PIN" : "Paste Firebase Database URL");
+      if (descEl) {
+        descEl.innerHTML = mode === "pin"
+          ? "Press <b>Ctrl+V</b>, long-press inside the box to <b>Paste</b>, or tap digits on the keypad below:"
+          : "Press <b>Ctrl+V</b> or long-press inside the box to <b>Paste</b> your Firebase URL:";
+      }
+      textEl.placeholder = mode === "pin" ? "e.g. 582910" : "https://your-project-default-rtdb.firebaseio.com";
+      textEl.value = (targetInput && targetInput.value) ? targetInput.value : "";
+      if (keypadEl) keypadEl.style.display = (mode === "pin" ? "block" : "none");
+
+      modal.style.display = "flex";
+      setTimeout(function () {
+        textEl.focus();
+        textEl.select();
+      }, 60);
+
+      els("#sync-paste-keypad .sync-kp-btn").forEach(function (btn) {
+        btn.onclick = function () {
+          var k = btn.getAttribute("data-kp");
+          var cur = textEl.value || "";
+          if (k === "BACK") {
+            textEl.value = cur.slice(0, -1);
+          } else {
+            var digitsOnly = cur.replace(/[^0-9]/g, "");
+            if (k !== "-" && digitsOnly.length === 3 && cur.indexOf("-") === -1) {
+              cur += "-";
+            }
+            if (cur.length < 12) textEl.value = cur + k;
+          }
+          textEl.focus();
+        };
+      });
+
+      var kpClear = el("#sync-kp-clear");
+      if (kpClear) {
+        kpClear.onclick = function () {
+          textEl.value = "";
+          textEl.focus();
+        };
+      }
+
+      var kpRandom = el("#sync-kp-random");
+      if (kpRandom) {
+        kpRandom.onclick = function () {
+          if (window.syncApp && syncApp.generateRandomPin) {
+            textEl.value = syncApp.generateRandomPin();
+          }
+        };
+      }
+
+      confirmBtn.onclick = function () {
+        var val = textEl.value.trim();
+        if (val && targetInput) {
+          targetInput.value = val;
+          try {
+            if (mode === "pin") {
+              localStorage.setItem("vmicro-sync-pin", val);
+              var qrPin = document.getElementById("sync-qr-pin");
+              if (qrPin) qrPin.value = val;
+            } else if (mode === "url") {
+              localStorage.setItem("vmicro-sync-db", val);
+            }
+          } catch (e) {}
+          toast(title + " updated! 📋");
+        }
+        modal.style.display = "none";
+      };
+    }
+
+    var syncCopyPinBtn = document.getElementById("synccopypinbtn");
+    if (syncCopyPinBtn) {
+      syncCopyPinBtn.addEventListener("click", function () {
+        var pinInput = document.getElementById("syncpininput");
+        if (pinInput && pinInput.value.trim()) {
+          copyTextToClipboard(pinInput.value.trim());
+          toast("Sync PIN copied: " + pinInput.value.trim() + " 📋");
+        }
+      });
+    }
+
+    var syncSaveQrPinBtn = document.getElementById("syncsaveqrpinbtn");
+    if (syncSaveQrPinBtn) {
+      syncSaveQrPinBtn.addEventListener("click", function () {
+        var qrPin = document.getElementById("sync-qr-pin");
+        var pinInput = document.getElementById("syncpininput");
+        var dbInput = document.getElementById("syncdburl");
+        var val = qrPin && qrPin.value ? qrPin.value.trim() : "";
+        if (val) {
+          if (pinInput) pinInput.value = val;
+          var db = (dbInput && dbInput.value ? dbInput.value.trim() : (window.syncApp ? syncApp.getDbUrl() : ""));
+          if (window.syncApp && syncApp.connect) {
+            syncApp.connect(db, val).then(function () {
+              toast("PIN saved & Cloud Sync connected! ✨");
+            }).catch(function () {
+              toast("PIN saved!");
+            });
+          }
+        }
+      });
+    }
+
+    ["syncpininput", "syncdburl"].forEach(function (id) {
+      var inp = document.getElementById(id);
+      if (inp) {
+        inp.addEventListener("input", function () {
+          try {
+            if (id === "syncpininput" && inp.value.trim()) {
+              localStorage.setItem("vmicro-sync-pin", inp.value.trim());
+              var qrPin = document.getElementById("sync-qr-pin");
+              if (qrPin) qrPin.value = inp.value.trim();
+            } else if (id === "syncdburl" && inp.value.trim()) {
+              localStorage.setItem("vmicro-sync-db", inp.value.trim());
+            }
+          } catch (e) {}
+        });
+      }
+    });
+
     function doSmartPaste(targetInput, label) {
       if (!targetInput) return;
       if (navigator.clipboard && navigator.clipboard.readText) {
@@ -4135,7 +4271,7 @@ var app = (function () {
     if (syncPastePinBtn) {
       syncPastePinBtn.addEventListener("click", function () {
         var pinInput = document.getElementById("syncpininput");
-        doSmartPaste(pinInput, "6-digit PIN");
+        openUniversalPaste(pinInput, "6-digit PIN", "pin");
       });
     }
 
@@ -4649,6 +4785,11 @@ var app = (function () {
     });
   }
 
+  function closePasteModal() {
+    var modal = el("#sync-paste-modal");
+    if (modal) modal.style.display = "none";
+  }
+
   /* ---------- public ---------- */
   return {
     init: init, go: go, icon: icon, esc: esc, toast: toast,
@@ -4672,6 +4813,7 @@ var app = (function () {
     shuffleWhyMechanism: shuffleWhyMechanism,
     shuffleGlossaryTerm: shuffleGlossaryTerm,
     openImageModal: openImageModal,
+    closePasteModal: closePasteModal,
     closeImageModal: closeImageModal
   };
 })();
