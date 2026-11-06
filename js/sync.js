@@ -46,12 +46,25 @@ var syncApp = (function () {
     return String(pin || "").trim().toUpperCase().replace(/[^A-Z0-9_-]/g, "").substring(0, 12);
   }
 
+  var EMBEDDED_DB_URL = "https://vet-pathology-default-rtdb.firebaseio.com";
+  var DEFAULT_PIN = "772026";
+
   function getDbUrl() {
-    try { return localStorage.getItem(STORAGE_DB) || ""; } catch (e) { return ""; }
+    try {
+      var saved = localStorage.getItem(STORAGE_DB);
+      return saved && saved.trim() ? saved.trim() : EMBEDDED_DB_URL;
+    } catch (e) {
+      return EMBEDDED_DB_URL;
+    }
   }
 
   function getPin() {
-    try { return localStorage.getItem(STORAGE_PIN) || ""; } catch (e) { return ""; }
+    try {
+      var saved = localStorage.getItem(STORAGE_PIN);
+      return saved && saved.trim() ? cleanPin(saved) : DEFAULT_PIN;
+    } catch (e) {
+      return DEFAULT_PIN;
+    }
   }
 
   function getLastSyncTime() {
@@ -109,6 +122,10 @@ var syncApp = (function () {
 
     return fetch(endpoint, { cache: "no-store" })
       .then(function (res) {
+        if (res.status === 401) {
+          setStatus("error");
+          throw new Error("401 Unauthorized: please set Rules in Firebase Console to: { \".read\": true, \".write\": true }");
+        }
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
       })
@@ -379,8 +396,11 @@ var syncApp = (function () {
     var testUrl = cleanDb + "/students/" + cleanP + ".json";
     return fetch(testUrl, { cache: "no-store" })
       .then(function (res) {
+        if (res.status === 401) {
+          throw new Error("Permission Denied (401). Go to Firebase Console -> Realtime Database -> Rules tab, change rules to: { \".read\": true, \".write\": true } and click Publish.");
+        }
         if (!res.ok) {
-          throw new Error("Could not access database (HTTP " + res.status + "). Make sure Realtime Database rules allow read/write or start in Test Mode.");
+          throw new Error("Could not access database (HTTP " + res.status + ")");
         }
         return res.json();
       });
@@ -488,3 +508,5 @@ var syncApp = (function () {
     generateQrCodeUrl: generateQrCodeUrl
   };
 })();
+if (typeof window !== "undefined") window.syncApp = syncApp;
+

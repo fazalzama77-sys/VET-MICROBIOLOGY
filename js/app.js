@@ -3985,16 +3985,20 @@ var app = (function () {
 
         '<div class="sync-form-box mt-4">' +
           '<div class="mb-3">' +
-            '<label class="font-bold small" for="syncdburl">Firebase Realtime Database URL:</label>' +
-            '<input type="url" id="syncdburl" class="input font-mono mt-1" placeholder="https://your-project-default-rtdb.firebaseio.com" style="width: 100%; font-size: 13px;" value="' + esc((window.syncApp && syncApp.getDbUrl) ? syncApp.getDbUrl() : "") + '">' +
+            '<label class="font-bold small cursor-pointer" for="syncdburl" onclick="var el = document.getElementById(\'syncdburl\'); if (el) el.focus();">Firebase Realtime Database URL:</label>' +
+            '<div class="row gap-2 mt-1 items-center">' +
+              '<input type="url" id="syncdburl" class="sync-input" placeholder="https://your-project-default-rtdb.firebaseio.com" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="' + esc((window.syncApp && syncApp.getDbUrl) ? syncApp.getDbUrl() : "") + '" style="flex: 1;">' +
+              '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="syncpastedbbtn" title="Paste URL from Clipboard">📋 Paste</button>' +
+            '</div>' +
             '<p class="small faint mt-1 m-0">Found in Firebase Console &rarr; Build &rarr; Realtime Database.</p>' +
           '</div>' +
 
           '<div class="mb-3">' +
-            '<label class="font-bold small" for="syncpininput">6-Digit Secret Sync PIN:</label>' +
-            '<div class="row gap-2 mt-1">' +
-              '<input type="text" id="syncpininput" class="input font-mono font-bold" placeholder="e.g. 582910" maxlength="10" style="letter-spacing: 2px; font-size: 16px; flex: 1;" value="' + esc((window.syncApp && syncApp.getPin) ? syncApp.getPin() : "") + '">' +
-              '<button type="button" class="btn btn--ghost small font-bold" id="syncgenpinbtn">🎲 Random PIN</button>' +
+            '<label class="font-bold small cursor-pointer" for="syncpininput" onclick="var el = document.getElementById(\'syncpininput\'); if (el) el.focus();">6-Digit Secret Sync PIN:</label>' +
+            '<div class="row gap-2 mt-1 items-center">' +
+              '<input type="text" id="syncpininput" class="sync-input font-bold" placeholder="e.g. 582910" maxlength="10" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" style="letter-spacing: 2px; font-size: 16px; flex: 1;" value="' + esc((window.syncApp && syncApp.getPin) ? syncApp.getPin() : "") + '">' +
+              '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="syncpastepinbtn" title="Paste PIN from Clipboard">📋 Paste</button>' +
+              '<button type="button" class="btn btn--ghost font-bold sync-action-btn" id="syncgenpinbtn">🎲 Random PIN</button>' +
             '</div>' +
             '<p class="small faint mt-1 m-0">Both devices must use this same PIN to access your study data.</p>' +
           '</div>' +
@@ -4086,6 +4090,52 @@ var app = (function () {
             syncConnectBtn.textContent = "🔌 Connect & Test";
             toast("⚠️ Connection error: " + (err.message || "check URL & rules"));
           });
+      });
+    }
+
+    function doSmartPaste(targetInput, label) {
+      if (!targetInput) return;
+      if (navigator.clipboard && navigator.clipboard.readText) {
+        navigator.clipboard.readText()
+          .then(function (clipText) {
+            if (clipText && clipText.trim()) {
+              targetInput.value = clipText.trim();
+              targetInput.focus();
+              toast("Pasted: " + clipText.trim().substring(0, 30) + (clipText.length > 30 ? "..." : ""));
+            } else {
+              doPromptPaste(targetInput, label);
+            }
+          })
+          .catch(function () {
+            doPromptPaste(targetInput, label);
+          });
+      } else {
+        doPromptPaste(targetInput, label);
+      }
+    }
+
+    function doPromptPaste(targetInput, label) {
+      var val = prompt("Paste your " + label + " below:", targetInput.value || "");
+      if (val !== null && val.trim()) {
+        targetInput.value = val.trim();
+        targetInput.focus();
+        toast("Pasted: " + val.trim().substring(0, 30));
+      }
+    }
+
+    var syncPasteDbBtn = document.getElementById("syncpastedbbtn");
+    if (syncPasteDbBtn) {
+      syncPasteDbBtn.addEventListener("click", function () {
+        var dbInput = document.getElementById("syncdburl");
+        doSmartPaste(dbInput, "Firebase Database URL");
+      });
+    }
+
+    var syncPastePinBtn = document.getElementById("syncpastepinbtn");
+    if (syncPastePinBtn) {
+      syncPastePinBtn.addEventListener("click", function () {
+        var pinInput = document.getElementById("syncpininput");
+        doSmartPaste(pinInput, "6-digit PIN");
       });
     }
 

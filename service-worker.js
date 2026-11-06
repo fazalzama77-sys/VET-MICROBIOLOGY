@@ -16,7 +16,7 @@
    PRECACHE, otherwise students keep seeing the old version.
    ============================================================ */
 
-var CACHE_VERSION = "vmicro-v29";
+var CACHE_VERSION = "vmicro-v32";
 var SHELL_CACHE = CACHE_VERSION + "-shell";
 var IMG_CACHE = CACHE_VERSION + "-img";
 var FONT_CACHE = CACHE_VERSION + "-font";
@@ -78,6 +78,7 @@ var PRECACHE = [
 
 /* ---------- install: pre-cache the shell ---------- */
 self.addEventListener("install", function (e) {
+  self.skipWaiting();
   e.waitUntil(
     caches.open(SHELL_CACHE)
       .then(function (c) {
