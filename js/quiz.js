@@ -468,7 +468,7 @@ var quizApp = (function () {
   }
 
   /* ============================================================
-     SETUP SCREEN — COLORFUL & INTUITIVE
+     SETUP SCREEN — SLEEK, PLAYFUL & UNCLUTTERED
      ============================================================ */
   function renderSetup(kind, id) {
     resetRun();
@@ -510,30 +510,27 @@ var quizApp = (function () {
       if (subSections.length > 0) {
         var allCount = bankFor(unitIds, ["mcq", "tf", "fib"], "all").length;
         subSecHtml =
-          '<div class="setup__row subsec-selector-row">' +
-            '<div>' +
-              '<b class="flex items-center gap-2" style="font-size: 15px;"><span>📑</span> Choose Sub-Section / Module</b>' +
-              '<p class="small muted">Target a specific topic or practice the full unit in 2:1:1 exam ratio.</p>' +
-            '</div>' +
-            '<div class="subsec-grid mt-3">' +
-              '<button type="button" class="subsec-card' + (state.subSectionId === 'all' ? ' is-active' : '') + '" data-sub="all">' +
-                '<div class="subsec-card__head">' +
-                  '<span class="subsec-card__icon">🌟</span>' +
-                  '<span class="subsec-card__title">All Sub-sections (Full Unit)</span>' +
-                  '<span class="chip chip--accent subsec-card__badge">' + allCount + ' Qs</span>' +
+          '<div class="qz-setup-section">' +
+            '<div class="qz-setup-section-title"><span>📑</span> Choose Target Topic / Module</div>' +
+            '<div class="qz-sub-grid">' +
+              '<button type="button" class="qz-sub-tile' + (state.subSectionId === 'all' ? ' is-active' : '') + '" data-sub="all">' +
+                '<span class="qz-sub-tile__icon">🌟</span>' +
+                '<div class="qz-sub-tile__body">' +
+                  '<div class="qz-sub-tile__title">All Sub-sections (Full Unit)</div>' +
+                  '<div class="qz-sub-tile__meta"><span>' + allCount + ' Questions</span> · <span>2:1:1 Ratio</span></div>' +
                 '</div>' +
-                '<p class="subsec-card__desc">Comprehensive test covering all topics across the entire unit.</p>' +
+                '<span class="qz-sub-tile__check">✓</span>' +
               '</button>' +
               subSections.map(function (sub) {
                 var c = bankFor(unitIds, ["mcq", "tf", "fib"], sub.id).length;
                 var active = state.subSectionId === sub.id ? ' is-active' : '';
-                return '<button type="button" class="subsec-card' + active + '" data-sub="' + sub.id + '">' +
-                  '<div class="subsec-card__head">' +
-                    '<span class="subsec-card__icon">' + sub.icon + '</span>' +
-                    '<span class="subsec-card__title">' + app.esc(sub.title) + '</span>' +
-                    '<span class="chip subsec-card__badge">' + c + ' Qs</span>' +
+                return '<button type="button" class="qz-sub-tile' + active + '" data-sub="' + sub.id + '">' +
+                  '<span class="qz-sub-tile__icon">' + sub.icon + '</span>' +
+                  '<div class="qz-sub-tile__body">' +
+                    '<div class="qz-sub-tile__title">' + app.esc(sub.title) + '</div>' +
+                    '<div class="qz-sub-tile__meta"><span>' + c + ' Questions</span></div>' +
                   '</div>' +
-                  '<p class="subsec-card__desc">' + app.esc(sub.desc) + '</p>' +
+                  '<span class="qz-sub-tile__check">✓</span>' +
                 '</button>';
               }).join("") +
             '</div>' +
@@ -542,111 +539,113 @@ var quizApp = (function () {
 
       var currentSubMeta = getSubSectionMeta(id, state.subSectionId);
       var subHeadingBadge = currentSubMeta
-        ? '<span class="chip chip--accent">' + currentSubMeta.icon + ' ' + app.esc(currentSubMeta.title) + '</span>'
-        : '<span class="chip chip--accent">🌟 All ' + (subSections.length || '') + ' Sub-sections</span>';
+        ? '<span class="chip chip--accent font-bold">' + currentSubMeta.icon + ' ' + app.esc(currentSubMeta.title) + '</span>'
+        : '<span class="chip chip--accent font-bold">🌟 All ' + (subSections.length || '') + ' Sub-sections</span>';
 
       host.innerHTML =
-        '<div class="pagehead">' +
-          '<div class="row row--wrap items-center gap-2 mb-2">' +
-            '<a class="btn btn--sm btn--ghost" href="#/quiz">← Quiz Arena</a>' +
-            subHeadingBadge +
-            '<span class="chip font-mono">' + maxN + ' Available Questions</span>' +
-          '</div>' +
-          '<h1>' + app.esc(label) + '</h1>' +
-          '<p class="lede">Configure your test parameters below. Pick question count, format filters, and test mode.</p>' +
-        '</div>' +
+        '<div class="qz-setup-container animate-fade-in">' +
 
-        '<div class="card setup quiz-setup-card" style="box-shadow: 0 4px 20px -4px rgba(0,0,0,0.06);">' +
-          subSecHtml +
-
-          /* Order Mode Toggle (Sequence vs Shuffle) */
-          '<div class="setup__row">' +
-            '<div>' +
-              '<b class="flex items-center gap-2" style="font-size: 15px;"><span>🔀</span> Question Order Mode</b>' +
-              '<p class="small muted">Attempt questions sequentially according to syllabus or shuffle them randomly.</p>' +
+          /* Header Hero */
+          '<div class="qz-setup-hero">' +
+            '<div class="qz-setup-head-row">' +
+              '<a class="btn btn--sm btn--ghost" href="#/quiz">← Back to Arena</a>' +
+              '<div class="row items-center gap-2">' +
+                subHeadingBadge +
+                '<span class="chip font-mono font-bold">' + maxN + ' Available Questions</span>' +
+              '</div>' +
             '</div>' +
-            '<div class="quiz-mode-toggle" id="ordermodetoggle">' +
-              '<button type="button" class="toggle-pill' + (state.orderMode === 'sequence' ? ' is-selected' : '') + '" data-mode="sequence">' +
-                '<span class="pill-icon">📖</span>' +
-                '<span class="pill-label">Sequence Mode</span>' +
-                '<span class="pill-sub">Curriculum order</span>' +
-              '</button>' +
-              '<button type="button" class="toggle-pill' + (state.orderMode === 'shuffle' ? ' is-selected' : '') + '" data-mode="shuffle">' +
-                '<span class="pill-icon">🎲</span>' +
-                '<span class="pill-label">Shuffle Mode</span>' +
-                '<span class="pill-sub">Randomized order</span>' +
-              '</button>' +
-            '</div>' +
+            '<h1 class="qz-setup-title"><span>🎯</span> ' + app.esc(label) + '</h1>' +
           '</div>' +
 
-          /* Format selection */
-          '<div class="setup__row">' +
-            '<div>' +
-              '<b style="font-size: 15px;">Question Formats (2 : 1 : 1 Ratio)</b>' +
-              '<p class="small muted">Select any combination of question types.</p>' +
+          '<div class="qz-setup-card">' +
+            subSecHtml +
+
+            /* 2-Column Responsive Config Grid */
+            '<div class="qz-config-grid">' +
+
+              /* Left Box: Order Mode & Question Formats */
+              '<div class="qz-config-box">' +
+                '<div class="qz-config-box-title"><span>🔀</span> Question Order</div>' +
+                '<div class="qz-pill-group" id="ordermodetoggle">' +
+                  '<button type="button" class="qz-choice-btn' + (state.orderMode === 'sequence' ? ' is-active' : '') + '" data-mode="sequence">' +
+                    '<span>📖</span> Curriculum Sequence' +
+                  '</button>' +
+                  '<button type="button" class="qz-choice-btn' + (state.orderMode === 'shuffle' ? ' is-active' : '') + '" data-mode="shuffle">' +
+                    '<span>🎲</span> Smart Shuffle' +
+                  '</button>' +
+                '</div>' +
+
+                '<div class="qz-config-box-title mt-2"><span>⚖️</span> Question Formats (2 : 1 : 1)</div>' +
+                '<div class="row row--wrap gap-2" id="fmtbox">' +
+                  ['mcq', 'tf', 'fib'].map(function (f) {
+                    var lbl = { mcq: "Multiple Choice", tf: "True / False", fib: "Fill in Blanks" }[f];
+                    var icon = { mcq: "🎯", tf: "⚖️", fib: "✍️" }[f];
+                    var count = counts[f];
+                    var checked = state.formats.indexOf(f) !== -1;
+                    return '<label class="qz-fmt-chip' + (checked ? ' is-active' : '') + (count === 0 ? ' is-disabled' : '') + '">' +
+                      '<input type="checkbox" data-fmt="' + f + '"' + (checked ? ' checked' : '') + (count === 0 ? ' disabled' : '') + ' style="display:none;">' +
+                      '<span>' + icon + '</span>' +
+                      '<span>' + lbl + '</span>' +
+                      '<span class="chip chip--sm ml-1">' + count + '</span>' +
+                    '</label>';
+                  }).join("") +
+                '</div>' +
+              '</div>' +
+
+              /* Right Box: Question Count & Timed Exam */
+              '<div class="qz-config-box">' +
+                '<div class="qz-config-box-title"><span>🔢</span> Number of Questions</div>' +
+                '<div class="row row--wrap gap-2" id="segcount">' +
+                  presets.map(function (n) {
+                    var isSelected = state.count === n;
+                    return '<button type="button" class="qz-count-pill' + (isSelected ? ' is-active' : '') + '" data-count="' + n + '">' +
+                      (n === maxN ? 'All (' + n + ')' : n) +
+                    '</button>';
+                  }).join("") +
+                '</div>' +
+
+                '<div class="qz-exam-box mt-2">' +
+                  '<div class="qz-exam-head">' +
+                    '<div>' +
+                      '<b style="font-size: 13.5px;">⏱️ Timed University Exam</b>' +
+                      '<p class="small muted m-0">No early reveals; score &amp; rank at submission.</p>' +
+                    '</div>' +
+                    '<label class="switch"><input type="checkbox" id="exammode"' + (state.exam ? ' checked' : '') + '><span></span></label>' +
+                  '</div>' +
+
+                  '<div id="timerow"' + (state.exam ? '' : ' style="display:none;"') + '>' +
+                    '<div class="small muted mb-1 font-bold">Time Limit:</div>' +
+                    '<div class="row row--wrap gap-2" id="segtime">' +
+                      [10, 20, 30, 45, 60].map(function (m) {
+                        return '<button type="button" class="qz-count-pill' + (state.minutes === m ? ' is-active' : '') + '" data-min="' + m + '">' + m + 'm</button>';
+                      }).join("") +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+
+              '</div>' +
+
             '</div>' +
-            '<div class="row row--wrap gap-3" id="fmtbox">' +
-              ['mcq', 'tf', 'fib'].map(function (f) {
-                var lbl = { mcq: "Multiple Choice", tf: "True / False", fib: "Fill in the Blanks" }[f];
-                var icon = { mcq: "🎯", tf: "⚖️", fib: "✍️" }[f];
-                var count = counts[f];
-                var checked = state.formats.indexOf(f) !== -1;
-                return '<label class="check-pill' + (checked ? ' is-checked' : '') + (count === 0 ? ' is-disabled' : '') + '">' +
-                  '<input type="checkbox" data-fmt="' + f + '"' + (checked ? ' checked' : '') + (count === 0 ? ' disabled' : '') + '> ' +
-                  '<span class="check-pill__icon">' + icon + '</span>' +
-                  '<span class="check-pill__label">' + lbl + '</span>' +
-                  '<span class="chip chip--sm ml-1">' + count + '</span>' +
-                '</label>';
-              }).join("") +
+
+            /* Launch Action Bar */
+            '<div class="qz-launch-bar">' +
+              '<div class="qz-summary-pill">' +
+                '<span>🎯 ' + Math.min(state.count, maxN) + ' Questions</span>' +
+                '<span>·</span>' +
+                '<span>' + (state.orderMode === 'shuffle' ? '🎲 Shuffle' : '📖 Sequence') + '</span>' +
+                '<span>·</span>' +
+                '<span>' + (state.exam ? '⏱️ ' + state.minutes + 'm Timed' : '⚡ Instant Feedback') + '</span>' +
+              '</div>' +
+              '<div class="row gap-3 items-center">' +
+                '<a class="btn btn--ghost" href="#/quiz">Cancel</a>' +
+                '<button type="button" class="btn btn--primary btn--lg font-bold" id="startbtn" style="box-shadow: 0 4px 14px rgba(21, 101, 192, 0.3);">' +
+                  '🚀 Start Quiz (' + Math.min(state.count, maxN) + ' Questions)' +
+                '</button>' +
+              '</div>' +
             '</div>' +
+
           '</div>' +
 
-          /* Question count */
-          '<div class="setup__row">' +
-            '<div>' +
-              '<b style="font-size: 15px;">Number of Questions</b>' +
-              '<p class="small muted">Choose your practice session length.</p>' +
-            '</div>' +
-            '<div class="seg" id="segcount">' +
-              presets.map(function (n) {
-                var isSelected = state.count === n;
-                return '<button type="button" class="seg__btn' + (isSelected ? ' is-on' : '') + '" data-count="' + n + '">' +
-                  (n === maxN ? 'All (' + n + ')' : n) +
-                '</button>';
-              }).join("") +
-            '</div>' +
-          '</div>' +
-
-          /* Exam Mode Toggle */
-          '<div class="setup__row">' +
-            '<div>' +
-              '<b style="font-size: 15px;">⏱️ Exam Mode (Timed)</b>' +
-              '<p class="small muted">Timed exam with no answer reveals until final submission — mirrors annual university exam.</p>' +
-            '</div>' +
-            '<label class="switch"><input type="checkbox" id="exammode"' + (state.exam ? ' checked' : '') + '><span></span></label>' +
-          '</div>' +
-
-          /* Time Limit selector */
-          '<div class="setup__row" id="timerow"' + (state.exam ? '' : ' hidden') + '>' +
-            '<div>' +
-              '<b style="font-size: 15px;">Time Limit</b>' +
-              '<p class="small muted">Automatic submission when clock reaches zero.</p>' +
-            '</div>' +
-            '<div class="seg" id="segtime">' +
-              [10, 20, 30, 45, 60].map(function (m) {
-                return '<button type="button" class="seg__btn' + (state.minutes === m ? ' is-on' : '') + '" data-min="' + m + '">' + m + ' min</button>';
-              }).join("") +
-            '</div>' +
-          '</div>' +
-
-          /* Action Bar */
-          '<div class="row row--wrap mt-8 items-center">' +
-            '<a class="btn btn--ghost" href="#/quiz">Cancel</a>' +
-            '<div class="push"></div>' +
-            '<button class="btn btn--primary btn--lg" id="startbtn">' +
-              '🚀 Start Quiz (' + Math.min(state.count, maxN) + ' Questions)' +
-            '</button>' +
-          '</div>' +
         '</div>';
 
       attachEvents();
@@ -654,7 +653,7 @@ var quizApp = (function () {
 
     function attachEvents() {
       // Sub-section cards
-      document.querySelectorAll(".subsec-card").forEach(function (card) {
+      document.querySelectorAll(".qz-sub-tile").forEach(function (card) {
         card.addEventListener("click", function () {
           var sId = card.getAttribute("data-sub");
           state.subSectionId = sId;
@@ -663,7 +662,7 @@ var quizApp = (function () {
       });
 
       // Order Mode Toggle
-      document.querySelectorAll("#ordermodetoggle .toggle-pill").forEach(function (btn) {
+      document.querySelectorAll("#ordermodetoggle .qz-choice-btn").forEach(function (btn) {
         btn.addEventListener("click", function () {
           state.orderMode = btn.getAttribute("data-mode");
           updateView();
@@ -687,13 +686,10 @@ var quizApp = (function () {
       });
 
       // Question count seg
-      document.querySelectorAll("#segcount .seg__btn").forEach(function (btn) {
+      document.querySelectorAll("#segcount .qz-count-pill").forEach(function (btn) {
         btn.addEventListener("click", function () {
           state.count = parseInt(btn.getAttribute("data-count"), 10);
-          document.querySelectorAll("#segcount .seg__btn").forEach(function (b) { b.classList.remove("is-on"); });
-          btn.classList.add("is-on");
-          var startBtn = document.getElementById("startbtn");
-          if (startBtn) startBtn.textContent = '🚀 Start Quiz (' + state.count + ' Questions)';
+          updateView();
         });
       });
 
@@ -703,16 +699,28 @@ var quizApp = (function () {
         examChk.addEventListener("change", function (e) {
           state.exam = e.target.checked;
           var tRow = document.getElementById("timerow");
-          if (tRow) tRow.hidden = !e.target.checked;
+          if (tRow) tRow.style.display = e.target.checked ? "block" : "none";
+          var sum = document.querySelector(".qz-summary-pill");
+          if (sum) {
+            sum.innerHTML = '<span>🎯 ' + Math.min(state.count, countAvailable(unitIds, state.subSectionId)) + ' Questions</span>' +
+              '<span>·</span><span>' + (state.orderMode === 'shuffle' ? '🎲 Shuffle' : '📖 Sequence') + '</span>' +
+              '<span>·</span><span>' + (state.exam ? '⏱️ ' + state.minutes + 'm Timed' : '⚡ Instant Feedback') + '</span>';
+          }
         });
       }
 
       // Time seg
-      document.querySelectorAll("#segtime .seg__btn").forEach(function (btn) {
+      document.querySelectorAll("#segtime .qz-count-pill").forEach(function (btn) {
         btn.addEventListener("click", function () {
           state.minutes = parseInt(btn.getAttribute("data-min"), 10);
-          document.querySelectorAll("#segtime .seg__btn").forEach(function (b) { b.classList.remove("is-on"); });
-          btn.classList.add("is-on");
+          document.querySelectorAll("#segtime .qz-count-pill").forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          var sum = document.querySelector(".qz-summary-pill");
+          if (sum) {
+            sum.innerHTML = '<span>🎯 ' + Math.min(state.count, countAvailable(unitIds, state.subSectionId)) + ' Questions</span>' +
+              '<span>·</span><span>' + (state.orderMode === 'shuffle' ? '🎲 Shuffle' : '📖 Sequence') + '</span>' +
+              '<span>·</span><span>' + (state.exam ? '⏱️ ' + state.minutes + 'm Timed' : '⚡ Instant Feedback') + '</span>';
+          }
         });
       });
 
