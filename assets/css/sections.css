@@ -5624,3 +5624,10 @@
   align-items: center;
   gap: 8px;
 }
+
+.qz-pill-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
