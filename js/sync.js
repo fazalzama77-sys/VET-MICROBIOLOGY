@@ -106,7 +106,7 @@ var syncApp = (function () {
     var db = getDbUrl();
     var pin = getPin();
     if (!db || !pin) return null;
-    return cleanDbUrl(db) + "/students/" + cleanPin(pin) + ".json";
+    return cleanDbUrl(db) + "/microbiology/students/" + cleanPin(pin) + ".json";
   }
 
   /* ---------- Live Push / Pull REST Engine ---------- */
@@ -393,7 +393,7 @@ var syncApp = (function () {
       return Promise.reject(new Error("Please enter both a valid Database URL and 6-digit PIN"));
     }
 
-    var testUrl = cleanDb + "/students/" + cleanP + ".json";
+    var testUrl = cleanDb + "/microbiology/students/" + cleanP + ".json";
     return fetch(testUrl, { cache: "no-store" })
       .then(function (res) {
         if (res.status === 401) {
@@ -509,4 +509,5 @@ var syncApp = (function () {
   };
 })();
 if (typeof window !== "undefined") window.syncApp = syncApp;
+
 
