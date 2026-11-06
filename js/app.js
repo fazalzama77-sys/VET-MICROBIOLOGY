@@ -3951,6 +3951,43 @@ var app = (function () {
         '</div>' +
       '</div>' +
 
+      /* Multi-Device Cloud Sync Card */
+      '<div class="card mb-4" id="firebase-sync-card" style="border: 1.5px solid var(--accent); background: color-mix(in srgb, var(--accent) 4%, var(--surface));">' +
+        '<div class="row items-center justify-between">' +
+          '<h3 class="m-0 flex items-center gap-2"><span>📱</span> Link Mobile &amp; Tablet (Google Firebase)</h3>' +
+          '<span id="sync-status-pill" class="chip font-bold">⚪ Local Only</span>' +
+        '</div>' +
+        '<p class="muted mt-2">' +
+          'Automatically sync your quizzes, text highlights, notes, reading progress, and daily streaks between your phone and tablet in real time.' +
+        '</p>' +
+
+        '<div class="mt-4" style="background: var(--surface); padding: 14px; border-radius: 12px; border: 1px solid var(--border);">' +
+          '<label class="font-bold small" for="synckeyinput">Device Pair Code / Sync Key:</label>' +
+          '<div class="row gap-2 mt-1">' +
+            '<input type="text" id="synckeyinput" class="input font-mono" placeholder="e.g. FAZAL-VET-2026" style="text-transform: uppercase; font-weight: 750; flex: 1;" value="' + esc((window.syncApp && syncApp.getSyncKey) ? syncApp.getSyncKey() : "") + '">' +
+            '<button type="button" class="btn btn--primary font-bold" id="savesynckeybtn">Connect</button>' +
+          '</div>' +
+          '<p class="small faint mt-2 m-0">Enter the <b>same code</b> on both your phone and tablet to link them together.</p>' +
+        '</div>' +
+
+        '<div class="row row--wrap items-center gap-2 mt-4">' +
+          '<button type="button" class="btn btn--sm btn--primary font-bold" id="manualsyncbtn">🔄 Sync Now</button>' +
+          '<button type="button" class="btn btn--sm btn--ghost" id="editfbconfigbtn">⚙️ Configure Firebase Credentials</button>' +
+          '<div class="push"></div>' +
+          '<span class="small faint" id="lastsyncindicator"></span>' +
+        '</div>' +
+
+        '<div id="fbconfigbox" class="mt-4 p-3" style="display: none; background: var(--bg); border: 1px dashed var(--border); border-radius: 10px;">' +
+          '<b class="small">Paste Your Firebase Configuration:</b>' +
+          '<p class="small muted mt-1">Paste the <code>firebaseConfig = { ... }</code> object from your Firebase Console.</p>' +
+          '<textarea id="fbconfigarea" class="input font-mono mt-2" rows="6" placeholder="{\n  \"apiKey\": \"AIzaSy...\",\n  \"projectId\": \"vet-microbiology\"\n}" style="font-size: 12px; width: 100%;"></textarea>' +
+          '<div class="row gap-2 mt-2">' +
+            '<button type="button" class="btn btn--sm btn--primary" id="savefbconfigbtn">Save Firebase Config</button>' +
+            '<button type="button" class="btn btn--sm btn--ghost" id="cancelfbconfigbtn">Cancel</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
       '<div class="card mb-4">' +
         '<h3>' + icon("download") + ' Backup and restore</h3>' +
         '<p class="muted mt-2">Your progress, notes, bookmarks and quiz history are stored in this browser only. ' +
@@ -3977,6 +4014,108 @@ var app = (function () {
           '<button class="btn" onclick="app.openAbout()">' + icon("target") + 'About Platform & Credits</button>' +
         '</div>' +
       '</div>';
+
+    // Wire Multi-Device Cloud Sync
+    var saveKeyBtn = document.getElementById("savesynckeybtn");
+    if (saveKeyBtn) {
+      saveKeyBtn.addEventListener("click", function () {
+        var keyInput = document.getElementById("synckeyinput");
+        var val = (keyInput ? keyInput.value : "").trim().toUpperCase();
+        if (!val) { toast("Please enter a device pair code"); return; }
+        if (window.syncApp) {
+          syncApp.setSyncKey(val);
+          toast("Linked with device code: " + val);
+          syncApp.pull();
+        }
+      });
+    }
+
+    var manualSyncBtn = document.getElementById("manualsyncbtn");
+    if (manualSyncBtn) {
+      manualSyncBtn.addEventListener("click", function () {
+        if (!window.syncApp || !syncApp.getSyncKey()) {
+          toast("Please enter and connect a device pair code first");
+          return;
+        }
+        manualSyncBtn.textContent = "🔄 Syncing...";
+        syncApp.pull().then(function (ok) {
+          manualSyncBtn.textContent = "🔄 Sync Now";
+          toast(ok ? "All study data synchronized!" : "Sync failed — check internet connection or Firebase setup");
+        });
+      });
+    }
+
+    var editConfigBtn = document.getElementById("editfbconfigbtn");
+    var configBox = document.getElementById("fbconfigbox");
+    if (editConfigBtn && configBox) {
+      editConfigBtn.addEventListener("click", function () {
+        var open = configBox.style.display !== "none";
+        configBox.style.display = open ? "none" : "block";
+        if (!open && window.syncApp && syncApp.getFirebaseConfig) {
+          var area = document.getElementById("fbconfigarea");
+          var cfg = syncApp.getFirebaseConfig();
+          if (area && cfg) area.value = JSON.stringify(cfg, null, 2);
+        }
+      });
+    }
+
+    var saveConfigBtn = document.getElementById("savefbconfigbtn");
+    if (saveConfigBtn) {
+      saveConfigBtn.addEventListener("click", function () {
+        var area = document.getElementById("fbconfigarea");
+        var raw = (area ? area.value : "").trim();
+        if (!raw) { toast("Paste your Firebase config object"); return; }
+        try {
+          var clean = raw;
+          if (clean.indexOf("firebaseConfig") !== -1) {
+            clean = clean.substring(clean.indexOf("{"), clean.lastIndexOf("}") + 1);
+          }
+          // Support relaxed JS object format if needed
+          var parsed;
+          try {
+            parsed = JSON.parse(clean);
+          } catch(e) {
+            parsed = (new Function("return " + clean + ";"))();
+          }
+          if (!parsed || !parsed.apiKey || !parsed.projectId) {
+            toast("Config must include apiKey and projectId");
+            return;
+          }
+          if (window.syncApp) {
+            syncApp.setFirebaseConfig(parsed);
+            toast("Firebase credentials saved and connected!");
+            if (configBox) configBox.style.display = "none";
+            syncApp.reconnect();
+          }
+        } catch (err) {
+          toast("Could not parse config — please check formatting");
+        }
+      });
+    }
+
+    var cancelConfigBtn = document.getElementById("cancelfbconfigbtn");
+    if (cancelConfigBtn && configBox) {
+      cancelConfigBtn.addEventListener("click", function () { configBox.style.display = "none"; });
+    }
+
+    // Update initial sync status badge
+    if (window.syncApp) {
+      var syncKey = syncApp.getSyncKey();
+      var cfg = syncApp.getFirebaseConfig();
+      var pill = document.getElementById("sync-status-pill");
+      if (pill) {
+        if (cfg && syncKey) {
+          pill.className = "chip chip--ok font-bold";
+          pill.textContent = "🟢 Synced Live";
+        } else if (syncKey) {
+          pill.className = "chip chip--accent font-bold";
+          pill.textContent = "🟡 Code Set (Needs Firebase Config)";
+        } else {
+          pill.className = "chip chip--subtle font-bold";
+          pill.textContent = "⚪ Local Only";
+        }
+      }
+    }
 
     els("[data-theme]").forEach(function (b) {
       b.addEventListener("click", function () {

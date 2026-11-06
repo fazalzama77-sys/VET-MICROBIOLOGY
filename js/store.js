@@ -53,6 +53,9 @@ var store = (function () {
   function write(key, value) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
+      if (window.syncApp && syncApp.push && key !== KEYS.quizRun) {
+        syncApp.push(false);
+      }
       return true;
     } catch (e) {
       // Quota exceeded or private mode — fail quietly, never break the page.
